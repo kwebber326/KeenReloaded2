@@ -90,6 +90,7 @@
             this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainMenu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenu_FormClosing);
             this.Load += new System.EventHandler(this.MainMenu_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainMenu_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pbCharacter)).EndInit();

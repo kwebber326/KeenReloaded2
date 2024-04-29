@@ -1,5 +1,6 @@
 ﻿using KeenReloaded2.Constants;
 using KeenReloaded2.UserControls;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -166,7 +167,7 @@ namespace KeenReloaded2
 
         private static void OpenMapPlayerInGameMode(string gameMode)
         {
-            Form1 mapPlayer = new Form1(gameMode);
+            MapLoader mapPlayer = new MapLoader(gameMode);
             mapPlayer.ShowDialog();
         }
 
@@ -179,6 +180,13 @@ namespace KeenReloaded2
         private void PbCharacter_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            string characterName = characterSelectControl1.SelectedCharacterName;
+            if (!string.IsNullOrWhiteSpace(characterName))
+                FileIOUtility.SaveCharacterSelection(characterName);
         }
     }
 }

@@ -60,6 +60,12 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="MapLoader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapLoader.Designer.cs">
+      <DependentUpon>MapLoader.cs</DependentUpon>
+    </Compile>
     <Compile Include="MapMaker.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MapLoader.resx">
+      <DependentUpon>MapLoader.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MapMaker.resx">
       <DependentUpon>MapMaker.cs</DependentUpon>
@@ -5366,6 +5375,10 @@
     <ProjectReference Include="..\KeenReloaded2.Constants\KeenReloaded2.Constants.csproj">
       <Project>{2E1F0654-B7C5-4D8F-9688-A9335D048254}</Project>
       <Name>KeenReloaded2.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KeenReloaded2.Utilities\KeenReloaded2.Utilities.csproj">
+      <Project>{B486FD57-020E-49AC-B895-6924C0A4F3E5}</Project>
+      <Name>KeenReloaded2.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

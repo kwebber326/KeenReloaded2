@@ -1,0 +1,5 @@
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\bin\Debug\KeenReloaded2.Utilities.dll
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\bin\Debug\KeenReloaded2.Utilities.pdb
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\obj\Debug\KeenReloaded2.Utilities.csproj.CoreCompileInputs.cache
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\obj\Debug\KeenReloaded2.Utilities.dll
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\obj\Debug\KeenReloaded2.Utilities.pdb

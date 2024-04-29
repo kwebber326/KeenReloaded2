@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using KeenReloaded2.Constants;
 using KeenReloaded2.ControlEventArgs;
+using KeenReloaded2.Utilities;
 
 namespace KeenReloaded2.UserControls.MainMenuControls
 {
@@ -47,7 +48,19 @@ namespace KeenReloaded2.UserControls.MainMenuControls
             {
                 cmbCharacters.Items.Add(key);
             }
-            cmbCharacters.SelectedIndex = 0;
+            string savedCharacterName = FileIOUtility.LoadSavedCharacterSelection();
+            if (!string.IsNullOrEmpty(savedCharacterName))
+            {
+                int index = _characters.Keys.ToList().IndexOf(savedCharacterName);
+                if (index == -1)
+                    index = 0;
+                cmbCharacters.SelectedIndex = index;
+            }
+            else
+            {
+                cmbCharacters.SelectedIndex = 0;
+            }
+            
         }
 
         public string SelectedCharacterName
@@ -63,7 +76,8 @@ namespace KeenReloaded2.UserControls.MainMenuControls
             get
             {
                 string selectedCharacterName = cmbCharacters.SelectedItem?.ToString();
-                if (_characters.TryGetValue(selectedCharacterName, out Bitmap image))
+                if (!string.IsNullOrWhiteSpace(selectedCharacterName) &&
+                    _characters.TryGetValue(selectedCharacterName, out Bitmap image))
                 {
                     return image;
                 }
