@@ -33,11 +33,7 @@ namespace KeenReloaded2
             InitializeComponent();
         }
 
-        private void MainMenu_Load(object sender, EventArgs e)
-        {
-            ConstructMenu();
-            InitializeCharacterSelect();
-        }
+        #region helper methods
 
         private void InitializeCharacterSelect()
         {
@@ -57,72 +53,6 @@ namespace KeenReloaded2
                 option.MenuItemSelected += Option_MenuItemSelected;
                 option.MenuItemDeselected += Option_MenuItemDeselected;
                 y = VERTICAL_OFFSET + ((i + 1) * option.Height);
-            }
-        }
-
-        protected override bool IsInputKey(Keys keyData)
-        {
-            return base.IsInputKey(keyData);
-        }
-
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            switch (keyData)
-            {
-                case Keys.Up:
-                case Keys.Down:
-                case Keys.Left:
-                case Keys.Right:
-                case Keys.Enter:
-                    KeyEventArgs args = new KeyEventArgs(keyData);
-                    base.OnKeyDown(args);
-                    break;
-            }
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
-
-        private void Option_MenuItemSelected(object sender, ControlEventArgs.MainMenuOptionEventArgs e)
-        {
-            var option = sender as MainMenuOption;
-            if (option != null)
-            {
-                _selectedOption = option;
-                _lastSelectedIndex = _options.IndexOf(option);
-                pbCharacter.Location = new Point(pbCharacter.Location.X, _selectedOption.Location.Y + CHARACTER_POINT_VERTICAL_OFFSET);
-                var deselectOptions = _options.Where(o => o != option).ToList();
-                foreach (var menuItem in deselectOptions)
-                {
-                    menuItem.DeselectOption();
-                }
-            }
-        }
-
-        private void Option_MenuItemDeselected(object sender, ControlEventArgs.MainMenuOptionEventArgs e)
-        {
-            if (!_options.Any(o => o.IsSelected))
-            {
-                _selectedOption = null;
-            }
-        }
-
-        private void CharacterSelectControl1_SelectedCharacterChanged(object sender, ControlEventArgs.CharacterSelectControlEventArgs e)
-        {
-            pbCharacter.Image = characterSelectControl1.SelectedImage;
-        }
-
-        private void MainMenu_KeyUp(object sender, KeyEventArgs e)
-        {
-            switch (e.KeyData)
-            {
-                case Keys.Enter:
-                    this.ExecuteActionForSelectedMenuOption();
-                    break;
-                case Keys.Up:
-                    this.ShiftSelectionUp();
-                    break;
-                case Keys.Down:
-                    this.ShiftSelectionDown();
-                    break;
             }
         }
 
@@ -177,9 +107,80 @@ namespace KeenReloaded2
             mapMaker.ShowDialog();
         }
 
-        private void PbCharacter_Click(object sender, EventArgs e)
+        protected override bool IsInputKey(Keys keyData)
         {
+            return base.IsInputKey(keyData);
+        }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData)
+            {
+                case Keys.Up:
+                case Keys.Down:
+                case Keys.Left:
+                case Keys.Right:
+                case Keys.Enter:
+                    KeyEventArgs args = new KeyEventArgs(keyData);
+                    base.OnKeyDown(args);
+                    break;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        #endregion
+
+        #region events
+
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+            ConstructMenu();
+            InitializeCharacterSelect();
+        }
+
+        private void Option_MenuItemSelected(object sender, ControlEventArgs.MainMenuOptionEventArgs e)
+        {
+            var option = sender as MainMenuOption;
+            if (option != null)
+            {
+                _selectedOption = option;
+                _lastSelectedIndex = _options.IndexOf(option);
+                pbCharacter.Location = new Point(pbCharacter.Location.X, _selectedOption.Location.Y + CHARACTER_POINT_VERTICAL_OFFSET);
+                var deselectOptions = _options.Where(o => o != option).ToList();
+                foreach (var menuItem in deselectOptions)
+                {
+                    menuItem.DeselectOption();
+                }
+            }
+        }
+
+        private void Option_MenuItemDeselected(object sender, ControlEventArgs.MainMenuOptionEventArgs e)
+        {
+            if (!_options.Any(o => o.IsSelected))
+            {
+                _selectedOption = null;
+            }
+        }
+
+        private void CharacterSelectControl1_SelectedCharacterChanged(object sender, ControlEventArgs.CharacterSelectControlEventArgs e)
+        {
+            pbCharacter.Image = characterSelectControl1.SelectedImage;
+        }
+
+        private void MainMenu_KeyUp(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyData)
+            {
+                case Keys.Enter:
+                    this.ExecuteActionForSelectedMenuOption();
+                    break;
+                case Keys.Up:
+                    this.ShiftSelectionUp();
+                    break;
+                case Keys.Down:
+                    this.ShiftSelectionDown();
+                    break;
+            }
         }
 
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
@@ -188,5 +189,7 @@ namespace KeenReloaded2
             if (!string.IsNullOrWhiteSpace(characterName))
                 FileIOUtility.SaveCharacterSelection(characterName);
         }
+
+        #endregion
     }
 }

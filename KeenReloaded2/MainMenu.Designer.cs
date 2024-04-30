@@ -64,7 +64,6 @@
             this.pbCharacter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pbCharacter.TabIndex = 2;
             this.pbCharacter.TabStop = false;
-            this.pbCharacter.Click += new System.EventHandler(this.PbCharacter_Click);
             // 
             // characterSelectControl1
             // 
