@@ -42,6 +42,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.btnDefaultDimensions = new System.Windows.Forms.Button();
+            this.cmbBiome = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -58,7 +60,7 @@
             // 
             this.txtMapName.Location = new System.Drawing.Point(163, 11);
             this.txtMapName.Name = "txtMapName";
-            this.txtMapName.Size = new System.Drawing.Size(193, 26);
+            this.txtMapName.Size = new System.Drawing.Size(238, 26);
             this.txtMapName.TabIndex = 1;
             // 
             // pnlMapCanvas
@@ -87,7 +89,7 @@
             this.cmbGameMode.FormattingEnabled = true;
             this.cmbGameMode.Location = new System.Drawing.Point(163, 43);
             this.cmbGameMode.Name = "cmbGameMode";
-            this.cmbGameMode.Size = new System.Drawing.Size(193, 28);
+            this.cmbGameMode.Size = new System.Drawing.Size(238, 28);
             this.cmbGameMode.TabIndex = 5;
             // 
             // cmbEpisode
@@ -96,7 +98,7 @@
             this.cmbEpisode.FormattingEnabled = true;
             this.cmbEpisode.Location = new System.Drawing.Point(163, 77);
             this.cmbEpisode.Name = "cmbEpisode";
-            this.cmbEpisode.Size = new System.Drawing.Size(193, 28);
+            this.cmbEpisode.Size = new System.Drawing.Size(238, 28);
             this.cmbEpisode.TabIndex = 7;
             // 
             // label2
@@ -113,7 +115,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(400, 9);
+            this.label4.Location = new System.Drawing.Point(453, 8);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 25);
             this.label4.TabIndex = 8;
@@ -123,7 +125,7 @@
             // 
             this.cmbWidth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbWidth.FormattingEnabled = true;
-            this.cmbWidth.Location = new System.Drawing.Point(367, 40);
+            this.cmbWidth.Location = new System.Drawing.Point(420, 39);
             this.cmbWidth.Name = "cmbWidth";
             this.cmbWidth.Size = new System.Drawing.Size(76, 28);
             this.cmbWidth.TabIndex = 9;
@@ -131,7 +133,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(449, 43);
+            this.label5.Location = new System.Drawing.Point(502, 42);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(16, 20);
             this.label5.TabIndex = 10;
@@ -141,7 +143,7 @@
             // 
             this.cmbHeight.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbHeight.FormattingEnabled = true;
-            this.cmbHeight.Location = new System.Drawing.Point(471, 40);
+            this.cmbHeight.Location = new System.Drawing.Point(524, 39);
             this.cmbHeight.Name = "cmbHeight";
             this.cmbHeight.Size = new System.Drawing.Size(76, 28);
             this.cmbHeight.TabIndex = 11;
@@ -150,7 +152,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 110);
+            this.label6.Location = new System.Drawing.Point(12, 144);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(98, 25);
             this.label6.TabIndex = 7;
@@ -160,14 +162,14 @@
             // 
             this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(163, 111);
+            this.cmbCategory.Location = new System.Drawing.Point(163, 145);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(193, 28);
+            this.cmbCategory.Size = new System.Drawing.Size(238, 28);
             this.cmbCategory.TabIndex = 12;
             // 
             // btnDefaultDimensions
             // 
-            this.btnDefaultDimensions.Location = new System.Drawing.Point(405, 74);
+            this.btnDefaultDimensions.Location = new System.Drawing.Point(458, 73);
             this.btnDefaultDimensions.Name = "btnDefaultDimensions";
             this.btnDefaultDimensions.Size = new System.Drawing.Size(141, 31);
             this.btnDefaultDimensions.TabIndex = 13;
@@ -175,11 +177,32 @@
             this.btnDefaultDimensions.UseVisualStyleBackColor = true;
             this.btnDefaultDimensions.Click += new System.EventHandler(this.BtnDefaultDimensions_Click);
             // 
+            // cmbBiome
+            // 
+            this.cmbBiome.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBiome.FormattingEnabled = true;
+            this.cmbBiome.Location = new System.Drawing.Point(163, 111);
+            this.cmbBiome.Name = "cmbBiome";
+            this.cmbBiome.Size = new System.Drawing.Size(238, 28);
+            this.cmbBiome.TabIndex = 15;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 110);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(73, 25);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Biome:";
+            // 
             // MapMaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2178, 1474);
+            this.Controls.Add(this.cmbBiome);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnDefaultDimensions);
             this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.label6);
@@ -220,5 +243,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbCategory;
         private System.Windows.Forms.Button btnDefaultDimensions;
+        private System.Windows.Forms.ComboBox cmbBiome;
+        private System.Windows.Forms.Label label7;
     }
 }

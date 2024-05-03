@@ -1,4 +1,5 @@
 ﻿using KeenReloaded2.Constants;
+using KeenReloaded2.Framework.ReferenceDataClasses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace KeenReloaded2
 {
@@ -31,6 +33,7 @@ namespace KeenReloaded2
             InitializeEpisodeList();
             InitializeDimensionValues();
             InitializeCategories();
+            InitializeBiomeComboBox();
         }
 
         private void InitializeGameModeList()
@@ -47,6 +50,7 @@ namespace KeenReloaded2
             cmbEpisode.Items.Add(GeneralGameConstants.Episodes.EPISODE_4);
             cmbEpisode.Items.Add(GeneralGameConstants.Episodes.EPISODE_5);
             cmbEpisode.Items.Add(GeneralGameConstants.Episodes.EPISODE_6);
+            cmbEpisode.SelectedIndexChanged += CmbEpisode_SelectedIndexChanged;
             cmbEpisode.SelectedIndex = 0;
         }
 
@@ -82,11 +86,44 @@ namespace KeenReloaded2
             cmbCategory.SelectedIndex = 0;
         }
 
+        private void InitializeBiomeComboBox()
+        {
+            cmbBiome.SelectedIndexChanged += CmbBiome_SelectedIndexChanged;
+        }
+
+        private void PopulateBiomes()
+        {
+            cmbBiome.Items.Clear();
+            if (cmbEpisode.SelectedItem != null &&
+                Biomes.BiomeRepository.TryGetValue(cmbEpisode.SelectedItem?.ToString(), out List<string> biomes))
+            {
+                foreach (var biome in biomes)
+                {
+                    cmbBiome.Items.Add(biome);
+                }
+            }
+            cmbBiome.SelectedIndex = 0;
+        }
+
         #endregion
+
+        #region event handlers
 
         private void BtnDefaultDimensions_Click(object sender, EventArgs e)
         {
             SetDimensionsToDefaultValues();
         }
+
+        private void CmbEpisode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PopulateBiomes();
+        }
+
+        private void CmbBiome_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        #endregion
     }
 }

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeenReloaded2.Constants", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeenReloaded2.Utilities", "KeenReloaded2.Utilities\KeenReloaded2.Utilities.csproj", "{B486FD57-020E-49AC-B895-6924C0A4F3E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeenReloaded2.Framework", "KeenReloaded2.Framework\KeenReloaded2.Framework.csproj", "{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B486FD57-020E-49AC-B895-6924C0A4F3E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B486FD57-020E-49AC-B895-6924C0A4F3E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B486FD57-020E-49AC-B895-6924C0A4F3E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
