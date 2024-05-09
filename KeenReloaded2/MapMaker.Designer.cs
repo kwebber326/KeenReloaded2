@@ -44,6 +44,7 @@
             this.btnDefaultDimensions = new System.Windows.Forms.Button();
             this.cmbBiome = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.mapObjectContainer1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapObjectContainer();
             this.SuspendLayout();
             // 
             // label1
@@ -196,11 +197,21 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Biome:";
             // 
+            // mapObjectContainer1
+            // 
+            this.mapObjectContainer1.AutoScroll = true;
+            this.mapObjectContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.mapObjectContainer1.Location = new System.Drawing.Point(17, 179);
+            this.mapObjectContainer1.Name = "mapObjectContainer1";
+            this.mapObjectContainer1.Size = new System.Drawing.Size(617, 643);
+            this.mapObjectContainer1.TabIndex = 16;
+            // 
             // MapMaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2178, 1474);
+            this.Controls.Add(this.mapObjectContainer1);
             this.Controls.Add(this.cmbBiome);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnDefaultDimensions);
@@ -245,5 +256,6 @@
         private System.Windows.Forms.Button btnDefaultDimensions;
         private System.Windows.Forms.ComboBox cmbBiome;
         private System.Windows.Forms.Label label7;
+        private UserControls.MapMakerUserControls.MapObjectContainer mapObjectContainer1;
     }
 }

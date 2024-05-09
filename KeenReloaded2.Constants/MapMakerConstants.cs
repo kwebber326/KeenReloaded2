@@ -10,6 +10,8 @@ namespace KeenReloaded2.Constants
     {
         public const int DEFAULT_MAP_WIDTH = 1500;
         public const int DEFAULT_MAP_HEIGHT = 1500;
+
+        public const string MAP_MAKER_FOLDER = "MapMakerObjects";
         public static class Categories
         {
             public const string OBJECT_CATEGORY_TILES = "Tiles";

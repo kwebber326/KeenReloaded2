@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace KeenReloaded2
 {
     public partial class MapMaker : Form
     {
+        private Dictionary<string, string> _episodeFileFolderDict = new Dictionary<string, string>();
         public MapMaker()
         {
             InitializeComponent();
@@ -34,6 +36,7 @@ namespace KeenReloaded2
             InitializeDimensionValues();
             InitializeCategories();
             InitializeBiomeComboBox();
+            SetObjectContainer();
         }
 
         private void InitializeGameModeList()
@@ -50,6 +53,9 @@ namespace KeenReloaded2
             cmbEpisode.Items.Add(GeneralGameConstants.Episodes.EPISODE_4);
             cmbEpisode.Items.Add(GeneralGameConstants.Episodes.EPISODE_5);
             cmbEpisode.Items.Add(GeneralGameConstants.Episodes.EPISODE_6);
+            _episodeFileFolderDict.Add(GeneralGameConstants.Episodes.EPISODE_4, "Keen4");
+            _episodeFileFolderDict.Add(GeneralGameConstants.Episodes.EPISODE_5, "Keen5");
+            _episodeFileFolderDict.Add(GeneralGameConstants.Episodes.EPISODE_6, "Keen6");
             cmbEpisode.SelectedIndexChanged += CmbEpisode_SelectedIndexChanged;
             cmbEpisode.SelectedIndex = 0;
         }
@@ -105,6 +111,22 @@ namespace KeenReloaded2
             cmbBiome.SelectedIndex = 0;
         }
 
+        #endregion
+
+        #region helper methods 
+        private void SetObjectContainer()
+        {
+            string mapMakerFolder = MapMakerConstants.MAP_MAKER_FOLDER;
+            string categoryFolder = cmbCategory.SelectedItem?.ToString();
+            string selectedEpisode = cmbEpisode.SelectedItem?.ToString() ?? string.Empty;
+            _episodeFileFolderDict.TryGetValue(selectedEpisode, out string episodeFolder);
+
+            string path = Path.Combine(System.Environment.CurrentDirectory, mapMakerFolder, categoryFolder, episodeFolder);
+
+            string[] files = Directory.GetFiles(path);
+
+            mapObjectContainer1.DisplayImageFiles(files);
+        }
         #endregion
 
         #region event handlers
