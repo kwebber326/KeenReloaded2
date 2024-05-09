@@ -30,7 +30,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             int x, y;
             for (int i = 0; i < files.Length; i++)
             {
-                
+                //TODO: show the files as images in the current container
             }
         }
     }

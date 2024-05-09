@@ -111,6 +111,7 @@ namespace KeenReloaded2
             cmbBiome.SelectedIndex = 0;
         }
 
+
         #endregion
 
         #region helper methods 
@@ -119,9 +120,30 @@ namespace KeenReloaded2
             string mapMakerFolder = MapMakerConstants.MAP_MAKER_FOLDER;
             string categoryFolder = cmbCategory.SelectedItem?.ToString();
             string selectedEpisode = cmbEpisode.SelectedItem?.ToString() ?? string.Empty;
+            string selectedBiome = cmbBiome.SelectedItem?.ToString();
             _episodeFileFolderDict.TryGetValue(selectedEpisode, out string episodeFolder);
 
-            string path = Path.Combine(System.Environment.CurrentDirectory, mapMakerFolder, categoryFolder, episodeFolder);
+            if (string.IsNullOrEmpty(categoryFolder)
+             || string.IsNullOrEmpty(episodeFolder)
+             || string.IsNullOrEmpty(selectedBiome))
+                return;
+
+
+            string path = string.Empty;
+            if (categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_WEAPONS 
+              || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_PLAYER
+              || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_GEMS)
+            {
+                path = Path.Combine(System.Environment.CurrentDirectory, mapMakerFolder, categoryFolder);
+            }
+            else if (categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_TILES)
+            {
+                path = Path.Combine(System.Environment.CurrentDirectory, mapMakerFolder, categoryFolder, episodeFolder, selectedBiome);
+            }
+            else
+            {
+                path = Path.Combine(System.Environment.CurrentDirectory, mapMakerFolder, categoryFolder, episodeFolder);
+            }
 
             string[] files = Directory.GetFiles(path);
 
@@ -139,13 +161,21 @@ namespace KeenReloaded2
         private void CmbEpisode_SelectedIndexChanged(object sender, EventArgs e)
         {
             PopulateBiomes();
+            SetObjectContainer();
         }
 
         private void CmbBiome_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            SetObjectContainer();
+        }
+
+        private void CmbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetObjectContainer();
         }
 
         #endregion
+
+
     }
 }

@@ -9,19 +9,19 @@ namespace KeenReloaded2.Framework.ReferenceDataClasses
 {
     public static class Biomes
     {
-        public const string BIOME_KEEN4_FOREST = "Keen 4 Forest";
-        public const string BIOME_KEEN4_MIRAGE = "Keen 4 Mirage";
-        public const string BIOME_KEEN4_CAVE = "Keen 4 Cave";
-        public const string BIOME_KEEN4_PYRAMID = "Keen 4 Pyramid";
+        public const string BIOME_KEEN4_FOREST = "KEEN4_FOREST";
+        public const string BIOME_KEEN4_MIRAGE = "KEEN4_MIRAGE";
+        public const string BIOME_KEEN4_CAVE = "KEEN4_CAVE";
+        public const string BIOME_KEEN4_PYRAMID = "KEEN4_PYRAMID";
 
-        public const string BIOME_KEEN5_BLACK = "Keen 5 Black";
-        public const string BIOME_KEEN5_RED = "Keen 5 Red";
-        public const string BIOME_KEEN5_GREEN = "Keen 5 Green";
+        public const string BIOME_KEEN5_BLACK = "KEEN5_BLACK";
+        public const string BIOME_KEEN5_RED = "KEEN5_RED";
+        public const string BIOME_KEEN5_GREEN = "KEEN5_GREEN";
 
-        public const string BIOME_KEEN6_DOME = "Keen 6 Dome";
-        public const string BIOME_KEEN6_FOREST = "Keen 6 Forest";
-        public const string BIOME_KEEN6_INDUSTRIAL = "Keen 6 Industrial";
-        public const string BIOME_KEEN6_FINAL = "Keen 6 Final";
+        public const string BIOME_KEEN6_DOME = "KEEN6_DOME";
+        public const string BIOME_KEEN6_FOREST = "KEEN6_FOREST";
+        public const string BIOME_KEEN6_INDUSTRIAL = "KEEN6_INDUSTRIAL";
+        public const string BIOME_KEEN6_FINAL = "KEEN6_FINAL";
 
         public static readonly Dictionary<string, List<string>> BiomeRepository
             = new Dictionary<string, List<string>>()

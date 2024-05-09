@@ -167,6 +167,7 @@
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(238, 28);
             this.cmbCategory.TabIndex = 12;
+            this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.CmbCategory_SelectedIndexChanged);
             // 
             // btnDefaultDimensions
             // 
