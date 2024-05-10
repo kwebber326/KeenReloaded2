@@ -120,8 +120,33 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                         Value = true,
                         DataType = typeof(Enum),
                         PossibleValues = Enum.GetNames(typeof(Direction))
-                    }
-                });
+                    },
+                    new MapMakerObjectProperty()
+                    {
+                        PropertyName = "test5",
+                        DisplayName = "test 5",
+                        Value = true,
+                        DataType = typeof(Enum),
+                        PossibleValues = Enum.GetNames(typeof(Direction)),
+                        Readonly = true
+                    },
+                    new MapMakerObjectProperty()
+                    {
+                        PropertyName = "test6",
+                        DisplayName = "test 6",
+                        Value = "cannot edit",
+                        DataType = typeof(string),
+                        Readonly = true
+                    },
+                      new MapMakerObjectProperty()
+                    {
+                        PropertyName = "test7",
+                        DisplayName = "test 7",
+                        Value = false,
+                        DataType = typeof(bool),
+                        Readonly = true
+                    },
+                }); ;
                 MapMakerObjectEventArgs args = new MapMakerObjectEventArgs()
                 {
                     MapMakerObject = mapMakerObject
