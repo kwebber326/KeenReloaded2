@@ -15,5 +15,7 @@ namespace KeenReloaded2.Entities
         public object Value { get; set; }
 
         public bool Readonly { get; set; }
+
+        public Type DataType { get; set; }
     }
 }

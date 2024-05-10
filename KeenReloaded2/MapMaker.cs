@@ -135,14 +135,20 @@ namespace KeenReloaded2
               || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_GEMS)
             {
                 path = Path.Combine(System.Environment.CurrentDirectory, mapMakerFolder, categoryFolder);
+                cmbBiome.Visible = false;
+                cmbEpisode.Visible = false;
             }
             else if (categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_TILES)
             {
                 path = Path.Combine(System.Environment.CurrentDirectory, mapMakerFolder, categoryFolder, episodeFolder, selectedBiome);
+                cmbEpisode.Visible = true;
+                cmbBiome.Visible = true;
             }
             else
             {
                 path = Path.Combine(System.Environment.CurrentDirectory, mapMakerFolder, categoryFolder, episodeFolder);
+                cmbEpisode.Visible = true;
+                cmbBiome.Visible = false;
             }
 
             string[] files = Directory.GetFiles(path);

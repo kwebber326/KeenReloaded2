@@ -9,6 +9,6 @@ namespace KeenReloaded2.ControlEventArgs
 {
     public class MapMakerObjectEventArgs : EventArgs
     {
-        MapMakerObject MapMakerObject { get; set; }
+       public MapMakerObject MapMakerObject { get; set; }
     }
 }
