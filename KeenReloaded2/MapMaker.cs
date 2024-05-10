@@ -22,11 +22,6 @@ namespace KeenReloaded2
             InitializeComponent();
         }
 
-        private void MapMaker_Load(object sender, EventArgs e)
-        {
-            InitializeMapMaker();
-        }
-
         #region Initialization Methods
 
         private void InitializeMapMaker()
@@ -37,8 +32,8 @@ namespace KeenReloaded2
             InitializeCategories();
             InitializeBiomeComboBox();
             SetObjectContainer();
+            mapObjectContainer1.ObjectClicked += MapObjectContainer1_ObjectClicked;
         }
-
         private void InitializeGameModeList()
         {
             cmbGameMode.Items.Add(MainMenuConstants.OPTION_LABEL_NORMAL_MODE);
@@ -158,6 +153,16 @@ namespace KeenReloaded2
         #endregion
 
         #region event handlers
+
+        private void MapMaker_Load(object sender, EventArgs e)
+        {
+            InitializeMapMaker();
+           
+        }
+        private void MapObjectContainer1_ObjectClicked(object sender, ControlEventArgs.MapMakerObjectEventArgs e)
+        {
+            mapMakerObjectPropertyListControl1.SetProperties(e.MapMakerObject);
+        }
 
         private void BtnDefaultDimensions_Click(object sender, EventArgs e)
         {

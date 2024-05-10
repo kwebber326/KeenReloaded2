@@ -17,5 +17,7 @@ namespace KeenReloaded2.Entities
         public bool Readonly { get; set; }
 
         public Type DataType { get; set; }
+
+        public string[] PossibleValues { get; set; }
     }
 }

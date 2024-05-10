@@ -47,5 +47,15 @@ namespace KeenReloaded2.Utilities
             }
             return false;
         }
+
+        public static string ExtractFileNameFromPath(string path)
+        {
+            if (string.IsNullOrEmpty(path))
+                return null;
+
+            var imgName = path.Substring(path.LastIndexOf(@"\") + 1);
+            imgName = imgName.Substring(0, imgName.LastIndexOf('.'));
+            return imgName;
+        }
     }
 }

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using KeenReloaded2.Entities;
 using KeenReloaded2.ControlEventArgs;
+using KeenReloaded2.Utilities;
+using KeenReloaded2.Framework.Enums;
 
 namespace KeenReloaded2.UserControls.MapMakerUserControls
 {
@@ -86,7 +88,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                 pbControl.BorderStyle = BorderStyle.Fixed3D;
                 pbControl.BackColor = Color.Red;
                 var img = pbControl.ImageLocation;
-                var imgName = ExtractImageNameFromFilePath(img);
+                var imgName = FileIOUtility.ExtractFileNameFromPath(img);
 
                 //TODO: use dictionary
                 MapMakerObject mapMakerObject = new MapMakerObject("test Type", img, new MapMakerObjectProperty[] {
@@ -103,6 +105,21 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                         DisplayName = "test 2",
                         Value = 12,
                         DataType = typeof(int)
+                    },
+                    new MapMakerObjectProperty()
+                    {
+                        PropertyName = "test3",
+                        DisplayName = "test 3",
+                        Value = true,
+                        DataType = typeof(bool)
+                    },
+                    new MapMakerObjectProperty()
+                    {
+                        PropertyName = "test4",
+                        DisplayName = "test 4",
+                        Value = true,
+                        DataType = typeof(Enum),
+                        PossibleValues = Enum.GetNames(typeof(Direction))
                     }
                 });
                 MapMakerObjectEventArgs args = new MapMakerObjectEventArgs()
@@ -111,16 +128,6 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                 };
                 ObjectClicked?.Invoke(this, args);
             }
-        }
-
-        private string ExtractImageNameFromFilePath(string path)
-        {
-            if (string.IsNullOrEmpty(path))
-                return null;
-
-            var imgName = path.Substring(path.LastIndexOf(@"\") + 1);
-            imgName = imgName.Substring(0, imgName.LastIndexOf('.'));
-            return imgName;
         }
     }
 }

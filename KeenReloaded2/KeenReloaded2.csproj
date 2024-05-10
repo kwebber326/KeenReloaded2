@@ -89,6 +89,18 @@
     <Compile Include="UserControls\MainMenuControls\MainMenuOption.Designer.cs">
       <DependentUpon>MainMenuOption.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MapMakerUserControls\MapMakerObjectPropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MapMakerUserControls\MapMakerObjectPropertyControl.Designer.cs">
+      <DependentUpon>MapMakerObjectPropertyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MapMakerUserControls\MapMakerObjectPropertyListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MapMakerUserControls\MapMakerObjectPropertyListControl.Designer.cs">
+      <DependentUpon>MapMakerObjectPropertyListControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MapMakerUserControls\MapObjectContainer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -117,6 +129,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MainMenuControls\MainMenuOption.resx">
       <DependentUpon>MainMenuOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MapMakerUserControls\MapMakerObjectPropertyControl.resx">
+      <DependentUpon>MapMakerObjectPropertyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MapMakerUserControls\MapMakerObjectPropertyListControl.resx">
+      <DependentUpon>MapMakerObjectPropertyListControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MapMakerUserControls\MapObjectContainer.resx">
       <DependentUpon>MapObjectContainer.cs</DependentUpon>

@@ -18,10 +18,11 @@ namespace KeenReloaded2.Entities
             this.ImageControl = new PictureBox();
             this.ImageControl.SizeMode = PictureBoxSizeMode.AutoSize;
             this.ImageControl.Image = Image.FromFile(imageFileName);
+            this.ImageControl.ImageLocation = imageFileName;
             this.ConstructorParameters = constructorParamaters ?? new MapMakerObjectProperty[0];
         }
 
-        protected MapMakerObjectProperty[] ConstructorParameters { get; set; }
+        public MapMakerObjectProperty[] ConstructorParameters { get; protected set; }
 
         public virtual object Construct()
         {
@@ -29,6 +30,14 @@ namespace KeenReloaded2.Entities
             var values = this.ConstructorParameters.Select(p => p.Value).ToArray();
             var obj = Activator.CreateInstance(type, values);
             return obj;
+        }
+
+        public string ObjectType
+        {
+            get
+            {
+                return _objectType;
+            }
         }
 
         public PictureBox ImageControl { get; protected set; }
