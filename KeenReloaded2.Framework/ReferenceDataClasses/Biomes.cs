@@ -9,7 +9,7 @@ namespace KeenReloaded2.Framework.ReferenceDataClasses
 {
     public static class Biomes
     {
-        public const string BIOME_KEEN4_FOREST = "KEEN4_FOREST";
+        public const string BIOME_KEEN4_FOREST = "KEEN4_GREEN";
         public const string BIOME_KEEN4_MIRAGE = "KEEN4_MIRAGE";
         public const string BIOME_KEEN4_CAVE = "KEEN4_CAVE";
         public const string BIOME_KEEN4_PYRAMID = "KEEN4_PYRAMID";

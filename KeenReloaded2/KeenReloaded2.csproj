@@ -48,7 +48,9 @@
   <ItemGroup>
     <Compile Include="ControlEventArgs\CharacterSelectControlEventArgs.cs" />
     <Compile Include="ControlEventArgs\MainMenuOptionEventArgs.cs" />
+    <Compile Include="ControlEventArgs\MapMakerObjectEventArgs.cs" />
     <Compile Include="Entities\MapMakerObject.cs" />
+    <Compile Include="Entities\MapMakerObjectProperty.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

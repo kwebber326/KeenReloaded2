@@ -8,25 +8,26 @@ using System.Windows.Forms;
 
 namespace KeenReloaded2.Entities
 {
-    public abstract class MapMakerObject
+    public class MapMakerObject
     {
         protected readonly string _objectType;
 
-        public MapMakerObject(string objectType, string imageFileName, params object[] constructorParamaters)
+        public MapMakerObject(string objectType, string imageFileName, params MapMakerObjectProperty[] constructorParamaters)
         {
             _objectType = objectType;
             this.ImageControl = new PictureBox();
             this.ImageControl.SizeMode = PictureBoxSizeMode.AutoSize;
             this.ImageControl.Image = Image.FromFile(imageFileName);
-            this.ConstructorParameters = constructorParamaters ?? new object[0];
+            this.ConstructorParameters = constructorParamaters ?? new MapMakerObjectProperty[0];
         }
 
-        protected abstract object[] ConstructorParameters { get; set; }
+        protected MapMakerObjectProperty[] ConstructorParameters { get; set; }
 
         public virtual object Construct()
         {
             var type = Type.GetType(_objectType);
-            var obj = Activator.CreateInstance(type, ConstructorParameters);
+            var values = this.ConstructorParameters.Select(p => p.Value).ToArray();
+            var obj = Activator.CreateInstance(type, values);
             return obj;
         }
 
