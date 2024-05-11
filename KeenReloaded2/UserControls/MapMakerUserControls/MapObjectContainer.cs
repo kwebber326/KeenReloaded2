@@ -16,8 +16,9 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
 {
     public partial class MapObjectContainer : UserControl
     {
-        public const int ROW_LENGTH = 300;
-        public const int MAP_MAKER_OBJECT_MARGIN = 8;
+        private const int ROW_LENGTH = 300;
+        private const int MAP_MAKER_OBJECT_MARGIN = 8;
+        private PictureBox _selectedItem;
 
         public event EventHandler<MapMakerObjectEventArgs> ObjectClicked;
 
@@ -76,17 +77,14 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             PictureBox pbControl = sender as PictureBox;
             if (pbControl != null)
             {
-                var pbs = this.Controls.OfType<PictureBox>();
-                if (pbs.Any())
+                if (_selectedItem != null)
                 {
-                    foreach (var pb in pbs)
-                    {
-                        pb.BorderStyle = BorderStyle.None;
-                        pb.BackColor = Color.Transparent;
-                    }
+                    _selectedItem.BorderStyle = BorderStyle.None;
+                    _selectedItem.BackColor = Color.Transparent;
                 }
                 pbControl.BorderStyle = BorderStyle.Fixed3D;
                 pbControl.BackColor = Color.Red;
+                _selectedItem = pbControl;
                 var img = pbControl.ImageLocation;
                 var imgName = FileIOUtility.ExtractFileNameFromPath(img);
 
