@@ -1,4 +1,5 @@
-﻿using KeenReloaded2.Framework.GameEntities.Animations;
+﻿using KeenReloaded2.Constants;
+using KeenReloaded2.Framework.GameEntities.Animations;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,12 +14,14 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
     {
         private readonly List<string> _images;
         private readonly Animation _animation;
+        private readonly int _imageRotationDelayMilliseconds;
 
         public AnimatedBackground(Rectangle area, string imagePath, bool stretchImage,
             List<string> images, int imageRotationDelayMilliseconds) 
             : base(area, imagePath, stretchImage)
         {
             _images = images;
+            _imageRotationDelayMilliseconds = imageRotationDelayMilliseconds;
             var imageList = _images.Select(i =>
             {
                 try
@@ -49,6 +52,16 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
         public void StopAnimation()
         {
             _animation.Stop();
+        }
+
+        public override string ToString()
+        {
+            var separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
+            var arrayStart = MapMakerConstants.MAP_MAKER_ARRAY_START;
+            var arrayEnd = MapMakerConstants.MAP_MAKER_ARRAY_END;
+            var elementSeparator = MapMakerConstants.MAP_MAKER_ELEMENT_SEPARATOR;
+            var images = string.Join(elementSeparator, _images);
+            return base.ToString() + $"{separator}{arrayStart}{images}{arrayEnd}{separator}{_imageRotationDelayMilliseconds}";
         }
     }
 }

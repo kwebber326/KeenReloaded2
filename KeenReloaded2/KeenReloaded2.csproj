@@ -51,6 +51,7 @@
     <Compile Include="ControlEventArgs\MapMakerObjectEventArgs.cs" />
     <Compile Include="Entities\MapMakerObject.cs" />
     <Compile Include="Entities\MapMakerObjectProperty.cs" />
+    <Compile Include="Entities\ReferenceData\ImageToObjectCreationFactory.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +89,12 @@
     </Compile>
     <Compile Include="UserControls\MainMenuControls\MainMenuOption.Designer.cs">
       <DependentUpon>MainMenuOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MapMakerUserControls\AreaControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MapMakerUserControls\AreaControl.Designer.cs">
+      <DependentUpon>AreaControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\MapMakerUserControls\MapMakerObjectPropertyControl.cs">
       <SubType>UserControl</SubType>
@@ -129,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MainMenuControls\MainMenuOption.resx">
       <DependentUpon>MainMenuOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MapMakerUserControls\AreaControl.resx">
+      <DependentUpon>AreaControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MapMakerUserControls\MapMakerObjectPropertyControl.resx">
       <DependentUpon>MapMakerObjectPropertyControl.cs</DependentUpon>

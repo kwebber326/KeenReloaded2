@@ -19,5 +19,7 @@ namespace KeenReloaded2.Entities
         public Type DataType { get; set; }
 
         public string[] PossibleValues { get; set; }
+
+        public bool IsSpriteProperty { get; set; }
     }
 }

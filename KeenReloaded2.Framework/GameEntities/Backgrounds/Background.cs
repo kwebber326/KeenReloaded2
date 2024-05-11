@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Constants;
 
 namespace KeenReloaded2.Framework.GameEntities.Backgrounds
 {
@@ -79,6 +80,12 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
                 //one image onto the form
                 _image = bitmap;
             }
+        }
+
+        public override string ToString()
+        {
+            string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
+            return $"{this.GetType().Name}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{_imagePath}{separator}{_stretchImage}";
         }
     }
 }
