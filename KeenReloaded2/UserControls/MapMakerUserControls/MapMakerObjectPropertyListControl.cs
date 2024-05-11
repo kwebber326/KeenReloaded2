@@ -47,11 +47,14 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             for (int i = 0; i < mapMakerObject.ConstructorParameters.Length; i++)
             {
                 var property = mapMakerObject.ConstructorParameters[i];
-                MapMakerObjectPropertyControl control = new MapMakerObjectPropertyControl(property);
-                control.Location = new Point(x, y);
-                this.Controls.Add(control);
+                if (!property.Hidden)
+                {
+                    MapMakerObjectPropertyControl control = new MapMakerObjectPropertyControl(property);
+                    control.Location = new Point(x, y);
+                    this.Controls.Add(control);
 
-                y = control.Bottom + VERTICAL_MARGIN;
+                    y = control.Bottom + VERTICAL_MARGIN;
+                }
             }
         }
 

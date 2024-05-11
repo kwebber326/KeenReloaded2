@@ -1,4 +1,5 @@
 ﻿using KeenReloaded2.Constants;
+using KeenReloaded2.Entities.ReferenceData;
 using KeenReloaded2.Framework.ReferenceDataClasses;
 using System;
 using System.Collections.Generic;
@@ -124,24 +125,21 @@ namespace KeenReloaded2
                 return;
 
 
-            string path = string.Empty;
+            string path = ImageToObjectCreationFactory.GetImageDirectory(categoryFolder, episodeFolder, selectedBiome);
             if (categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_WEAPONS 
               || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_PLAYER
               || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_GEMS)
             {
-                path = Path.Combine(System.Environment.CurrentDirectory, mapMakerFolder, categoryFolder);
                 cmbBiome.Visible = false;
                 cmbEpisode.Visible = false;
             }
             else if (categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_TILES)
             {
-                path = Path.Combine(System.Environment.CurrentDirectory, mapMakerFolder, categoryFolder, episodeFolder, selectedBiome);
                 cmbEpisode.Visible = true;
                 cmbBiome.Visible = true;
             }
             else
             {
-                path = Path.Combine(System.Environment.CurrentDirectory, mapMakerFolder, categoryFolder, episodeFolder);
                 cmbEpisode.Visible = true;
                 cmbBiome.Visible = false;
             }

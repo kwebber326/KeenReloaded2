@@ -17,6 +17,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         private TextBox _txtValue = new TextBox();
         private ComboBox _cmbValue = new ComboBox();
         private CheckBox _chkValue = new CheckBox();
+        private AreaControl _areaValue = new AreaControl();
 
         private Control _selectedControl;
         private bool _selectedControlAdded = false;
@@ -77,17 +78,20 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                 _selectedControl = _chkValue;
                 SetBooleanValueForCheckbox();
             }
+            else if (_mapMakerObjectProperty.DataType == typeof(Rectangle))
+            {
+                _selectedControl = _areaValue;
+                SetAreaValueForAreaControl();
+            }
+            else if (_mapMakerObjectProperty.DataType == typeof(Point))
+            {
+                _selectedControl = _areaValue;
+                SetLocationValueForAreaControl();
+            }
             else
             {
                 _selectedControl = _txtValue;
-                try
-                {
-                    _txtValue.Text = _mapMakerObjectProperty.Value?.ToString();
-                }
-                catch
-                {
-                    MessageBox.Show("Error Parsing text for " + _mapMakerObjectProperty.PropertyName);
-                }
+                SetTextValueForDefaultControl();
             }
 
             _selectedControl.Visible = true;
@@ -97,6 +101,46 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             {
                 this.Controls.Add(_selectedControl);
                 _selectedControlAdded = true;
+            }
+        }
+
+        private void SetLocationValueForAreaControl()
+        {
+            try
+            {
+                Point location = (Point)_mapMakerObjectProperty.Value;
+                Rectangle area = new Rectangle(location, Size.Empty);
+                _areaValue.Area = area;
+                _areaValue.CanModifySize = false;
+            }
+            catch
+            {
+                MessageBox.Show("Error Parsing location for " + _mapMakerObjectProperty.PropertyName);
+            }
+        }
+
+        private void SetTextValueForDefaultControl()
+        {
+            try
+            {
+                _txtValue.Text = _mapMakerObjectProperty.Value?.ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Error Parsing text for " + _mapMakerObjectProperty.PropertyName);
+            }
+        }
+
+        private void SetAreaValueForAreaControl()
+        {
+            try
+            {
+                Rectangle area = (Rectangle)_mapMakerObjectProperty.Value;
+                _areaValue.Area = area;
+            }
+            catch
+            {
+                MessageBox.Show("Error Parsing area for " + _mapMakerObjectProperty.PropertyName);
             }
         }
 

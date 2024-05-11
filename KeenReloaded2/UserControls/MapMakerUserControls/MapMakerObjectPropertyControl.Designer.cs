@@ -47,7 +47,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblPropertyName);
             this.Name = "MapMakerObjectPropertyControl";
-            this.Size = new System.Drawing.Size(419, 51);
+            this.Size = new System.Drawing.Size(419, 100);
             this.Load += new System.EventHandler(this.MapMakerObjectPropertyControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

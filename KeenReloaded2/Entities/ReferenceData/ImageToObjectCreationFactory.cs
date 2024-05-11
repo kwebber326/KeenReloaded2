@@ -1,58 +1,91 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Framework.GameEntities.Backgrounds;
+using KeenReloaded2.Framework.ReferenceDataClasses;
 
 namespace KeenReloaded2.Entities.ReferenceData
 {
     public static class ImageToObjectCreationFactory
     {
-        private static Dictionary<string, List<MapMakerObjectProperty>> _mapMakerObjectTypeMapping = new Dictionary<string, List<MapMakerObjectProperty>>()
+        private static Dictionary<string, MapMakerObject> _imageObjectMapping = new Dictionary<string, MapMakerObject>()
         {
             {
-                nameof(Background),
-                new List<MapMakerObjectProperty>()
-                {
-                    new MapMakerObjectProperty()
-                    {
-                        PropertyName = "area",
-                        DisplayName = "Area",
-                        DataType = typeof(Rectangle)
-                    },
-                    new MapMakerObjectProperty()
-                    {
-                        PropertyName = "imagePath",
-                        DisplayName = "Image Path",
-                        IsSpriteProperty = true,
-                        DataType = typeof(string)
-                    },
-                    new MapMakerObjectProperty()
-                    {
-                        PropertyName = "stretchImage",
-                        DisplayName = "Stretch Image",
-                        DataType = typeof(bool)
-                    }
-                }
+               nameof(Properties.Resources.keen5_background_omegamatic_blue1),
+               new MapMakerObject(
+                 nameof(Background),
+                 Path.Combine(GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_BACKGROUNDS, "Keen5", Biomes.BIOME_KEEN5_BLACK), nameof(Properties.Resources.keen5_background_omegamatic_blue1) + ".png"),
+                 true,
+                 new List<MapMakerObjectProperty>()
+                 {
+                     new MapMakerObjectProperty()
+                     {
+                         PropertyName = "area",
+                         DisplayName = "Area: ",
+                         DataType = typeof(Rectangle),
+                         Value = new Rectangle(0, 0, Properties.Resources.keen5_background_omegamatic_blue1.Width, Properties.Resources.keen5_background_omegamatic_blue1.Height)
+                     },
+                     new MapMakerObjectProperty()
+                     {
+                         PropertyName = "imagePath",
+                         DisplayName = "Image: ",
+                         DataType = typeof(string),     
+                         Value = Path.Combine(GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_BACKGROUNDS, "Keen5", Biomes.BIOME_KEEN5_BLACK), nameof(Properties.Resources.keen5_background_omegamatic_blue1) + ".png"),
+                         IsSpriteProperty = true,
+                         Readonly = true,
+                         Hidden = true
+                     },
+                     new MapMakerObjectProperty()
+                     {
+                         PropertyName = "stretchImage",
+                         DisplayName = "Stretch Image: ",
+                         DataType = typeof(bool),
+                         Value = false
+                     }
+                 }.ToArray()
+               )
             }
         };
 
-        public static MapMakerObject GetMapMakerObjectFromType(string typeName, string imageFile, bool manuallyPlaced)
+        public static string GetImageDirectory(string categoryFolder, string episodeFolder, string biomeFolder)
         {
-            if (_mapMakerObjectTypeMapping.TryGetValue(typeName, out List<MapMakerObjectProperty> properties) && properties != null)
+            string path = string.Empty;
+            string mapMakerFolder = MapMakerConstants.MAP_MAKER_FOLDER;
+            if (string.IsNullOrEmpty(categoryFolder)
+             || string.IsNullOrEmpty(episodeFolder)
+             || string.IsNullOrEmpty(biomeFolder))
+                return path;
+
+
+
+            if (categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_WEAPONS
+              || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_PLAYER
+              || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_GEMS)
             {
-                foreach (var property in properties)
-                {
-                    if (property.IsSpriteProperty)
-                    {
-                        property.Value = imageFile;
-                    }
-                }
-                MapMakerObject obj = new MapMakerObject(typeName, imageFile, manuallyPlaced, properties.ToArray());
-                return obj;
+                path = Path.Combine(System.Environment.CurrentDirectory, mapMakerFolder, categoryFolder);
+            }
+            else if (categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_TILES)
+            {
+                path = Path.Combine(System.Environment.CurrentDirectory, mapMakerFolder, categoryFolder, episodeFolder, biomeFolder);
+            }
+            else
+            {
+                path = Path.Combine(System.Environment.CurrentDirectory, mapMakerFolder, categoryFolder, episodeFolder);
+            }
+            return path;
+        }
+
+        public static MapMakerObject GetMapMakerObjectFromType(string imageFile)
+        {
+            if (_imageObjectMapping.TryGetValue(imageFile, out MapMakerObject item) && item != null)
+            {
+                return item;
             }
             return null;
         }

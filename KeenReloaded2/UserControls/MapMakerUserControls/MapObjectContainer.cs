@@ -11,6 +11,7 @@ using KeenReloaded2.Entities;
 using KeenReloaded2.ControlEventArgs;
 using KeenReloaded2.Utilities;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Entities.ReferenceData;
 
 namespace KeenReloaded2.UserControls.MapMakerUserControls
 {
@@ -90,62 +91,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                 var imgName = FileIOUtility.ExtractFileNameFromPath(img);
 
                 //TODO: use dictionary
-                MapMakerObject mapMakerObject = new MapMakerObject("test Type", img, false, new MapMakerObjectProperty[] {
-                    new MapMakerObjectProperty()
-                    {
-                        PropertyName = "test1",
-                        DisplayName = "test 1",
-                        Value = "abcTest",
-                        DataType = typeof(string)
-                    },
-                    new MapMakerObjectProperty()
-                    {
-                        PropertyName = "test2",
-                        DisplayName = "test 2",
-                        Value = 12,
-                        DataType = typeof(int)
-                    },
-                    new MapMakerObjectProperty()
-                    {
-                        PropertyName = "test3",
-                        DisplayName = "test 3",
-                        Value = true,
-                        DataType = typeof(bool)
-                    },
-                    new MapMakerObjectProperty()
-                    {
-                        PropertyName = "test4",
-                        DisplayName = "test 4",
-                        Value = true,
-                        DataType = typeof(Enum),
-                        PossibleValues = Enum.GetNames(typeof(Direction))
-                    },
-                    new MapMakerObjectProperty()
-                    {
-                        PropertyName = "test5",
-                        DisplayName = "test 5",
-                        Value = true,
-                        DataType = typeof(Enum),
-                        PossibleValues = Enum.GetNames(typeof(Direction)),
-                        Readonly = true
-                    },
-                    new MapMakerObjectProperty()
-                    {
-                        PropertyName = "test6",
-                        DisplayName = "test 6",
-                        Value = "cannot edit",
-                        DataType = typeof(string),
-                        Readonly = true
-                    },
-                      new MapMakerObjectProperty()
-                    {
-                        PropertyName = "test7",
-                        DisplayName = "test 7",
-                        Value = false,
-                        DataType = typeof(bool),
-                        Readonly = true
-                    },
-                }); ;
+                MapMakerObject mapMakerObject = ImageToObjectCreationFactory.GetMapMakerObjectFromType(imgName);
                 MapMakerObjectEventArgs args = new MapMakerObjectEventArgs()
                 {
                     MapMakerObject = mapMakerObject
