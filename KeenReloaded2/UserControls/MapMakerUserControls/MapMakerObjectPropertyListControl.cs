@@ -35,6 +35,8 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
 
             this.Controls.Add(pbObjectImage);
             this.Controls.Add(lblHeader);
+            this.Controls.Add(btnPlace);
+            btnPlace.Visible = mapMakerObject.IsManualPlacement;
 
             if (!string.IsNullOrEmpty(mapMakerObject.ImageControl?.ImageLocation))
                 pbObjectImage.Image = Image.FromFile(mapMakerObject.ImageControl.ImageLocation);
@@ -51,6 +53,11 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
 
                 y = control.Bottom + VERTICAL_MARGIN;
             }
+        }
+
+        private void BtnPlace_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

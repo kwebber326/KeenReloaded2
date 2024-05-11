@@ -11,10 +11,12 @@ namespace KeenReloaded2.Entities
     public class MapMakerObject
     {
         protected readonly string _objectType;
+        protected readonly bool _isManualPlacement;
 
-        public MapMakerObject(string objectType, string imageFileName, params MapMakerObjectProperty[] constructorParamaters)
+        public MapMakerObject(string objectType, string imageFileName, bool isManualPlacement, params MapMakerObjectProperty[] constructorParamaters)
         {
             _objectType = objectType;
+            _isManualPlacement = isManualPlacement;
             this.ImageControl = new PictureBox();
             this.ImageControl.SizeMode = PictureBoxSizeMode.AutoSize;
             this.ImageControl.Image = Image.FromFile(imageFileName);
@@ -37,6 +39,14 @@ namespace KeenReloaded2.Entities
             get
             {
                 return _objectType;
+            }
+        }
+
+        public bool IsManualPlacement
+        {
+            get
+            {
+                return _isManualPlacement;
             }
         }
 

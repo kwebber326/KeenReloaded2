@@ -90,7 +90,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                 var imgName = FileIOUtility.ExtractFileNameFromPath(img);
 
                 //TODO: use dictionary
-                MapMakerObject mapMakerObject = new MapMakerObject("test Type", img, new MapMakerObjectProperty[] {
+                MapMakerObject mapMakerObject = new MapMakerObject("test Type", img, false, new MapMakerObjectProperty[] {
                     new MapMakerObjectProperty()
                     {
                         PropertyName = "test1",

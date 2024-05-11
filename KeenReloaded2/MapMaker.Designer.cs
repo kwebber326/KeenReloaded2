@@ -44,8 +44,8 @@
             this.btnDefaultDimensions = new System.Windows.Forms.Button();
             this.cmbBiome = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.mapMakerObjectPropertyListControl1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapMakerObjectPropertyListControl();
             this.mapObjectContainer1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapObjectContainer();
+            this.mapMakerObjectPropertyListControl1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapMakerObjectPropertyListControl();
             this.SuspendLayout();
             // 
             // label1
@@ -199,14 +199,6 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Biome:";
             // 
-            // mapMakerObjectPropertyListControl1
-            // 
-            this.mapMakerObjectPropertyListControl1.AutoScroll = true;
-            this.mapMakerObjectPropertyListControl1.Location = new System.Drawing.Point(17, 828);
-            this.mapMakerObjectPropertyListControl1.Name = "mapMakerObjectPropertyListControl1";
-            this.mapMakerObjectPropertyListControl1.Size = new System.Drawing.Size(595, 486);
-            this.mapMakerObjectPropertyListControl1.TabIndex = 17;
-            // 
             // mapObjectContainer1
             // 
             this.mapObjectContainer1.AutoScroll = true;
@@ -215,6 +207,14 @@
             this.mapObjectContainer1.Name = "mapObjectContainer1";
             this.mapObjectContainer1.Size = new System.Drawing.Size(617, 643);
             this.mapObjectContainer1.TabIndex = 16;
+            // 
+            // mapMakerObjectPropertyListControl1
+            // 
+            this.mapMakerObjectPropertyListControl1.AutoScroll = true;
+            this.mapMakerObjectPropertyListControl1.Location = new System.Drawing.Point(17, 828);
+            this.mapMakerObjectPropertyListControl1.Name = "mapMakerObjectPropertyListControl1";
+            this.mapMakerObjectPropertyListControl1.Size = new System.Drawing.Size(595, 486);
+            this.mapMakerObjectPropertyListControl1.TabIndex = 17;
             // 
             // MapMaker
             // 
