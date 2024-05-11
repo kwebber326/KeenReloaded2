@@ -14,16 +14,16 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
         private readonly List<string> _images;
         private readonly Animation _animation;
 
-        public AnimatedBackground(Rectangle area, string imagePath, bool stretchImage, int zIndex,
+        public AnimatedBackground(Rectangle area, string imagePath, bool stretchImage,
             List<string> images, int imageRotationDelayMilliseconds) 
-            : base(area, imagePath, stretchImage, zIndex)
+            : base(area, imagePath, stretchImage)
         {
             _images = images;
             var imageList = _images.Select(i =>
             {
                 try
                 {
-                    Background b = new Background(area, i, stretchImage, zIndex);
+                    Background b = new Background(area, i, stretchImage);
                     return b.Draw();
                 }
                 catch (Exception ex)

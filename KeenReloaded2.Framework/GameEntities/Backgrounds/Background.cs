@@ -5,23 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using KeenReloaded2.Framework.GameEntities.Interfaces;
 
 namespace KeenReloaded2.Framework.GameEntities.Backgrounds
 {
-    public class Background
+    public class Background : ISprite
     {
         protected readonly Rectangle _area;
         protected readonly string _imagePath;
         protected readonly bool _stretchImage;
-        protected int _zIndex;
         protected Image _image;
 
-        public Background(Rectangle area, string imagePath, bool stretchImage, int zIndex)
+        public Background(Rectangle area, string imagePath, bool stretchImage)
         {
             _area = area;
             _imagePath = imagePath;
             _stretchImage = stretchImage;
-            _zIndex = zIndex;
             try
             {
                 _image = Image.FromFile(imagePath);
@@ -31,6 +30,10 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
                 Debug.WriteLine(ex);
             }
         }
+
+        public int ZIndex => 0;
+
+        public Image Image => _image;
 
         public virtual Image Draw()
         {

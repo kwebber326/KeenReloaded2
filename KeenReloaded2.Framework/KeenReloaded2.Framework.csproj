@@ -46,6 +46,7 @@
     <Compile Include="GameEntities\Animations\Animation.cs" />
     <Compile Include="GameEntities\Backgrounds\AnimatedBackground.cs" />
     <Compile Include="GameEntities\Backgrounds\Background.cs" />
+    <Compile Include="GameEntities\Interfaces\ISprite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReferenceDataClasses\Biomes.cs" />
   </ItemGroup>
@@ -57,7 +58,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="EventArgs\" />
-    <Folder Include="GameEntities\Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
