@@ -185,8 +185,18 @@ namespace KeenReloaded2
             SetObjectContainer();
         }
 
+
         #endregion
 
-
+        private void MapMaker_KeyUp(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyData)
+            {
+                case Keys.Escape:
+                    mapObjectContainer1.ClearSelection();
+                    mapMakerObjectPropertyListControl1.SetProperties(null);
+                    break;
+            }
+        }
     }
 }

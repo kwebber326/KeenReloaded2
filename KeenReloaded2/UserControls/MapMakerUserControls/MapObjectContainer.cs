@@ -29,7 +29,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
 
         private void MapObjectContainer_Load(object sender, EventArgs e)
         {
-
+          
         }
 
         public void DisplayImageFiles(string[] files)
@@ -43,7 +43,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                     pb.Click -= Pb_Click;
                 }
             }
-            this.Controls.Clear();
+            pnlImages.Controls.Clear();
             for (int i = 0; i < files.Length; i++)
             {
                 string fileExtension = files[i].Substring(files[i].LastIndexOf('.') + 1);
@@ -56,7 +56,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                     pb.Image = image;
                     pb.ImageLocation = files[i];
                     pb.Click += Pb_Click;
-                    this.Controls.Add(pb);
+                    pnlImages.Controls.Add(pb);
 
                     if (pb.Height > maxHeight)
                         maxHeight = pb.Height;
@@ -82,6 +82,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                     _selectedItem.BorderStyle = BorderStyle.None;
                     _selectedItem.BackColor = Color.Transparent;
                 }
+                lblHelpText.Visible = true;
                 pbControl.BorderStyle = BorderStyle.Fixed3D;
                 pbControl.BackColor = Color.Red;
                 _selectedItem = pbControl;
@@ -150,6 +151,17 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                     MapMakerObject = mapMakerObject
                 };
                 ObjectClicked?.Invoke(this, args);
+            }
+        }
+
+        public void ClearSelection()
+        {
+            lblHelpText.Visible = false;
+            if (_selectedItem != null)
+            {
+                _selectedItem.BorderStyle = BorderStyle.None;
+                _selectedItem.BackColor = Color.Transparent;
+                _selectedItem = null;
             }
         }
     }
