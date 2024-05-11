@@ -65,10 +65,12 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         {
             _mapMakerObjectProperty = objectProperty;
             lblPropertyName.Text = _mapMakerObjectProperty.DisplayName;
-            if (_mapMakerObjectProperty.DataType == typeof(Enum))
+            if (_mapMakerObjectProperty.DataType == typeof(Enum)
+             || _mapMakerObjectProperty.DataType == typeof(string[])
+             || _mapMakerObjectProperty.DataType == typeof(List<string>))
             {
                 _selectedControl = _cmbValue;
-                SetEnumValuesForComboBox();
+                SetValuesForComboBox();
             }
             else if (_mapMakerObjectProperty.DataType == typeof(bool))
             {
@@ -110,7 +112,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             }
         }
 
-        private void SetEnumValuesForComboBox()
+        private void SetValuesForComboBox()
         {
             _cmbValue.Items.Clear();
             try
