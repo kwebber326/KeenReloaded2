@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KeenReloaded2.Utilities;
+using KeenReloaded2.ControlEventArgs;
 
 namespace KeenReloaded2.UserControls.MapMakerUserControls
 {
@@ -16,6 +17,8 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         private Rectangle _area;
         private bool _locationEditEnabled;
         private bool _sizeEditEnabled;
+
+        public event EventHandler<AreaControlEventArgs> AreaChanged;
 
         public AreaControl(Rectangle initialArea = default(Rectangle), bool locationEditEnabled = true, bool sizeEditEnabled = true)
         {
@@ -79,35 +82,57 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                 txtYLocation.Text = _area.Y.ToString();
                 txtWidth.Text = _area.Width.ToString();
                 txtHeight.Text = _area.Height.ToString();
+                this.OnAreaChanged();
             }
+        }
+
+        protected virtual void OnAreaChanged()
+        {
+            AreaControlEventArgs e = new AreaControlEventArgs()
+            {
+                Area = _area
+            };
+            this.AreaChanged?.Invoke(this, e);
         }
 
         private void TxtXLocation_TextChanged(object sender, EventArgs e)
         {
             txtXLocation.Text = InputValidation.SanitizeStringForIntegerNumerics(txtXLocation.Text);
             if (int.TryParse(txtXLocation.Text, out int x))
+            {
                 _area = new Rectangle(x, _area.Y, _area.Width, _area.Height);
+                this.OnAreaChanged();
+            }
         }
 
         private void TxtYLocation_TextChanged(object sender, EventArgs e)
         {
             txtYLocation.Text = InputValidation.SanitizeStringForIntegerNumerics(txtYLocation.Text);
             if (int.TryParse(txtYLocation.Text, out int y))
+            {
                 _area = new Rectangle(_area.X, y, _area.Width, _area.Height);
+                this.OnAreaChanged();
+            }
         }
 
         private void TxtWidth_TextChanged(object sender, EventArgs e)
         {
             txtWidth.Text = InputValidation.SanitizeStringForIntegerNumerics(txtWidth.Text);
             if (int.TryParse(txtWidth.Text, out int width))
+            {
                 _area = new Rectangle(_area.X, _area.Y, width, _area.Height);
+                this.OnAreaChanged();
+            }
         }
 
         private void TxtHeight_TextChanged(object sender, EventArgs e)
         {
             txtHeight.Text = InputValidation.SanitizeStringForIntegerNumerics(txtHeight.Text);
             if (int.TryParse(txtHeight.Text, out int height))
+            {
                 _area = new Rectangle(_area.X, _area.Y, _area.Width, height);
+                this.OnAreaChanged();
+            }
         }
     }
 }

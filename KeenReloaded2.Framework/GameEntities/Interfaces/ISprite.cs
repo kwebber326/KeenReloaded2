@@ -12,5 +12,7 @@ namespace KeenReloaded2.Framework.GameEntities.Interfaces
         int ZIndex { get; }
 
         Image Image { get; }
+
+        Point Location { get; }
     }
 }

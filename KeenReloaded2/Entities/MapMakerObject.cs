@@ -10,10 +10,10 @@ namespace KeenReloaded2.Entities
 {
     public class MapMakerObject
     {
-        protected readonly string _objectType;
+        protected readonly Type _objectType;
         protected readonly bool _isManualPlacement;
 
-        public MapMakerObject(string objectType, string imageFileName, bool isManualPlacement, params MapMakerObjectProperty[] constructorParamaters)
+        public MapMakerObject(Type objectType, string imageFileName, bool isManualPlacement, params MapMakerObjectProperty[] constructorParamaters)
         {
             _objectType = objectType;
             _isManualPlacement = isManualPlacement;
@@ -28,13 +28,13 @@ namespace KeenReloaded2.Entities
 
         public virtual object Construct()
         {
-            var type = Type.GetType(_objectType);
+            var type = _objectType;
             var values = this.ConstructorParameters.Select(p => p.Value).ToArray();
             var obj = Activator.CreateInstance(type, values);
             return obj;
         }
 
-        public string ObjectType
+        public Type ObjectType
         {
             get
             {

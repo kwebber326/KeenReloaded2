@@ -1,5 +1,8 @@
 ﻿using KeenReloaded2.Constants;
+using KeenReloaded2.Entities;
 using KeenReloaded2.Entities.ReferenceData;
+using KeenReloaded2.Framework.GameEntities.Backgrounds;
+using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.ReferenceDataClasses;
 using System;
 using System.Collections.Generic;
@@ -18,6 +21,7 @@ namespace KeenReloaded2
     public partial class MapMaker : Form
     {
         private Dictionary<string, string> _episodeFileFolderDict = new Dictionary<string, string>();
+        private List<GameObjectMapping> _mapMakerObjects = new List<GameObjectMapping>();
         public MapMaker()
         {
             InitializeComponent();
@@ -34,7 +38,9 @@ namespace KeenReloaded2
             InitializeBiomeComboBox();
             SetObjectContainer();
             mapObjectContainer1.ObjectClicked += MapObjectContainer1_ObjectClicked;
+            mapMakerObjectPropertyListControl1.PlaceObjectClicked += MapMakerObjectPropertyListControl1_PlaceObjectClicked;
         }
+
         private void InitializeGameModeList()
         {
             cmbGameMode.Items.Add(MainMenuConstants.OPTION_LABEL_NORMAL_MODE);
@@ -113,7 +119,6 @@ namespace KeenReloaded2
         #region helper methods 
         private void SetObjectContainer()
         {
-            string mapMakerFolder = MapMakerConstants.MAP_MAKER_FOLDER;
             string categoryFolder = cmbCategory.SelectedItem?.ToString();
             string selectedEpisode = cmbEpisode.SelectedItem?.ToString() ?? string.Empty;
             string selectedBiome = cmbBiome.SelectedItem?.ToString();
@@ -152,6 +157,60 @@ namespace KeenReloaded2
 
         #region event handlers
 
+        private void MapMakerObjectPropertyListControl1_PlaceObjectClicked(object sender, ControlEventArgs.MapMakerObjectEventArgs e)
+        {
+            if (e?.MapMakerObject?.ImageControl == null)
+                return;
+
+            object mapObj = new object();
+            try
+            {
+                mapObj = e.MapMakerObject.Construct();
+            }
+            catch
+            {
+                MessageBox.Show("Error constructing the selected object. It will not be placed on the map.");
+                return;
+            }
+
+            try
+            {
+                //parse and copy map maker objects
+                ISprite placedItem = (ISprite)mapObj;
+                var mapMakerObjectCopy = new MapMakerObject(
+                    e.MapMakerObject.ObjectType, 
+                    e.MapMakerObject.ImageControl.ImageLocation, 
+                    e.MapMakerObject.IsManualPlacement, 
+                    e.MapMakerObject.ConstructorParameters);
+
+                //construct mapping
+                GameObjectMapping gameObjectMapping = new GameObjectMapping()
+                {
+                    GameObject = placedItem,
+                    MapMakerObject = mapMakerObjectCopy
+                };
+
+                gameObjectMapping.Location = placedItem.Location;
+                gameObjectMapping.SizeMode = PictureBoxSizeMode.AutoSize;
+                gameObjectMapping.Image = placedItem.Image;
+
+                //add to collections
+                _mapMakerObjects.Add(gameObjectMapping);
+                pnlMapCanvas.Controls.Add(gameObjectMapping);
+
+                //redraw grid
+                var orderedByZindexObjects = _mapMakerObjects.OrderBy(o => o.GameObject.ZIndex);
+                foreach (var obj in orderedByZindexObjects)
+                {
+                    obj.MapMakerObject.ImageControl.BringToFront();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error placing object on the map. It is not in the standard sprite format.");
+            }
+        }
+
         private void MapMaker_Load(object sender, EventArgs e)
         {
             InitializeMapMaker();
@@ -183,9 +242,6 @@ namespace KeenReloaded2
             SetObjectContainer();
         }
 
-
-        #endregion
-
         private void MapMaker_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.KeyData)
@@ -196,5 +252,17 @@ namespace KeenReloaded2
                     break;
             }
         }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnLoad_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
     }
 }

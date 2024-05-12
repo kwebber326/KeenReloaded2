@@ -46,9 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlEventArgs\AreaControlEventArgs.cs" />
     <Compile Include="ControlEventArgs\CharacterSelectControlEventArgs.cs" />
     <Compile Include="ControlEventArgs\MainMenuOptionEventArgs.cs" />
     <Compile Include="ControlEventArgs\MapMakerObjectEventArgs.cs" />
+    <Compile Include="Entities\GameObjectMapping.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Entities\MapMakerObject.cs" />
     <Compile Include="Entities\MapMakerObjectProperty.cs" />
     <Compile Include="Entities\ReferenceData\ImageToObjectCreationFactory.cs" />

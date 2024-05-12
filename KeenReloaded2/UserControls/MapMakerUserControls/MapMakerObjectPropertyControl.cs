@@ -35,7 +35,18 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
 
         public object Value
         {
-            get; private set;
+            get
+            {
+                return _mapMakerObjectProperty?.Value;
+            }
+        }
+
+        public MapMakerObjectProperty ObjectProperty
+        {
+            get
+            {
+                return _mapMakerObjectProperty;
+            }
         }
 
         private void MapMakerObjectPropertyControl_Load(object sender, EventArgs e)
@@ -44,22 +55,28 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             _cmbValue.SelectedIndexChanged += _cmbValue_SelectedIndexChanged;
             _cmbValue.DropDownStyle = ComboBoxStyle.DropDownList;
             _chkValue.CheckedChanged += _chkValue_CheckedChanged;
+            _areaValue.AreaChanged += _areaValue_AreaChanged;
             UpdateControl(_mapMakerObjectProperty);
+        }
+
+        private void _areaValue_AreaChanged(object sender, ControlEventArgs.AreaControlEventArgs e)
+        {
+            _mapMakerObjectProperty.Value = e.Area;
         }
 
         private void _chkValue_CheckedChanged(object sender, EventArgs e)
         {
-            this.Value = _chkValue.Checked;
+            _mapMakerObjectProperty.Value = _chkValue.Checked;
         }
 
         private void _cmbValue_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.Value = _cmbValue.SelectedItem;
+            _mapMakerObjectProperty.Value = _cmbValue.SelectedItem;
         }
 
         private void _txtValue_TextChanged(object sender, EventArgs e)
         {
-            this.Value = _txtValue.Text;
+            _mapMakerObjectProperty.Value = _txtValue.Text;
         }
 
         public void UpdateControl(MapMakerObjectProperty objectProperty)

@@ -9,12 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Utilities;
+using KeenReloaded2.ControlEventArgs;
 
 namespace KeenReloaded2.UserControls.MapMakerUserControls
 {
     public partial class MapMakerObjectPropertyListControl : UserControl
     {
         private const int VERTICAL_MARGIN = 8;
+        private MapMakerObject _mapMakerObject;
+
+        public event EventHandler<MapMakerObjectEventArgs> PlaceObjectClicked;
         public MapMakerObjectPropertyListControl()
         {
             InitializeComponent();
@@ -37,11 +41,12 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             this.Controls.Add(lblHeader);
             this.Controls.Add(btnPlace);
             btnPlace.Visible = mapMakerObject.IsManualPlacement;
+            _mapMakerObject = mapMakerObject;
 
             if (!string.IsNullOrEmpty(mapMakerObject.ImageControl?.ImageLocation))
                 pbObjectImage.Image = Image.FromFile(mapMakerObject.ImageControl.ImageLocation);
 
-            lblHeader.Text = $"{mapMakerObject.ObjectType} Properties:";
+            lblHeader.Text = $"{mapMakerObject.ObjectType.Name} Properties:";
 
             int x = 0, y = pbObjectImage.Bottom + VERTICAL_MARGIN;
             for (int i = 0; i < mapMakerObject.ConstructorParameters.Length; i++)
@@ -60,7 +65,12 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
 
         private void BtnPlace_Click(object sender, EventArgs e)
         {
+            MapMakerObjectEventArgs args = new MapMakerObjectEventArgs()
+            {
+                MapMakerObject = _mapMakerObject
+            };
 
+            this.PlaceObjectClicked?.Invoke(this, args);
         }
     }
 }

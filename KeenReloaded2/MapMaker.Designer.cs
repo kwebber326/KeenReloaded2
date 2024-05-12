@@ -44,8 +44,10 @@
             this.btnDefaultDimensions = new System.Windows.Forms.Button();
             this.cmbBiome = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.mapObjectContainer1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapObjectContainer();
             this.mapMakerObjectPropertyListControl1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapMakerObjectPropertyListControl();
+            this.mapObjectContainer1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapObjectContainer();
+            this.btnLoad = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -199,6 +201,14 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Biome:";
             // 
+            // mapMakerObjectPropertyListControl1
+            // 
+            this.mapMakerObjectPropertyListControl1.AutoScroll = true;
+            this.mapMakerObjectPropertyListControl1.Location = new System.Drawing.Point(17, 828);
+            this.mapMakerObjectPropertyListControl1.Name = "mapMakerObjectPropertyListControl1";
+            this.mapMakerObjectPropertyListControl1.Size = new System.Drawing.Size(595, 486);
+            this.mapMakerObjectPropertyListControl1.TabIndex = 17;
+            // 
             // mapObjectContainer1
             // 
             this.mapObjectContainer1.AutoScroll = true;
@@ -208,19 +218,33 @@
             this.mapObjectContainer1.Size = new System.Drawing.Size(617, 643);
             this.mapObjectContainer1.TabIndex = 16;
             // 
-            // mapMakerObjectPropertyListControl1
+            // btnLoad
             // 
-            this.mapMakerObjectPropertyListControl1.AutoScroll = true;
-            this.mapMakerObjectPropertyListControl1.Location = new System.Drawing.Point(17, 828);
-            this.mapMakerObjectPropertyListControl1.Name = "mapMakerObjectPropertyListControl1";
-            this.mapMakerObjectPropertyListControl1.Size = new System.Drawing.Size(595, 486);
-            this.mapMakerObjectPropertyListControl1.TabIndex = 17;
+            this.btnLoad.Location = new System.Drawing.Point(458, 110);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(141, 29);
+            this.btnLoad.TabIndex = 18;
+            this.btnLoad.Text = "Load Map";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.BtnLoad_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(458, 144);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(142, 29);
+            this.btnSave.TabIndex = 19;
+            this.btnSave.Text = "Save Map";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // MapMaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2178, 1474);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.mapMakerObjectPropertyListControl1);
             this.Controls.Add(this.mapObjectContainer1);
             this.Controls.Add(this.cmbBiome);
@@ -271,5 +295,7 @@
         private System.Windows.Forms.Label label7;
         private UserControls.MapMakerUserControls.MapObjectContainer mapObjectContainer1;
         private UserControls.MapMakerUserControls.MapMakerObjectPropertyListControl mapMakerObjectPropertyListControl1;
+        private System.Windows.Forms.Button btnLoad;
+        private System.Windows.Forms.Button btnSave;
     }
 }

@@ -19,7 +19,7 @@ namespace KeenReloaded2.Entities.ReferenceData
             {
                nameof(Properties.Resources.keen5_background_omegamatic_blue1),
                new MapMakerObject(
-                 nameof(Background),
+                 typeof(Background),
                  Path.Combine(GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_BACKGROUNDS, "Keen5", Biomes.BIOME_KEEN5_BLACK), nameof(Properties.Resources.keen5_background_omegamatic_blue1) + ".png"),
                  true,
                  new List<MapMakerObjectProperty>()
@@ -81,7 +81,7 @@ namespace KeenReloaded2.Entities.ReferenceData
             return path;
         }
 
-        public static MapMakerObject GetMapMakerObjectFromType(string imageFile)
+        public static MapMakerObject GetMapMakerObjectFromImageName(string imageFile)
         {
             if (_imageObjectMapping.TryGetValue(imageFile, out MapMakerObject item) && item != null)
             {

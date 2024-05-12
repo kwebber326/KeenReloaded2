@@ -25,6 +25,7 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
             try
             {
                 _image = Image.FromFile(imagePath);
+                this.Draw();
             }
             catch (Exception ex)
             {
@@ -36,6 +37,8 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
 
         public Image Image => _image;
 
+        public Point Location => _area.Location;
+
         public virtual Image Draw()
         {
             if (_image == null)
@@ -43,7 +46,7 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
 
             if (_stretchImage)
             {
-                return _image;
+                this.InitializeSpriteMap(_area.Size);
             }
             else
             {
@@ -61,25 +64,23 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
             int currentX = 0;
             int currentY = 0;
             //declare a bitmap for the image
-            using (var bitmap = new Bitmap(_area.Width, _area.Height))
-            {
+            var bitmap = new Bitmap(_area.Width, _area.Height);
 
-                //for each subsequent length and height, draw the image onto the bitmap
-                //to fill out the background rectangle
-                for (int i = 0; i < _area.Width; i += width)
+            //for each subsequent length and height, draw the image onto the bitmap
+            //to fill out the background rectangle
+            for (int i = 0; i < _area.Width; i += width)
+            {
+                for (int j = 0; j < _area.Height; j += height)
                 {
-                    for (int j = 0; j < _area.Height; j += height)
-                    {
-                        Graphics.FromImage(bitmap).DrawImage(_image, new Rectangle(currentX, currentY, _image.Width, _image.Height));
-                        currentY += height;
-                    }
-                    currentY = 0;
-                    currentX += width;
+                    Graphics.FromImage(bitmap).DrawImage(_image, new Rectangle(currentX, currentY, imageDimensions.Width, imageDimensions.Height));
+                    currentY += height;
                 }
-                //assign the resulting bitmap to the picture box's image property so it loads as 
-                //one image onto the form
-                _image = bitmap;
+                currentY = 0;
+                currentX += width;
             }
+            //assign the resulting bitmap to the picture box's image property so it loads as 
+            //one image onto the form
+            _image = bitmap;
         }
 
         public override string ToString()
