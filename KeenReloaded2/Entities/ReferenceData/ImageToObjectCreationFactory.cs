@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -9,56 +10,81 @@ using KeenReloaded2.Constants;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Framework.GameEntities.Backgrounds;
 using KeenReloaded2.Framework.ReferenceDataClasses;
+using KeenReloaded2.Utilities;
 
 namespace KeenReloaded2.Entities.ReferenceData
 {
     public static class ImageToObjectCreationFactory
     {
-        private static Dictionary<string, MapMakerObject> _imageObjectMapping = new Dictionary<string, MapMakerObject>()
+        private static Dictionary<string, MapMakerObject> GetBackgroundObjectData()
         {
+            Dictionary<string, MapMakerObject> backgroundReferenceData = new Dictionary<string, MapMakerObject>();
+
+            for (int i = 4; i <= 6; i++)
             {
-               nameof(Properties.Resources.keen5_background_omegamatic_blue1),
-               new MapMakerObject(
-                 typeof(Background),
-                 Path.Combine(GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_BACKGROUNDS, "Keen5", Biomes.BIOME_KEEN5_BLACK), nameof(Properties.Resources.keen5_background_omegamatic_blue1) + ".png"),
-                 true,
-                 new List<MapMakerObjectProperty>()
-                 {
-                     new MapMakerObjectProperty()
-                     {
-                         PropertyName = "area",
-                         DisplayName = "Area: ",
-                         DataType = typeof(Rectangle),
-                         Value = new Rectangle(0, 0, Properties.Resources.keen5_background_omegamatic_blue1.Width, Properties.Resources.keen5_background_omegamatic_blue1.Height)
-                     },
-                     new MapMakerObjectProperty()
-                     {
-                         PropertyName = "imagePath",
-                         DisplayName = "Image: ",
-                         DataType = typeof(string),     
-                         Value = nameof(Properties.Resources.keen5_background_omegamatic_blue1) + ".png",
-                         IsSpriteProperty = true,
-                         Readonly = true,
-                         Hidden = true
-                     },
-                     new MapMakerObjectProperty()
-                     {
-                         PropertyName = "stretchImage",
-                         DisplayName = "Stretch Image: ",
-                         DataType = typeof(bool),
-                         Value = false
-                     },
-                     new MapMakerObjectProperty()
-                     {
-                         PropertyName = "zIndex",
-                         DisplayName = "Z Index: ",
-                         DataType = typeof(int),
-                         Value = 0
-                     }
-                 }.ToArray()
-               )
+                string path = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_BACKGROUNDS, $"keen{i}", Biomes.BIOME_KEEN5_BLACK);
+
+                string[] imageFiles = Directory.GetFiles(path);
+                foreach (var file in imageFiles)
+                {
+                    try
+                    {
+                        Image img = Image.FromFile(file);
+                        string imageName = FileIOUtility.ExtractFileNameFromPath(file);
+                        Type type = typeof(Background);
+                        string imagePath = file;
+
+                        var parameters = new List<MapMakerObjectProperty>()
+                    {
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "area",
+                             DisplayName = "Area: ",
+                             DataType = typeof(Rectangle),
+                             Value = new Rectangle(0, 0, img.Width, img.Height)
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "imagePath",
+                             DisplayName = "Image: ",
+                             DataType = typeof(string),
+                             Value = imageName + ".png",
+                             IsSpriteProperty = true,
+                             Readonly = true,
+                             Hidden = true
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "stretchImage",
+                             DisplayName = "Stretch Image: ",
+                             DataType = typeof(bool),
+                             Value = false
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "zIndex",
+                             DisplayName = "Z Index: ",
+                             DataType = typeof(int),
+                             Value = 0
+                         }
+                    }.ToArray();
+
+                        MapMakerObject obj = new MapMakerObject(type, imagePath, true, parameters);
+                        backgroundReferenceData.Add(imageName, obj);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex);
+                        return new Dictionary<string, MapMakerObject>();
+                    }
+                }
             }
-        };
+            return backgroundReferenceData;
+        }
+        #region reference data
+        private static Dictionary<string, MapMakerObject> _imageObjectMapping = GetBackgroundObjectData();
+
+        #endregion
 
         public static string GetImageDirectory(string categoryFolder, string episodeFolder, string biomeFolder)
         {

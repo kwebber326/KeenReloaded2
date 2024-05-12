@@ -12,12 +12,12 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
 {
     public class AnimatedBackground : Background
     {
-        private readonly List<string> _images;
+        private readonly string[] _images;
         private readonly Animation _animation;
         private readonly int _imageRotationDelayMilliseconds;
 
         public AnimatedBackground(Rectangle area, string imagePath, bool stretchImage,
-            List<string> images, int imageRotationDelayMilliseconds, int zIndex) 
+            string[] images, int imageRotationDelayMilliseconds, int zIndex) 
             : base(area, imagePath, stretchImage, zIndex)
         {
             _images = images;
