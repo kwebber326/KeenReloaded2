@@ -78,6 +78,7 @@
             this.pnlMapCanvas.Name = "pnlMapCanvas";
             this.pnlMapCanvas.Size = new System.Drawing.Size(1541, 1423);
             this.pnlMapCanvas.TabIndex = 2;
+            this.pnlMapCanvas.Click += new System.EventHandler(this.PnlMapCanvas_Click);
             // 
             // label3
             // 

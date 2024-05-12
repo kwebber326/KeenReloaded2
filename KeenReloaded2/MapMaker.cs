@@ -25,6 +25,8 @@ namespace KeenReloaded2
         private Dictionary<string, string> _episodeFileFolderDict = new Dictionary<string, string>();
         private List<GameObjectMapping> _mapMakerObjects = new List<GameObjectMapping>();
         private GameObjectMapping _selectedGameObjectMapping;
+        private GameObjectMapping _cursorItem;
+        private Timer _cursorUpdateTimer = new Timer();
         public MapMaker()
         {
             InitializeComponent();
@@ -42,6 +44,8 @@ namespace KeenReloaded2
             SetObjectContainer();
             mapObjectContainer1.ObjectClicked += MapObjectContainer1_ObjectClicked;
             mapMakerObjectPropertyListControl1.PlaceObjectClicked += MapMakerObjectPropertyListControl1_PlaceObjectClicked;
+            _cursorUpdateTimer.Interval = 10;
+            _cursorUpdateTimer.Tick += _cursorUpdateTimer_Tick;
         }
 
         private void InitializeGameModeList()
@@ -174,6 +178,26 @@ namespace KeenReloaded2
 
             return mapSize;
         }
+
+        private GameObjectMapping GenerateMappingObjectFromMapMakerData(MapMakerObject mapMakerObject)
+        {
+            MapMakerObject obj = new MapMakerObject(
+                  mapMakerObject.ObjectType,
+                  mapMakerObject.ImageControl.ImageLocation,
+                  mapMakerObject.IsManualPlacement,
+                  mapMakerObject.CloneParameterList());
+            ISprite placeableObject = (ISprite)obj.Construct();
+            GameObjectMapping mapping = new GameObjectMapping()
+            {
+                MapMakerObject = obj,
+                GameObject = placeableObject
+            };
+            mapping.SizeMode = PictureBoxSizeMode.AutoSize;
+            mapping.Location = placeableObject.Location;
+            mapping.Image = placeableObject.Image;
+
+            return mapping;
+        }
         #endregion
 
         #region event handlers
@@ -272,8 +296,18 @@ namespace KeenReloaded2
         }
         private void MapObjectContainer1_ObjectClicked(object sender, ControlEventArgs.MapMakerObjectEventArgs e)
         {
-            ClearSelectedMapItem();
-            mapMakerObjectPropertyListControl1.SetProperties(e.MapMakerObject);
+            if (e.MapMakerObject.IsManualPlacement)
+            {
+                ClearSelectedMapItem();
+                mapMakerObjectPropertyListControl1.SetProperties(e.MapMakerObject);
+            }
+            else
+            {
+                GameObjectMapping mapping = GenerateMappingObjectFromMapMakerData(e.MapMakerObject);
+                _cursorItem = mapping;
+                this.Controls.Add(_cursorItem);
+                _cursorUpdateTimer.Start();
+            }
         }
 
         private void BtnDefaultDimensions_Click(object sender, EventArgs e)
@@ -393,6 +427,37 @@ namespace KeenReloaded2
         private void TxtMapName_TextChanged(object sender, EventArgs e)
         {
             txtMapName.Text = InputValidation.SanitizeFileNameInput(txtMapName.Text);
+        }
+
+        private void _cursorUpdateTimer_Tick(object sender, EventArgs e)
+        {
+            if (_cursorItem != null)
+            {
+                _cursorItem.Location = new Point(Cursor.Position.X, Cursor.Position.Y);
+            }
+            else
+            {
+                _cursorUpdateTimer.Stop();
+            }
+        }
+
+        private void PnlMapCanvas_Click(object sender, EventArgs e)
+        {
+            if (_cursorItem != null)
+            {
+                int xOffset = pnlMapCanvas.Location.X;
+                int yOffset = pnlMapCanvas.Location.Y;
+
+                _cursorItem.Location.Offset(xOffset, yOffset);
+
+                pnlMapCanvas.Controls.Add(_cursorItem);
+                _cursorItem.Click += GameObjectMapping_Click;
+                _selectedGameObjectMapping = _cursorItem;
+                ClearSelectedMapItem();
+                mapMakerObjectPropertyListControl1.SetProperties(_selectedGameObjectMapping.MapMakerObject);
+
+                _cursorItem = null;
+            }
         }
 
         #endregion
