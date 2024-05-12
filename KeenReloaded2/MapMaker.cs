@@ -190,7 +190,7 @@ namespace KeenReloaded2
                     e.MapMakerObject.ObjectType,
                     e.MapMakerObject.ImageControl.ImageLocation,
                     e.MapMakerObject.IsManualPlacement,
-                    e.MapMakerObject.ConstructorParameters);
+                    e.MapMakerObject.CloneParameterList());
 
                 //remove existing item if it is there
                 if (_selectedGameObjectMapping != null)
@@ -218,7 +218,7 @@ namespace KeenReloaded2
                 var orderedByZindexObjects = _mapMakerObjects.OrderBy(o => o.GameObject.ZIndex);
                 foreach (var obj in orderedByZindexObjects)
                 {
-                    obj.MapMakerObject.ImageControl.BringToFront();
+                    obj.BringToFront();
                 }
 
                 //replace existing selection if we have one

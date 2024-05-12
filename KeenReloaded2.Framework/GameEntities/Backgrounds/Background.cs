@@ -15,13 +15,15 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
         protected readonly Rectangle _area;
         protected readonly string _imagePath;
         protected readonly bool _stretchImage;
+        private readonly int _zIndex;
         protected Image _image;
 
-        public Background(Rectangle area, string imagePath, bool stretchImage)
+        public Background(Rectangle area, string imagePath, bool stretchImage, int zIndex)
         {
             _area = area;
             _imagePath = imagePath;
             _stretchImage = stretchImage;
+            _zIndex = zIndex;
             try
             {
                 _image = Image.FromFile(imagePath);
@@ -33,7 +35,7 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
             }
         }
 
-        public int ZIndex => 0;
+        public int ZIndex => _zIndex;
 
         public Image Image => _image;
 

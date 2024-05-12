@@ -17,8 +17,8 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
         private readonly int _imageRotationDelayMilliseconds;
 
         public AnimatedBackground(Rectangle area, string imagePath, bool stretchImage,
-            List<string> images, int imageRotationDelayMilliseconds) 
-            : base(area, imagePath, stretchImage)
+            List<string> images, int imageRotationDelayMilliseconds, int zIndex) 
+            : base(area, imagePath, stretchImage, zIndex)
         {
             _images = images;
             _imageRotationDelayMilliseconds = imageRotationDelayMilliseconds;
@@ -26,7 +26,7 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
             {
                 try
                 {
-                    Background b = new Background(area, i, stretchImage);
+                    Background b = new Background(area, i, stretchImage, zIndex);
                     return b.Draw();
                 }
                 catch (Exception ex)

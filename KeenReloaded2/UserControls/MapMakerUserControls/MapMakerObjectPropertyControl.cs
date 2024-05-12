@@ -77,6 +77,15 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         private void _txtValue_TextChanged(object sender, EventArgs e)
         {
             _mapMakerObjectProperty.Value = _txtValue.Text;
+            if (_mapMakerObjectProperty.DataType == typeof(int))
+            {
+                bool parseSuccess = int.TryParse(_txtValue.Text, out int val);
+                _mapMakerObjectProperty.Value = parseSuccess ? val : 0;
+                if (!parseSuccess)
+                {
+                    _txtValue.Text = "0";
+                }
+            }
         }
 
         public void UpdateControl(MapMakerObjectProperty objectProperty)

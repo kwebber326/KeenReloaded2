@@ -26,6 +26,27 @@ namespace KeenReloaded2.Entities
 
         public MapMakerObjectProperty[] ConstructorParameters { get; protected set; }
 
+        public MapMakerObjectProperty[] CloneParameterList()
+        {
+            List<MapMakerObjectProperty> clonedProperties = new List<MapMakerObjectProperty>();
+            foreach (var parameter in this.ConstructorParameters)
+            {
+                MapMakerObjectProperty clone = new MapMakerObjectProperty()
+                {
+                    PropertyName = parameter.PropertyName,
+                    DisplayName = parameter.DisplayName,
+                    DataType = parameter.DataType,
+                    Value = parameter.Value,
+                    IsSpriteProperty = parameter.IsSpriteProperty,
+                    PossibleValues = parameter.PossibleValues,
+                    Hidden = parameter.Hidden,
+                    Readonly = parameter.Readonly
+                };
+                clonedProperties.Add(clone);
+            }
+            return clonedProperties.ToArray();
+        }
+
         public virtual object Construct()
         {
             var type = _objectType;

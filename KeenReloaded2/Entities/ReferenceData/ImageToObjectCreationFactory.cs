@@ -47,6 +47,13 @@ namespace KeenReloaded2.Entities.ReferenceData
                          DisplayName = "Stretch Image: ",
                          DataType = typeof(bool),
                          Value = false
+                     },
+                     new MapMakerObjectProperty()
+                     {
+                         PropertyName = "zIndex",
+                         DisplayName = "Z Index: ",
+                         DataType = typeof(int),
+                         Value = 0
                      }
                  }.ToArray()
                )
@@ -85,23 +92,8 @@ namespace KeenReloaded2.Entities.ReferenceData
         {
             if (_imageObjectMapping.TryGetValue(imageFile, out MapMakerObject item) && item != null)
             {
-                List<MapMakerObjectProperty> clonedProperties = new List<MapMakerObjectProperty>();
-                foreach (var parameter in item.ConstructorParameters)
-                {
-                    MapMakerObjectProperty clone = new MapMakerObjectProperty()
-                    {
-                        PropertyName = parameter.PropertyName,
-                        DisplayName = parameter.DisplayName,
-                        DataType = parameter.DataType,
-                        Value = parameter.Value,
-                        IsSpriteProperty = parameter.IsSpriteProperty,
-                        PossibleValues = parameter.PossibleValues,
-                        Hidden = parameter.Hidden,
-                        Readonly = parameter.Readonly
-                    };
-                    clonedProperties.Add(clone);
-                }
-                MapMakerObject copy = new MapMakerObject(item.ObjectType, item.ImageControl.ImageLocation, item.IsManualPlacement, clonedProperties.ToArray());
+                MapMakerObjectProperty[] clonedProperties = item.CloneParameterList();
+                MapMakerObject copy = new MapMakerObject(item.ObjectType, item.ImageControl.ImageLocation, item.IsManualPlacement, clonedProperties);
                 return copy;
             }
             return null;
