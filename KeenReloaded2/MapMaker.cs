@@ -164,6 +164,16 @@ namespace KeenReloaded2
 
             mapObjectContainer1.DisplayImageFiles(files);
         }
+
+        private Size GetMapSize()
+        {
+            int width = (int)cmbWidth.SelectedItem;
+            int height = (int)cmbHeight.SelectedItem;
+
+            Size mapSize = new Size(width, height);
+
+            return mapSize;
+        }
         #endregion
 
         #region event handlers
@@ -193,6 +203,15 @@ namespace KeenReloaded2
                     e.MapMakerObject.ImageControl.ImageLocation,
                     e.MapMakerObject.IsManualPlacement,
                     e.MapMakerObject.CloneParameterList());
+
+                var objectArea = new Rectangle(placedItem.Location, placedItem.Image.Size);
+                var mapSize = this.GetMapSize();
+                var mapArea = new Rectangle(new Point(0, 0), mapSize);
+                if (!MapUtility.Validation.ValidateObjectPlacement(objectArea, mapArea))
+                {
+                    MessageBox.Show($"This object would be placed outside the bounds of the map. Please ensure the location and size of the object does not place the object outside the bounds of the map", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 //remove existing item if it is there
                 if (_selectedGameObjectMapping != null)
@@ -308,10 +327,7 @@ namespace KeenReloaded2
                 return;
             }
 
-            int width = (int)cmbWidth.SelectedItem;
-            int height = (int)cmbHeight.SelectedItem;
-
-            Size mapSize = new Size(width, height);
+            Size mapSize = this.GetMapSize();
 
             if (MapUtility.SaveMap(txtMapName.Text, cmbGameMode.SelectedItem?.ToString(), mapSize, _mapMakerObjects))
             {

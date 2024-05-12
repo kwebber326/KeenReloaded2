@@ -180,5 +180,16 @@ namespace KeenReloaded2.Utilities
             }
             return string.Empty;
         }
+
+        public static class Validation
+        {
+            public static bool ValidateObjectPlacement(Rectangle objectArea, Rectangle mapArea)
+            {
+                bool isValid = objectArea.Top >= mapArea.Top && objectArea.Bottom <= mapArea.Bottom
+                     && objectArea.Right <= mapArea.Right && objectArea.Left >= mapArea.Left;
+
+                return isValid;
+            }
+        }
     }
 }
