@@ -15,7 +15,7 @@ namespace KeenReloaded2.Utilities
 {
     public static class MapUtility
     {
-        public static bool SaveMap(string mapName, string gameMode, List<GameObjectMapping> mapData)
+        public static bool SaveMap(string mapName, string gameMode, Size mapSize, List<GameObjectMapping> mapData)
         {
             try
             {
@@ -28,6 +28,8 @@ namespace KeenReloaded2.Utilities
 
                 string path = Path.Combine(System.Environment.CurrentDirectory, MapMakerConstants.SAVED_MAPS_FOLDER, gameModeFolder, mapName + ".txt");
                 StringBuilder builder = new StringBuilder();
+                string mapSizeLine = $"{mapSize.Width}{MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR}{mapSize.Height}";
+                builder.AppendLine(mapSizeLine);
                 foreach (GameObjectMapping mapDataLine in mapData)
                 {
                     string line = mapDataLine.GameObject.ToString();
@@ -44,27 +46,36 @@ namespace KeenReloaded2.Utilities
             return false;
         }
 
-        public static List<GameObjectMapping> LoadMapData(string mapFile)
+        public static MapMakerData LoadMapData(string mapFile)
         {
             try
             {
                 if (string.IsNullOrWhiteSpace(mapFile))
                     throw new ArgumentException("Invalid map name");
 
+                MapMakerData mapMakerData = new MapMakerData()
+                {
+                    MapName = FileIOUtility.ExtractFileNameFromPath(mapFile)
+                };
                 List<GameObjectMapping> mapData = new List<GameObjectMapping>();
+                
                 string path = mapFile;
                 string[] mapDataLines = FileIOUtility.LoadMapData(path);
-                foreach (string line in mapDataLines)
+                Size mapSize = ParseMapSizeData(mapDataLines[0]);
+                mapMakerData.MapSize = mapSize;
+                var dataLines = mapDataLines.Skip(1);
+                foreach (string line in dataLines)
                 {
                     GameObjectMapping mapping = BuildMapDataObjectFromRawString(line);
                     mapData.Add(mapping);
                 }
-                return mapData;
+                mapMakerData.MapData = mapData;
+                return mapMakerData;
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
-                return new List<GameObjectMapping>();
+                return new MapMakerData();
             }
         }
 
@@ -77,6 +88,15 @@ namespace KeenReloaded2.Utilities
 
             string path = Path.Combine(System.Environment.CurrentDirectory, MapMakerConstants.SAVED_MAPS_FOLDER, gameModeFolder);
             return path;
+        }
+
+        private static Size ParseMapSizeData(string data)
+        {
+            string[] rawData = data.Split(MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR[0]);
+            int width = Convert.ToInt32(rawData[0]);
+            int height = Convert.ToInt32(rawData[1]);
+            Size size = new Size(width, height);
+            return size;
         }
 
         private static GameObjectMapping BuildMapDataObjectFromRawString(string data)

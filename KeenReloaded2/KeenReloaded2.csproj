@@ -53,6 +53,7 @@
     <Compile Include="Entities\GameObjectMapping.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Entities\MapMakerData.cs" />
     <Compile Include="Entities\MapMakerObject.cs" />
     <Compile Include="Entities\MapMakerObjectProperty.cs" />
     <Compile Include="Entities\ReferenceData\ImageToObjectCreationFactory.cs" />

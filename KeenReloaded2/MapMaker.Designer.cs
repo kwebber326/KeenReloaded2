@@ -46,9 +46,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.dialogMapLoader = new System.Windows.Forms.OpenFileDialog();
             this.mapMakerObjectPropertyListControl1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapMakerObjectPropertyListControl();
             this.mapObjectContainer1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapObjectContainer();
-            this.dialogMapLoader = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // label1
@@ -223,6 +223,11 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
+            // dialogMapLoader
+            // 
+            this.dialogMapLoader.FileName = "openFileDialog1";
+            this.dialogMapLoader.FileOk += new System.ComponentModel.CancelEventHandler(this.DialogMapLoader_FileOk);
+            // 
             // mapMakerObjectPropertyListControl1
             // 
             this.mapMakerObjectPropertyListControl1.AutoScroll = true;
@@ -239,11 +244,6 @@
             this.mapObjectContainer1.Name = "mapObjectContainer1";
             this.mapObjectContainer1.Size = new System.Drawing.Size(617, 643);
             this.mapObjectContainer1.TabIndex = 16;
-            // 
-            // dialogMapLoader
-            // 
-            this.dialogMapLoader.FileName = "openFileDialog1";
-            this.dialogMapLoader.FileOk += new System.ComponentModel.CancelEventHandler(this.DialogMapLoader_FileOk);
             // 
             // MapMaker
             // 

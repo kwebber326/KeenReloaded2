@@ -308,7 +308,12 @@ namespace KeenReloaded2
                 return;
             }
 
-            if (MapUtility.SaveMap(txtMapName.Text, cmbGameMode.SelectedItem?.ToString(), _mapMakerObjects))
+            int width = (int)cmbWidth.SelectedItem;
+            int height = (int)cmbHeight.SelectedItem;
+
+            Size mapSize = new Size(width, height);
+
+            if (MapUtility.SaveMap(txtMapName.Text, cmbGameMode.SelectedItem?.ToString(), mapSize, _mapMakerObjects))
             {
                 MessageBox.Show($"Map '{txtMapName.Text}' was saved successfully!");
             }
@@ -331,7 +336,8 @@ namespace KeenReloaded2
             {
                 //load the map data
                 string path = dialogMapLoader.FileName;
-                _mapMakerObjects = MapUtility.LoadMapData(path);
+                var mapMakerData = MapUtility.LoadMapData(path);
+                _mapMakerObjects = mapMakerData.MapData;
 
                 //clear events for existing items
                 var existingItems = pnlMapCanvas.Controls.OfType<GameObjectMapping>();
@@ -353,7 +359,13 @@ namespace KeenReloaded2
                 }
 
                 //set the map name text box value to the name of the newly loaded map
-                txtMapName.Text = FileIOUtility.ExtractFileNameFromPath(path);
+                txtMapName.Text = mapMakerData.MapName;
+
+                //set the dimensions based on the saved info
+                int wIndex =  cmbWidth.Items.IndexOf(mapMakerData.MapSize.Width);
+                cmbWidth.SelectedIndex = wIndex;
+                int hIndex = cmbHeight.Items.IndexOf(mapMakerData.MapSize.Height);
+                cmbHeight.SelectedIndex = hIndex; 
             }
             catch (Exception ex)
             {
@@ -367,9 +379,6 @@ namespace KeenReloaded2
             txtMapName.Text = InputValidation.SanitizeFileNameInput(txtMapName.Text);
         }
 
-
         #endregion
-
-
     }
 }
