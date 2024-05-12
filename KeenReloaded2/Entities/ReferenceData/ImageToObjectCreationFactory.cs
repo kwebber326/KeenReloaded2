@@ -88,9 +88,9 @@ namespace KeenReloaded2.Entities.ReferenceData
             return path;
         }
 
-        public static MapMakerObject GetMapMakerObjectFromImageName(string imageFile)
+        public static MapMakerObject GetMapMakerObjectFromImageName(string imageName)
         {
-            if (_imageObjectMapping.TryGetValue(imageFile, out MapMakerObject item) && item != null)
+            if (_imageObjectMapping.TryGetValue(imageName, out MapMakerObject item) && item != null)
             {
                 MapMakerObjectProperty[] clonedProperties = item.CloneParameterList();
                 MapMakerObject copy = new MapMakerObject(item.ObjectType, item.ImageControl.ImageLocation, item.IsManualPlacement, clonedProperties);

@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -319,12 +320,53 @@ namespace KeenReloaded2
 
         private void BtnLoad_Click(object sender, EventArgs e)
         {
-
+            dialogMapLoader.InitialDirectory = MapUtility.GetSavedMapsPath(cmbGameMode.SelectedItem?.ToString());
+            dialogMapLoader.Filter = "*.txt|";
+            dialogMapLoader.ShowDialog();
         }
+
+        private void DialogMapLoader_FileOk(object sender, CancelEventArgs e)
+        {
+            try
+            {
+                //load the map data
+                string path = dialogMapLoader.FileName;
+                _mapMakerObjects = MapUtility.LoadMapData(path);
+
+                //clear events for existing items
+                var existingItems = pnlMapCanvas.Controls.OfType<GameObjectMapping>();
+                if (existingItems.Any())
+                {
+                    foreach (var item in existingItems)
+                    {
+                        item.Click -= GameObjectMapping_Click;
+                    }
+                }
+                //clear out the canvas
+                pnlMapCanvas.Controls.Clear();
+
+                //register new data on grid and load to canvas
+                foreach (var mapObject in _mapMakerObjects)
+                {
+                    mapObject.Click += GameObjectMapping_Click;
+                    pnlMapCanvas.Controls.Add(mapObject);
+                }
+
+                //set the map name text box value to the name of the newly loaded map
+                txtMapName.Text = FileIOUtility.ExtractFileNameFromPath(path);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                MessageBox.Show($"Map did not load successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void TxtMapName_TextChanged(object sender, EventArgs e)
         {
             txtMapName.Text = InputValidation.SanitizeFileNameInput(txtMapName.Text);
         }
+
 
         #endregion
 

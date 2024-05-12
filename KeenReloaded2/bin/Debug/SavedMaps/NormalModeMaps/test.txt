@@ -1,3 +1,3 @@
-Background|0|0|256|256|keen5_background_omegamatic_blue1.png|True|0
-Background|64|64|64|64|keen5_background_omegamatic_blue1.png|False|1
-Background|0|0|64|64|keen5_background_omegamatic_blue1.png|False|2
+keen5_background_omegamatic_blue1|128|64|256|256|keen5_background_omegamatic_blue1.png|True|1
+keen5_background_omegamatic_blue1|0|0|64|64|keen5_background_omegamatic_blue1.png|False|1
+keen5_background_omegamatic_blue1|448|0|64|64|keen5_background_omegamatic_blue1.png|False|2
