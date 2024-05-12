@@ -91,5 +91,12 @@ namespace KeenReloaded2.Utilities
             imgName = imgName.Substring(0, imgName.LastIndexOf('.'));
             return imgName;
         }
+
+        public static string GetResourcePathForMainProject()
+        {
+            string directory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+            directory = Path.Combine(directory, "Resources");
+            return directory;
+        }
     }
 }

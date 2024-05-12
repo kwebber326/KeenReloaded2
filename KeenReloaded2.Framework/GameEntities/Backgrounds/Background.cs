@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Constants;
+using KeenReloaded2.Utilities;
 
 namespace KeenReloaded2.Framework.GameEntities.Backgrounds
 {
@@ -18,15 +19,18 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
         private readonly int _zIndex;
         protected Image _image;
 
-        public Background(Rectangle area, string imagePath, bool stretchImage, int zIndex)
+        public Background(Rectangle area, string imageName, bool stretchImage, int zIndex)
         {
             _area = area;
-            _imagePath = imagePath;
+            _imagePath = imageName;
             _stretchImage = stretchImage;
             _zIndex = zIndex;
             try
             {
+                string directory = FileIOUtility.GetResourcePathForMainProject();
+                string imagePath = System.IO.Path.Combine(directory, imageName);
                 _image = Image.FromFile(imagePath);
+               
                 this.Draw();
             }
             catch (Exception ex)

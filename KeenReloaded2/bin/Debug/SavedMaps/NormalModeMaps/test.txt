@@ -1,2 +1,2 @@
-Background|0|0|64|64|C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_background_omegamatic_blue1.png|False
-Background|64|64|256|256|C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_background_omegamatic_blue1.png|True
+Background|128|128|256|256|keen5_background_omegamatic_blue1.png|True
+Background|128|128|64|64|keen5_background_omegamatic_blue1.png|False

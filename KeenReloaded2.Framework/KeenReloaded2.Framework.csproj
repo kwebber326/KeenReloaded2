@@ -55,6 +55,10 @@
       <Project>{2e1f0654-b7c5-4d8f-9688-a9335d048254}</Project>
       <Name>KeenReloaded2.Constants</Name>
     </ProjectReference>
+    <ProjectReference Include="..\KeenReloaded2.Utilities\KeenReloaded2.Utilities.csproj">
+      <Project>{B486FD57-020E-49AC-B895-6924C0A4F3E5}</Project>
+      <Name>KeenReloaded2.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="EventArgs\" />

@@ -7,3 +7,5 @@ C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Framework\obj\Debug\Keen
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Framework\obj\Debug\KeenReloaded2.Framework.csproj.CopyComplete
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Framework\obj\Debug\KeenReloaded2.Framework.dll
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Framework\obj\Debug\KeenReloaded2.Framework.pdb
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Framework\bin\Debug\KeenReloaded2.Utilities.dll
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Framework\bin\Debug\KeenReloaded2.Utilities.pdb

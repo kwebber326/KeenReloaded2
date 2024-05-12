@@ -5632,5 +5632,35 @@
   <ItemGroup>
     <None Include="Resources\keen_stunned.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Constructs\Keen4\keen4_cave_pole_manhole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Constructs\Keen4\keen4_forest_pole_manhole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Constructs\Keen4\keen4_mirage_pole_manhole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Constructs\Keen4\keen4_pyramid_pole_manhole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Constructs\Keen5\keen5_black_pole_manhole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Constructs\Keen5\keen5_green_pole_manhole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Constructs\Keen5\keen5_red_pole_manhole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Constructs\Keen6\keen6_dome_pole_manhole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Constructs\Keen6\keen6_forest_pole_manhole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Constructs\Keen6\keen6_industrial_pole_manhole.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

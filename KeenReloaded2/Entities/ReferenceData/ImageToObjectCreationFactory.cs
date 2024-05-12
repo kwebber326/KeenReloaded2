@@ -36,7 +36,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                          PropertyName = "imagePath",
                          DisplayName = "Image: ",
                          DataType = typeof(string),     
-                         Value = Path.Combine(GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_BACKGROUNDS, "Keen5", Biomes.BIOME_KEEN5_BLACK), nameof(Properties.Resources.keen5_background_omegamatic_blue1) + ".png"),
+                         Value = nameof(Properties.Resources.keen5_background_omegamatic_blue1) + ".png",
                          IsSpriteProperty = true,
                          Readonly = true,
                          Hidden = true

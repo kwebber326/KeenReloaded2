@@ -4083,6 +4083,16 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen4_cave_pole_manhole1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_cave_pole_manhole1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen4_cave_pole_middle {
             get {
                 object obj = ResourceManager.GetObject("keen4_cave_pole_middle", resourceCulture);
@@ -4676,6 +4686,16 @@ namespace KeenReloaded2.Properties {
         internal static System.Drawing.Bitmap keen4_forest_pole_manhole {
             get {
                 object obj = ResourceManager.GetObject("keen4_forest_pole_manhole", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_forest_pole_manhole1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_forest_pole_manhole1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -5683,6 +5703,16 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen4_mirage_pole_manhole1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_mirage_pole_manhole1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen4_mirage_pole_middle {
             get {
                 object obj = ResourceManager.GetObject("keen4_mirage_pole_middle", resourceCulture);
@@ -6006,6 +6036,16 @@ namespace KeenReloaded2.Properties {
         internal static System.Drawing.Bitmap keen4_pyramid_pole_manhole_floor {
             get {
                 object obj = ResourceManager.GetObject("keen4_pyramid_pole_manhole_floor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_pyramid_pole_manhole1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_pyramid_pole_manhole1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -7363,6 +7403,16 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen5_black_pole_manhole1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_black_pole_manhole1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen5_black_pole_middle {
             get {
                 object obj = ResourceManager.GetObject("keen5_black_pole_middle", resourceCulture);
@@ -7686,6 +7736,16 @@ namespace KeenReloaded2.Properties {
         internal static System.Drawing.Bitmap keen5_green_pole_manhole_floor {
             get {
                 object obj = ResourceManager.GetObject("keen5_green_pole_manhole_floor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_pole_manhole1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_pole_manhole1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -8556,6 +8616,16 @@ namespace KeenReloaded2.Properties {
         internal static System.Drawing.Bitmap keen5_red_pole_manhole_floor {
             get {
                 object obj = ResourceManager.GetObject("keen5_red_pole_manhole_floor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_pole_manhole1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_pole_manhole1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -12743,6 +12813,16 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen6_dome_pole_manhole1 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_dome_pole_manhole1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen6_dome_pole_middle {
             get {
                 object obj = ResourceManager.GetObject("keen6_dome_pole_middle", resourceCulture);
@@ -13343,6 +13423,16 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen6_forest_pole_manhole1 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_forest_pole_manhole1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen6_forest_pole_middle {
             get {
                 object obj = ResourceManager.GetObject("keen6_forest_pole_middle", resourceCulture);
@@ -13676,6 +13766,16 @@ namespace KeenReloaded2.Properties {
         internal static System.Drawing.Bitmap keen6_industrial_pole_manhole_floor {
             get {
                 object obj = ResourceManager.GetObject("keen6_industrial_pole_manhole_floor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_industrial_pole_manhole1 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_industrial_pole_manhole1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
