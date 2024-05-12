@@ -296,6 +296,13 @@ namespace KeenReloaded2
         }
         private void MapObjectContainer1_ObjectClicked(object sender, ControlEventArgs.MapMakerObjectEventArgs e)
         {
+            if (e.MapMakerObject == null)
+            {
+                ClearSelectedMapItem();
+                mapMakerObjectPropertyListControl1.SetProperties(null);
+                return;
+            }
+
             if (e.MapMakerObject.IsManualPlacement)
             {
                 ClearSelectedMapItem();
@@ -339,6 +346,11 @@ namespace KeenReloaded2
                     mapObjectContainer1.ClearSelection();
                     mapMakerObjectPropertyListControl1.SetProperties(null);
                     ClearSelectedMapItem();
+                    if (_cursorItem != null)
+                    {
+                        this.Controls.Remove(_cursorItem);
+                        _cursorItem = null;
+                    }
                     break;
                 case Keys.Delete:
                     if (_selectedGameObjectMapping != null)
@@ -451,6 +463,7 @@ namespace KeenReloaded2
                 _cursorItem.Location.Offset(xOffset, yOffset);
 
                 pnlMapCanvas.Controls.Add(_cursorItem);
+                this.Controls.Remove(_cursorItem);
                 _cursorItem.Click += GameObjectMapping_Click;
                 _selectedGameObjectMapping = _cursorItem;
                 ClearSelectedMapItem();
