@@ -239,6 +239,7 @@ namespace KeenReloaded2
             _selectedGameObjectMapping = sender as GameObjectMapping;
             if (_selectedGameObjectMapping != null)
             {
+                mapObjectContainer1.ClearSelection();
                 _selectedGameObjectMapping.BorderStyle = BorderStyle.Fixed3D;
                 mapMakerObjectPropertyListControl1.SetProperties(_selectedGameObjectMapping.MapMakerObject);
             }
@@ -289,6 +290,7 @@ namespace KeenReloaded2
                     {
                         _mapMakerObjects.Remove(_selectedGameObjectMapping);
                         pnlMapCanvas.Controls.Remove(_selectedGameObjectMapping);
+                        mapObjectContainer1.ClearSelection();
                         mapMakerObjectPropertyListControl1.SetProperties(null);
                         ClearSelectedMapItem();
                     }
