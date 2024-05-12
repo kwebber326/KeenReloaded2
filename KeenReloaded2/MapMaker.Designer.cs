@@ -66,6 +66,7 @@
             this.txtMapName.Name = "txtMapName";
             this.txtMapName.Size = new System.Drawing.Size(238, 26);
             this.txtMapName.TabIndex = 1;
+            this.txtMapName.TextChanged += new System.EventHandler(this.TxtMapName_TextChanged);
             // 
             // pnlMapCanvas
             // 

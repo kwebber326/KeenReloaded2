@@ -4,6 +4,7 @@ using KeenReloaded2.Entities.ReferenceData;
 using KeenReloaded2.Framework.GameEntities.Backgrounds;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.ReferenceDataClasses;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -300,14 +301,33 @@ namespace KeenReloaded2
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtMapName.Text))
+            {
+                MessageBox.Show("Please enter a valid map name");
+                return;
+            }
 
+            if (MapUtility.SaveMap(txtMapName.Text, cmbGameMode.SelectedItem?.ToString(), _mapMakerObjects))
+            {
+                MessageBox.Show($"Map '{txtMapName.Text}' was saved successfully!");
+            }
+            else
+            {
+                MessageBox.Show($"Map '{txtMapName.Text}' did not save successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void BtnLoad_Click(object sender, EventArgs e)
         {
 
         }
+        private void TxtMapName_TextChanged(object sender, EventArgs e)
+        {
+            txtMapName.Text = InputValidation.SanitizeFileNameInput(txtMapName.Text);
+        }
 
         #endregion
+
+
     }
 }

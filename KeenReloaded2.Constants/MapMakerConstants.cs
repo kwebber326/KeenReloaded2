@@ -12,6 +12,11 @@ namespace KeenReloaded2.Constants
         public const int DEFAULT_MAP_HEIGHT = 1500;
 
         public const string MAP_MAKER_FOLDER = "MapMakerObjects";
+        public const string SAVED_MAPS_FOLDER = "SavedMaps";
+        public const string NORMAL_MAPS_FOLDER = "NormalModeMaps";
+        public const string ZOMBIE_MAPS_FOLDER = "ZombieModeMaps";
+        public const string KING_OF_THE_HILL_FOLDER = "KingOfTheHillMaps";
+        public const string CAPTURE_THE_FLAG_MAPS_FOLDER = "CaptureTheFlagMaps";
         public const string MAP_MAKER_PROPERTY_SEPARATOR = "|";
         public const string MAP_MAKER_ARRAY_START = "[";
         public const string MAP_MAKER_ARRAY_END = "]";

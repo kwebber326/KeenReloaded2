@@ -81,10 +81,6 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             {
                 bool parseSuccess = int.TryParse(_txtValue.Text, out int val);
                 _mapMakerObjectProperty.Value = parseSuccess ? val : 0;
-                if (!parseSuccess)
-                {
-                    _txtValue.Text = "0";
-                }
             }
         }
 

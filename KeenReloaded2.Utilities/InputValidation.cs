@@ -21,5 +21,13 @@ namespace KeenReloaded2.Utilities
             }
             return result;
         }
+        public static string SanitizeFileNameInput(string fileName)
+        {
+            if (string.IsNullOrWhiteSpace(fileName))
+                return fileName;
+
+            string result = fileName.Replace(@"/", "").Replace(@"\", "").Replace(".", "");
+            return result;
+        }
     }
 }

@@ -118,6 +118,7 @@
     <Compile Include="UserControls\MapMakerUserControls\MapObjectContainer.Designer.cs">
       <DependentUpon>MapObjectContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\MapUtility.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

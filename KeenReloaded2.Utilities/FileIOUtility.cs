@@ -48,6 +48,40 @@ namespace KeenReloaded2.Utilities
             return false;
         }
 
+        public static bool SaveMap(string filePath, string fileData)
+        {
+            try
+            {
+                if (!File.Exists(filePath))
+                    File.Create(filePath);
+
+                File.WriteAllText(filePath, fileData);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            return false;
+        }
+
+        public static string[] LoadMapData(string filePath)
+        {
+            try
+            {
+                if (File.Exists(filePath))
+                {
+                    string[] data = File.ReadAllLines(filePath);
+                    return data;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            return null;
+        }
+
         public static string ExtractFileNameFromPath(string path)
         {
             if (string.IsNullOrEmpty(path))
