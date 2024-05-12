@@ -85,7 +85,24 @@ namespace KeenReloaded2.Entities.ReferenceData
         {
             if (_imageObjectMapping.TryGetValue(imageFile, out MapMakerObject item) && item != null)
             {
-                return item;
+                List<MapMakerObjectProperty> clonedProperties = new List<MapMakerObjectProperty>();
+                foreach (var parameter in item.ConstructorParameters)
+                {
+                    MapMakerObjectProperty clone = new MapMakerObjectProperty()
+                    {
+                        PropertyName = parameter.PropertyName,
+                        DisplayName = parameter.DisplayName,
+                        DataType = parameter.DataType,
+                        Value = parameter.Value,
+                        IsSpriteProperty = parameter.IsSpriteProperty,
+                        PossibleValues = parameter.PossibleValues,
+                        Hidden = parameter.Hidden,
+                        Readonly = parameter.Readonly
+                    };
+                    clonedProperties.Add(clone);
+                }
+                MapMakerObject copy = new MapMakerObject(item.ObjectType, item.ImageControl.ImageLocation, item.IsManualPlacement, clonedProperties.ToArray());
+                return copy;
             }
             return null;
         }
