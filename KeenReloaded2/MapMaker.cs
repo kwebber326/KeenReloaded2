@@ -140,6 +140,14 @@ namespace KeenReloaded2
                 _cursorItem = null;
             }
         }
+        private void RefreshZIndexPositioning()
+        {
+            var orderedByZindexObjects = _mapMakerObjects.OrderBy(o => o.GameObject.ZIndex);
+            foreach (var obj in orderedByZindexObjects)
+            {
+                obj.BringToFront();
+            }
+        }
         private void SetObjectContainer()
         {
             string categoryFolder = cmbCategory.SelectedItem?.ToString();
@@ -268,11 +276,7 @@ namespace KeenReloaded2
                 pnlMapCanvas.Controls.Add(gameObjectMapping);
 
                 //redraw grid
-                var orderedByZindexObjects = _mapMakerObjects.OrderBy(o => o.GameObject.ZIndex);
-                foreach (var obj in orderedByZindexObjects)
-                {
-                    obj.BringToFront();
-                }
+                RefreshZIndexPositioning();
 
                 //replace existing selection if we have one
                 if (_selectedGameObjectMapping != null)
@@ -443,6 +447,7 @@ namespace KeenReloaded2
                 int hIndex = cmbHeight.Items.IndexOf(mapMakerData.MapSize.Height);
                 cmbHeight.SelectedIndex = hIndex;
                 ClearSelectedMapItem();
+                RefreshZIndexPositioning();
             }
             catch (Exception ex)
             {
@@ -488,6 +493,7 @@ namespace KeenReloaded2
                 mapMakerObjectPropertyListControl1.SetProperties(_selectedGameObjectMapping.MapMakerObject, true);
 
                 _cursorItem = null;
+                RefreshZIndexPositioning();
             }
         }
 
