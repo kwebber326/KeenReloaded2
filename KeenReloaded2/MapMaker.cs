@@ -310,8 +310,14 @@ namespace KeenReloaded2
             }
             else
             {
+                if (_cursorItem != null)
+                {
+                    this.Controls.Remove(_cursorItem);
+                    _cursorItem = null;
+                }
                 GameObjectMapping mapping = GenerateMappingObjectFromMapMakerData(e.MapMakerObject);
                 _cursorItem = mapping;
+                mapMakerObjectPropertyListControl1.SetProperties(_cursorItem.MapMakerObject);
                 this.Controls.Add(_cursorItem);
                 _cursorItem.BringToFront();
                 _cursorUpdateTimer.Start();
@@ -462,9 +468,11 @@ namespace KeenReloaded2
                 int xOffset = pnlMapCanvas.Location.X;
                 int yOffset = pnlMapCanvas.Location.Y;
 
-                _cursorItem.Location.Offset(xOffset, yOffset);
+                Rectangle area = new Rectangle(Cursor.Position.X - xOffset, Cursor.Position.Y - yOffset, _cursorItem.Width, _cursorItem.Height);
+                SetNewAreaForMappingObject(area, _cursorItem);
 
                 pnlMapCanvas.Controls.Add(_cursorItem);
+                _mapMakerObjects.Add(_cursorItem);
                 this.Controls.Remove(_cursorItem);
                 _cursorItem.Click += GameObjectMapping_Click;
                 ClearSelectedMapItem();
@@ -472,6 +480,17 @@ namespace KeenReloaded2
                 mapMakerObjectPropertyListControl1.SetProperties(_selectedGameObjectMapping.MapMakerObject, true);
 
                 _cursorItem = null;
+            }
+        }
+
+        private void SetNewAreaForMappingObject(Rectangle area, GameObjectMapping mapping)
+        {
+            var areaProperty = mapping.MapMakerObject.ConstructorParameters.FirstOrDefault(p => p.PropertyName == GeneralGameConstants.AREA_PROPERTY_NAME);
+            if (areaProperty != null && mapping?.MapMakerObject != null)
+            {
+                areaProperty.Value = area;
+                mapping.GameObject = (ISprite)mapping.MapMakerObject.Construct();
+                mapping.Location = mapping.GameObject.Location;
             }
         }
 

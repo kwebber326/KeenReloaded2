@@ -14,5 +14,7 @@ namespace KeenReloaded2.Constants
             public const string EPISODE_5 = "Goodbye Galaxy";
             public const string EPISODE_6 = "Aliens Ate My Babysitter";
         }
+
+        public const string AREA_PROPERTY_NAME = "area";
     }
 }

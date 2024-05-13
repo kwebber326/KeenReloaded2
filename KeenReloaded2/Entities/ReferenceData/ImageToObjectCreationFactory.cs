@@ -38,7 +38,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                     {
                          new MapMakerObjectProperty()
                          {
-                             PropertyName = "area",
+                             PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
                              DisplayName = "Area: ",
                              DataType = typeof(Rectangle),
                              Value = new Rectangle(0, 0, img.Width, img.Height)
@@ -69,7 +69,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                          }
                     }.ToArray();
 
-                        MapMakerObject obj = new MapMakerObject(type, imagePath, true, parameters);
+                        MapMakerObject obj = new MapMakerObject(type, imagePath, false, parameters);
                         backgroundReferenceData.Add(imageName, obj);
                     }
                     catch (Exception ex)
