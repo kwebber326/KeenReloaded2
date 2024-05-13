@@ -43,7 +43,7 @@ namespace KeenReloaded2
             InitializeBiomeComboBox();
             SetObjectContainer();
             mapObjectContainer1.ObjectClicked += MapObjectContainer1_ObjectClicked;
-            mapMakerObjectPropertyListControl1.PlaceObjectClicked += MapMakerObjectPropertyListControl1_PlaceObjectClicked;
+            mapMakerObjectPropertyListControl1.PlaceObjectClicked += MapMakerObjectPropertyListControl1_UpdateObjectClicked;
             _cursorUpdateTimer.Interval = 10;
             _cursorUpdateTimer.Tick += _cursorUpdateTimer_Tick;
         }
@@ -132,6 +132,14 @@ namespace KeenReloaded2
                 _selectedGameObjectMapping = null;
             }
         }
+        private void RemoveCursorItem()
+        {
+            if (_cursorItem != null)
+            {
+                this.Controls.Remove(_cursorItem);
+                _cursorItem = null;
+            }
+        }
         private void SetObjectContainer()
         {
             string categoryFolder = cmbCategory.SelectedItem?.ToString();
@@ -202,7 +210,7 @@ namespace KeenReloaded2
 
         #region event handlers
 
-        private void MapMakerObjectPropertyListControl1_PlaceObjectClicked(object sender, ControlEventArgs.MapMakerObjectEventArgs e)
+        private void MapMakerObjectPropertyListControl1_UpdateObjectClicked(object sender, ControlEventArgs.MapMakerObjectEventArgs e)
         {
             if (e?.MapMakerObject?.ImageControl == null)
                 return;
@@ -280,15 +288,23 @@ namespace KeenReloaded2
 
         private void GameObjectMapping_Click(object sender, EventArgs e)
         {
-            ClearSelectedMapItem();
-            _selectedGameObjectMapping = sender as GameObjectMapping;
-            if (_selectedGameObjectMapping != null)
+            if (_cursorItem == null)
             {
-                mapObjectContainer1.ClearSelection();
-                _selectedGameObjectMapping.BorderStyle = BorderStyle.Fixed3D;
-                mapMakerObjectPropertyListControl1.SetProperties(_selectedGameObjectMapping.MapMakerObject, true);
+                ClearSelectedMapItem();
+                _selectedGameObjectMapping = sender as GameObjectMapping;
+                if (_selectedGameObjectMapping != null)
+                {
+                    mapObjectContainer1.ClearSelection();
+                    _selectedGameObjectMapping.BorderStyle = BorderStyle.Fixed3D;
+                    mapMakerObjectPropertyListControl1.SetProperties(_selectedGameObjectMapping.MapMakerObject, true);
+                }
+            }
+            else
+            {
+                PnlMapCanvas_Click(this, EventArgs.Empty);
             }
         }
+
         private void MapMaker_Load(object sender, EventArgs e)
         {
             InitializeMapMaker();
@@ -296,28 +312,23 @@ namespace KeenReloaded2
         }
         private void MapObjectContainer1_ObjectClicked(object sender, ControlEventArgs.MapMakerObjectEventArgs e)
         {
+            ClearSelectedMapItem();
             if (e.MapMakerObject == null)
             {
-                ClearSelectedMapItem();
                 mapMakerObjectPropertyListControl1.SetProperties(null);
                 return;
             }
 
             if (e.MapMakerObject.IsManualPlacement)
             {
-                ClearSelectedMapItem();
                 mapMakerObjectPropertyListControl1.SetProperties(e.MapMakerObject);
             }
             else
             {
-                if (_cursorItem != null)
-                {
-                    this.Controls.Remove(_cursorItem);
-                    _cursorItem = null;
-                }
+                RemoveCursorItem();
                 GameObjectMapping mapping = GenerateMappingObjectFromMapMakerData(e.MapMakerObject);
                 _cursorItem = mapping;
-                mapMakerObjectPropertyListControl1.SetProperties(_cursorItem.MapMakerObject);
+                mapMakerObjectPropertyListControl1.SetProperties(null);
                 this.Controls.Add(_cursorItem);
                 _cursorItem.BringToFront();
                 _cursorUpdateTimer.Start();
@@ -353,11 +364,7 @@ namespace KeenReloaded2
                     mapObjectContainer1.ClearSelection();
                     mapMakerObjectPropertyListControl1.SetProperties(null);
                     ClearSelectedMapItem();
-                    if (_cursorItem != null)
-                    {
-                        this.Controls.Remove(_cursorItem);
-                        _cursorItem = null;
-                    }
+                    RemoveCursorItem();
                     break;
                 case Keys.Delete:
                     if (_selectedGameObjectMapping != null)
@@ -431,7 +438,7 @@ namespace KeenReloaded2
                 txtMapName.Text = mapMakerData.MapName;
 
                 //set the dimensions based on the saved info
-                int wIndex =  cmbWidth.Items.IndexOf(mapMakerData.MapSize.Width);
+                int wIndex = cmbWidth.Items.IndexOf(mapMakerData.MapSize.Width);
                 cmbWidth.SelectedIndex = wIndex;
                 int hIndex = cmbHeight.Items.IndexOf(mapMakerData.MapSize.Height);
                 cmbHeight.SelectedIndex = hIndex;
@@ -477,6 +484,7 @@ namespace KeenReloaded2
                 _cursorItem.Click += GameObjectMapping_Click;
                 ClearSelectedMapItem();
                 _selectedGameObjectMapping = _cursorItem;
+                _selectedGameObjectMapping.BorderStyle = BorderStyle.Fixed3D;
                 mapMakerObjectPropertyListControl1.SetProperties(_selectedGameObjectMapping.MapMakerObject, true);
 
                 _cursorItem = null;

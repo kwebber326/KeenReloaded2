@@ -1,4 +1,4 @@
 1500|1500
-keen5_background_omegamatic_blue1|299|156|64|64|keen5_background_omegamatic_blue1.png|False|0
-keen5_background_security_center_fuel_tanks|221|377|126|58|keen5_background_security_center_fuel_tanks.png|False|0
-keen5_arrow_down_on|485|271|26|138|keen5_arrow_down_on.png|False|0
+keen5_background_security_center_fuel_tanks|134|114|126|58|keen5_background_security_center_fuel_tanks.png|False|1
+keen5_arrow_down_on|258|192|26|112|keen5_arrow_down_on.png|False|1
+keen5_background_omegamatic_blue1|0|0|1500|1500|keen5_background_omegamatic_blue1.png|False|-1
