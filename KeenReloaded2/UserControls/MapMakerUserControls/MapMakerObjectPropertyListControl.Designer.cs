@@ -59,7 +59,7 @@
             this.btnPlace.Name = "btnPlace";
             this.btnPlace.Size = new System.Drawing.Size(149, 33);
             this.btnPlace.TabIndex = 2;
-            this.btnPlace.Text = "Place Object";
+            this.btnPlace.Text = "Update Object";
             this.btnPlace.UseVisualStyleBackColor = true;
             this.btnPlace.Visible = false;
             this.btnPlace.Click += new System.EventHandler(this.BtnPlace_Click);
