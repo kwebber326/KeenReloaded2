@@ -29,7 +29,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             lblHeader.Text = string.Empty;
         }
 
-        public void SetProperties(MapMakerObject mapMakerObject)
+        public void SetProperties(MapMakerObject mapMakerObject, bool overrideToAutoPlace = false)
         {
             this.Controls.Clear();
             pbObjectImage.Image = null;
@@ -40,7 +40,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             this.Controls.Add(pbObjectImage);
             this.Controls.Add(lblHeader);
             this.Controls.Add(btnPlace);
-            btnPlace.Visible = mapMakerObject.IsManualPlacement;
+            btnPlace.Visible = mapMakerObject.IsManualPlacement || overrideToAutoPlace;
             _mapMakerObject = mapMakerObject;
 
             if (!string.IsNullOrEmpty(mapMakerObject.ImageControl?.ImageLocation))
