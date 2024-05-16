@@ -16,8 +16,8 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
         private readonly Animation _animation;
         private readonly int _imageRotationDelayMilliseconds;
 
-        public AnimatedBackground(Rectangle area, string imagePath, bool stretchImage,
-            string[] images, int imageRotationDelayMilliseconds, int zIndex) 
+        public AnimatedBackground(Rectangle area, string imagePath, bool stretchImage, int zIndex,
+            string[] images, int imageRotationDelayMilliseconds) 
             : base(area, imagePath, stretchImage, zIndex)
         {
             _images = images;

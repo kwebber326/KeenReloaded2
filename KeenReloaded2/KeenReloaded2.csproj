@@ -5663,5 +5663,8 @@
   <ItemGroup>
     <None Include="bin\Debug\MapMakerObjects\Constructs\Keen6\keen6_industrial_pole_manhole.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Animated Foregrounds\keen4\keen4_cave_torch.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

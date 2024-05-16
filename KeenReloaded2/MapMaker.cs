@@ -1,7 +1,6 @@
 ﻿using KeenReloaded2.Constants;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Entities.ReferenceData;
-using KeenReloaded2.Framework.GameEntities.Backgrounds;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.ReferenceDataClasses;
 using KeenReloaded2.Utilities;
@@ -13,8 +12,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -88,6 +85,9 @@ namespace KeenReloaded2
         private void InitializeCategories()
         {
             cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_BACKGROUNDS);
+            cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_ANIMATED_BACKGROUNDS);
+            cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_FOREGROUNDS);
+            cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_ANIMATED_FOREGROUNDS);
             cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_TILES);
             cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_CONSTRUCTS);
             cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_PLAYER);
@@ -97,7 +97,7 @@ namespace KeenReloaded2
             cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_WEAPONS);
             cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_HAZARDS);
             cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_ENEMIES);
-            cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_FOREGROUNDS);
+
             cmbCategory.SelectedIndex = 0;
         }
 
