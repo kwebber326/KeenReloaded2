@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.GameEntities.Tiles;
 
 namespace KeenReloaded.Framework
 {
@@ -52,7 +53,7 @@ namespace KeenReloaded.Framework
 
         private void AddIfTile(SpaceHashGridNode node)
         {
-            //if (this is DebugTile || (this is PlatformTile && !(this is MovingPlatformTile)) || this is PoleTile)
+            //if (this is MaskedTile || (this is PlatformTile && !(this is MovingPlatformTile)) || this is PoleTile)
             //{
             //    node.Tiles.Add(this);
             //}
@@ -117,13 +118,13 @@ namespace KeenReloaded.Framework
 
         protected virtual CollisionObject GetCeilingTile(List<CollisionObject> collisions)
         {
-            //var debugTiles = collisions.Where(c => c is DebugTile && c.HitBox.Bottom <= this.HitBox.Top).ToList();
-            //if (debugTiles.Any())
-            //{
-            //    int maxBottom = debugTiles.Select(c => c.HitBox.Bottom).Max();
-            //    CollisionObject obj = collisions.FirstOrDefault(c => c.HitBox.Bottom == maxBottom);
-            //    return obj;
-            //}
+            var tiles = collisions.Where(c => c is MaskedTile && c.HitBox.Bottom <= this.HitBox.Top).ToList();
+            if (tiles.Any())
+            {
+                int maxBottom = tiles.Select(c => c.HitBox.Bottom).Max();
+                CollisionObject obj = collisions.FirstOrDefault(c => c.HitBox.Bottom == maxBottom);
+                return obj;
+            }
             return null;
         }
 
@@ -314,50 +315,50 @@ namespace KeenReloaded.Framework
 
         protected virtual CollisionObject GetLeftMostRightTile(List<CollisionObject> collisions)
         {
-            //var debugTiles = collisions.OfType<DebugTile>();
-            //if (collisions.Any() && debugTiles.Any())
-            //{
-            //    var rightTiles = debugTiles.Where(c => c.HitBox.Left > this.HitBox.Left && c.HitBox.Top < this.HitBox.Bottom && c.HitBox.Bottom > this.HitBox.Top).ToList();
-            //    if (rightTiles.Any())
-            //    {
-            //        int minX = rightTiles.Select(t => t.HitBox.Left).Min();
-            //        CollisionObject obj = rightTiles.FirstOrDefault(x => x.HitBox.Left == minX);
-            //        return obj;
-            //    }
-            //}
+            var MaskedTiles = collisions.OfType<MaskedTile>();
+            if (collisions.Any() && MaskedTiles.Any())
+            {
+                var rightTiles = MaskedTiles.Where(c => c.HitBox.Left > this.HitBox.Left && c.HitBox.Top < this.HitBox.Bottom && c.HitBox.Bottom > this.HitBox.Top).ToList();
+                if (rightTiles.Any())
+                {
+                    int minX = rightTiles.Select(t => t.HitBox.Left).Min();
+                    CollisionObject obj = rightTiles.FirstOrDefault(x => x.HitBox.Left == minX);
+                    return obj;
+                }
+            }
             return null;
         }
 
         protected virtual CollisionObject GetRightMostLeftTile(List<CollisionObject> collisions)
         {
-            //var debugTiles = collisions.OfType<DebugTile>();
-            //if (collisions.Any() && debugTiles.Any())
-            //{
-            //    var leftTiles = debugTiles.Where(c => c.HitBox.Left < this.HitBox.Left && c.HitBox.Top < this.HitBox.Bottom && c.HitBox.Bottom > this.HitBox.Top).ToList();
-            //    if (leftTiles.Any())
-            //    {
-            //        int maxX = leftTiles.Select(t => t.HitBox.Right).Max();
-            //        CollisionObject obj = leftTiles.FirstOrDefault(x => x.HitBox.Right == maxX);
-            //        return obj;
-            //    }
-            //}
+            var MaskedTiles = collisions.OfType<MaskedTile>();
+            if (collisions.Any() && MaskedTiles.Any())
+            {
+                var leftTiles = MaskedTiles.Where(c => c.HitBox.Left < this.HitBox.Left && c.HitBox.Top < this.HitBox.Bottom && c.HitBox.Bottom > this.HitBox.Top).ToList();
+                if (leftTiles.Any())
+                {
+                    int maxX = leftTiles.Select(t => t.HitBox.Right).Max();
+                    CollisionObject obj = leftTiles.FirstOrDefault(x => x.HitBox.Right == maxX);
+                    return obj;
+                }
+            }
             return null;
         }
 
-        protected virtual CollisionObject GetTopMostLandingTile(List<CollisionObject> collisions)
-        {
-            CollisionObject topMostTile = null;
-            //var landingTiles = collisions.Where(h => (h is DebugTile || h is Platform || h is PlatformTile || h is PoleTile || h is Keen6Switch)
-            //    && h.HitBox.Top >= this.HitBox.Top);
+        //protected virtual CollisionObject GetTopMostLandingTile(List<CollisionObject> collisions)
+        //{
+        //    CollisionObject topMostTile = null;
+        //    var landingTiles = collisions.Where(h => (h is MaskedTile || h is Platform || h is PlatformTile || h is PoleTile || h is Keen6Switch)
+        //        && h.HitBox.Top >= this.HitBox.Top);
 
-            //if (!landingTiles.Any())
-            //    return null;
+        //    if (!landingTiles.Any())
+        //        return null;
 
-            //int minY = landingTiles.Select(c => c.HitBox.Top).Min();
-            //topMostTile = landingTiles.FirstOrDefault(t => t.HitBox.Top == minY);
+        //    int minY = landingTiles.Select(c => c.HitBox.Top).Min();
+        //    topMostTile = landingTiles.FirstOrDefault(t => t.HitBox.Top == minY);
 
-            return topMostTile;
-        }
+        //    return topMostTile;
+        //}
 
         protected virtual CollisionObject GetTopMostLandingTile(int currentFallVelocity)
         {
@@ -824,13 +825,6 @@ namespace KeenReloaded.Framework
         {
             get;
             protected set;
-        }
-
-        protected abstract void HandleCollision(CollisionObject obj);
-
-        public override string ToString()
-        {
-            return $"{this.GetType().Name}|{this.HitBox.X}|{this.HitBox.Y}";
         }
     }
 }

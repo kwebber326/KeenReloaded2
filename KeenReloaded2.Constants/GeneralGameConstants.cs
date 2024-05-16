@@ -16,5 +16,6 @@ namespace KeenReloaded2.Constants
         }
 
         public const string AREA_PROPERTY_NAME = "area";
+        public const string SPACE_HASH_GRID_PROPERTY_NAME = "grid";
     }
 }

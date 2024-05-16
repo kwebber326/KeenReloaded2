@@ -10,6 +10,7 @@ using System.Diagnostics;
 using KeenReloaded2.Entities.ReferenceData;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using System.Drawing;
+using KeenReloaded.Framework;
 
 namespace KeenReloaded2.Utilities
 {
@@ -63,10 +64,11 @@ namespace KeenReloaded2.Utilities
                 string[] mapDataLines = FileIOUtility.LoadMapData(path);
                 Size mapSize = ParseMapSizeData(mapDataLines[0]);
                 mapMakerData.MapSize = mapSize;
+                SpaceHashGrid grid = new SpaceHashGrid(mapSize.Width, mapSize.Height);
                 var dataLines = mapDataLines.Skip(1);
                 foreach (string line in dataLines)
                 {
-                    GameObjectMapping mapping = BuildMapDataObjectFromRawString(line);
+                    GameObjectMapping mapping = BuildMapDataObjectFromRawString(line, grid);
                     mapData.Add(mapping);
                 }
                 mapMakerData.MapData = mapData;
@@ -99,7 +101,7 @@ namespace KeenReloaded2.Utilities
             return size;
         }
 
-        private static GameObjectMapping BuildMapDataObjectFromRawString(string data)
+        private static GameObjectMapping BuildMapDataObjectFromRawString(string data, SpaceHashGrid grid)
         {
             string[] properties = data.Split(MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR[0]);
             if (properties.Length < 5)
@@ -119,9 +121,16 @@ namespace KeenReloaded2.Utilities
 
             var nonAreaParameters = parameters.Where(p => p.DataType != typeof(Rectangle)).ToList();
             //area parameter needs to be present
-            MapMakerObjectProperty areaProperty = parameters.FirstOrDefault(p => p.DataType == typeof(Rectangle));
+            MapMakerObjectProperty areaProperty = parameters.FirstOrDefault(p => p.PropertyName == GeneralGameConstants.AREA_PROPERTY_NAME);
             if (areaProperty == null)
                 throw new ArgumentException("all objects must contain an area property");
+
+            //set space hash grid property
+            MapMakerObjectProperty spaceHashGridProperty = parameters.FirstOrDefault(p => p.PropertyName == GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME);
+            if (spaceHashGridProperty != null)
+            {
+                spaceHashGridProperty.Value = grid;
+            }
 
             areaProperty.Value = area;
 

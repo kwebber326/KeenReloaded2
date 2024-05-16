@@ -8,7 +8,9 @@ namespace KeenReloaded.Framework
 {
     public class SpaceHashGrid
     {
-        public SpaceHashGrid(int width, int height, int hashWidth, int hashHeight)
+        private const int DEFAULT_SPACE_HASH_WIDTH = 150;
+        private const int DEFAULT_SPACE_HASH_HEIGHT = 150;
+        public SpaceHashGrid(int width, int height, int hashWidth = DEFAULT_SPACE_HASH_WIDTH, int hashHeight = DEFAULT_SPACE_HASH_HEIGHT)
         {
             _width = width;
             _height = height;
