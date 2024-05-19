@@ -48,7 +48,6 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
         {
             get
             {
-
                 return base.HitBox;
             }
             protected set
