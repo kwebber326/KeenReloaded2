@@ -42,16 +42,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\CollisionType.cs" />
     <Compile Include="Enums\Direction.cs" />
+    <Compile Include="Enums\MoveState.cs" />
     <Compile Include="GameEntities\Animations\Animation.cs" />
     <Compile Include="GameEntities\Backgrounds\AnimatedBackground.cs" />
     <Compile Include="GameEntities\Backgrounds\Background.cs" />
     <Compile Include="GameEntities\CollisionObject.cs" />
+    <Compile Include="GameEntities\Interfaces\IBiomeTile.cs" />
     <Compile Include="GameEntities\Interfaces\ISprite.cs" />
     <Compile Include="GameEntities\SpaceHashGrid.cs" />
+    <Compile Include="GameEntities\Tiles\Ceilings\CeilingTile.cs" />
+    <Compile Include="GameEntities\Tiles\Floors\LeftEdgeFloorTile.cs" />
+    <Compile Include="GameEntities\Tiles\Platforms\LeftEdgePlatformTile.cs" />
     <Compile Include="GameEntities\Tiles\MaskedTile.cs" />
+    <Compile Include="GameEntities\Tiles\Floors\MiddleFloorTile.cs" />
+    <Compile Include="GameEntities\Tiles\Platforms\MiddlePlatformTile.cs" />
+    <Compile Include="GameEntities\Tiles\Floors\RightEdgeFloorTile.cs" />
+    <Compile Include="GameEntities\Tiles\Platforms\RightEdgePlatformTile.cs" />
+    <Compile Include="GameEntities\Tiles\Platforms\SinglePlatform.cs" />
+    <Compile Include="GameEntities\Tiles\Walls\LeftEdgeWallTile.cs" />
+    <Compile Include="GameEntities\Tiles\Walls\MiddleWallTile.cs" />
+    <Compile Include="GameEntities\Tiles\Walls\RightEdgeWallTile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ReferenceDataClasses\Biomes.cs" />
+    <Compile Include="SpriteSheet\SpriteSheet.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KeenReloaded2.Constants\KeenReloaded2.Constants.csproj">
@@ -65,6 +85,579 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="EventArgs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_air_floor_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_cave_air_floor_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_cave_air_floor_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_cave_floor_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_cave_floor_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_cave_platform_left_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_cave_platform_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_cave_platform_right_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_cave_wall_bottom1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_cave_wall_bottom2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_cave_wall_bottom3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_cave_wall_bottom4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_cave_wall_bottom5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_cave_wall_bottom6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_cave_wall_bottom7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_cave_wall_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_cave_wall_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_cave_wall_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_forest_floor_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_forest_floor_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_forest_floor_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_forest_platform_left_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_forest_platform_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_forest_platform_right_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_forest_platform_single.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_forest_wall_bottom1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_forest_wall_bottom2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_forest_wall_left_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_forest_wall_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_forest_wall_right_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_floor_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_floor_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_floor_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_floor_to_platform_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_platform_left_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_platform_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_platform_right_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_platform_single.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_platform1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_platform2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_platform3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_platform4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_wall_bottom1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_wall_bottom2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_wall_bottom3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_wall_bottom4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_wall_left_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_wall_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_wall_right_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_wall_to_platform_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_wall_to_platform_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_platform_horizontal_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_platform_horizontal_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_platform_horizontal_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_platform_horizontal_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_platform_vertical1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_platform_vertical2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_platorm_stationary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_pyramid_floor_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_pyramid_floor_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_pyramid_floor_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_pyramid_wall_bottom1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_pyramid_wall_bottom2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_pyramid_wall_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_pyramid_wall_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_pyramid_wall_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_removable_platform.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_removable_platform_left_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_removable_platform_left_edge_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_removable_platform_left_edge_filled_pyramid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_removable_platform_left_edge_pyramid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_removable_platform_right_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_removable_platform_right_edge_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_removable_platform_right_edge_filled_pyramid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_removable_platform_right_edge_pyramid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_rocket_propelled_platform1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_rocket_propelled_platform2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_rocket_propelled_platform3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_rocket_propelled_platform4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_secret_platform1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_secret_platform2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_secret_platform3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_black_floor_to_platform_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_black_wall_to_platform_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_ceiling_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_ceiling_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_floor_black_floor_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_floor_black_floor_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_floor_black_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_floor_green_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_floor_green_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_floor_green_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_floor_red_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_floor_red_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_floor_red_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_wall_to_platform_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_orange_platform.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_pink_platform.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_pipe_platform.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_platform_blue_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_platform_blue_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_platform_blue_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_platform_green_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_platform_green_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_platform_green_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_platform_red_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_platform_red_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_platform_red_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_floor_to_platform_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_wall_to_platform_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_removable_platform_left_edge_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_removable_platform_left_edge_filled_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_removable_platform_left_edge_filled_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_removable_platform_left_edge_filled_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_removable_platform_left_edge_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_removable_platform_left_edge_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_removable_platform_right_edge_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_removable_platform_right_edge_filled_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_removable_platform_right_edge_filled_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_removable_platform_right_edge_filled_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_removable_platform_right_edge_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_removable_platform_right_edge_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_single_platform_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_single_platform_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_wall_black_bottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_wall_black_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_wall_black_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_wall_black_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_wall_green_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_wall_green_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_wall_green_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_wall_red_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_wall_red_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_wall_red_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_platform.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_platform_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_platform_down_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_platform_down_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_platform_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_platform_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_platform_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_platform_up_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_platform_up_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_claw_platform.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_claw_platform_arm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_dome_ceiling1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_dome_ceiling2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_dome_ceiling3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_dome_floor_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_dome_floor_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_dome_floor_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_dome_platform_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_dome_platform_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_dome_platform_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_dome_platform_single.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_dome_wall_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_dome_wall_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_dome_wall_middle1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_dome_wall_middle2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_dome_wall_to_platform.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_forest_ceiling1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_forest_ceiling2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_forest_floor_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_forest_floor_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_forest_floor_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_forest_wall_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_forest_wall_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_forest_wall_middle1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_forest_wall_middle2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_industrial_ceiling.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_industrial_floor_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_industrial_floor_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_industrial_floor_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_industrial_platform_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_industrial_platform_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_industrial_platform_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_industrial_single_masked_platform.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_industrial_wall_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_industrial_wall_edge_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_industrial_wall_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_industrial_wall_to_platform_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_removable_platform_forest_left_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_removable_platform_forest_left_edge_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_removable_platform_forest_right_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_removable_platform_forest_right_edge_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_removable_platform_left_edge_dome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_removable_platform_left_edge_filled_dome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_removable_platform_right_edge_dome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_removable_platform_right_edge_filled_dome.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

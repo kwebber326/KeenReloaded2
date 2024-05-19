@@ -18,6 +18,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
         protected readonly int _zIndex;
         protected readonly string _initialImageName;
         protected readonly string _separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
+        protected int _upwardCollisionOffset = 0, _downwardCollisionOffset = 0, _leftwardCollisionOffset = 0, _rightwardCollisionOffset = 0;
 
         protected Image _image;
         protected Rectangle _area;
@@ -59,6 +60,19 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
                     this.UpdateCollisionNodes(Direction.UP_RIGHT);
                 }
             }
+        }
+
+        protected virtual void AdjustHitboxBasedOnOffsets()
+        {
+            var newWidth = this.HitBox.Width - _leftwardCollisionOffset - _rightwardCollisionOffset;
+            var newHeight = this.HitBox.Height - _upwardCollisionOffset - _downwardCollisionOffset;
+            if (newWidth <= 0 || newHeight <= 0)
+                return;
+
+            this.HitBox = new Rectangle(
+                this.HitBox.Location.X + _leftwardCollisionOffset,
+                this.HitBox.Location.Y + _downwardCollisionOffset,
+                newWidth, newHeight);
         }
 
         public override string ToString()

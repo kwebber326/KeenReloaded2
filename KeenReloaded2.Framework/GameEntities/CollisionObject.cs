@@ -28,6 +28,8 @@ namespace KeenReloaded.Framework
             }
         }
 
+        public abstract CollisionType CollisionType { get; }
+
         protected virtual int GenerateRandomInteger(int min, int max)
         {
             int seed = new Random().Next(0, int.MaxValue);
@@ -464,9 +466,6 @@ namespace KeenReloaded.Framework
             {
                 if (node != null)
                 {
-                    //var nodeCollisions = !tilesOnly ? node.Objects.Where(n => n != this && n.HitBox.IntersectsWith(areaToCheck)) :
-                    //    node.Tiles.Where(n => n != this && n.HitBox.IntersectsWith(areaToCheck));
-                    //collidingObjects.AddRange(nodeCollisions);
                     AddNodeCollisions(areaToCheck, tilesOnly, includeEnemies, collidingObjects, node);
                 }
             }
@@ -477,9 +476,6 @@ namespace KeenReloaded.Framework
             {
                 if (node != null)
                 {
-                    //var nodeCollisions = !tilesOnly ? node.Objects.Where(n => n != this && n.HitBox.IntersectsWith(areaToCheck)) :
-                    //    node.Tiles.Where(n => n != this && n.HitBox.IntersectsWith(areaToCheck));
-                    //collidingObjects.AddRange(nodeCollisions);
                     AddNodeCollisions(areaToCheck, tilesOnly, includeEnemies, collidingObjects, node);
                 }
             }
