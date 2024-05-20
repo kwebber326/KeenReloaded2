@@ -9,7 +9,7 @@ using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.ReferenceDataClasses;
 
-namespace KeenReloaded2.Framework.GameEntities.Tiles.Ceilings
+namespace KeenReloaded2.Framework.GameEntities.Tiles
 {
     public class CeilingTile : MaskedTile, IBiomeTile
     {

@@ -459,6 +459,7 @@ namespace KeenReloaded2
         private void TxtMapName_TextChanged(object sender, EventArgs e)
         {
             txtMapName.Text = InputValidation.SanitizeFileNameInput(txtMapName.Text);
+            dialogMapLoader.FileName = string.Empty;
         }
 
         private void _cursorUpdateTimer_Tick(object sender, EventArgs e)

@@ -17,6 +17,9 @@ namespace KeenReloaded.Framework
 
         public CollisionObject(SpaceHashGrid grid, Rectangle hitbox)
         {
+            if (grid == null)
+                return;
+
             this.HitBox = hitbox;
             this._collisionGrid = grid;
             _collidingNodes = grid.GetCurrentHashes(this);

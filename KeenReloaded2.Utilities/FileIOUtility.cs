@@ -52,10 +52,10 @@ namespace KeenReloaded2.Utilities
         {
             try
             {
-                if (!File.Exists(filePath))
-                    File.Create(filePath);
-
-                File.WriteAllText(filePath, fileData);
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    writer.Write(fileData);
+                }
                 return true;
             }
             catch (Exception ex)
@@ -69,11 +69,16 @@ namespace KeenReloaded2.Utilities
         {
             try
             {
-                if (File.Exists(filePath))
+                List<string> lines = new List<string>();
+                using (FileStream fs = File.OpenRead(filePath))
+                using (StreamReader reader = new StreamReader(fs))
                 {
-                    string[] data = File.ReadAllLines(filePath);
-                    return data;
+                    while (!reader.EndOfStream)
+                    {
+                        lines.Add(reader.ReadLine());
+                    }
                 }
+                return lines.ToArray();
             }
             catch (Exception ex)
             {
