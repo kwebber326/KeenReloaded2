@@ -63,6 +63,206 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gem_acquired {
+            get {
+                object obj = ResourceManager.GetObject("gem_acquired", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gem_blue1 {
+            get {
+                object obj = ResourceManager.GetObject("gem_blue1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gem_blue2 {
+            get {
+                object obj = ResourceManager.GetObject("gem_blue2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gem_green1 {
+            get {
+                object obj = ResourceManager.GetObject("gem_green1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gem_green2 {
+            get {
+                object obj = ResourceManager.GetObject("gem_green2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gem_placeholder_blue_empty {
+            get {
+                object obj = ResourceManager.GetObject("gem_placeholder_blue_empty", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gem_placeholder_blue_filled {
+            get {
+                object obj = ResourceManager.GetObject("gem_placeholder_blue_filled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gem_placeholder_green_empty {
+            get {
+                object obj = ResourceManager.GetObject("gem_placeholder_green_empty", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gem_placeholder_green_filled {
+            get {
+                object obj = ResourceManager.GetObject("gem_placeholder_green_filled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gem_placeholder_red_empty {
+            get {
+                object obj = ResourceManager.GetObject("gem_placeholder_red_empty", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gem_placeholder_red_filled {
+            get {
+                object obj = ResourceManager.GetObject("gem_placeholder_red_filled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gem_placeholder_yellow_empty {
+            get {
+                object obj = ResourceManager.GetObject("gem_placeholder_yellow_empty", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gem_placeholder_yellow_filled {
+            get {
+                object obj = ResourceManager.GetObject("gem_placeholder_yellow_filled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gem_red1 {
+            get {
+                object obj = ResourceManager.GetObject("gem_red1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gem_red2 {
+            get {
+                object obj = ResourceManager.GetObject("gem_red2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gem_yellow1 {
+            get {
+                object obj = ResourceManager.GetObject("gem_yellow1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gem_yellow2 {
+            get {
+                object obj = ResourceManager.GetObject("gem_yellow2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap inventory_blue_gem {
+            get {
+                object obj = ResourceManager.GetObject("inventory_blue_gem", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap inventory_green_gem {
+            get {
+                object obj = ResourceManager.GetObject("inventory_green_gem", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap inventory_yellow_gem {
+            get {
+                object obj = ResourceManager.GetObject("inventory_yellow_gem", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen4_air_floor_edge_right {
             get {
                 object obj = ResourceManager.GetObject("keen4_air_floor_edge_right", resourceCulture);
@@ -1946,6 +2146,16 @@ namespace KeenReloaded2.Framework.Properties {
         internal static System.Drawing.Bitmap keen6_removable_platform_right_edge_filled_dome {
             get {
                 object obj = ResourceManager.GetObject("keen6_removable_platform_right_edge_filled_dome", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap red_gem_inventory {
+            get {
+                object obj = ResourceManager.GetObject("red_gem_inventory", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

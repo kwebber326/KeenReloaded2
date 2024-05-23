@@ -207,5 +207,98 @@ namespace KeenReloaded2.Framework.SpriteSheet
         #endregion
 
         #endregion
+
+        #region gems
+
+        private static Image[] _redGemImages;
+
+        public static Image[] RedGemImages
+        {
+            get
+            {
+                if (_redGemImages == null)
+                {
+                    _redGemImages = new Image[]
+                    {
+                        Properties.Resources.gem_red1,
+                        Properties.Resources.gem_red2
+                    };
+                }
+                return _redGemImages;
+            }
+        }
+
+        private static Image[] _blueGemImages;
+
+        public static Image[] BlueGemImages
+        {
+            get
+            {
+                if (_blueGemImages == null)
+                {
+                    _blueGemImages = new Image[]
+                    {
+                        Properties.Resources.gem_blue1,
+                        Properties.Resources.gem_blue2
+                    };
+                }
+                return _blueGemImages;
+            }
+        }
+
+        private static Image[] _greenGemImages;
+
+        public static Image[] GreenGemImages
+        {
+            get
+            {
+                if (_greenGemImages == null)
+                {
+                    _greenGemImages = new Image[]
+                    {
+                        Properties.Resources.gem_green1,
+                        Properties.Resources.gem_green2
+                    };
+                }
+                return _greenGemImages;
+            }
+        }
+
+        private static Image[] _yellowGemImages;
+
+        public static Image[] YellowGemImages
+        {
+            get
+            {
+                if (_yellowGemImages == null)
+                {
+                    _yellowGemImages = new Image[]
+                    {
+                        Properties.Resources.gem_yellow1,
+                        Properties.Resources.gem_yellow2
+                    };
+                }
+                return _yellowGemImages;
+            }
+        }
+
+        private static Image[] _gemAcquiredImages;
+
+        public static Image[] GemAcquiredImages
+        {
+            get
+            {
+                if (_gemAcquiredImages == null)
+                {
+                    _gemAcquiredImages = new Image[]
+                    {
+                        Properties.Resources.gem_acquired
+                    };
+                }
+                return _gemAcquiredImages;
+            }
+        }
+
+        #endregion 
     }
 }

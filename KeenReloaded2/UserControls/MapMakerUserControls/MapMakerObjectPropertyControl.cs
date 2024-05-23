@@ -88,7 +88,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         {
             _mapMakerObjectProperty = objectProperty;
             lblPropertyName.Text = _mapMakerObjectProperty.DisplayName;
-            if (_mapMakerObjectProperty.DataType == typeof(Enum)
+            if (_mapMakerObjectProperty.DataType.IsEnum
              || _mapMakerObjectProperty.DataType == typeof(string[])
              || _mapMakerObjectProperty.DataType == typeof(List<string>))
             {

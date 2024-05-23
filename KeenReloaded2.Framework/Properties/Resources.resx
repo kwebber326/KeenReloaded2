@@ -118,6 +118,66 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gem_acquired" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gem_acquired.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gem_blue1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gem_blue1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gem_blue2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gem_blue2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gem_green1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gem_green1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gem_green2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gem_green2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gem_placeholder_blue_empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gem_placeholder_blue_empty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gem_placeholder_blue_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gem_placeholder_blue_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gem_placeholder_green_empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gem_placeholder_green_empty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gem_placeholder_green_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gem_placeholder_green_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gem_placeholder_red_empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gem_placeholder_red_empty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gem_placeholder_red_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gem_placeholder_red_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gem_placeholder_yellow_empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gem_placeholder_yellow_empty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gem_placeholder_yellow_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gem_placeholder_yellow_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gem_red1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gem_red1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gem_red2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gem_red2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gem_yellow1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gem_yellow1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gem_yellow2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gem_yellow2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="inventory_blue_gem" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\inventory_blue_gem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="inventory_green_gem" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\inventory_green_gem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="inventory_yellow_gem" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\inventory_yellow_gem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keen4_air_floor_edge_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_air_floor_edge_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -684,5 +744,8 @@
   </data>
   <data name="keen6_removable_platform_right_edge_filled_dome" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen6_removable_platform_right_edge_filled_dome.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_gem_inventory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\red_gem_inventory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

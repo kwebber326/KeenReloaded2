@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 using KeenReloaded.Framework;
 using KeenReloaded2.Constants;
 using KeenReloaded2.Entities;
+using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Backgrounds;
+using KeenReloaded2.Framework.GameEntities.Items;
 using KeenReloaded2.Framework.GameEntities.Tiles;
 using KeenReloaded2.Framework.ReferenceDataClasses;
 using KeenReloaded2.Utilities;
@@ -485,6 +487,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                 #endregion
             }
 
+            #region tiles
             foreach (var item in _tileTypeDictionary)
             {
                 var type = item.Key;
@@ -508,14 +511,16 @@ namespace KeenReloaded2.Entities.ReferenceData
                             PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
                             DataType = typeof(SpaceHashGrid),
                             Value = null,
-                            Hidden = true
+                            Hidden = true,
+                            IsIgnoredInMapData = true
                         },
                         new MapMakerObjectProperty()
                         {
                             PropertyName = GeneralGameConstants.HITBOX_PROPERTY_NAME,
                             Hidden = true,
                             DataType = typeof(Rectangle),
-                            Value = new Rectangle(0, 0, img.Width, img.Height)
+                            Value = new Rectangle(0, 0, img.Width, img.Height),
+                            IsIgnoredInMapData = true
                         },
                         new MapMakerObjectProperty()
                         {
@@ -523,7 +528,8 @@ namespace KeenReloaded2.Entities.ReferenceData
                             DataType = typeof(string),
                             Hidden = true,
                             Value = path,
-                            IsSpriteProperty = true
+                            IsSpriteProperty = true,
+                            IsIgnoredInMapData = true
                         },
                         new MapMakerObjectProperty()
                          {
@@ -544,6 +550,73 @@ namespace KeenReloaded2.Entities.ReferenceData
                     backgroundReferenceData.Add(imageName, obj);
                 }
             }
+            #endregion
+
+            #region gems
+
+            string gemPath = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_GEMS, $"keen4", Biomes.BIOME_KEEN5_BLACK);
+            var gemFiles = Directory.GetFiles(gemPath);    
+
+            foreach (var filePath in gemFiles)
+            {
+                var img = Image.FromFile(filePath);
+                string imgName = FileIOUtility.ExtractFileNameFromPath(filePath);
+                MapMakerObjectProperty[] constructorParameters = new MapMakerObjectProperty[]
+                {
+                    new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, img.Width, img.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = "imageName",
+                            DataType = typeof(string),
+                            Hidden = true,
+                            Value = imgName,
+                            IsSpriteProperty = true,
+                            IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = "color",
+                            DataType = typeof(GemColor),
+                            Hidden = true,
+                            Value = InferGemColorFromImageName(imgName),
+                            PossibleValues = Enum.GetNames(typeof(GemColor)),
+                            IsSpriteProperty = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = "zIndex",
+                            DataType = typeof(int),
+                            Value = 50,
+                            DisplayName ="Z Index: "
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = "hasGravity",
+                            DataType = typeof(bool),
+                            Value = false,
+                            Hidden = true
+                        },
+                };
+                MapMakerObject obj = new MapMakerObject(typeof(Gem), filePath, false, constructorParameters);
+                
+                backgroundReferenceData.Add(imgName, obj);
+            }
+
+            #endregion
 
             return backgroundReferenceData;
         }
@@ -590,6 +663,8 @@ namespace KeenReloaded2.Entities.ReferenceData
             }
             return null;
         }
+
+        #region helper methods
 
         private static string InferBiomeFromImage(string imageName)
         {
@@ -658,5 +733,26 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             return string.Empty;
         }
+
+        private static GemColor InferGemColorFromImageName(string imageName)
+        {
+            if (string.IsNullOrWhiteSpace(imageName))
+                throw new ArgumentNullException(nameof(imageName));
+
+            string lowerImg = imageName.ToLower();
+
+            if (lowerImg.Contains("red"))
+                return GemColor.RED;
+            if (lowerImg.Contains("blue"))
+                return GemColor.BLUE;
+            if (lowerImg.Contains("green"))
+                return GemColor.GREEN;
+            if (lowerImg.Contains("yellow"))
+                return GemColor.YELLOW;
+
+            throw new ArgumentException("Could not infer gem color from image name");
+        }
+
+        #endregion
     }
 }

@@ -16,3 +16,9 @@ keen6_dome_platform_single|620|439|32|40|10
 keen6_dome_ceiling3|428|529|64|32|10
 keen6_dome_ceiling2|364|529|64|32|10
 keen6_dome_ceiling1|301|529|64|32|10
+gem_blue1|73|119|26|20|BLUE|50|False
+gem_green1|63|266|26|20|GREEN|50|False
+gem_red1|135|104|26|20|RED|50|False
+gem_yellow1|157|222|26|20|YELLOW|50|False
+gem_yellow1|242|276|26|20|YELLOW|1|False
+gem_red1|297|276|26|20|RED|50|False

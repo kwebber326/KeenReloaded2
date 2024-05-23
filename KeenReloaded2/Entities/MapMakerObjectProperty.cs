@@ -23,5 +23,7 @@ namespace KeenReloaded2.Entities
         public string[] PossibleValues { get; set; }
 
         public bool IsSpriteProperty { get; set; }
+
+        public bool IsIgnoredInMapData { get; set; }
     }
 }

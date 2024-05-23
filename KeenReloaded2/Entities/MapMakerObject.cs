@@ -40,7 +40,8 @@ namespace KeenReloaded2.Entities
                     IsSpriteProperty = parameter.IsSpriteProperty,
                     PossibleValues = parameter.PossibleValues,
                     Hidden = parameter.Hidden,
-                    Readonly = parameter.Readonly
+                    Readonly = parameter.Readonly,
+                    IsIgnoredInMapData = parameter.IsIgnoredInMapData
                 };
                 clonedProperties.Add(clone);
             }

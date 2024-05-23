@@ -5106,9 +5106,6 @@
     <None Include="Resources\gem_placeholder_yellow_empty.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\gem_yellow2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\inventory_blue_gem.png" />
   </ItemGroup>
   <ItemGroup>
@@ -5665,6 +5662,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\MapMakerObjects\Animated Foregrounds\keen4\keen4_cave_torch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gem_red1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gem_red2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gem_yellow1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gem_yellow2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

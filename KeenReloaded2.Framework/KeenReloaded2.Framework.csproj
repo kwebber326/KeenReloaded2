@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Enums\CollisionType.cs" />
     <Compile Include="Enums\Direction.cs" />
+    <Compile Include="Enums\GemColor.cs" />
     <Compile Include="Enums\MoveState.cs" />
     <Compile Include="GameEntities\Animations\Animation.cs" />
     <Compile Include="GameEntities\Backgrounds\AnimatedBackground.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="GameEntities\CollisionObject.cs" />
     <Compile Include="GameEntities\Interfaces\IBiomeTile.cs" />
     <Compile Include="GameEntities\Interfaces\ISprite.cs" />
+    <Compile Include="GameEntities\Items\Gem.cs" />
     <Compile Include="GameEntities\Items\Item.cs" />
     <Compile Include="GameEntities\SpaceHashGrid.cs" />
     <Compile Include="GameEntities\Tiles\Ceilings\CeilingTile.cs" />
@@ -89,7 +91,9 @@
       <Name>KeenReloaded2.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\gem_acquired.png" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -662,6 +666,66 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_removable_platform_right_edge_filled_dome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gem_blue1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gem_blue2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gem_green1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gem_green2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gem_placeholder_blue_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gem_placeholder_blue_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gem_placeholder_green_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gem_placeholder_green_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gem_placeholder_red_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gem_placeholder_red_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gem_placeholder_yellow_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gem_placeholder_yellow_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gem_red1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gem_red2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gem_yellow1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gem_yellow2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventory_blue_gem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventory_green_gem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventory_yellow_gem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red_gem_inventory.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

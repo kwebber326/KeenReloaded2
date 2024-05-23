@@ -117,9 +117,9 @@ namespace KeenReloaded2.Utilities
             Rectangle area = new Rectangle(x, y, width, height);
 
             MapMakerObject obj = ImageToObjectCreationFactory.GetMapMakerObjectFromImageName(typeName);
-            var parameters = obj.CloneParameterList();
+            var parameters = obj.ConstructorParameters;
 
-            var nonAreaParameters = parameters.Where(p => p.DataType != typeof(Rectangle)).ToList();
+            var explicitNonStandardParameters = parameters.Where(p => !p.IsIgnoredInMapData && p.PropertyName != GeneralGameConstants.AREA_PROPERTY_NAME).ToList();
             //area parameter needs to be present
             MapMakerObjectProperty areaProperty = parameters.FirstOrDefault(p => p.PropertyName == GeneralGameConstants.AREA_PROPERTY_NAME);
             if (areaProperty == null)
@@ -137,7 +137,7 @@ namespace KeenReloaded2.Utilities
             for (int i = 5; i < properties.Length; i++)
             {
                 string rawValue = properties[i];
-                MapMakerObjectProperty associatedProperty = nonAreaParameters[i - 5];//there should be only one area parameter
+                MapMakerObjectProperty associatedProperty = explicitNonStandardParameters[i - 5];//there should be only one area parameter
                 if (associatedProperty.DataType == typeof(int))
                 {
                     int value = Convert.ToInt32(rawValue);
@@ -158,6 +158,11 @@ namespace KeenReloaded2.Utilities
                 else if (associatedProperty.DataType == typeof(string))
                 {
                     associatedProperty.Value = rawValue;
+                }
+                else if (associatedProperty.DataType.IsEnum)
+                {
+                    var value = Enum.Parse(associatedProperty.DataType, rawValue);
+                    associatedProperty.Value = value;
                 }
             }
 
