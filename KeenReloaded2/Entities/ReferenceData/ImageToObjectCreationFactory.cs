@@ -204,6 +204,30 @@ namespace KeenReloaded2.Entities.ReferenceData
                 },
             };
         #endregion
+
+        #region point type dictionary
+        private static Dictionary<string, PointItemType> _pointImageTypeDict = new Dictionary<string, PointItemType>()
+        {
+            { nameof(Properties.Resources.keen4_shikadi_soda1), PointItemType.KEEN4_SHIKADI_SODA },
+            { nameof(Properties.Resources.keen4_three_tooth_gum1), PointItemType.KEEN4_THREE_TOOTH_GUM },
+            { nameof(Properties.Resources.keen4_candy_bar1), PointItemType.KEEN4_SHIKKERS_CANDY_BAR },
+            { nameof(Properties.Resources.keen4_jawbreaker1), PointItemType.KEEN4_JAWBREAKER },
+            { nameof(Properties.Resources.keen4_doughnut1), PointItemType.KEEN4_DOUGHNUT },
+            { nameof(Properties.Resources.keen4_icecream_cone1), PointItemType.KEEN4_ICECREAM_CONE },
+            { nameof(Properties.Resources.keen5_shikadi_gum1), PointItemType.KEEN5_SHIKADI_GUM },
+            { nameof(Properties.Resources.keen5_marshmallow1), PointItemType.KEEN5_MARSHMALLOW },
+            { nameof(Properties.Resources.keen5_chocolate_milk1), PointItemType.KEEN5_CHOCOLATE_MILK },
+            { nameof(Properties.Resources.keen5_tart_stix1), PointItemType.KEEN5_TART_STIX },
+            { nameof(Properties.Resources.keen5_sugar_stoopies_cereal1), PointItemType.KEEN5_SUGAR_STOOPIES_CEREAL },
+            { nameof(Properties.Resources.keen5_bag_o_sugar1), PointItemType.KEEN5_BAG_O_SUGAR },
+            { nameof(Properties.Resources.keen6_bloog_soda1), PointItemType.KEEN6_BLOOG_SODA },
+            { nameof(Properties.Resources.keen6_ice_cream_bar1), PointItemType.KEEN6_ICE_CREAM_BAR },
+            { nameof(Properties.Resources.keen6_pudding1), PointItemType.KEEN6_PUDDING },
+            { nameof(Properties.Resources.keen6_root_beer_float1), PointItemType.KEEN6_ROOT_BEER_FLOAT },
+            { nameof(Properties.Resources.keen6_banana_split1), PointItemType.KEEN6_BANANA_SPLIT },
+            { nameof(Properties.Resources.keen6_pizza_slice1), PointItemType.KEEN6_PIZZA_SLICE },
+        };
+        #endregion
         private static Dictionary<string, MapMakerObject> GetBackgroundObjectData()
         {
             Dictionary<string, MapMakerObject> backgroundReferenceData = new Dictionary<string, MapMakerObject>();
@@ -555,7 +579,7 @@ namespace KeenReloaded2.Entities.ReferenceData
             #region gems
 
             string gemPath = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_GEMS, $"keen4", Biomes.BIOME_KEEN5_BLACK);
-            var gemFiles = Directory.GetFiles(gemPath);    
+            var gemFiles = Directory.GetFiles(gemPath);
 
             foreach (var filePath in gemFiles)
             {
@@ -612,9 +636,79 @@ namespace KeenReloaded2.Entities.ReferenceData
                         },
                 };
                 MapMakerObject obj = new MapMakerObject(typeof(Gem), filePath, false, constructorParameters);
-                
+
                 backgroundReferenceData.Add(imgName, obj);
             }
+
+            #endregion
+
+            #region point items 
+            string[] pointItemsPaths = new string[] 
+            {
+                GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_POINTS, "Keen4", Biomes.BIOME_KEEN4_CAVE),
+                GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_POINTS, "Keen5", Biomes.BIOME_KEEN4_CAVE),
+                GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_POINTS, "Keen6", Biomes.BIOME_KEEN4_CAVE)
+            };
+            foreach (string pointItemPath in pointItemsPaths)
+            {
+                var pointImageFiles = Directory.GetFiles(pointItemPath);
+                foreach (var file in pointImageFiles)
+                {
+                    string pointImageName = FileIOUtility.ExtractFileNameFromPath(file);
+
+                    if (!_pointImageTypeDict.TryGetValue(pointImageName, out PointItemType pointItemType))
+                        continue;
+
+                    Image img = Image.FromFile(file);
+                    MapMakerObjectProperty[] objectProperties = new MapMakerObjectProperty[]
+                    {
+                        new MapMakerObjectProperty()
+                        {
+                                DisplayName = "Area: ",
+                                PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                                DataType = typeof(Rectangle),
+                                Value = new Rectangle(0, 0, img.Width, img.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                                PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                                DataType = typeof(SpaceHashGrid),
+                                Value = null,
+                                Hidden = true,
+                                IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                                DisplayName = "Image Name: ",
+                                PropertyName = "imageName",
+                                DataType = typeof(string),
+                                Value = pointImageName,
+                                IsSpriteProperty = true,
+                                Hidden = true,
+                                IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                                PropertyName = "zIndex",
+                                DataType = typeof(int),
+                                Value = 50,
+                                DisplayName ="Z Index: "
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                                PropertyName = "type",
+                                DataType = typeof(PointItemType),
+                                Value = pointItemType,
+                                PossibleValues = Enum.GetNames(typeof(PointItemType)),
+                                Readonly = true
+                        },
+                    };
+                    MapMakerObject obj = new MapMakerObject(typeof(PointItem), file, false, objectProperties);
+                    backgroundReferenceData.Add(pointImageName, obj);
+                }
+            }
+
+
 
             #endregion
 

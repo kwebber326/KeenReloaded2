@@ -46,6 +46,7 @@
     <Compile Include="Enums\Direction.cs" />
     <Compile Include="Enums\GemColor.cs" />
     <Compile Include="Enums\MoveState.cs" />
+    <Compile Include="Enums\PointItemType.cs" />
     <Compile Include="GameEntities\Animations\Animation.cs" />
     <Compile Include="GameEntities\Backgrounds\AnimatedBackground.cs" />
     <Compile Include="GameEntities\Backgrounds\Background.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="GameEntities\Interfaces\ISprite.cs" />
     <Compile Include="GameEntities\Items\Gem.cs" />
     <Compile Include="GameEntities\Items\Item.cs" />
+    <Compile Include="GameEntities\Items\PointItem.cs" />
     <Compile Include="GameEntities\SpaceHashGrid.cs" />
     <Compile Include="GameEntities\Tiles\Ceilings\CeilingTile.cs" />
     <Compile Include="GameEntities\Tiles\Floors\LeftEdgeFloorTile.cs" />
@@ -726,6 +728,240 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\red_gem_inventory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_points_200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_points_500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_points_5000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_points_2000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_points_1000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_points_100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_candy_bar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_candy_bar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_doughnut1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_doughnut2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_drop_acquired1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_drop_acquired2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_drop_acquired3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_drop1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_drop2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_drop3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_icecream_cone1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_icecream_cone2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_jawbreaker1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_jawbreaker2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_lifewater_flask1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_lifewater_flask2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_shikadi_soda1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_shikadi_soda2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_three_tooth_gum1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_three_tooth_gum2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_bag_o_sugar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_bag_o_sugar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_chocolate_milk1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_chocolate_milk2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_keg_o_vitalin1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_keg_o_vitalin2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_key_card_acquired.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_key_card1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_key_card2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_marshmallow1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_marshmallow2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_gum1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_gum2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sugar_stoopies_cereal1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sugar_stoopies_cereal2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_tart_stix1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_tart_stix2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_tart_stix3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_tart_stix4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_vitalin_acquired1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_vitalin_acquired2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_vitalin_acquired3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_vitalin_acquired4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_vitalin1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_vitalin2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_vitalin3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_vitalin4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_banana_split1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_banana_split2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bloog_soda1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bloog_soda2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_ice_cream_bar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_ice_cream_bar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_pizza_slice1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_pizza_slice2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_pudding1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_pudding2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_root_beer_float1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_root_beer_float2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_viva_acquired1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_viva_acquired2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_viva_acquired3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_viva_acquired4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_viva_flying1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_viva_flying2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_viva_flying3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_viva_perched1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_viva_perched2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_viva_perched3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_viva_perched4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_viva_queen1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_viva_queen2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

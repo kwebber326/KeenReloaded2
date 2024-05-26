@@ -13,14 +13,14 @@ namespace KeenReloaded2.Entities
         protected readonly Type _objectType;
         protected readonly bool _isManualPlacement;
 
-        public MapMakerObject(Type objectType, string imageFileName, bool isManualPlacement, params MapMakerObjectProperty[] constructorParamaters)
+        public MapMakerObject(Type objectType, string imageFilePath, bool isManualPlacement, params MapMakerObjectProperty[] constructorParamaters)
         {
             _objectType = objectType;
             _isManualPlacement = isManualPlacement;
             this.ImageControl = new PictureBox();
             this.ImageControl.SizeMode = PictureBoxSizeMode.AutoSize;
-            this.ImageControl.Image = Image.FromFile(imageFileName);
-            this.ImageControl.ImageLocation = imageFileName;
+            this.ImageControl.Image = Image.FromFile(imageFilePath);
+            this.ImageControl.ImageLocation = imageFilePath;
             this.ConstructorParameters = constructorParamaters ?? new MapMakerObjectProperty[0];
         }
 

@@ -299,6 +299,443 @@ namespace KeenReloaded2.Framework.SpriteSheet
             }
         }
 
-        #endregion 
+        #endregion
+
+        #region Items
+
+        #region Points
+
+        #region Keen4
+
+        private static Image[] _keen4ShikadiSodaImages;
+
+        public static Image[] Keen4ShikadiSodaImages
+        {
+            get
+            {
+                if (_keen4ShikadiSodaImages == null)
+                {
+                    _keen4ShikadiSodaImages = new Image[]
+                    {
+                        Properties.Resources.keen4_shikadi_soda1,
+                        Properties.Resources.keen4_shikadi_soda2
+                    };
+                }
+                return _keen4ShikadiSodaImages;
+            }
+        }
+
+
+        private static Image[] _keen43ToothGum;
+
+        public static Image[] Keen43ToothGum
+        {
+            get
+            {
+                if (_keen43ToothGum == null)
+                {
+                    _keen43ToothGum = new Image[]
+                    {
+                        Properties.Resources.keen4_three_tooth_gum1,
+                        Properties.Resources.keen4_three_tooth_gum2
+                    };
+                }
+                return _keen43ToothGum;
+            }
+        }
+
+        private static Image[] _keen4ShikkersCandyBar;
+
+        public static Image[] Keen4ShikkersCandyBar
+        {
+            get
+            {
+                if (_keen4ShikkersCandyBar == null)
+                {
+                    _keen4ShikkersCandyBar = new Image[]
+                    {
+                        Properties.Resources.keen4_candy_bar1,
+                        Properties.Resources.keen4_candy_bar2
+                    };
+                }
+                return _keen4ShikkersCandyBar;
+            }
+        }
+
+        private static Image[] _keen4JawBreaker;
+
+        public static Image[] Keen4JawBreaker
+        {
+            get
+            {
+                if (_keen4JawBreaker == null)
+                {
+                    _keen4JawBreaker = new Image[]
+                    {
+                        Properties.Resources.keen4_jawbreaker1,
+                        Properties.Resources.keen4_jawbreaker2
+                    };
+                }
+                return _keen4JawBreaker;
+            }
+        }
+
+
+        private static Image[] _keen4Doughnut;
+        public static Image[] Keen4Doughnut
+        {
+            get
+            {
+                if (_keen4Doughnut == null)
+                {
+                    _keen4Doughnut = new Image[]
+                    {
+                        Properties.Resources.keen4_doughnut1,
+                        Properties.Resources.keen4_doughnut1
+                    };
+                }
+                return _keen4Doughnut;
+            }
+        }
+
+
+        private static Image[] _keen4IceCreamCone;
+        public static Image[] Keen4IceCreamCone
+        {
+            get
+            {
+                if (_keen4IceCreamCone == null)
+                {
+                    _keen4IceCreamCone = new Image[]
+                    {
+                        Properties.Resources.keen4_icecream_cone1,
+                        Properties.Resources.keen4_icecream_cone2
+                    };
+                }
+                return _keen4IceCreamCone;
+            }
+        }
+
+        #endregion
+
+        #region Keen5
+        private static Image[] _keen5ShikadiGum;
+        public static Image[] Keen5ShikadiGum
+        {
+            get
+            {
+                if (_keen5ShikadiGum == null)
+                {
+                    _keen5ShikadiGum = new Image[]
+                    {
+                        Properties.Resources.keen5_shikadi_gum1,
+                        Properties.Resources.keen5_shikadi_gum2
+                    };
+                }
+                return _keen5ShikadiGum;
+            }
+        }
+
+        private static Image[] _keen5Marshmallow;
+        public static Image[] Keen5Marshmallow
+        {
+            get
+            {
+                if (_keen5Marshmallow == null)
+                {
+                    _keen5Marshmallow = new Image[]
+                    {
+                                   Properties.Resources.keen5_marshmallow1,
+                        Properties.Resources.keen5_marshmallow2
+                    };
+                }
+                return _keen5Marshmallow;
+            }
+        }
+
+        private static Image[] _keen5ChocolateMilk;
+        public static Image[] Keen5ChocolateMilk
+        {
+            get
+            {
+                if (_keen5ChocolateMilk == null)
+                {
+                    _keen5ChocolateMilk = new Image[]
+                    {
+                        Properties.Resources.keen5_chocolate_milk1,
+                        Properties.Resources.keen5_chocolate_milk2
+                    };
+                }
+                return _keen5ChocolateMilk;
+            }
+        }
+
+        private static Image[] _keen5TartStix;
+        public static Image[] Keen5TartStix
+        {
+            get
+            {
+                if (_keen5TartStix == null)
+                {
+                    _keen5TartStix = new Image[]
+                    {
+                         Properties.Resources.keen5_tart_stix1,
+                        Properties.Resources.keen5_tart_stix1
+                    };
+                }
+                return _keen5TartStix;
+            }
+        }
+
+
+        private static Image[] _keen5SugarStoopiesCereal;
+        public static Image[] Keen5SugarStoopiesCereal
+        {
+            get
+            {
+                if (_keen5SugarStoopiesCereal == null)
+                {
+                    _keen5SugarStoopiesCereal = new Image[]
+                    {
+                        Properties.Resources.keen5_sugar_stoopies_cereal1,
+                        Properties.Resources.keen5_sugar_stoopies_cereal2
+                    };
+                }
+                return _keen5SugarStoopiesCereal;
+            }
+        }
+
+        private static Image[] _keen5BagOSugar;
+        public static Image[] Keen5BagOSugar
+        {
+            get
+            {
+                if (_keen5BagOSugar == null)
+                {
+                    _keen5BagOSugar = new Image[]
+                    {
+                        Properties.Resources.keen5_bag_o_sugar1,
+                        Properties.Resources.keen5_bag_o_sugar2
+                    };
+                }
+                return _keen5BagOSugar;
+            }
+        }
+
+        #endregion
+
+        #region Keen6
+        private static Image[] _keen6BloogSoda;
+        public static Image[] Keen6BloogSoda
+        {
+            get
+            {
+                if (_keen6BloogSoda == null)
+                {
+                    _keen6BloogSoda = new Image[]
+                    {
+                        Properties.Resources.keen6_bloog_soda1,
+                        Properties.Resources.keen6_bloog_soda2
+                    };
+                }
+                return _keen6BloogSoda;
+            }
+        }
+
+        private static Image[] _keen6IceCreamBar;
+        public static Image[] Keen6IceCreamBar
+        {
+            get
+            {
+                if (_keen6IceCreamBar == null)
+                {
+                    _keen6IceCreamBar = new Image[]
+                    {
+                        Properties.Resources.keen6_ice_cream_bar1,
+                        Properties.Resources.keen6_ice_cream_bar2
+                    };
+                }
+                return _keen6IceCreamBar;
+            }
+        }
+
+        private static Image[] _keen6Pudding;
+        public static Image[] Keen6Pudding
+        {
+            get
+            {
+                if (_keen6Pudding == null)
+                {
+                    _keen6Pudding = new Image[]
+                    {
+                        Properties.Resources.keen6_pudding1,
+                        Properties.Resources.keen6_pudding2
+                    };
+                }
+                return _keen6Pudding;
+            }
+        }
+
+        private static Image[] _keen6RootBeerFloat;
+        public static Image[] Keen6RootBeerFloat
+        {
+            get
+            {
+                if (_keen6RootBeerFloat == null)
+                {
+                    _keen6RootBeerFloat = new Image[]
+                    {
+                        Properties.Resources.keen6_root_beer_float1,
+                        Properties.Resources.keen6_root_beer_float2
+                    };
+                }
+                return _keen6RootBeerFloat;
+            }
+        }
+
+        private static Image[] _keen6BananaSplit;
+        public static Image[] Keen6BananaSplit
+        {
+            get
+            {
+                if (_keen6BananaSplit == null)
+                {
+                    _keen6BananaSplit = new Image[]
+                    {
+                        Properties.Resources.keen6_banana_split1,
+                        Properties.Resources.keen6_banana_split2
+                    };
+                }
+                return _keen6BananaSplit;
+            }
+        }
+
+        private static Image[] _keen6PizzaSlice;
+        public static Image[] Keen6PizzaSlice
+        {
+            get
+            {
+                if (_keen6PizzaSlice == null)
+                {
+                    _keen6PizzaSlice = new Image[]
+                    {
+                        Properties.Resources.keen6_pizza_slice1,
+                        Properties.Resources.keen6_pizza_slice2
+                    };
+                }
+                return _keen6PizzaSlice;
+            }
+        }
+        #endregion
+
+        #region Point Number Labels
+
+        private static Image[] _keenPoints100;
+
+        public static Image[] KeenPoints100
+        {
+            get
+            {
+                if (_keenPoints100 == null)
+                {
+                    _keenPoints100 = new Image[]
+                    {
+                        Properties.Resources.keen_points_100
+                    };
+                }
+                return _keenPoints100;
+            }
+        }
+
+        private static Image[] _keenPoints200;
+
+        public static Image[] KeenPoints200
+        {
+            get
+            {
+                if (_keenPoints200 == null)
+                {
+                    _keenPoints200 = new Image[]
+                    {
+                        Properties.Resources.keen_points_200
+                    };
+                }
+                return _keenPoints200;
+            }
+        }
+
+        private static Image[] _keenPoints500;
+
+        public static Image[] KeenPoints500
+        {
+            get
+            {
+                if (_keenPoints500 == null)
+                {
+                    _keenPoints500 = new Image[]
+                    {
+                        Properties.Resources.keen_points_500
+                    };
+                }
+                return _keenPoints500;
+            }
+        }
+
+        private static Image[] _keenPoints1000;
+
+        public static Image[] KeenPoints1000
+        {
+            get
+            {
+                if (_keenPoints1000 == null)
+                {
+                    _keenPoints1000 = new Image[]
+                    {
+                        Properties.Resources.keen_points_1000
+                    };
+                }
+                return _keenPoints1000;
+            }
+        }
+
+        private static Image[] _keenPoints2000;
+
+        public static Image[] KeenPoints2000
+        {
+            get
+            {
+                if (_keenPoints2000 == null)
+                {
+                    _keenPoints2000 = new Image[]
+                    {
+                        Properties.Resources.keen_points_2000
+                    };
+                }
+                return _keenPoints2000;
+            }
+        }
+
+        private static Image[] _keenPoints5000;
+
+        public static Image[] KeenPoints5000
+        {
+            get
+            {
+                if (_keenPoints5000 == null)
+                {
+                    _keenPoints5000 = new Image[]
+                    {
+                        Properties.Resources.keen_points_5000
+                    };
+                }
+                return _keenPoints5000;
+            }
+        }
+
+        #endregion
+
+        #endregion
+
+        #endregion
     }
 }
