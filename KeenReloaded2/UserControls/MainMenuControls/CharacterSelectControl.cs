@@ -106,7 +106,6 @@ namespace KeenReloaded2.UserControls.MainMenuControls
 
         private void BtnRandomCharacter_Click(object sender, EventArgs e)
         {
-
             int randIndex = -1;
             do
             {
