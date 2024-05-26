@@ -68,9 +68,9 @@
             // characterSelectControl1
             // 
             this.characterSelectControl1.BackColor = System.Drawing.Color.Transparent;
-            this.characterSelectControl1.Location = new System.Drawing.Point(12, 74);
+            this.characterSelectControl1.Location = new System.Drawing.Point(-2, 74);
             this.characterSelectControl1.Name = "characterSelectControl1";
-            this.characterSelectControl1.Size = new System.Drawing.Size(224, 71);
+            this.characterSelectControl1.Size = new System.Drawing.Size(224, 233);
             this.characterSelectControl1.TabIndex = 3;
             // 
             // MainMenu

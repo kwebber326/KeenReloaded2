@@ -132,6 +132,11 @@ namespace KeenReloaded2
 
         #region events
 
+        private void BtnRandomCharacter_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void MainMenu_Load(object sender, EventArgs e)
         {
             ConstructMenu();
@@ -191,5 +196,7 @@ namespace KeenReloaded2
         }
 
         #endregion
+
+      
     }
 }

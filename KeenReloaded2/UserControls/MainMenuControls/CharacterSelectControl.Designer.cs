@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.cmbCharacters = new System.Windows.Forms.ComboBox();
+            this.btnRandomCharacter = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -54,15 +55,29 @@
             this.cmbCharacters.TabIndex = 1;
             this.cmbCharacters.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
+            // btnRandomCharacter
+            // 
+            this.btnRandomCharacter.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnRandomCharacter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRandomCharacter.ForeColor = System.Drawing.Color.Lime;
+            this.btnRandomCharacter.Location = new System.Drawing.Point(8, 75);
+            this.btnRandomCharacter.Name = "btnRandomCharacter";
+            this.btnRandomCharacter.Size = new System.Drawing.Size(209, 113);
+            this.btnRandomCharacter.TabIndex = 6;
+            this.btnRandomCharacter.Text = "Choose Random Character";
+            this.btnRandomCharacter.UseVisualStyleBackColor = false;
+            this.btnRandomCharacter.Click += new System.EventHandler(this.BtnRandomCharacter_Click);
+            // 
             // CharacterSelectControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.btnRandomCharacter);
             this.Controls.Add(this.cmbCharacters);
             this.Controls.Add(this.label1);
             this.Name = "CharacterSelectControl";
-            this.Size = new System.Drawing.Size(224, 71);
+            this.Size = new System.Drawing.Size(224, 233);
             this.Load += new System.EventHandler(this.CharacterSelectControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -73,5 +88,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbCharacters;
+        private System.Windows.Forms.Button btnRandomCharacter;
     }
 }

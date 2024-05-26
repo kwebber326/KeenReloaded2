@@ -104,5 +104,15 @@ namespace KeenReloaded2.UserControls.MainMenuControls
             this.SelectedCharacterChanged?.Invoke(this, e);
         }
 
+        private void BtnRandomCharacter_Click(object sender, EventArgs e)
+        {
+
+            int randIndex = -1;
+            do
+            {
+                randIndex = new Random().Next(0, _characters.Count);
+            } while (randIndex == cmbCharacters.SelectedIndex);
+            cmbCharacters.SelectedIndex = randIndex;
+        }
     }
 }
