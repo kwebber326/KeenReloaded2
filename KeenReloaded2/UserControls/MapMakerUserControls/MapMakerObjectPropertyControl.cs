@@ -54,6 +54,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             _txtValue.TextChanged += _txtValue_TextChanged;
             _cmbValue.SelectedIndexChanged += _cmbValue_SelectedIndexChanged;
             _cmbValue.DropDownStyle = ComboBoxStyle.DropDownList;
+            _cmbValue.Width = 200;
             _chkValue.CheckedChanged += _chkValue_CheckedChanged;
             _areaValue.AreaChanged += _areaValue_AreaChanged;
             UpdateControl(_mapMakerObjectProperty);
@@ -72,6 +73,11 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         private void _cmbValue_SelectedIndexChanged(object sender, EventArgs e)
         {
             _mapMakerObjectProperty.Value = _cmbValue.SelectedItem;
+            if (_mapMakerObjectProperty.DataType?.IsEnum ?? false)
+            {
+                var value = Enum.Parse(_mapMakerObjectProperty.DataType, _cmbValue.SelectedItem?.ToString());
+                _mapMakerObjectProperty.Value = value;
+            }
         }
 
         private void _txtValue_TextChanged(object sender, EventArgs e)

@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Enums\CollisionType.cs" />
     <Compile Include="Enums\Direction.cs" />
+    <Compile Include="Enums\ExtraLifeType.cs" />
     <Compile Include="Enums\GemColor.cs" />
     <Compile Include="Enums\MoveState.cs" />
     <Compile Include="Enums\PointItemType.cs" />
@@ -52,10 +53,15 @@
     <Compile Include="GameEntities\Backgrounds\Background.cs" />
     <Compile Include="GameEntities\CollisionObject.cs" />
     <Compile Include="GameEntities\Interfaces\IBiomeTile.cs" />
+    <Compile Include="GameEntities\Interfaces\IDropCollector.cs" />
     <Compile Include="GameEntities\Interfaces\ISprite.cs" />
+    <Compile Include="GameEntities\Items\ExtraLife.cs" />
     <Compile Include="GameEntities\Items\Gem.cs" />
     <Compile Include="GameEntities\Items\Item.cs" />
     <Compile Include="GameEntities\Items\PointItem.cs" />
+    <Compile Include="GameEntities\Items\Drops\RainDrop.cs" />
+    <Compile Include="GameEntities\Items\Drops\Vitalin.cs" />
+    <Compile Include="GameEntities\Items\Drops\Viva.cs" />
     <Compile Include="GameEntities\SpaceHashGrid.cs" />
     <Compile Include="GameEntities\Tiles\Ceilings\CeilingTile.cs" />
     <Compile Include="GameEntities\Tiles\Floors\LeftEdgeFloorTile.cs" />
@@ -760,24 +766,6 @@
     <None Include="Resources\keen4_doughnut2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen4_drop_acquired1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_drop_acquired2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_drop_acquired3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_drop1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_drop2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_drop3.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen4_icecream_cone1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -962,6 +950,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_viva_queen2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GameEntities\Items\ExtraLives\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_1up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_drop_acquired1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_drop_acquired2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_drop_acquired3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_drop1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_drop2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_drop3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

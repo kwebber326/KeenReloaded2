@@ -712,6 +712,110 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region drops and extra lives
+
+            pointItemsPaths = new string[]
+            {
+                GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_LIVES, "Keen4", Biomes.BIOME_KEEN4_CAVE),
+                GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_LIVES, "Keen5", Biomes.BIOME_KEEN4_CAVE),
+                GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_LIVES, "Keen6", Biomes.BIOME_KEEN4_CAVE)
+            };
+
+            var keen4Files = Directory.GetFiles(pointItemsPaths[0]);
+            var keen5Files = Directory.GetFiles(pointItemsPaths[1]);
+            var keen6Files = Directory.GetFiles(pointItemsPaths[2]);
+
+            string rainDropPath = keen4Files.FirstOrDefault(f => f.Contains(nameof(Properties.Resources.keen4_drop1)));
+            string rainDropKey = nameof(Properties.Resources.keen4_drop1);
+            Image rainDropImage = Properties.Resources.keen4_drop1;
+            MapMakerObjectProperty[] rainDropParameters = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, rainDropImage.Width, rainDropImage.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.IMAGE_NAME_PROPERTY_NAME,
+                            DataType = typeof(string),
+                            Hidden = true,
+                            Value = rainDropKey,
+                            IsSpriteProperty = true,
+                            IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.Z_INDEX_PROPERTY_NAME,
+                            DataType = typeof(int),
+                            Value = 50,
+                            DisplayName ="Z Index: "
+                        },
+            };
+            MapMakerObject keen4RainDrop = new MapMakerObject(typeof(RainDrop), rainDropPath, false, rainDropParameters);
+            backgroundReferenceData.Add(rainDropKey, keen4RainDrop);
+
+
+            string lifewaterPath = keen4Files.FirstOrDefault(f => f.Contains(nameof(Properties.Resources.keen4_lifewater_flask1)));
+            string lifewaterKey = nameof(Properties.Resources.keen4_lifewater_flask1);
+            Image lifewaterImage = Properties.Resources.keen4_lifewater_flask1;
+            MapMakerObjectProperty[] lifewaterParameters = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, lifewaterImage.Width, lifewaterImage.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.IMAGE_NAME_PROPERTY_NAME,
+                            DataType = typeof(string),
+                            Hidden = true,
+                            Value = lifewaterKey,
+                            IsSpriteProperty = true,
+                            IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.Z_INDEX_PROPERTY_NAME,
+                            DataType = typeof(int),
+                            Value = 50,
+                            DisplayName ="Z Index: "
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = "type",
+                            DataType = typeof(ExtraLifeType),
+                            PossibleValues = Enum.GetNames(typeof(ExtraLifeType)),
+                            Value = ExtraLifeType.KEEN4_LIFEWATER_FLASK,
+                            Readonly = true
+                        }
+            };
+            MapMakerObject keen4LifewaterFlask = new MapMakerObject(typeof(ExtraLife), lifewaterPath, false, lifewaterParameters);
+            backgroundReferenceData.Add(lifewaterKey, keen4LifewaterFlask);
+
+            #endregion
+
             return backgroundReferenceData;
         }
         #region reference data

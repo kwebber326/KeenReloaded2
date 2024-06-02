@@ -214,6 +214,15 @@ namespace KeenReloaded2
 
             return mapping;
         }
+
+        private void ClearMapMakerSelection()
+        {
+            mapObjectContainer1.ClearSelection();
+            mapMakerObjectPropertyListControl1.SetProperties(null);
+            ClearSelectedMapItem();
+            RemoveCursorItem();
+        }
+
         #endregion
 
         #region event handlers
@@ -365,10 +374,7 @@ namespace KeenReloaded2
             switch (e.KeyData)
             {
                 case Keys.Escape:
-                    mapObjectContainer1.ClearSelection();
-                    mapMakerObjectPropertyListControl1.SetProperties(null);
-                    ClearSelectedMapItem();
-                    RemoveCursorItem();
+                    ClearMapMakerSelection();
                     break;
                 case Keys.Delete:
                     if (_selectedGameObjectMapping != null)
@@ -453,6 +459,10 @@ namespace KeenReloaded2
             {
                 Debug.WriteLine(ex);
                 MessageBox.Show($"Map did not load successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                ClearMapMakerSelection();
             }
         }
 

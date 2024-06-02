@@ -263,6 +263,16 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen_1up {
+            get {
+                object obj = ResourceManager.GetObject("keen_1up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen_points_100 {
             get {
                 object obj = ResourceManager.GetObject("keen_points_100", resourceCulture);

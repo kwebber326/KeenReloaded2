@@ -736,6 +736,219 @@ namespace KeenReloaded2.Framework.SpriteSheet
 
         #endregion
 
+        #region life drops
+
+        #region keen 4 rain drops
+
+        private static Image[] _keen4RainDropImages;
+
+        public static  Image[] Keen4RainDropImages
+        {
+            get
+            {
+                if (_keen4RainDropImages == null)
+                {
+                    _keen4RainDropImages = new Image[]
+                    {
+                        Properties.Resources.keen4_drop1,
+                        Properties.Resources.keen4_drop2,
+                        Properties.Resources.keen4_drop3
+                    };
+                }
+                return _keen4RainDropImages;
+            }
+        }
+
+
+        private static Image[] _keen4RainDropAcquiredImages;
+
+        public static Image[] Keen4RainDropAcquiredImages
+        {
+            get
+            {
+                if (_keen4RainDropAcquiredImages == null)
+                {
+                    _keen4RainDropAcquiredImages = new Image[]
+                    {
+                        Properties.Resources.keen4_drop_acquired1,
+                        Properties.Resources.keen4_drop_acquired2,
+                        Properties.Resources.keen4_drop_acquired3
+                    };
+                }
+                return _keen4RainDropAcquiredImages;
+            }
+        }
+
+        #endregion
+
+        #region keen 5 vitalin
+        private static Image[] _keen5VitalinImages;
+
+        public static Image[] Keen5VitalinImages
+        {
+            get
+            {
+                if (_keen5VitalinImages == null)
+                {
+                    _keen5VitalinImages = new Image[]
+                    {
+                        Properties.Resources.keen5_vitalin1,
+                        Properties.Resources.keen5_vitalin2,
+                        Properties.Resources.keen5_vitalin3,
+                        Properties.Resources.keen5_vitalin4
+                    };
+                }
+
+                return _keen5VitalinImages;
+            }
+        }
+
+        private static Image[] _keen5VitalinAcquiredImages;
+
+        public static Image[] Keen5VitalinAcquiredImages
+        {
+            get
+            {
+                if (_keen5VitalinAcquiredImages == null)
+                {
+                    _keen5VitalinAcquiredImages = new Image[]
+                    {
+                        Properties.Resources.keen5_vitalin_acquired1,
+                        Properties.Resources.keen5_vitalin_acquired2,
+                        Properties.Resources.keen5_vitalin_acquired3,
+                        Properties.Resources.keen5_vitalin_acquired4
+                    };
+                }
+
+                return _keen5VitalinAcquiredImages;
+            }
+        }
+        #endregion
+
+        #region keen 6 viva
+
+        private static Image[] _vivaFlying;
+
+        public static Image[] VivaFlying
+        {
+            get
+            {
+                if (_vivaFlying == null)
+                {
+                    _vivaFlying = new Image[]
+                    {
+                        Properties.Resources.keen6_viva_flying1,
+                        Properties.Resources.keen6_viva_flying2,
+                        Properties.Resources.keen6_viva_flying3
+                    };
+                }
+                return _vivaFlying;
+            }
+        }
+
+        private static Image[] _vivaPerched;
+
+        public static Image[] VivaPerched
+        {
+            get
+            {
+                if (_vivaPerched == null)
+                {
+                    _vivaPerched = new Image[]
+                    {
+                        Properties.Resources.keen6_viva_perched1,
+                        Properties.Resources.keen6_viva_perched2,
+                        Properties.Resources.keen6_viva_perched3,
+                        Properties.Resources.keen6_viva_perched4
+                    };
+                }
+                return _vivaPerched;
+            }
+        }
+
+        private static Image[] _vivaAcquired;
+
+        public static Image[] VivaAcquired
+        {
+            get
+            {
+                if (_vivaAcquired == null)
+                {
+                    _vivaAcquired = new Image[]
+                    {
+                        Properties.Resources.keen6_viva_acquired1,
+                        Properties.Resources.keen6_viva_acquired2,
+                        Properties.Resources.keen6_viva_acquired3,
+                        Properties.Resources.keen6_viva_acquired4
+                    };
+                }
+                return _vivaAcquired;
+            }
+        }
+
+        #endregion
+
+        #endregion
+
+        #region extra lives
+        private static Image[] _keen4LifeWaterFlaskImages;
+
+        public static Image[] Keen4LifeWaterFlaskImages
+        {
+            get
+            {
+                if (_keen4LifeWaterFlaskImages == null)
+                {
+                    _keen4LifeWaterFlaskImages = new Image[]
+                    {
+                        Properties.Resources.keen4_lifewater_flask1,
+                        Properties.Resources.keen4_lifewater_flask2
+                    };
+                }
+                return _keen4LifeWaterFlaskImages;
+            }
+        }
+
+
+        private static Image[] _keen5KegOVitalin;
+
+        public static Image[] Keen5KegOVitalin
+        {
+            get
+            {
+                if (_keen5KegOVitalin == null)
+                {
+                    _keen5KegOVitalin = new Image[]
+                    {
+                        Properties.Resources.keen5_keg_o_vitalin1,
+                        Properties.Resources.keen5_keg_o_vitalin2
+                    };
+                }
+                return _keen5KegOVitalin;
+            }
+        }
+
+        private static Image[] _keen6VivaQueenImages;
+
+        public static Image[] Keen6VivaQueenImages
+        {
+            get
+            {
+                if (_keen6VivaQueenImages == null)
+                {
+                    _keen6VivaQueenImages = new Image[]
+                    {
+                        Properties.Resources.keen6_viva_queen1,
+                        Properties.Resources.keen6_viva_queen2
+                    };
+                }
+                return _keen6VivaQueenImages;
+            }
+        }
+        #endregion
+
+
+
         #endregion
     }
 }
