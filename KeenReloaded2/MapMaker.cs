@@ -74,6 +74,8 @@ namespace KeenReloaded2
                 cmbHeight.Items.Add(i);
             }
             SetDimensionsToDefaultValues();
+            this.cmbWidth.SelectedIndexChanged += new System.EventHandler(this.CmbWidth_SelectedIndexChanged);
+            this.cmbHeight.SelectedIndexChanged += new System.EventHandler(this.CmbHeight_SelectedIndexChanged);
         }
 
         private void SetDimensionsToDefaultValues()
@@ -187,8 +189,8 @@ namespace KeenReloaded2
 
         private Size GetMapSize()
         {
-            int width = (int)cmbWidth.SelectedItem;
-            int height = (int)cmbHeight.SelectedItem;
+            int width = (int)(cmbWidth?.SelectedItem ?? MapMakerConstants.DEFAULT_MAP_WIDTH);
+            int height = (int)(cmbHeight?.SelectedItem ?? MapMakerConstants.DEFAULT_MAP_HEIGHT);
 
             Size mapSize = new Size(width, height);
 
@@ -221,6 +223,41 @@ namespace KeenReloaded2
             mapMakerObjectPropertyListControl1.SetProperties(null);
             ClearSelectedMapItem();
             RemoveCursorItem();
+        }
+
+        private void ValidateMapObjects()
+        {
+            MapMakerData data = new MapMakerData()
+            {
+                MapData = _mapMakerObjects,
+                MapName = txtMapName.Text,
+                MapSize = this.GetMapSize()
+            };
+            if (!MapUtility.Validation.ValidateAllMapObjects(data, out List<string> errorMessages))
+            {
+                string errorMessageText = string.Join("\n", errorMessages);
+                MessageBox.Show(errorMessageText, "Invalid Map Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void ValidateMap()
+        {
+
+            MapMakerData mapMakerData = new MapMakerData()
+            {
+                MapData = _mapMakerObjects,
+                MapName = txtMapName.Text,
+                MapSize = this.GetMapSize()
+            };
+
+            if (!MapUtility.Validation.ValidateMap(mapMakerData, out List<string> errorMessages))
+            {
+                string headerText = $"Map '{txtMapName.Text}' did not save successfully. Errors: ";
+                errorMessages.Insert(0, headerText);
+                string validationMessage = string.Join("\n", errorMessages);
+                MessageBox.Show(validationMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
 
         #endregion
@@ -399,6 +436,22 @@ namespace KeenReloaded2
 
             Size mapSize = this.GetMapSize();
 
+            MapMakerData mapMakerData = new MapMakerData()
+            {
+                MapData = _mapMakerObjects,
+                MapName = txtMapName.Text,
+                MapSize = mapSize
+            };
+
+            if (!MapUtility.Validation.ValidateMap(mapMakerData, out List<string> errorMessages))
+            {
+                string headerText = $"Map '{txtMapName.Text}' did not save successfully. Errors: ";
+                errorMessages.Insert(0, headerText);
+                string validationMessage = string.Join("\n", errorMessages);
+                MessageBox.Show(validationMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (MapUtility.SaveMap(txtMapName.Text, cmbGameMode.SelectedItem?.ToString(), mapSize, _mapMakerObjects))
             {
                 MessageBox.Show($"Map '{txtMapName.Text}' was saved successfully!");
@@ -517,6 +570,16 @@ namespace KeenReloaded2
                 mapping.GameObject = (ISprite)mapping.MapMakerObject.Construct();
                 mapping.Location = mapping.GameObject.Location;
             }
+        }
+
+        private void CmbWidth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.ValidateMap();
+        }
+
+        private void CmbHeight_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.ValidateMap();
         }
 
         #endregion

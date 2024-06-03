@@ -45,3 +45,6 @@ keen4_drop1|61|10|20|32|50
 keen4_lifewater_flask1|386|600|22|32|50|KEEN4_LIFEWATER_FLASK
 keen4_seaweed2_1|52|605|26|64|keen4_seaweed2_1.png|True|100
 keen4_seaweed1_1|105|603|22|62|keen4_seaweed1_1.png|True|1000
+keen5_vitalin1|482|58|18|32|50
+keen5_vitalin1|523|58|18|32|50
+keen5_keg_o_vitalin1|366|700|64|50|50|KEEN5_KEG_O_VITALIN

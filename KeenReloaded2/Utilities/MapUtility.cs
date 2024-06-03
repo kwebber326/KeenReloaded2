@@ -59,7 +59,7 @@ namespace KeenReloaded2.Utilities
                     MapName = FileIOUtility.ExtractFileNameFromPath(mapFile)
                 };
                 List<GameObjectMapping> mapData = new List<GameObjectMapping>();
-                
+
                 string path = mapFile;
                 string[] mapDataLines = FileIOUtility.LoadMapData(path);
                 Size mapSize = ParseMapSizeData(mapDataLines[0]);
@@ -201,6 +201,74 @@ namespace KeenReloaded2.Utilities
             {
                 bool isValid = objectArea.Top >= mapArea.Top && objectArea.Bottom <= mapArea.Bottom
                      && objectArea.Right <= mapArea.Right && objectArea.Left >= mapArea.Left;
+
+                return isValid;
+            }
+
+            public static bool ValidateAllMapObjects(MapMakerData mapData, out List<string> errorMessages)
+            {
+                errorMessages = new List<string>();
+                try
+                {
+                    bool areAllObjectsValid = true;
+                    foreach (var obj in mapData.MapData)
+                    {
+                        if (obj.Left < 0 || obj.Right > mapData.MapSize.Width
+                            || obj.Top < 0 || obj.Bottom > mapData.MapSize.Height)
+                        {
+                            areAllObjectsValid = false;
+                            break;
+                        }
+                    }
+
+                    if (!areAllObjectsValid)
+                    {
+                        string errorMessage = "Some map objects are outside the bounds of the map.  Please correct before saving.";
+                        errorMessages.Add(errorMessage);
+                        return false;
+                    }
+
+                    return true;
+                }
+                catch (NullReferenceException)
+                {
+                    string errorMessage = "Map data not given";
+                    errorMessages.Add(errorMessage);
+                    return false;
+                }
+            }
+
+            public static bool ValidateMap(MapMakerData mapData, out List<string> errorMessages)
+            {
+                errorMessages = new List<string>();
+                bool isValid = true;
+                if (mapData == null)
+                {
+                    string errorMessage = "Map data not given";
+                    errorMessages.Add(errorMessage);
+                    return false;
+                }
+
+                string mapName = mapData.MapName;
+                if (string.IsNullOrWhiteSpace(mapName))
+                {
+                    string errorMessage = "Invalid map name";
+                    errorMessages.Add(errorMessage);
+                    isValid = false;
+                }
+
+                if (mapData.MapSize.IsEmpty || mapData.MapSize.Width == 0 || mapData.MapSize.Height == 0)
+                {
+                    string errorMessage = "Invalid map dimensions";
+                    errorMessages.Add(errorMessage);
+                    isValid = false;
+                }
+
+                List<string> errMsgs = new List<string>();
+                isValid = isValid && ValidateAllMapObjects(mapData, out errMsgs);
+
+                if (errMsgs != null && errMsgs.Any())
+                    errorMessages.AddRange(errMsgs);
 
                 return isValid;
             }
