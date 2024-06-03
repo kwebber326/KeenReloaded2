@@ -907,6 +907,151 @@ namespace KeenReloaded2.Entities.ReferenceData
             backgroundReferenceData.Add(kegKey, keen5KegOVitalin);
             #endregion
 
+            #region keen 6
+            string vivaFlyingPath = keen6Files.FirstOrDefault(f => f.Contains(nameof(Properties.Resources.keen6_viva_flying1)));
+            string vivaFlyingKey = nameof(Properties.Resources.keen6_viva_flying1);
+            Image vivaFlyingImage = Properties.Resources.keen6_viva_flying1;
+            MapMakerObjectProperty[] vivaFlyingParameters = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, vitalinImage.Width, vitalinImage.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.IMAGE_NAME_PROPERTY_NAME,
+                            DataType = typeof(string),
+                            Hidden = true,
+                            Value = vivaFlyingKey,
+                            IsSpriteProperty = true,
+                            IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.Z_INDEX_PROPERTY_NAME,
+                            DataType = typeof(int),
+                            Value = 50,
+                            DisplayName ="Z Index: "
+                        },
+                         new MapMakerObjectProperty()
+                        {
+                            PropertyName = "perch",
+                            DataType = typeof(bool),
+                            Value = false,
+                            Hidden = true
+                        },
+            };
+            MapMakerObject keen6VivaFlying = new MapMakerObject(typeof(Viva), vivaFlyingPath, false, vivaFlyingParameters);
+            backgroundReferenceData.Add(vivaFlyingKey, keen6VivaFlying);
+
+            string vivaPerchedPath = keen6Files.FirstOrDefault(f => f.Contains(nameof(Properties.Resources.keen6_viva_perched1)));
+            string vivaPerchedKey = nameof(Properties.Resources.keen6_viva_perched1);
+            Image vivaPerchedImage = Properties.Resources.keen6_viva_perched1;
+            MapMakerObjectProperty[] vivaPerchedParameters = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, vitalinImage.Width, vitalinImage.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.IMAGE_NAME_PROPERTY_NAME,
+                            DataType = typeof(string),
+                            Hidden = true,
+                            Value = vivaPerchedKey,
+                            IsSpriteProperty = true,
+                            IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.Z_INDEX_PROPERTY_NAME,
+                            DataType = typeof(int),
+                            Value = 50,
+                            DisplayName ="Z Index: "
+                        },
+                         new MapMakerObjectProperty()
+                        {
+                            PropertyName = "perch",
+                            DataType = typeof(bool),
+                            Value = true,
+                            Hidden = true
+                        },
+            };
+            MapMakerObject keen6VivaPerched = new MapMakerObject(typeof(Viva), vivaPerchedPath, false, vivaPerchedParameters);
+            backgroundReferenceData.Add(vivaPerchedKey, keen6VivaPerched);
+
+
+            string vivaQueenPath = keen6Files.FirstOrDefault(f => f.Contains(nameof(Properties.Resources.keen6_viva_queen2)));
+            string vivaQueenKey = nameof(Properties.Resources.keen6_viva_queen2);
+            Image vivaQueenImage = Properties.Resources.keen6_viva_queen2;
+            MapMakerObjectProperty[] vivaQueenParameters = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, vivaQueenImage.Width, vivaQueenImage.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.IMAGE_NAME_PROPERTY_NAME,
+                            DataType = typeof(string),
+                            Hidden = true,
+                            Value = vivaQueenKey,
+                            IsSpriteProperty = true,
+                            IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.Z_INDEX_PROPERTY_NAME,
+                            DataType = typeof(int),
+                            Value = 50,
+                            DisplayName ="Z Index: "
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = "type",
+                            DataType = typeof(ExtraLifeType),
+                            PossibleValues = Enum.GetNames(typeof(ExtraLifeType)),
+                            Value = ExtraLifeType.KEEN6_VIVA_QUEEN,
+                            Readonly = true
+                        }
+            };
+            MapMakerObject keen6VivaQueen = new MapMakerObject(typeof(ExtraLife), vivaQueenPath, false, vivaQueenParameters);
+            backgroundReferenceData.Add(vivaQueenKey, keen6VivaQueen);
+            #endregion
+
             #endregion
 
 

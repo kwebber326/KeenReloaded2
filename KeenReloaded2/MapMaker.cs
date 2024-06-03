@@ -74,8 +74,8 @@ namespace KeenReloaded2
                 cmbHeight.Items.Add(i);
             }
             SetDimensionsToDefaultValues();
-            this.cmbWidth.SelectedIndexChanged += new System.EventHandler(this.CmbWidth_SelectedIndexChanged);
-            this.cmbHeight.SelectedIndexChanged += new System.EventHandler(this.CmbHeight_SelectedIndexChanged);
+            this.cmbWidth.SelectedIndexChanged += new EventHandler(this.CmbWidth_SelectedIndexChanged);
+            this.cmbHeight.SelectedIndexChanged += new EventHandler(this.CmbHeight_SelectedIndexChanged);
         }
 
         private void SetDimensionsToDefaultValues()
@@ -358,6 +358,7 @@ namespace KeenReloaded2
         private void MapMaker_Load(object sender, EventArgs e)
         {
             InitializeMapMaker();
+
 
         }
         private void MapObjectContainer1_ObjectClicked(object sender, ControlEventArgs.MapMakerObjectEventArgs e)

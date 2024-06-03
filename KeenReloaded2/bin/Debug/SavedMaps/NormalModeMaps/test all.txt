@@ -48,3 +48,6 @@ keen4_seaweed1_1|105|603|22|62|keen4_seaweed1_1.png|True|1000
 keen5_vitalin1|482|58|18|32|50
 keen5_vitalin1|523|58|18|32|50
 keen5_keg_o_vitalin1|366|700|64|50|50|KEEN5_KEG_O_VITALIN
+keen6_viva_perched1|346|435|14|16|50|True
+keen6_viva_flying1|392|443|26|18|50|False
+keen6_viva_queen2|380|650|30|30|50|KEEN6_VIVA_QUEEN

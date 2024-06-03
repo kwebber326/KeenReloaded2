@@ -938,8 +938,8 @@ namespace KeenReloaded2.Framework.SpriteSheet
                 {
                     _keen6VivaQueenImages = new Image[]
                     {
-                        Properties.Resources.keen6_viva_queen1,
-                        Properties.Resources.keen6_viva_queen2
+                        Properties.Resources.keen6_viva_queen2,
+                        Properties.Resources.keen6_viva_queen1
                     };
                 }
                 return _keen6VivaQueenImages;
