@@ -57,3 +57,4 @@ keen5_platform_blue_edge_right|210|537|32|34|10
 keen4_mirage_wall_bottom2|45|715|64|32|10
 keen4_mirage_floor_edge_right|141|651|52|64|10
 keen4_mirage_wall_bottom2|108|715|64|32|10
+keen4_forest_platform_single|763|199|32|40|10

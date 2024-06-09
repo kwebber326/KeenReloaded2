@@ -133,6 +133,12 @@ namespace KeenReloaded2
         #endregion
 
         #region helper methods 
+
+        private bool UserWantsSmartPlacer()
+        {
+            return chkUseSmartPlacer.Checked;
+        }
+
         private void ClearSelectedMapItem()
         {
             if (_selectedGameObjectMapping != null)
@@ -463,7 +469,7 @@ namespace KeenReloaded2
                     }
                     break;
                 case Keys.Enter:
-                    if (_cursorItem != null)
+                    if (_cursorItem != null && UserWantsSmartPlacer())
                     {
                         _useSmartPlacer = true;
                         PnlMapCanvas_Click(this, EventArgs.Empty);
@@ -655,7 +661,7 @@ namespace KeenReloaded2
                 this.Controls.Remove(_cursorItem);
                 // _cursorItem.Click += GameObjectMapping_Click;
                 RegisterEventsForGameObjectMapping(_cursorItem);
-                
+
                 ClearSelectedMapItem();
                 _selectedGameObjectMapping = _cursorItem;
                 _selectedGameObjectMapping.BorderStyle = BorderStyle.Fixed3D;
@@ -701,7 +707,7 @@ namespace KeenReloaded2
 
         private void PnlMapCanvas_MouseMove(object sender, MouseEventArgs e)
         {
-            if (_mouseInCanvas && _cursorItem != null)
+            if (_mouseInCanvas && _cursorItem != null && UserWantsSmartPlacer())
             {
                 if (_mapMakerObjects.Any())
                 {
@@ -731,6 +737,19 @@ namespace KeenReloaded2
             }
         }
 
+        private void ChkUseSmartPlacer_CheckedChanged(object sender, EventArgs e)
+        {
+            if (pnlMapCanvas.Controls.Contains(_smartPlacer))
+                RemoveSmartPlacerFromCanvas();
+        }
+
+        private void BtnTest_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Under Construction.");
+        }
+
         #endregion
+
+
     }
 }

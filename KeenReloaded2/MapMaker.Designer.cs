@@ -47,9 +47,10 @@
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.dialogMapLoader = new System.Windows.Forms.OpenFileDialog();
+            this.btnTest = new System.Windows.Forms.Button();
+            this.chkUseSmartPlacer = new System.Windows.Forms.CheckBox();
             this.mapMakerObjectPropertyListControl1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapMakerObjectPropertyListControl();
             this.mapObjectContainer1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapObjectContainer();
-            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -233,6 +234,29 @@
             this.dialogMapLoader.FileName = "openFileDialog1";
             this.dialogMapLoader.FileOk += new System.ComponentModel.CancelEventHandler(this.DialogMapLoader_FileOk);
             // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(457, 192);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(142, 33);
+            this.btnTest.TabIndex = 20;
+            this.btnTest.Text = "Test Map";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.BtnTest_Click);
+            // 
+            // chkUseSmartPlacer
+            // 
+            this.chkUseSmartPlacer.AutoSize = true;
+            this.chkUseSmartPlacer.Checked = true;
+            this.chkUseSmartPlacer.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkUseSmartPlacer.Location = new System.Drawing.Point(17, 197);
+            this.chkUseSmartPlacer.Name = "chkUseSmartPlacer";
+            this.chkUseSmartPlacer.Size = new System.Drawing.Size(159, 24);
+            this.chkUseSmartPlacer.TabIndex = 21;
+            this.chkUseSmartPlacer.Text = "Use Smart Placer";
+            this.chkUseSmartPlacer.UseVisualStyleBackColor = true;
+            this.chkUseSmartPlacer.CheckedChanged += new System.EventHandler(this.ChkUseSmartPlacer_CheckedChanged);
+            // 
             // mapMakerObjectPropertyListControl1
             // 
             this.mapMakerObjectPropertyListControl1.AutoScroll = true;
@@ -250,21 +274,13 @@
             this.mapObjectContainer1.Size = new System.Drawing.Size(617, 643);
             this.mapObjectContainer1.TabIndex = 16;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(457, 192);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(142, 33);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Save Map";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // MapMaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2178, 1474);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.chkUseSmartPlacer);
+            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.mapMakerObjectPropertyListControl1);
@@ -321,6 +337,7 @@
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.OpenFileDialog dialogMapLoader;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.CheckBox chkUseSmartPlacer;
     }
 }
