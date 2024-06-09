@@ -30,6 +30,7 @@ namespace KeenReloaded2
         private SmartPlacer _smartPlacer = new SmartPlacer();
         private bool _mouseInCanvas;
         private bool _useSmartPlacer = false;
+        private bool _mapHasUnsavedChanges = false;
 
         public MapMaker()
         {
@@ -365,6 +366,8 @@ namespace KeenReloaded2
                 {
                     _selectedGameObjectMapping = gameObjectMapping;
                 }
+
+                _mapHasUnsavedChanges = true;
             }
             catch
             {
@@ -556,6 +559,7 @@ namespace KeenReloaded2
             if (MapUtility.SaveMap(txtMapName.Text, cmbGameMode.SelectedItem?.ToString(), mapSize, _mapMakerObjects))
             {
                 MessageBox.Show($"Map '{txtMapName.Text}' was saved successfully!");
+                _mapHasUnsavedChanges = false;
             }
             else
             {
@@ -565,6 +569,12 @@ namespace KeenReloaded2
 
         private void BtnLoad_Click(object sender, EventArgs e)
         {
+            if (_mapHasUnsavedChanges 
+                && MessageBox.Show("This map has unsaved changes, and this action will override those changes. Continue?", "Unsaved Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            {
+                return;
+            }
+
             dialogMapLoader.InitialDirectory = MapUtility.GetSavedMapsPath(cmbGameMode.SelectedItem?.ToString());
             dialogMapLoader.Filter = "*.txt|";
             dialogMapLoader.ShowDialog();
@@ -595,7 +605,6 @@ namespace KeenReloaded2
                 //register new data on grid and load to canvas
                 foreach (var mapObject in _mapMakerObjects)
                 {
-                    // mapObject.Click += GameObjectMapping_Click;
                     RegisterEventsForGameObjectMapping(mapObject);
                     pnlMapCanvas.Controls.Add(mapObject);
                 }
@@ -671,6 +680,8 @@ namespace KeenReloaded2
                 RefreshZIndexPositioning();
 
                 RemoveSmartPlacerFromCanvas();
+
+                _mapHasUnsavedChanges = true;
             }
         }
 
@@ -748,8 +759,30 @@ namespace KeenReloaded2
             MessageBox.Show("Under Construction.");
         }
 
+        private void BtnNewMap_Click(object sender, EventArgs e)
+        {
+            if (_mapHasUnsavedChanges
+             && MessageBox.Show("This map has unsaved changes, and this action will override those changes. Continue?", "Unsaved Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            {
+                return;
+            }
+
+            //clear events for existing items
+            var existingItems = pnlMapCanvas.Controls.OfType<GameObjectMapping>();
+            if (existingItems.Any())
+            {
+                foreach (var item in existingItems)
+                {
+                    UnRegisterEventsForGameObjectMapping(item);
+                }
+            }
+            //clear out the canvas
+            pnlMapCanvas.Controls.Clear();
+
+            //set map name default
+            txtMapName.Text = "<New Map>";
+        }
+
         #endregion
-
-
     }
 }
