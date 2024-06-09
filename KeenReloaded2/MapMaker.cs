@@ -783,6 +783,15 @@ namespace KeenReloaded2
             txtMapName.Text = "<New Map>";
         }
 
+        private void MapMaker_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_mapHasUnsavedChanges
+           && MessageBox.Show("This map has unsaved changes, and this action will override those changes. Continue?", "Unsaved Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+
         #endregion
     }
 }

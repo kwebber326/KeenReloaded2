@@ -49,9 +49,9 @@
             this.dialogMapLoader = new System.Windows.Forms.OpenFileDialog();
             this.btnTest = new System.Windows.Forms.Button();
             this.chkUseSmartPlacer = new System.Windows.Forms.CheckBox();
+            this.btnNewMap = new System.Windows.Forms.Button();
             this.mapMakerObjectPropertyListControl1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapMakerObjectPropertyListControl();
             this.mapObjectContainer1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapObjectContainer();
-            this.btnNewMap = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -258,6 +258,16 @@
             this.chkUseSmartPlacer.UseVisualStyleBackColor = true;
             this.chkUseSmartPlacer.CheckedChanged += new System.EventHandler(this.ChkUseSmartPlacer_CheckedChanged);
             // 
+            // btnNewMap
+            // 
+            this.btnNewMap.Location = new System.Drawing.Point(458, 231);
+            this.btnNewMap.Name = "btnNewMap";
+            this.btnNewMap.Size = new System.Drawing.Size(142, 33);
+            this.btnNewMap.TabIndex = 21;
+            this.btnNewMap.Text = "New Map";
+            this.btnNewMap.UseVisualStyleBackColor = true;
+            this.btnNewMap.Click += new System.EventHandler(this.BtnNewMap_Click);
+            // 
             // mapMakerObjectPropertyListControl1
             // 
             this.mapMakerObjectPropertyListControl1.AutoScroll = true;
@@ -274,16 +284,6 @@
             this.mapObjectContainer1.Name = "mapObjectContainer1";
             this.mapObjectContainer1.Size = new System.Drawing.Size(617, 643);
             this.mapObjectContainer1.TabIndex = 16;
-            // 
-            // btnNewMap
-            // 
-            this.btnNewMap.Location = new System.Drawing.Point(458, 231);
-            this.btnNewMap.Name = "btnNewMap";
-            this.btnNewMap.Size = new System.Drawing.Size(142, 33);
-            this.btnNewMap.TabIndex = 21;
-            this.btnNewMap.Text = "New Map";
-            this.btnNewMap.UseVisualStyleBackColor = true;
-            this.btnNewMap.Click += new System.EventHandler(this.BtnNewMap_Click);
             // 
             // MapMaker
             // 
@@ -318,6 +318,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Map Maker";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MapMaker_FormClosing);
             this.Load += new System.EventHandler(this.MapMaker_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MapMaker_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MapMaker_KeyUp);
