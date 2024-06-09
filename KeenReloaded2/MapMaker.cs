@@ -1,9 +1,11 @@
-﻿using KeenReloaded2.Constants;
+﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Entities.ReferenceData;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.ReferenceDataClasses;
+using KeenReloaded2.UserControls.MapMakerUserControls;
 using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
@@ -25,6 +27,10 @@ namespace KeenReloaded2
         private GameObjectMapping _selectedGameObjectMapping;
         private GameObjectMapping _cursorItem;
         private Timer _cursorUpdateTimer = new Timer();
+        private SmartPlacer _smartPlacer = new SmartPlacer();
+        private bool _mouseInCanvas;
+        private bool _useSmartPlacer = false;
+
         public MapMaker()
         {
             InitializeComponent();
@@ -261,6 +267,28 @@ namespace KeenReloaded2
             }
         }
 
+        private void RemoveSmartPlacerFromCanvas()
+        {
+            pnlMapCanvas.Controls.Remove(_smartPlacer);
+            _smartPlacer.RemoveDrawing();
+        }
+
+        private void RegisterEventsForGameObjectMapping(GameObjectMapping gameObjectMapping)
+        {
+            gameObjectMapping.Click += GameObjectMapping_Click;
+            gameObjectMapping.MouseEnter += PnlMapCanvas_MouseEnter;
+            gameObjectMapping.MouseLeave += PnlMapCanvas_MouseLeave;
+            gameObjectMapping.MouseMove += PnlMapCanvas_MouseMove;
+        }
+
+        private void UnRegisterEventsForGameObjectMapping(GameObjectMapping gameObjectMapping)
+        {
+            gameObjectMapping.Click -= GameObjectMapping_Click;
+            gameObjectMapping.MouseEnter -= PnlMapCanvas_MouseEnter;
+            gameObjectMapping.MouseLeave -= PnlMapCanvas_MouseLeave;
+            gameObjectMapping.MouseMove -= PnlMapCanvas_MouseMove;
+        }
+
         #endregion
 
         #region event handlers
@@ -316,7 +344,8 @@ namespace KeenReloaded2
                 gameObjectMapping.Location = placedItem.Location;
                 gameObjectMapping.SizeMode = PictureBoxSizeMode.AutoSize;
                 gameObjectMapping.Image = placedItem.Image;
-                gameObjectMapping.Click += GameObjectMapping_Click;
+                // gameObjectMapping.Click += GameObjectMapping_Click;
+                RegisterEventsForGameObjectMapping(gameObjectMapping);
 
                 //add to collections
                 _mapMakerObjects.Add(gameObjectMapping);
@@ -359,8 +388,6 @@ namespace KeenReloaded2
         private void MapMaker_Load(object sender, EventArgs e)
         {
             InitializeMapMaker();
-
-
         }
         private void MapObjectContainer1_ObjectClicked(object sender, ControlEventArgs.MapMakerObjectEventArgs e)
         {
@@ -433,6 +460,13 @@ namespace KeenReloaded2
                     {
                         _selectedGameObjectMapping.BorderStyle = BorderStyle.Fixed3D;
                         mapMakerObjectPropertyListControl1.SetProperties(_selectedGameObjectMapping.MapMakerObject, true, true);
+                    }
+                    break;
+                case Keys.Enter:
+                    if (_cursorItem != null)
+                    {
+                        _useSmartPlacer = true;
+                        PnlMapCanvas_Click(this, EventArgs.Empty);
                     }
                     break;
             }
@@ -545,7 +579,8 @@ namespace KeenReloaded2
                 {
                     foreach (var item in existingItems)
                     {
-                        item.Click -= GameObjectMapping_Click;
+                        //item.Click -= GameObjectMapping_Click;
+                        UnRegisterEventsForGameObjectMapping(item);
                     }
                 }
                 //clear out the canvas
@@ -554,7 +589,8 @@ namespace KeenReloaded2
                 //register new data on grid and load to canvas
                 foreach (var mapObject in _mapMakerObjects)
                 {
-                    mapObject.Click += GameObjectMapping_Click;
+                    // mapObject.Click += GameObjectMapping_Click;
+                    RegisterEventsForGameObjectMapping(mapObject);
                     pnlMapCanvas.Controls.Add(mapObject);
                 }
 
@@ -568,6 +604,8 @@ namespace KeenReloaded2
                 cmbHeight.SelectedIndex = hIndex;
                 ClearSelectedMapItem();
                 RefreshZIndexPositioning();
+
+                pnlMapCanvas.Focus();
             }
             catch (Exception ex)
             {
@@ -605,13 +643,19 @@ namespace KeenReloaded2
                 int xOffset = pnlMapCanvas.Location.X;
                 int yOffset = pnlMapCanvas.Location.Y;
 
-                Rectangle area = new Rectangle(Cursor.Position.X - xOffset, Cursor.Position.Y - yOffset, _cursorItem.Width, _cursorItem.Height);
+                Rectangle area = _useSmartPlacer
+                    ? new Rectangle(_smartPlacer.Location.X, _smartPlacer.Location.Y, _smartPlacer.Width, _smartPlacer.Height)
+                    : new Rectangle(Cursor.Position.X - xOffset, Cursor.Position.Y - yOffset, _cursorItem.Width, _cursorItem.Height);
+
+                _useSmartPlacer = false;
                 SetNewAreaForMappingObject(area, _cursorItem);
 
                 pnlMapCanvas.Controls.Add(_cursorItem);
                 _mapMakerObjects.Add(_cursorItem);
                 this.Controls.Remove(_cursorItem);
-                _cursorItem.Click += GameObjectMapping_Click;
+                // _cursorItem.Click += GameObjectMapping_Click;
+                RegisterEventsForGameObjectMapping(_cursorItem);
+                
                 ClearSelectedMapItem();
                 _selectedGameObjectMapping = _cursorItem;
                 _selectedGameObjectMapping.BorderStyle = BorderStyle.Fixed3D;
@@ -619,6 +663,8 @@ namespace KeenReloaded2
 
                 _cursorItem = null;
                 RefreshZIndexPositioning();
+
+                RemoveSmartPlacerFromCanvas();
             }
         }
 
@@ -641,6 +687,48 @@ namespace KeenReloaded2
         private void CmbHeight_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.ValidateMap();
+        }
+
+        private void PnlMapCanvas_MouseEnter(object sender, EventArgs e)
+        {
+            _mouseInCanvas = true;
+        }
+
+        private void PnlMapCanvas_MouseLeave(object sender, EventArgs e)
+        {
+            _mouseInCanvas = false;
+        }
+
+        private void PnlMapCanvas_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_mouseInCanvas && _cursorItem != null)
+            {
+                if (_mapMakerObjects.Any())
+                {
+                    GameObjectMapping mapping = new GameObjectMapping()
+                    {
+                        Location = new Point(_cursorItem.Location.X - pnlMapCanvas.Location.X, _cursorItem.Location.Y - pnlMapCanvas.Location.Y),
+                        GameObject = _cursorItem.GameObject,
+                        MapMakerObject = _cursorItem.MapMakerObject,
+                        Image = _cursorItem.Image,
+                        Size = new Size(_cursorItem.Width, _cursorItem.Height)
+                    };
+                    var objectClosest = _smartPlacer.FindClosestBlockOfSameType(_mapMakerObjects, mapping, out Direction? direction);
+                    if (objectClosest != null && direction != null)
+                    {
+                        _smartPlacer.DrawAdjacent(_cursorItem.Size, objectClosest, direction.Value);
+                        if (!pnlMapCanvas.Controls.Contains(_smartPlacer))
+                        {
+                            pnlMapCanvas.Controls.Add(_smartPlacer);
+                            _smartPlacer.BringToFront();
+                        }
+                    }
+                    else
+                    {
+                        RemoveSmartPlacerFromCanvas();
+                    }
+                }
+            }
         }
 
         #endregion

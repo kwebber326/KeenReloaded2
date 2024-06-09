@@ -51,3 +51,9 @@ keen6_viva_queen2|380|650|30|30|50|KEEN6_VIVA_QUEEN
 keen5_background_security_center_gray|0|0|1500|1500|keen5_background_security_center_gray.png|False|0
 gem_yellow1|151|228|26|20|YELLOW|50|False
 keen6_viva_perched1|346|445|14|16|50|True
+keen4_mirage_floor_middle|45|651|48|64|10
+keen4_mirage_floor_middle|93|651|48|64|10
+keen5_platform_blue_edge_right|210|537|32|34|10
+keen4_mirage_wall_bottom2|45|715|64|32|10
+keen4_mirage_floor_edge_right|141|651|52|64|10
+keen4_mirage_wall_bottom2|108|715|64|32|10

@@ -49,6 +49,7 @@
             this.dialogMapLoader = new System.Windows.Forms.OpenFileDialog();
             this.mapMakerObjectPropertyListControl1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapMakerObjectPropertyListControl();
             this.mapObjectContainer1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapObjectContainer();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -79,6 +80,9 @@
             this.pnlMapCanvas.Size = new System.Drawing.Size(1541, 1423);
             this.pnlMapCanvas.TabIndex = 2;
             this.pnlMapCanvas.Click += new System.EventHandler(this.PnlMapCanvas_Click);
+            this.pnlMapCanvas.MouseEnter += new System.EventHandler(this.PnlMapCanvas_MouseEnter);
+            this.pnlMapCanvas.MouseLeave += new System.EventHandler(this.PnlMapCanvas_MouseLeave);
+            this.pnlMapCanvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PnlMapCanvas_MouseMove);
             // 
             // label3
             // 
@@ -232,7 +236,7 @@
             // mapMakerObjectPropertyListControl1
             // 
             this.mapMakerObjectPropertyListControl1.AutoScroll = true;
-            this.mapMakerObjectPropertyListControl1.Location = new System.Drawing.Point(17, 828);
+            this.mapMakerObjectPropertyListControl1.Location = new System.Drawing.Point(5, 949);
             this.mapMakerObjectPropertyListControl1.Name = "mapMakerObjectPropertyListControl1";
             this.mapMakerObjectPropertyListControl1.Size = new System.Drawing.Size(595, 486);
             this.mapMakerObjectPropertyListControl1.TabIndex = 17;
@@ -241,16 +245,26 @@
             // 
             this.mapObjectContainer1.AutoScroll = true;
             this.mapObjectContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.mapObjectContainer1.Location = new System.Drawing.Point(17, 179);
+            this.mapObjectContainer1.Location = new System.Drawing.Point(2, 300);
             this.mapObjectContainer1.Name = "mapObjectContainer1";
             this.mapObjectContainer1.Size = new System.Drawing.Size(617, 643);
             this.mapObjectContainer1.TabIndex = 16;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(457, 192);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(142, 33);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Save Map";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // MapMaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2178, 1474);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.mapMakerObjectPropertyListControl1);
@@ -307,5 +321,6 @@
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.OpenFileDialog dialogMapLoader;
+        private System.Windows.Forms.Button button1;
     }
 }

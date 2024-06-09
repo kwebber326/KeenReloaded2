@@ -43,3 +43,4 @@ C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\obj\Debug\KeenReloaded2.
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\obj\Debug\KeenReloaded2.UserControls.MapMakerUserControls.MapMakerObjectPropertyListControl.resources
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\obj\Debug\KeenReloaded2.UserControls.MapMakerUserControls.MapMakerObjectPropertyControl.resources
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\obj\Debug\KeenReloaded2.UserControls.MapMakerUserControls.AreaControl.resources
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\obj\Debug\KeenReloaded2.UserControls.MapMakerUserControls.SmartPlacer.resources
