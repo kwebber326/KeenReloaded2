@@ -1054,8 +1054,6 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
-
-
             return backgroundReferenceData;
         }
         #region reference data

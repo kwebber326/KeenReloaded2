@@ -1,6 +1,7 @@
 ﻿using KeenReloaded2.Constants;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Entities.ReferenceData;
+using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.ReferenceDataClasses;
 using KeenReloaded2.Utilities;
@@ -424,6 +425,65 @@ namespace KeenReloaded2
                         ClearSelectedMapItem();
                     }
                     break;
+                case Keys.Up:
+                case Keys.Down:
+                case Keys.Left:
+                case Keys.Right:
+                    if (_selectedGameObjectMapping != null)
+                    {
+                        _selectedGameObjectMapping.BorderStyle = BorderStyle.Fixed3D;
+                        mapMakerObjectPropertyListControl1.SetProperties(_selectedGameObjectMapping.MapMakerObject, true, true);
+                    }
+                    break;
+            }
+        }
+
+        private void MapMaker_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (_selectedGameObjectMapping != null)
+            {
+                var areaProperty = _selectedGameObjectMapping.MapMakerObject?.ConstructorParameters?
+                     .FirstOrDefault(p => p.PropertyName == GeneralGameConstants.AREA_PROPERTY_NAME);
+                if (areaProperty != null)
+                {
+                    var areaRect = (Rectangle)areaProperty.Value;
+                    var mapSize = GetMapSize();
+                    switch (e.KeyData)
+                    {
+                        case Keys.Up:
+                            if (areaRect.Y > 0)
+                            {
+                                areaProperty.Value = new Rectangle(areaRect.X, areaRect.Y - 1, areaRect.Width, areaRect.Height);
+                                _selectedGameObjectMapping.Location = new Point(areaRect.Location.X, areaRect.Location.Y - 1);
+                                mapMakerObjectPropertyListControl1.SetProperties(_selectedGameObjectMapping.MapMakerObject, true);
+                            }
+                            break;
+                        case Keys.Down:
+                            if (areaRect.Y < mapSize.Height - areaRect.Height)
+                            {
+                                areaProperty.Value = new Rectangle(areaRect.X, areaRect.Y + 1, areaRect.Width, areaRect.Height);
+                                _selectedGameObjectMapping.Location = new Point(areaRect.Location.X, areaRect.Location.Y + 1);
+                                mapMakerObjectPropertyListControl1.SetProperties(_selectedGameObjectMapping.MapMakerObject, true);
+                            }
+                            break;
+                        case Keys.Left:
+                            if (areaRect.X > 0)
+                            {
+                                areaProperty.Value = new Rectangle(areaRect.X - 1, areaRect.Y, areaRect.Width, areaRect.Height);
+                                _selectedGameObjectMapping.Location = new Point(areaRect.Location.X - 1, areaRect.Location.Y);
+                                mapMakerObjectPropertyListControl1.SetProperties(_selectedGameObjectMapping.MapMakerObject, true);
+                            }
+                            break;
+                        case Keys.Right:
+                            if (areaRect.X < mapSize.Width - areaRect.Width)
+                            {
+                                areaProperty.Value = new Rectangle(areaRect.X + 1, areaRect.Y, areaRect.Width, areaRect.Height);
+                                _selectedGameObjectMapping.Location = new Point(areaRect.Location.X + 1, areaRect.Location.Y);
+                                mapMakerObjectPropertyListControl1.SetProperties(_selectedGameObjectMapping.MapMakerObject, true);
+                            }
+                            break;
+                    }
+                }
             }
         }
 

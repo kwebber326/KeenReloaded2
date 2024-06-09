@@ -277,6 +277,7 @@
             this.Text = "Map Maker";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MapMaker_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MapMaker_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MapMaker_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();
