@@ -31,6 +31,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
             {
                 _area = area;
                 _image = Image.FromFile(imageFile);
+                this.HitBox = area;
                 _initialImageName = FileIOUtility.ExtractFileNameFromPath(imageFile);
             }
             catch (Exception ex)

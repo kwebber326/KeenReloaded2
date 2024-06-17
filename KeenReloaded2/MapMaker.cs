@@ -471,7 +471,7 @@ namespace KeenReloaded2
                         mapMakerObjectPropertyListControl1.SetProperties(_selectedGameObjectMapping.MapMakerObject, true, true);
                     }
                     break;
-                case Keys.Enter:
+                case Keys.Space:
                     if (_cursorItem != null && UserWantsSmartPlacer())
                     {
                         _useSmartPlacer = true;
@@ -733,7 +733,7 @@ namespace KeenReloaded2
                     var objectClosest = _smartPlacer.FindClosestBlockOfSameType(_mapMakerObjects, mapping, out Direction? direction);
                     if (objectClosest != null && direction != null)
                     {
-                        _smartPlacer.DrawAdjacent(_cursorItem.Size, objectClosest, direction.Value);
+                        _smartPlacer.DrawAdjacent(_cursorItem.Size, _mapMakerObjects, objectClosest, direction.Value);
                         if (!pnlMapCanvas.Controls.Contains(_smartPlacer))
                         {
                             pnlMapCanvas.Controls.Add(_smartPlacer);

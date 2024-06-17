@@ -26,11 +26,11 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             _defaultSize = new Size(this.Size.Width, this.Size.Height);
         }
 
-        public void DrawAdjacent(Size rectangleSize, GameObjectMapping gameObject, Direction direction)
+        public void DrawAdjacent(Size rectangleSize, List<GameObjectMapping> objects, GameObjectMapping gameObject, Direction direction)
         {
             if (gameObject != null && gameObject.Image != null)
             {
-                this.Visible = true;
+
                 int width = rectangleSize.Width;
                 int height = rectangleSize.Height;
                 this.Size = new Size(width, height);
@@ -65,6 +65,16 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                     return;
                 }
 
+                var drawArea = new Rectangle(x, y, gameObject.Width, gameObject.Height);
+                var collisionObjects = objects.Where(o => o != gameObject && o.Bounds.IntersectsWith(drawArea)).ToList();
+                var blockCollisions = collisionObjects.Select(c => c.GameObject).OfType<CollisionObject>();
+
+                if (blockCollisions.Any(c => c.CollisionType == CollisionType.BLOCK || c.CollisionType == CollisionType.PLATFORM))
+                {
+                    this.RemoveDrawing();
+                    return;
+                }
+                this.Visible = true;
                 _graphics = this.CreateGraphics();
                 using (Pen p = new Pen(Color.HotPink, 4))
                 {
@@ -90,7 +100,8 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                 var collisionObjects = gameObjects.Select(c => c.GameObject).OfType<CollisionObject>();
                 if (!collisionObjects.Any())
                     return null;
-                var sameTypeObjects = collisionObjects.Where(g => (g.CollisionType == CollisionType.BLOCK || g.CollisionType == CollisionType.PLATFORM));
+                var sameTypeObjects = collisionObjects.Where(g => 
+                    (g.CollisionType == CollisionType.BLOCK || g.CollisionType == CollisionType.PLATFORM));
                 if (!sameTypeObjects.Any())
                     return null;
 
