@@ -20,12 +20,14 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         private const int ROW_LENGTH = 300;
         private const int MAP_MAKER_OBJECT_MARGIN = 8;
         private PictureBox _selectedItem;
+        private int _originalHeight;
 
         public event EventHandler<MapMakerObjectEventArgs> ObjectClicked;
 
         public MapObjectContainer()
         {
             InitializeComponent();
+            _originalHeight = pnlImages.Height;
         }
 
         private void MapObjectContainer_Load(object sender, EventArgs e)
@@ -45,6 +47,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                 }
             }
             pnlImages.Controls.Clear();
+            pnlImages.Size = new Size(pnlImages.Width, _originalHeight);
             for (int i = 0; i < files.Length; i++)
             {
                 string fileExtension = files[i].Substring(files[i].LastIndexOf('.') + 1);
@@ -58,6 +61,11 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                     pb.ImageLocation = files[i];
                     pb.Click += Pb_Click;
                     pnlImages.Controls.Add(pb);
+
+                    if (pb.Bottom > pnlImages.Height)
+                    {
+                        pnlImages.Size = new Size(pnlImages.Width, pb.Bottom);
+                    }
 
                     if (pb.Height > maxHeight)
                         maxHeight = pb.Height;
