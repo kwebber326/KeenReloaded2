@@ -16,7 +16,7 @@ namespace KeenReloaded2.Framework.GameEntities.Items
 {
     public abstract class Item : CollisionObject, IAcquirable, IUpdatable, ISprite, ICreateRemove
     {
-        private Image _sprite;
+        protected Image _sprite;
         public event EventHandler Acquired;
         protected bool _moveUp = true;
         protected bool _canSteal = false;

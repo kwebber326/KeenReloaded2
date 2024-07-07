@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KeenReloaded2.Framework.GameEntities.Interfaces
+namespace KeenReloaded2.Framework.Interfaces
 {
     public interface IDropCollector
     {

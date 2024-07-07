@@ -12,7 +12,9 @@ using KeenReloaded2.Entities;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Backgrounds;
 using KeenReloaded2.Framework.GameEntities.Items;
+using KeenReloaded2.Framework.GameEntities.Items.WeaponsAmmo;
 using KeenReloaded2.Framework.GameEntities.Tiles;
+using KeenReloaded2.Framework.GameEntities.Weapons;
 using KeenReloaded2.Framework.ReferenceDataClasses;
 using KeenReloaded2.Utilities;
 
@@ -231,6 +233,7 @@ namespace KeenReloaded2.Entities.ReferenceData
             { nameof(Properties.Resources.keen6_pizza_slice1), PointItemType.KEEN6_PIZZA_SLICE },
         };
         #endregion
+
         private static Dictionary<string, MapMakerObject> GetBackgroundObjectData()
         {
             Dictionary<string, MapMakerObject> backgroundReferenceData = new Dictionary<string, MapMakerObject>();
@@ -1054,6 +1057,62 @@ namespace KeenReloaded2.Entities.ReferenceData
             MapMakerObject keen6VivaQueen = new MapMakerObject(typeof(ExtraLife), vivaQueenPath, false, vivaQueenParameters);
             backgroundReferenceData.Add(vivaQueenKey, keen6VivaQueen);
             #endregion
+
+            #endregion
+
+            #region Weapons
+
+            string weaponsPath = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_WEAPONS, "keen4", Biomes.BIOME_KEEN5_BLACK);
+
+            string stunnerImagePath = weaponsPath + @"\" + nameof(Properties.Resources.neural_stunner1) + ".png";
+            string stunnerImageName = FileIOUtility.ExtractFileNameFromPath(stunnerImagePath);
+            Image stunnerImage = Image.FromFile(stunnerImagePath);
+            MapMakerObjectProperty[] neuralStunnerProperties = new MapMakerObjectProperty[]
+            {
+                
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, stunnerImage.Width, stunnerImage.Height),
+                        },
+                       
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = "imageName",
+                            DataType = typeof(string),
+                            Hidden = true,
+                            Value = stunnerImageName,
+                            IsSpriteProperty = true,
+                            IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = "zIndex",
+                            DataType = typeof(int),
+                            Value = 50,
+                            DisplayName ="Z Index: "
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = "ammo",
+                            DataType = typeof(int),
+                            Value = 5,
+                            DisplayName = "Ammo: "
+                        }
+            };
+            MapMakerObject neuralStunner = new MapMakerObject(typeof(NeuralStunnerAmmo), stunnerImagePath, false, neuralStunnerProperties);
+
+            backgroundReferenceData.Add(stunnerImageName, neuralStunner);
 
             #endregion
 

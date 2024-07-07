@@ -8,6 +8,7 @@ namespace KeenReloaded2.Framework.Enums
 {
     public enum CollisionType
     {
+        NONE,
         BLOCK,
         PLATFORM,
         HAZARD,
@@ -17,6 +18,9 @@ namespace KeenReloaded2.Framework.Enums
         DOOR,
         ITEM,
         POLE,
-        POLE_MANHOLE
+        POLE_MANHOLE,
+        ENEMY_PROJECTILE,
+        FRIENDLY_PROJECTILE,
+        FORCE_FIELD
     }
 }

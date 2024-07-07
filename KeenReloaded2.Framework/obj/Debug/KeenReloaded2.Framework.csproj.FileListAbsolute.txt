@@ -11,3 +11,5 @@ C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Framework\bin\Debug\Keen
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Framework\bin\Debug\KeenReloaded2.Utilities.pdb
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Framework\obj\Debug\KeenReloaded2.Framework.Properties.Resources.resources
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Framework\obj\Debug\KeenReloaded2.Framework.csproj.GenerateResource.cache
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Framework\bin\Debug\KeenReloaded2.Drawing.dll
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Framework\bin\Debug\KeenReloaded2.Drawing.pdb

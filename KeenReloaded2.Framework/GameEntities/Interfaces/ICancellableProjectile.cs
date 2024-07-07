@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KeenReloaded2.Framework.Interfaces
+namespace KeenReloaded2.Framework.GameEntities.Interfaces
 {
-    public interface IDropCollector
+    interface ICancellableProjectile
     {
-        int DropVal { get; }
+        void Cancel();
     }
 }

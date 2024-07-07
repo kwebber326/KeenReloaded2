@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,9 +53,17 @@
     <Compile Include="GameEntities\Backgrounds\AnimatedBackground.cs" />
     <Compile Include="GameEntities\Backgrounds\Background.cs" />
     <Compile Include="GameEntities\CollisionObject.cs" />
+    <Compile Include="GameEntities\DestructibleObject.cs" />
+    <Compile Include="GameEntities\Hazards\ForceField.cs" />
     <Compile Include="GameEntities\Interfaces\IBiomeTile.cs" />
-    <Compile Include="GameEntities\Interfaces\IDropCollector.cs" />
+    <Compile Include="GameEntities\Interfaces\ICancellableProjectile.cs" />
+    <Compile Include="GameEntities\Interfaces\IDeflector.cs" />
+    <Compile Include="GameEntities\Interfaces\IEnemy.cs" />
+    <Compile Include="GameEntities\Interfaces\IFireable.cs" />
+    <Compile Include="GameEntities\Interfaces\IHealthBar.cs" />
+    <Compile Include="GameEntities\Interfaces\IMoveable.cs" />
     <Compile Include="GameEntities\Interfaces\ISprite.cs" />
+    <Compile Include="GameEntities\Interfaces\IProjectile.cs" />
     <Compile Include="GameEntities\Items\ExtraLife.cs" />
     <Compile Include="GameEntities\Items\Gem.cs" />
     <Compile Include="GameEntities\Items\Item.cs" />
@@ -62,9 +71,13 @@
     <Compile Include="GameEntities\Items\Drops\RainDrop.cs" />
     <Compile Include="GameEntities\Items\Drops\Vitalin.cs" />
     <Compile Include="GameEntities\Items\Drops\Viva.cs" />
+    <Compile Include="GameEntities\Items\WeaponsAmmo\NeuralStunnerAmmo.cs" />
+    <Compile Include="GameEntities\Players\CommanderKeen.cs" />
+    <Compile Include="GameEntities\Projectiles\KeenStunShot.cs" />
     <Compile Include="GameEntities\SpaceHashGrid.cs" />
     <Compile Include="GameEntities\Tiles\Ceilings\CeilingTile.cs" />
     <Compile Include="GameEntities\Tiles\Floors\LeftEdgeFloorTile.cs" />
+    <Compile Include="GameEntities\Tiles\HealthBarTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\LeftEdgePlatformTile.cs" />
     <Compile Include="GameEntities\Tiles\MaskedTile.cs" />
     <Compile Include="GameEntities\Tiles\Floors\MiddleFloorTile.cs" />
@@ -75,11 +88,12 @@
     <Compile Include="GameEntities\Tiles\Walls\LeftEdgeWallTile.cs" />
     <Compile Include="GameEntities\Tiles\Walls\MiddleWallTile.cs" />
     <Compile Include="GameEntities\Tiles\Walls\RightEdgeWallTile.cs" />
+    <Compile Include="GameEntities\Weapons\NeuralStunner.cs" />
     <Compile Include="GameEventArgs\ObjectEventArgs.cs" />
-    <Compile Include="Interfaces\IAcquirable.cs" />
-    <Compile Include="Interfaces\ICreateRemove.cs" />
-    <Compile Include="Interfaces\IDropCollector.cs" />
-    <Compile Include="Interfaces\IUpdatable.cs" />
+    <Compile Include="GameEntities\Interfaces\IAcquirable.cs" />
+    <Compile Include="GameEntities\Interfaces\ICreateRemove.cs" />
+    <Compile Include="GameEntities\Interfaces\IDropCollector.cs" />
+    <Compile Include="GameEntities\Interfaces\IUpdatable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -93,6 +107,10 @@
     <ProjectReference Include="..\KeenReloaded2.Constants\KeenReloaded2.Constants.csproj">
       <Project>{2e1f0654-b7c5-4d8f-9688-a9335d048254}</Project>
       <Name>KeenReloaded2.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KeenReloaded2.Drawing\KeenReloaded2.Graphics.csproj">
+      <Project>{8CE4860D-ECE9-456C-AE3E-0E816F950328}</Project>
+      <Name>KeenReloaded2.Graphics</Name>
     </ProjectReference>
     <ProjectReference Include="..\KeenReloaded2.Utilities\KeenReloaded2.Utilities.csproj">
       <Project>{B486FD57-020E-49AC-B895-6924C0A4F3E5}</Project>
@@ -974,6 +992,54 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_drop3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_force_field_explosion1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_force_field_explosion2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_force_field_top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_force_field_bottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_laser_field_laser1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_laser_field_laser2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_laser_field_laser3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_stun_shot1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_stun_shot2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_stun_shot3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_stun_shot4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_stun_shot_hit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_stun_shot_hit2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_acquired.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

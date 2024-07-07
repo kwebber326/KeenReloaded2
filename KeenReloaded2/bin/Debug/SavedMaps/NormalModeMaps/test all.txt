@@ -37,10 +37,8 @@ keen6_pizza_slice1|452|478|32|32|50|KEEN6_PIZZA_SLICE
 keen5_bag_o_sugar1|179|460|26|32|50|KEEN5_BAG_O_SUGAR
 keen5_sugar_stoopies_cereal1|624|79|30|22|50|KEEN5_SUGAR_STOOPIES_CEREAL
 keen4_drop1|769|148|20|32|50
-keen5_chocolate_milk1|300|222|24|32|50|KEEN5_CHOCOLATE_MILK
 keen5_tart_stix1|394|102|30|30|50|KEEN5_TART_STIX
 keen4_drop1|61|10|20|32|50
-keen4_lifewater_flask1|386|600|22|32|50|KEEN4_LIFEWATER_FLASK
 keen4_seaweed2_1|52|605|26|64|keen4_seaweed2_1.png|True|100
 keen4_seaweed1_1|105|603|22|62|keen4_seaweed1_1.png|True|1000
 keen5_vitalin1|482|58|18|32|50
@@ -59,3 +57,6 @@ keen4_mirage_floor_edge_right|141|651|52|64|10
 keen4_mirage_wall_bottom2|108|715|64|32|10
 keen4_forest_platform_single|763|199|32|40|10
 keen4_cave_wall_bottom4|492|529|64|32|10
+keen4_lifewater_flask1|386|600|22|32|50|KEEN4_LIFEWATER_FLASK
+keen5_chocolate_milk1|300|222|24|32|51|KEEN5_CHOCOLATE_MILK
+neural_stunner1|485|276|30|22|51|11

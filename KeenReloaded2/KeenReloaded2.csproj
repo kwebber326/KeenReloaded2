@@ -2772,28 +2772,7 @@
     <None Include="Resources\keen5_volte-face4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen5_force_field_bottom.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen5_force_field_explosion1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen5_force_field_explosion2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen5_force_field_top.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen5_laser_field_down.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen5_laser_field_laser1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen5_laser_field_laser2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen5_laser_field_laser3.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen5_laser_field_up.png" />
@@ -5163,75 +5142,6 @@
     <None Include="Resources\mirage_hill4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\neural_stunner_acquired.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neural_stunner_railgun_acquired.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neural_stunner_railgun1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neural_stunner_railgun2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neural_stunner_rocket_launcher_acquired.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neural_stunner_rocket_launcher1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neural_stunner_rocket_launcher2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neural_stunner_rpg1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neural_stunner_rpg1_down.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neural_stunner_rpg1_left.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neural_stunner_rpg1_up.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neural_stunner_rpg2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neural_stunner_rpg2_down.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neural_stunner_rpg2_left.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neural_stunner_rpg2_up.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neural_stunner_shotgun.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neural_stunner_shotgun_acquired.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neural_stunner_shotgun2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neural_stunner_smg_1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neural_stunner_smg_2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neural_stunner_smg_acquired.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neural_stunner1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neural_stunner2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\random_item_generator_closed.png" />
   </ItemGroup>
   <ItemGroup>
@@ -5683,6 +5593,96 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\gem_yellow2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_force_field_explosion1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_force_field_explosion2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_force_field_top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_force_field_bottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_laser_field_laser1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_laser_field_laser2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_laser_field_laser3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_rpg1_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_rpg1_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_rpg1_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_rpg2_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_rpg2_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_rpg2_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_rpg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_rpg2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_rocket_launcher1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_rocket_launcher2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_rocket_launcher_acquired.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_railgun1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_railgun2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_railgun_acquired.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_smg_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_smg_acquired.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_smg_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_shotgun2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_shotgun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_shotgun_acquired.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_acquired.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

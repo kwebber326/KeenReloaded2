@@ -2,6 +2,7 @@
 using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Framework.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
