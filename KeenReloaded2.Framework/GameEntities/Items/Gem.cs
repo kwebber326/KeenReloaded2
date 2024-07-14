@@ -13,7 +13,6 @@ namespace KeenReloaded2.Framework.GameEntities.Items
     public class Gem : Item
     {
         private GemColor _color;
-        private Image[] _images;
         private bool _hasGravity;
         private bool _hasJumped;
         private const int FALL_VELOCITY = 30;

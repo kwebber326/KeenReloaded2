@@ -65,3 +65,8 @@ neural_stunner_railgun1|556|529|52|22|50|20
 neural_stunner_rocket_launcher1|351|350|55|26|50|10
 neural_stunner1|46|187|30|22|50|5
 neural_stunner_railgun1|37|378|52|22|50|52
+neural_stunner_smg_1|539|171|46|22|50|30
+keen_dreams_boobus_bomb2|193|651|30|30|50|15
+snake_gun1|568|639|57|20|50|5
+BFG1|625|639|61|24|50|5
+neural_stunner_shotgun|638|516|53|22|50|5

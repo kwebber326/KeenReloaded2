@@ -63,6 +63,76 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BFG_acquired {
+            get {
+                object obj = ResourceManager.GetObject("BFG_acquired", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BFG_shot1 {
+            get {
+                object obj = ResourceManager.GetObject("BFG_shot1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BFG_shot2 {
+            get {
+                object obj = ResourceManager.GetObject("BFG_shot2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BFG_shot3 {
+            get {
+                object obj = ResourceManager.GetObject("BFG_shot3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BFG_shot4 {
+            get {
+                object obj = ResourceManager.GetObject("BFG_shot4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BFG1 {
+            get {
+                object obj = ResourceManager.GetObject("BFG1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BFG2 {
+            get {
+                object obj = ResourceManager.GetObject("BFG2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gem_acquired {
             get {
                 object obj = ResourceManager.GetObject("gem_acquired", resourceCulture);
@@ -266,6 +336,56 @@ namespace KeenReloaded2.Framework.Properties {
         internal static System.Drawing.Bitmap keen_1up {
             get {
                 object obj = ResourceManager.GetObject("keen_1up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_dreams_boobus_bomb_acquired {
+            get {
+                object obj = ResourceManager.GetObject("keen_dreams_boobus_bomb_acquired", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_dreams_boobus_bomb_explode1 {
+            get {
+                object obj = ResourceManager.GetObject("keen_dreams_boobus_bomb_explode1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_dreams_boobus_bomb_explode2 {
+            get {
+                object obj = ResourceManager.GetObject("keen_dreams_boobus_bomb_explode2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_dreams_boobus_bomb1 {
+            get {
+                object obj = ResourceManager.GetObject("keen_dreams_boobus_bomb1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_dreams_boobus_bomb2 {
+            get {
+                object obj = ResourceManager.GetObject("keen_dreams_boobus_bomb2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -3223,6 +3343,66 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap neural_stunner_shotgun {
+            get {
+                object obj = ResourceManager.GetObject("neural_stunner_shotgun", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap neural_stunner_shotgun_acquired {
+            get {
+                object obj = ResourceManager.GetObject("neural_stunner_shotgun_acquired", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap neural_stunner_shotgun2 {
+            get {
+                object obj = ResourceManager.GetObject("neural_stunner_shotgun2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap neural_stunner_smg_1 {
+            get {
+                object obj = ResourceManager.GetObject("neural_stunner_smg_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap neural_stunner_smg_2 {
+            get {
+                object obj = ResourceManager.GetObject("neural_stunner_smg_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap neural_stunner_smg_acquired {
+            get {
+                object obj = ResourceManager.GetObject("neural_stunner_smg_acquired", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap neural_stunner1 {
             get {
                 object obj = ResourceManager.GetObject("neural_stunner1", resourceCulture);
@@ -3246,6 +3426,116 @@ namespace KeenReloaded2.Framework.Properties {
         internal static System.Drawing.Bitmap red_gem_inventory {
             get {
                 object obj = ResourceManager.GetObject("red_gem_inventory", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snake_gun_acquired {
+            get {
+                object obj = ResourceManager.GetObject("snake_gun_acquired", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snake_gun_shot_horizontal1 {
+            get {
+                object obj = ResourceManager.GetObject("snake_gun_shot_horizontal1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snake_gun_shot_horizontal2 {
+            get {
+                object obj = ResourceManager.GetObject("snake_gun_shot_horizontal2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snake_gun_shot_horizontal3 {
+            get {
+                object obj = ResourceManager.GetObject("snake_gun_shot_horizontal3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snake_gun_shot_horizontal4 {
+            get {
+                object obj = ResourceManager.GetObject("snake_gun_shot_horizontal4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snake_gun_shot_vertical1 {
+            get {
+                object obj = ResourceManager.GetObject("snake_gun_shot_vertical1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snake_gun_shot_vertical2 {
+            get {
+                object obj = ResourceManager.GetObject("snake_gun_shot_vertical2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snake_gun_shot_vertical3 {
+            get {
+                object obj = ResourceManager.GetObject("snake_gun_shot_vertical3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snake_gun_shot_vertical4 {
+            get {
+                object obj = ResourceManager.GetObject("snake_gun_shot_vertical4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snake_gun1 {
+            get {
+                object obj = ResourceManager.GetObject("snake_gun1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snake_gun2 {
+            get {
+                object obj = ResourceManager.GetObject("snake_gun2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

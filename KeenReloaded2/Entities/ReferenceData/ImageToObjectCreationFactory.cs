@@ -1084,6 +1084,50 @@ namespace KeenReloaded2.Entities.ReferenceData
             backgroundReferenceData.Add(rpgKey, rpg);
             #endregion
 
+            #region smg
+
+            MapMakerObject smg = GetWeaponObjectFromWeaponsData<SMGNeuralStunnerAmmo>(weaponsPath, nameof(Properties.Resources.neural_stunner_smg_1), out string smgKey);
+
+            backgroundReferenceData.Add(smgKey, smg);
+
+            #endregion
+
+            #region BFG
+
+            MapMakerObject bfg = GetWeaponObjectFromWeaponsData<BFGAmmo>(weaponsPath, nameof(Properties.Resources.BFG1), out string bfgKey);
+
+            backgroundReferenceData.Add(bfgKey, bfg);
+
+            #endregion
+
+            #region boobus bomb
+
+            MapMakerObject bbLauncher = GetWeaponObjectFromWeaponsData<BoobusBombLauncherAmmo>(weaponsPath, nameof(Properties.Resources.keen_dreams_boobus_bomb2), out string bbKey);
+
+            backgroundReferenceData.Add(bbKey, bbLauncher);
+
+            #endregion
+
+            #region Shotgun
+
+            MapMakerObject shotgun = GetWeaponObjectFromWeaponsData<ShotgunNeuralStunnerAmmo>(weaponsPath, nameof(Properties.Resources.neural_stunner_shotgun), out string shotgunKey);
+
+            backgroundReferenceData.Add(shotgunKey, shotgun);
+
+            #endregion
+
+            #region snake gun
+
+            MapMakerObject snakeGun = GetWeaponObjectFromWeaponsData<SnakeGunAmmo>(weaponsPath, nameof(Properties.Resources.snake_gun1), out string snakeGunKey);
+
+            backgroundReferenceData.Add(snakeGunKey, snakeGun);
+
+            #endregion
+
+            #region 
+
+            #endregion
+
             #endregion
 
             return backgroundReferenceData;

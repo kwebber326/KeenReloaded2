@@ -74,9 +74,14 @@
     <Compile Include="GameEntities\Items\Drops\RainDrop.cs" />
     <Compile Include="GameEntities\Items\Drops\Vitalin.cs" />
     <Compile Include="GameEntities\Items\Drops\Viva.cs" />
+    <Compile Include="GameEntities\Items\WeaponsAmmo\BFGAmmo.cs" />
+    <Compile Include="GameEntities\Items\WeaponsAmmo\BoobusBombLauncherAmmo.cs" />
     <Compile Include="GameEntities\Items\WeaponsAmmo\NeuralStunnerAmmo.cs" />
     <Compile Include="GameEntities\Items\WeaponsAmmo\RailgunNeuralStunnerAmmo.cs" />
     <Compile Include="GameEntities\Items\WeaponsAmmo\RPGNeuralStunnerAmmo.cs" />
+    <Compile Include="GameEntities\Items\WeaponsAmmo\ShotgunNeuralStunnerAmmo.cs" />
+    <Compile Include="GameEntities\Items\WeaponsAmmo\SMGNeuralStunnerAmmo.cs" />
+    <Compile Include="GameEntities\Items\WeaponsAmmo\SnakeGunAmmo.cs" />
     <Compile Include="GameEntities\Players\CommanderKeen.cs" />
     <Compile Include="GameEntities\Projectiles\KeenRailgunShot.cs" />
     <Compile Include="GameEntities\Projectiles\KeenRPGShot.cs" />
@@ -1092,6 +1097,93 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\neural_stunner_rocket_launcher2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_smg_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_smg_acquired.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_smg_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BFG_acquired.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BFG_shot1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BFG_shot4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BFG_shot3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BFG_shot2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BFG2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BFG1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_gun_shot_vertical4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_gun_shot_vertical3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_gun_shot_vertical2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_gun_shot_vertical1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_gun_shot_horizontal4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_gun_shot_horizontal3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_gun_shot_horizontal2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_gun_shot_horizontal1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_gun_acquired.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_gun2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake_gun1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_dreams_boobus_bomb_acquired.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_dreams_boobus_bomb1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_dreams_boobus_bomb2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_dreams_boobus_bomb_explode1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_dreams_boobus_bomb_explode2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_shotgun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_shotgun_acquired.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_shotgun2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
