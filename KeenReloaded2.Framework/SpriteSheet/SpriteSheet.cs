@@ -950,5 +950,27 @@ namespace KeenReloaded2.Framework.SpriteSheet
 
 
         #endregion
+
+        #region projectiles and explosions
+
+        private static Image[] _rpgExplosionImages;
+
+        public static Image[] RPGExplosionSprites
+        {
+            get
+            {
+                if (_rpgExplosionImages == null)
+                {
+                    _rpgExplosionImages = new Image[]
+                    {
+                        Properties.Resources.keen_stun_shot_hit1,
+                        Properties.Resources.keen_stun_shot_hit2
+                    };
+                }
+                return _rpgExplosionImages;
+            }
+        }
+
+        #endregion
     }
 }

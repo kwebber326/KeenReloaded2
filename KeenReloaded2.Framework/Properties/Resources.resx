@@ -1030,6 +1030,48 @@
   <data name="neural_stunner_acquired" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\neural_stunner_acquired.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="neural_stunner_railgun1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\neural_stunner_railgun1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="neural_stunner_railgun2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\neural_stunner_railgun2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="neural_stunner_railgun_acquired" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\neural_stunner_railgun_acquired.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="neural_stunner_rocket_launcher1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\neural_stunner_rocket_launcher1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="neural_stunner_rocket_launcher2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\neural_stunner_rocket_launcher2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="neural_stunner_rocket_launcher_acquired" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\neural_stunner_rocket_launcher_acquired.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="neural_stunner_rpg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\neural_stunner_rpg1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="neural_stunner_rpg1_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\neural_stunner_rpg1_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="neural_stunner_rpg1_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\neural_stunner_rpg1_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="neural_stunner_rpg1_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\neural_stunner_rpg1_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="neural_stunner_rpg2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\neural_stunner_rpg2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="neural_stunner_rpg2_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\neural_stunner_rpg2_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="neural_stunner_rpg2_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\neural_stunner_rpg2_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="neural_stunner_rpg2_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\neural_stunner_rpg2_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="red_gem_inventory" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\red_gem_inventory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

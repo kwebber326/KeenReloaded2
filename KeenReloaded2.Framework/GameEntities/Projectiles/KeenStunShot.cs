@@ -238,7 +238,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         private int _spreadOffset;
         private bool _spreadApplied;
         private int _blastRadius;
-        private Image _sprite;
+        protected Image _sprite;
         private int _refireDelay;
 
         protected Image[] _shotSprites;

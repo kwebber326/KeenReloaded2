@@ -1064,60 +1064,31 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             string weaponsPath = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_WEAPONS, "keen4", Biomes.BIOME_KEEN5_BLACK);
 
-            string stunnerImagePath = weaponsPath + @"\" + nameof(Properties.Resources.neural_stunner1) + ".png";
-            string stunnerImageName = FileIOUtility.ExtractFileNameFromPath(stunnerImagePath);
-            Image stunnerImage = Image.FromFile(stunnerImagePath);
-            MapMakerObjectProperty[] neuralStunnerProperties = new MapMakerObjectProperty[]
-            {
-                
-                        new MapMakerObjectProperty()
-                        {
-                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                            DataType = typeof(SpaceHashGrid),
-                            Value = null,
-                            Hidden = true,
-                            IsIgnoredInMapData = true
-                        },
-                        new MapMakerObjectProperty()
-                        {
-                            DisplayName = "Area: ",
-                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                            DataType = typeof(Rectangle),
-                            Value = new Rectangle(0, 0, stunnerImage.Width, stunnerImage.Height),
-                        },
-                       
-                        new MapMakerObjectProperty()
-                        {
-                            PropertyName = "imageName",
-                            DataType = typeof(string),
-                            Hidden = true,
-                            Value = stunnerImageName,
-                            IsSpriteProperty = true,
-                            IsIgnoredInMapData = true
-                        },
-                        new MapMakerObjectProperty()
-                        {
-                            PropertyName = "zIndex",
-                            DataType = typeof(int),
-                            Value = 50,
-                            DisplayName ="Z Index: "
-                        },
-                        new MapMakerObjectProperty()
-                        {
-                            PropertyName = "ammo",
-                            DataType = typeof(int),
-                            Value = 5,
-                            DisplayName = "Ammo: "
-                        }
-            };
-            MapMakerObject neuralStunner = new MapMakerObject(typeof(NeuralStunnerAmmo), stunnerImagePath, false, neuralStunnerProperties);
+            #region neural stunner
 
-            backgroundReferenceData.Add(stunnerImageName, neuralStunner);
+            MapMakerObject neuralStunner = GetWeaponObjectFromWeaponsData<NeuralStunnerAmmo>(weaponsPath, nameof(Properties.Resources.neural_stunner1), out string neuralStunnerKey);
+
+            backgroundReferenceData.Add(neuralStunnerKey, neuralStunner);
+            #endregion
+
+            #region railgun
+
+            MapMakerObject railgun = GetWeaponObjectFromWeaponsData<RailgunNeuralStunnerAmmo>(weaponsPath, nameof(Properties.Resources.neural_stunner_railgun1), out string railKey);
+
+            backgroundReferenceData.Add(railKey, railgun);
+            #endregion
+
+            #region RPG
+            MapMakerObject rpg = GetWeaponObjectFromWeaponsData<RPGNeuralStunnerAmmo>(weaponsPath, nameof(Properties.Resources.neural_stunner_rocket_launcher1), out string rpgKey);
+
+            backgroundReferenceData.Add(rpgKey, rpg);
+            #endregion
 
             #endregion
 
             return backgroundReferenceData;
         }
+
         #region reference data
         private static Dictionary<string, MapMakerObject> _imageObjectMapping = GetBackgroundObjectData();
 
@@ -1163,6 +1134,61 @@ namespace KeenReloaded2.Entities.ReferenceData
         }
 
         #region helper methods
+
+        private static MapMakerObject GetWeaponObjectFromWeaponsData<TWeapon>(string weaponsPath, string resourceName, out string mapMakerObjectKey)
+        {
+    
+            string imagePath = weaponsPath + @"\" + resourceName + ".png";
+            string imageName = FileIOUtility.ExtractFileNameFromPath(imagePath);
+            mapMakerObjectKey = imageName;
+            Image image = Image.FromFile(imagePath);
+
+            MapMakerObjectProperty[] weaponProperties = new MapMakerObjectProperty[]
+          {
+
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, image.Width, image.Height),
+                        },
+
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = "imageName",
+                            DataType = typeof(string),
+                            Hidden = true,
+                            Value = imageName,
+                            IsSpriteProperty = true,
+                            IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = "zIndex",
+                            DataType = typeof(int),
+                            Value = 50,
+                            DisplayName ="Z Index: "
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = "ammo",
+                            DataType = typeof(int),
+                            Value = 5,
+                            DisplayName = "Ammo: "
+                        }
+          };
+            MapMakerObject rpg = new MapMakerObject(typeof(TWeapon), imagePath, false, weaponProperties);
+            return rpg;
+        }
 
         private static string InferBiomeFromImage(string imageName)
         {

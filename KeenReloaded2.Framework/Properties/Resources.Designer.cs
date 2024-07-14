@@ -3083,6 +3083,146 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap neural_stunner_railgun_acquired {
+            get {
+                object obj = ResourceManager.GetObject("neural_stunner_railgun_acquired", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap neural_stunner_railgun1 {
+            get {
+                object obj = ResourceManager.GetObject("neural_stunner_railgun1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap neural_stunner_railgun2 {
+            get {
+                object obj = ResourceManager.GetObject("neural_stunner_railgun2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap neural_stunner_rocket_launcher_acquired {
+            get {
+                object obj = ResourceManager.GetObject("neural_stunner_rocket_launcher_acquired", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap neural_stunner_rocket_launcher1 {
+            get {
+                object obj = ResourceManager.GetObject("neural_stunner_rocket_launcher1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap neural_stunner_rocket_launcher2 {
+            get {
+                object obj = ResourceManager.GetObject("neural_stunner_rocket_launcher2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap neural_stunner_rpg1 {
+            get {
+                object obj = ResourceManager.GetObject("neural_stunner_rpg1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap neural_stunner_rpg1_down {
+            get {
+                object obj = ResourceManager.GetObject("neural_stunner_rpg1_down", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap neural_stunner_rpg1_left {
+            get {
+                object obj = ResourceManager.GetObject("neural_stunner_rpg1_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap neural_stunner_rpg1_up {
+            get {
+                object obj = ResourceManager.GetObject("neural_stunner_rpg1_up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap neural_stunner_rpg2 {
+            get {
+                object obj = ResourceManager.GetObject("neural_stunner_rpg2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap neural_stunner_rpg2_down {
+            get {
+                object obj = ResourceManager.GetObject("neural_stunner_rpg2_down", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap neural_stunner_rpg2_left {
+            get {
+                object obj = ResourceManager.GetObject("neural_stunner_rpg2_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap neural_stunner_rpg2_up {
+            get {
+                object obj = ResourceManager.GetObject("neural_stunner_rpg2_up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap neural_stunner1 {
             get {
                 object obj = ResourceManager.GetObject("neural_stunner1", resourceCulture);

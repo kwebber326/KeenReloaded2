@@ -21,6 +21,7 @@ namespace KeenReloaded2.Framework.Enums
         POLE_MANHOLE,
         ENEMY_PROJECTILE,
         FRIENDLY_PROJECTILE,
-        FORCE_FIELD
+        FORCE_FIELD,
+        EXPLOSION
     }
 }

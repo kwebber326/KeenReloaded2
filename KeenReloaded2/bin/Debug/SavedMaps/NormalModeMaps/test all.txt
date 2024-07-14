@@ -60,3 +60,8 @@ keen4_cave_wall_bottom4|492|529|64|32|10
 keen4_lifewater_flask1|386|600|22|32|50|KEEN4_LIFEWATER_FLASK
 keen5_chocolate_milk1|300|222|24|32|51|KEEN5_CHOCOLATE_MILK
 neural_stunner1|485|276|30|22|51|11
+neural_stunner_railgun1|650|443|52|22|50|5
+neural_stunner_railgun1|556|529|52|22|50|20
+neural_stunner_rocket_launcher1|351|350|55|26|50|10
+neural_stunner1|46|187|30|22|50|5
+neural_stunner_railgun1|37|378|52|22|50|52

@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Enums\CollisionType.cs" />
     <Compile Include="Enums\Direction.cs" />
+    <Compile Include="Enums\ExplosionState.cs" />
     <Compile Include="Enums\ExtraLifeType.cs" />
     <Compile Include="Enums\GemColor.cs" />
     <Compile Include="Enums\MoveState.cs" />
@@ -59,11 +60,13 @@
     <Compile Include="GameEntities\Interfaces\ICancellableProjectile.cs" />
     <Compile Include="GameEntities\Interfaces\IDeflector.cs" />
     <Compile Include="GameEntities\Interfaces\IEnemy.cs" />
+    <Compile Include="GameEntities\Interfaces\IExplodable.cs" />
     <Compile Include="GameEntities\Interfaces\IFireable.cs" />
     <Compile Include="GameEntities\Interfaces\IHealthBar.cs" />
     <Compile Include="GameEntities\Interfaces\IMoveable.cs" />
     <Compile Include="GameEntities\Interfaces\ISprite.cs" />
     <Compile Include="GameEntities\Interfaces\IProjectile.cs" />
+    <Compile Include="GameEntities\Interfaces\IStunnable.cs" />
     <Compile Include="GameEntities\Items\ExtraLife.cs" />
     <Compile Include="GameEntities\Items\Gem.cs" />
     <Compile Include="GameEntities\Items\Item.cs" />
@@ -72,8 +75,13 @@
     <Compile Include="GameEntities\Items\Drops\Vitalin.cs" />
     <Compile Include="GameEntities\Items\Drops\Viva.cs" />
     <Compile Include="GameEntities\Items\WeaponsAmmo\NeuralStunnerAmmo.cs" />
+    <Compile Include="GameEntities\Items\WeaponsAmmo\RailgunNeuralStunnerAmmo.cs" />
+    <Compile Include="GameEntities\Items\WeaponsAmmo\RPGNeuralStunnerAmmo.cs" />
     <Compile Include="GameEntities\Players\CommanderKeen.cs" />
+    <Compile Include="GameEntities\Projectiles\KeenRailgunShot.cs" />
+    <Compile Include="GameEntities\Projectiles\KeenRPGShot.cs" />
     <Compile Include="GameEntities\Projectiles\KeenStunShot.cs" />
+    <Compile Include="GameEntities\Projectiles\RPGExplosion.cs" />
     <Compile Include="GameEntities\SpaceHashGrid.cs" />
     <Compile Include="GameEntities\Tiles\Ceilings\CeilingTile.cs" />
     <Compile Include="GameEntities\Tiles\Floors\LeftEdgeFloorTile.cs" />
@@ -89,6 +97,8 @@
     <Compile Include="GameEntities\Tiles\Walls\MiddleWallTile.cs" />
     <Compile Include="GameEntities\Tiles\Walls\RightEdgeWallTile.cs" />
     <Compile Include="GameEntities\Weapons\NeuralStunner.cs" />
+    <Compile Include="GameEntities\Weapons\RailgunNeuralStunner.cs" />
+    <Compile Include="GameEntities\Weapons\RPGNeuralStunner.cs" />
     <Compile Include="GameEventArgs\ObjectEventArgs.cs" />
     <Compile Include="GameEntities\Interfaces\IAcquirable.cs" />
     <Compile Include="GameEntities\Interfaces\ICreateRemove.cs" />
@@ -1040,6 +1050,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\neural_stunner_acquired.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_railgun1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_railgun2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_railgun_acquired.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_rpg1_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_rpg1_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_rpg1_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_rpg2_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_rpg2_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_rpg2_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_rpg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_rpg2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_rocket_launcher_acquired.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_rocket_launcher1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neural_stunner_rocket_launcher2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
