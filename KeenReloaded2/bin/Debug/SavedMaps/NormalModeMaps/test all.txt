@@ -70,3 +70,4 @@ keen_dreams_boobus_bomb2|193|651|30|30|50|15
 snake_gun1|568|639|57|20|50|5
 BFG1|625|639|61|24|50|5
 neural_stunner_shotgun|638|516|53|22|50|5
+keen_stand_left|500|318|26|64|LEFT

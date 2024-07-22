@@ -1,4 +1,5 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Animations;
 using KeenReloaded2.Framework.GameEntities.Constructs;
@@ -25,17 +26,19 @@ namespace KeenReloaded2.Framework.GameEntities.Players
     public class CommanderKeen
         : DestructibleObject, IFireable, IGravityObject, IMoveable, IStunnable, ISprite, IUpdatable, ICreateRemove
     {
-        public CommanderKeen(SpaceHashGrid grid, Rectangle hitbox, Direction direction)
-            : base(grid, hitbox)
+        public CommanderKeen(Rectangle area, SpaceHashGrid grid, Direction direction)
+            : base(grid, area)
         {
+            this.HitBox = area;
             Initialize(direction);
         }
 
-        public CommanderKeen(SpaceHashGrid grid, Rectangle hitbox, Direction direction, int lives, long points)
-           : base(grid, hitbox)
+        public CommanderKeen(Rectangle area, SpaceHashGrid grid, Direction direction, int lives, long points)
+           : base(grid, area)
         {
             this.Lives = lives;
             this.Points = points;
+            this.HitBox = area;
             Initialize(direction);
         }
 
@@ -1251,10 +1254,6 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             protected set
             {
                 base.HitBox = value;
-                //if (this.Sprite != null)
-                //{
-                //    this.Sprite.Location = base.HitBox.Location;
-                //}
                 if (_currentWeapon != null)
                 {
                     _currentWeapon.HitBox = this.HitBox;
@@ -2951,7 +2950,11 @@ namespace KeenReloaded2.Framework.GameEntities.Players
 
         public override string ToString()
         {
-            return $"{typeof(CommanderKeen).Name}|{this.Location.X}|{this.Location.Y}|{this.Direction.ToString()}";
+            string key = this.IsLeftDirection(this.Direction)
+                ? nameof(Properties.Resources.keen_stand_left)
+                : nameof(Properties.Resources.keen_stand_right);
+            string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
+            return $"{key}{separator}{this.Location.X}{separator}{this.Location.Y}{separator}{this.HitBox.Width}{separator}{this.HitBox.Height}{separator}{this.Direction.ToString()}";
         }
         public override CollisionType CollisionType => CollisionType.PLAYER;
 

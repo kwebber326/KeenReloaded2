@@ -1139,6 +1139,13 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             MapMakerObjectProperty[] playerLeftProperties = new MapMakerObjectProperty[]
             {
+                   new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, imgPlayerLeft.Width, imgPlayerLeft.Height),
+                        },
                   new MapMakerObjectProperty()
                         {
                             PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
@@ -1149,16 +1156,8 @@ namespace KeenReloaded2.Entities.ReferenceData
                         },
                   new MapMakerObjectProperty()
                         {
-                            PropertyName = GeneralGameConstants.HITBOX_PROPERTY_NAME,
-                            Hidden = true,
-                            DataType = typeof(Rectangle),
-                            Value = new Rectangle(0, 0, imgPlayerLeft.Width, imgPlayerLeft.Height),
-                            IsIgnoredInMapData = true
-                        },
-                  new MapMakerObjectProperty()
-                        {
                             PropertyName = "direction",
-                            DataType = typeof(GemColor),
+                            DataType = typeof(Direction),
                             Hidden = true,
                             Value = Direction.LEFT,
                             PossibleValues = Enum.GetNames(typeof(Direction)),
@@ -1184,6 +1183,13 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             MapMakerObjectProperty[] playerRightProperties = new MapMakerObjectProperty[]
             {
+                   new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, imgPlayerRight.Width, imgPlayerRight.Height),
+                        },
                   new MapMakerObjectProperty()
                         {
                             PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
@@ -1194,16 +1200,8 @@ namespace KeenReloaded2.Entities.ReferenceData
                         },
                   new MapMakerObjectProperty()
                         {
-                            PropertyName = GeneralGameConstants.HITBOX_PROPERTY_NAME,
-                            Hidden = true,
-                            DataType = typeof(Rectangle),
-                            Value = new Rectangle(0, 0, imgPlayerLeft.Width, imgPlayerLeft.Height),
-                            IsIgnoredInMapData = true
-                        },
-                  new MapMakerObjectProperty()
-                        {
                             PropertyName = "direction",
-                            DataType = typeof(GemColor),
+                            DataType = typeof(Direction),
                             Hidden = true,
                             Value = Direction.RIGHT,
                             PossibleValues = Enum.GetNames(typeof(Direction)),
