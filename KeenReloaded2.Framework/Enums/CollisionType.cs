@@ -10,6 +10,7 @@ namespace KeenReloaded2.Framework.Enums
     {
         NONE,
         BLOCK,
+        DESTRUCTIBLE_BLOCK,
         PLATFORM,
         HAZARD,
         ENEMY,
@@ -18,10 +19,17 @@ namespace KeenReloaded2.Framework.Enums
         DOOR,
         ITEM,
         POLE,
+        POLE_TILE,
         POLE_MANHOLE,
         ENEMY_PROJECTILE,
         FRIENDLY_PROJECTILE,
         FORCE_FIELD,
-        EXPLOSION
+        EXPLOSION,
+        KEEN6_SWITCH,
+        GEM_PLACEHOLDER,
+        ALERTABLE,
+        MAP_EDGE_TILE,
+        CTF_DESTINATION,
+        CONVEYOR_BELT
     }
 }

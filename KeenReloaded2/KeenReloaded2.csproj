@@ -5298,183 +5298,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen_climb_left1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_climb_left2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_climb_left3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_climb_left4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_climb_right1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_climb_right2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_climb_right3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_climb_right4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_dead1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_dead2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_enter_door1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_enter_door2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_enter_door3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_enter_door4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_enter_door5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_fall_left.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_fall_right.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_hang_left.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_hang_right.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_jump_left1.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_jump_left2.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_jump_right1.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_jump_right2.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_look_down1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_look_down2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_look_up.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_pole_left1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_pole_left2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_pole_left3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_pole_right1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_pole_right2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_pole_right3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_run_left1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_run_left2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_run_left3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_run_left4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_run_right1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_run_right2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_run_right3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_run_right4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_shimmy_down1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_shimmy_down2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_shimmy_down3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_shimmy_down4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_shoot_down_aerial.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_shoot_down_pole_left.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_shoot_down_pole_right.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_shoot_left_aerial.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_shoot_left_pole.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_shoot_left_standing.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_shoot_right_aerial.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_shoot_right_pole.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_shoot_right_standing.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_shoot_up.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_shoot_up_aerial.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_shoot_up_pole_left.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_shoot_up_pole_right.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_stand_left.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_stand_right.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen_stun_shot_hit1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -5698,6 +5521,183 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\snake_gun1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_enter_door1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_enter_door2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_enter_door3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_enter_door4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_enter_door5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_shoot_down_pole_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_shoot_down_pole_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_shoot_left_pole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_shoot_right_pole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_shoot_up_pole_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_shoot_up_pole_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_shoot_down_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_shoot_left_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_shoot_left_standing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_shoot_right_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_shoot_right_standing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_shoot_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_shoot_up_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_look_down2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_look_down1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_look_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_shimmy_down1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_shimmy_down2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_shimmy_down3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_shimmy_down4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_pole_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_pole_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_pole_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_pole_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_pole_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_pole_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_dead2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_dead1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_hang_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_hang_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_climb_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_climb_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_climb_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_climb_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_climb_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_climb_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_climb_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_climb_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_jump_left2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_jump_left1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_jump_right2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_jump_right1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_fall_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_fall_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_stand_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_run_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_run_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_run_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_run_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_run_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_run_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_run_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_run_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_stand_right.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

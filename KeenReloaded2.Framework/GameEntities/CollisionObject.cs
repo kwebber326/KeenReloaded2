@@ -350,20 +350,20 @@ namespace KeenReloaded.Framework
             return null;
         }
 
-        //protected virtual CollisionObject GetTopMostLandingTile(List<CollisionObject> collisions)
-        //{
-        //    CollisionObject topMostTile = null;
-        //    var landingTiles = collisions.Where(h => (h is MaskedTile || h is Platform || h is PlatformTile || h is PoleTile || h is Keen6Switch)
-        //        && h.HitBox.Top >= this.HitBox.Top);
+        protected virtual CollisionObject GetTopMostLandingTile(List<CollisionObject> collisions)
+        {
+            CollisionObject topMostTile = null;
+            var landingTiles = collisions.Where(h => (h is MaskedTile || h.CollisionType == CollisionType.PLATFORM || h.CollisionType == CollisionType.POLE || h.CollisionType == CollisionType.POLE_TILE || h.CollisionType == CollisionType.KEEN6_SWITCH)
+                && h.HitBox.Top >= this.HitBox.Top);
 
-        //    if (!landingTiles.Any())
-        //        return null;
+            if (!landingTiles.Any())
+                return null;
 
-        //    int minY = landingTiles.Select(c => c.HitBox.Top).Min();
-        //    topMostTile = landingTiles.FirstOrDefault(t => t.HitBox.Top == minY);
+            int minY = landingTiles.Select(c => c.HitBox.Top).Min();
+            topMostTile = landingTiles.FirstOrDefault(t => t.HitBox.Top == minY);
 
-        //    return topMostTile;
-        //}
+            return topMostTile;
+        }
 
         protected virtual CollisionObject GetTopMostLandingTile(int currentFallVelocity)
         {

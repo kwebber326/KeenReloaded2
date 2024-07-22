@@ -13,6 +13,7 @@ using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Backgrounds;
 using KeenReloaded2.Framework.GameEntities.Items;
 using KeenReloaded2.Framework.GameEntities.Items.WeaponsAmmo;
+using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.Tiles;
 using KeenReloaded2.Framework.GameEntities.Weapons;
 using KeenReloaded2.Framework.ReferenceDataClasses;
@@ -1124,9 +1125,114 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
-            #region 
-
             #endregion
+
+            #region Player
+
+            string playerPath = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_PLAYER, "keen4", Biomes.BIOME_KEEN5_BLACK);
+            string[] playerFiles = Directory.GetFiles(playerPath);
+
+            string imgPlayerLeftPath = playerFiles.FirstOrDefault(f => f.Contains(nameof(Properties.Resources.keen_stand_left)));
+            string imgPlayerRightPath = playerFiles.FirstOrDefault(f => f.Contains(nameof(Properties.Resources.keen_stand_right)));
+            Image imgPlayerLeft = Properties.Resources.keen_stand_left;
+            Image imgPlayerRight = Properties.Resources.keen_stand_right;
+
+            MapMakerObjectProperty[] playerLeftProperties = new MapMakerObjectProperty[]
+            {
+                  new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                  new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.HITBOX_PROPERTY_NAME,
+                            Hidden = true,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, imgPlayerLeft.Width, imgPlayerLeft.Height),
+                            IsIgnoredInMapData = true
+                        },
+                  new MapMakerObjectProperty()
+                        {
+                            PropertyName = "direction",
+                            DataType = typeof(GemColor),
+                            Hidden = true,
+                            Value = Direction.LEFT,
+                            PossibleValues = Enum.GetNames(typeof(Direction)),
+                            IsSpriteProperty = true
+                        },
+                  new MapMakerObjectProperty()
+                        {
+                            PropertyName = "lives",
+                            DataType = typeof(int),
+                            Value = 3,
+                            DisplayName ="lives: ",
+                            Hidden = true
+                        },
+                    new MapMakerObjectProperty()
+                        {
+                            PropertyName = "points",
+                            DataType = typeof(int),
+                            Value = 0,
+                            DisplayName ="points: ",
+                            Hidden = true
+                        },
+            };
+
+            MapMakerObjectProperty[] playerRightProperties = new MapMakerObjectProperty[]
+            {
+                  new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                  new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.HITBOX_PROPERTY_NAME,
+                            Hidden = true,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, imgPlayerLeft.Width, imgPlayerLeft.Height),
+                            IsIgnoredInMapData = true
+                        },
+                  new MapMakerObjectProperty()
+                        {
+                            PropertyName = "direction",
+                            DataType = typeof(GemColor),
+                            Hidden = true,
+                            Value = Direction.RIGHT,
+                            PossibleValues = Enum.GetNames(typeof(Direction)),
+                            IsSpriteProperty = true
+                        },
+                  new MapMakerObjectProperty()
+                        {
+                            PropertyName = "lives",
+                            DataType = typeof(int),
+                            Value = 3,
+                            DisplayName ="lives: ",
+                            Hidden = true
+                        },
+                    new MapMakerObjectProperty()
+                        {
+                            PropertyName = "points",
+                            DataType = typeof(int),
+                            Value = 0,
+                            DisplayName ="points: ",
+                            Hidden = true
+                        },
+         };
+
+            MapMakerObject keenLeftObj = new MapMakerObject(typeof(CommanderKeen), imgPlayerLeftPath, false, playerLeftProperties);
+            MapMakerObject keenRightObj = new MapMakerObject(typeof(CommanderKeen), imgPlayerRightPath, false, playerRightProperties);
+
+            backgroundReferenceData.Add(nameof(Properties.Resources.keen_stand_left), keenLeftObj);
+            backgroundReferenceData.Add(nameof(Properties.Resources.keen_stand_right), keenRightObj);
+
 
             #endregion
 

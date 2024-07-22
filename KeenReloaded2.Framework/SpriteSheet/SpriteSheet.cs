@@ -742,7 +742,7 @@ namespace KeenReloaded2.Framework.SpriteSheet
 
         private static Image[] _keen4RainDropImages;
 
-        public static  Image[] Keen4RainDropImages
+        public static Image[] Keen4RainDropImages
         {
             get
             {
@@ -947,7 +947,108 @@ namespace KeenReloaded2.Framework.SpriteSheet
         }
         #endregion
 
+        #region Keen 5 KeyCard
+        private static Image[] _keen5KeyCardImages;
+        public static Image[] Keen5KeyCardImages
+        {
+            get
+            {
+                if (_keen5KeyCardImages == null)
+                {
+                    _keen5KeyCardImages = new Image[]
+                    {
+                        Properties.Resources.keen5_key_card1,
+                        Properties.Resources.keen5_key_card2
+                    };
+                }
+                return _keen5KeyCardImages;
+            }
+        }
 
+        private static Image[] _keen5KeyCardAcquiredImages;
+        public static Image[] Keen5KeyCardAcquiredImages
+        {
+            get
+            {
+                if (_keen5KeyCardAcquiredImages == null)
+                {
+                    _keen5KeyCardAcquiredImages = new Image[]
+                    {
+                        Properties.Resources.keen5_key_card_acquired
+                    };
+                }
+                return _keen5KeyCardAcquiredImages;
+            }
+        }
+
+        #endregion
+
+        #region CTF Game Mode
+
+        private static Image[] _ctfColors;
+
+        public static Image[] CTFColors
+        {
+            get
+            {
+                if (_ctfColors == null)
+                {
+                    _ctfColors = new Image[]
+                    {
+                        Properties.Resources.Red_Flag,
+                        Properties.Resources.Blue_Flag,
+                        Properties.Resources.Green_Flag,
+                        Properties.Resources.Yellow_Flag
+                    };
+                }
+                return _ctfColors;
+            }
+        }
+
+        private static Image[] _ctfDestinations;
+
+        public static Image[] CTFDestinations
+        {
+            get
+            {
+                if (_ctfDestinations == null)
+                {
+                    _ctfDestinations = new Image[]
+                    {
+                        Properties.Resources.red_flag_destination,
+                        Properties.Resources.blue_flag_destination,
+                        Properties.Resources.green_flag_destination,
+                        Properties.Resources.yellow_flag_destination
+                    };
+                }
+                return _ctfDestinations;
+            }
+        }
+
+        #endregion
+
+        #region Keen 5 Exit Door
+
+        private static Image[] _keen5ExitDoorOpenImages;
+
+        public static Image[] Keen5ExitDoorOpenImages
+        {
+            get
+            {
+                if (_keen5ExitDoorOpenImages == null)
+                {
+                    _keen5ExitDoorOpenImages = new Image[]
+                    {
+                        Properties.Resources.keen5_exit_door_open1,
+                        Properties.Resources.keen5_exit_door_open2,
+                        Properties.Resources.keen5_exit_door_open3
+                    };
+                }
+                return _keen5ExitDoorOpenImages;
+            }
+        }
+
+        #endregion
 
         #endregion
 

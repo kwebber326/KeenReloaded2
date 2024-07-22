@@ -65,7 +65,7 @@ namespace KeenReloaded2.Framework.GameEntities
                 this.Killed(this, new ObjectEventArgs() { ObjectSprite = this as ISprite });
         }
 
-        protected void HandleCollision(CollisionObject obj)
+        protected virtual void HandleCollision(CollisionObject obj)
         {
             if (obj is IProjectile)
             {
