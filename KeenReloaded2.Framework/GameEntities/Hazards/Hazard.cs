@@ -1,4 +1,5 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using System;
@@ -15,6 +16,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         private HazardType _type;
         protected Image _sprite;
         protected int _zIndex;
+        protected string _imageName;
         public Hazard(SpaceHashGrid grid, Rectangle hitbox, HazardType hazardType, int zIndex)
             : base(grid, hitbox)
         {
@@ -29,39 +31,51 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             {
                 case HazardType.KEEN4_SPIKE:
                     _sprite = Properties.Resources.keen_4_spikes;
+                    _imageName = nameof(Properties.Resources.keen_4_spikes);
                     break;
                 case HazardType.KEEN4_MINE:
                     _sprite = Properties.Resources.keen4_mine;
+                    _imageName = nameof(Properties.Resources.keen4_mine);
                     break;
                 case HazardType.KEEN4_LIGHTNING_BOLT:
                     _sprite = Properties.Resources.keen4_lightning_bolt1;
+                    _imageName = nameof(Properties.Resources.keen4_lightning_bolt1);
                     break;
                 case HazardType.KEEN4_ROCKET_PROPELLED_PLATFORM:
                     _sprite = Properties.Resources.keen4_rocket_propelled_platform1;
+                    _imageName = nameof(Properties.Resources.keen4_rocket_propelled_platform1);
                     break;
                 case HazardType.KEEN4_FIRE:
                     _sprite = Properties.Resources.keen4_fire_left1;
+                    _imageName = nameof(Properties.Resources.keen4_fire_left1);
                     break;
                 case HazardType.KEEN4_SLUG_POOP:
                     _sprite = Properties.Resources.keen4_slug_poop_active;
+                    _imageName = nameof(Properties.Resources.keen4_slug_poop_active);
                     break;
                 case HazardType.KEEN5_SPINNING_FIRE:
                     _sprite = Properties.Resources.keen5_spinning_fire_hazard1;
+                    _imageName = nameof(Properties.Resources.keen5_spinning_fire_hazard1);
                     break;
                 case HazardType.KEEN5_SPINNING_BURN_PLATFORM:
                     _sprite = Properties.Resources.keen5_spinning_burn_platform7;
+                    _imageName = nameof(Properties.Resources.keen5_spinning_burn_platform7);
                     break;
                 case HazardType.KEEN6_BURN_HAZARD:
                     _sprite = Properties.Resources.keen6_burn_hazard1;
+                    _imageName = nameof(Properties.Resources.keen6_burn_hazard1);
                     break;
                 case HazardType.KEEN6_SPIKE:
                     _sprite = Properties.Resources.keen6_dome_spikes;
+                    _imageName = nameof(Properties.Resources.keen6_dome_spikes);
                     break;
                 case HazardType.KEEN6_DRILL:
                     _sprite = Properties.Resources.keen6_drill1;
+                    _imageName = nameof(Properties.Resources.keen6_drill1);
                     break;
                 case HazardType.KEEN6_ELECTRIC_RODS:
                     _sprite = Properties.Resources.keen6_electric_rods1;
+                    _imageName = nameof(Properties.Resources.keen6_electric_rods1);
                     break;
             }
         }
@@ -98,7 +112,8 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
 
         public override string ToString()
         {
-            return $"{base.ToString()}|{this.HitBox.Width}|{this.HitBox.Height}|{this._type.ToString()}";
+            string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
+            return $"{_imageName}{separator}{this.HitBox.X}{separator}{this.HitBox.Y}{separator}{this.HitBox.Width}{separator}{this.HitBox.Height}";
 
         }
     }

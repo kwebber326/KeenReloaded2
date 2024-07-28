@@ -1,4 +1,5 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Players;
@@ -33,12 +34,19 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
              Properties.Resources.keen4_mine_exploded2
         };
 
-        public Mine(SpaceHashGrid grid, Rectangle hitbox, Direction initialDirection, Rectangle bounds, int zIndex) 
-            : base(grid, hitbox, Enums.HazardType.KEEN4_MINE, zIndex)
+        public Mine(Rectangle area, SpaceHashGrid grid, Direction initialDirection, int boundsX, int boundsY, int boundsWidth, int boundsHeight, int zIndex) 
+            : base(grid, area, Enums.HazardType.KEEN4_MINE, zIndex)
         {
             _direction = initialDirection;
-            _bounds = bounds;
+            if (boundsX == -1)
+                boundsX = area.X;
+            if (boundsY == -1)
+                boundsY = area.Y;
+
+            _bounds = new Rectangle(boundsX, boundsY, boundsWidth, boundsHeight); 
+    
             _explosionState = ExplosionState.NOT_EXPLODING;
+            this.HitBox = area;
         }
 
         public override Rectangle HitBox
@@ -50,7 +58,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             protected set
             {
                 base.HitBox = value;
-                if (this.HitBox != null)
+                if (this.HitBox != null && _collidingNodes != null && _collidingNodes.Any())
                 {
                     this.UpdateCollisionNodes(this.Direction);
                 }
@@ -223,7 +231,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         {
             get
             {
-                throw new NotImplementedException();
+                return MoveState.RUNNING;
             }
             set
             {
@@ -244,5 +252,11 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         }
 
         public ExplosionState ExplosionState => _explosionState;
+
+        public override string ToString()
+        {
+            string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
+            return base.ToString() + $"{separator}{_direction}{separator}{_bounds.X}{separator}{_bounds.Y}{separator}{_bounds.Width}{separator}{_bounds.Height}{separator}{_zIndex}";
+        }
     }
 }

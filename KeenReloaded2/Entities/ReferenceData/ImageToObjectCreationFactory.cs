@@ -11,6 +11,7 @@ using KeenReloaded2.Constants;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Backgrounds;
+using KeenReloaded2.Framework.GameEntities.Hazards;
 using KeenReloaded2.Framework.GameEntities.Items;
 using KeenReloaded2.Framework.GameEntities.Items.WeaponsAmmo;
 using KeenReloaded2.Framework.GameEntities.Players;
@@ -650,7 +651,7 @@ namespace KeenReloaded2.Entities.ReferenceData
             #endregion
 
             #region point items 
-            string[] pointItemsPaths = new string[] 
+            string[] pointItemsPaths = new string[]
             {
                 GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_POINTS, "Keen4", Biomes.BIOME_KEEN4_CAVE),
                 GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_POINTS, "Keen5", Biomes.BIOME_KEEN4_CAVE),
@@ -1234,6 +1235,95 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region Hazards
+
+            string keen4HazardPath = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_HAZARDS, "keen4", Biomes.BIOME_KEEN4_CAVE);
+            string[] keen4HazardFiles = Directory.GetFiles(keen4HazardPath);
+
+            #region mine
+            string keen4MineImagePath = keen4HazardFiles.FirstOrDefault(m => m.Contains("keen4_mine"));
+            string mineKeyName = FileIOUtility.ExtractFileNameFromPath(keen4MineImagePath);
+            Image keen4MineImage = Image.FromFile(keen4MineImagePath);
+
+            MapMakerObjectProperty[] mineProperties = new MapMakerObjectProperty[]
+            {
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, keen4MineImage.Width, keen4MineImage.Height),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "initialDirection",
+                      DisplayName = "Start Direction: ",
+                      DataType = typeof(Direction),
+                      Value = Direction.LEFT,
+                      PossibleValues = new string[] 
+                      {
+                          Direction.LEFT.ToString(),
+                          Direction.RIGHT.ToString(),
+                          Direction.UP.ToString(),
+                          Direction.DOWN.ToString()
+                      },
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "boundsX",
+                      DisplayName = "Bounds X: ",
+                      DataType = typeof(int),
+                      Value = -1,
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "boundsY",
+                      DisplayName = "Bounds Y: ",
+                      DataType = typeof(int),
+                      Value = -1,
+                  },
+                    new MapMakerObjectProperty()
+                  {
+                      PropertyName = "boundsWidth",
+                      DisplayName = "Bounds Width: ",
+                      DataType = typeof(int),
+                      Value = 100,
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "boundsHeight",
+                      DisplayName = "Bounds Height: ",
+                      DataType = typeof(int),
+                      Value = 100,
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 20,
+                      DisplayName ="Z Index: "
+                  },
+            };
+
+            MapMakerObject mineObj = new MapMakerObject(typeof(Mine), keen4MineImagePath, false, mineProperties);
+            backgroundReferenceData.Add(mineKeyName, mineObj);
+            #endregion
+            #region Keen 4
+
+
+
+            #endregion
+
+            #endregion
+
             return backgroundReferenceData;
         }
 
@@ -1285,7 +1375,7 @@ namespace KeenReloaded2.Entities.ReferenceData
 
         private static MapMakerObject GetWeaponObjectFromWeaponsData<TWeapon>(string weaponsPath, string resourceName, out string mapMakerObjectKey)
         {
-    
+
             string imagePath = weaponsPath + @"\" + resourceName + ".png";
             string imageName = FileIOUtility.ExtractFileNameFromPath(imagePath);
             mapMakerObjectKey = imageName;
