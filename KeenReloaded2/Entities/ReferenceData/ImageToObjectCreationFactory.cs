@@ -1241,7 +1241,7 @@ namespace KeenReloaded2.Entities.ReferenceData
             string[] keen4HazardFiles = Directory.GetFiles(keen4HazardPath);
 
             #region mine
-            string keen4MineImagePath = keen4HazardFiles.FirstOrDefault(m => m.Contains("keen4_mine"));
+            string keen4MineImagePath = keen4HazardFiles.FirstOrDefault(m => m.Contains(nameof(Properties.Resources.keen4_mine)));
             string mineKeyName = FileIOUtility.ExtractFileNameFromPath(keen4MineImagePath);
             Image keen4MineImage = Image.FromFile(keen4MineImagePath);
 
@@ -1315,6 +1315,50 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             MapMakerObject mineObj = new MapMakerObject(typeof(Mine), keen4MineImagePath, false, mineProperties);
             backgroundReferenceData.Add(mineKeyName, mineObj);
+            #endregion
+
+            #region Spikes
+            string keen4spikeImagePath = keen4HazardFiles.FirstOrDefault(m => m.Contains(nameof(Properties.Resources.keen_4_spikes)));
+            string spikeKeyName = FileIOUtility.ExtractFileNameFromPath(keen4spikeImagePath);
+            Image keen4SpikeImage = Image.FromFile(keen4MineImagePath);
+
+            MapMakerObjectProperty[] keen4SpikeProperties = new MapMakerObjectProperty[]
+            {
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, keen4MineImage.Width, keen4MineImage.Height),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "hazardType",
+                      DataType = typeof(HazardType),
+                      Value = HazardType.KEEN4_SPIKE,
+                      Hidden = true,
+                      IsSpriteProperty = true
+                  },  
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 20,
+                      DisplayName ="Z Index: "
+                  },
+            };
+
+            MapMakerObject keen4SpikeObj = new MapMakerObject(typeof(Hazard), keen4spikeImagePath, false, keen4SpikeProperties);
+
+            backgroundReferenceData.Add(spikeKeyName, keen4SpikeObj);
             #endregion
             #region Keen 4
 

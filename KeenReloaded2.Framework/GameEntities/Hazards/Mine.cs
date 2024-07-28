@@ -46,7 +46,6 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             _bounds = new Rectangle(boundsX, boundsY, boundsWidth, boundsHeight); 
     
             _explosionState = ExplosionState.NOT_EXPLODING;
-            this.HitBox = area;
         }
 
         public override Rectangle HitBox

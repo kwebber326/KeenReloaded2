@@ -17,12 +17,16 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         protected Image _sprite;
         protected int _zIndex;
         protected string _imageName;
-        public Hazard(SpaceHashGrid grid, Rectangle hitbox, HazardType hazardType, int zIndex)
-            : base(grid, hitbox)
+        public Hazard(SpaceHashGrid grid, Rectangle area, HazardType hazardType, int zIndex)
+            : base(grid, area)
         {
             _type = hazardType;
             _zIndex = zIndex;
             SetSpriteFromType(_type);
+            if (grid == null)
+            {
+                this.HitBox = area;
+            }
         }
 
         protected virtual void SetSpriteFromType(HazardType type)
@@ -114,7 +118,6 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         {
             string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
             return $"{_imageName}{separator}{this.HitBox.X}{separator}{this.HitBox.Y}{separator}{this.HitBox.Width}{separator}{this.HitBox.Height}";
-
         }
     }
 }

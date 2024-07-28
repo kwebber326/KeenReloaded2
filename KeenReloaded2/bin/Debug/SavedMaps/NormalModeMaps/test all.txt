@@ -72,3 +72,6 @@ neural_stunner_shotgun|638|516|53|22|50|5
 keen_stand_left|500|318|26|64|LEFT
 keen5_chocolate_milk1|300|222|24|32|51|KEEN5_CHOCOLATE_MILK
 keen4_mine|810|358|46|46|RIGHT|300|800|100|500|15
+keen_4_spikes|824|552|63|70
+keen_4_spikes|856|358|63|70
+keen4_mine|850|121|46|46|LEFT|850|121|46|46|20
