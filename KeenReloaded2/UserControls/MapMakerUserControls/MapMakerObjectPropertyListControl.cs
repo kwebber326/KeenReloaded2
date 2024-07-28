@@ -32,6 +32,8 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         public void SetProperties(MapMakerObject mapMakerObject, bool overrideToAutoPlace = false, bool autoPlace = false)
         {
             this.Controls.Clear();
+            this.Controls.Add(pnlControls);
+            pnlControls.Controls.Clear();
             pbObjectImage.Image = null;
 
             if (mapMakerObject == null || mapMakerObject.ConstructorParameters == null || mapMakerObject.ObjectType == null)
@@ -48,7 +50,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
 
             lblHeader.Text = $"{mapMakerObject.ObjectType.Name} Properties:";
 
-            int x = 0, y = pbObjectImage.Bottom + VERTICAL_MARGIN;
+            int x = 0, y = 0;
             for (int i = 0; i < mapMakerObject.ConstructorParameters.Length; i++)
             {
                 var property = mapMakerObject.ConstructorParameters[i];
@@ -56,7 +58,8 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                 {
                     MapMakerObjectPropertyControl control = new MapMakerObjectPropertyControl(property);
                     control.Location = new Point(x, y);
-                    this.Controls.Add(control);
+                    pnlControls.Controls.Add(control);
+                    control.BringToFront();
 
                     y = control.Bottom + VERTICAL_MARGIN;
                 }

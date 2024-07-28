@@ -31,6 +31,7 @@
             this.lblHeader = new System.Windows.Forms.Label();
             this.pbObjectImage = new System.Windows.Forms.PictureBox();
             this.btnPlace = new System.Windows.Forms.Button();
+            this.pnlControls = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbObjectImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,11 +65,20 @@
             this.btnPlace.Visible = false;
             this.btnPlace.Click += new System.EventHandler(this.BtnPlace_Click);
             // 
+            // pnlControls
+            // 
+            this.pnlControls.AutoScroll = true;
+            this.pnlControls.Location = new System.Drawing.Point(3, 93);
+            this.pnlControls.Name = "pnlControls";
+            this.pnlControls.Size = new System.Drawing.Size(589, 390);
+            this.pnlControls.TabIndex = 3;
+            // 
             // MapMakerObjectPropertyListControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.Controls.Add(this.pnlControls);
             this.Controls.Add(this.btnPlace);
             this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.pbObjectImage);
@@ -86,5 +96,6 @@
         private System.Windows.Forms.PictureBox pbObjectImage;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Button btnPlace;
+        private System.Windows.Forms.Panel pnlControls;
     }
 }
