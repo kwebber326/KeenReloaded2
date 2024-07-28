@@ -1295,14 +1295,14 @@ namespace KeenReloaded2.Entities.ReferenceData
                       PropertyName = "boundsWidth",
                       DisplayName = "Bounds Width: ",
                       DataType = typeof(int),
-                      Value = 100,
+                      Value = keen4MineImage.Width,
                   },
                   new MapMakerObjectProperty()
                   {
                       PropertyName = "boundsHeight",
                       DisplayName = "Bounds Height: ",
                       DataType = typeof(int),
-                      Value = 100,
+                      Value = keen4MineImage.Height,
                   },
                   new MapMakerObjectProperty()
                   {
