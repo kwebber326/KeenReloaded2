@@ -28,40 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pbGame = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbGame)).BeginInit();
+            this.pnlGameWindow = new System.Windows.Forms.Panel();
+            this.pbGameImage = new System.Windows.Forms.PictureBox();
+            this.pnlGameWindow.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGameImage)).BeginInit();
             this.SuspendLayout();
             // 
-            // pbGame
+            // pnlGameWindow
             // 
-            this.pbGame.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbGame.BackColor = System.Drawing.Color.Transparent;
-            this.pbGame.Location = new System.Drawing.Point(542, 12);
-            this.pbGame.Name = "pbGame";
-            this.pbGame.Size = new System.Drawing.Size(1624, 1450);
-            this.pbGame.TabIndex = 0;
-            this.pbGame.TabStop = false;
+            this.pnlGameWindow.AutoScroll = true;
+            this.pnlGameWindow.Controls.Add(this.pbGameImage);
+            this.pnlGameWindow.Location = new System.Drawing.Point(614, 12);
+            this.pnlGameWindow.Name = "pnlGameWindow";
+            this.pnlGameWindow.Size = new System.Drawing.Size(1552, 1450);
+            this.pnlGameWindow.TabIndex = 0;
+            // 
+            // pbGameImage
+            // 
+            this.pbGameImage.Location = new System.Drawing.Point(3, 3);
+            this.pbGameImage.Name = "pbGameImage";
+            this.pbGameImage.Size = new System.Drawing.Size(100, 50);
+            this.pbGameImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbGameImage.TabIndex = 0;
+            this.pbGameImage.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2178, 1474);
-            this.Controls.Add(this.pbGame);
+            this.Controls.Add(this.pnlGameWindow);
+            this.KeyPreview = true;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Form1";
+            this.Text = "Keen Reloaded";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pbGame)).EndInit();
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
+            this.pnlGameWindow.ResumeLayout(false);
+            this.pnlGameWindow.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGameImage)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pbGame;
+        private System.Windows.Forms.Panel pnlGameWindow;
+        private System.Windows.Forms.PictureBox pbGameImage;
     }
 }
 

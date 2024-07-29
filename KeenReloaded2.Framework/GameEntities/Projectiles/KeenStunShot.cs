@@ -563,12 +563,6 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             }
         }
 
-        public Image Sprite
-        {
-            get { return _sprite; }
-        }
-
-
         public int RefireDelay
         {
             get { return _refireDelay; }

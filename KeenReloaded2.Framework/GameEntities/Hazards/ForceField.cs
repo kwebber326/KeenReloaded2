@@ -45,8 +45,6 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
 
         public ISprite Bottom => _bottom;
 
-        public PictureBox Sprite => _barrier.Sprite;
-
         public ProgressBar HealthBar => _barrier.HealthBar;
 
         public bool DeadlyTouch => false;
@@ -168,7 +166,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             {
                 fileList[i] = filePath;
             }
-            _sprite.Image = BitMapTool.CombineBitmap(fileList, 1, Color.White);
+            _image = BitMapTool.CombineBitmap(fileList, 1, Color.White);
         }
 
         private void DrawExplosionImage(Rectangle hitbox)
@@ -206,7 +204,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             else
             {
                 _animationTimer.Stop();
-                this.Sprite.Image = null;
+                _image = null;
                 _isDestroyed = true;
                 OnRemove(this);
             }
@@ -245,15 +243,13 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             else if (!_isDestroyed)
             {
                 DrawExplosionImage(this.HitBox);
-                this.Sprite.BackColor = Color.Transparent;
                 ExecuteDestructionAnimation();
             }
         }
 
         private void ExecuteHitAnimation()
         {
-            this.Sprite.Image = null;
-            this.Sprite.BackColor = Color.White;
+            _image = null;
             if (!_animationTimer.Enabled)
             {
                 _animationTimer.Start();
@@ -268,8 +264,6 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
                 _animationTimer.Start();
             }
         }
-
-        public PictureBox Sprite => _sprite;
 
         public override Rectangle HitBox
         {
@@ -331,7 +325,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         public override void Die()
         {
             OnRemove(_collisionTile);
-            this.Sprite.Image = null;
+            _image = null;
         }
     }
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.Interfaces
 {
-    interface ICreateRemove
+    public interface ICreateRemove
     {
         event EventHandler<ObjectEventArgs> Create;
         event EventHandler<ObjectEventArgs> Remove;

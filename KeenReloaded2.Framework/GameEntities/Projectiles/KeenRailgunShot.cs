@@ -128,7 +128,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             //    this.Sprite.Size = new Size(this.Sprite.Size.Width / 2, this.Sprite.Height * 10);
             //    this.Sprite.Location = new Point(this.Sprite.Location.X + this.Sprite.Width / 2, this.Direction == Enums.Direction.UP ? this.Sprite.Location.Y - this.Sprite.Height : this.Sprite.Location.Y);
             //}
-            this.HitBox = new Rectangle(this.Location, this.Sprite.Size);
+            this.HitBox = new Rectangle(this.Location, _sprite.Size);
         }
     }
 }

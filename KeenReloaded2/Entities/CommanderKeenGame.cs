@@ -1,0 +1,248 @@
+﻿using KeenReloaded2.Framework.GameEntities.Players;
+using KeenReloaded2.Framework.GameEntities.Weapons;
+using KeenReloaded2.Framework.GameEventArgs;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Framework.GameEntities.Items;
+using System.Drawing;
+
+namespace KeenReloaded2.Entities
+{
+    public class CommanderKeenGame : IDisposable
+    {
+        public CommanderKeenGame(MapMakerData map)
+        {
+            _keysPressed = new Dictionary<string, bool>();
+            _keysPressed.Add("Left", false);
+            _keysPressed.Add("Right", false);
+            _keysPressed.Add("Up", false);
+            _keysPressed.Add("Down", false);
+            _keysPressed.Add("ControlKey", false);
+            _keysPressed.Add("Space", false);
+            _keysPressed.Add("D1", false);
+            _keysPressed.Add("D2", false);
+            _keysPressed.Add("D3", false);
+            _keysPressed.Add("D4", false);
+            _keysPressed.Add("D5", false);
+            _keysPressed.Add("D6", false);
+            _keysPressed.Add("Return", false);
+            _keysPressed.Add("ShiftKey", false);
+            _keysPressed.Add("Menu", false);
+            if (map != null && map.MapData != null)
+            {
+                _keen = map.MapData.Select(d => d.GameObject).OfType<CommanderKeen>().FirstOrDefault();
+                _gameObjects = map.MapData.Select(d => d.GameObject).ToList();
+                var updatables = _gameObjects.OfType<IUpdatable>();
+                if (updatables.Any())
+                    _updatableGameObjects = updatables.ToList(); 
+
+                foreach (var obj in _gameObjects)
+                {
+                    this.RegisterItemEventsForObject(obj);
+                }
+            }
+            this.Map = map;
+        }
+
+        public event EventHandler<ObjectEventArgs> ObjectRemoved;
+        public event EventHandler<ObjectEventArgs> ObjectCreated;
+        private Dictionary<string, bool> _keysPressed;
+        private CommanderKeen _keen;
+        private List<ISprite> _gameObjects;
+        private List<IUpdatable> _updatableGameObjects = new List<IUpdatable>();
+
+        public MapMakerData Map
+        {
+            get;
+            private set;
+        }
+
+        public void SetKeyPressed(string key, bool isPressed)
+        {
+            if (_keen != null)
+                _keen.SetKeyPressed(key, isPressed);
+        }
+
+        public bool IsKeyPressed(string key)
+        {
+            if (_keen != null)
+                return _keen.IsKeyPressed(key);
+
+            return false;
+        }
+
+        public Bitmap UpdateGame()
+        {
+            if (this.Map != null && _updatableGameObjects != null)
+            {
+                int length = _updatableGameObjects.Count;
+                for (int i = 0; i < length; i++)
+                {
+                    try
+                    {
+                        if (i < _updatableGameObjects.Count)
+                        {
+                            var obj = _updatableGameObjects[i];
+                            obj.Update();
+                        }
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex.Message);
+                    }
+                }
+                return DrawMapImage();
+            }
+            return null;
+        }
+
+        public void RegisterItemEventsForObject(object obj)
+        {
+            if (obj is NeuralStunner)
+            {
+                var item = obj as NeuralStunner;
+                item.CreatedObject += new EventHandler<ObjectEventArgs>(item_CreatedObject);
+                item.RemovedObject += new EventHandler<ObjectEventArgs>(item_RemovedObject);
+            }
+            else if (obj is ICreateRemove)
+            {
+                var item = obj as ICreateRemove;
+                item.Create += new EventHandler<ObjectEventArgs>(item_CreatedObject);
+                item.Remove += new EventHandler<ObjectEventArgs>(item_RemovedObject);
+                if (obj is IFlag)
+                {
+                    var flag = (IFlag)obj;
+                    flag.FlagCaptured += Flag_FlagCaptured;
+                }
+            }
+        }
+
+        public void DetachEventsForObject(object obj)
+        {
+            if (obj is NeuralStunner)
+            {
+                var item = obj as NeuralStunner;
+                item.CreatedObject -= item_CreatedObject;
+                item.RemovedObject -= item_RemovedObject;
+            }
+            else if (obj is ICreateRemove)
+            {
+                var item = obj as ICreateRemove;
+                item.Create -= item_CreatedObject;
+                item.Remove -= item_RemovedObject;
+                if (obj is IFlag)
+                {
+                    var flag = (IFlag)obj;
+                    flag.FlagCaptured -= Flag_FlagCaptured;
+                }
+            }
+        }
+
+        public Bitmap DrawMapImage()
+        {
+            int mapWidth = this.Map.MapSize.Width;
+            int mapHeight = this.Map.MapSize.Height;
+
+            Bitmap mapCanvas = new Bitmap(mapWidth, mapHeight);
+            try
+            {
+                using (Graphics g = Graphics.FromImage(mapCanvas))
+                {
+                    g.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceOver;
+                    var sortedMapObjectsByZIndex = _gameObjects
+                        .OrderBy(o => o.ZIndex).ToList();
+
+                    foreach (var item in sortedMapObjectsByZIndex)
+                    {
+                        var bitmap = ((Bitmap)item.Image);
+                        g.DrawImage(bitmap, new Rectangle(item.Location, bitmap.Size));
+                    }
+                }
+                return mapCanvas;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"{ex.Message}\n{ex}");
+                return mapCanvas;
+            }
+            finally
+            {
+                GC.Collect();
+            }
+        }
+
+        private void Flag_FlagCaptured(object sender, FlagCapturedEventArgs e)
+        {
+            var flag = e.Flag;
+            //if (flag != null)
+            //{
+            //    var newFlag = new Flag(this.Map.Grid, new System.Drawing.Rectangle(flag.LocationOfOrigin.X, flag.LocationOfOrigin.Y, flag.HitBox.Width, flag.HitBox.Height), flag.Color, flag.MaxPoints, flag.MinPoints, flag.PointsDegradedPerSecond, _keen);
+            //    this.Map.MapData.Add(newFlag);
+            //    this.RegisterItemEventsForObject(newFlag);
+
+            //    OnObjectCreated(new ObjectEventArgs() { ObjectSprite = newFlag });
+            //}
+        }
+
+        void item_RemovedObject(object sender, ObjectEventArgs e)
+        {
+            ISprite removedObject = e.ObjectSprite as ISprite;
+            if (removedObject != null)
+            {
+                _gameObjects.Remove(removedObject);
+
+                IUpdatable updatable = e.ObjectSprite as IUpdatable;
+                if (updatable != null)
+                {
+                    _updatableGameObjects.Remove(updatable);
+                }
+            }
+        }
+
+        void item_CreatedObject(object sender, ObjectEventArgs e)
+        {
+            ISprite addedObject = e.ObjectSprite as ISprite;
+            if (addedObject != null)
+            {
+                _gameObjects.Add(addedObject);
+                IUpdatable obj = e.ObjectSprite as IUpdatable;
+                if (obj != null)
+                {
+                    _updatableGameObjects.Add(obj);
+                }
+            }
+
+          
+            //if (obj != null)
+            //{
+            //    bool isHill = obj is Hill;
+            //    if (!isHill || !this.Map.Objects.Contains(obj))
+            //        this.Map.Objects.Add(obj);
+            //}
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                foreach (var obj in _gameObjects)
+                {
+                    this.DetachEventsForObject(obj);
+                }
+            }
+        }
+    }
+}

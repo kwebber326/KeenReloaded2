@@ -31,6 +31,7 @@ namespace KeenReloaded2
         private bool _mouseInCanvas;
         private bool _useSmartPlacer = false;
         private bool _mapHasUnsavedChanges = false;
+        private string _lastFilePath;
 
         public MapMaker()
         {
@@ -239,7 +240,7 @@ namespace KeenReloaded2
             RemoveCursorItem();
         }
 
-        private void ValidateMapObjects()
+        private bool ValidateMapObjects()
         {
             MapMakerData data = new MapMakerData()
             {
@@ -247,11 +248,13 @@ namespace KeenReloaded2
                 MapName = txtMapName.Text,
                 MapSize = this.GetMapSize()
             };
-            if (!MapUtility.Validation.ValidateAllMapObjects(data, out List<string> errorMessages))
+            bool isValid = MapUtility.Validation.ValidateAllMapObjects(data, out List<string> errorMessages);
+            if (!isValid)
             {
                 string errorMessageText = string.Join("\n", errorMessages);
                 MessageBox.Show(errorMessageText, "Invalid Map Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            return isValid;
         }
 
         private void ValidateMap()
@@ -586,6 +589,7 @@ namespace KeenReloaded2
             {
                 //load the map data
                 string path = dialogMapLoader.FileName;
+                _lastFilePath = path;
                 var mapMakerData = MapUtility.LoadMapData(path);
                 _mapMakerObjects = mapMakerData.MapData;
 
@@ -756,7 +760,19 @@ namespace KeenReloaded2
 
         private void BtnTest_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Under Construction.");
+            MapMakerData data = new MapMakerData()
+            {
+                MapData = _mapMakerObjects,
+                MapName = txtMapName.Text,
+                MapSize = this.GetMapSize()
+            };
+            if (this.ValidateMapObjects())
+            {
+                Form1 gameForm = new Form1(cmbGameMode.Text, data);
+                gameForm.ShowDialog();
+                dialogMapLoader.FileName = _lastFilePath;
+                DialogMapLoader_FileOk(this, null);
+            }
         }
 
         private void BtnNewMap_Click(object sender, EventArgs e)

@@ -119,6 +119,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 new NeuralStunner(this._collisionGrid, this.HitBox)
             };
             this.CurrentWeapon = _weapons[0];
+            RegisterProjectileEvents(this.CurrentWeapon);
             OnKeenAcquiredWeapon(new WeaponAcquiredEventArgs() { Weapon = _currentWeapon });
         }
 
@@ -159,11 +160,30 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 {
                     weaponSet[i] = new SnakeGun(_collisionGrid, new Rectangle(weaponSet[i].HitBox.Location, weaponSet[i].HitBox.Size), weaponSet[i].Ammo);
                 }
-
+                RegisterProjectileEvents(weaponSet[i]);
                 //OnKeenAcquiredWeapon(new WeaponAcquiredEventArgs() { Weapon = weaponSet[i] });
                 _weapons.Add(weaponSet[i]);
             }
             this.CurrentWeapon = _weapons[0];
+        }
+
+        private void RegisterProjectileEvents(NeuralStunner weaponSet)
+        {
+            if (weaponSet == null)
+                return;
+
+            weaponSet.CreatedObject += CommanderKeen_CreatedProjectile;
+            weaponSet.RemovedObject += CommanderKeen_RemovedProjectile;
+        }
+
+        private void CommanderKeen_RemovedProjectile(object sender, ObjectEventArgs e)
+        {
+            OnRemove(e);
+        }
+
+        private void CommanderKeen_CreatedProjectile(object sender, ObjectEventArgs e)
+        {
+            OnCreate(e);
         }
 
         private void ContinueDeathSequence()
@@ -987,6 +1007,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         private void RegisterNewWeapon(NeuralStunner stunner)
         {
             _weapons.Add(stunner);
+            RegisterProjectileEvents(stunner);
             this.CurrentWeapon = stunner;
             OnKeenAcquiredWeapon(new WeaponAcquiredEventArgs() { Weapon = _currentWeapon });
         }
@@ -2741,7 +2762,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 _pointsToNextExtraLife *= 2;
             }
         }
-        internal void SetKeyPressed(string key, bool isPressed)
+        public void SetKeyPressed(string key, bool isPressed)
         {
             if (_keysPressed.ContainsKey(key))
             {
@@ -2749,7 +2770,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             }
         }
 
-        internal bool IsKeyPressed(string key)
+        public bool IsKeyPressed(string key)
         {
             bool value = false;
             _keysPressed.TryGetValue(key, out value);

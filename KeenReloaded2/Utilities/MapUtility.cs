@@ -11,6 +11,7 @@ using KeenReloaded2.Entities.ReferenceData;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using System.Drawing;
 using KeenReloaded.Framework;
+using KeenReloaded2.Framework.GameEntities.Players;
 
 namespace KeenReloaded2.Utilities
 {
@@ -219,6 +220,13 @@ namespace KeenReloaded2.Utilities
                             areAllObjectsValid = false;
                             break;
                         }
+                    }
+
+                    if (!mapData.MapData.Select(d => d.GameObject).Any(d => d is CommanderKeen))
+                    {
+                        string errorMessage = "Player object is not present";
+                        errorMessages.Add(errorMessage);
+                        return false;
                     }
 
                     if (!areAllObjectsValid)

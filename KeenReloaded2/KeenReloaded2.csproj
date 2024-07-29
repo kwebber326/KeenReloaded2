@@ -50,6 +50,7 @@
     <Compile Include="ControlEventArgs\CharacterSelectControlEventArgs.cs" />
     <Compile Include="ControlEventArgs\MainMenuOptionEventArgs.cs" />
     <Compile Include="ControlEventArgs\MapMakerObjectEventArgs.cs" />
+    <Compile Include="Entities\CommanderKeenGame.cs" />
     <Compile Include="Entities\GameObjectMapping.cs">
       <SubType>Component</SubType>
     </Compile>

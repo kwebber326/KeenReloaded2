@@ -16,7 +16,6 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
     public class BoobusBombShot : KeenStunShot, IExplodable, ICreateRemove
     {
         private Enums.Direction _direction;
-        private Image _sprite;
 
         private Image[] _collidedImages = new Image[]
         {
@@ -148,14 +147,17 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             protected set
             {
                 base.HitBox = value;
-                this.UpdateCollisionNodes(this.Direction);
-                if (_fallVelocity > 0)
+                if (_collidingNodes != null)
                 {
-                    this.UpdateCollisionNodes(Direction.DOWN);
-                }
-                else if (_fallVelocity < 0)
-                {
-                    this.UpdateCollisionNodes(Enums.Direction.UP);
+                    this.UpdateCollisionNodes(this.Direction);
+                    if (_fallVelocity > 0)
+                    {
+                        this.UpdateCollisionNodes(Direction.DOWN);
+                    }
+                    else if (_fallVelocity < 0)
+                    {
+                        this.UpdateCollisionNodes(Enums.Direction.UP);
+                    }
                 }
             }
         }
@@ -535,8 +537,6 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         protected override void InitializeSprites()
         {
-            base.InitializeSprites();
-
             _shotCompleteSprites = new Image[]{
 
             };
