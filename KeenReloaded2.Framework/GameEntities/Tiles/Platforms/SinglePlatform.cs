@@ -19,8 +19,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
             _biome = biome;
             this.SetImageFromBiome();
             _downwardCollisionOffset = 16;
-            _leftwardCollisionOffset = 8;
-            _rightwardCollisionOffset = 8;
+            _leftwardCollisionOffset = 2;
+            _rightwardCollisionOffset = 2;
             this.AdjustHitboxBasedOnOffsets();
         }
 

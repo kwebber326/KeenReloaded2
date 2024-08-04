@@ -404,9 +404,9 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         {
             foreach (var item in collisionObjects)
             {
-                if (item is MaskedTile)
+                if (item.CollisionType == CollisionType.BLOCK)
                     return true;
-                else if ((item.CollisionType == CollisionType.PLATFORM || item.CollisionType == CollisionType.POLE) && item.HitBox.Top > this.HitBox.Bottom)//PLATFORM CODE
+                else if ((item.CollisionType == CollisionType.PLATFORM || item.CollisionType == CollisionType.POLE) && item.HitBox.Top >= this.HitBox.Bottom)//PLATFORM CODE
                 {
                     return true;
                 }
@@ -417,7 +417,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         private int GetTopMostLandingPlatformYPos(List<CollisionObject> collisionObjects)
         {
             List<CollisionObject> items = collisionObjects  //added bounder
-                .Where(c => c is MaskedTile || ((c.CollisionType == CollisionType.PLATFORM || c.CollisionType == CollisionType.POLE) && c.HitBox.Top >= this.HitBox.Bottom)//PLATFORM CODE
+                .Where(c => c.CollisionType == CollisionType.BLOCK || ((c.CollisionType == CollisionType.PLATFORM || c.CollisionType == CollisionType.POLE) && c.HitBox.Top >= this.HitBox.Bottom)//PLATFORM CODE
                         || (c.CollisionType == CollisionType.KEEN6_SWITCH && !((Keen6Switch)c).IsActive))//keen6 switch ode
                 .ToList();
             if (!items.Any())
@@ -737,7 +737,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         protected override void HandleCollision(CollisionObject obj)
         {
             //base.HandleCollision(obj);
-            if (obj is MaskedTile)
+            if (obj.CollisionType == CollisionType.BLOCK)
             {
                 if (obj is MapEdgeTile)
                 {
@@ -759,12 +759,12 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     if (obj.HitBox.Y > this.HitBox.Y)
                     {
                         Rectangle areaToCheck = new Rectangle(obj.HitBox.X, obj.HitBox.Y - 64, obj.HitBox.Width, 64);
-                        var collisionWalls = obj.CheckCollision(areaToCheck).OfType<MaskedTile>();
+                        var collisionWalls = obj.CheckCollision(areaToCheck).Where(c => c.CollisionType == CollisionType.BLOCK);
                         //we can't hang on a wall if there are floors below at a lower Y distance than keen's height 
                         Rectangle areaToCheck2 = this.Direction == Enums.Direction.RIGHT ?
                             new Rectangle(obj.HitBox.X - this.HitBox.Width, obj.HitBox.Y, this.HitBox.Width, this.HitBox.Height) :
                             new Rectangle(obj.HitBox.Right - 1, obj.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
-                        var bottomCollisions = obj.CheckCollision(areaToCheck2).OfType<MaskedTile>();
+                        var bottomCollisions = obj.CheckCollision(areaToCheck2).Where(c => c.CollisionType == CollisionType.BLOCK);
 
                         if (!collisionWalls.Any() && !bottomCollisions.Any())
                         {
@@ -1159,7 +1159,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
 
         protected override CollisionObject GetCeilingTile(List<CollisionObject> collisions)
         {
-            var debugTiles = collisions.Where(c => c is MaskedTile && c.HitBox.Bottom < this.HitBox.Bottom - 2).ToList();
+            var debugTiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK && c.HitBox.Bottom < this.HitBox.Bottom - 2).ToList();
             if (debugTiles.Any())
             {
                 int maxBottom = debugTiles.Select(c => c.HitBox.Bottom).Max();
@@ -1343,7 +1343,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             Rectangle areaToCheck = new Rectangle(this.HitBox.Left, this.HitBox.Top - JUMP_VELOCITY, this.HitBox.Width, JUMP_VELOCITY);
             var collisionItems = this.CheckCollision(areaToCheck);
             //3. If any collision nodes, take the one with the lowest bottom y pos and set the position of keen equal to that bottom plus one
-            var collisionWalls = collisionItems.OfType<MaskedTile>();
+            var collisionWalls = collisionItems.Where(c => c.CollisionType == CollisionType.BLOCK);
             var collisionKeen6Switches = collisionItems.OfType<Keen6Switch>();
             if (collisionWalls.Any() || collisionKeen6Switches.Any(s => s.IsActive))
             {
@@ -2318,7 +2318,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 UpdateCollisionNodes(this.Direction);
                 //if standing up makes us collide with tile, fall
                 var collisionTiles = this.CheckCollision(this.HitBox, true, false);
-                var debugTilesAboveKeen = collisionTiles.Where(t => t is MaskedTile && t.HitBox.Bottom < this.HitBox.Bottom).ToList();
+                var debugTilesAboveKeen = collisionTiles.Where(t => t.CollisionType == CollisionType.BLOCK && t.HitBox.Bottom < this.HitBox.Bottom).ToList();
                 if (debugTilesAboveKeen.Any())
                 {
                     var lowestTile = debugTilesAboveKeen.OrderByDescending(t => t.HitBox.Bottom).FirstOrDefault();
@@ -2401,7 +2401,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     areaToCheck = new Rectangle(new Point(_currentPole.HitBox.Right - 10, this.HitBox.Y), this.HitBox.Size);
                 }
                 var items = this.CheckCollision(areaToCheck);
-                if (!items.OfType<MaskedTile>().Any())
+                if (!items.Any(c => c.CollisionType == CollisionType.BLOCK))
                 {
                     this.HitBox = areaToCheck;
                 }
@@ -2537,7 +2537,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 return false;
             }
 
-            canMove = !collisionItems.OfType<MaskedTile>().Any();
+            canMove = !collisionItems.Any(c => c.CollisionType == CollisionType.BLOCK);
             return canMove;
         }
 
@@ -2650,7 +2650,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 Rectangle areaToCheck = new Rectangle(p, this.HitBox.Size);
                 var collisionItems = this.CheckCollision(areaToCheck);
                 UpdateMoveStateUponMove();
-                var wallTiles = collisionItems.OfType<MaskedTile>();
+                var wallTiles = collisionItems.Where(c => c.CollisionType == CollisionType.BLOCK);
                 int checkCollideXLimit = -1;
                 if (wallTiles.Any())
                 {
@@ -2678,7 +2678,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                         }
                     }
                 }
-                var itemsToCheck = checkCollideXLimit == -1 ? collisionItems : collisionItems.Where(c => c.HitBox.Right >= checkCollideXLimit || c is MaskedTile).ToList();
+                var itemsToCheck = checkCollideXLimit == -1 ? collisionItems : collisionItems.Where(c => c.HitBox.Right >= checkCollideXLimit || c.CollisionType == CollisionType.BLOCK).ToList();
                 foreach (var item in itemsToCheck)
                 {
                     this.HandleCollision(item);
@@ -2709,7 +2709,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 Rectangle areaToCheck = new Rectangle(p, this.HitBox.Size);
                 var collisionItems = this.CheckCollision(areaToCheck);
                 UpdateMoveStateUponMove();
-                var wallTiles = collisionItems.OfType<MaskedTile>();
+                var wallTiles = collisionItems.Where(c => c.CollisionType == CollisionType.BLOCK);
                 int collideCheckXLimit = -1;
                 if (wallTiles.Any())
                 {
@@ -2730,7 +2730,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                         }
                     }
                 }
-                var itemsToCheck = collideCheckXLimit == -1 ? collisionItems : collisionItems.Where(x => x.HitBox.X <= collideCheckXLimit || x is MaskedTile).ToList();
+                var itemsToCheck = collideCheckXLimit == -1 ? collisionItems : collisionItems.Where(x => x.HitBox.X <= collideCheckXLimit || x.CollisionType == CollisionType.BLOCK).ToList();
                 foreach (var item in itemsToCheck)
                 {
                     this.HandleCollision(item);

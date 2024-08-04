@@ -6,7 +6,6 @@ keen5_wall_black_edge_left|179|350|64|64|10
 keen5_wall_black_middle|243|350|64|64|10
 keen5_single_platform_blue|623|132|32|36|10
 keen4_cave_platform_middle|226|117|32|36|10
-keen4_cave_platform_left_edge|195|116|30|38|10
 keen4_cave_platform_right_edge|258|117|30|38|10
 keen5_single_platform_blue|391|165|32|36|10
 keen5_platform_blue_edge_left|178|537|32|34|10
@@ -74,4 +73,5 @@ keen_4_spikes|856|358|63|70
 keen4_mine|850|121|46|46|DOWN|850|121|46|46|20
 keen4_mine|795|358|46|46|RIGHT|300|800|100|500|15
 keen_dreams_boobus_bomb2|155|613|30|30|50|15
-keen5_wall_black_edge_right|298|350|52|64|10
+keen5_wall_black_edge_right|293|350|52|64|10
+keen4_cave_platform_left_edge|195|117|30|38|10

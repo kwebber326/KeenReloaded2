@@ -6,8 +6,6 @@ keen5_wall_black_edge_left|179|350|64|64|10
 keen5_wall_black_middle|243|350|64|64|10
 keen5_single_platform_blue|623|132|32|36|10
 keen4_cave_platform_middle|226|117|32|36|10
-keen4_cave_platform_left_edge|195|116|30|38|10
-keen4_cave_platform_right_edge|258|117|30|38|10
 keen5_single_platform_blue|391|165|32|36|10
 keen5_platform_blue_edge_left|178|537|32|34|10
 keen6_dome_platform_single|620|439|32|40|10
