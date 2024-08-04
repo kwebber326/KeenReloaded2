@@ -112,12 +112,10 @@ namespace KeenReloaded.Framework.Utilities
             }
         }
 
-        public static void DrawImageAtLocationWithDimensions(Image image, Rectangle area)
+        public static Bitmap DrawImageAtLocationWithDimensions(Image image, Rectangle area)
         {
-            using (Graphics g = Graphics.FromImage(image))
-            {
-                g.DrawImage(image, area);
-            }
+            Bitmap bmp = new Bitmap(image, area.Size);
+            return bmp;
         }
 
     }

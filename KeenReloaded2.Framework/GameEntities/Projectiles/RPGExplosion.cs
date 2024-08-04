@@ -38,7 +38,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         {
             _blastRadius = blastRadius;
             _damage = damage;
-            _blastRadiusIncreaseAmount = _blastRadius / _explosionImages.Length == 0 ? _blastRadius : _explosionImages.Length;
+            _blastRadiusIncreaseAmount =  _explosionImages.Length == 0 ? _blastRadius : _blastRadius / _explosionImages.Length;
             _currentBlastRadiusAmount = _blastRadiusIncreaseAmount;
             Initialize();
         }
@@ -222,7 +222,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             protected set
             {
                 _state = value;
-                UpdateSprite();
+                //UpdateSprite();
             }
         }
 
@@ -240,7 +240,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             {
                 _currentImage = 0;
             }
-            _sprite = _explosionImages[_currentImage];
+            _sprite = BitMapTool.DrawImageAtLocationWithDimensions(_explosionImages[_currentImage], this.HitBox);
         }
 
         protected virtual void OnCreate()
