@@ -58,7 +58,6 @@ keen4_forest_platform_single|763|199|32|40|10
 keen4_cave_wall_bottom4|492|529|64|32|10
 keen4_lifewater_flask1|386|600|22|32|50|KEEN4_LIFEWATER_FLASK
 neural_stunner1|485|276|30|22|51|11
-neural_stunner_railgun1|556|529|52|22|50|20
 neural_stunner_rocket_launcher1|351|350|55|26|50|10
 neural_stunner1|46|187|30|22|50|5
 neural_stunner_railgun1|37|378|52|22|50|52
@@ -73,5 +72,8 @@ keen_4_spikes|856|358|63|70
 keen4_mine|850|121|46|46|DOWN|850|121|46|46|20
 keen4_mine|795|358|46|46|RIGHT|300|800|100|500|15
 keen_dreams_boobus_bomb2|155|613|30|30|50|15
-keen5_wall_black_edge_right|298|350|52|64|10
 neural_stunner_railgun1|663|443|52|22|50|5
+neural_stunner_railgun1|546|495|52|22|50|20
+keen4_cave_wall_edge_left|468|458|64|64|10
+keen5_wall_black_edge_right|298|350|52|64|10
+keen5_wall_black_middle|400|425|64|64|10

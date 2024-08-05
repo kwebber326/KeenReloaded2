@@ -32,14 +32,18 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         protected Image[] _explosionImages = SpriteSheet.SpriteSheet.RPGExplosionSprites;
 
         protected int _currentImage = 0;
+        protected Rectangle _initialExplosionArea;
+        private readonly Direction _direction;
 
-        public RPGExplosion(SpaceHashGrid grid, Rectangle hitbox, int blastRadius, int damage)
+        public RPGExplosion(SpaceHashGrid grid, Rectangle hitbox, int blastRadius, int damage, Direction direction)
             : base(grid, hitbox)
         {
             _blastRadius = blastRadius;
             _damage = damage;
-            _blastRadiusIncreaseAmount =  _explosionImages.Length == 0 ? _blastRadius : _blastRadius / _explosionImages.Length;
+            _blastRadiusIncreaseAmount =  _explosionImages.Length == 0 ? _blastRadius : (_blastRadius / _explosionImages.Length);
             _currentBlastRadiusAmount = _blastRadiusIncreaseAmount;
+            _initialExplosionArea = new Rectangle(hitbox.X, hitbox.Y, hitbox.Width, hitbox.Height);
+            _direction = direction;
             Initialize();
         }
 
@@ -63,75 +67,246 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             }
         }
 
+        protected override CollisionObject GetCeilingTile(List<CollisionObject> collisions)
+        {
+            var tiles = collisions.Where(c => 
+                c.CollisionType == CollisionType.BLOCK && c.HitBox.Bottom < this.HitBox.Bottom 
+             && c.HitBox.Top < this.HitBox.Top
+             && c.HitBox.Right > this.HitBox.Left
+             && c.HitBox.Left < this.HitBox.Right).ToList();
+            if (tiles.Any())
+            {
+                int maxBottom = tiles.Select(c => c.HitBox.Bottom).Max();
+                CollisionObject obj = collisions.FirstOrDefault(c => c.HitBox.Bottom == maxBottom);
+                return obj;
+            }
+            return null;
+        }
+
+        private void ExplodeLeft()
+        {
+            int height = this.HitBox.Height;
+            int width = this.HitBox.Width;
+
+            int xPos = this.HitBox.X;
+            int yPos = _initialExplosionArea.Y - (this.HitBox.Height / 2) + (_initialExplosionArea.Width / 2); 
+
+            Rectangle areaToCheck = new Rectangle(xPos, yPos, width, height);
+            var collisions = this.CheckCollision(areaToCheck);
+            var barriers = collisions
+                .Where(c => c.CollisionType == CollisionType.BLOCK
+                ).ToList();
+
+            var leftTile = this.GetRightMostLeftTile(barriers);
+            if (leftTile != null && leftTile.HitBox.Top < _initialExplosionArea.Bottom && leftTile.HitBox.Bottom > _initialExplosionArea.Top)
+            {
+                xPos = leftTile.HitBox.Right + 1;
+                width = this.HitBox.Right - xPos;
+                if (width < 1)
+                    width = 1;
+            }
+
+            var upTile = this.GetCeilingTile(barriers);
+            if (upTile != null)
+            {
+                yPos = upTile.HitBox.Bottom + 1;
+            }
+
+            var downTile = this.GetTopMostLandingTile(barriers);
+            if (downTile != null)
+            {
+                height = downTile.HitBox.Top - yPos - 1;
+                if (height < 1)
+                    height = 1;
+            }
+
+            this.HitBox = new Rectangle(xPos, yPos, width, height);
+            HandleCollisions(collisions);
+        }
+
+        private void ExplodeRight()
+        {
+            int height = this.HitBox.Height;
+            int width = this.HitBox.Width;
+
+            int xPos = this.HitBox.X;
+            int yPos = _initialExplosionArea.Y - this.HitBox.Height / 2;
+
+            Rectangle areaToCheck = new Rectangle(xPos, yPos, width, height);
+            var collisions = this.CheckCollision(areaToCheck);
+            var barriers = collisions.Where(c => c.CollisionType == CollisionType.BLOCK 
+                && c.HitBox.Top <= _initialExplosionArea.Bottom).ToList();
+
+            var rightTile = this.GetLeftMostRightTile(barriers);
+            if (rightTile != null && rightTile.HitBox.Top < _initialExplosionArea.Bottom && rightTile.HitBox.Bottom > _initialExplosionArea.Top)
+            {
+                width = this.HitBox.Left - xPos - 1;
+                if (width < 1)
+                    width = 1;
+            }
+
+            var upTile = this.GetCeilingTile(barriers);
+            if (upTile != null)
+            {
+                yPos = upTile.HitBox.Bottom + 1;
+            }
+
+            var downTile = this.GetTopMostLandingTile(barriers);
+            if (downTile != null)
+            {
+                height = downTile.HitBox.Top - yPos - 1;
+                if (height < 1)
+                    height = 1;
+            }
+
+            this.HitBox = new Rectangle(xPos, yPos, width, height);
+            HandleCollisions(collisions);
+        }
+
+        private void ExplodeUp()
+        {
+            int height = this.HitBox.Height;
+            int width = this.HitBox.Width;
+
+            int xPos = _initialExplosionArea.X - (this.HitBox.Width / 2) + (_initialExplosionArea.Width / 2);
+            int yPos = this.HitBox.Y;
+
+            Rectangle areaToCheck = new Rectangle(xPos, yPos, width, height - (this.HitBox.Bottom - _initialExplosionArea.Bottom));
+            var collisions = this.CheckCollision(areaToCheck);
+            var barriers = collisions.Where(c => c.CollisionType == CollisionType.BLOCK).ToList();
+
+            var leftTile = this.GetRightMostLeftTile(barriers);
+            if (leftTile != null && leftTile.HitBox.Top < this.HitBox.Bottom && leftTile.HitBox.Bottom > this.HitBox.Top)
+            {
+                xPos = leftTile.HitBox.Right + 1;
+            }
+
+            var rightTile = this.GetLeftMostRightTile(barriers);
+            if (rightTile != null && rightTile.HitBox.Top < this.HitBox.Bottom && rightTile.HitBox.Bottom > this.HitBox.Top)
+            {
+                width = this.HitBox.Left - xPos - 1;
+                if (width < 1)
+                    width = 1;
+            }
+
+            var upTile = this.GetCeilingTile(barriers);
+            if (upTile != null)
+            {
+                yPos = upTile.HitBox.Bottom + 1;
+                height = this.HitBox.Bottom - yPos;
+                if (height < 1)
+                    height = 1;
+            }
+
+            this.HitBox = new Rectangle(xPos, yPos, width, height);
+            HandleCollisions(collisions);
+        }
+
+        private void ExplodeDown()
+        {
+            int height = this.HitBox.Height;
+            int width = this.HitBox.Width;
+
+            int xPos = _initialExplosionArea.X - (this.HitBox.Width / 2) + (_initialExplosionArea.Width / 2);
+            int yPos = _initialExplosionArea.Y;
+
+            Rectangle areaToCheck = new Rectangle(xPos, yPos, width, height);
+            var collisions = this.CheckCollision(areaToCheck);
+            var barriers = collisions.Where(c => c.CollisionType == CollisionType.BLOCK).ToList();
+
+            var leftTile = this.GetRightMostLeftTile(barriers);
+            if (leftTile != null && leftTile.HitBox.Top < this.HitBox.Bottom && leftTile.HitBox.Bottom > this.HitBox.Top)
+            {
+                xPos = leftTile.HitBox.Right + 1;
+            }
+
+            var rightTile = this.GetLeftMostRightTile(barriers);
+            if (rightTile != null && rightTile.HitBox.Top < this.HitBox.Bottom && rightTile.HitBox.Bottom > this.HitBox.Top)
+            {
+                width = this.HitBox.Left - xPos - 1;
+                if (width < 1)
+                    width = 1;
+            }
+
+            var downTile = this.GetTopMostLandingTile(barriers);
+            if (downTile != null)
+            {
+                height = downTile.HitBox.Top - yPos - 1;
+                if (height < 1)
+                    height = 1;
+            }
+
+            this.HitBox = new Rectangle(xPos, yPos, width, height);
+            HandleCollisions(collisions);
+        }
+
         public virtual void Explode()
         {
             if (this.ExplosionState != Enums.ExplosionState.EXPLODING)
             {
                 this.ExplosionState = Enums.ExplosionState.EXPLODING;
             }
-            //this should kill even keen if in blast radius
-            List<DestructibleObject> destructoObjects = new List<DestructibleObject>();
-            //tile collisions should limit explostion length
-            List<CollisionObject> tiles = new List<CollisionObject>();
 
-            //we need to continue expanding in other directions even if one direction finds a wall collisions
-            //this means we store when we hit in a certain direction;
-            int xPos = _leftTile != null ? _leftTile.HitBox.Right + 1 : this.HitBox.X - _currentBlastRadiusAmount;
-            int yPos = _upTile != null ? _upTile.HitBox.Bottom + 1 : this.HitBox.Y - _currentBlastRadiusAmount;
-            int width = _rightTile != null ? _rightTile.HitBox.Left - 1 - xPos : this.HitBox.Width + _currentBlastRadiusAmount * 2;
-            int height = _downTile != null ? _downTile.HitBox.Top - 1 - yPos : this.HitBox.Height + _currentBlastRadiusAmount * 2;
-
-            //area to check is the hitbox that represents a slightly
-            Rectangle areaToCheck = new Rectangle(xPos, yPos, width, height);
-            var collisions = this.CheckCollision(areaToCheck);
-            //explode left
-            int leftPos = areaToCheck.Left;
-            if (_leftTile == null)//don't check again if we already hit a collision here
+            if (_direction == Direction.RIGHT)
             {
-                var leftTile = GetRightMostLeftTile(collisions);
-                if (leftTile != null && leftTile.HitBox.Top < this.HitBox.Bottom && leftTile.HitBox.Bottom > this.HitBox.Top)
-                {
-                    leftPos = leftTile.HitBox.Right + 1;
-                    _leftTile = leftTile;//store in memory when we hit something
-                }
+                this.ExplodeRight();
+                int x = this.HitBox.X;
+                int y = this.HitBox.Y - _currentBlastRadiusAmount + _initialExplosionArea.Width / 2;
+                int width = this.HitBox.Width + (_currentBlastRadiusAmount * 2);
+                int height = this.HitBox.Height + (_currentBlastRadiusAmount * 2);
+                this.HitBox = new Rectangle(x, y, width, height);
+                UpdateSprite();
             }
-            //explode right
-            int rightPos = areaToCheck.Right;
-            if (_rightTile == null)
+            else if (_direction == Direction.LEFT)
             {
-                var rightTile = GetLeftMostRightTile(collisions);
-
-                if (rightTile != null && rightTile.HitBox.Top < this.HitBox.Bottom && rightTile.HitBox.Bottom > this.HitBox.Top)
-                {
-                    rightPos = rightTile.HitBox.Left - 1;
-                    _rightTile = rightTile;
-                }
+                this.ExplodeLeft();
+                int x = this.HitBox.X - _currentBlastRadiusAmount * 2;
+                int y = this.HitBox.Y - _currentBlastRadiusAmount;
+                int width = this.HitBox.Width + (_currentBlastRadiusAmount * 2);
+                int height = this.HitBox.Height + (_currentBlastRadiusAmount * 2);
+                this.HitBox = new Rectangle(x, y, width, height);
+                UpdateSprite();
             }
-            //explode up
-            int upPos = areaToCheck.Top;
-            if (_upTile == null)
+            else if (_direction == Direction.DOWN)
             {
-                var upTile = GetCeilingTile(collisions);
-
-                if (upTile != null)
-                {
-                    upPos = upTile.HitBox.Bottom + 1;
-                    _upTile = upTile;
-                }
+                this.ExplodeDown();
+                int x = this.HitBox.X - _currentBlastRadiusAmount;
+                int y = this.HitBox.Y;
+                int width = this.HitBox.Width + (_currentBlastRadiusAmount * 2);
+                int height = this.HitBox.Height + (_currentBlastRadiusAmount);
+                this.HitBox = new Rectangle(x, y, width, height);
+                UpdateSprite();
             }
-            //explode down
-            int downPos = areaToCheck.Bottom;
-            if (_downTile == null)
+            else if (_direction == Direction.UP)
             {
-                var downTile = GetTopMostLandingTile(_currentBlastRadiusAmount);
+                this.ExplodeUp();
 
-                if (downTile != null)
-                {
-                    downPos = downTile.HitBox.Top - 1;
-                    _downTile = downTile;
-                }
+                int x = this.HitBox.X - _currentBlastRadiusAmount + _initialExplosionArea.Width / 2;
+                int y = this.HitBox.Y - _currentBlastRadiusAmount;
+                int width = this.HitBox.Width + (_currentBlastRadiusAmount * 2);
+                int height = this.HitBox.Height + (_currentBlastRadiusAmount);
+                this.HitBox = new Rectangle(x, y, width, height);
+                UpdateSprite();
             }
-            this.HitBox = new Rectangle(leftPos, upPos, rightPos - leftPos, downPos - upPos);
+
+
+            if (_currentBlastRadiusAmount + _blastRadiusIncreaseAmount <= _blastRadius)
+            {
+                _currentBlastRadiusAmount += _blastRadiusIncreaseAmount;
+            }
+            else
+            {
+                _currentBlastRadiusAmount = _blastRadius;
+            }
+
+            if (_currentBlastRadiusAmount == _blastRadius)
+            {
+                this.EndExplosion();
+            }
+        }
+
+        private void HandleCollisions(List<CollisionObject> collisions)
+        {
             var destructoObjectsToKill = collisions.OfType<DestructibleObject>();
             var stunnableObjects = collisions.OfType<IStunnable>();
 
@@ -157,22 +332,21 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     }
                 }
             }
+        }
 
-            UpdateSprite();
+        protected override CollisionObject GetTopMostLandingTile(List<CollisionObject> collisions)
+        {
+            CollisionObject topMostTile = null;
+            var landingTiles = collisions.Where(h => (h.CollisionType == CollisionType.BLOCK)
+                && h.HitBox.Top >= this.HitBox.Top);
 
-            if (_currentBlastRadiusAmount + _blastRadiusIncreaseAmount <= _blastRadius)
-            {
-                _currentBlastRadiusAmount += _blastRadiusIncreaseAmount;
-            }
-            else
-            {
-                _currentBlastRadiusAmount = _blastRadius;
-            }
+            if (!landingTiles.Any())
+                return null;
 
-            if (_currentBlastRadiusAmount == _blastRadius)
-            {
-                this.EndExplosion();
-            }
+            int minY = landingTiles.Select(c => c.HitBox.Top).Min();
+            topMostTile = landingTiles.FirstOrDefault(t => t.HitBox.Top == minY);
+
+            return topMostTile;
         }
 
         protected virtual void EndExplosion()
@@ -238,7 +412,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         {
             if (++_currentImage >= _explosionImages.Length)
             {
-                _currentImage = 0;
+                _currentImage = _explosionImages.Length - 1;
             }
             _sprite = BitMapTool.DrawImageAtLocationWithDimensions(_explosionImages[_currentImage], this.HitBox);
         }

@@ -1067,9 +1067,7 @@ namespace KeenReloaded2.Framework.SpriteSheet
                         Properties.Resources.keen_stun_shot_hit1,
                         Properties.Resources.keen_stun_shot_hit1,
                         Properties.Resources.keen_stun_shot_hit1,
-                        Properties.Resources.keen_stun_shot_hit1,
-                        Properties.Resources.keen_stun_shot_hit1,
-                        Properties.Resources.keen_stun_shot_hit2
+                        Properties.Resources.keen_stun_shot_hit2,
                     };
                 }
                 return _rpgExplosionImages;

@@ -30,7 +30,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         public void Explode()
         {
-            BFGExplosion explosion = new BFGExplosion(_collisionGrid, new Rectangle(this.HitBox.Location, this.HitBox.Size), this.BlastRadius, this.Damage, this);
+            BFGExplosion explosion = new BFGExplosion(_collisionGrid, new Rectangle(this.HitBox.Location, this.HitBox.Size), this.BlastRadius, this.Damage, this, this.Direction);
             RegisterExplostionEvents(explosion);
         }
 

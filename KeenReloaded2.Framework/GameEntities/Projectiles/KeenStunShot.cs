@@ -37,7 +37,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         protected void HandleCollision(CollisionObject obj)
         {
-            if (obj is MaskedTile)
+            if (obj.CollisionType == CollisionType.BLOCK)
             {
                 StopAtCollisionObject(obj);
             }
@@ -448,7 +448,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 }
                 var areaToCheck = GetAreaToCheckForCollision();
                 var collisionObjects = this.CheckCollision(areaToCheck);
-                var debugTiles = collisionObjects.OfType<MaskedTile>();
+                var debugTiles = collisionObjects.Where(c => c.CollisionType == CollisionType.BLOCK);
                 var enemies = collisionObjects.OfType<IEnemy>().Where(i => i.IsActive).ToList();
                 var cancellables = collisionObjects.OfType<ICancellableProjectile>().OfType<CollisionObject>().ToList();
                 var itemsToCheck = new List<CollisionObject>();
@@ -514,10 +514,10 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             bool handledDebugTileCollision = false;
             foreach (var collision in collisions)
             {
-                bool handle = !_shotComplete && ((!handledDebugTileCollision && collision is MaskedTile) || !(collision is MaskedTile));
+                bool handle = !_shotComplete && ((!handledDebugTileCollision && collision.CollisionType == CollisionType.BLOCK) || collision.CollisionType != CollisionType.BLOCK);
                 if (handle)
                 {
-                    if (collision is MaskedTile)
+                    if (collision.CollisionType == CollisionType.BLOCK)
                         handledDebugTileCollision = true;
                     this.HandleCollision(collision);
                 }

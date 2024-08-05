@@ -572,7 +572,7 @@ namespace KeenReloaded2
 
         private void BtnLoad_Click(object sender, EventArgs e)
         {
-            if (_mapHasUnsavedChanges 
+            if (_mapHasUnsavedChanges
                 && MessageBox.Show("This map has unsaved changes, and this action will override those changes. Continue?", "Unsaved Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
             {
                 return;
@@ -760,19 +760,32 @@ namespace KeenReloaded2
 
         private void BtnTest_Click(object sender, EventArgs e)
         {
+            var mapSize = this.GetMapSize();
             MapMakerData data = new MapMakerData()
             {
                 MapData = _mapMakerObjects,
                 MapName = txtMapName.Text,
-                MapSize = this.GetMapSize()
+                MapSize = mapSize
             };
-            if (this.ValidateMapObjects())
+
+            if (!this.ValidateMapObjects())
             {
-                Form1 gameForm = new Form1(cmbGameMode.Text, data);
-                gameForm.ShowDialog();
-                dialogMapLoader.FileName = _lastFilePath;
-                DialogMapLoader_FileOk(this, null);
+                return;
             }
+
+            if (!MapUtility.SaveMap(txtMapName.Text, cmbGameMode.SelectedItem?.ToString(), mapSize, _mapMakerObjects))
+            {
+                MessageBox.Show($"Map '{txtMapName.Text}' did not save successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            _mapHasUnsavedChanges = false;
+            string directory = MapUtility.GetSavedMapsPath(cmbGameMode.Text);
+            string mapFile = Path.Combine(directory, txtMapName.Text + ".txt");
+            var mapData = MapUtility.LoadMapData(mapFile);
+            Form1 gameForm = new Form1(cmbGameMode.Text, mapData);
+            gameForm.ShowDialog();
+            dialogMapLoader.FileName = _lastFilePath;
+            DialogMapLoader_FileOk(this, null);
         }
 
         private void BtnNewMap_Click(object sender, EventArgs e)

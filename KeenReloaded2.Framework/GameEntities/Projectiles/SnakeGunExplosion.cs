@@ -21,7 +21,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         private Direction _direction;
         private CollisionObject _borderTile;
 
-        public SnakeGunExplosion(SpaceHashGrid grid, Rectangle hitbox, int blastRadius, int damage, SnakeGunShot callingObject, Rectangle lastCollision, Direction direction, int currentExplosionNum = 1, SnakeGunExplosion previous = null, CollisionObject borderObject = null) : base(grid, hitbox, blastRadius, damage)
+        public SnakeGunExplosion(SpaceHashGrid grid, Rectangle hitbox, int blastRadius, int damage, SnakeGunShot callingObject, Rectangle lastCollision, Direction direction, int currentExplosionNum = 1, SnakeGunExplosion previous = null, CollisionObject borderObject = null) : base(grid, hitbox, blastRadius, damage, direction)
         {
             _callingObject = callingObject;
             _lastCollision = lastCollision;

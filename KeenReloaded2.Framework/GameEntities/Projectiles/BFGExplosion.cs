@@ -21,7 +21,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         private Direction _direction;
         private bool _explosionbreadthComplete;
 
-        public BFGExplosion(SpaceHashGrid grid, Rectangle hitbox, int blastRadius, int damage, BFGProjectile callingObject) : base(grid, hitbox, blastRadius, damage)
+        public BFGExplosion(SpaceHashGrid grid, Rectangle hitbox, int blastRadius, int damage, BFGProjectile callingObject, Direction direction) : base(grid, hitbox, blastRadius, damage, direction)
         {
             _callingObject = callingObject;
             if (_callingObject == null)

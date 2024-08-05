@@ -69,7 +69,8 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         public void Explode()
         {
-            RPGExplosion explosion = new RPGExplosion(_collisionGrid, this.HitBox, this.BlastRadius, this.Damage);
+            Direction direction = this.ReverseDirection(this.Direction);
+            RPGExplosion explosion = new RPGExplosion(_collisionGrid, this.HitBox, this.BlastRadius, this.Damage, direction);
             explosion.Remove += new EventHandler<ObjectEventArgs>(explosion_Remove);
             explosion.Create += new EventHandler<ObjectEventArgs>(explosion_Create);
             ObjectEventArgs e = new ObjectEventArgs()

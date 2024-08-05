@@ -1,4 +1,5 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded.Framework.Utilities;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Tiles;
 using System;
@@ -116,19 +117,21 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         protected override void InitializeSprites()
         {
             base.InitializeSprites();
-            _shotCompleteSprites = _shotSprites;
-            //this.Sprite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            //if (this.Direction == Enums.Direction.LEFT || this.Direction == Enums.Direction.RIGHT)
-            //{
-            //    this.Sprite.Size = new Size(this.Sprite.Size.Width * 10, this.Sprite.Height / 2);
-            //    this.Sprite.Location = new Point(Direction == Enums.Direction.LEFT ? this.Sprite.Location.X - (this.Sprite.Width) : this.Sprite.Location.X, this.Sprite.Location.Y + this.Sprite.Height / 2);
-            //}
-            //else if (this.Direction == Enums.Direction.UP || this.Direction == Enums.Direction.DOWN)
-            //{
-            //    this.Sprite.Size = new Size(this.Sprite.Size.Width / 2, this.Sprite.Height * 10);
-            //    this.Sprite.Location = new Point(this.Sprite.Location.X + this.Sprite.Width / 2, this.Direction == Enums.Direction.UP ? this.Sprite.Location.Y - this.Sprite.Height : this.Sprite.Location.Y);
-            //}
-            this.HitBox = new Rectangle(this.Location, _sprite.Size);
+            _shotCompleteSprites = new Image[0];
+            Size spriteSize = new Size();
+            Point spriteLocation = new Point();
+            if (this.Direction == Enums.Direction.LEFT || this.Direction == Enums.Direction.RIGHT)
+            {
+                spriteSize = new Size(_sprite.Width * 10, _sprite.Height / 2);
+                spriteLocation= new Point(Direction == Enums.Direction.LEFT ? this.Location.X - (spriteSize.Width) : this.Location.X, this.Location.Y);
+            }
+            else if (this.Direction == Enums.Direction.UP || this.Direction == Enums.Direction.DOWN)
+            {
+                spriteSize = new Size(_sprite.Width / 2, _sprite.Height * 10);
+                spriteLocation = new Point(this.Location.X + _sprite.Width / 2, this.Direction == Enums.Direction.UP ? this.Location.Y - spriteSize.Height : this.Location.Y);
+            }
+            this.HitBox = new Rectangle(spriteLocation, spriteSize);
+            _sprite = BitMapTool.DrawImageAtLocationWithDimensions(_sprite, this.HitBox);
         }
     }
 }

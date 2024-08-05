@@ -123,7 +123,7 @@ namespace KeenReloaded.Framework
 
         protected virtual CollisionObject GetCeilingTile(List<CollisionObject> collisions)
         {
-            var tiles = collisions.Where(c => c is MaskedTile && c.HitBox.Bottom <= this.HitBox.Top).ToList();
+            var tiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK && c.HitBox.Bottom <= this.HitBox.Top).ToList();
             if (tiles.Any())
             {
                 int maxBottom = tiles.Select(c => c.HitBox.Bottom).Max();
@@ -256,6 +256,30 @@ namespace KeenReloaded.Framework
             return direction == Direction.UP ? Direction.DOWN : Direction.UP;
         }
 
+        protected virtual Direction ReverseDirection(Direction direction)
+        {
+            switch (direction)
+            {
+                case Direction.DOWN:
+                    return Direction.UP;
+                case Direction.UP:
+                    return Direction.DOWN;
+                case Direction.LEFT:
+                    return Direction.RIGHT;
+                case Direction.RIGHT:
+                    return Direction.LEFT;
+                case Direction.DOWN_LEFT:
+                    return Direction.UP_RIGHT;
+                case Direction.DOWN_RIGHT:
+                    return Direction.UP_LEFT;
+                case Direction.UP_LEFT:
+                    return Direction.DOWN_RIGHT;
+                case Direction.UP_RIGHT:
+                    return Direction.DOWN_LEFT;
+            }
+            return Direction.LEFT;
+        }
+
         protected virtual Direction ChangeHorizontalDirection(Direction direction)
         {
             return direction == Direction.LEFT ? Direction.RIGHT : Direction.LEFT;
@@ -320,7 +344,7 @@ namespace KeenReloaded.Framework
 
         protected virtual CollisionObject GetLeftMostRightTile(List<CollisionObject> collisions)
         {
-            var MaskedTiles = collisions.OfType<MaskedTile>();
+            var MaskedTiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK);
             if (collisions.Any() && MaskedTiles.Any())
             {
                 var rightTiles = MaskedTiles.Where(c => c.HitBox.Left > this.HitBox.Left && c.HitBox.Top < this.HitBox.Bottom && c.HitBox.Bottom > this.HitBox.Top).ToList();
@@ -336,7 +360,7 @@ namespace KeenReloaded.Framework
 
         protected virtual CollisionObject GetRightMostLeftTile(List<CollisionObject> collisions)
         {
-            var MaskedTiles = collisions.OfType<MaskedTile>();
+            var MaskedTiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK);
             if (collisions.Any() && MaskedTiles.Any())
             {
                 var leftTiles = MaskedTiles.Where(c => c.HitBox.Left < this.HitBox.Left && c.HitBox.Top < this.HitBox.Bottom && c.HitBox.Bottom > this.HitBox.Top).ToList();
@@ -353,7 +377,7 @@ namespace KeenReloaded.Framework
         protected virtual CollisionObject GetTopMostLandingTile(List<CollisionObject> collisions)
         {
             CollisionObject topMostTile = null;
-            var landingTiles = collisions.Where(h => (h is MaskedTile || h.CollisionType == CollisionType.PLATFORM || h.CollisionType == CollisionType.POLE || h.CollisionType == CollisionType.POLE_TILE || h.CollisionType == CollisionType.KEEN6_SWITCH)
+            var landingTiles = collisions.Where(h => (h.CollisionType == CollisionType.BLOCK || h.CollisionType == CollisionType.PLATFORM || h.CollisionType == CollisionType.POLE || h.CollisionType == CollisionType.POLE_TILE || h.CollisionType == CollisionType.KEEN6_SWITCH)
                 && h.HitBox.Top >= this.HitBox.Top);
 
             if (!landingTiles.Any())
