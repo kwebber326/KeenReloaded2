@@ -43,23 +43,14 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             protected set
             {
                 base.HitBox = value;
-                if (this.HitBox != null && _sprite != null)
-                {
-                    _sprite.Location = this.HitBox.Location;
-                    _sprite.Size = this.HitBox.Size;
-                }
             }
         }
 
 
         private void Initialize()
         {
-            _sprite = new System.Windows.Forms.PictureBox();
-            _sprite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            _sprite.Image = _explosionImages[_currentSprite];
-            _sprite.Location = this.HitBox.Location;
+            _sprite = _explosionImages[_currentSprite];
             _explosionState = Enums.ExplosionState.EXPLODING;
-            this.HitBox = new Rectangle(_sprite.Location, _sprite.Size);
         }
 
         public void Update()
@@ -100,35 +91,29 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             {
                 _currentSprite = 0;
             }
-            _sprite.Image = _explosionImages[_currentSprite];
+            _sprite = _explosionImages[_currentSprite];
         }
 
         public Enums.ExplosionState ExplosionState
         {
             get { return _explosionState; }
-            //set
-            //{
-            //    _explosionState = value;
-            //}
         }
 
-        public System.Windows.Forms.PictureBox Sprite
+        public Image Image
         {
             get { return _sprite; }
         }
 
-        public override CollisionType CollisionType => throw new NotImplementedException();
+        public override CollisionType CollisionType => CollisionType.EXPLOSION;
 
-        public int ZIndex => throw new NotImplementedException();
+        public int ZIndex => 500;
 
-        public Image Image => throw new NotImplementedException();
-
-        public Point Location => throw new NotImplementedException();
+        public Point Location => this.HitBox.Location;
 
         public event EventHandler<ObjectEventArgs> Create;
 
         public event EventHandler<ObjectEventArgs> Remove;
-        private System.Windows.Forms.PictureBox _sprite;
+        private Image _sprite;
         private Enums.ExplosionState _explosionState;
         private int _damage;
 

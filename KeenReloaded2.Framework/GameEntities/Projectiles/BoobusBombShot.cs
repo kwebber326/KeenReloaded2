@@ -251,7 +251,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             }
 
             CollisionObject tile = this.Direction == Enums.Direction.LEFT ? GetRightMostLeftTile(collisions) : GetLeftMostRightTile(collisions);
-            CollisionObject groundTile = GetTopMostLandingTile(_fallVelocity);
+            CollisionObject groundTile = GetTopMostLandingTile(collisions);
             CollisionObject ceilingTile = GetCeilingTile(collisions);
 
             if (enemies.Any())
