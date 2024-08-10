@@ -207,9 +207,9 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         protected override CollisionObject GetRightMostLeftTile(List<CollisionObject> collisions)
         {
-            if (collisions.Any() && collisions.OfType<MaskedTile>().Any())
+            if (collisions.Any() && collisions.Any(c => c.CollisionType == CollisionType.BLOCK))
             {
-                var leftTiles = collisions.OfType<MaskedTile>().Where(c => c.HitBox.Left <= this.HitBox.Left && c.HitBox.Top < this.HitBox.Bottom && c.HitBox.Bottom > this.HitBox.Top).ToList();
+                var leftTiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK && c.HitBox.Left <= this.HitBox.Left && c.HitBox.Top < this.HitBox.Bottom && c.HitBox.Bottom > this.HitBox.Top).ToList();
                 if (leftTiles.Any())
                 {
                     int maxX = leftTiles.Select(t => t.HitBox.Right).Max();
@@ -222,9 +222,9 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         protected override CollisionObject GetLeftMostRightTile(List<CollisionObject> collisions)
         {
-            if (collisions.Any() && collisions.OfType<MaskedTile>().Any())
+            if (collisions.Any() && collisions.Any(c => c.CollisionType == CollisionType.BLOCK))
             {
-                var rightTiles = collisions.OfType<MaskedTile>().Where(c => c.HitBox.Left >= this.HitBox.Left && c.HitBox.Top < this.HitBox.Bottom && c.HitBox.Bottom > this.HitBox.Top).ToList();
+                var rightTiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK && c.HitBox.Left >= this.HitBox.Left && c.HitBox.Top < this.HitBox.Bottom && c.HitBox.Bottom > this.HitBox.Top).ToList();
                 if (rightTiles.Any())
                 {
                     int minX = rightTiles.Select(t => t.HitBox.Left).Min();
@@ -235,6 +235,25 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             return null;
         }
 
+        protected override CollisionObject GetTopMostLandingTile(List<CollisionObject> collisions)
+        {
+            CollisionObject topMostTile = null;
+            var landingTiles = collisions.Where(h =>
+            (h.CollisionType == CollisionType.BLOCK || h.CollisionType == CollisionType.PLATFORM
+            || h.CollisionType == CollisionType.POLE_TILE || h.CollisionType == CollisionType.KEEN6_SWITCH)
+                && h.HitBox.Top > this.HitBox.Bottom
+                && h.HitBox.Left < this.HitBox.Right
+                && h.HitBox.Right > this.HitBox.Left);
+
+            if (!landingTiles.Any())
+                return null;
+
+            int minY = landingTiles.Select(c => c.HitBox.Top).Min();
+            topMostTile = landingTiles.FirstOrDefault(t => t.HitBox.Top == minY);
+
+            return topMostTile;
+        }
+
         public override void Move()
         {
 
@@ -243,7 +262,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 new Rectangle(this.HitBox.Left + _velocity, _fallVelocity < 0 ? this.HitBox.Y + _fallVelocity : this.HitBox.Y, this.HitBox.Width + velocity, this.HitBox.Height + Math.Abs(_fallVelocity)) :
                 new Rectangle(this.HitBox.X, _fallVelocity < 0 ? this.HitBox.Y + _fallVelocity : this.HitBox.Y, this.HitBox.Width + _velocity, this.HitBox.Height + Math.Abs(_fallVelocity));
             var collisions = this.CheckCollision(areaToCheck);
-            var tiles = collisions.OfType<MaskedTile>();
+            var tiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK);
             var enemies = collisions.OfType<IEnemy>();
             if (enemies.Any())
             {
@@ -251,7 +270,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             }
 
             CollisionObject tile = this.Direction == Enums.Direction.LEFT ? GetRightMostLeftTile(collisions) : GetLeftMostRightTile(collisions);
-            CollisionObject groundTile = GetTopMostLandingTile(collisions);
+            CollisionObject groundTile = _fallVelocity > 0 ? GetTopMostLandingTile(collisions) : null;
             CollisionObject ceilingTile = GetCeilingTile(collisions);
 
             if (enemies.Any())

@@ -434,6 +434,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         private void GetRandomSpreadOffset()
         {
+            this.ResetRandomVariable();
             _spreadOffset = _random.Next(_spread * -1, _spread + 1);
         }
 
