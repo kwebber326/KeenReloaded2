@@ -44,194 +44,20 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             if (this.ExplosionState != Enums.ExplosionState.EXPLODING)
             {
                 this.ExplosionState = Enums.ExplosionState.EXPLODING;
+                this.UpdateSprite();
             }
 
+            this.HitBox = new Rectangle(this.HitBox.X - _blastRadiusIncreaseAmount, this.HitBox.Y - _blastRadiusIncreaseAmount, 
+                this.HitBox.Width + _blastRadiusIncreaseAmount * 2, this.HitBox.Height + _blastRadiusIncreaseAmount * 2);
 
-            if (this.IsHorizontalDirection(_direction))
-            {
-                ExplodeHorizontally();
-            }
-            else
-            {
-                ExplodeVertically();
-            }
-        }
+            this.UpdateSprite();
 
-        private void ExplodeVertically()
-        {
-            //this should kill even keen if in blast radius
-            List<DestructibleObject> destructoObjects = new List<DestructibleObject>();
-            //tile collisions should limit explostion length
-            List<CollisionObject> tiles = new List<CollisionObject>();
-            //we need to continue expanding in other directions even if one direction finds a wall collisions
-            //this means we store when we hit in a certain direction;
-            int xPos = _leftTile != null ? _leftTile.HitBox.Right + 1 : this.HitBox.X - _blastRadiusIncreaseAmount;
-            int yPos = _upTile != null ? _upTile.HitBox.Bottom + 1 : _initialDown - (this.HitBox.Y - _blastRadiusIncreaseAmount) > _blastRadius * 2 ? _initialDown - (_blastRadius * 2) : this.HitBox.Y - _blastRadiusIncreaseAmount;
-            int width = _rightTile != null ? _rightTile.HitBox.Left - 1 - xPos : this.HitBox.Width + _blastRadiusIncreaseAmount * 2;
-            int height = _downTile != null ? (_downTile.HitBox.Top - 1 - yPos) > _blastRadius * 2 ? _blastRadius * 2 : (_downTile.HitBox.Top - 1 - yPos)
-                : (this.HitBox.Height + _blastRadiusIncreaseAmount * 2) > _blastRadius * 2 ? _blastRadius * 2 : (this.HitBox.Height + _blastRadiusIncreaseAmount * 2);
-
-            //area to check is the hitbox that represents a slightly
-            Rectangle areaToCheck = new Rectangle(xPos, yPos, width, height);
-            var collisions = this.CheckCollision(areaToCheck);
-
-            //explode left
-            int leftPos = areaToCheck.Left;
-            if (_leftTile == null)//don't check again if we already hit a collision here
-            {
-                var leftTile = GetRightMostLeftTile(collisions);
-                if (leftTile != null && leftTile.HitBox.Top < this.HitBox.Bottom && leftTile.HitBox.Bottom > this.HitBox.Top)
-                {
-                    leftPos = leftTile.HitBox.Right + 1;
-                    _leftTile = leftTile;//store in memory when we hit something
-                }
-            }
-            //explode right
-            int rightPos = areaToCheck.Right;
-            if (_rightTile == null)
-            {
-                var rightTile = GetLeftMostRightTile(collisions);
-
-                if (rightTile != null && rightTile.HitBox.Top < this.HitBox.Bottom && rightTile.HitBox.Bottom > this.HitBox.Top)
-                {
-                    rightPos = rightTile.HitBox.Left - 1;
-                    _rightTile = rightTile;
-                }
-            }
-            //explode up
-            int upPos = areaToCheck.Top;
-            if (_upTile == null && _rightTile == null && _leftTile == null)
-            {
-                var upTile = GetCeilingTile(collisions);
-
-                if (upTile != null)
-                {
-                    upPos = upTile.HitBox.Bottom + 1;
-                    _upTile = upTile;
-                }
-            }
-            //explode down
-            int downPos = areaToCheck.Bottom;
-            if (_downTile == null)
-            {
-                var downTile = GetTopMostLandingTile(collisions);
-
-                if (downTile != null && _rightTile == null && _leftTile == null)
-                {
-                    downPos = downTile.HitBox.Top - 1;
-                    _downTile = downTile;
-                }
-            }
-            this.HitBox = new Rectangle(leftPos, upPos, rightPos - leftPos, downPos - upPos);
+            var collisions = this.CheckCollision(this.HitBox);
             HandleDestructibleObjectCollisions(collisions);
+            
 
-            UpdateSprite();
-
-            if ((_leftTile != null || this.HitBox.Left <= 0) && (_rightTile != null || this.HitBox.Right >= _collisionGrid.Size.Width))
-            {
-                _explosionbreadthComplete = true;
-            }
-
-            if (_currentBlastRadiusAmount + _blastRadiusIncreaseAmount <= _blastRadius)
-            {
-                _currentBlastRadiusAmount += _blastRadiusIncreaseAmount;
-            }
-            else
-            {
-                _currentBlastRadiusAmount = _blastRadius;
-            }
-
-            if (_currentBlastRadiusAmount == _blastRadius && _explosionbreadthComplete)
-            {
-                this.EndExplosion();
-            }
-        }
-
-        private void ExplodeHorizontally()
-        {
-            //this should kill even keen if in blast radius
-            List<DestructibleObject> destructoObjects = new List<DestructibleObject>();
-            //tile collisions should limit explostion length
-            List<CollisionObject> tiles = new List<CollisionObject>();
-            //we need to continue expanding in other directions even if one direction finds a wall collisions
-            //this means we store when we hit in a certain direction;
-            int xPos = _leftTile != null ? _leftTile.HitBox.Right + 1 : _initialRight - (this.HitBox.X - _blastRadiusIncreaseAmount) > _blastRadius * 2 ? _initialRight - (_blastRadius * 2) : this.HitBox.X - _blastRadiusIncreaseAmount;
-            int yPos = _upTile != null ? _upTile.HitBox.Bottom + 1 : this.HitBox.Y - _blastRadiusIncreaseAmount;
-            int width = _rightTile != null ? (_rightTile.HitBox.Left - 1 - xPos) > _blastRadius * 2 ? _blastRadius * 2 : (_rightTile.HitBox.Left - 1 - xPos)
-                : (this.HitBox.Width + _blastRadiusIncreaseAmount * 2) > _blastRadius * 2 ? _blastRadius * 2 : (this.HitBox.Width + _blastRadiusIncreaseAmount * 2);
-            int height = _downTile != null ? _downTile.HitBox.Top - 1 - yPos : this.HitBox.Height + _blastRadiusIncreaseAmount * 2;
-
-            //area to check is the hitbox that represents a slightly
-            Rectangle areaToCheck = new Rectangle(xPos, yPos, width, height);
-            var collisions = this.CheckCollision(areaToCheck);
-
-            //explode left
-            int leftPos = areaToCheck.Left;
-            if (_leftTile == null)//don't check again if we already hit a collision here
-            {
-                var leftTile = GetRightMostLeftTile(collisions);
-                if (leftTile != null && leftTile.HitBox.Top < this.HitBox.Bottom && leftTile.HitBox.Bottom > this.HitBox.Top)
-                {
-                    leftPos = leftTile.HitBox.Right + 1;
-                    _leftTile = leftTile;//store in memory when we hit something
-                }
-            }
-            //explode right
-            int rightPos = areaToCheck.Right;
-            if (_rightTile == null)
-            {
-                var rightTile = GetLeftMostRightTile(collisions);
-
-                if (rightTile != null && rightTile.HitBox.Top < this.HitBox.Bottom && rightTile.HitBox.Bottom > this.HitBox.Top)
-                {
-                    rightPos = rightTile.HitBox.Left - 1;
-                    _rightTile = rightTile;
-                }
-            }
-            //explode up
-            int upPos = areaToCheck.Top;
-            if (_upTile == null)
-            {
-                var upTile = GetCeilingTile(collisions);
-
-                if (upTile != null)
-                {
-                    upPos = upTile.HitBox.Bottom + 1;
-                    _upTile = upTile;
-                }
-            }
-            //explode down
-            int downPos = areaToCheck.Bottom;
-            if (_downTile == null)
-            {
-                var downTile = GetTopMostLandingTile(collisions);
-
-                if (downTile != null)
-                {
-                    downPos = downTile.HitBox.Top - 1;
-                    _downTile = downTile;
-                }
-            }
-            this.HitBox = new Rectangle(leftPos, upPos, rightPos - leftPos, downPos - upPos);
-            HandleDestructibleObjectCollisions(collisions);
-
-            UpdateSprite();
-
-            if ((_upTile != null || this.HitBox.Top <= 0) && (_downTile != null || this.HitBox.Bottom >= _collisionGrid.Size.Height))
-            {
-                _explosionbreadthComplete = true;
-            }
-
-            if (_currentBlastRadiusAmount + _blastRadiusIncreaseAmount <= _blastRadius)
-            {
-                _currentBlastRadiusAmount += _blastRadiusIncreaseAmount;
-            }
-            else
-            {
-                _currentBlastRadiusAmount = _blastRadius;
-            }
-
-            if (_currentBlastRadiusAmount == _blastRadius && _explosionbreadthComplete)
+            _explosionbreadthComplete = _sprite.Width / 2 >= _blastRadius;
+            if (_explosionbreadthComplete)
             {
                 this.EndExplosion();
             }
@@ -296,7 +122,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         protected void HandleCollision(CollisionObject obj)
         {
             var destructoObject = obj as DestructibleObject;
-            if (destructoObject != null && !destructoObject.IsDead() && !(destructoObject.CollisionType == Enums.CollisionType.PLAYER))
+            if (destructoObject != null && !destructoObject.IsDead() && (destructoObject.CollisionType != Enums.CollisionType.PLAYER))
             {
                 destructoObject.TakeDamage(_damage);
             }

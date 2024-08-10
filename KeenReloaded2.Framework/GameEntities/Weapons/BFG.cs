@@ -17,7 +17,7 @@ namespace KeenReloaded2.Framework.GameEntities.Weapons
             REFIRE_DELAY = 50;
             DAMAGE = 999;
             VELOCITY = 5;
-            BLAST_RADIUS = 300;
+            BLAST_RADIUS = 900;
         }
 
         public override void Fire()
