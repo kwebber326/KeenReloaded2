@@ -21,6 +21,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         private readonly int _currentExplosionNum;
         private Direction _direction;
         private CollisionObject _borderTile;
+        private readonly Guid _objectId = Guid.NewGuid();
 
         public SnakeGunExplosion(SpaceHashGrid grid, Rectangle hitbox, int blastRadius, int damage, SnakeGunShot callingObject, Rectangle lastCollision, Direction direction, int currentExplosionNum = 1, SnakeGunExplosion previous = null, CollisionObject borderObject = null) : base(grid, hitbox, blastRadius, damage, direction)
         {
@@ -151,12 +152,14 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     else
                     {
                         this.HitBox = new Rectangle(xPos, yPos, width, height);
-                        if (IsWallLleft(true) && !IsWallLleft(false))
+                        if (IsWallLleft(true, out CollisionObject previousTile) && !IsWallLleft(false))
                         {
+                            _borderTile = previousTile;
                             _direction = this.TurnRight(_direction);
                         }
-                        else if (IsWallLRight(true) && !IsWallLRight(false))
+                        else if (IsWallLRight(true, out previousTile) && !IsWallLRight(false))
                         {
+                            _borderTile = previousTile;
                             _direction = this.TurnLeft(_direction);
                         }
                     }
@@ -186,12 +189,14 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     else
                     {
                         this.HitBox = new Rectangle(xPos, yPos, width, height);
-                        if (IsWallLleft(true) && !IsWallLleft(false))
+                        if (IsWallLleft(true, out CollisionObject previousTile) && !IsWallLleft(false))
                         {
+                            _borderTile = previousTile;
                             _direction = this.TurnLeft(_direction);
                         }
-                        else if (IsWallLRight(true) && !IsWallLRight(false))
+                        else if (IsWallLRight(true, out previousTile) && !IsWallLRight(false))
                         {
+                            _borderTile = previousTile;
                             _direction = this.TurnRight(_direction);
                         }
                     }
@@ -220,12 +225,14 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     {
                         this.HitBox = new Rectangle(xPos, yPos, width, height);
 
-                        if (this.IsWallLUp(true) && !this.IsWallLUp(false))
+                        if (this.IsWallLUp(true, out CollisionObject previousTile) && !this.IsWallLUp(false))
                         {
+                            _borderTile = previousTile;
                             _direction = this.TurnLeft(_direction);
                         }
-                        else if (this.IsWallLDown(true) && !this.IsWallLDown(false))
+                        else if (this.IsWallLDown(true, out previousTile) && !this.IsWallLDown(false))
                         {
+                            _borderTile = previousTile;
                             _direction = this.TurnRight(_direction);
                         }
                     }
@@ -256,12 +263,14 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     {
                         this.HitBox = new Rectangle(xPos, yPos, width, height);
 
-                        if (IsWallLDown(true) && !IsWallLDown(false))
+                        if (IsWallLDown(true, out CollisionObject previousTile) && !IsWallLDown(false))
                         {
+                            _borderTile = previousTile;
                             _direction = this.TurnLeft(_direction);
                         }
-                        else if (IsWallLUp(true) && !IsWallLUp(false))
+                        else if (IsWallLUp(true, out previousTile) && !IsWallLUp(false))
                         {
+                            _borderTile = previousTile;
                             _direction = this.TurnRight(_direction);
                         }
                     }
@@ -548,7 +557,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             Rectangle hitbox = checkPrevious && this.Previous != null ? this.Previous.HitBox : this.HitBox;
             Rectangle areaToCheck = new Rectangle(hitbox.X - 2, hitbox.Y, hitbox.Width, hitbox.Height);
             var collisions = this.CheckCollision(areaToCheck, true);
-            tile = collisions.Where(c => c.HitBox.Right < this.HitBox.Left).OrderByDescending(c => c.HitBox.Right).FirstOrDefault();  //this.GetRightMostLeftTile(collisions);
+            tile = collisions.Where(c => c.HitBox.Right < this.HitBox.Right).OrderByDescending(c => c.HitBox.Right).FirstOrDefault();  //this.GetRightMostLeftTile(collisions);
             return collisions.Any();
         }
 
@@ -565,7 +574,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             Rectangle hitbox = checkPrevious && this.Previous != null ? this.Previous.HitBox : this.HitBox;
             Rectangle areaToCheck = new Rectangle(hitbox.X, hitbox.Y, hitbox.Width + 2, hitbox.Height);
             var collisions = this.CheckCollision(areaToCheck, true);
-            tile = collisions.Where(c => c.HitBox.Left > this.HitBox.Right).OrderBy(c => c.HitBox.Left).FirstOrDefault();//this.GetLeftMostRightTile(collisions);
+            tile = collisions.Where(c => c.HitBox.Right > this.HitBox.Right).OrderBy(c => c.HitBox.Left).FirstOrDefault();//this.GetLeftMostRightTile(collisions);
             return collisions.Any();
         }
 
@@ -591,7 +600,6 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             Rectangle hitbox = checkPrevious && this.Previous != null ? this.Previous.HitBox : this.HitBox;
             Rectangle areaToCheck = new Rectangle(hitbox.X, hitbox.Y, hitbox.Width, hitbox.Height + 2);
             var collisions = this.CheckCollision(areaToCheck, true);
-            var tile = GetTopMostLandingTile(collisions);
             return collisions.Any();
         }
 
@@ -600,7 +608,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             Rectangle hitbox = checkPrevious && this.Previous != null ? this.Previous.HitBox : this.HitBox;
             Rectangle areaToCheck = new Rectangle(hitbox.X, hitbox.Y, hitbox.Width, hitbox.Height + 2);
             var collisions = this.CheckCollision(areaToCheck, true);
-            tile = GetTopMostLandingTile(collisions);
+            tile = collisions.Where(h => h.HitBox.Top >= this.HitBox.Top).OrderBy(c => c.HitBox.Top).FirstOrDefault();
             return collisions.Any();
         }
 
