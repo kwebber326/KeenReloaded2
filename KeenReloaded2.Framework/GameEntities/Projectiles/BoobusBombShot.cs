@@ -207,7 +207,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         protected override CollisionObject GetRightMostLeftTile(List<CollisionObject> collisions)
         {
-            if (collisions.Any() && collisions.Any(c => c.CollisionType == CollisionType.BLOCK))
+            if (collisions.Any(c => c.CollisionType == CollisionType.BLOCK))
             {
                 var leftTiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK && c.HitBox.Left <= this.HitBox.Left && c.HitBox.Top < this.HitBox.Bottom && c.HitBox.Bottom > this.HitBox.Top).ToList();
                 if (leftTiles.Any())
@@ -222,7 +222,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         protected override CollisionObject GetLeftMostRightTile(List<CollisionObject> collisions)
         {
-            if (collisions.Any() && collisions.Any(c => c.CollisionType == CollisionType.BLOCK))
+            if (collisions.Any(c => c.CollisionType == CollisionType.BLOCK))
             {
                 var rightTiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK && c.HitBox.Left >= this.HitBox.Left && c.HitBox.Top < this.HitBox.Bottom && c.HitBox.Bottom > this.HitBox.Top).ToList();
                 if (rightTiles.Any())
@@ -362,6 +362,27 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 }
             }
             SetHorizontalDirection();
+            HandleCornerCaseCollisions(collisions);
+        }
+
+        private void HandleCornerCaseCollisions(List<CollisionObject> collisions)
+        {
+            var currentCollisions = this.CheckCollision(this.HitBox, true).Where(c => c.CollisionType == CollisionType.BLOCK);
+            if (currentCollisions.Any())
+            {
+                if (_fallVelocity > 0)
+                {
+                    var landingTile = collisions.OrderBy(c => c.HitBox.Top).FirstOrDefault();
+                    this.HitBox = new Rectangle(this.HitBox.X, landingTile.HitBox.Top - this.HitBox.Height - 1, this.HitBox.Width, this.HitBox.Height);
+                    _fallVelocity = GetImpactVelocityVertical(_fallVelocity);
+                }
+                else
+                {
+                    var topTile = collisions.OrderByDescending(c => c.HitBox.Bottom).FirstOrDefault();
+                    this.HitBox = new Rectangle(this.HitBox.X, topTile.HitBox.Bottom + 1, this.HitBox.Width, this.HitBox.Height);
+                    _fallVelocity = GetImpactVelocityVertical(_fallVelocity);
+                }
+            }
         }
 
         private void HandleEnemyCollision(List<IEnemy> enemies)

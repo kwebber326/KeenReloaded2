@@ -1,4 +1,5 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded.Framework.Utilities;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Tiles;
 using KeenReloaded2.Framework.GameEventArgs;
@@ -122,7 +123,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         private void UpdateHitboxForExplosionCollisionsSubsequentChains()
         {
             var collisions = this.CheckCollision(this.HitBox);
-            _upTile = (!this.IsVerticalDirection(_direction) && _currentExplosionNum > 1) ? null : this.GetCeilingTile(collisions);
+            _upTile = (!this.IsVerticalDirection(_direction) && _currentExplosionNum > 1) ? null : this.GetCeilingTileForSubsequentExplosions(collisions);
             _downTile = (!this.IsVerticalDirection(_direction) && _currentExplosionNum > 1) ? null : this.GetTopMostLandingTile(collisions);
             _leftTile = (!this.IsHorizontalDirection(_direction) && _currentExplosionNum > 1) ? null : this.GetRightMostLeftTileSubsequentExplosions(collisions);
             _rightTile = (!this.IsHorizontalDirection(_direction) && _currentExplosionNum > 1) ? null : this.GetLeftMostRightTileSubsequentExplosions(collisions);
@@ -528,7 +529,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             }
             else
             {
-               _sprite = _explosionImages[_currentImage];
+                _sprite = BitMapTool.DrawImageAtLocationWithDimensions(_explosionImages[_currentImage], this.HitBox);
             }
         }
 

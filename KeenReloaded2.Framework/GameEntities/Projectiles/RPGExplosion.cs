@@ -366,6 +366,11 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             protected set
             {
                 base.HitBox = value;
+                if (_collidingNodes != null && _collidingNodes.Any())
+                {
+                    this.UpdateCollisionNodes(Direction.DOWN_LEFT);
+                    this.UpdateCollisionNodes(Direction.UP_RIGHT);
+                }
             }
         }
 

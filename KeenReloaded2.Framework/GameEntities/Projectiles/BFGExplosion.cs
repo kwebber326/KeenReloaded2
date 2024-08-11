@@ -47,14 +47,14 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 this.UpdateSprite();
             }
 
-            this.HitBox = new Rectangle(this.HitBox.X - _blastRadiusIncreaseAmount, this.HitBox.Y - _blastRadiusIncreaseAmount, 
+            this.HitBox = new Rectangle(this.HitBox.X - _blastRadiusIncreaseAmount, this.HitBox.Y - _blastRadiusIncreaseAmount,
                 this.HitBox.Width + _blastRadiusIncreaseAmount * 2, this.HitBox.Height + _blastRadiusIncreaseAmount * 2);
 
-            this.UpdateSprite();
 
             var collisions = this.CheckCollision(this.HitBox);
             HandleDestructibleObjectCollisions(collisions);
-            
+
+            this.UpdateSprite();
 
             _explosionbreadthComplete = _sprite.Width / 2 >= _blastRadius;
             if (_explosionbreadthComplete)

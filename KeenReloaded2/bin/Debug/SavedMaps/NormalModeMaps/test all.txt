@@ -9,7 +9,6 @@ keen4_cave_platform_middle|226|117|32|36|10
 keen4_cave_platform_left_edge|195|116|30|38|10
 keen4_cave_platform_right_edge|258|117|30|38|10
 keen5_single_platform_blue|391|165|32|36|10
-keen5_platform_blue_edge_left|178|537|32|34|10
 keen6_dome_platform_single|620|439|32|40|10
 keen6_dome_ceiling3|428|529|64|32|10
 keen6_dome_ceiling2|364|529|64|32|10
@@ -34,7 +33,6 @@ keen6_root_beer_float1|388|476|24|32|50|KEEN6_ROOT_BEER_FLOAT
 keen6_banana_split1|413|481|32|26|50|KEEN6_BANANA_SPLIT
 keen5_bag_o_sugar1|179|460|26|32|50|KEEN5_BAG_O_SUGAR
 keen5_sugar_stoopies_cereal1|624|79|30|22|50|KEEN5_SUGAR_STOOPIES_CEREAL
-keen4_drop1|769|148|20|32|50
 keen5_tart_stix1|394|102|30|30|50|KEEN5_TART_STIX
 keen4_drop1|61|10|20|32|50
 keen4_seaweed2_1|52|605|26|64|keen4_seaweed2_1.png|True|100
@@ -49,11 +47,9 @@ gem_yellow1|151|228|26|20|YELLOW|50|False
 keen6_viva_perched1|346|445|14|16|50|True
 keen4_mirage_floor_middle|45|651|48|64|10
 keen4_mirage_floor_middle|93|651|48|64|10
-keen5_platform_blue_edge_right|210|537|32|34|10
 keen4_mirage_wall_bottom2|45|715|64|32|10
 keen4_mirage_floor_edge_right|141|651|52|64|10
 keen4_mirage_wall_bottom2|108|715|64|32|10
-keen4_forest_platform_single|763|199|32|40|10
 keen4_cave_wall_bottom4|492|529|64|32|10
 keen4_lifewater_flask1|386|600|22|32|50|KEEN4_LIFEWATER_FLASK
 neural_stunner1|485|276|30|22|51|11
@@ -62,8 +58,6 @@ neural_stunner1|46|187|30|22|50|5
 neural_stunner_railgun1|37|378|52|22|50|52
 neural_stunner_smg_1|539|171|46|22|50|30
 keen5_chocolate_milk1|300|222|24|32|51|KEEN5_CHOCOLATE_MILK
-keen_4_spikes|824|552|63|70
-keen_4_spikes|856|358|63|70
 keen4_mine|850|121|46|46|DOWN|850|121|46|46|20
 keen4_mine|795|358|46|46|RIGHT|300|800|100|500|15
 neural_stunner_railgun1|546|495|52|22|50|20
@@ -79,3 +73,15 @@ keen_stand_left|490|318|26|64|LEFT
 keen6_pizza_slice1|211|461|32|32|50|KEEN6_PIZZA_SLICE
 snake_gun1|50|64|57|20|50|1000
 keen_dreams_boobus_bomb2|155|64|30|30|50|1000
+keen4_cave_wall_bottom6|218|784|64|32|10
+keen4_cave_wall_bottom2|282|784|64|32|10
+keen4_cave_wall_bottom6|346|784|64|32|10
+keen4_forest_platform_single|725|199|32|40|10
+keen4_drop1|732|148|20|32|50
+keen5_platform_blue_edge_left|114|537|32|34|10
+keen5_platform_blue_edge_right|146|537|32|34|10
+keen4_cave_wall_edge_left|842|337|64|64|10
+keen_4_spikes|768|552|63|70
+keen4_cave_wall_edge_left|842|401|64|64|10
+keen4_cave_wall_edge_left|842|465|64|64|10
+keen4_cave_wall_edge_left|842|529|64|64|10

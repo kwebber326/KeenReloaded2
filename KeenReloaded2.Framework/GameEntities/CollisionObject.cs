@@ -23,6 +23,11 @@ namespace KeenReloaded.Framework
             this.HitBox = hitbox;
             this._collisionGrid = grid;
             _collidingNodes = grid.GetCurrentHashes(this);
+            AddObjectToBuckets();
+        }
+
+        private void AddObjectToBuckets()
+        {
             foreach (SpaceHashGridNode node in _collidingNodes)
             {
                 node.Objects.Add(this);
@@ -50,18 +55,18 @@ namespace KeenReloaded.Framework
 
         private void AddIfNotEnemy(SpaceHashGridNode node)
         {
-            //if (!(this is IEnemy))
-            //{
-            //    node.NonEnemies.Add(this);
-            //}
+            if (this.CollisionType != CollisionType.ENEMY)
+            {
+                node.NonEnemies.Add(this);
+            }
         }
 
         private void AddIfTile(SpaceHashGridNode node)
         {
-            //if (this is MaskedTile || (this is PlatformTile && !(this is MovingPlatformTile)) || this is PoleTile)
-            //{
-            //    node.Tiles.Add(this);
-            //}
+            if (this.CollisionType == CollisionType.BLOCK || (this.CollisionType == CollisionType.PLATFORM /*&& !(this is MovingPlatformTile)*/) || this.CollisionType == CollisionType.POLE_TILE)
+            {
+                node.Tiles.Add(this);
+            }
         }
 
 
@@ -731,6 +736,8 @@ namespace KeenReloaded.Framework
                         if (!node.HashBox.IntersectsWith(this.HitBox))
                         {
                             node.Objects.Remove(this);
+                            node.Tiles.Remove(this);
+                            node.NonEnemies.Remove(this);
                             SpaceHashGridNode n = node;
                             AddNextNodeOver(direction, newCollidingNodes, n);
                         }
@@ -743,10 +750,7 @@ namespace KeenReloaded.Framework
                 }
 
                 _collidingNodes = newCollidingNodes;
-                foreach (var node in _collidingNodes)
-                {
-                    node.Objects.Add(this);
-                }
+                AddObjectToBuckets();
             }
         }
 
