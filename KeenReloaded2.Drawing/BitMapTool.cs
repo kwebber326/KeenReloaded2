@@ -118,5 +118,20 @@ namespace KeenReloaded.Framework.Utilities
             return bmp;
         }
 
+        public static Bitmap DrawImagesOnCanvas(Size canvas, Image backgroundImage, Image[] extraImages, Point[] locations)
+        {
+            Bitmap bmp = new Bitmap(canvas.Width, canvas.Height);
+            using (Graphics g = Graphics.FromImage(bmp))
+            {
+                g.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceOver;
+                g.DrawImage(backgroundImage, new Point(0, 0));
+                int count = extraImages.Count();
+                for (int i = 0; i < count; i++)
+                {
+                    g.DrawImage(extraImages[i], locations[i]);
+                }
+            }
+            return bmp;
+        }
     }
 }

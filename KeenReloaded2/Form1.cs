@@ -1,4 +1,5 @@
 ﻿using KeenReloaded2.Entities;
+using KeenReloaded2.Framework.GameEntities.Players;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace KeenReloaded2
         private Timer _gameUpdateTimer = new Timer();
         private CommanderKeenGame _game;
         private bool _paused;
+        private CommanderKeen _keen;
 
         public Form1()
         {
@@ -28,6 +30,9 @@ namespace KeenReloaded2
             InitializeComponent();
             _gameMode = gameMode;
             _game = new CommanderKeenGame(data);
+            var gameObjects = data.MapData.Select(d => d.GameObject);
+            _keen = gameObjects.OfType<CommanderKeen>().FirstOrDefault();
+            inventoryPanel1.Keen = _keen;
         }
 
         private void InitializeGameState()

@@ -30,6 +30,7 @@
         {
             this.pnlGameWindow = new System.Windows.Forms.Panel();
             this.pbGameImage = new System.Windows.Forms.PictureBox();
+            this.inventoryPanel1 = new KeenReloaded2.UserControls.InventoryPanel.InventoryPanel();
             this.pnlGameWindow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbGameImage)).BeginInit();
             this.SuspendLayout();
@@ -52,11 +53,22 @@
             this.pbGameImage.TabIndex = 0;
             this.pbGameImage.TabStop = false;
             // 
+            // inventoryPanel1
+            // 
+            this.inventoryPanel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.inventoryPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.inventoryPanel1.Keen = null;
+            this.inventoryPanel1.Location = new System.Drawing.Point(3, 12);
+            this.inventoryPanel1.Name = "inventoryPanel1";
+            this.inventoryPanel1.Size = new System.Drawing.Size(605, 1450);
+            this.inventoryPanel1.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2178, 1474);
+            this.Controls.Add(this.inventoryPanel1);
             this.Controls.Add(this.pnlGameWindow);
             this.KeyPreview = true;
             this.Name = "Form1";
@@ -78,6 +90,7 @@
 
         private System.Windows.Forms.Panel pnlGameWindow;
         private System.Windows.Forms.PictureBox pbGameImage;
+        private UserControls.InventoryPanel.InventoryPanel inventoryPanel1;
     }
 }
 

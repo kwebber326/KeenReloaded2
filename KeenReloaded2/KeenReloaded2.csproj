@@ -84,6 +84,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\InventoryPanel\InventoryPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\InventoryPanel\InventoryPanel.Designer.cs">
+      <DependentUpon>InventoryPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\InventoryPanel\ScoreBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\InventoryPanel\ScoreBoard.Designer.cs">
+      <DependentUpon>ScoreBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MainMenuControls\CharacterSelectControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -143,6 +155,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\InventoryPanel\InventoryPanel.resx">
+      <DependentUpon>InventoryPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\InventoryPanel\ScoreBoard.resx">
+      <DependentUpon>ScoreBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MainMenuControls\CharacterSelectControl.resx">
       <DependentUpon>CharacterSelectControl.cs</DependentUpon>
@@ -5699,6 +5717,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen_stand_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scoreboard_blank1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
