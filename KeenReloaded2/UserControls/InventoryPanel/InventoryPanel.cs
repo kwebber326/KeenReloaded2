@@ -58,6 +58,8 @@ namespace KeenReloaded2.UserControls.InventoryPanel
             _keen.ScoreChanged += _keen_ScoreChanged;
             _keen.ShieldAcquired += _keen_ShieldAcquired;
             _keen.WeaponChanged += _keen_WeaponChanged;
+            _keen.LivesChanged += _keen_LivesChanged;
+            _keen.LifeDropsChanged += _keen_LifeDropsChanged;
         }
 
         private void UnRegisterKeenEvents()
@@ -71,6 +73,18 @@ namespace KeenReloaded2.UserControls.InventoryPanel
             _keen.ScoreChanged -= _keen_ScoreChanged;
             _keen.ShieldAcquired -= _keen_ShieldAcquired;
             _keen.WeaponChanged -= _keen_WeaponChanged;
+            _keen.LivesChanged -= _keen_LivesChanged;
+            _keen.LifeDropsChanged -= _keen_LifeDropsChanged;
+        }
+
+        private void _keen_LifeDropsChanged(object sender, Framework.GameEventArgs.ObjectEventArgs e)
+        {
+
+        }
+
+        private void _keen_LivesChanged(object sender, Framework.GameEventArgs.ObjectEventArgs e)
+        {
+            scoreBoard1.UpdateScoreBoard();
         }
 
         private void _keen_ShieldAcquired(object sender, Framework.GameEventArgs.ObjectEventArgs e)

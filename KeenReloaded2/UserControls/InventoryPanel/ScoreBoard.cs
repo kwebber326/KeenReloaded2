@@ -58,10 +58,12 @@ namespace KeenReloaded2.UserControls.InventoryPanel
         {
             ImageWithLocation[] scoreImages = GetScoreImages();
             ImageWithLocation[] ammoAmountImages = GetWeaponAmmoAmountImages();
+            ImageWithLocation[] lifeAmountImages = GetLifeAmountImages();
 
             List<ImageWithLocation> images = new List<ImageWithLocation>();
             images.AddRange(scoreImages);
             images.AddRange(ammoAmountImages);
+            images.AddRange(lifeAmountImages);
             
             return images.ToArray();
         }
@@ -143,6 +145,48 @@ namespace KeenReloaded2.UserControls.InventoryPanel
                         img = _digitLEDs[ammoString[currentDigit++]];
                     }
                     x = INITIAL_AMMO_HORIZONTAL_OFFSET + (i * (DISTANCE_BETWEEN_LED_DIGITS + LED_DIGIT_WIDTH));
+                    Point location = new Point(x, y);
+                    imageWithLocations[i] = new ImageWithLocation(img, location);
+                }
+            }
+
+            return imageWithLocations;
+        }
+
+        private ImageWithLocation[] GetLifeAmountImages()
+        {
+            ImageWithLocation[] imageWithLocations = new ImageWithLocation[0];
+
+            string livesString = _keen.Lives.ToString();
+
+            imageWithLocations = new ImageWithLocation[LIFE_DIGIT_COUNT];
+            int x = INITIAL_LIFE_HORIZONTAL_OFFSET;
+            int y = LIFE_VERTICAL_OFFSET;
+            if (_keen.Lives > 99)
+            {
+                Image img = _digitLEDs['9'];
+                for (int i = 0; i < imageWithLocations.Length; i++)
+                {
+                    x = INITIAL_LIFE_HORIZONTAL_OFFSET + (i * (DISTANCE_BETWEEN_LED_DIGITS + LED_DIGIT_WIDTH));
+                    Point p = new Point(x, y);
+                    imageWithLocations[i] = new ImageWithLocation(img, p);
+                }
+            }
+            else
+            {
+                int currentDigit = 0;
+                for (int i = 0; i < LIFE_DIGIT_COUNT; i++)
+                {
+                    Image img;
+                    if (LIFE_DIGIT_COUNT - i > livesString.Length)
+                    {
+                        img = _digitLEDs['x'];
+                    }
+                    else
+                    {
+                        img = _digitLEDs[livesString[currentDigit++]];
+                    }
+                    x = INITIAL_LIFE_HORIZONTAL_OFFSET + (i * (DISTANCE_BETWEEN_LED_DIGITS + LED_DIGIT_WIDTH));
                     Point location = new Point(x, y);
                     imageWithLocations[i] = new ImageWithLocation(img, location);
                 }
