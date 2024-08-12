@@ -43,6 +43,7 @@ namespace KeenReloaded2.UserControls.InventoryPanel
                 {
                     scoreBoard1.Keen = _keen;
                     RegisterKeenEvents();
+                    weaponInventoryControl1.SetWeaponInventory(_keen);
                 }
             }
         }
@@ -79,7 +80,7 @@ namespace KeenReloaded2.UserControls.InventoryPanel
 
         private void _keen_LifeDropsChanged(object sender, Framework.GameEventArgs.ObjectEventArgs e)
         {
-
+            //TODO: Implement
         }
 
         private void _keen_LivesChanged(object sender, Framework.GameEventArgs.ObjectEventArgs e)

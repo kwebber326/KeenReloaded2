@@ -65,14 +65,10 @@ keen4_cave_wall_edge_left|468|458|64|64|10
 keen5_wall_black_edge_right|298|350|52|64|10
 keen5_wall_black_middle|400|425|64|64|10
 keen4_cave_wall_edge_left|842|209|64|64|10
-neural_stunner_shotgun|200|200|53|22|50|5000
 keen4_cave_wall_bottom2|556|529|64|32|10
 keen4_cave_wall_edge_left|842|273|64|64|10
-BFG1|100|639|61|24|50|1999
 keen_stand_left|490|318|26|64|LEFT
 keen6_pizza_slice1|211|461|32|32|50|KEEN6_PIZZA_SLICE
-snake_gun1|50|64|57|20|50|1000
-keen_dreams_boobus_bomb2|155|64|30|30|50|1000
 keen4_cave_wall_bottom6|218|784|64|32|10
 keen4_cave_wall_bottom2|282|784|64|32|10
 keen4_cave_wall_bottom6|346|784|64|32|10
@@ -85,3 +81,7 @@ keen_4_spikes|768|552|63|70
 keen4_cave_wall_edge_left|842|401|64|64|10
 keen4_cave_wall_edge_left|842|465|64|64|10
 keen4_cave_wall_edge_left|842|529|64|64|10
+BFG1|100|639|61|24|50|500
+snake_gun1|50|64|57|20|50|200
+neural_stunner_shotgun|200|200|53|22|50|400
+keen_dreams_boobus_bomb2|155|64|30|30|50|300

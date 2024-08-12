@@ -96,6 +96,18 @@
     <Compile Include="UserControls\InventoryPanel\ScoreBoard.Designer.cs">
       <DependentUpon>ScoreBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\InventoryPanel\WeaponDisplayControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\InventoryPanel\WeaponDisplayControl.Designer.cs">
+      <DependentUpon>WeaponDisplayControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\InventoryPanel\WeaponInventoryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\InventoryPanel\WeaponInventoryControl.Designer.cs">
+      <DependentUpon>WeaponInventoryControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MainMenuControls\CharacterSelectControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -161,6 +173,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\InventoryPanel\ScoreBoard.resx">
       <DependentUpon>ScoreBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\InventoryPanel\WeaponDisplayControl.resx">
+      <DependentUpon>WeaponDisplayControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\InventoryPanel\WeaponInventoryControl.resx">
+      <DependentUpon>WeaponInventoryControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MainMenuControls\CharacterSelectControl.resx">
       <DependentUpon>CharacterSelectControl.cs</DependentUpon>
