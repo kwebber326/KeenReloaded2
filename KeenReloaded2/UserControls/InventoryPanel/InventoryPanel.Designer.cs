@@ -31,6 +31,7 @@
             this.keyContainerControl1 = new KeenReloaded2.UserControls.InventoryPanel.KeyContainerControl();
             this.weaponInventoryControl1 = new KeenReloaded2.UserControls.InventoryPanel.WeaponInventoryControl();
             this.scoreBoard1 = new KeenReloaded2.UserControls.InventoryPanel.ScoreBoard();
+            this.keyCardInventoryControl1 = new KeenReloaded2.UserControls.InventoryPanel.KeyCardInventoryControl();
             this.SuspendLayout();
             // 
             // keyContainerControl1
@@ -57,12 +58,21 @@
             this.scoreBoard1.Size = new System.Drawing.Size(357, 149);
             this.scoreBoard1.TabIndex = 0;
             // 
+            // keyCardInventoryControl1
+            // 
+            this.keyCardInventoryControl1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.keyCardInventoryControl1.Location = new System.Drawing.Point(3, 1020);
+            this.keyCardInventoryControl1.Name = "keyCardInventoryControl1";
+            this.keyCardInventoryControl1.Size = new System.Drawing.Size(434, 78);
+            this.keyCardInventoryControl1.TabIndex = 3;
+            // 
             // InventoryPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Controls.Add(this.keyCardInventoryControl1);
             this.Controls.Add(this.keyContainerControl1);
             this.Controls.Add(this.weaponInventoryControl1);
             this.Controls.Add(this.scoreBoard1);
@@ -78,5 +88,6 @@
         private ScoreBoard scoreBoard1;
         private WeaponInventoryControl weaponInventoryControl1;
         private KeyContainerControl keyContainerControl1;
+        private KeyCardInventoryControl keyCardInventoryControl1;
     }
 }

@@ -62,6 +62,7 @@ namespace KeenReloaded2.UserControls.InventoryPanel
             _keen.WeaponChanged += _keen_WeaponChanged;
             _keen.LivesChanged += _keen_LivesChanged;
             _keen.LifeDropsChanged += _keen_LifeDropsChanged;
+            _keen.KeyCardAcquiredChanged += _keen_KeyCardAcquiredChanged;
         }
 
         private void UnRegisterKeenEvents()
@@ -77,6 +78,11 @@ namespace KeenReloaded2.UserControls.InventoryPanel
             _keen.WeaponChanged -= _keen_WeaponChanged;
             _keen.LivesChanged -= _keen_LivesChanged;
             _keen.LifeDropsChanged -= _keen_LifeDropsChanged;
+        }
+
+        private void _keen_KeyCardAcquiredChanged(object sender, Framework.GameEventArgs.ObjectEventArgs e)
+        {
+            keyCardInventoryControl1.AddKeyCard();
         }
 
         private void _keen_LifeDropsChanged(object sender, Framework.GameEventArgs.ObjectEventArgs e)
@@ -126,6 +132,11 @@ namespace KeenReloaded2.UserControls.InventoryPanel
             {
                 var gem = (Gem)e.Item;
                 keyContainerControl1.AddGem(gem.Color);
+            }
+            else if (e.Item is KeyCard)
+            {
+                var keyCard = (KeyCard)e.Item;
+                keyCardInventoryControl1.AddKeyCard();
             }
         }
     }

@@ -90,6 +90,12 @@
     <Compile Include="UserControls\InventoryPanel\InventoryPanel.Designer.cs">
       <DependentUpon>InventoryPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\InventoryPanel\KeyCardInventoryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\InventoryPanel\KeyCardInventoryControl.Designer.cs">
+      <DependentUpon>KeyCardInventoryControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\InventoryPanel\KeyContainerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -176,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\InventoryPanel\InventoryPanel.resx">
       <DependentUpon>InventoryPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\InventoryPanel\KeyCardInventoryControl.resx">
+      <DependentUpon>KeyCardInventoryControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\InventoryPanel\KeyContainerControl.resx">
       <DependentUpon>KeyContainerControl.cs</DependentUpon>
@@ -5750,6 +5759,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\KeyInventoryTemplate1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_card_not_acquired1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

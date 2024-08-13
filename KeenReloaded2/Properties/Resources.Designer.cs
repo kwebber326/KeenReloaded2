@@ -14903,6 +14903,16 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap key_card_not_acquired1 {
+            get {
+                object obj = ResourceManager.GetObject("key_card_not_acquired1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap key_gate1 {
             get {
                 object obj = ResourceManager.GetObject("key_gate1", resourceCulture);

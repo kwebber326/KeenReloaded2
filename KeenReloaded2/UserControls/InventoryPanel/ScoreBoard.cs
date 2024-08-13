@@ -19,17 +19,17 @@ namespace KeenReloaded2.UserControls.InventoryPanel
         private CommanderKeen _keen;
 
         private const int INITIAL_SCORE_HORIZONTAL_OFFSET = 12;
-        private const int SCORE_VERITICAL_OFFSET = 11;
+        private const int SCORE_VERITICAL_OFFSET = 7;
         private const int DISTANCE_BETWEEN_LED_DIGITS = 4;
         private const int SCORE_BOARD_DIGIT_COUNT = 9;
         private const int LED_DIGIT_WIDTH = 12;
 
         private const int INITIAL_LIFE_HORIZONTAL_OFFSET = 44;
-        private const int LIFE_VERTICAL_OFFSET = 42;
+        private const int LIFE_VERTICAL_OFFSET = 38;
         private const int LIFE_DIGIT_COUNT = 2;
 
         private const int INITIAL_AMMO_HORIZONTAL_OFFSET = 124;
-        private const int AMMO_VERTICAL_OFFSET = 42;
+        private const int AMMO_VERTICAL_OFFSET = 38;
         private const int AMMO_DIGIT_COUNT = 2;
 
         public ScoreBoard()

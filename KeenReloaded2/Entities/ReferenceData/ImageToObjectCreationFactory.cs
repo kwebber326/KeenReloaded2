@@ -1368,6 +1368,53 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region keen 5 key card
+
+            string keyCardDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_CONSTRUCTS, "keen5", Biomes.BIOME_KEEN5_BLACK);
+            string keyCardPath = Directory.GetFiles(keyCardDirectory).FirstOrDefault(s => s.Contains("key_card"));
+
+            string keyCardKeyName = FileIOUtility.ExtractFileNameFromPath(keyCardPath);
+            Image keyCardImg = Image.FromFile(keyCardPath);
+
+
+            MapMakerObjectProperty[] keyCardProperties = new MapMakerObjectProperty[]
+            {
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, keen4MineImage.Width, keen4MineImage.Height),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "imageName",
+                      Readonly = true,
+                      DataType = typeof(string),
+                      Value = keyCardKeyName
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 20,
+                      DisplayName ="Z Index: "
+                  },
+            };
+
+            MapMakerObject keyCardObj = new MapMakerObject(typeof(KeyCard), keyCardPath, false, keyCardProperties);
+            backgroundReferenceData.Add(keyCardKeyName, keyCardObj);
+
+            #endregion
+
             return backgroundReferenceData;
         }
 

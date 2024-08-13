@@ -85,3 +85,4 @@ BFG1|100|639|61|24|50|500
 snake_gun1|50|64|57|20|50|200
 neural_stunner_shotgun|200|200|53|22|50|400
 keen_dreams_boobus_bomb2|155|64|30|30|50|300
+keen5_key_card1|277|529|24|28
