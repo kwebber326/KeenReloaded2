@@ -28,9 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.scoreBoard1 = new KeenReloaded2.UserControls.InventoryPanel.ScoreBoard();
+            this.keyContainerControl1 = new KeenReloaded2.UserControls.InventoryPanel.KeyContainerControl();
             this.weaponInventoryControl1 = new KeenReloaded2.UserControls.InventoryPanel.WeaponInventoryControl();
+            this.scoreBoard1 = new KeenReloaded2.UserControls.InventoryPanel.ScoreBoard();
             this.SuspendLayout();
+            // 
+            // keyContainerControl1
+            // 
+            this.keyContainerControl1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.keyContainerControl1.Location = new System.Drawing.Point(3, 966);
+            this.keyContainerControl1.Name = "keyContainerControl1";
+            this.keyContainerControl1.Size = new System.Drawing.Size(233, 48);
+            this.keyContainerControl1.TabIndex = 2;
+            // 
+            // weaponInventoryControl1
+            // 
+            this.weaponInventoryControl1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.weaponInventoryControl1.Location = new System.Drawing.Point(4, 192);
+            this.weaponInventoryControl1.Name = "weaponInventoryControl1";
+            this.weaponInventoryControl1.Size = new System.Drawing.Size(554, 768);
+            this.weaponInventoryControl1.TabIndex = 1;
             // 
             // scoreBoard1
             // 
@@ -40,20 +57,13 @@
             this.scoreBoard1.Size = new System.Drawing.Size(357, 149);
             this.scoreBoard1.TabIndex = 0;
             // 
-            // weaponInventoryControl1
-            // 
-            this.weaponInventoryControl1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.weaponInventoryControl1.Location = new System.Drawing.Point(4, 192);
-            this.weaponInventoryControl1.Name = "weaponInventoryControl1";
-            this.weaponInventoryControl1.Size = new System.Drawing.Size(554, 835);
-            this.weaponInventoryControl1.TabIndex = 1;
-            // 
             // InventoryPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Controls.Add(this.keyContainerControl1);
             this.Controls.Add(this.weaponInventoryControl1);
             this.Controls.Add(this.scoreBoard1);
             this.Name = "InventoryPanel";
@@ -67,5 +77,6 @@
 
         private ScoreBoard scoreBoard1;
         private WeaponInventoryControl weaponInventoryControl1;
+        private KeyContainerControl keyContainerControl1;
     }
 }

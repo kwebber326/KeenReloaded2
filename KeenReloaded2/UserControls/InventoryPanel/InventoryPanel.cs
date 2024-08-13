@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.Items.WeaponsAmmo;
+using KeenReloaded2.Framework.GameEntities.Items;
 
 namespace KeenReloaded2.UserControls.InventoryPanel
 {
@@ -120,6 +121,11 @@ namespace KeenReloaded2.UserControls.InventoryPanel
             if (e.Item is NeuralStunnerAmmo)
             {
                 scoreBoard1.UpdateScoreBoard();
+            }
+            else if (e.Item is Gem)
+            {
+                var gem = (Gem)e.Item;
+                keyContainerControl1.AddGem(gem.Color);
             }
         }
     }

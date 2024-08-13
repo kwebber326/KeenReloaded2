@@ -557,7 +557,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             Rectangle hitbox = checkPrevious && this.Previous != null ? this.Previous.HitBox : this.HitBox;
             Rectangle areaToCheck = new Rectangle(hitbox.X - 2, hitbox.Y, hitbox.Width, hitbox.Height);
             var collisions = this.CheckCollision(areaToCheck, true);
-            tile = collisions.Where(c => c.HitBox.Right < this.HitBox.Right).OrderByDescending(c => c.HitBox.Right).FirstOrDefault();  //this.GetRightMostLeftTile(collisions);
+            tile = collisions.OrderByDescending(c => c.HitBox.Right).FirstOrDefault();  //this.GetRightMostLeftTile(collisions);
             return collisions.Any();
         }
 
@@ -574,7 +574,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             Rectangle hitbox = checkPrevious && this.Previous != null ? this.Previous.HitBox : this.HitBox;
             Rectangle areaToCheck = new Rectangle(hitbox.X, hitbox.Y, hitbox.Width + 2, hitbox.Height);
             var collisions = this.CheckCollision(areaToCheck, true);
-            tile = collisions.Where(c => c.HitBox.Right > this.HitBox.Right).OrderBy(c => c.HitBox.Left).FirstOrDefault();//this.GetLeftMostRightTile(collisions);
+            tile = collisions.OrderBy(c => c.HitBox.Left).FirstOrDefault();//this.GetLeftMostRightTile(collisions);
             return collisions.Any();
         }
 
