@@ -75,11 +75,11 @@ namespace KeenReloaded2.Framework.GameEntities.Players
 
         #region event handlers
 
-        public event EventHandler<WeaponAcquiredEventArgs> KeenAcquiredWeapon;
+        public event EventHandler<WeaponEventArgs> KeenAcquiredWeapon;
         public event EventHandler<ItemAcquiredEventArgs> KeenAcquiredItem;
         public event EventHandler KeenMoved;
 
-        protected void OnKeenAcquiredWeapon(WeaponAcquiredEventArgs e)
+        protected void OnKeenAcquiredWeapon(WeaponEventArgs e)
         {
             if (KeenAcquiredWeapon != null)
                 KeenAcquiredWeapon(this, e);
@@ -120,7 +120,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             };
             this.CurrentWeapon = _weapons[0];
             RegisterProjectileEvents(this.CurrentWeapon);
-            OnKeenAcquiredWeapon(new WeaponAcquiredEventArgs() { Weapon = _currentWeapon });
+            OnKeenAcquiredWeapon(new WeaponEventArgs() { Weapon = _currentWeapon });
         }
 
         public void InitializeWeapons(List<NeuralStunner> weaponSet)
@@ -888,12 +888,13 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 if (weapon != null)
                 {
                     weapon.Ammo += ammoAmmount;
+                    OnWeaponChanged(new WeaponEventArgs() { Weapon = weapon });
                 }
                 else
                 {
                     CreateWeaponAndSetToCurrentWeapon(ammoAmmount, item);
                 }
-                OnWeaponChanged(new ObjectEventArgs() { ObjectSprite = this });
+               
             }
             else if (item is Gem)
             {
@@ -1009,7 +1010,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             _weapons.Add(stunner);
             RegisterProjectileEvents(stunner);
             this.CurrentWeapon = stunner;
-            OnKeenAcquiredWeapon(new WeaponAcquiredEventArgs() { Weapon = _currentWeapon });
+            OnKeenAcquiredWeapon(new WeaponEventArgs() { Weapon = _currentWeapon });
         }
 
         public void GivePoints(long value)
@@ -1304,7 +1305,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     {
                         SetBackupWeapon();
                     }
-                    OnWeaponChanged(new ObjectEventArgs() { ObjectSprite = this });
+                    OnWeaponChanged(new WeaponEventArgs() { Weapon = _currentWeapon });
                 }
             }
         }
@@ -1619,9 +1620,9 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             private set
             {
                 _currentWeapon = value;
-                ObjectEventArgs e = new ObjectEventArgs()
+                WeaponEventArgs e = new WeaponEventArgs()
                 {
-                    ObjectSprite = this
+                    Weapon = _currentWeapon
                 };
                 OnWeaponChanged(e);
             }
@@ -2847,7 +2848,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
 
         public event EventHandler<ObjectEventArgs> ScoreChanged;
 
-        public event EventHandler<ObjectEventArgs> WeaponChanged;
+        public event EventHandler<WeaponEventArgs> WeaponChanged;
 
         public event EventHandler<ObjectEventArgs> LivesChanged;
 
@@ -2895,7 +2896,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             }
         }
 
-        protected void OnWeaponChanged(ObjectEventArgs e)
+        protected void OnWeaponChanged(WeaponEventArgs e)
         {
             if (this.WeaponChanged != null)
             {

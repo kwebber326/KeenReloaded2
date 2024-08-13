@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KeenReloaded2.Framework.GameEntities.Weapons;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.GameEventArgs
 {
-    public class WeaponAcquiredEventArgs : EventArgs
+    public class WeaponEventArgs : EventArgs
     {
-        public object Weapon { get; set; }
+        public NeuralStunner Weapon { get; set; }
     }
 }

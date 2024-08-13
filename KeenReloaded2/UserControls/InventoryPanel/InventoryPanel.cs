@@ -93,9 +93,11 @@ namespace KeenReloaded2.UserControls.InventoryPanel
             //TODO: implement 
         }
 
-        private void _keen_WeaponChanged(object sender, Framework.GameEventArgs.ObjectEventArgs e)
+        private void _keen_WeaponChanged(object sender, Framework.GameEventArgs.WeaponEventArgs e)
         {
             scoreBoard1.UpdateScoreBoard();
+            weaponInventoryControl1.UpdateWeapon(e.Weapon, e.Weapon == _keen.CurrentWeapon);
+
         }
 
         private void _keen_ScoreChanged(object sender, Framework.GameEventArgs.ObjectEventArgs e)
@@ -108,7 +110,7 @@ namespace KeenReloaded2.UserControls.InventoryPanel
             scoreBoard1.UpdateScoreBoard();
         }
 
-        private void _keen_KeenAcquiredWeapon(object sender, Framework.GameEventArgs.WeaponAcquiredEventArgs e)
+        private void _keen_KeenAcquiredWeapon(object sender, Framework.GameEventArgs.WeaponEventArgs e)
         {
             scoreBoard1.UpdateScoreBoard();
         }

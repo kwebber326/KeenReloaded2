@@ -95,6 +95,12 @@ namespace KeenReloaded2.UserControls.InventoryPanel
             }
         }
 
+        public void UpdateWeaponDisplay(NeuralStunner weapon, bool selected)
+        {
+            this.Weapon = weapon;
+            this.Selected = selected;
+        }
+
         private void SetWeaponImage()
         {
             int margin = 4;
