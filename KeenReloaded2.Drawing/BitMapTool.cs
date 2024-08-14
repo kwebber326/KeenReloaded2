@@ -124,11 +124,14 @@ namespace KeenReloaded.Framework.Utilities
             using (Graphics g = Graphics.FromImage(bmp))
             {
                 g.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceOver;
-                g.DrawImage(backgroundImage, new Point(0, 0));
+                if (backgroundImage != null)
+                    g.DrawImage(backgroundImage, new Point(0, 0));
+
                 int count = extraImages.Count();
                 for (int i = 0; i < count; i++)
                 {
-                    g.DrawImage(extraImages[i], locations[i]);
+                    if (extraImages[i] != null)
+                        g.DrawImage(extraImages[i], locations[i]);
                 }
             }
             return bmp;

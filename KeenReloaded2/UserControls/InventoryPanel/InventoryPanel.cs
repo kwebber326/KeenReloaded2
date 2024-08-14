@@ -97,7 +97,13 @@ namespace KeenReloaded2.UserControls.InventoryPanel
 
         private void _keen_ShieldAcquired(object sender, Framework.GameEventArgs.ObjectEventArgs e)
         {
-            //TODO: implement 
+            shieldInventoryControl1.SetShieldActiveStatus(true);
+            var shield = e.ObjectSprite as Shield;
+            if (shield != null)
+            {
+                shieldInventoryControl1.SetShieldCount(shield.Duration);
+                shieldInventoryControl1.Shield = shield;
+            }
         }
 
         private void _keen_WeaponChanged(object sender, Framework.GameEventArgs.WeaponEventArgs e)

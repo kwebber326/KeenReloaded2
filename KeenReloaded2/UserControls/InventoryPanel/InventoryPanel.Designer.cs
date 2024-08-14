@@ -33,6 +33,7 @@
             this.keyContainerControl1 = new KeenReloaded2.UserControls.InventoryPanel.KeyContainerControl();
             this.weaponInventoryControl1 = new KeenReloaded2.UserControls.InventoryPanel.WeaponInventoryControl();
             this.scoreBoard1 = new KeenReloaded2.UserControls.InventoryPanel.ScoreBoard();
+            this.shieldInventoryControl1 = new KeenReloaded2.UserControls.InventoryPanel.ShieldInventoryControl();
             this.SuspendLayout();
             // 
             // lifeDropInventoryControl1
@@ -75,12 +76,22 @@
             this.scoreBoard1.Size = new System.Drawing.Size(357, 149);
             this.scoreBoard1.TabIndex = 0;
             // 
+            // shieldInventoryControl1
+            // 
+            this.shieldInventoryControl1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.shieldInventoryControl1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.shieldInventoryControl1.Location = new System.Drawing.Point(325, -2);
+            this.shieldInventoryControl1.Name = "shieldInventoryControl1";
+            this.shieldInventoryControl1.Size = new System.Drawing.Size(277, 146);
+            this.shieldInventoryControl1.TabIndex = 5;
+            // 
             // InventoryPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Controls.Add(this.shieldInventoryControl1);
             this.Controls.Add(this.lifeDropInventoryControl1);
             this.Controls.Add(this.keyCardInventoryControl1);
             this.Controls.Add(this.keyContainerControl1);
@@ -100,5 +111,6 @@
         private KeyContainerControl keyContainerControl1;
         private KeyCardInventoryControl keyCardInventoryControl1;
         private LifeDropInventoryControl lifeDropInventoryControl1;
+        private ShieldInventoryControl shieldInventoryControl1;
     }
 }

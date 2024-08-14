@@ -114,6 +114,12 @@
     <Compile Include="UserControls\InventoryPanel\ScoreBoard.Designer.cs">
       <DependentUpon>ScoreBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\InventoryPanel\ShieldInventoryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\InventoryPanel\ShieldInventoryControl.Designer.cs">
+      <DependentUpon>ShieldInventoryControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\InventoryPanel\WeaponDisplayControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\InventoryPanel\ScoreBoard.resx">
       <DependentUpon>ScoreBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\InventoryPanel\ShieldInventoryControl.resx">
+      <DependentUpon>ShieldInventoryControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\InventoryPanel\WeaponDisplayControl.resx">
       <DependentUpon>WeaponDisplayControl.cs</DependentUpon>
