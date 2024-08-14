@@ -28,18 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lifeDropInventoryControl1 = new KeenReloaded2.UserControls.InventoryPanel.LifeDropInventoryControl();
+            this.keyCardInventoryControl1 = new KeenReloaded2.UserControls.InventoryPanel.KeyCardInventoryControl();
             this.keyContainerControl1 = new KeenReloaded2.UserControls.InventoryPanel.KeyContainerControl();
             this.weaponInventoryControl1 = new KeenReloaded2.UserControls.InventoryPanel.WeaponInventoryControl();
             this.scoreBoard1 = new KeenReloaded2.UserControls.InventoryPanel.ScoreBoard();
-            this.keyCardInventoryControl1 = new KeenReloaded2.UserControls.InventoryPanel.KeyCardInventoryControl();
             this.SuspendLayout();
+            // 
+            // lifeDropInventoryControl1
+            // 
+            this.lifeDropInventoryControl1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lifeDropInventoryControl1.Location = new System.Drawing.Point(-4, 1118);
+            this.lifeDropInventoryControl1.Name = "lifeDropInventoryControl1";
+            this.lifeDropInventoryControl1.Size = new System.Drawing.Size(362, 107);
+            this.lifeDropInventoryControl1.TabIndex = 4;
+            // 
+            // keyCardInventoryControl1
+            // 
+            this.keyCardInventoryControl1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.keyCardInventoryControl1.Location = new System.Drawing.Point(2, 1087);
+            this.keyCardInventoryControl1.Name = "keyCardInventoryControl1";
+            this.keyCardInventoryControl1.Size = new System.Drawing.Size(434, 78);
+            this.keyCardInventoryControl1.TabIndex = 3;
             // 
             // keyContainerControl1
             // 
             this.keyContainerControl1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.keyContainerControl1.Location = new System.Drawing.Point(3, 966);
+            this.keyContainerControl1.Location = new System.Drawing.Point(0, 1042);
             this.keyContainerControl1.Name = "keyContainerControl1";
-            this.keyContainerControl1.Size = new System.Drawing.Size(233, 48);
+            this.keyContainerControl1.Size = new System.Drawing.Size(233, 46);
             this.keyContainerControl1.TabIndex = 2;
             // 
             // weaponInventoryControl1
@@ -47,7 +64,7 @@
             this.weaponInventoryControl1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.weaponInventoryControl1.Location = new System.Drawing.Point(4, 192);
             this.weaponInventoryControl1.Name = "weaponInventoryControl1";
-            this.weaponInventoryControl1.Size = new System.Drawing.Size(554, 768);
+            this.weaponInventoryControl1.Size = new System.Drawing.Size(554, 835);
             this.weaponInventoryControl1.TabIndex = 1;
             // 
             // scoreBoard1
@@ -58,20 +75,13 @@
             this.scoreBoard1.Size = new System.Drawing.Size(357, 149);
             this.scoreBoard1.TabIndex = 0;
             // 
-            // keyCardInventoryControl1
-            // 
-            this.keyCardInventoryControl1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.keyCardInventoryControl1.Location = new System.Drawing.Point(3, 1020);
-            this.keyCardInventoryControl1.Name = "keyCardInventoryControl1";
-            this.keyCardInventoryControl1.Size = new System.Drawing.Size(434, 78);
-            this.keyCardInventoryControl1.TabIndex = 3;
-            // 
             // InventoryPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Controls.Add(this.lifeDropInventoryControl1);
             this.Controls.Add(this.keyCardInventoryControl1);
             this.Controls.Add(this.keyContainerControl1);
             this.Controls.Add(this.weaponInventoryControl1);
@@ -89,5 +99,6 @@
         private WeaponInventoryControl weaponInventoryControl1;
         private KeyContainerControl keyContainerControl1;
         private KeyCardInventoryControl keyCardInventoryControl1;
+        private LifeDropInventoryControl lifeDropInventoryControl1;
     }
 }

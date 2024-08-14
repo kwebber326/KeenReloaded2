@@ -102,6 +102,12 @@
     <Compile Include="UserControls\InventoryPanel\KeyContainerControl.Designer.cs">
       <DependentUpon>KeyContainerControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\InventoryPanel\LifeDropInventoryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\InventoryPanel\LifeDropInventoryControl.Designer.cs">
+      <DependentUpon>LifeDropInventoryControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\InventoryPanel\ScoreBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\InventoryPanel\KeyContainerControl.resx">
       <DependentUpon>KeyContainerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\InventoryPanel\LifeDropInventoryControl.resx">
+      <DependentUpon>LifeDropInventoryControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\InventoryPanel\ScoreBoard.resx">
       <DependentUpon>ScoreBoard.cs</DependentUpon>
@@ -5762,6 +5771,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\key_card_not_acquired1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\life_drop_board1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

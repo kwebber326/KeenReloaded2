@@ -87,7 +87,7 @@ namespace KeenReloaded2.UserControls.InventoryPanel
 
         private void _keen_LifeDropsChanged(object sender, Framework.GameEventArgs.ObjectEventArgs e)
         {
-            //TODO: Implement
+            lifeDropInventoryControl1.SetLifeDropCount(_keen.Drops);
         }
 
         private void _keen_LivesChanged(object sender, Framework.GameEventArgs.ObjectEventArgs e)

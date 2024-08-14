@@ -6,7 +6,6 @@ keen5_wall_black_edge_left|179|350|64|64|10
 keen5_wall_black_middle|243|350|64|64|10
 keen5_single_platform_blue|623|132|32|36|10
 keen4_cave_platform_middle|226|117|32|36|10
-keen4_cave_platform_left_edge|195|116|30|38|10
 keen4_cave_platform_right_edge|258|117|30|38|10
 keen5_single_platform_blue|391|165|32|36|10
 keen6_dome_platform_single|620|439|32|40|10
@@ -86,3 +85,4 @@ snake_gun1|50|64|57|20|50|200
 neural_stunner_shotgun|200|200|53|22|50|400
 keen_dreams_boobus_bomb2|155|64|30|30|50|300
 keen5_key_card1|277|529|24|28
+keen4_cave_platform_left_edge|195|117|30|38|10

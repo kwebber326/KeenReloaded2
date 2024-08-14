@@ -35,7 +35,7 @@
             // pbDisplay
             // 
             this.pbDisplay.Image = global::KeenReloaded2.Properties.Resources.key_card_not_acquired1;
-            this.pbDisplay.Location = new System.Drawing.Point(4, 4);
+            this.pbDisplay.Location = new System.Drawing.Point(0, 0);
             this.pbDisplay.Name = "pbDisplay";
             this.pbDisplay.Size = new System.Drawing.Size(130, 20);
             this.pbDisplay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
