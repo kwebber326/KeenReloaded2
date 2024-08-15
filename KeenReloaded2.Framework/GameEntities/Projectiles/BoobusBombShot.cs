@@ -241,7 +241,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             var landingTiles = collisions.Where(h =>
             (h.CollisionType == CollisionType.BLOCK || h.CollisionType == CollisionType.PLATFORM
             || h.CollisionType == CollisionType.POLE_TILE || h.CollisionType == CollisionType.KEEN6_SWITCH)
-                && h.HitBox.Top > this.HitBox.Bottom
+                && h.HitBox.Top >= this.HitBox.Bottom
                 && h.HitBox.Left < this.HitBox.Right
                 && h.HitBox.Right > this.HitBox.Left);
 

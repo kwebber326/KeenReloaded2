@@ -84,6 +84,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\InventoryPanel\FlagInventoryBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\InventoryPanel\FlagInventoryBoard.Designer.cs">
+      <DependentUpon>FlagInventoryBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\InventoryPanel\InventoryPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -191,6 +197,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\InventoryPanel\FlagInventoryBoard.resx">
+      <DependentUpon>FlagInventoryBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\InventoryPanel\InventoryPanel.resx">
       <DependentUpon>InventoryPanel.cs</DependentUpon>
