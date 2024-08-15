@@ -1,4 +1,5 @@
-﻿using KeenReloaded2.Entities;
+﻿using KeenReloaded2.Constants;
+using KeenReloaded2.Entities;
 using KeenReloaded2.Framework.GameEntities.Players;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,7 @@ namespace KeenReloaded2
             var gameObjects = data.MapData.Select(d => d.GameObject);
             _keen = gameObjects.OfType<CommanderKeen>().FirstOrDefault();
             inventoryPanel1.Keen = _keen;
+            inventoryPanel1.ShowFlagInventory = gameMode == MainMenuConstants.OPTION_LABEL_CTF_MODE;
         }
 
         private void InitializeGameState()

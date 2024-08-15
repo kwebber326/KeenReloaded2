@@ -49,6 +49,14 @@ namespace KeenReloaded2.UserControls.InventoryPanel
 
         }
 
+        public GemColor Color
+        {
+            get
+            {
+                return _flagColor;
+            }
+        }
+
         public void AddFlag(Flag flag)
         {
             if (flag == null)

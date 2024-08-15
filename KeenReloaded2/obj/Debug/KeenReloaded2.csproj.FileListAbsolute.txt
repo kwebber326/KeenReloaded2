@@ -53,3 +53,4 @@ C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\obj\Debug\KeenReloaded2.
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\obj\Debug\KeenReloaded2.UserControls.InventoryPanel.LifeDropInventoryControl.resources
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\obj\Debug\KeenReloaded2.UserControls.InventoryPanel.ShieldInventoryControl.resources
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\obj\Debug\KeenReloaded2.UserControls.InventoryPanel.FlagInventoryBoard.resources
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\obj\Debug\KeenReloaded2.UserControls.InventoryPanel.FlagScoreKeeperControl.resources

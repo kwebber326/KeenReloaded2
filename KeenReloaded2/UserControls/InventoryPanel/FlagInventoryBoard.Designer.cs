@@ -51,7 +51,7 @@
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Name = "FlagInventoryBoard";
-            this.Size = new System.Drawing.Size(305, 290);
+            this.Size = new System.Drawing.Size(305, 361);
             this.Load += new System.EventHandler(this.FlagInventoryBoard_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

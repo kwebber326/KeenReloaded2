@@ -27,6 +27,18 @@ namespace KeenReloaded2.UserControls.InventoryPanel
 
         }
 
+        public bool ShowFlagInventory
+        {
+            get
+            {
+                return flagInventoryBoard1.Visible;
+            }
+            set
+            {
+                flagInventoryBoard1.Visible = value;
+            }
+        }
+
         public CommanderKeen Keen
         {
             get
@@ -143,6 +155,11 @@ namespace KeenReloaded2.UserControls.InventoryPanel
             {
                 var keyCard = (KeyCard)e.Item;
                 keyCardInventoryControl1.AddKeyCard();
+            }
+            else if (e.Item is Flag)
+            {
+                var flag = (Flag)e.Item;
+                flagInventoryBoard1.AddFlag(flag);
             }
         }
     }
