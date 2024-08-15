@@ -90,6 +90,12 @@
     <Compile Include="UserControls\InventoryPanel\FlagInventoryBoard.Designer.cs">
       <DependentUpon>FlagInventoryBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\InventoryPanel\FlagScoreKeeperControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\InventoryPanel\FlagScoreKeeperControl.Designer.cs">
+      <DependentUpon>FlagScoreKeeperControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\InventoryPanel\InventoryPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\InventoryPanel\FlagInventoryBoard.resx">
       <DependentUpon>FlagInventoryBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\InventoryPanel\FlagScoreKeeperControl.resx">
+      <DependentUpon>FlagScoreKeeperControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\InventoryPanel\InventoryPanel.resx">
       <DependentUpon>InventoryPanel.cs</DependentUpon>
