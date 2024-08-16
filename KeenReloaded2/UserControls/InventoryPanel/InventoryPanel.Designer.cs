@@ -44,7 +44,7 @@
             this.flagInventoryBoard1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.flagInventoryBoard1.Location = new System.Drawing.Point(297, 1042);
             this.flagInventoryBoard1.Name = "flagInventoryBoard1";
-            this.flagInventoryBoard1.Size = new System.Drawing.Size(305, 309);
+            this.flagInventoryBoard1.Size = new System.Drawing.Size(305, 320);
             this.flagInventoryBoard1.TabIndex = 6;
             // 
             // shieldInventoryControl1

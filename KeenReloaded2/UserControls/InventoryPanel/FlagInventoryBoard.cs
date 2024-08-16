@@ -46,6 +46,7 @@ namespace KeenReloaded2.UserControls.InventoryPanel
                 _flagControls.Add(newControl);
                 newControl.FlagsRemoved += FlagScoreKeeper_FlagsRemoved;
                 newControl.AddFlag(flag);
+                this.Controls.Add(newControl);
             }
             AlignFlagControls();
         }
@@ -70,6 +71,7 @@ namespace KeenReloaded2.UserControls.InventoryPanel
             {
                 flagControl.FlagsRemoved -= FlagScoreKeeper_FlagsRemoved;
                 _flagControls.Remove(flagControl);
+                this.Controls.Remove(flagControl);
                 AlignFlagControls();
             }
         }
@@ -78,8 +80,8 @@ namespace KeenReloaded2.UserControls.InventoryPanel
         {
             for (int i = 0; i < _flagControls.Count; i++)
             {
-                int x = (i + 1) % 2 != 0 ? HORIZONTAL_OFFSET : HORIZONTAL_OFFSET + MARGIN + _flagControls[i].Width;
-                int y = (i + 1) <= 2 ? VERTICAL_OFFSET : VERTICAL_OFFSET + (MARGIN + _flagControls[i].Height * (i / 2));
+                int x = HORIZONTAL_OFFSET;
+                int y = VERTICAL_OFFSET + ((MARGIN + _flagControls[i].Height) * i);
                 _flagControls[i].Location = new Point(x, y);
                 _flagControls[i].BringToFront();
             }

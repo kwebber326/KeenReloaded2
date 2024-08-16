@@ -86,3 +86,6 @@ keen_dreams_boobus_bomb2|155|64|30|30|50|300
 keen5_key_card1|277|529|24|28
 keen4_cave_platform_left_edge|195|117|30|38|10
 keen5_wall_black_edge_left|390|421|64|64|10
+Blue Flag|257|652|51|64|20|BLUE|10000|5000|10
+Red Flag|528|626|51|64|20|RED|10000|4000|10
+Green Flag|715|47|51|64|20|GREEN|10000|5000|10

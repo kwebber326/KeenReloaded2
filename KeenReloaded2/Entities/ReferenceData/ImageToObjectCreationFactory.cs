@@ -1268,7 +1268,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                       DisplayName = "Start Direction: ",
                       DataType = typeof(Direction),
                       Value = Direction.LEFT,
-                      PossibleValues = new string[] 
+                      PossibleValues = new string[]
                       {
                           Direction.LEFT.ToString(),
                           Direction.RIGHT.ToString(),
@@ -1346,7 +1346,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                       Value = HazardType.KEEN4_SPIKE,
                       Hidden = true,
                       IsSpriteProperty = true
-                  },  
+                  },
                   new MapMakerObjectProperty()
                   {
                       PropertyName = "zIndex",
@@ -1399,7 +1399,8 @@ namespace KeenReloaded2.Entities.ReferenceData
                       PropertyName = "imageName",
                       Readonly = true,
                       DataType = typeof(string),
-                      Value = keyCardKeyName
+                      Value = keyCardKeyName,
+                      IsIgnoredInMapData = true
                   },
                   new MapMakerObjectProperty()
                   {
@@ -1412,6 +1413,97 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             MapMakerObject keyCardObj = new MapMakerObject(typeof(KeyCard), keyCardPath, false, keyCardProperties);
             backgroundReferenceData.Add(keyCardKeyName, keyCardObj);
+
+            #endregion
+
+            #region CTF
+
+            string ctfDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_CTF_ITEMS, "keen5", Biomes.BIOME_KEEN5_BLACK);
+            string[] ctfFiles = Directory.GetFiles(ctfDirectory);
+
+            foreach (var file in ctfFiles)
+            {
+                string key = GetFlagKeyNameFromFile(file);
+
+                string imageName = FileIOUtility.ExtractFileNameFromPath(file);
+                Image img = Image.FromFile(file);
+
+                bool isFlag = !key.Contains("destination");
+
+                if (isFlag)
+                {
+                    MapMakerObjectProperty[] ctfProperties = new MapMakerObjectProperty[]
+                    {
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                          DisplayName = "Area: ",
+                          DataType = typeof(Rectangle),
+                          Value = new Rectangle(0, 0, keen4MineImage.Width, keen4MineImage.Height),
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                           PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                           DataType = typeof(SpaceHashGrid),
+                           Value = null,
+                           Hidden = true,
+                           IsIgnoredInMapData = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "imageName",
+                          Readonly = true,
+                          DataType = typeof(string),
+                          Value = imageName,
+                          IsIgnoredInMapData = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "zIndex",
+                          DataType = typeof(int),
+                          Value = 20,
+                          DisplayName ="Z Index: "
+                      },
+                       new MapMakerObjectProperty()
+                       {
+                            PropertyName = "color",
+                            DataType = typeof(GemColor),
+                            Readonly = true,
+                            Value = InferFlagColorFromKey(key),
+                            PossibleValues = Enum.GetNames(typeof(GemColor)),
+                            IsSpriteProperty = true
+                        },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "maxPoints",
+                          DataType = typeof(int),
+                          Value = 10000,
+                          DisplayName ="Max Points: "
+                      },
+                       new MapMakerObjectProperty()
+                       {
+                          PropertyName = "minPoints",
+                          DataType = typeof(int),
+                          Value = 5000,
+                          DisplayName ="Min Points: "
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                          PropertyName = "pointsDegradedPerSecond",
+                          DataType = typeof(int),
+                          Value = 10,
+                          DisplayName ="Min Points: "
+                        },
+                    };
+
+                    MapMakerObject flagObj = new MapMakerObject(typeof(Flag), file, false, ctfProperties);
+                    backgroundReferenceData.Add(key, flagObj);
+                }
+                else
+                {
+
+                }
+            }
 
             #endregion
 
@@ -1436,7 +1528,8 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             if (categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_WEAPONS
               || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_PLAYER
-              || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_GEMS)
+              || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_GEMS
+              || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_CTF_ITEMS)
             {
                 path = Path.Combine(System.Environment.CurrentDirectory, mapMakerFolder, categoryFolder);
             }
@@ -1463,6 +1556,51 @@ namespace KeenReloaded2.Entities.ReferenceData
         }
 
         #region helper methods
+
+        private static string GetFlagKeyNameFromFile(string filePath)
+        {
+            if (filePath.Contains("Black"))
+                return "Black Flag";
+
+            if (filePath.Contains("Blue"))
+                return "Blue Flag";
+            if (filePath.Contains("blue_"))
+                return "blue_flag_destination";
+
+            if (filePath.Contains("Green"))
+                return "Green Flag";
+            if (filePath.Contains("green_"))
+                return "green_flag_destination";
+
+            if (filePath.Contains("Red"))
+                return "Red Flag";
+            if (filePath.Contains("red_"))
+                return "red_flag_destination";
+
+            if (filePath.Contains("Yellow"))
+                return "Yellow Flag";
+            if (filePath.Contains("yellow_"))
+                return "yellow_flag_destination";
+
+            return string.Empty;
+        }
+
+        private static GemColor InferFlagColorFromKey(string key)
+        {
+            if (key == null)
+                return GemColor.RED;
+
+            if (key.Contains("Blue") || key.Contains("blue"))
+                return GemColor.BLUE;
+
+            if (key.Contains("Green") || key.Contains("green"))
+                return GemColor.GREEN;
+
+            if (key.Contains("Yellow") || key.Contains("yellow"))
+                return GemColor.YELLOW;
+
+            return GemColor.RED;
+        }
 
         private static MapMakerObject GetWeaponObjectFromWeaponsData<TWeapon>(string weaponsPath, string resourceName, out string mapMakerObjectKey)
         {

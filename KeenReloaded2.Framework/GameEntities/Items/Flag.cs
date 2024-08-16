@@ -1,4 +1,5 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Players;
@@ -32,7 +33,6 @@ namespace KeenReloaded2.Framework.GameEntities.Items
 
         private GemColor _color;
 
-        private CommanderKeen _keen;
         private Point _originalLocation;
         #endregion
 
@@ -41,7 +41,7 @@ namespace KeenReloaded2.Framework.GameEntities.Items
         public event EventHandler<FlagCapturedEventArgs> FlagPointsChanged;
         #endregion
 
-        public Flag(Rectangle area, SpaceHashGrid grid, Rectangle hitbox, string imageName, int zIndex, GemColor color, int maxPoints, int minPoints, int pointsDegradedPerSecond, CommanderKeen keen) 
+        public Flag(Rectangle area, SpaceHashGrid grid, string imageName, int zIndex, GemColor color, int maxPoints, int minPoints, int pointsDegradedPerSecond) 
             : base(area, imageName, grid, zIndex)
         {
             if (maxPoints <= 0)
@@ -50,14 +50,13 @@ namespace KeenReloaded2.Framework.GameEntities.Items
                 throw new ArgumentException("Min points must be greater than or equal to zero");
             if (maxPoints < minPoints)
                 throw new ArgumentException("Max points must be greater than or equal to min points");
-            if (keen == null)
-                throw new ArgumentException("Commander Keen object cannot be null");
+
             _color = color;
             _maxPoints = maxPoints;
             _minPoints = minPoints;
             _pointsDegradedPerSecond = pointsDegradedPerSecond;
             _currentPointValue = maxPoints;
-            _keen = keen;
+
             InitializeSprite();
         }
 
@@ -149,7 +148,8 @@ namespace KeenReloaded2.Framework.GameEntities.Items
 
         public override string ToString()
         {
-            return base.ToString() + "|" + _color.ToString() + "|" + _maxPoints + "|" + _minPoints + "|" + _pointsDegradedPerSecond;
+            string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
+            return base.ToString() + separator + _zIndex.ToString() + separator + _color.ToString() + separator + _maxPoints + separator + _minPoints + separator + _pointsDegradedPerSecond;
         }
 
         public void Capture()
