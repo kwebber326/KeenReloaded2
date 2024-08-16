@@ -75,6 +75,7 @@ namespace KeenReloaded2.UserControls.InventoryPanel
             _keen.LivesChanged += _keen_LivesChanged;
             _keen.LifeDropsChanged += _keen_LifeDropsChanged;
             _keen.KeyCardAcquiredChanged += _keen_KeyCardAcquiredChanged;
+            _keen.ItemLost += _keen_ItemLost;
         }
 
         private void UnRegisterKeenEvents()
@@ -160,6 +161,20 @@ namespace KeenReloaded2.UserControls.InventoryPanel
             {
                 var flag = (Flag)e.Item;
                 flagInventoryBoard1.AddFlag(flag);
+            }
+        }
+
+        private void _keen_ItemLost(object sender, Framework.GameEventArgs.ItemAcquiredEventArgs e)
+        {
+            if (e.Item is Gem)
+            {
+                var gem = (Gem)e.Item;
+                keyContainerControl1.RemoveGem(gem.Color);
+            }
+            else if (e.Item is Flag)
+            {
+                var flag = (Flag)e.Item;
+                flagInventoryBoard1.RemoveFlag(flag);
             }
         }
     }

@@ -19,6 +19,7 @@ using KeenReloaded2.Framework.GameEntities.Tiles;
 using KeenReloaded2.Framework.GameEntities.Weapons;
 using KeenReloaded2.Framework.ReferenceDataClasses;
 using KeenReloaded2.Utilities;
+using KeenReloaded2.Framework.GameEntities.Constructs;
 
 namespace KeenReloaded2.Entities.ReferenceData
 {
@@ -1501,7 +1502,43 @@ namespace KeenReloaded2.Entities.ReferenceData
                 }
                 else
                 {
+                    MapMakerObjectProperty[] ctfProperties = new MapMakerObjectProperty[]
+                  {
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                          DisplayName = "Area: ",
+                          DataType = typeof(Rectangle),
+                          Value = new Rectangle(0, 0, keen4MineImage.Width, keen4MineImage.Height),
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                           PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                           DataType = typeof(SpaceHashGrid),
+                           Value = null,
+                           Hidden = true,
+                           IsIgnoredInMapData = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "zIndex",
+                          DataType = typeof(int),
+                          Value = 20,
+                          DisplayName ="Z Index: "
+                      },
+                       new MapMakerObjectProperty()
+                       {
+                            PropertyName = "color",
+                            DataType = typeof(GemColor),
+                            Readonly = true,
+                            Value = InferFlagColorFromKey(key),
+                            PossibleValues = Enum.GetNames(typeof(GemColor)),
+                            IsSpriteProperty = true
+                        }
+                  };
 
+                    MapMakerObject flagObj = new MapMakerObject(typeof(CTFDestination), file, false, ctfProperties);
+                    backgroundReferenceData.Add(key, flagObj);
                 }
             }
 

@@ -90,3 +90,7 @@ Blue Flag|257|652|51|64|20|BLUE|10000|5000|10
 Red Flag|528|626|51|64|20|RED|10000|4000|10
 Green Flag|715|47|51|64|20|GREEN|10000|5000|10
 Yellow Flag|323|53|51|64|20|YELLOW|10000|5000|10
+blue_flag_destination|202|299|130|12|20|BLUE
+green_flag_destination|42|660|130|12|20|GREEN
+yellow_flag_destination|246|772|130|12|20|YELLOW
+red_flag_destination|299|519|130|12|20|RED
