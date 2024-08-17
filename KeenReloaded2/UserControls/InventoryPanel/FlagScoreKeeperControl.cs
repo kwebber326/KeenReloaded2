@@ -74,7 +74,7 @@ namespace KeenReloaded2.UserControls.InventoryPanel
             if (flag == null)
                 return;
 
-            _flags.Add(flag);
+            _flags.Remove(flag);
             flag.FlagPointsChanged -= Flag_FlagPointsChanged;
             flag.FlagCaptured -= Flag_FlagCaptured;
             UpdateInventoryDisplay();

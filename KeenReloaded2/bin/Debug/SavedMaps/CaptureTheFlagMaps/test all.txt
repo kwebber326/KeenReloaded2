@@ -39,7 +39,6 @@ keen4_seaweed1_1|105|603|22|62|keen4_seaweed1_1.png|True|1000
 keen5_vitalin1|482|58|18|32|50
 keen5_vitalin1|523|58|18|32|50
 keen5_keg_o_vitalin1|366|700|64|50|50|KEEN5_KEG_O_VITALIN
-keen6_viva_flying1|392|443|26|18|50|False
 keen6_viva_queen2|380|650|30|30|50|KEEN6_VIVA_QUEEN
 keen5_background_security_center_gray|0|0|1500|1500|keen5_background_security_center_gray.png|False|0
 gem_yellow1|151|228|26|20|YELLOW|50|False
@@ -94,3 +93,7 @@ blue_flag_destination|202|299|130|12|20|BLUE
 green_flag_destination|42|660|130|12|20|GREEN
 yellow_flag_destination|246|772|130|12|20|YELLOW
 red_flag_destination|299|519|130|12|20|RED
+keen4_cave_floor_middle|535|763|48|64|10
+keen4_cave_air_floor_edge_left|463|763|72|64|10
+keen4_cave_air_floor_edge_right|583|763|52|64|10
+keen6_viva_flying1|392|391|26|18|50|False
