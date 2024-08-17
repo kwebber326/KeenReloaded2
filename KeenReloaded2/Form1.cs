@@ -90,6 +90,11 @@ namespace KeenReloaded2
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             _game.SetKeyPressed(e.KeyCode.ToString(), true);
+            if (e.KeyCode == Keys.Alt)
+            {
+                e.SuppressKeyPress = true;
+                this.Focus();
+            }
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)

@@ -110,7 +110,6 @@ namespace KeenReloaded2.UserControls.InventoryPanel
 
         private void _keen_ShieldAcquired(object sender, Framework.GameEventArgs.ObjectEventArgs e)
         {
-            shieldInventoryControl1.SetShieldActiveStatus(true);
             var shield = e.ObjectSprite as Shield;
             if (shield != null)
             {

@@ -1385,7 +1385,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                       PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
                       DisplayName = "Area: ",
                       DataType = typeof(Rectangle),
-                      Value = new Rectangle(0, 0, keen4MineImage.Width, keen4MineImage.Height),
+                      Value = new Rectangle(0, 0, keyCardImg.Width, keyCardImg.Height),
                   },
                   new MapMakerObjectProperty()
                   {
@@ -1440,7 +1440,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                           PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
                           DisplayName = "Area: ",
                           DataType = typeof(Rectangle),
-                          Value = new Rectangle(0, 0, keen4MineImage.Width, keen4MineImage.Height),
+                          Value = new Rectangle(0, 0, img.Width, img.Height),
                       },
                       new MapMakerObjectProperty()
                       {
@@ -1509,7 +1509,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                           PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
                           DisplayName = "Area: ",
                           DataType = typeof(Rectangle),
-                          Value = new Rectangle(0, 0, keen4MineImage.Width, keen4MineImage.Height),
+                          Value = new Rectangle(0, 0, img.Width, img.Height),
                       },
                       new MapMakerObjectProperty()
                       {
@@ -1544,6 +1544,60 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region shield
+            string shieldDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_SHIELD, "keen5", Biomes.BIOME_KEEN5_BLACK);
+            string shieldFile = Directory.GetFiles(shieldDirectory).FirstOrDefault(f => f.Contains("Shield"));
+
+            string shieldImageName = FileIOUtility.ExtractFileNameFromPath(shieldFile);
+            Image shieldImg = Image.FromFile(shieldFile);
+
+            MapMakerObjectProperty[] shieldProperties = new MapMakerObjectProperty[]
+            {
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                          DisplayName = "Area: ",
+                          DataType = typeof(Rectangle),
+                          Value = new Rectangle(0, 0, shieldImg.Width, shieldImg.Height),
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                           PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                           DataType = typeof(SpaceHashGrid),
+                           Value = null,
+                           Hidden = true,
+                           IsIgnoredInMapData = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "imageName",
+                          Readonly = true,
+                          DataType = typeof(string),
+                          Value = shieldImageName,
+                          IsIgnoredInMapData = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "zIndex",
+                          DataType = typeof(int),
+                          Value = 20,
+                          DisplayName ="Z Index: "
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "duration",
+                          DataType = typeof(int),
+                          Value = 100,
+                          DisplayName ="Duration (seconds): "
+                      }
+            };
+
+            MapMakerObject shieldObj = new MapMakerObject(typeof(Shield), shieldFile, false, shieldProperties);
+            backgroundReferenceData.Add(shieldImageName, shieldObj);
+
+
+            #endregion
+
             return backgroundReferenceData;
         }
 
@@ -1566,7 +1620,8 @@ namespace KeenReloaded2.Entities.ReferenceData
             if (categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_WEAPONS
               || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_PLAYER
               || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_GEMS
-              || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_CTF_ITEMS)
+              || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_CTF_ITEMS
+              || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_SHIELD)
             {
                 path = Path.Combine(System.Environment.CurrentDirectory, mapMakerFolder, categoryFolder);
             }

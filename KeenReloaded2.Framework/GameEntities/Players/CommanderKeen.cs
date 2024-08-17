@@ -61,7 +61,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             _keysPressed.Add(KEY_8, false);
             _keysPressed.Add(KEY_ENTER, false);
             _keysPressed.Add(KEY_SHIFT, false);
-            _keysPressed.Add(KEY_ALT, false);
+            _keysPressed.Add(KEY_SHIELD, false);
             this.Health = 1;
             _moveState = Enums.MoveState.STANDING;
             InitializeDirection(direction);
@@ -473,7 +473,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         private const string KEY_8 = "D8";
         private const string KEY_ENTER = "Return";
         private const string KEY_SHIFT = "ShiftKey";
-        private const string KEY_ALT = "Menu";
+        private const string KEY_SHIELD = "S";
 
         private const int WEAPON_ROTATE_DELAY = 2;
         private int _currentWeaponRotateDelayTick = WEAPON_ROTATE_DELAY;
@@ -951,6 +951,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             if (this.HasShield)
             {
                 _shield.AddShieldToCurrent(shield);
+                _shield.UpdateSpriteToSurroundKeen(this);
                 shield.Deactivate();
             }
             else
@@ -1279,6 +1280,10 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 if (_currentWeapon != null)
                 {
                     _currentWeapon.HitBox = this.HitBox;
+                }
+                if (_shield != null)
+                {
+                    _shield.UpdateSpriteToSurroundKeen(this);
                 }
                 OnKeenMoved(new EventArgs());
             }
@@ -2008,7 +2013,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             if (++_currentShieldToggleDelay >= MAX_SHIELD_TOGGLE_DELAY)
             {
                 _currentShieldToggleDelay = MAX_SHIELD_TOGGLE_DELAY;
-                if (IsKeyPressed(KEY_ALT) && _shield != null)
+                if (IsKeyPressed(KEY_SHIELD) && _shield != null)
                 {
                     _currentShieldToggleDelay = 0;
                     if (_shield.IsActive)

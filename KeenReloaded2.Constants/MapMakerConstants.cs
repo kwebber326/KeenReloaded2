@@ -35,6 +35,7 @@ namespace KeenReloaded2.Constants
             public const string OBJECT_CATEGORY_BACKGROUNDS = "Backgrounds";
             public const string OBJECT_CATEGORY_FOREGROUNDS = "Foregrounds";
             public const string OBJECT_CATEGORY_CTF_ITEMS = "CTF Items";
+            public const string OBJECT_CATEGORY_SHIELD = "Shield";
             public const string OBJECT_CATEGORY_ANIMATED_BACKGROUNDS = "Animated Backgrounds";
             public const string OBJECT_CATEGORY_ANIMATED_FOREGROUNDS = "Animated Foregrounds";
         }

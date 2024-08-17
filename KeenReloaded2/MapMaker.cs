@@ -108,7 +108,8 @@ namespace KeenReloaded2
             cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_WEAPONS);
             cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_HAZARDS);
             cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_ENEMIES);
-            cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_CTF_ITEMS);    
+            cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_CTF_ITEMS);
+            cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_SHIELD);
 
             cmbCategory.SelectedIndex = 0;
         }
@@ -183,7 +184,8 @@ namespace KeenReloaded2
             if (categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_WEAPONS
               || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_PLAYER
               || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_GEMS
-              || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_CTF_ITEMS)
+              || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_CTF_ITEMS
+              || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_SHIELD)
             {
                 cmbBiome.Visible = false;
                 cmbEpisode.Visible = false;

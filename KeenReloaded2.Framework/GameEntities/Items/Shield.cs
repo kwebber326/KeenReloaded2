@@ -14,12 +14,10 @@ namespace KeenReloaded2.Framework.GameEntities.Items
 {
     public class Shield : Item, IUpdatable
     {
-        private CommanderKeen _keen;
         private int _duration;
-        private bool _acquiredEventRegistered;
         public bool _isActive;
 
-        private const int SHIELD_DEPLETION_DELAY = 10;
+        private const int SHIELD_DEPLETION_DELAY = 14;
         private int _currentShieldDepletionDelayTick;
         public event EventHandler<ObjectEventArgs> ShieldDurationChanged;
 
@@ -31,26 +29,13 @@ namespace KeenReloaded2.Framework.GameEntities.Items
 
         public event EventHandler Depleted;
 
-        public Shield(SpaceHashGrid grid, Rectangle hitbox, string imageName, int zIndex, int duration, CommanderKeen keen) : base(hitbox, imageName, grid, zIndex)
+        public Shield(Rectangle area, SpaceHashGrid grid, string imageName, int zIndex, int duration) 
+            : base(area, imageName, grid, zIndex)
         {
 
             this.SpriteList = new Image[] { Properties.Resources.Shield };
-            _keen = keen;
             _duration = duration;
-            _keen.KeenDied += _keen_KeenDied;
            _sprite = this.SpriteList[0];
-        }
-
-        private void _keen_KeenDied(object sender, ObjectEventArgs e)
-        {
-            _keen.KeenMoved -= _keen_KeenMoved;
-            _keen.KeenDied -= _keen_KeenDied;
-        }
-
-        private void _keen_KeenMoved(object sender, EventArgs e)
-        {
-            if (_keen.HasShield)
-                this.UpdateSpriteToSurroundKeen();
         }
 
         public override Rectangle HitBox
@@ -62,7 +47,7 @@ namespace KeenReloaded2.Framework.GameEntities.Items
             protected set
             {
                 base.HitBox = value;
-                if (value != null)
+                if (value != null && _collisionGrid != null)
                 {
                     this.UpdateCollisionNodes(Enums.Direction.DOWN_LEFT);
                     this.UpdateCollisionNodes(Enums.Direction.UP_RIGHT);
@@ -87,7 +72,6 @@ namespace KeenReloaded2.Framework.GameEntities.Items
                     _zIndex = 99999;
                 }
                 _isActive = true;
-                UpdateSpriteToSurroundKeen();
             }
             return _isActive;
         }
@@ -113,11 +97,6 @@ namespace KeenReloaded2.Framework.GameEntities.Items
             if (this.IsAcquired && _isActive)
             {
                 _sprite = Properties.Resources.Shield;
-                if (!_acquiredEventRegistered)
-                {
-                    _keen.KeenMoved += _keen_KeenMoved;
-                    _acquiredEventRegistered = true;
-                }
                 if (++_currentShieldDepletionDelayTick == SHIELD_DEPLETION_DELAY)
                 {
                     _currentShieldDepletionDelayTick = 0;
@@ -160,13 +139,13 @@ namespace KeenReloaded2.Framework.GameEntities.Items
             OnShieldDurationChanged();
         }
 
-        private void UpdateSpriteToSurroundKeen()
+        public void UpdateSpriteToSurroundKeen(CommanderKeen keen)
         {
-            int widthDifference = Math.Abs(this.HitBox.Width - _keen.HitBox.Width);
-            int heightDifference = Math.Abs(this.HitBox.Height - _keen.HitBox.Height);
+            int widthDifference = Math.Abs(this.HitBox.Width - keen.HitBox.Width);
+            int heightDifference = Math.Abs(this.HitBox.Height - keen.HitBox.Height);
 
-            int centerX = _keen.HitBox.X - (widthDifference / 2);
-            int centerY = _keen.HitBox.Y - (heightDifference / 2);
+            int centerX = keen.HitBox.X - (widthDifference / 2);
+            int centerY = keen.HitBox.Y - (heightDifference / 2);
 
             Point newLocation = new Point(centerX, centerY);
             this.HitBox = new Rectangle(newLocation, this.HitBox.Size);
@@ -178,16 +157,6 @@ namespace KeenReloaded2.Framework.GameEntities.Items
             {
                 _currentShieldWarningDelayTick = 0;
                 _isRed = !_isRed;
-            }
-        }
-
-        public void SetKeen(CommanderKeen keen)
-        {
-            _keen = keen;
-            if (_keen != null)
-            {
-                _keen.KeenDied += _keen_KeenDied;
-                _keen.KeenMoved += _keen_KeenMoved;
             }
         }
     }

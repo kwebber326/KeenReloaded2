@@ -48,6 +48,8 @@ namespace KeenReloaded2.UserControls.InventoryPanel
                 if (_shield != null && value == null)
                 {
                     _shield.ShieldDurationChanged -= _shield_ShieldDurationChanged;
+                    _shield.Remove -= _shield_Remove;
+                    _shield.Create -= _shield_Create;
                     SetShieldActiveStatus(false);
                     SetShieldCount(0);
                 }
@@ -55,8 +57,20 @@ namespace KeenReloaded2.UserControls.InventoryPanel
                 if (_shield != null)
                 {
                     _shield.ShieldDurationChanged += _shield_ShieldDurationChanged;
+                    _shield.Remove += _shield_Remove;
+                    _shield.Create += _shield_Create;
                 }
             }
+        }
+
+        private void _shield_Create(object sender, Framework.GameEventArgs.ObjectEventArgs e)
+        {
+            this.SetShieldActiveStatus(true);
+        }
+
+        private void _shield_Remove(object sender, Framework.GameEventArgs.ObjectEventArgs e)
+        {
+            this.SetShieldActiveStatus(false);
         }
 
         private void _shield_ShieldDurationChanged(object sender, Framework.GameEventArgs.ObjectEventArgs e)
