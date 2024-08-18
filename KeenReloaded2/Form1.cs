@@ -20,6 +20,16 @@ namespace KeenReloaded2
         private CommanderKeenGame _game;
         private bool _paused;
         private CommanderKeen _keen;
+        private readonly string _selectedCharacter;
+        private int _currentVisionOffset;
+        private int _maxVisionY;
+        private int _maxVisionX;
+        private const int VIEW_RADIUS = 400;
+        private const int MAX_VISION_OFFSET = 10;
+        private const int VISION_OFFSET_COEFFICIENT = 10;
+        private const int HIGH_SCORE_LENGTH = 8;
+        private bool _levelCompleted;
+        
 
         public Form1()
         {
@@ -35,6 +45,8 @@ namespace KeenReloaded2
             _keen = gameObjects.OfType<CommanderKeen>().FirstOrDefault();
             inventoryPanel1.Keen = _keen;
             inventoryPanel1.ShowFlagInventory = gameMode == MainMenuConstants.OPTION_LABEL_CTF_MODE;
+            _maxVisionY = _game.Map.MapSize.Height - VIEW_RADIUS;
+            _maxVisionX = _game.Map.MapSize.Width - VIEW_RADIUS;
         }
 
         private void InitializeGameState()
@@ -43,13 +55,51 @@ namespace KeenReloaded2
             _gameUpdateTimer.Interval = 50;
             _gameUpdateTimer.Tick += _gameUpdateTimer_Tick;
             _gameUpdateTimer.Start();
+            _keen.KeenMoved += _keen_KeenMoved;
+            UpdateViewRectangle();
+            pnlGameWindow.AutoScroll = true;
+        }
+
+        private void _keen_KeenMoved(object sender, EventArgs e)
+        {
+            UpdateViewRectangle();
         }
 
         private void _gameUpdateTimer_Tick(object sender, EventArgs e)
         {
-            if (!_paused)
+            if (!_paused && !_levelCompleted)
             {
                 pbGameImage.Image = _game.UpdateGame();
+                if (_keen.IsLookingUp)
+                {
+                    if (_currentVisionOffset * -1 < MAX_VISION_OFFSET)
+                    {
+                        _currentVisionOffset--;
+                        int x = _keen.HitBox.X - VIEW_RADIUS;
+                        int y = _keen.HitBox.Y - VIEW_RADIUS + (_currentVisionOffset * VISION_OFFSET_COEFFICIENT);
+                        pnlGameWindow.AutoScrollPosition = new Point(x, y);
+                    }
+                }
+                else if (_keen.IsLookingDown)
+                {
+                    if (_currentVisionOffset < MAX_VISION_OFFSET)
+                    {
+                        _currentVisionOffset++;
+                        int x = _keen.HitBox.X - VIEW_RADIUS;
+                        int y = (_keen.HitBox.Y - VIEW_RADIUS < 0 ? 0 : _keen.HitBox.Y - VIEW_RADIUS) + (_currentVisionOffset * VISION_OFFSET_COEFFICIENT);
+                        if (Math.Abs(y) > _maxVisionY)
+                            y = y < 0 ? _maxVisionY * -1 : _maxVisionY;
+                        pnlGameWindow.AutoScrollPosition = new Point(x, y);
+                    }
+                }
+                else if (_currentVisionOffset != 0)
+                {
+                    _currentVisionOffset = _currentVisionOffset < 0 ? _currentVisionOffset + 1 : _currentVisionOffset - 1;
+                    int x = _keen.HitBox.X - VIEW_RADIUS;
+                    int y = (_keen.HitBox.Y - VIEW_RADIUS < 0 ? 0 : _keen.HitBox.Y - VIEW_RADIUS) + (_currentVisionOffset * VISION_OFFSET_COEFFICIENT);
+
+                    pnlGameWindow.AutoScrollPosition = new Point(x, y);
+                }
             }
         }
 
@@ -128,6 +178,23 @@ namespace KeenReloaded2
                     //    this.Close();
                     //}
                     break;
+            }
+        }
+
+        private void UpdateViewRectangle()
+        {
+            if (!_keen.IsDead())
+            {
+               // pnlGameWindow.AutoScroll = false;
+                int x = _keen.HitBox.X - VIEW_RADIUS;
+                int y = (_keen.HitBox.Y - VIEW_RADIUS < 0 ? 0 : _keen.HitBox.Y - VIEW_RADIUS) + (_currentVisionOffset * VISION_OFFSET_COEFFICIENT);
+
+                if (Math.Abs(x) > _maxVisionX)
+                    x = x < 0 ? _maxVisionX * -1 : _maxVisionX;
+                if (Math.Abs(y) > _maxVisionY)
+                    y = y < 0 ? _maxVisionY * -1 : _maxVisionY;
+
+                pnlGameWindow.AutoScrollPosition = new Point(x, y);
             }
         }
     }

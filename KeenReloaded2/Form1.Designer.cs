@@ -1,4 +1,6 @@
-﻿namespace KeenReloaded2
+﻿using System.Windows.Forms;
+
+namespace KeenReloaded2
 {
     partial class Form1
     {
@@ -37,16 +39,15 @@
             // 
             // pnlGameWindow
             // 
-            this.pnlGameWindow.AutoScroll = true;
             this.pnlGameWindow.Controls.Add(this.pbGameImage);
-            this.pnlGameWindow.Location = new System.Drawing.Point(614, 12);
+            this.pnlGameWindow.Location = new System.Drawing.Point(614, 1);
             this.pnlGameWindow.Name = "pnlGameWindow";
-            this.pnlGameWindow.Size = new System.Drawing.Size(1552, 1450);
-            this.pnlGameWindow.TabIndex = 0;
+            this.pnlGameWindow.Size = new System.Drawing.Size(1500, 1500);
+            this.pnlGameWindow.TabIndex = 2;
             // 
             // pbGameImage
             // 
-            this.pbGameImage.Location = new System.Drawing.Point(3, 3);
+            this.pbGameImage.Location = new System.Drawing.Point(4, 4);
             this.pbGameImage.Name = "pbGameImage";
             this.pbGameImage.Size = new System.Drawing.Size(100, 50);
             this.pbGameImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -58,9 +59,10 @@
             this.inventoryPanel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.inventoryPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.inventoryPanel1.Keen = null;
-            this.inventoryPanel1.Location = new System.Drawing.Point(3, 12);
+            this.inventoryPanel1.Location = new System.Drawing.Point(3, 1);
             this.inventoryPanel1.Name = "inventoryPanel1";
-            this.inventoryPanel1.Size = new System.Drawing.Size(605, 1450);
+            this.inventoryPanel1.ShowFlagInventory = true;
+            this.inventoryPanel1.Size = new System.Drawing.Size(605, 1471);
             this.inventoryPanel1.TabIndex = 1;
             // 
             // Form1
@@ -68,8 +70,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2178, 1474);
-            this.Controls.Add(this.inventoryPanel1);
             this.Controls.Add(this.pnlGameWindow);
+            this.Controls.Add(this.inventoryPanel1);
             this.KeyPreview = true;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -87,10 +89,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pnlGameWindow;
-        private System.Windows.Forms.PictureBox pbGameImage;
         private UserControls.InventoryPanel.InventoryPanel inventoryPanel1;
+        private Panel pnlGameWindow;
+        private PictureBox pbGameImage;
     }
 }
 

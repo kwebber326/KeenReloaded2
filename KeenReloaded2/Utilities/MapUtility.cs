@@ -214,8 +214,8 @@ namespace KeenReloaded2.Utilities
                     bool areAllObjectsValid = true;
                     foreach (var obj in mapData.MapData)
                     {
-                        if (obj.Left < 0 || obj.Right > mapData.MapSize.Width
-                            || obj.Top < 0 || obj.Bottom > mapData.MapSize.Height)
+                        if (obj.GameObject.Location.X < 0 || obj.Right > mapData.MapSize.Width
+                            || obj.GameObject.Location.Y < 0 || obj.Bottom > mapData.MapSize.Height)
                         {
                             areAllObjectsValid = false;
                             break;
