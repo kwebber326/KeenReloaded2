@@ -42,7 +42,7 @@ namespace KeenReloaded2
             this.pnlGameWindow.Controls.Add(this.pbGameImage);
             this.pnlGameWindow.Location = new System.Drawing.Point(614, 1);
             this.pnlGameWindow.Name = "pnlGameWindow";
-            this.pnlGameWindow.Size = new System.Drawing.Size(1500, 1500);
+            this.pnlGameWindow.Size = new System.Drawing.Size(1800, 1500);
             this.pnlGameWindow.TabIndex = 2;
             // 
             // pbGameImage

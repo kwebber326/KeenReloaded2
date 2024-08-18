@@ -29,7 +29,6 @@ namespace KeenReloaded2
         private const int VISION_OFFSET_COEFFICIENT = 10;
         private const int HIGH_SCORE_LENGTH = 8;
         private bool _levelCompleted;
-        
 
         public Form1()
         {
@@ -58,6 +57,13 @@ namespace KeenReloaded2
             _keen.KeenMoved += _keen_KeenMoved;
             UpdateViewRectangle();
             pnlGameWindow.AutoScroll = true;
+            pnlGameWindow.MouseWheel += PnlGameWindow_MouseWheel;
+            this.MouseWheel += PnlGameWindow_MouseWheel;
+        }
+
+        private void PnlGameWindow_MouseWheel(object sender, MouseEventArgs e)
+        {
+            this.UpdateViewRectangle();
         }
 
         private void _keen_KeenMoved(object sender, EventArgs e)
