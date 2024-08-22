@@ -57,7 +57,6 @@ neural_stunner_railgun1|37|378|52|22|50|52
 neural_stunner_smg_1|539|171|46|22|50|30
 keen5_chocolate_milk1|300|222|24|32|51|KEEN5_CHOCOLATE_MILK
 keen4_mine|850|121|46|46|DOWN|850|121|46|46|20
-keen4_mine|795|358|46|46|RIGHT|300|800|100|500|15
 neural_stunner_railgun1|546|495|52|22|50|20
 keen4_cave_wall_edge_left|468|458|64|64|10
 keen5_wall_black_edge_right|298|350|52|64|10
@@ -97,5 +96,6 @@ keen4_forest_platform_single|495|777|32|40|10
 key_gate1|842|593|26|122|10|3e83d7a6-041f-4a87-8381-4009e6569848
 key_gate1|868|593|26|122|10|3f16a80d-b355-4179-92c9-e1a11bc65bbb
 key_gate1|743|787|26|80|10|76eab43d-7452-4548-8a48-d0442d44bc78
-gem_placeholder_red_empty|244|766|26|22|50|RED|[3f16a80d-b355-4179-92c9-e1a11bc65bbb]
+keen4_mine|785|358|46|46|LEFT|300|350|1000|500|15
 gem_placeholder_green_empty|300|764|26|22|50|GREEN|[3e83d7a6-041f-4a87-8381-4009e6569848,3f16a80d-b355-4179-92c9-e1a11bc65bbb]
+gem_placeholder_red_empty|244|766|26|22|50|RED|[3f16a80d-b355-4179-92c9-e1a11bc65bbb,76eab43d-7452-4548-8a48-d0442d44bc78]
