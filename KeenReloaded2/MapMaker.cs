@@ -1,5 +1,6 @@
 ﻿using KeenReloaded.Framework;
 using KeenReloaded2.Constants;
+using KeenReloaded2.ControlEventArgs.EventStoreData;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Entities.ReferenceData;
 using KeenReloaded2.Framework.Enums;
@@ -53,6 +54,9 @@ namespace KeenReloaded2
             mapMakerObjectPropertyListControl1.PlaceObjectClicked += MapMakerObjectPropertyListControl1_UpdateObjectClicked;
             _cursorUpdateTimer.Interval = 10;
             _cursorUpdateTimer.Tick += _cursorUpdateTimer_Tick;
+
+            EventStore<ActivatorSelectionChangedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ACTIVATOR_SELECTION_CHANGED, ActivatorSelection_Changed);
+            EventStore<ActivatorSelectionCompletedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ACTIVATOR_SELECTION_COMPLETE, ActivatorSelection_Complete);
         }
 
         private void InitializeGameModeList()
@@ -315,6 +319,39 @@ namespace KeenReloaded2
         #endregion
 
         #region event handlers
+
+        private void HighlightActivateables(List<IActivateable> activateables, Color color, bool addBorder = false)
+        {
+            foreach (var item in activateables)
+            {
+                var obj = _mapMakerObjects.FirstOrDefault(d => d.GameObject == item);
+                if (obj != null)
+                {
+                    obj.BackColor = color;
+                    if (addBorder)
+                    {
+                        obj.BorderStyle = BorderStyle.Fixed3D;
+                    }
+                    else
+                    {
+                        obj.BorderStyle = BorderStyle.None;
+                    }
+                }
+            }
+        }
+
+        private void ActivatorSelection_Changed(object sender, ControlEventArgs.ControlEventArgs<ActivatorSelectionChangedEventArgs> e)
+        {
+            HighlightActivateables(e.Data.CurrentActivateablesSelected, Color.Red, true);
+            HighlightActivateables(e.Data.CurrentActiveablesUnSelected, Color.Transparent, true);
+            HighlightActivateables(e.Data.OtherActivateablesSelected, Color.Blue);
+            HighlightActivateables(e.Data.OtherActiveablesUnSelected, Color.Transparent);
+        }
+
+        private void ActivatorSelection_Complete(object sender, ControlEventArgs.ControlEventArgs<ActivatorSelectionCompletedEventArgs> e)
+        {
+            HighlightActivateables(e.Data.Activateables, Color.Transparent);
+        }
 
         private void MapMakerObjectPropertyListControl1_UpdateObjectClicked(object sender, ControlEventArgs.MapMakerObjectEventArgs e)
         {

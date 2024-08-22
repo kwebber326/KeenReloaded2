@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.GameEntities.Interfaces
 {
-    public interface IActivateable
+    public interface IActivateable : ISprite
     {
         void Activate();
         void Deactivate();

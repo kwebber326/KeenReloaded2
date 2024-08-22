@@ -39,5 +39,11 @@ namespace KeenReloaded2.Constants
             public const string OBJECT_CATEGORY_ANIMATED_BACKGROUNDS = "Animated Backgrounds";
             public const string OBJECT_CATEGORY_ANIMATED_FOREGROUNDS = "Animated Foregrounds";
         }
+
+        public static class EventStoreEventNames
+        {
+            public const string EVENT_ACTIVATOR_SELECTION_CHANGED = "activatorSelectionChanged";
+            public const string EVENT_ACTIVATOR_SELECTION_COMPLETE = "activatorSelectionComplete";
+        }
     }
 }

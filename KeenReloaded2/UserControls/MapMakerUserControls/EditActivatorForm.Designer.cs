@@ -45,6 +45,7 @@
             this.lstCurrent.Name = "lstCurrent";
             this.lstCurrent.Size = new System.Drawing.Size(254, 364);
             this.lstCurrent.TabIndex = 0;
+            this.lstCurrent.SelectedIndexChanged += new System.EventHandler(this.LstCurrent_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -64,6 +65,7 @@
             this.lstRemaining.Name = "lstRemaining";
             this.lstRemaining.Size = new System.Drawing.Size(254, 364);
             this.lstRemaining.TabIndex = 2;
+            this.lstRemaining.SelectedIndexChanged += new System.EventHandler(this.LstRemaining_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -119,6 +121,7 @@
             this.Controls.Add(this.lstCurrent);
             this.Name = "EditActivatorForm";
             this.Text = "EditActivatorForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditActivatorForm_FormClosing);
             this.Load += new System.EventHandler(this.EditActivatorForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,4 +1,7 @@
-﻿using KeenReloaded2.Framework.GameEntities.Interfaces;
+﻿using KeenReloaded2.Constants;
+using KeenReloaded2.ControlEventArgs.EventStoreData;
+using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +19,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         private List<IActivateable> _current = new List<IActivateable>();
         private List<IActivateable> _remaining = new List<IActivateable>();
         private Dictionary<Guid, IActivateable> _total = new Dictionary<Guid, IActivateable>();
+        private bool _selectionChangeFromCode;
 
         public EditActivatorForm()
         {
@@ -41,6 +45,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         private void EditActivatorForm_Load(object sender, EventArgs e)
         {
             InitializeControlState();
+            PublishSelectionChanged();
         }
 
         private void InitializeControlState()
@@ -74,12 +79,14 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         {
             TransferSelection(lstRemaining, lstCurrent);
             RefreshCurrentSelection();
+            PublishSelectionChanged();
         }
 
         private void BtnRemoveSelected_Click(object sender, EventArgs e)
         {
             TransferSelection(lstCurrent, lstRemaining);
             RefreshCurrentSelection();
+            PublishSelectionChanged();
         }
 
         private void BtnDone_Click(object sender, EventArgs e)
@@ -101,6 +108,19 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                     }
                 }
             }
+
+            _remaining.Clear();
+            var remainingGuids = lstRemaining.Items.OfType<Guid>();
+            if (remainingGuids.Any())
+            {
+                foreach (var guid in remainingGuids)
+                {
+                    if (_total.TryGetValue(guid, out IActivateable item))
+                    {
+                        _remaining.Add(item);
+                    }
+                }
+            }
         }
 
         private void TransferSelection(ListBox source, ListBox target)
@@ -118,10 +138,77 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             }
             foreach (var item in selectedItems)
             {
+                _selectionChangeFromCode = true;
                 source.Items.Remove(item);
                 target.Items.Add(item);
+                _selectionChangeFromCode = false;
             }
 
+        }
+
+        private Tuple<List<IActivateable>, List<IActivateable>> GetSelectedAndUnselectedInListBox(ListBox listBox, List<IActivateable> activateablesStore)
+        {
+            Tuple<List<IActivateable>, List<IActivateable>> retVal = new Tuple<List<IActivateable>, List<IActivateable>>
+                    (new List<IActivateable>(), new List<IActivateable>());
+
+            var selectedGuids = listBox.SelectedItems.OfType<Guid>();
+            List<IActivateable> selected = new List<IActivateable>();
+            if (selectedGuids.Any())
+            {
+                selected = selectedGuids.Select(g => _total[g]).ToList();
+            }
+            List<IActivateable> unselected = activateablesStore.Except(selected,
+                   new ActivatorEqualityComparer()).ToList();
+            retVal = new Tuple<List<IActivateable>, List<IActivateable>>(selected, unselected);
+            return retVal;
+        }
+
+        private ActivatorSelectionChangedEventArgs BuildEventDataForSelectionChangedEvent()
+        {
+            var currentSelectionGrouping = GetSelectedAndUnselectedInListBox(lstCurrent, _current);
+            var otherSelectionGroup = GetSelectedAndUnselectedInListBox(lstRemaining, _remaining);
+            ActivatorSelectionChangedEventArgs e = new ActivatorSelectionChangedEventArgs()
+            {
+                CurrentActivateablesSelected = currentSelectionGrouping.Item1,
+                CurrentActiveablesUnSelected = currentSelectionGrouping.Item2,
+                OtherActivateablesSelected = otherSelectionGroup.Item1,
+                OtherActiveablesUnSelected = otherSelectionGroup.Item2
+            };
+            return e;
+        }
+
+        private void PublishSelectionChanged()
+        {
+            var eventData = BuildEventDataForSelectionChangedEvent();
+            EventStore<ActivatorSelectionChangedEventArgs>
+                .Publish(MapMakerConstants.EventStoreEventNames.EVENT_ACTIVATOR_SELECTION_CHANGED, eventData);
+        }
+
+        private void PublishSelectionComplete()
+        {
+            var eventData = new ActivatorSelectionCompletedEventArgs()
+            {
+                Activateables = _total.Values.ToList()
+            };
+            EventStore<ActivatorSelectionCompletedEventArgs>
+                .Publish(MapMakerConstants.EventStoreEventNames.EVENT_ACTIVATOR_SELECTION_COMPLETE, eventData);
+        }
+
+        private void LstRemaining_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!_selectionChangeFromCode)
+                PublishSelectionChanged();
+        }
+
+        private void LstCurrent_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!_selectionChangeFromCode)
+                PublishSelectionChanged();
+        }
+
+        private void EditActivatorForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            PublishSelectionComplete();
         }
     }
 }
