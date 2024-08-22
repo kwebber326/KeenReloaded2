@@ -20,5 +20,6 @@ namespace KeenReloaded2.Constants
         public const string HITBOX_PROPERTY_NAME = "hitbox";
         public const string IMAGE_NAME_PROPERTY_NAME = "imageName";
         public const string Z_INDEX_PROPERTY_NAME = "zIndex";
+        public const string ACTIVATION_ID_PROPERTY_NAME = "activationId";
     }
 }

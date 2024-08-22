@@ -1,4 +1,5 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEventArgs;
@@ -16,15 +17,17 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
     {
         private bool _isActive;
         private GemColor _gemColor;
+        private Rectangle _area;
         private Image _sprite;
         private readonly int _zIndex;
 
-        public GemPlaceHolder(SpaceHashGrid grid, Rectangle hitbox, int zIndex, GemColor color, List<IActivateable> objectsToActivate)
-            : base(grid, hitbox)
+        public GemPlaceHolder(Rectangle area, SpaceHashGrid grid, int zIndex, GemColor color, IActivateable[] objectsToActivate)
+            : base(grid, area)
         {
             _zIndex = zIndex;
-            this.ToggleObjects = objectsToActivate;
+            this.ToggleObjects = objectsToActivate?.ToList();
             _gemColor = color;
+            _area = area;
             Initialize();
         }
 
@@ -34,15 +37,19 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             {
                 case GemColor.BLUE:
                     _sprite = Properties.Resources.gem_placeholder_blue_empty;
+                    _sprite.Tag = nameof(Properties.Resources.gem_placeholder_blue_empty);
                     break;
                 case GemColor.GREEN:
                     _sprite = Properties.Resources.gem_placeholder_green_empty;
+                    _sprite.Tag = nameof(Properties.Resources.gem_placeholder_green_empty);
                     break;
                 case GemColor.RED:
                     _sprite = Properties.Resources.gem_placeholder_red_empty;
+                    _sprite.Tag = nameof(Properties.Resources.gem_placeholder_red_empty);
                     break;
                 case GemColor.YELLOW:
                     _sprite = Properties.Resources.gem_placeholder_yellow_empty;
+                    _sprite.Tag = nameof(Properties.Resources.gem_placeholder_yellow_empty);
                     break;
             }
 
@@ -91,7 +98,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
         public Image Image => _sprite;
 
-        public Point Location => this.HitBox.Location;
+        public Point Location => _area.Location;
 
         public override CollisionType CollisionType => CollisionType.GEM_PLACEHOLDER;
 
@@ -141,5 +148,16 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         }
 
         public event EventHandler<ToggleEventArgs> Toggled;
+
+        public override string ToString()
+        {
+            string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
+            string arraySeparator = MapMakerConstants.MAP_MAKER_ELEMENT_SEPARATOR;
+            string arrayStart = MapMakerConstants.MAP_MAKER_ARRAY_START;
+            string arrayEnd = MapMakerConstants.MAP_MAKER_ARRAY_END;
+            string activatorGuids = string.Join(arraySeparator, this.ToggleObjects.Select(t => t.ActivationID));
+            string activatorStr = arrayStart + activatorGuids + arrayEnd;
+            return $"{_sprite.Tag?.ToString()}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{ZIndex}{separator}{_gemColor.ToString()}{separator}{activatorStr}";
+        }
     }
 }

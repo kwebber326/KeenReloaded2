@@ -64,6 +64,7 @@
     <Compile Include="GameEntities\Constructs\ExitDoor.cs" />
     <Compile Include="GameEntities\Constructs\GemPlaceHolder.cs" />
     <Compile Include="GameEntities\Constructs\Keen6Switch.cs" />
+    <Compile Include="GameEntities\Constructs\KeyGate.cs" />
     <Compile Include="GameEntities\Constructs\Pole.cs" />
     <Compile Include="GameEntities\DestructibleObject.cs" />
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="GameEntities\Tiles\DestructibleCollisionTile.cs" />
     <Compile Include="GameEntities\Tiles\Floors\LeftEdgeFloorTile.cs" />
     <Compile Include="GameEntities\Tiles\HealthBarTile.cs" />
+    <Compile Include="GameEntities\Tiles\InvisibleTile.cs" />
     <Compile Include="GameEntities\Tiles\MapEdgeTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\LeftEdgePlatformTile.cs" />
     <Compile Include="GameEntities\Tiles\MaskedTile.cs" />
@@ -2473,6 +2475,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Black Flag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_gate2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_gate1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_gate3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_gate4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

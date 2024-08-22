@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KeenReloaded2.Entities;
+using KeenReloaded2.Framework.GameEntities.Interfaces;
 
 namespace KeenReloaded2.UserControls.MapMakerUserControls
 {
@@ -18,19 +19,22 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         private ComboBox _cmbValue = new ComboBox();
         private CheckBox _chkValue = new CheckBox();
         private AreaControl _areaValue = new AreaControl();
+        private ActivatorListControl _activatorControl = new ActivatorListControl();
 
         private Control _selectedControl;
         private bool _selectedControlAdded = false;
+        private List<IActivateable> _totalActivateables = new List<IActivateable>();
 
         public MapMakerObjectPropertyControl()
         {
             InitializeComponent();
         }
 
-        public MapMakerObjectPropertyControl(MapMakerObjectProperty mapMakerObjectProperty)
+        public MapMakerObjectPropertyControl(MapMakerObjectProperty mapMakerObjectProperty, List<IActivateable> totalActivateables)
         {
             InitializeComponent();
             _mapMakerObjectProperty = mapMakerObjectProperty;
+            _totalActivateables = totalActivateables;
         }
 
         public object Value
@@ -57,7 +61,19 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             _cmbValue.Width = 200;
             _chkValue.CheckedChanged += _chkValue_CheckedChanged;
             _areaValue.AreaChanged += _areaValue_AreaChanged;
+            _activatorControl.EditItemsClicked += _activatorControl_EditItemsClicked;
             UpdateControl(_mapMakerObjectProperty);
+        }
+
+        private void _activatorControl_EditItemsClicked(object sender, EventArgs e)
+        {
+            var currentActivators = (IActivateable[])_mapMakerObjectProperty.Value;
+            EditActivatorForm form = new EditActivatorForm(currentActivators.ToList(), _totalActivateables);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                _activatorControl.Activateables = form.ChosenActivateables;
+                _mapMakerObjectProperty.Value = form.ChosenActivateables.ToArray();
+            }
         }
 
         private void _areaValue_AreaChanged(object sender, ControlEventArgs.AreaControlEventArgs e)
@@ -88,6 +104,11 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                 bool parseSuccess = int.TryParse(_txtValue.Text, out int val);
                 _mapMakerObjectProperty.Value = parseSuccess ? val : 0;
             }
+            else if (_mapMakerObjectProperty.DataType == typeof(Guid))
+            {
+                Guid guid = Guid.Parse(_txtValue.Text);
+                _mapMakerObjectProperty.Value = guid;
+            }
         }
 
         public void UpdateControl(MapMakerObjectProperty objectProperty)
@@ -116,6 +137,11 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                 _selectedControl = _areaValue;
                 SetLocationValueForAreaControl();
             }
+            else if (_mapMakerObjectProperty.DataType == typeof(IActivateable[]))
+            {
+                _selectedControl = _activatorControl;
+                SetValuesForActivatorControl();
+            }
             else
             {
                 _selectedControl = _txtValue;
@@ -130,6 +156,12 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                 this.Controls.Add(_selectedControl);
                 _selectedControlAdded = true;
             }
+        }
+
+        private void SetValuesForActivatorControl()
+        {
+            var val = ((IActivateable[])_mapMakerObjectProperty.Value).ToList();
+            _activatorControl.Activateables = val;
         }
 
         private void SetLocationValueForAreaControl()

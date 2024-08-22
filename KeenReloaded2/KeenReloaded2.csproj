@@ -156,11 +156,23 @@
     <Compile Include="UserControls\MainMenuControls\MainMenuOption.Designer.cs">
       <DependentUpon>MainMenuOption.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MapMakerUserControls\ActivatorListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MapMakerUserControls\ActivatorListControl.Designer.cs">
+      <DependentUpon>ActivatorListControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MapMakerUserControls\AreaControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\MapMakerUserControls\AreaControl.Designer.cs">
       <DependentUpon>AreaControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MapMakerUserControls\EditActivatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\MapMakerUserControls\EditActivatorForm.Designer.cs">
+      <DependentUpon>EditActivatorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\MapMakerUserControls\MapMakerObjectPropertyControl.cs">
       <SubType>UserControl</SubType>
@@ -240,8 +252,14 @@
     <EmbeddedResource Include="UserControls\MainMenuControls\MainMenuOption.resx">
       <DependentUpon>MainMenuOption.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MapMakerUserControls\ActivatorListControl.resx">
+      <DependentUpon>ActivatorListControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MapMakerUserControls\AreaControl.resx">
       <DependentUpon>AreaControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MapMakerUserControls\EditActivatorForm.resx">
+      <DependentUpon>EditActivatorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MapMakerUserControls\MapMakerObjectPropertyControl.resx">
       <DependentUpon>MapMakerObjectPropertyControl.cs</DependentUpon>

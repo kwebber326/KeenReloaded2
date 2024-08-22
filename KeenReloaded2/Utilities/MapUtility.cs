@@ -32,6 +32,7 @@ namespace KeenReloaded2.Utilities
                 StringBuilder builder = new StringBuilder();
                 string mapSizeLine = $"{mapSize.Width}{MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR}{mapSize.Height}";
                 builder.AppendLine(mapSizeLine);
+                mapData = mapData.OrderBy(o => o.GameObject is IActivator).ToList();
                 foreach (GameObjectMapping mapDataLine in mapData)
                 {
                     string line = mapDataLine.GameObject.ToString();
@@ -52,6 +53,7 @@ namespace KeenReloaded2.Utilities
         {
             try
             {
+                List<IActivateable> activateables = new List<IActivateable>();
                 if (string.IsNullOrWhiteSpace(mapFile))
                     throw new ArgumentException("Invalid map name");
 
@@ -69,7 +71,7 @@ namespace KeenReloaded2.Utilities
                 var dataLines = mapDataLines.Skip(1);
                 foreach (string line in dataLines)
                 {
-                    GameObjectMapping mapping = BuildMapDataObjectFromRawString(line, grid);
+                    GameObjectMapping mapping = BuildMapDataObjectFromRawString(line, grid, activateables);
                     mapData.Add(mapping);
                 }
                 mapMakerData.MapData = mapData;
@@ -102,7 +104,7 @@ namespace KeenReloaded2.Utilities
             return size;
         }
 
-        private static GameObjectMapping BuildMapDataObjectFromRawString(string data, SpaceHashGrid grid)
+        private static GameObjectMapping BuildMapDataObjectFromRawString(string data, SpaceHashGrid grid, List<IActivateable> activateables)
         {
             string[] properties = data.Split(MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR[0]);
             if (properties.Length < 5)
@@ -144,12 +146,19 @@ namespace KeenReloaded2.Utilities
                     int value = Convert.ToInt32(rawValue);
                     associatedProperty.Value = value;
                 }
-                else if (associatedProperty.DataType == typeof(string[]))
+                else if (associatedProperty.DataType.IsArray)
                 {
                     rawValue = rawValue.Replace(MapMakerConstants.MAP_MAKER_ARRAY_START, "")
                         .Replace(MapMakerConstants.MAP_MAKER_ARRAY_END, "");
                     string[] values = rawValue.Split(MapMakerConstants.MAP_MAKER_ELEMENT_SEPARATOR[0]);
                     associatedProperty.Value = values;
+                    if (associatedProperty.DataType == typeof(IActivateable[]))
+                    {
+                        List<IActivateable> assignedActivateables =
+                            activateables.Where(a => values.Contains(a.ActivationID.ToString())).ToList();
+
+                        associatedProperty.Value = assignedActivateables.ToArray();
+                    }
                 }
                 else if (associatedProperty.DataType == typeof(bool))
                 {
@@ -159,6 +168,11 @@ namespace KeenReloaded2.Utilities
                 else if (associatedProperty.DataType == typeof(string))
                 {
                     associatedProperty.Value = rawValue;
+                }
+                else if (associatedProperty.DataType == typeof(Guid))
+                {
+                    Guid value = Guid.Parse(rawValue);
+                    associatedProperty.Value = value;
                 }
                 else if (associatedProperty.DataType.IsEnum)
                 {
@@ -176,6 +190,11 @@ namespace KeenReloaded2.Utilities
             mapping.Location = mapping.GameObject.Location;
             mapping.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             mapping.Image = mapping.GameObject.Image;
+
+            if (mapping.GameObject is IActivateable)
+            {
+                activateables.Add((IActivateable)mapping.GameObject);
+            }
 
             return mapping;
         }

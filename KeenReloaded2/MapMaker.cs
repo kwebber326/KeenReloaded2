@@ -49,6 +49,7 @@ namespace KeenReloaded2
             InitializeBiomeComboBox();
             SetObjectContainer();
             mapObjectContainer1.ObjectClicked += MapObjectContainer1_ObjectClicked;
+            mapMakerObjectPropertyListControl1.SetObjectBank(_mapMakerObjects);
             mapMakerObjectPropertyListControl1.PlaceObjectClicked += MapMakerObjectPropertyListControl1_UpdateObjectClicked;
             _cursorUpdateTimer.Interval = 10;
             _cursorUpdateTimer.Tick += _cursorUpdateTimer_Tick;
@@ -223,6 +224,14 @@ namespace KeenReloaded2
                   mapMakerObject.ImageControl.ImageLocation,
                   mapMakerObject.IsManualPlacement,
                   mapMakerObject.CloneParameterList());
+            if (obj.ObjectType.GetInterface(nameof(IActivateable)) != null)
+            {
+                var property = obj.ConstructorParameters.FirstOrDefault(p => p.PropertyName == GeneralGameConstants.ACTIVATION_ID_PROPERTY_NAME);
+                if (property != null)
+                {
+                    property.Value = Guid.NewGuid();
+                }
+            }
             ISprite placeableObject = (ISprite)obj.Construct();
             GameObjectMapping mapping = new GameObjectMapping()
             {
@@ -596,6 +605,7 @@ namespace KeenReloaded2
                 _lastFilePath = path;
                 var mapMakerData = MapUtility.LoadMapData(path);
                 _mapMakerObjects = mapMakerData.MapData;
+                mapMakerObjectPropertyListControl1.SetObjectBank(_mapMakerObjects);
 
                 //clear events for existing items
                 var existingItems = pnlMapCanvas.Controls.OfType<GameObjectMapping>();

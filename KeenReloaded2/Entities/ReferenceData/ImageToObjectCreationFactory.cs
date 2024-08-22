@@ -20,6 +20,7 @@ using KeenReloaded2.Framework.GameEntities.Weapons;
 using KeenReloaded2.Framework.ReferenceDataClasses;
 using KeenReloaded2.Utilities;
 using KeenReloaded2.Framework.GameEntities.Constructs;
+using KeenReloaded2.Framework.GameEntities.Interfaces;
 
 namespace KeenReloaded2.Entities.ReferenceData
 {
@@ -594,8 +595,106 @@ namespace KeenReloaded2.Entities.ReferenceData
             {
                 var img = Image.FromFile(filePath);
                 string imgName = FileIOUtility.ExtractFileNameFromPath(filePath);
-                MapMakerObjectProperty[] constructorParameters = new MapMakerObjectProperty[]
+
+                if (filePath.Contains("placeholder"))
                 {
+                    MapMakerObjectProperty[] constructorParameters = new MapMakerObjectProperty[]
+                   {
+                    new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, img.Width, img.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = "zIndex",
+                            DataType = typeof(int),
+                            Value = 50,
+                            DisplayName ="Z Index: "
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = "color",
+                            DataType = typeof(GemColor),
+                            Hidden = true,
+                            Value = InferGemColorFromImageName(imgName),
+                            PossibleValues = Enum.GetNames(typeof(GemColor)),
+                            IsSpriteProperty = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = "objectsToActivate",
+                            DataType = typeof(IActivateable[]),
+                            Value = new IActivateable[] { },
+                            DisplayName = "Activation Objects: "
+                        },
+                   };
+                    MapMakerObject obj = new MapMakerObject(typeof(GemPlaceHolder), filePath, false, constructorParameters);
+
+                    backgroundReferenceData.Add(imgName, obj);
+                }
+                else if (filePath.Contains("key_gate"))
+                {
+                    MapMakerObjectProperty[] constructorParameters = new MapMakerObjectProperty[]
+                    {
+                        new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, img.Width, img.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                         new MapMakerObjectProperty()
+                        {
+                            PropertyName = "imageName",
+                            DataType = typeof(string),
+                            Hidden = true,
+                            Value = filePath,
+                            IsSpriteProperty = true,
+                            IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = "zIndex",
+                            DataType = typeof(int),
+                            Value = 10,
+                            DisplayName ="Z Index: "
+                        },
+                         new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.ACTIVATION_ID_PROPERTY_NAME,
+                            DataType = typeof(Guid),
+                            Value = new Guid(),
+                            DisplayName ="Id: ",
+                            Readonly = true
+                        },
+                    };
+                    MapMakerObject obj = new MapMakerObject(typeof(KeyGate), filePath, false, constructorParameters);
+
+                    backgroundReferenceData.Add(imgName, obj);
+                }
+                else
+                {
+                    MapMakerObjectProperty[] constructorParameters = new MapMakerObjectProperty[]
+                    {
                     new MapMakerObjectProperty()
                         {
                             DisplayName = "Area: ",
@@ -643,10 +742,11 @@ namespace KeenReloaded2.Entities.ReferenceData
                             Value = false,
                             Hidden = true
                         },
-                };
-                MapMakerObject obj = new MapMakerObject(typeof(Gem), filePath, false, constructorParameters);
+                    };
+                    MapMakerObject obj = new MapMakerObject(typeof(Gem), filePath, false, constructorParameters);
 
-                backgroundReferenceData.Add(imgName, obj);
+                    backgroundReferenceData.Add(imgName, obj);
+                }
             }
 
             #endregion
@@ -1587,7 +1687,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                       {
                           PropertyName = "duration",
                           DataType = typeof(int),
-                          Value = 100,
+                          Value = 30,
                           DisplayName ="Duration (seconds): "
                       }
             };

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Utilities;
 using KeenReloaded2.ControlEventArgs;
+using KeenReloaded2.Framework.GameEntities.Interfaces;
 
 namespace KeenReloaded2.UserControls.MapMakerUserControls
 {
@@ -17,6 +18,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
     {
         private const int VERTICAL_MARGIN = 8;
         private MapMakerObject _mapMakerObject;
+        private List<GameObjectMapping> _gameObjectMappings;
 
         public event EventHandler<MapMakerObjectEventArgs> PlaceObjectClicked;
         public MapMakerObjectPropertyListControl()
@@ -27,6 +29,11 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         private void MapMakerObjectPropertyListControl_Load(object sender, EventArgs e)
         {
             lblHeader.Text = string.Empty;
+        }
+
+        public void SetObjectBank(List<GameObjectMapping> gameObjectMappings)
+        {
+            _gameObjectMappings = gameObjectMappings;
         }
 
         public void SetProperties(MapMakerObject mapMakerObject, bool overrideToAutoPlace = false, bool autoPlace = false)
@@ -56,7 +63,8 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                 var property = mapMakerObject.ConstructorParameters[i];
                 if (!property.Hidden)
                 {
-                    MapMakerObjectPropertyControl control = new MapMakerObjectPropertyControl(property);
+                    var activateables = _gameObjectMappings?.Select(g => g.GameObject).OfType<IActivateable>()?.ToList() ?? new List<IActivateable>();
+                    MapMakerObjectPropertyControl control = new MapMakerObjectPropertyControl(property, activateables);
                     control.Location = new Point(x, y);
                     pnlControls.Controls.Add(control);
                     control.BringToFront();

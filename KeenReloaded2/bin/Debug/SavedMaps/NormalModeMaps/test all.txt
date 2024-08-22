@@ -16,7 +16,6 @@ gem_blue1|73|119|26|20|BLUE|50|False
 gem_green1|63|266|26|20|GREEN|50|False
 gem_red1|135|104|26|20|RED|50|False
 gem_red1|297|276|26|20|RED|50|False
-gem_yellow1|242|276|26|20|YELLOW|100|False
 keen4_candy_bar1|200|71|26|32|50|KEEN4_SHIKKERS_CANDY_BAR
 keen4_shikadi_soda1|230|71|18|32|50|KEEN4_SHIKADI_SODA
 keen4_three_tooth_gum1|256|73|32|32|50|KEEN4_THREE_TOOTH_GUM
@@ -93,3 +92,9 @@ keen5_wall_black_bottom|739|716|64|32|10
 keen5_wall_black_bottom|803|716|64|32|10
 keen5_wall_black_bottom|867|716|64|32|10
 keen5_wall_black_bottom|931|716|64|32|10
+gem_yellow1|242|276|26|20|YELLOW|101|False
+keen4_forest_platform_single|495|777|32|40|10
+key_gate1|842|593|26|122|10|3e83d7a6-041f-4a87-8381-4009e6569848
+key_gate1|868|593|26|122|10|3f16a80d-b355-4179-92c9-e1a11bc65bbb
+gem_placeholder_green_empty|300|764|26|22|50|GREEN|[3e83d7a6-041f-4a87-8381-4009e6569848,3f16a80d-b355-4179-92c9-e1a11bc65bbb]
+gem_placeholder_red_empty|244|766|26|22|50|RED|[3f16a80d-b355-4179-92c9-e1a11bc65bbb]
