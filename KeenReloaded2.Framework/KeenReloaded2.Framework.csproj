@@ -55,7 +55,12 @@
     <Compile Include="Enums\PlatformType.cs" />
     <Compile Include="Enums\PointItemType.cs" />
     <Compile Include="Enums\PoleType.cs" />
+    <Compile Include="GameEntities\AltCharacters\BabyLouie.cs" />
+    <Compile Include="GameEntities\AltCharacters\CouncilPage.cs" />
+    <Compile Include="GameEntities\AltCharacters\Locoyorp.cs" />
+    <Compile Include="GameEntities\AltCharacters\MortimerMcMire.cs" />
     <Compile Include="GameEntities\AltCharacters\OracleElder.cs" />
+    <Compile Include="GameEntities\AltCharacters\PrincessIndi.cs" />
     <Compile Include="GameEntities\Animations\Animation.cs" />
     <Compile Include="GameEntities\Backgrounds\AnimatedBackground.cs" />
     <Compile Include="GameEntities\Backgrounds\Background.cs" />
@@ -159,6 +164,7 @@
     <Compile Include="GameEntities\Interfaces\IUpdatable.cs" />
     <Compile Include="GameEventArgs\ToggleEventArgs.cs" />
     <Compile Include="GameEventArgs\WeaponEventArgs.cs" />
+    <Compile Include="GameEntities\AltCharacters\KChirps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -2662,6 +2668,879 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\oracle_elder_dead1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_fall_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_wall_hang_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_wall_hang_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_wall_climb_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_wall_climb_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_wall_climb_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_wall_climb_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_wall_climb_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_wall_climb_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_wall_climb_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_wall_climb_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_walk_through_door5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_walk_through_door4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_walk_through_door3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_walk_through_door2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_walk_through_door1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_stand_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_stand_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_shoot_up_standing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_shoot_up_pole_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_shoot_up_pole_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_shoot_up_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_shoot_right_standing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_shoot_right_pole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_shoot_right_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_shoot_left_standing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_shoot_left_pole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_shoot_left_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_shoot_down_pole_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_shoot_down_pole_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_shoot_down_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_shimmy_down4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_shimmy_down3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_shimmy_down2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_shimmy_down1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_run_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_run_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_run_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_run_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_run_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_run_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_run_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_run_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_pole_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_pole_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_pole_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_pole_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_pole_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_pole_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_look_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_jump_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_jump_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_jump_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_jump_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_fall_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_duck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_dead2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_dead1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_walk_through_door4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_fall_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_wall_hang_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_wall_hang_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_wall_climb_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_wall_climb_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_wall_climb_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_wall_climb_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_wall_climb_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_wall_climb_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_wall_climb_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_wall_climb_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_walk_through_door5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_walk_through_door3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_walk_through_door2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_walk_through_door1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_stand_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_stand_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_shoot_up_standing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_shoot_up_pole_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_shoot_up_pole_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_shoot_up_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_shoot_right_standing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_shoot_right_pole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_shoot_right_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_shoot_left_standing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_shoot_left_pole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_shoot_left_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_shoot_down_pole_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_shoot_down_pole_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_shoot_down_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_shimmy_down4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_shimmy_down3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_shimmy_down2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_shimmy_down1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_run_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_run_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_run_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_run_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_run_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_run_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_run_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_run_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_pole_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_pole_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_pole_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_pole_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_pole_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_pole_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_look_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_jump_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_jump_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_jump_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_jump_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_fall_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_duck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_dead2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\council_page_dead1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_shoot_down_pole_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_wall_hang_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_wall_hang_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_wall_climb_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_wall_climb_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_wall_climb_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_wall_climb_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_wall_climb_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_wall_climb_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_wall_climb_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_wall_climb_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_walk_through_door5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_walk_through_door4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_walk_through_door3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_walk_through_door2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_walk_through_door1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_shoot_up_standing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_shoot_up_pole_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_shoot_up_pole_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_shoot_up_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_shoot_right_standing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_shoot_right_pole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_shoot_right_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_shoot_left_standing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_shoot_left_pole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_shoot_left_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_shoot_down_pole_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_shoot_down_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_shimmy_down4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_shimmy_down3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_shimmy_down2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_shimmy_down1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_run_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_run_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_run_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_run_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_run_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_run_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_run_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_run_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_right_standing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_pole_climb_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_pole_climb_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_pole_climb_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_pole_climb_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_pole_climb_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_pole_climb_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_look_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_left_standing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_jump_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_jump_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_jump_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_jump_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_fall_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_fall_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_duck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_dead2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yorp_dead1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_pole_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_wall_hang_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_wall_hang_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_wall_climb_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_wall_climb_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_wall_climb_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_wall_climb_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_wall_climb_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_wall_climb_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_wall_climb_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_wall_climb_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_walk_through_door5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_walk_through_door4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_walk_through_door3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_walk_through_door2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_walk_through_door1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_stand_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_stand_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_shoot_up_standing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_shoot_up_pole_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_shoot_up_pole_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_shoot_up_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_shoot_right_standing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_shoot_right_pole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_shoot_right_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_shoot_left_standing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_shoot_left_pole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_shoot_left_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_shoot_down_pole_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_shoot_down_pole_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_shoot_down_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_shimmy_down4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_shimmy_down3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_shimmy_down2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_shimmy_down1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_run_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_run_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_run_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_run_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_run_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_run_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_run_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_run_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_pole_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_pole_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_pole_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_pole_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_pole_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_look_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_jump_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_jump_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_jump_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_jump_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_fall_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_fall_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_duck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_dead2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mm_dead1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_dead1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_look_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_wall_climb_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_duck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_pole_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_pole_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_pole_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_pole_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_pole_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_pole_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_shimmy_down1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_shimmy_down2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_shimmy_down3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_shimmy_down4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_shoot_down_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_shoot_down_pole_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_shoot_down_pole_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_shoot_left_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_shoot_left_pole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_shoot_left_standing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_shoot_right_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_shoot_right_pole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_shoot_right_standing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_shoot_up_aerial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_shoot_up_pole_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_shoot_up_pole_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_shoot_up_standing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_walk_through_door1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_walk_through_door2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_walk_through_door3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_walk_through_door4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_walk_through_door5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_wall_climb_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_wall_climb_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_wall_climb_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_wall_climb_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_wall_climb_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_wall_climb_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_wall_climb_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_wall_hang_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_wall_hang_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_dead2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_fall_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_jump_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_jump_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_run_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_run_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_run_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_standing_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_jump_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_run_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_run_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_hang_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_run_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_fall_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_jump_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_run_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_run_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_indi_standing_right.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

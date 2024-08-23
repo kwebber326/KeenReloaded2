@@ -101,6 +101,24 @@ namespace KeenReloaded2.Entities
                 case MainMenuConstants.Characters.COMMANDER_KEEN:
                     _keen = new CommanderKeen(_keen.HitBox, _keen.CollisionGrid, _keen.Direction, _keen.Lives, _keen.Points);
                     break;
+                case MainMenuConstants.Characters.LT_BARKER:
+                    _keen = new BabyLouie(_keen.CollisionGrid, _keen.HitBox, _keen.Direction, _keen.Lives, _keen.Points);
+                    break;
+                case MainMenuConstants.Characters.COUNCIL_PAGE:
+                    _keen = new CouncilPage(_keen.CollisionGrid, _keen.HitBox, _keen.Direction, _keen.Lives, _keen.Points);
+                    break;
+                case MainMenuConstants.Characters.BILLY_BLAZE:
+                    _keen = new KChirps(_keen.CollisionGrid, _keen.HitBox, _keen.Direction, _keen.Lives, _keen.Points);
+                    break;
+                case MainMenuConstants.Characters.YORP:
+                    _keen = new Locoyorp(_keen.CollisionGrid, _keen.HitBox, _keen.Direction, _keen.Lives, _keen.Points);
+                    break;
+                case MainMenuConstants.Characters.MORTIMER_MCMIRE:
+                    _keen = new MortimerMcMire(_keen.CollisionGrid, _keen.HitBox, _keen.Direction, _keen.Lives, _keen.Points);
+                    break;
+                case MainMenuConstants.Characters.PRINCESS_LINDSEY:
+                    _keen = new PrincessIndi(_keen.CollisionGrid, _keen.HitBox, _keen.Direction, _keen.Lives, _keen.Points);
+                    break;
             }
             //assign output variable
             keen = _keen;
