@@ -1,6 +1,8 @@
 ﻿using KeenReloaded2.Constants;
 using KeenReloaded2.Entities;
+using KeenReloaded2.Framework.GameEntities.AltCharacters;
 using KeenReloaded2.Framework.GameEntities.Players;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,6 +44,14 @@ namespace KeenReloaded2
             _game = new CommanderKeenGame(data);
             var gameObjects = data.MapData.Select(d => d.GameObject);
             _keen = gameObjects.OfType<CommanderKeen>().FirstOrDefault();
+
+            string characterName = FileIOUtility.LoadSavedCharacterSelection();
+            if (characterName != MainMenuConstants.Characters.COMMANDER_KEEN)
+            {
+                _game.ChangeKeenSkin(characterName, out CommanderKeen keen);
+                _keen = keen;
+            }
+       
             inventoryPanel1.Keen = _keen;
             inventoryPanel1.ShowFlagInventory = gameMode == MainMenuConstants.OPTION_LABEL_CTF_MODE;
             _maxVisionY = _game.Map.MapSize.Height - VIEW_RADIUS;

@@ -170,6 +170,7 @@ namespace KeenReloaded2
         private void CharacterSelectControl1_SelectedCharacterChanged(object sender, ControlEventArgs.CharacterSelectControlEventArgs e)
         {
             pbCharacter.Image = characterSelectControl1.SelectedImage;
+            SaveCharacterSelection();
         }
 
         private void MainMenu_KeyUp(object sender, KeyEventArgs e)
@@ -190,6 +191,11 @@ namespace KeenReloaded2
 
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
+            SaveCharacterSelection();
+        }
+
+        private void SaveCharacterSelection()
+        {
             string characterName = characterSelectControl1.SelectedCharacterName;
             if (!string.IsNullOrWhiteSpace(characterName))
                 FileIOUtility.SaveCharacterSelection(characterName);
@@ -197,6 +203,6 @@ namespace KeenReloaded2
 
         #endregion
 
-      
+
     }
 }

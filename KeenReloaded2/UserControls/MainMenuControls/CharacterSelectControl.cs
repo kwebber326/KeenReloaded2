@@ -112,6 +112,9 @@ namespace KeenReloaded2.UserControls.MainMenuControls
                 randIndex = new Random().Next(0, _characters.Count);
             } while (randIndex == cmbCharacters.SelectedIndex);
             cmbCharacters.SelectedIndex = randIndex;
+
+            string characterName = cmbCharacters.Text;
+            FileIOUtility.SaveCharacterSelection(characterName);
         }
     }
 }

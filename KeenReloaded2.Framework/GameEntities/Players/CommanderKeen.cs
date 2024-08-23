@@ -1633,6 +1633,14 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             }
         }
 
+        public SpaceHashGrid CollisionGrid
+        {
+            get
+            {
+                return _collisionGrid;
+            }
+        }
+
         public bool HasKeyCard
         {
             get

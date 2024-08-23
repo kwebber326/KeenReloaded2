@@ -7933,6 +7933,586 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_dead1 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_dead1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_dead2 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_dead2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_duck {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_duck", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_fall_left {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_fall_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_fall_right {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_fall_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_jump_left1 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_jump_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_jump_left2 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_jump_left2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_jump_right1 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_jump_right1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_jump_right2 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_jump_right2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_look_up {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_look_up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_pole_left1 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_pole_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_pole_left2 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_pole_left2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_pole_left3 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_pole_left3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_pole_right1 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_pole_right1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_pole_right2 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_pole_right2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_pole_right3 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_pole_right3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_run_left1 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_run_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_run_left2 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_run_left2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_run_left3 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_run_left3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_run_left4 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_run_left4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_run_right1 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_run_right1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_run_right2 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_run_right2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_run_right3 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_run_right3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_run_right4 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_run_right4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_shimmy_down1 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_shimmy_down1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_shimmy_down2 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_shimmy_down2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_shimmy_down3 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_shimmy_down3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_shimmy_down4 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_shimmy_down4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_shoot_down_aerial {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_shoot_down_aerial", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_shoot_down_pole_left {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_shoot_down_pole_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_shoot_down_pole_right {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_shoot_down_pole_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_shoot_left_aerial {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_shoot_left_aerial", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_shoot_left_pole {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_shoot_left_pole", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_shoot_left_standing {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_shoot_left_standing", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_shoot_right_aerial {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_shoot_right_aerial", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_shoot_right_pole {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_shoot_right_pole", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_shoot_right_standing {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_shoot_right_standing", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_shoot_up_aerial {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_shoot_up_aerial", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_shoot_up_pole_left {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_shoot_up_pole_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_shoot_up_pole_right {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_shoot_up_pole_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_shoot_up_standing {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_shoot_up_standing", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_stand_left {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_stand_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_stand_right {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_stand_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_walk_through_door1 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_walk_through_door1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_walk_through_door2 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_walk_through_door2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_walk_through_door3 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_walk_through_door3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_walk_through_door4 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_walk_through_door4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_walk_through_door5 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_walk_through_door5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_wall_climb_left1 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_wall_climb_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_wall_climb_left2 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_wall_climb_left2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_wall_climb_left3 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_wall_climb_left3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_wall_climb_left4 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_wall_climb_left4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_wall_climb_right1 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_wall_climb_right1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_wall_climb_right2 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_wall_climb_right2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_wall_climb_right3 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_wall_climb_right3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_wall_climb_right4 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_wall_climb_right4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_wall_hang_left {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_wall_hang_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_wall_hang_right {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_wall_hang_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pole_bottom {
             get {
                 object obj = ResourceManager.GetObject("pole_bottom", resourceCulture);

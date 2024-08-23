@@ -11,6 +11,9 @@ using KeenReloaded2.Framework.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Items;
 using System.Drawing;
+using KeenReloaded2.Constants;
+using KeenReloaded2.Framework.GameEntities.AltCharacters;
+using KeenReloaded2.Entities.ReferenceData;
 
 namespace KeenReloaded2.Entities
 {
@@ -75,6 +78,36 @@ namespace KeenReloaded2.Entities
                 return _keen.IsKeyPressed(key);
 
             return false;
+        }
+
+        public void ChangeKeenSkin(string characterName, out CommanderKeen keen)
+        {
+            //detach keen from events, updatable objects and collision detection
+            _updatableGameObjects.Remove(_keen);
+            _gameObjects.Remove(_keen);
+            DetachEventsForObject(_keen);
+            var nodes =  _keen.CollisionGrid.GetCurrentHashes(_keen);
+            foreach (var node in nodes)
+            {
+                node.Objects.Remove(_keen);
+                node.NonEnemies.Remove(_keen);
+            }
+            //build new character and attach it to collision detection
+            switch (characterName)
+            {
+                case MainMenuConstants.Characters.ORACLE_ELDER:  
+                    _keen = new OracleElder(_keen.CollisionGrid, _keen.HitBox, _keen.Direction, _keen.Lives, _keen.Points);
+                    break;
+                case MainMenuConstants.Characters.COMMANDER_KEEN:
+                    _keen = new CommanderKeen(_keen.HitBox, _keen.CollisionGrid, _keen.Direction, _keen.Lives, _keen.Points);
+                    break;
+            }
+            //assign output variable
+            keen = _keen;
+            //attach new keen object to events and updatable objects
+            _gameObjects.Add(_keen);
+            _updatableGameObjects.Add(_keen);
+            RegisterItemEventsForObject(_keen);
         }
 
         public Bitmap UpdateGame()
