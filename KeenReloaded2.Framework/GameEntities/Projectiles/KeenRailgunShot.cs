@@ -90,7 +90,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         {
             foreach (var collision in collisions)
             {
-                if (collision is MaskedTile)
+                if (collision.CollisionType == CollisionType.BLOCK)
                 {
                     switch (direction)
                     {
