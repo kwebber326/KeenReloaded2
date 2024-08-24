@@ -1793,12 +1793,6 @@
     <None Include="Resources\keen4_mine.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen4_mine_exploded1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_mine_exploded2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen4_poison_pool1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -5823,6 +5817,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\life_drop_board1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mine_exploded2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mine_exploded1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

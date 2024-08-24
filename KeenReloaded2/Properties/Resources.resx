@@ -2482,9 +2482,6 @@
   <data name="neural_stunner_rpg2_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\neural_stunner_rpg2_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="keen4_mine_exploded1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\keen4_mine_exploded1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="keen6_removable_platform_forest_right_edge_filled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen6_removable_platform_forest_right_edge_filled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -4939,9 +4936,6 @@
   <data name="keen4_poison_pool1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_poison_pool1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="keen4_mine_exploded2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\keen4_mine_exploded2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="baby_louie_run_left4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\baby_louie_run_left4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -5688,5 +5682,11 @@
   </data>
   <data name="life_drop_board1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\life_drop_board1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_mine_exploded1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_mine_exploded1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_mine_exploded2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_mine_exploded2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
