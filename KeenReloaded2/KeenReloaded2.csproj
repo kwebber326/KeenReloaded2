@@ -171,6 +171,12 @@
     <Compile Include="UserControls\MapMakerUserControls\AreaControl.Designer.cs">
       <DependentUpon>AreaControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MapMakerUserControls\DestinationDoorActivatorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MapMakerUserControls\DestinationDoorActivatorControl.Designer.cs">
+      <DependentUpon>DestinationDoorActivatorControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MapMakerUserControls\EditActivatorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MapMakerUserControls\AreaControl.resx">
       <DependentUpon>AreaControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MapMakerUserControls\DestinationDoorActivatorControl.resx">
+      <DependentUpon>DestinationDoorActivatorControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MapMakerUserControls\EditActivatorForm.resx">
       <DependentUpon>EditActivatorForm.cs</DependentUpon>

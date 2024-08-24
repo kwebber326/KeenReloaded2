@@ -4,6 +4,7 @@ using KeenReloaded2.ControlEventArgs.EventStoreData;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Entities.ReferenceData;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.ReferenceDataClasses;
 using KeenReloaded2.UserControls.MapMakerUserControls;
@@ -421,6 +422,11 @@ namespace KeenReloaded2
                 }
 
                 _mapHasUnsavedChanges = true;
+
+                if (e.MapMakerObject.ObjectType == typeof(Door))
+                {
+                    mapMakerObjectPropertyListControl1.SetProperties(e.MapMakerObject, true);
+                }
             }
             catch
             {

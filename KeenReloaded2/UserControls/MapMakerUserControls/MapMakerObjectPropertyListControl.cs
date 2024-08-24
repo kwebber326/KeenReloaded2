@@ -11,6 +11,7 @@ using KeenReloaded2.Entities;
 using KeenReloaded2.Utilities;
 using KeenReloaded2.ControlEventArgs;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Framework.GameEntities.Constructs;
 
 namespace KeenReloaded2.UserControls.MapMakerUserControls
 {
@@ -56,15 +57,17 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                 pbObjectImage.Image = Image.FromFile(mapMakerObject.ImageControl.ImageLocation);
 
             lblHeader.Text = $"{mapMakerObject.ObjectType.Name} Properties:";
-
+            var gameObjects = _gameObjectMappings?.Select(g => g.GameObject).ToList();
+            var activateables = gameObjects.OfType<IActivateable>()?.ToList() ?? new List<IActivateable>();
+            var doors = gameObjects.OfType<Door>()?.ToList() ?? new List<Door>();
             int x = 0, y = 0;
             for (int i = 0; i < mapMakerObject.ConstructorParameters.Length; i++)
             {
                 var property = mapMakerObject.ConstructorParameters[i];
                 if (!property.Hidden)
                 {
-                    var activateables = _gameObjectMappings?.Select(g => g.GameObject).OfType<IActivateable>()?.ToList() ?? new List<IActivateable>();
-                    MapMakerObjectPropertyControl control = new MapMakerObjectPropertyControl(property, activateables);
+                   
+                    MapMakerObjectPropertyControl control = new MapMakerObjectPropertyControl(property, mapMakerObject, activateables, doors);
                     control.Location = new Point(x, y);
                     pnlControls.Controls.Add(control);
                     control.BringToFront();

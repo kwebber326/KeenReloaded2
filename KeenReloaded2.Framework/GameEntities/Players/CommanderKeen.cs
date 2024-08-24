@@ -2110,9 +2110,10 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     {
                         var door = _currentDoor.DestinationDoor;
                         this.HitBox = new Rectangle(door.HitBox.X + ((door.HitBox.Width / 2) - (this.HitBox.Width / 2)),
-                            door.HitBox.Bottom - this.HitBox.Height, this.HitBox.Width, this.HitBox.Height);
+                            door.HitBox.Bottom - this.HitBox.Height - 1, this.HitBox.Width, this.HitBox.Height);
                         _currentDoorWalkState = 0;
-                        this.UpdateCollisionNodes(this.Direction);
+                        this.UpdateCollisionNodes(Direction.DOWN_LEFT);
+                        this.UpdateCollisionNodes(Direction.UP_RIGHT);
                         _fallVelocity = 0;
                         this.MoveState = Enums.MoveState.STANDING;
                         if (IsNothingBeneathKeen())

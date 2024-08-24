@@ -37,7 +37,6 @@ keen4_seaweed2_1|52|605|26|64|keen4_seaweed2_1.png|True|100
 keen4_seaweed1_1|105|603|22|62|keen4_seaweed1_1.png|True|1000
 keen5_vitalin1|482|58|18|32|50
 keen5_vitalin1|523|58|18|32|50
-keen5_keg_o_vitalin1|366|700|64|50|50|KEEN5_KEG_O_VITALIN
 keen6_viva_flying1|392|443|26|18|50|False
 keen6_viva_queen2|380|650|30|30|50|KEEN6_VIVA_QUEEN
 keen5_background_security_center_gray|0|0|1500|1500|keen5_background_security_center_gray.png|False|0
@@ -97,5 +96,8 @@ key_gate1|842|593|26|122|10|3e83d7a6-041f-4a87-8381-4009e6569848
 key_gate1|868|593|26|122|10|3f16a80d-b355-4179-92c9-e1a11bc65bbb
 key_gate1|743|787|26|80|10|76eab43d-7452-4548-8a48-d0442d44bc78
 keen4_mine|785|358|46|46|LEFT|300|350|1000|500|15
+keen5_keg_o_vitalin1|365|700|64|50|50|KEEN5_KEG_O_VITALIN
+keen4_blue_door|675|624|60|92|KEEN4_BLUE|1|2
+keen4_gray_door|468|367|60|92|KEEN4_GRAY|2|1
 gem_placeholder_red_empty|244|766|26|22|50|RED|[3f16a80d-b355-4179-92c9-e1a11bc65bbb,76eab43d-7452-4548-8a48-d0442d44bc78]
 gem_placeholder_green_empty|300|764|26|22|50|GREEN|[3e83d7a6-041f-4a87-8381-4009e6569848,3f16a80d-b355-4179-92c9-e1a11bc65bbb]

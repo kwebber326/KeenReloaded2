@@ -22,18 +22,18 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         protected Image _sprite;
         protected Rectangle _area;
 
-        public Door(Rectangle area, SpaceHashGrid grid, DoorType type, int doorId, Door destinationDoor = null)
+        public Door(Rectangle area, SpaceHashGrid grid, DoorType type, int doorId, int? destinationDoorId)
             : base(grid, area)
         {
             this.Id = doorId;
             _area = area;
             this.HitBox = _area;
-            Initialize(type, destinationDoor);
+            Initialize(type, destinationDoorId);
         }
 
-        protected virtual void Initialize(DoorType type, Door destination)
+        protected virtual void Initialize(DoorType type, int? destination)
         {
-            _destinationDoor = destination;
+            this.DestinationDoorId = destination;
             _doorType = type;
             switch (_doorType)
             {
@@ -83,8 +83,11 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             set
             {
                 _destinationDoor = value;
+                this.DestinationDoorId = _destinationDoor?.Id ?? 0;
             }
         }
+
+        public int? DestinationDoorId { get; set; }
 
         public override CollisionType CollisionType => CollisionType.DOOR;
 
@@ -97,7 +100,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         public override string ToString()
         {
             var separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
-            var destinationDoorString = this.DestinationDoor?.Id.ToString() ?? string.Empty;
+            var destinationDoorString = this.DestinationDoor?.Id.ToString() ?? this.DestinationDoorId?.ToString() ?? string.Empty;
             return $"{_sprite.Tag?.ToString()}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{this._doorType.ToString()}{separator}{this.Id.ToString()}{separator}{destinationDoorString}";
         }
     }

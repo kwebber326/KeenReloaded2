@@ -9,32 +9,39 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Framework.GameEntities.Constructs;
+using KeenReloaded2.Constants;
 
 namespace KeenReloaded2.UserControls.MapMakerUserControls
 {
     public partial class MapMakerObjectPropertyControl : UserControl
     {
         private MapMakerObjectProperty _mapMakerObjectProperty;
+        private readonly MapMakerObject _mapMakerObject;
         private TextBox _txtValue = new TextBox();
         private ComboBox _cmbValue = new ComboBox();
         private CheckBox _chkValue = new CheckBox();
         private AreaControl _areaValue = new AreaControl();
         private ActivatorListControl _activatorControl = new ActivatorListControl();
+        private DestinationDoorActivatorControl _doorControl = new DestinationDoorActivatorControl(); 
 
         private Control _selectedControl;
         private bool _selectedControlAdded = false;
         private List<IActivateable> _totalActivateables = new List<IActivateable>();
+        private List<Door> _doors = new List<Door>();
 
         public MapMakerObjectPropertyControl()
         {
             InitializeComponent();
         }
 
-        public MapMakerObjectPropertyControl(MapMakerObjectProperty mapMakerObjectProperty, List<IActivateable> totalActivateables)
+        public MapMakerObjectPropertyControl(MapMakerObjectProperty mapMakerObjectProperty, MapMakerObject mapMakerObject, List<IActivateable> totalActivateables, List<Door> doors)
         {
             InitializeComponent();
             _mapMakerObjectProperty = mapMakerObjectProperty;
+            _mapMakerObject = mapMakerObject;
             _totalActivateables = totalActivateables;
+            _doors = doors;
         }
 
         public object Value
@@ -62,7 +69,35 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             _chkValue.CheckedChanged += _chkValue_CheckedChanged;
             _areaValue.AreaChanged += _areaValue_AreaChanged;
             _activatorControl.EditItemsClicked += _activatorControl_EditItemsClicked;
+            _doorControl.DoorSelect += _doorControl_DoorSelect;
             UpdateControl(_mapMakerObjectProperty);
+        }
+
+        private void _doorControl_DoorSelect(object sender, EventArgs e)
+        {
+            var doorIdProperty = _mapMakerObject.ConstructorParameters.FirstOrDefault(d => d.PropertyName == GeneralGameConstants.DOOR_ID_PROPERTY_NAME);
+            if (doorIdProperty != null)
+            {
+                int doorId = (int)doorIdProperty.Value;
+                bool duplicateDoorIds = _doors.GroupBy(g => g.Id).Any(g1 => g1.Count() > 1);
+                if (duplicateDoorIds)
+                {
+                    MessageBox.Show("There are duplicate Door numbers. Make sure each door number is unique before proceeding.", "Duplicate Door IDs", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                var otherDoors = _doors.Where(d => d.Id != doorId).ToList();
+                var thisDoor = _doors.FirstOrDefault(d => d.Id == doorId);
+                if (thisDoor == null)
+                {
+                    MessageBox.Show("No Door found with this ID.", "Door not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                EditDestinationDoorForm doorForm = new EditDestinationDoorForm(otherDoors, thisDoor);
+                if (doorForm.ShowDialog() == DialogResult.OK)
+                {
+                    _mapMakerObjectProperty.Value = doorForm.SelectedDoor?.Id;
+                }
+            }
         }
 
         private void _activatorControl_EditItemsClicked(object sender, EventArgs e)
@@ -141,6 +176,10 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             {
                 _selectedControl = _activatorControl;
                 SetValuesForActivatorControl();
+            }
+            else if (_mapMakerObjectProperty.IsDoorSelectionProperty)
+            {
+                _selectedControl = _doorControl;
             }
             else
             {

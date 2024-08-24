@@ -41,6 +41,7 @@
             this.lstDoors.Name = "lstDoors";
             this.lstDoors.Size = new System.Drawing.Size(250, 264);
             this.lstDoors.TabIndex = 0;
+            this.lstDoors.SelectedIndexChanged += new System.EventHandler(this.LstDoors_SelectedIndexChanged);
             // 
             // label1
             // 

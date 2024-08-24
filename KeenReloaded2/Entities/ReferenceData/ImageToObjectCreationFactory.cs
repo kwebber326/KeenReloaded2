@@ -1731,22 +1731,23 @@ namespace KeenReloaded2.Entities.ReferenceData
                             DataType = typeof(DoorType),
                             Value = InferDoorTypeFromImage(doorImageName),
                             PossibleValues = Enum.GetNames(typeof(DoorType)),
-                            IsSpriteProperty = true
+                            IsSpriteProperty = true,
+                            Hidden = true
                       },
                       new MapMakerObjectProperty()
                       {
-                          PropertyName = "doorId",
+                          PropertyName = GeneralGameConstants.DOOR_ID_PROPERTY_NAME,
                           DataType = typeof(int),
                           Value = 1,
                           DisplayName ="Id: "
                       },
                       new MapMakerObjectProperty()
                       {
-                          PropertyName = "destinationDoor",
+                          PropertyName = GeneralGameConstants.DESTINATION_DOOR_ID_PROPERTY_NAME,
                           DisplayName = "Select Door: ",
-                          DataType = typeof(Door),
+                          DataType = typeof(int?),
                           Value = null,
-                          IsIgnoredInMapData = true
+                          IsDoorSelectionProperty = true
                       },
                 };
                 MapMakerObject doorObj = new MapMakerObject(typeof(Door), file, false, doorProperties);

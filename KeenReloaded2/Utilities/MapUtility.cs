@@ -1,18 +1,17 @@
-﻿using KeenReloaded2.Entities;
+﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
+using KeenReloaded2.Entities;
+using KeenReloaded2.Entities.ReferenceData;
+using KeenReloaded2.Framework.GameEntities.Constructs;
+using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Framework.GameEntities.Players;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using KeenReloaded2.Constants;
-using System.Diagnostics;
-using KeenReloaded2.Entities.ReferenceData;
-using KeenReloaded2.Framework.GameEntities.Interfaces;
-using System.Drawing;
-using KeenReloaded.Framework;
-using KeenReloaded2.Framework.GameEntities.Players;
-using KeenReloaded2.Framework.GameEntities.Constructs;
 
 namespace KeenReloaded2.Utilities
 {
@@ -55,7 +54,7 @@ namespace KeenReloaded2.Utilities
             try
             {
                 List<IActivateable> activateables = new List<IActivateable>();
-                Dictionary<int, int> doorNetwork = new Dictionary<int, int>();
+                Dictionary<int, Door> doorNetwork = new Dictionary<int, Door>();
                 if (string.IsNullOrWhiteSpace(mapFile))
                     throw new ArgumentException("Invalid map name");
 
@@ -83,10 +82,10 @@ namespace KeenReloaded2.Utilities
                 {
                     foreach (var door in doors)
                     {
-                        if (doorNetwork.TryGetValue(door.Id, out int destinationId))
+                        if (door.DestinationDoorId.HasValue &&
+                            doorNetwork.TryGetValue(door.DestinationDoorId.Value, out Door destinationDoor))
                         {
-                            Door desinationDoor = doors.FirstOrDefault(d => d.Id == destinationId);
-                            door.DestinationDoor = desinationDoor;
+                            door.DestinationDoor = destinationDoor;
                         }
                     }
                 }
@@ -120,7 +119,7 @@ namespace KeenReloaded2.Utilities
             return size;
         }
 
-        private static GameObjectMapping BuildMapDataObjectFromRawString(string data, SpaceHashGrid grid, List<IActivateable> activateables, Dictionary<int, int> doorNetwork)
+        private static GameObjectMapping BuildMapDataObjectFromRawString(string data, SpaceHashGrid grid, List<IActivateable> activateables, Dictionary<int, Door> doorNetwork)
         {
             string[] properties = data.Split(MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR[0]);
             if (properties.Length < 5)
@@ -195,6 +194,11 @@ namespace KeenReloaded2.Utilities
                     var value = Enum.Parse(associatedProperty.DataType, rawValue);
                     associatedProperty.Value = value;
                 }
+                else if (associatedProperty.DataType == typeof(int?)
+                    && int.TryParse(rawValue, out int result))
+                {
+                    associatedProperty.Value = result;
+                }
             }
 
             GameObjectMapping mapping = new GameObjectMapping()
@@ -215,12 +219,9 @@ namespace KeenReloaded2.Utilities
             if (mapping.GameObject is Door)
             {
                 var door = (Door)mapping.GameObject;
-                var destinationDoorIdStr = properties.LastOrDefault();
-                if (!string.IsNullOrEmpty(destinationDoorIdStr))
+                if (!doorNetwork.ContainsKey(door.Id))
                 {
-                    int destinationDoorId = Convert.ToInt32(destinationDoorIdStr);
-                    if (!doorNetwork.ContainsKey(door.Id))
-                        doorNetwork.Add(door.Id, destinationDoorId);
+                    doorNetwork.Add(door.Id, door);
                 }
             }
 

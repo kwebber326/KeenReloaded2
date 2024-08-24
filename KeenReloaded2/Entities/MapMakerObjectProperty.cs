@@ -25,5 +25,7 @@ namespace KeenReloaded2.Entities
         public bool IsSpriteProperty { get; set; }
 
         public bool IsIgnoredInMapData { get; set; }
+
+        public bool IsDoorSelectionProperty { get; set; }
     }
 }
