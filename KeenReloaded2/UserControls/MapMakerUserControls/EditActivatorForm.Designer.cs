@@ -43,6 +43,7 @@
             this.lstCurrent.ItemHeight = 20;
             this.lstCurrent.Location = new System.Drawing.Point(12, 65);
             this.lstCurrent.Name = "lstCurrent";
+            this.lstCurrent.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstCurrent.Size = new System.Drawing.Size(254, 364);
             this.lstCurrent.TabIndex = 0;
             this.lstCurrent.SelectedIndexChanged += new System.EventHandler(this.LstCurrent_SelectedIndexChanged);
@@ -63,6 +64,7 @@
             this.lstRemaining.ItemHeight = 20;
             this.lstRemaining.Location = new System.Drawing.Point(388, 65);
             this.lstRemaining.Name = "lstRemaining";
+            this.lstRemaining.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstRemaining.Size = new System.Drawing.Size(254, 364);
             this.lstRemaining.TabIndex = 2;
             this.lstRemaining.SelectedIndexChanged += new System.EventHandler(this.LstRemaining_SelectedIndexChanged);
@@ -119,8 +121,9 @@
             this.Controls.Add(this.lstRemaining);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lstCurrent);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EditActivatorForm";
-            this.Text = "EditActivatorForm";
+            this.Text = "Select Activation Items";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditActivatorForm_FormClosing);
             this.Load += new System.EventHandler(this.EditActivatorForm_Load);
             this.ResumeLayout(false);

@@ -12,6 +12,7 @@ using KeenReloaded2.Framework.GameEntities.Interfaces;
 using System.Drawing;
 using KeenReloaded.Framework;
 using KeenReloaded2.Framework.GameEntities.Players;
+using KeenReloaded2.Framework.GameEntities.Constructs;
 
 namespace KeenReloaded2.Utilities
 {
@@ -54,6 +55,7 @@ namespace KeenReloaded2.Utilities
             try
             {
                 List<IActivateable> activateables = new List<IActivateable>();
+                Dictionary<int, int> doorNetwork = new Dictionary<int, int>();
                 if (string.IsNullOrWhiteSpace(mapFile))
                     throw new ArgumentException("Invalid map name");
 
@@ -71,10 +73,24 @@ namespace KeenReloaded2.Utilities
                 var dataLines = mapDataLines.Skip(1);
                 foreach (string line in dataLines)
                 {
-                    GameObjectMapping mapping = BuildMapDataObjectFromRawString(line, grid, activateables);
+                    GameObjectMapping mapping = BuildMapDataObjectFromRawString(line, grid, activateables, doorNetwork);
                     mapData.Add(mapping);
                 }
                 mapMakerData.MapData = mapData;
+
+                var doors = mapData.Select(m => m.GameObject).OfType<Door>();
+                if (doors.Any())
+                {
+                    foreach (var door in doors)
+                    {
+                        if (doorNetwork.TryGetValue(door.Id, out int destinationId))
+                        {
+                            Door desinationDoor = doors.FirstOrDefault(d => d.Id == destinationId);
+                            door.DestinationDoor = desinationDoor;
+                        }
+                    }
+                }
+
                 return mapMakerData;
             }
             catch (Exception ex)
@@ -104,7 +120,7 @@ namespace KeenReloaded2.Utilities
             return size;
         }
 
-        private static GameObjectMapping BuildMapDataObjectFromRawString(string data, SpaceHashGrid grid, List<IActivateable> activateables)
+        private static GameObjectMapping BuildMapDataObjectFromRawString(string data, SpaceHashGrid grid, List<IActivateable> activateables, Dictionary<int, int> doorNetwork)
         {
             string[] properties = data.Split(MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR[0]);
             if (properties.Length < 5)
@@ -194,6 +210,18 @@ namespace KeenReloaded2.Utilities
             if (mapping.GameObject is IActivateable)
             {
                 activateables.Add((IActivateable)mapping.GameObject);
+            }
+
+            if (mapping.GameObject is Door)
+            {
+                var door = (Door)mapping.GameObject;
+                var destinationDoorIdStr = properties.LastOrDefault();
+                if (!string.IsNullOrEmpty(destinationDoorIdStr))
+                {
+                    int destinationDoorId = Convert.ToInt32(destinationDoorIdStr);
+                    if (!doorNetwork.ContainsKey(door.Id))
+                        doorNetwork.Add(door.Id, destinationDoorId);
+                }
             }
 
             return mapping;

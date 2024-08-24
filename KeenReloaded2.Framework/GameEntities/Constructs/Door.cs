@@ -1,4 +1,5 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using System;
@@ -19,11 +20,14 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         protected readonly int _zIndex;
         protected Door _destinationDoor;
         protected Image _sprite;
+        protected Rectangle _area;
 
-        public Door(SpaceHashGrid grid, Rectangle hitbox, DoorType type, int doorId, Door destinationDoor = null)
-            : base(grid, hitbox)
+        public Door(Rectangle area, SpaceHashGrid grid, DoorType type, int doorId, Door destinationDoor = null)
+            : base(grid, area)
         {
             this.Id = doorId;
+            _area = area;
+            this.HitBox = _area;
             Initialize(type, destinationDoor);
         }
 
@@ -35,24 +39,31 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             {
                 case DoorType.KEEN4_BLUE:
                     _sprite = Properties.Resources.keen4_blue_door;
+                    _sprite.Tag = nameof(Properties.Resources.keen4_blue_door);
                     break;
                 case DoorType.KEEN4_GRAY:
                     _sprite = Properties.Resources.keen4_gray_door;
+                    _sprite.Tag = nameof(Properties.Resources.keen4_gray_door);
                     break;
                 case DoorType.KEEN4_ORACLE:
                     _sprite = Properties.Resources.keen4_oracle_door1;
+                    _sprite.Tag = nameof(Properties.Resources.keen4_oracle_door1);
                     break;
                 case DoorType.KEEN5_REGULAR:
                     _sprite = Properties.Resources.keen5_door;
+                    _sprite.Tag = nameof(Properties.Resources.keen5_door);
                     break;
                 case DoorType.KEEN5_EXIT:
                     _sprite = Properties.Resources.keen5_exit_door_closed;
+                    _sprite.Tag = nameof(Properties.Resources.keen5_exit_door_closed);
                     break;
                 case DoorType.KEEN6:
                     _sprite = Properties.Resources.keen6_door;
+                    _sprite.Tag = nameof(Properties.Resources.keen6_door);
                     break;
                 case DoorType.CHUTE:
                     _sprite = Properties.Resources.chute;
+                    _sprite.Tag = nameof(Properties.Resources.chute);
                     _destinationDoor = null;
                     break;
 
@@ -61,7 +72,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
 
 
-        public long Id { get; private set; }
+        public int Id { get; private set; }
 
         public Door DestinationDoor
         {
@@ -85,8 +96,9 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
         public override string ToString()
         {
-            var destinationDoorString = this.DestinationDoor != null ? this.DestinationDoor.Id.ToString() : string.Empty;
-            return $"{this.GetType().Name}|{this.Location.X}|{this.Location.Y}|{this._doorType.ToString()}|{this.Id.ToString()}|{destinationDoorString}";
+            var separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
+            var destinationDoorString = this.DestinationDoor?.Id.ToString() ?? string.Empty;
+            return $"{_sprite.Tag?.ToString()}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{this._doorType.ToString()}{separator}{this.Id.ToString()}{separator}{destinationDoorString}";
         }
     }
 }

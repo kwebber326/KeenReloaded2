@@ -18,8 +18,8 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         private Image[] _doorOpenSprites;
         private bool _isOpening;
         private bool _isOpened;
-        public ExitDoor(SpaceHashGrid grid, Rectangle hitbox)
-            : base(grid, hitbox, DoorType.KEEN5_EXIT, -1, null)
+        public ExitDoor(SpaceHashGrid grid, Rectangle area)
+            : base(area, grid, DoorType.KEEN5_EXIT, -1, null)
         {
             _doorOpenSprites = SpriteSheet.SpriteSheet.Keen5ExitDoorOpenImages;
         }

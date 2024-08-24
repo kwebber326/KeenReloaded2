@@ -177,6 +177,12 @@
     <Compile Include="UserControls\MapMakerUserControls\EditActivatorForm.Designer.cs">
       <DependentUpon>EditActivatorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MapMakerUserControls\EditDestinationDoorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\MapMakerUserControls\EditDestinationDoorForm.Designer.cs">
+      <DependentUpon>EditDestinationDoorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MapMakerUserControls\MapMakerObjectPropertyControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -264,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MapMakerUserControls\EditActivatorForm.resx">
       <DependentUpon>EditActivatorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MapMakerUserControls\EditDestinationDoorForm.resx">
+      <DependentUpon>EditDestinationDoorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MapMakerUserControls\MapMakerObjectPropertyControl.resx">
       <DependentUpon>MapMakerObjectPropertyControl.cs</DependentUpon>

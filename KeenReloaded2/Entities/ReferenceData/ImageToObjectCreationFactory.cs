@@ -1644,7 +1644,7 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
-            #region shield
+            #region Shield
             string shieldDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_SHIELD, "keen5", Biomes.BIOME_KEEN5_BLACK);
             string shieldFile = Directory.GetFiles(shieldDirectory).FirstOrDefault(f => f.Contains("Shield"));
 
@@ -1695,6 +1695,63 @@ namespace KeenReloaded2.Entities.ReferenceData
             MapMakerObject shieldObj = new MapMakerObject(typeof(Shield), shieldFile, false, shieldProperties);
             backgroundReferenceData.Add(shieldImageName, shieldObj);
 
+
+            #endregion
+
+            #region Keen 4 Constructs
+            string keen4ConstructDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_CONSTRUCTS, "keen4", Biomes.BIOME_KEEN4_CAVE);
+            string[] keen4ContructFiles = Directory.GetFiles(keen4ConstructDirectory);
+
+            var doorFiles = keen4ContructFiles.Where(f => f.Contains("door"));
+            foreach (var file in doorFiles)
+            {
+                string doorImageName = FileIOUtility.ExtractFileNameFromPath(file);
+                Image doorImg = Image.FromFile(file);
+
+                MapMakerObjectProperty[] doorProperties = new MapMakerObjectProperty[]
+                {
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                          DisplayName = "Area: ",
+                          DataType = typeof(Rectangle),
+                          Value = new Rectangle(0, 0, doorImg.Width, doorImg.Height),
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                           PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                           DataType = typeof(SpaceHashGrid),
+                           Value = null,
+                           Hidden = true,
+                           IsIgnoredInMapData = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                            PropertyName = "doorType",
+                            DataType = typeof(DoorType),
+                            Value = InferDoorTypeFromImage(doorImageName),
+                            PossibleValues = Enum.GetNames(typeof(DoorType)),
+                            IsSpriteProperty = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "doorId",
+                          DataType = typeof(int),
+                          Value = 1,
+                          DisplayName ="Id: "
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "destinationDoor",
+                          DisplayName = "Select Door: ",
+                          DataType = typeof(Door),
+                          Value = null,
+                          IsIgnoredInMapData = true
+                      },
+                };
+                MapMakerObject doorObj = new MapMakerObject(typeof(Door), file, false, doorProperties);
+                backgroundReferenceData.Add(doorImageName, doorObj);
+            }
 
             #endregion
 
@@ -1915,6 +1972,29 @@ namespace KeenReloaded2.Entities.ReferenceData
             }
 
             return string.Empty;
+        }
+
+        private static DoorType InferDoorTypeFromImage(string imgName)
+        {
+            switch (imgName)
+            {
+                case nameof(Properties.Resources.keen4_blue_door):
+                    return DoorType.KEEN4_BLUE;
+                case nameof(Properties.Resources.keen4_gray_door):
+                    return DoorType.KEEN4_GRAY;
+                case nameof(Properties.Resources.keen4_oracle_door1):
+                    return DoorType.KEEN4_ORACLE;
+                case nameof(Properties.Resources.keen5_door):
+                    return DoorType.KEEN5_REGULAR;
+                case nameof(Properties.Resources.keen5_exit_door_closed):
+                    return DoorType.KEEN5_EXIT;
+                case nameof(Properties.Resources.keen6_door):
+                    return DoorType.KEEN6;
+                case nameof(Properties.Resources.chute):
+                    return DoorType.CHUTE;
+            }
+
+            return DoorType.KEEN4_BLUE;
         }
 
         private static GemColor InferGemColorFromImageName(string imageName)
