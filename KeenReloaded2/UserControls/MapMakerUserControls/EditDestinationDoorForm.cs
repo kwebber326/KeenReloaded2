@@ -1,4 +1,7 @@
-﻿using KeenReloaded2.Framework.GameEntities.Constructs;
+﻿using KeenReloaded2.Constants;
+using KeenReloaded2.ControlEventArgs.EventStoreData;
+using KeenReloaded2.Framework.GameEntities.Constructs;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +18,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
     {
         List<Door> _doors = new List<Door>();
         Door _doorInQuestion;
+
         public EditDestinationDoorForm(List<Door> doors, Door doorInQuestion)
         {
             InitializeComponent();
@@ -26,6 +30,13 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         private void BtnDone_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+            DoorSelectionChangedEventArgs selectionCompleteArgs = new DoorSelectionChangedEventArgs()
+            {
+                NewDoor = this.SelectedDoor
+            };
+            EventStore<DoorSelectionChangedEventArgs>.Publish(
+                MapMakerConstants.EventStoreEventNames.EVENT_DOOR_SELECTION_COMPLETE,
+                selectionCompleteArgs);
             this.Close();
         }
 
@@ -35,11 +46,33 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             {
                 lstDoors.Items.Add(door.Id);
             }
+            if (_doorInQuestion?.DestinationDoorId != null)
+            {
+                int destinationId = _doorInQuestion.DestinationDoorId.Value;
+                int? selectedItem = null;
+                foreach (var item in lstDoors.Items)
+                {
+                    int? val = (int?)item;
+                    if (val == destinationId)
+                    {
+                        selectedItem = val;
+                    }
+                }
+                if (selectedItem != null)
+                {
+                    lstDoors.SelectedItem = selectedItem;
+                }
+            }
         }
 
         private void LstDoors_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            DoorSelectionChangedEventArgs doorSelectionArgs = new DoorSelectionChangedEventArgs()
+            {
+                NewDoor = this.SelectedDoor
+            };
+            EventStore<DoorSelectionChangedEventArgs>.Publish(
+                MapMakerConstants.EventStoreEventNames.EVENT_DOOR_SELECTION_CHANGED, doorSelectionArgs);
         }
 
         public Door SelectedDoor
@@ -53,6 +86,11 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                 Door door = _doors.FirstOrDefault(d => d.Id == selectedDoorId);
                 return door;
             }
+        }
+
+        private void BtnClear_Click(object sender, EventArgs e)
+        {
+            lstDoors.SelectedIndex = -1;
         }
     }
 }

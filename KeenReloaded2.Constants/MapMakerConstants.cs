@@ -44,6 +44,8 @@ namespace KeenReloaded2.Constants
         {
             public const string EVENT_ACTIVATOR_SELECTION_CHANGED = "activatorSelectionChanged";
             public const string EVENT_ACTIVATOR_SELECTION_COMPLETE = "activatorSelectionComplete";
+            public const string EVENT_DOOR_SELECTION_CHANGED = "doorSelectionChanged";
+            public const string EVENT_DOOR_SELECTION_COMPLETE = "doorSelectionComplete";
         }
     }
 }

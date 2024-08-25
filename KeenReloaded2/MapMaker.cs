@@ -1,5 +1,6 @@
 ﻿using KeenReloaded.Framework;
 using KeenReloaded2.Constants;
+using KeenReloaded2.ControlEventArgs;
 using KeenReloaded2.ControlEventArgs.EventStoreData;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Entities.ReferenceData;
@@ -58,6 +59,8 @@ namespace KeenReloaded2
 
             EventStore<ActivatorSelectionChangedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ACTIVATOR_SELECTION_CHANGED, ActivatorSelection_Changed);
             EventStore<ActivatorSelectionCompletedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ACTIVATOR_SELECTION_COMPLETE, ActivatorSelection_Complete);
+            EventStore<DoorSelectionChangedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_DOOR_SELECTION_CHANGED, DoorSelection_Changed);
+            EventStore<DoorSelectionChangedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_DOOR_SELECTION_COMPLETE, DoorSelection_Complete);
         }
 
         private void InitializeGameModeList()
@@ -317,6 +320,15 @@ namespace KeenReloaded2
             gameObjectMapping.MouseMove -= PnlMapCanvas_MouseMove;
         }
 
+        private static void ClearDoorSelection(IEnumerable<GameObjectMapping> doors)
+        {
+            foreach (var door in doors)
+            {
+                door.BackColor = Color.Transparent;
+                door.BorderStyle = BorderStyle.None;
+            }
+        }
+
         #endregion
 
         #region event handlers
@@ -352,6 +364,28 @@ namespace KeenReloaded2
         private void ActivatorSelection_Complete(object sender, ControlEventArgs.ControlEventArgs<ActivatorSelectionCompletedEventArgs> e)
         {
             HighlightActivateables(e.Data.Activateables, Color.Transparent);
+        }
+
+        private void DoorSelection_Changed(object sender, ControlEventArgs.ControlEventArgs<DoorSelectionChangedEventArgs> e)
+        {
+            var newDoor = e?.Data?.NewDoor;
+            var doors = _mapMakerObjects.Where(m => m.GameObject is Door);
+            ClearDoorSelection(doors);
+            if (newDoor != null)
+            {
+                var matchingDoor = doors.FirstOrDefault(d => d.GameObject == newDoor);
+                if (matchingDoor != null)
+                {
+                    matchingDoor.BorderStyle = BorderStyle.Fixed3D;
+                    matchingDoor.BackColor = Color.Red;
+                }
+            }
+        }
+
+        private void DoorSelection_Complete(object sender, ControlEventArgs<DoorSelectionChangedEventArgs> e)
+        {
+            var doors = _mapMakerObjects.Where(m => m.GameObject is Door);
+            ClearDoorSelection(doors);
         }
 
         private void MapMakerObjectPropertyListControl1_UpdateObjectClicked(object sender, ControlEventArgs.MapMakerObjectEventArgs e)

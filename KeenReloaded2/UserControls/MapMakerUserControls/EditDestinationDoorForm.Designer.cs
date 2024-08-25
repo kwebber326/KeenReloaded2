@@ -31,6 +31,7 @@
             this.lstDoors = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnDone = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lstDoors
@@ -55,19 +56,30 @@
             // 
             // btnDone
             // 
-            this.btnDone.Location = new System.Drawing.Point(187, 321);
+            this.btnDone.Location = new System.Drawing.Point(142, 321);
             this.btnDone.Name = "btnDone";
-            this.btnDone.Size = new System.Drawing.Size(75, 48);
+            this.btnDone.Size = new System.Drawing.Size(120, 48);
             this.btnDone.TabIndex = 2;
             this.btnDone.Text = "Done";
             this.btnDone.UseVisualStyleBackColor = true;
             this.btnDone.Click += new System.EventHandler(this.BtnDone_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(12, 321);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(124, 46);
+            this.btnClear.TabIndex = 3;
+            this.btnClear.Text = "Clear Selection";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.BtnClear_Click);
             // 
             // EditDestinationDoorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(273, 379);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lstDoors);
@@ -86,5 +98,6 @@
         private System.Windows.Forms.ListBox lstDoors;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDone;
+        private System.Windows.Forms.Button btnClear;
     }
 }
