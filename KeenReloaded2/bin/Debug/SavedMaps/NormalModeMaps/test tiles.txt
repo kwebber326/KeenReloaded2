@@ -7,3 +7,4 @@ keen5_wall_black_edge_left|179|350|64|64|10
 keen5_wall_black_middle|243|350|64|64|10
 keen5_wall_black_edge_right|299|350|52|64|10
 keen5_single_platform_blue|623|132|32|36|10
+keen_stand_right|216|162|26|64|RIGHT

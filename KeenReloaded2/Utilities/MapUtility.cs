@@ -269,12 +269,24 @@ namespace KeenReloaded2.Utilities
                             break;
                         }
                     }
-
-                    if (!mapData.MapData.Select(d => d.GameObject).Any(d => d is CommanderKeen))
+                    var gameObjects = mapData.MapData.Select(g => g.GameObject);
+                    if (!gameObjects.Any(d => d is CommanderKeen))
                     {
                         string errorMessage = "Player object is not present";
                         errorMessages.Add(errorMessage);
                         return false;
+                    }
+
+                    var doors = gameObjects.OfType<Door>().Where(d => !(d is ExitDoor));
+                    if (doors.Any())
+                    {
+                        bool duplicateDoors = doors.GroupBy(d => d.Id).Any(d => d.Count() > 1);
+                        if (duplicateDoors)
+                        {
+                            string doorDupeMessage = "Some doors have duplicate numbers. Make sure all door numbers are unique.";
+                            errorMessages.Add(doorDupeMessage);
+                            areAllObjectsValid = false;
+                        }
                     }
 
                     if (!areAllObjectsValid)
