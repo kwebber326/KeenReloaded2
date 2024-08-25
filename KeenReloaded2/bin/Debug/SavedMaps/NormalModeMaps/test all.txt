@@ -97,7 +97,8 @@ key_gate1|868|593|26|122|10|3f16a80d-b355-4179-92c9-e1a11bc65bbb
 key_gate1|743|787|26|80|10|76eab43d-7452-4548-8a48-d0442d44bc78
 keen4_mine|785|358|46|46|LEFT|300|350|1000|500|15
 keen5_keg_o_vitalin1|365|700|64|50|50|KEEN5_KEG_O_VITALIN
-keen4_blue_door|675|624|60|92|KEEN4_BLUE|1|2
 keen4_gray_door|468|367|60|92|KEEN4_GRAY|2|1
+keen4_oracle_door2|658|209|126|160|KEEN4_ORACLE|3|
+keen4_blue_door|650|624|60|92|KEEN4_BLUE|1|3
 gem_placeholder_red_empty|244|766|26|22|50|RED|[3f16a80d-b355-4179-92c9-e1a11bc65bbb,76eab43d-7452-4548-8a48-d0442d44bc78]
 gem_placeholder_green_empty|300|764|26|22|50|GREEN|[3e83d7a6-041f-4a87-8381-4009e6569848,3f16a80d-b355-4179-92c9-e1a11bc65bbb]

@@ -1983,7 +1983,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                     return DoorType.KEEN4_BLUE;
                 case nameof(Properties.Resources.keen4_gray_door):
                     return DoorType.KEEN4_GRAY;
-                case nameof(Properties.Resources.keen4_oracle_door1):
+                case nameof(Properties.Resources.keen4_oracle_door2):
                     return DoorType.KEEN4_ORACLE;
                 case nameof(Properties.Resources.keen5_door):
                     return DoorType.KEEN5_REGULAR;

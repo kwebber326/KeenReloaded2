@@ -47,7 +47,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                     break;
                 case DoorType.KEEN4_ORACLE:
                     _sprite = Properties.Resources.keen4_oracle_door1;
-                    _sprite.Tag = nameof(Properties.Resources.keen4_oracle_door1);
+                    _sprite.Tag = nameof(Properties.Resources.keen4_oracle_door2);
                     break;
                 case DoorType.KEEN5_REGULAR:
                     _sprite = Properties.Resources.keen5_door;
