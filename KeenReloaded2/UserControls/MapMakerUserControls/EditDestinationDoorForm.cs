@@ -25,6 +25,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             _doors = doors;
             _doorInQuestion = doorInQuestion;
             _doors.Remove(_doorInQuestion);
+            _doors.RemoveAll(d => d is ExitDoor);
         }
 
         private void BtnDone_Click(object sender, EventArgs e)

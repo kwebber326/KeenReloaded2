@@ -21,6 +21,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         protected Door _destinationDoor;
         protected Image _sprite;
         protected Rectangle _area;
+        protected string _imageName;
 
         public Door(Rectangle area, SpaceHashGrid grid, DoorType type, int doorId, int? destinationDoorId)
             : base(grid, area)
@@ -68,6 +69,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                     break;
 
             }
+            _imageName = _sprite?.Tag?.ToString();
         }
 
 
@@ -101,7 +103,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         {
             var separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
             var destinationDoorString = this.DestinationDoor?.Id.ToString() ?? this.DestinationDoorId?.ToString() ?? string.Empty;
-            return $"{_sprite.Tag?.ToString()}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{this._doorType.ToString()}{separator}{this.Id.ToString()}{separator}{destinationDoorString}";
+            return $"{_imageName}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{this._doorType.ToString()}{separator}{this.Id.ToString()}{separator}{destinationDoorString}";
         }
     }
 }

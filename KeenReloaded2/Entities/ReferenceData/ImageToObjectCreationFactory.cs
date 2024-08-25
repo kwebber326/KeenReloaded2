@@ -1698,13 +1698,24 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
-            #region Keen 4 Constructs
+            #region Keen Constructs
             string keen4ConstructDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_CONSTRUCTS, "keen4", Biomes.BIOME_KEEN4_CAVE);
-            string[] keen4ContructFiles = Directory.GetFiles(keen4ConstructDirectory);
+            string[] keen4ConstructFiles = Directory.GetFiles(keen4ConstructDirectory);
 
-            var doorFiles = keen4ContructFiles.Where(f => f.Contains("door"));
+            string keen5ConstructDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_CONSTRUCTS, "keen5", Biomes.BIOME_KEEN5_BLACK);
+            string[] keen5ConstructFiles = Directory.GetFiles(keen5ConstructDirectory);
+
+            string keen6ConstructDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_CONSTRUCTS, "keen6", Biomes.BIOME_KEEN6_DOME);
+            string[] keen6ConstructFiles = Directory.GetFiles(keen6ConstructDirectory);
+
+            List<string> allFiles = new List<string>(keen4ConstructFiles);
+            allFiles.AddRange(keen5ConstructFiles);
+            allFiles.AddRange(keen6ConstructFiles);
+            var doorFiles = allFiles.Where(f => f.Contains("door") || f.Contains("chute"));
             foreach (var file in doorFiles)
             {
+                bool isExitDoor = file.Contains("exit");
+                bool isChute = file.Contains("chute");
                 string doorImageName = FileIOUtility.ExtractFileNameFromPath(file);
                 Image doorImg = Image.FromFile(file);
 
@@ -1750,8 +1761,38 @@ namespace KeenReloaded2.Entities.ReferenceData
                           IsDoorSelectionProperty = true
                       },
                 };
-                MapMakerObject doorObj = new MapMakerObject(typeof(Door), file, false, doorProperties);
-                backgroundReferenceData.Add(doorImageName, doorObj);
+                if (isExitDoor)
+                {
+                    var altDoorProperties = new MapMakerObjectProperty[]
+                    {
+                        new MapMakerObjectProperty()
+                      {
+                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                          DisplayName = "Area: ",
+                          DataType = typeof(Rectangle),
+                          Value = new Rectangle(0, 0, doorImg.Width, doorImg.Height),
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                           PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                           DataType = typeof(SpaceHashGrid),
+                           Value = null,
+                           Hidden = true,
+                           IsIgnoredInMapData = true
+                      },
+                    };
+                    MapMakerObject doorObj = new MapMakerObject(typeof(ExitDoor), file, false, altDoorProperties);
+                    backgroundReferenceData.Add(doorImageName, doorObj);
+                }
+                else
+                {
+                    if (isChute)
+                        doorProperties.LastOrDefault().Hidden = true;
+
+                    MapMakerObject doorObj = new MapMakerObject(typeof(Door), file, false, doorProperties);
+                    if (!backgroundReferenceData.ContainsKey(doorImageName))
+                        backgroundReferenceData.Add(doorImageName, doorObj);
+                }
             }
 
             #endregion

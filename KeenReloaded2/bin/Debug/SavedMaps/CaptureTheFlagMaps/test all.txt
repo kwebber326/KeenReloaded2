@@ -100,5 +100,7 @@ keen5_keg_o_vitalin1|365|700|64|50|50|KEEN5_KEG_O_VITALIN
 keen4_gray_door|468|367|60|92|KEEN4_GRAY|2|1
 keen4_blue_door|650|624|60|92|KEEN4_BLUE|1|3
 keen4_oracle_door2|920|209|126|160|KEEN4_ORACLE|3|
+keen4_gray_door|931|624|60|92|KEEN4_GRAY|4|2
+keen5_exit_door_closed|90|427|124|114
 gem_placeholder_red_empty|244|766|26|22|50|RED|[3f16a80d-b355-4179-92c9-e1a11bc65bbb,76eab43d-7452-4548-8a48-d0442d44bc78]
 gem_placeholder_green_empty|300|764|26|22|50|GREEN|[3e83d7a6-041f-4a87-8381-4009e6569848,3f16a80d-b355-4179-92c9-e1a11bc65bbb]

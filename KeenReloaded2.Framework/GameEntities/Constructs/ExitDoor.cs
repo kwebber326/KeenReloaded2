@@ -1,4 +1,5 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.Interfaces;
 using System;
@@ -18,7 +19,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         private Image[] _doorOpenSprites;
         private bool _isOpening;
         private bool _isOpened;
-        public ExitDoor(SpaceHashGrid grid, Rectangle area)
+        public ExitDoor(Rectangle area, SpaceHashGrid grid)
             : base(area, grid, DoorType.KEEN5_EXIT, -1, null)
         {
             _doorOpenSprites = SpriteSheet.SpriteSheet.Keen5ExitDoorOpenImages;
@@ -65,7 +66,8 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
         public override string ToString()
         {
-            return $"{this.GetType().Name}|{this.Location.X}|{this.Location.Y}";
+            string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
+            return $"{_imageName}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}";
         }
     }
 }
