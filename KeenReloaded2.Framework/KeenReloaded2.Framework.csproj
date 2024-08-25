@@ -55,6 +55,7 @@
     <Compile Include="Enums\PlatformType.cs" />
     <Compile Include="Enums\PointItemType.cs" />
     <Compile Include="Enums\PoleType.cs" />
+    <Compile Include="Enums\SwitchType.cs" />
     <Compile Include="GameEntities\AltCharacters\BabyLouie.cs" />
     <Compile Include="GameEntities\AltCharacters\CouncilPage.cs" />
     <Compile Include="GameEntities\AltCharacters\Locoyorp.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="GameEntities\Constructs\Keen6Switch.cs" />
     <Compile Include="GameEntities\Constructs\KeyGate.cs" />
     <Compile Include="GameEntities\Constructs\Pole.cs" />
+    <Compile Include="GameEntities\Constructs\ToggleSwitch.cs" />
     <Compile Include="GameEntities\DestructibleObject.cs" />
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
     <Compile Include="GameEntities\Hazards\EnemySpawner.cs" />

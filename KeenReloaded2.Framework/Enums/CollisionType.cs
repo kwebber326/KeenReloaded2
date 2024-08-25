@@ -30,6 +30,7 @@ namespace KeenReloaded2.Framework.Enums
         ALERTABLE,
         MAP_EDGE_TILE,
         CTF_DESTINATION,
-        CONVEYOR_BELT
+        CONVEYOR_BELT,
+        TOGGLE_SWITCH
     }
 }

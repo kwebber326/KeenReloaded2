@@ -1738,6 +1738,13 @@ namespace KeenReloaded2.Entities.ReferenceData
                       },
                       new MapMakerObjectProperty()
                       {
+                            PropertyName = "zIndex",
+                            DataType = typeof(int),
+                            Value = 5,
+                            DisplayName ="Z Index: "
+                      },
+                      new MapMakerObjectProperty()
+                      {
                             PropertyName = "doorType",
                             DataType = typeof(DoorType),
                             Value = InferDoorTypeFromImage(doorImageName),
@@ -1779,6 +1786,13 @@ namespace KeenReloaded2.Entities.ReferenceData
                            Value = null,
                            Hidden = true,
                            IsIgnoredInMapData = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                            PropertyName = "zIndex",
+                            DataType = typeof(int),
+                            Value = 5,
+                            DisplayName ="Z Index: "
                       },
                     };
                     MapMakerObject doorObj = new MapMakerObject(typeof(ExitDoor), file, false, altDoorProperties);
