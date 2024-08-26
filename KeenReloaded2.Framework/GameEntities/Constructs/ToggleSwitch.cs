@@ -22,13 +22,14 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         private const int TOGGLE_DELAY_MILLISECONDS = 500;
         private readonly int _zIndex;
 
-        public ToggleSwitch(Rectangle area, SpaceHashGrid grid, SwitchType type, List<IActivateable> toggleObjects, bool isActive)
+        public ToggleSwitch(Rectangle area, SpaceHashGrid grid, int zIndex, SwitchType type, IActivateable[] toggleObjects, bool isActive)
             : base(grid, area)
         {
             _isActive = isActive;
-            _toggleObjects = toggleObjects;
+            _toggleObjects = toggleObjects.ToList();
             _type = type;
             this.HitBox = area;
+            _zIndex = zIndex;
             Initialize();
         }
 
@@ -143,7 +144,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             string arrayEnd = MapMakerConstants.MAP_MAKER_ARRAY_END;
             string activatorGuids = string.Join(arraySeparator, this.ToggleObjects.Select(t => t.ActivationID));
             string activatorStr = arrayStart + activatorGuids + arrayEnd;
-            return $"{_sprite.Tag}{separator}{area.X}{separator}{area.Y}{separator}{area.Width}{separator}{area.Height}{separator}{_type}{separator}{activatorStr}{separator}{_isActive}";
+            return $"{_sprite.Tag}{separator}{area.X}{separator}{area.Y}{separator}{area.Width}{separator}{area.Height}{separator}{_zIndex}{separator}{_type}{separator}{activatorStr}{separator}{_isActive}";
         }
     }
 }

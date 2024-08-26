@@ -1,4 +1,6 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded.Framework.Utilities;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEventArgs;
@@ -18,8 +20,6 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         private List<IActivateable> _toggleObjects;
         private Image _sprite;
         private bool _isActive;
-        private List<Image> _poleSprites;
-        private readonly int _addedLengths;
         private readonly int _zIndex;
         private const int SWITCH_X_OFFSET = 10;
         private const int SWITCH_Y_OFFSET_OFF = 10;
@@ -30,11 +30,14 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         private const int POLE_X_OFFSET = 30;
         private const int POLE_HEIGHT = 20;
 
-        public Keen6Switch(SpaceHashGrid grid, Rectangle hitbox, List<IActivateable> toggleObjects, bool isActive, int addedLengths = 0) : base(grid, hitbox)
+        private Rectangle _switchArea;
+
+        public Keen6Switch(Rectangle area, SpaceHashGrid grid, int zIndex, IActivateable[] toggleObjects, bool isActive) : base(grid, area)
         {
-            _toggleObjects = toggleObjects ?? new List<IActivateable>();
+            _toggleObjects = toggleObjects.ToList() ?? new List<IActivateable>();
             _isActive = isActive;
-            _addedLengths = addedLengths;
+            _zIndex = zIndex;
+            _switchArea = area;
             Initialize();
         }
 
@@ -43,18 +46,6 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             this.UpdateSprite();
 
             UpdateHitbox();
-
-            _poleSprites = new List<Image>();
-
-            int currentY = this.HitBox.Bottom;
-
-            for (int i = 0; i < _addedLengths; i++)
-            {
-                Image img = Properties.Resources.keen6_Switch_pole;
-                _poleSprites.Add(img);
-
-                currentY += POLE_HEIGHT;
-            }
         }
 
         private void UpdateHitbox()
@@ -62,7 +53,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             int xOffset = SWITCH_X_OFFSET;
             int yOffset = _isActive ? SWITCH_Y_OFFSET_ON : SWITCH_Y_OFFSET_OFF;
 
-            this.HitBox = new Rectangle(this.Location.X + xOffset, this.Location.Y + yOffset, SWITCH_WIDTH, SWITCH_HEIGHT);
+            this.HitBox = new Rectangle(_switchArea.X + xOffset, _switchArea.Y + yOffset, SWITCH_WIDTH, SWITCH_HEIGHT);
         }
 
         public override Rectangle HitBox
@@ -77,14 +68,6 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                     this.UpdateCollisionNodes(Direction.DOWN_LEFT);
                     this.UpdateCollisionNodes(Direction.UP_RIGHT);
                 }
-            }
-        }
-
-        public List<Image> PoleSprites
-        {
-            get
-            {
-                return _poleSprites;
             }
         }
 
@@ -110,7 +93,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
         public Image Image => _sprite;
 
-        public Point Location => this.HitBox.Location;
+        public Point Location => _switchArea.Location;
 
         public event EventHandler<ToggleEventArgs> Toggled;
 
@@ -147,7 +130,8 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
         private void UpdateSprite()
         {
-            _sprite = _isActive ? Properties.Resources.keen6_Switch_On : Properties.Resources.keen6_Switch_Off;
+            Image switchImg = _isActive ? Properties.Resources.keen6_Switch_On : Properties.Resources.keen6_Switch_Off;
+            _sprite = switchImg;
         }
 
         protected void HandleCollision(CollisionObject obj)
@@ -163,6 +147,19 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                     this.IsActive = true;
                 }
             }
+        }
+
+        public override string ToString()
+        {
+            string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
+            Rectangle area = _switchArea;
+            string arraySeparator = MapMakerConstants.MAP_MAKER_ELEMENT_SEPARATOR;
+            string arrayStart = MapMakerConstants.MAP_MAKER_ARRAY_START;
+            string arrayEnd = MapMakerConstants.MAP_MAKER_ARRAY_END;
+            string activatorGuids = string.Join(arraySeparator, this.ToggleObjects.Select(t => t.ActivationID));
+            string activatorStr = arrayStart + activatorGuids + arrayEnd;
+            string imageName = IsActive ? nameof(Properties.Resources.keen6_Switch_On) : nameof(Properties.Resources.keen6_Switch_Off);
+            return $"{imageName}{separator}{area.X}{separator}{area.Y}{separator}{area.Width}{separator}{area.Height}{separator}{_zIndex}{separator}{activatorStr}{separator}{_isActive}";
         }
     }
 }

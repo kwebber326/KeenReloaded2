@@ -127,7 +127,7 @@ namespace KeenReloaded.Framework.Utilities
                 if (backgroundImage != null)
                     g.DrawImage(backgroundImage, new Point(0, 0));
 
-                int count = extraImages.Count();
+                int count = extraImages.Length;
                 for (int i = 0; i < count; i++)
                 {
                     if (extraImages[i] != null)

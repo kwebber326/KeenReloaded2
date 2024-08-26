@@ -1711,6 +1711,8 @@ namespace KeenReloaded2.Entities.ReferenceData
             List<string> allFiles = new List<string>(keen4ConstructFiles);
             allFiles.AddRange(keen5ConstructFiles);
             allFiles.AddRange(keen6ConstructFiles);
+
+            #region Doors
             var doorFiles = allFiles.Where(f => f.Contains("door") || f.Contains("chute"));
             foreach (var file in doorFiles)
             {
@@ -1811,6 +1813,172 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region Toggle Switches
+
+            var switchFiles = allFiles.Where(f => f.Contains("switch"));
+
+            foreach (var file in switchFiles)
+            {
+                string switchImgName = FileIOUtility.ExtractFileNameFromPath(file);
+                Image switchImg = Image.FromFile(file);
+                bool isOn = file.Contains("_on");
+                var switchType = InferSwitchTypeFromFile(file);
+                MapMakerObjectProperty[] switchProperties = new MapMakerObjectProperty[]
+                {
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                          DisplayName = "Area: ",
+                          DataType = typeof(Rectangle),
+                          Value = new Rectangle(0, 0, switchImg.Width, switchImg.Height),
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                           PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                           DataType = typeof(SpaceHashGrid),
+                           Value = null,
+                           Hidden = true,
+                           IsIgnoredInMapData = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                            PropertyName = "zIndex",
+                            DataType = typeof(int),
+                            Value = 5,
+                            DisplayName ="Z Index: "
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "switchType",
+                          DataType = typeof(SwitchType),
+                          Value = switchType,
+                          Readonly = true,
+                          PossibleValues = Enum.GetNames(typeof(SwitchType)),
+                          DisplayName = "Switch Type: "
+                      },
+                      new MapMakerObjectProperty()
+                        {
+                            PropertyName = "toggleObjects",
+                            DataType = typeof(IActivateable[]),
+                            Value = new IActivateable[] { },
+                            DisplayName = "Activation Objects: "
+                        },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "isActive",
+                          DataType = typeof(bool),
+                          Hidden = true,
+                          Value = isOn
+                      }
+                };
+
+                Type t = typeof(ToggleSwitch);
+                MapMakerObject switchObj = new MapMakerObject(t, file, false, switchProperties);
+                if (!backgroundReferenceData.ContainsKey(switchImgName))
+                    backgroundReferenceData.Add(switchImgName, switchObj);
+            }
+
+            var keen6SwitchFiles = allFiles.Where(f => f.Contains("keen6_Switch") && !f.Contains("pole"));
+
+            foreach (var file in keen6SwitchFiles)
+            {
+                string switchImgName = FileIOUtility.ExtractFileNameFromPath(file);
+                Image switchImg = Image.FromFile(file);
+                bool isOn = file.Contains("_On");
+                var switchType = InferSwitchTypeFromFile(file);
+                MapMakerObjectProperty[] switchProperties = new MapMakerObjectProperty[]
+                {
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                          DisplayName = "Area: ",
+                          DataType = typeof(Rectangle),
+                          Value = new Rectangle(0, 0, switchImg.Width, switchImg.Height),
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                           PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                           DataType = typeof(SpaceHashGrid),
+                           Value = null,
+                           Hidden = true,
+                           IsIgnoredInMapData = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                            PropertyName = "zIndex",
+                            DataType = typeof(int),
+                            Value = 5,
+                            DisplayName ="Z Index: "
+                      },
+                      new MapMakerObjectProperty()
+                        {
+                            PropertyName = "toggleObjects",
+                            DataType = typeof(IActivateable[]),
+                            Value = new IActivateable[] { },
+                            DisplayName = "Activation Objects: "
+                        },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "isActive",
+                          DataType = typeof(bool),
+                          Hidden = true,
+                          Value = isOn
+                      },
+                };
+
+                Type t = typeof(Keen6Switch);
+                MapMakerObject switchObj = new MapMakerObject(t, file, false, switchProperties);
+                if (!backgroundReferenceData.ContainsKey(switchImgName))
+                    backgroundReferenceData.Add(switchImgName, switchObj);
+            }
+
+            string keen6SwitchPoleFile = allFiles.FirstOrDefault(f => f.Contains("keen6_Switch_pole"));
+
+            var switchPoleImg = Properties.Resources.keen6_Switch_pole;
+            var switchPoleKey = nameof(Properties.Resources.keen6_Switch_pole);
+
+            MapMakerObjectProperty[] switchPoleProperties = new MapMakerObjectProperty[]
+            {
+                  new MapMakerObjectProperty()
+                         {
+                             PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                             DisplayName = "Area: ",
+                             DataType = typeof(Rectangle),
+                             Value = new Rectangle(0, 0, switchPoleImg.Width, switchPoleImg.Height)
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "imagePath",
+                             DisplayName = "Image: ",
+                             DataType = typeof(string),
+                             Value = switchPoleKey + ".png",
+                             IsSpriteProperty = true,
+                             Readonly = true,
+                             Hidden = true
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "stretchImage",
+                             DisplayName = "Stretch Image: ",
+                             DataType = typeof(bool),
+                             Value = true
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "zIndex",
+                             DisplayName = "Z Index: ",
+                             DataType = typeof(int),
+                             Value = 5
+                         }
+            };
+
+            MapMakerObject switchPoleObj = new MapMakerObject(typeof(Background), keen6SwitchPoleFile, false, switchPoleProperties);
+            backgroundReferenceData.Add(switchPoleKey, switchPoleObj);
+
+            #endregion
+
+            #endregion
+
             return backgroundReferenceData;
         }
 
@@ -1861,6 +2029,24 @@ namespace KeenReloaded2.Entities.ReferenceData
         }
 
         #region helper methods
+
+        private static SwitchType InferSwitchTypeFromFile(string file)
+        {
+            if (file.Contains("keen4"))
+            {
+                if (file.Contains("switch1"))
+                    return SwitchType.KEEN4_1;
+                return SwitchType.KEEN4_2;
+            }
+            else if (file.Contains("keen5"))
+            {
+                if (file.Contains("switch1"))
+                    return SwitchType.KEEN5_1;
+                return SwitchType.KEEN5_2;
+            }
+
+            return SwitchType.KEEN6;
+        }
 
         private static string GetFlagKeyNameFromFile(string filePath)
         {
