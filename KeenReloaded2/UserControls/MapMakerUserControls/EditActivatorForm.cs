@@ -32,6 +32,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             _current = current;
             _remaining = total.Except(current, new ActivatorEqualityComparer()).ToList();
             _total = total.ToDictionary(a => a.ActivationID);
+            _current = _current.Where(c => _total.ContainsKey(c.ActivationID)).ToList();
         }
 
         public List<IActivateable> ChosenActivateables

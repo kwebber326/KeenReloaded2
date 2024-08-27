@@ -119,6 +119,7 @@ namespace KeenReloaded2
             cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_ENEMIES);
             cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_CTF_ITEMS);
             cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_SHIELD);
+            cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_INTERACTIVE_TILES);
 
             cmbCategory.SelectedIndex = 0;
         }

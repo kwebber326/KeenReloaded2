@@ -21,6 +21,7 @@ using KeenReloaded2.Framework.ReferenceDataClasses;
 using KeenReloaded2.Utilities;
 using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Framework.GameEntities.Tiles.Platforms;
 
 namespace KeenReloaded2.Entities.ReferenceData
 {
@@ -1979,6 +1980,115 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region Interactive Tiles
+
+            string keen4InteractiveTileDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_INTERACTIVE_TILES, "keen4", Biomes.BIOME_KEEN4_CAVE);
+            string[] keen4InteractiveTileFiles = Directory.GetFiles(keen4InteractiveTileDirectory);
+
+            string keen5InteractiveTileDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_INTERACTIVE_TILES, "keen5", Biomes.BIOME_KEEN5_BLACK);
+            string[] keen5InteractiveTileFiles = Directory.GetFiles(keen5InteractiveTileDirectory);
+
+            string keen6InteractiveTileDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_INTERACTIVE_TILES, "keen6", Biomes.BIOME_KEEN6_DOME);
+            string[] keen6InteractiveTileFiles = Directory.GetFiles(keen6InteractiveTileDirectory);
+
+            List<string> allInteractiveTileFiles = new List<string>(keen4InteractiveTileFiles);
+            allFiles.AddRange(keen5InteractiveTileFiles);
+            allFiles.AddRange(keen6InteractiveTileFiles);
+
+            foreach (var file in allInteractiveTileFiles)
+            {
+                bool isLeftEdgeTile = file.Contains("left_edge");
+                bool isRightEdgeTile = file.Contains("right_edge");
+                bool isMiddleTile = !isLeftEdgeTile && !isRightEdgeTile;
+                bool isActive = file.Contains("filled") || isMiddleTile;
+                string interactiveTileKey = FileIOUtility.ExtractFileNameFromPath(file);
+                Image interactiveTileImg = Image.FromFile(file);
+                string biome = InferInteractiveTileBiomeFromImageFile(file);
+
+                Type t = null;
+                MapMakerObjectProperty[] interactiveTileProperties = new MapMakerObjectProperty[]
+                  {
+                        new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, interactiveTileImg.Width, interactiveTileImg.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.HITBOX_PROPERTY_NAME,
+                            Hidden = true,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, interactiveTileImg.Width, interactiveTileImg.Height),
+                            IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = "imageFile",
+                            DataType = typeof(string),
+                            Hidden = true,
+                            Value = file,
+                            IsSpriteProperty = true,
+                            IsIgnoredInMapData = true
+                        },
+                        new MapMakerObjectProperty()
+                         {
+                             PropertyName = "zIndex",
+                             DisplayName = "Z Index: ",
+                             DataType = typeof(int),
+                             Value = 10
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                            PropertyName = "biome",
+                            DataType = typeof(string),
+                            Hidden = true,
+                            Value = biome
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                            PropertyName = "isActive",
+                            DataType = typeof(bool),
+                            DisplayName = "Active: ",
+                            Value = isActive
+                         },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.ACTIVATION_ID_PROPERTY_NAME,
+                            DataType = typeof(Guid),
+                            Value = new Guid(),
+                            DisplayName ="Id: ",
+                            Readonly = true
+                        },
+                  };
+
+                if (!isMiddleTile)
+                {
+                    t = isLeftEdgeTile ? typeof(ActivateableLeftEdgeTile) : typeof(ActivateableRightEdgeTile);
+                }
+                else
+                {
+                    t = typeof(ActivateableMiddleTile);
+                }
+
+                if (t != null && !backgroundReferenceData.ContainsKey(interactiveTileKey))
+                {
+                    MapMakerObject interactiveTileObj = new MapMakerObject(t, file, false, interactiveTileProperties);
+                    backgroundReferenceData.Add(interactiveTileKey, interactiveTileObj);
+                }
+            }
+
+            #endregion
+
             return backgroundReferenceData;
         }
 
@@ -2029,6 +2139,30 @@ namespace KeenReloaded2.Entities.ReferenceData
         }
 
         #region helper methods
+
+        private static string InferInteractiveTileBiomeFromImageFile(string file)
+        {
+            if (file.Contains("keen4"))
+            {
+                if (file.Contains("pyramid"))
+                    return Biomes.BIOME_KEEN4_PYRAMID;
+                return Biomes.BIOME_KEEN4_FOREST;
+            }
+            else if (file.Contains("keen5"))
+            {
+                if (file.Contains("red"))
+                    return Biomes.BIOME_KEEN5_RED;
+                if (file.Contains("black"))
+                    return Biomes.BIOME_KEEN5_BLACK;
+                if (file.Contains("green"))
+                    return Biomes.BIOME_KEEN5_GREEN;
+            }
+
+            if (file.Contains("dome"))
+                return Biomes.BIOME_KEEN6_DOME;
+
+            return Biomes.BIOME_KEEN6_FOREST;
+        }
 
         private static SwitchType InferSwitchTypeFromFile(string file)
         {

@@ -135,6 +135,9 @@
     <Compile Include="GameEntities\Tiles\HealthBarTile.cs" />
     <Compile Include="GameEntities\Tiles\InvisibleTile.cs" />
     <Compile Include="GameEntities\Tiles\MapEdgeTile.cs" />
+    <Compile Include="GameEntities\Tiles\Platforms\ActivateableLeftEdgeTile.cs" />
+    <Compile Include="GameEntities\Tiles\Platforms\ActivateableMiddleTile.cs" />
+    <Compile Include="GameEntities\Tiles\Platforms\ActivateableRightEdgeTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\LeftEdgePlatformTile.cs" />
     <Compile Include="GameEntities\Tiles\MaskedTile.cs" />
     <Compile Include="GameEntities\Tiles\Floors\MiddleFloorTile.cs" />
@@ -3543,6 +3546,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_mine_exploded2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_removable_platform_inactive.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

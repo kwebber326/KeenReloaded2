@@ -5843,5 +5843,8 @@
   <ItemGroup>
     <None Include="Resources\keen4_mine_exploded1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_removable_platform_inactive.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
