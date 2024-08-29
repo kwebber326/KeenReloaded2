@@ -241,6 +241,19 @@ namespace KeenReloaded2
                     property.Value = Guid.NewGuid();
                 }
             }
+            else if (obj.ObjectType == typeof(Door))
+            {
+                var property = obj.ConstructorParameters.FirstOrDefault(p => p.PropertyName == GeneralGameConstants.DOOR_ID_PROPERTY_NAME);
+                if (property != null)
+                {
+                    var doors = _mapMakerObjects.Select(d => d.GameObject).OfType<Door>();
+                    if (doors.Any())
+                    {
+                        var maxDoorId = doors.Select(d => d.Id).Max(); 
+                        property.Value = maxDoorId + 1;
+                    }
+                }
+            }
             ISprite placeableObject = (ISprite)obj.Construct();
             GameObjectMapping mapping = new GameObjectMapping()
             {
