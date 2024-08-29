@@ -437,7 +437,8 @@ namespace KeenReloaded2
                     GameObject = placedItem,
                     MapMakerObject = mapMakerObjectCopy
                 };
-                gameObjectMapping.Location = placedItem.Location;
+                gameObjectMapping.Location = new Point(placedItem.Location.X + pnlMapCanvas.AutoScrollPosition.X,
+                    placedItem.Location.Y + pnlMapCanvas.AutoScrollPosition.Y);
                 gameObjectMapping.SizeMode = PictureBoxSizeMode.AutoSize;
                 gameObjectMapping.Image = placedItem.Image;
                 // gameObjectMapping.Click += GameObjectMapping_Click;
@@ -764,7 +765,11 @@ namespace KeenReloaded2
                 pnlMapCanvas.Controls.Add(_cursorItem);
                 _mapMakerObjects.Add(_cursorItem);
                 this.Controls.Remove(_cursorItem);
-                // _cursorItem.Click += GameObjectMapping_Click;
+
+                Rectangle offsetArea = new Rectangle(area.X - pnlMapCanvas.AutoScrollPosition.X,
+                    area.Y - pnlMapCanvas.AutoScrollPosition.Y,
+                    area.Width, area.Height);
+                SetNewAreaForMappingObject(offsetArea, _cursorItem, true);
                 RegisterEventsForGameObjectMapping(_cursorItem);
 
                 ClearSelectedMapItem();
@@ -781,14 +786,17 @@ namespace KeenReloaded2
             }
         }
 
-        private void SetNewAreaForMappingObject(Rectangle area, GameObjectMapping mapping)
+        private void SetNewAreaForMappingObject(Rectangle area, GameObjectMapping mapping, bool ignoreMapCanvasPositioning = false)
         {
             var areaProperty = mapping.MapMakerObject.ConstructorParameters.FirstOrDefault(p => p.PropertyName == GeneralGameConstants.AREA_PROPERTY_NAME);
             if (areaProperty != null && mapping?.MapMakerObject != null)
             {
                 areaProperty.Value = area;
                 mapping.GameObject = (ISprite)mapping.MapMakerObject.Construct();
-                mapping.Location = mapping.GameObject.Location;
+                if (!ignoreMapCanvasPositioning)
+                {
+                    mapping.Location = mapping.GameObject.Location;
+                }
             }
         }
 
