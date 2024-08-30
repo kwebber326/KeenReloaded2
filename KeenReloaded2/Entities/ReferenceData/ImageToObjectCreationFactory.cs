@@ -1743,7 +1743,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                       {
                             PropertyName = "zIndex",
                             DataType = typeof(int),
-                            Value = 5,
+                            Value = 15,
                             DisplayName ="Z Index: "
                       },
                       new MapMakerObjectProperty()
@@ -1794,7 +1794,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                       {
                             PropertyName = "zIndex",
                             DataType = typeof(int),
-                            Value = 5,
+                            Value = 15,
                             DisplayName ="Z Index: "
                       },
                     };
