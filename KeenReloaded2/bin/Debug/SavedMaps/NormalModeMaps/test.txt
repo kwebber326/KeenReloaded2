@@ -11,3 +11,5 @@ keen5_background_security_center_gray|235|128|130|53|keen5_background_security_c
 keen5_arrow_down_off|450|233|26|28|keen5_arrow_down_off.png|False|3
 keen5_background_omegamatic_blue1|0|0|2100|2400|keen5_background_omegamatic_blue1.png|True|-1
 keen5_background_omegamatic_blue1|677|252|64|64|keen5_background_omegamatic_blue1.png|False|5
+keen_stand_right|173|253|26|64|RIGHT
+keen6_dome_platform_single|169|333|32|40|10

@@ -1,5 +1,6 @@
 ﻿using KeenReloaded.Framework;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Players;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
 {
-    public class SetPathPlatform : Platform
+    public class SetPathPlatform : Platform, IActivateable
     {
         private bool _isActive;
         private int _currentSprite;

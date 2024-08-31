@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
 {
-    public abstract class Platform : CollisionObject, IUpdatable, IActivateable, ISprite
+    public abstract class Platform : CollisionObject, IUpdatable, ISprite
     {
         protected PlatformType _type;
         private Image _sprite;
