@@ -31,6 +31,6 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
 
         public Size ImageSize => _sprite.Size;
 
-        public override CollisionType CollisionType => CollisionType.BLOCK | CollisionType.POLE;
+        public override CollisionType CollisionType => CollisionType.POLE_MANHOLE;
     }
 }

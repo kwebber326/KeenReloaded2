@@ -1978,6 +1978,76 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region poles
+
+            var poleFiles = allFiles.Where(f => f.Contains("pole")).ToList();
+
+            foreach (var file in poleFiles)
+            {
+                string poleImageKey = FileIOUtility.ExtractFileNameFromPath(file);
+                Image poleImage = Image.FromFile(file);
+
+                MapMakerObjectProperty[] poleProperties = new MapMakerObjectProperty[]
+                {
+                     new MapMakerObjectProperty()
+                      {
+                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                          DisplayName = "Area: ",
+                          DataType = typeof(Rectangle),
+                          Value = new Rectangle(0, 0, poleImage.Width, poleImage.Height),
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                           PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                           DataType = typeof(SpaceHashGrid),
+                           Value = null,
+                           Hidden = true,
+                           IsIgnoredInMapData = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                            PropertyName = "zIndex",
+                            DataType = typeof(int),
+                            Value = 15,
+                            DisplayName ="Z Index: "
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                            PropertyName = "objectKey",
+                            DataType = typeof(string),
+                            Value = poleImageKey,
+                            IsSpriteProperty = true,
+                            Hidden = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                            PropertyName = "poleType",
+                            DataType = typeof(PoleType),
+                            Value = InferPoleTypeFromImage(file),
+                            PossibleValues = Enum.GetNames(typeof(PoleType)),
+                            IsSpriteProperty = true,
+                            Readonly = true,
+                            DisplayName ="Type: "
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                            PropertyName = "biomeType",
+                            DataType = typeof(string),
+                            Value = InferBiomeFromImage(file),
+                            IsSpriteProperty = true,
+                            Hidden = true
+                      },
+                };
+
+                MapMakerObject poleObj = new MapMakerObject(typeof(Pole), file, false, poleProperties);
+                if (!backgroundReferenceData.ContainsKey(poleImageKey))
+                {
+                    backgroundReferenceData.Add(poleImageKey, poleObj);
+                }
+            }
+
+            #endregion
+
             #endregion
 
             #region Interactive Tiles
@@ -2139,6 +2209,20 @@ namespace KeenReloaded2.Entities.ReferenceData
         }
 
         #region helper methods
+
+        private static PoleType InferPoleTypeFromImage(string imageFile)
+        {
+            if (imageFile.Contains("manhole"))
+                return PoleType.MANHOLE;
+            if (imageFile.Contains("middle"))
+                return PoleType.MIDDLE;
+            if (imageFile.Contains("bottom"))
+                return PoleType.BOTTOM;
+            if (imageFile.Contains("top"))
+                return PoleType.TOP;
+
+            return PoleType.MIDDLE;
+        }
 
         private static string InferInteractiveTileBiomeFromImageFile(string file)
         {

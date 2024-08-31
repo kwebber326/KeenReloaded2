@@ -406,7 +406,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             {
                 if (item.CollisionType == CollisionType.BLOCK)
                     return true;
-                else if ((item.CollisionType == CollisionType.PLATFORM || item.CollisionType == CollisionType.POLE) && item.HitBox.Top >= this.HitBox.Bottom)//PLATFORM CODE
+                else if ((item.CollisionType == CollisionType.PLATFORM || item.CollisionType == CollisionType.POLE_MANHOLE) && item.HitBox.Top >= this.HitBox.Bottom)//PLATFORM CODE
                 {
                     return true;
                 }
@@ -417,7 +417,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         private int GetTopMostLandingPlatformYPos(List<CollisionObject> collisionObjects)
         {
             List<CollisionObject> items = collisionObjects  //added bounder
-                .Where(c => c.CollisionType == CollisionType.BLOCK || ((c.CollisionType == CollisionType.PLATFORM || c.CollisionType == CollisionType.POLE) && c.HitBox.Top >= this.HitBox.Bottom)//PLATFORM CODE
+                .Where(c => c.CollisionType == CollisionType.BLOCK || ((c.CollisionType == CollisionType.PLATFORM || c.CollisionType == CollisionType.POLE_MANHOLE) && c.HitBox.Top >= this.HitBox.Bottom)//PLATFORM CODE
                         || (c.CollisionType == CollisionType.KEEN6_SWITCH && !((Keen6Switch)c).IsActive))//keen6 switch ode
                 .ToList();
             if (!items.Any())

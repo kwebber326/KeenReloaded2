@@ -1,5 +1,8 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded.Framework.Utilities;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.GameEntities.Backgrounds;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Tiles;
 using KeenReloaded2.Framework.GameEventArgs;
@@ -14,17 +17,27 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.GameEntities.Constructs
 {
-    public class Pole : CollisionObject, ICreateRemove, IBiomeTile
+    public class Pole : CollisionObject, ICreateRemove, IBiomeTile, ISprite, IUpdatable
     {
         private const int POLE_WIDTH = 12;
+        private readonly string _objectKey;
         private int _zIndex;
-        public Pole(SpaceHashGrid grid, Rectangle hitbox, int zIndex, PoleType poleType, string biomeType, int addedLengths = 0)
-            : base(grid, hitbox)
+        private PoleType _poleType;
+        private CollisionType _collisionType = CollisionType.POLE;
+        private string _biomeType;
+        private Image _image;
+        private Rectangle _area;
+        private bool _updated;
+        private const int MANHOLE_POLE_X_OFFSET = 48;
+
+        public Pole(Rectangle area, SpaceHashGrid grid, int zIndex, string objectKey, PoleType poleType, string biomeType)
+            : base(grid, area)
         {
             _zIndex = zIndex;
             _biomeType = biomeType;
             _poleType = poleType;
-            _addedLengths = addedLengths;
+            _area = area;
+            _objectKey = objectKey;
             Initialize();
         }
 
@@ -35,45 +48,53 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         private void Initialize()
         {
             this.Sprites = new List<ISprite>();
-            this.HitBox = new Rectangle(this.HitBox.X, this.HitBox.Y, POLE_WIDTH, 59 + (32 * _addedLengths));
+            int height = InferHeightFromPoleType(_poleType);
+            this.HitBox = _area;
             if (_poleType == PoleType.MANHOLE || _poleType == PoleType.MANHOLE_FLOOR)
             {
-                int widthDiff = PoleSprite.MANHOLE_WIDTH - this.HitBox.Width;
-
-                PoleSprite pTop = new PoleSprite(PoleType.TOP, _biomeType, new Point(this.HitBox.X, this.HitBox.Y), _zIndex);
-                this.Sprites.Add(pTop);
-
-                PoleSprite pManhole = new PoleSprite(PoleType.MANHOLE, _biomeType, new Point(this.HitBox.X - (widthDiff / 2), pTop.CollisionTile.HitBox.Bottom), _zIndex);
+                this.HitBox = new Rectangle(_area.X + MANHOLE_POLE_X_OFFSET, _area.Y, POLE_WIDTH, height);
+                PoleSprite pManhole = new PoleSprite(PoleType.MANHOLE, _biomeType, _area.Location, _zIndex);
+                this.Sprites.Add(pManhole);
                 this.Manhole = pManhole;
-                PoleSprite pManholeFloor = new PoleSprite(PoleType.MANHOLE_FLOOR, _biomeType,
-                    new Point(this.HitBox.X - (widthDiff / 2), pManhole.CollisionTile.HitBox.Bottom), _zIndex);
+
+
+                PoleSprite pManholeFloor = new PoleSprite(PoleType.MANHOLE_FLOOR, _biomeType, new Point(_area.X, pManhole.Location.X + pManhole.Image.Height), _zIndex);
+                this.Sprites.Add(pManholeFloor);
                 this.ManholeFloor = pManholeFloor;
 
-                pManholeFloor.CollisionTile = new PoleTile(_collisionGrid, new Rectangle(pManholeFloor.Location, 
-                    pManholeFloor.CollisionTile.HitBox.Size), pManholeFloor.Image, _zIndex);
-                pManholeFloor.Create += new EventHandler<ObjectEventArgs>(pManholeFloor_Create);
-                pManholeFloor.Remove += new EventHandler<ObjectEventArgs>(pManholeFloor_Remove);
+                if (_collisionGrid != null)
+                {
+                    pManhole.CollisionTile = new PoleTile(_collisionGrid, new Rectangle(pManhole.Location.X, pManhole.Location.Y + pManhole.Image.Height / 2, pManhole.Image.Width, pManhole.Image.Height / 2), pManhole.Image, _zIndex);
+                }
 
-                OnCreate(new ObjectEventArgs() { ObjectSprite = pManholeFloor.CollisionTile });
+                Size canvas = new Size(pManhole.Image.Width, pManhole.Image.Height + pManholeFloor.Image.Height);
+                Point[] locations = new Point[] { new Point(0, pManhole.Image.Height) };
+                Image[] images = new Image[] { pManholeFloor.Image };
 
-                this.Sprites.Add(pManhole);
-                this.Sprites.Add(pManholeFloor);
-                ManHoleFloorSprite = pManholeFloor;
+                _image = BitMapTool.DrawImagesOnCanvas(canvas, pManhole.Image, images, locations);
+            }
+            else if (_poleType == PoleType.TOP)
+            {
+                PoleSprite pTop = new PoleSprite(PoleType.TOP, _biomeType, new Point(this.HitBox.X, this.HitBox.Y), _zIndex);
+                _image = pTop.Image;
+            }
+            else if (_poleType == PoleType.BOTTOM)
+            {
+                PoleSprite pBottom = new PoleSprite(PoleType.BOTTOM, _biomeType, new Point(this.HitBox.X, this.HitBox.Bottom - 28), _zIndex);
+                this.Sprites.Add(pBottom);
+                _image = pBottom.Image;
             }
             else
             {
-                PoleSprite pTop = new PoleSprite(PoleType.TOP, _biomeType, new Point(this.HitBox.X, this.HitBox.Y), _zIndex);
-                this.Sprites.Add(pTop);
+                PoleSprite pMiddle = new PoleSprite(PoleType.MIDDLE, _biomeType, new Point(this.HitBox.X, this.HitBox.Bottom - 28), _zIndex);
+                _image = pMiddle.Image;
             }
-            for (int i = 1; i <= _addedLengths; i++)
+
+            if (_collisionGrid != null && _collidingNodes != null)
             {
-                PoleSprite Pmiddle = new PoleSprite(PoleType.MIDDLE, _biomeType, new Point(this.HitBox.X, this.HitBox.Y + (32 * i)), _zIndex);
-                this.Sprites.Add(Pmiddle);
+                this.UpdateCollisionNodes(Direction.DOWN);
+                ResetCollidingNodes();
             }
-            PoleSprite pBottom = new PoleSprite(PoleType.BOTTOM, _biomeType, new Point(this.HitBox.X, this.HitBox.Bottom - 28), _zIndex);
-            this.Sprites.Add(pBottom);
-            this.UpdateCollisionNodes(Direction.DOWN);
-            ResetCollidingNodes();
         }
 
         void pManholeFloor_Remove(object sender, ObjectEventArgs e)
@@ -86,6 +107,23 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             OnCreate(e);
         }
 
+        private int InferHeightFromPoleType(PoleType type)
+        {
+            switch (type)
+            {
+                case PoleType.MANHOLE:
+                case PoleType.MANHOLE_FLOOR:
+                    return 59;
+                case PoleType.MIDDLE:
+                case PoleType.TOP:
+                    return 32;
+                case PoleType.BOTTOM:
+                    return 28;
+            }
+
+            return 32;
+        }
+
         private void ResetCollidingNodes()
         {
             _collidingNodes = _collisionGrid.GetCurrentHashes(this);
@@ -95,9 +133,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                 node.Objects.Add(this);
             }
         }
-        protected int _addedLengths;
-        private PoleType _poleType;
-        private string _biomeType;
+
 
         public List<ISprite> Sprites
         {
@@ -109,9 +145,13 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
         public string Biome => _biomeType;
 
-        public Point SpriteLocation => this.HitBox.Location;
+        public Point Location => _area.Location;
 
-        public override CollisionType CollisionType => CollisionType.POLE;
+        public override CollisionType CollisionType => _collisionType;
+
+        public int ZIndex => _zIndex;
+
+        public Image Image => _image;
 
         public event EventHandler<ObjectEventArgs> Create;
 
@@ -142,26 +182,73 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                 sprite.ChangeBiome(_biomeType);
             }
         }
+
+        public override string ToString()
+        {
+            string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
+            var area = _area;
+            return $"{_objectKey}{separator}{area.X}{separator}{area.Y}{separator}{area.Width}{separator}{area.Height}{separator}{_zIndex}{separator}{_objectKey}{separator}{_poleType}{separator}{_biomeType}";
+        }
+
+        public void Update()
+        {
+            if (_poleType != PoleType.MANHOLE && _poleType != PoleType.MANHOLE_FLOOR)
+                return;
+
+            if (!_updated)
+            {
+                try
+                {
+                    int x = this.ManholeFloor.Location.X;
+                    int y = this.ManholeFloor.Location.Y - 32;
+                    int width = this.ManholeFloor.Image.Width;
+                    int height = this.ManholeFloor.Image.Height - 12;
+                    Rectangle areaRect = new Rectangle(x, y, width, height);
+                    Background background = new Background(areaRect, this.ManholeFloor.Image, true, _zIndex + 10);
+                    ObjectEventArgs e = new ObjectEventArgs()
+                    {
+                        ObjectSprite = background
+                    };
+                    OnCreate(e);
+                    _updated = true;
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+        }
     }
 
     public class PoleSprite : ISprite, ICreateRemove, IBiomeTile
     {
         public const int MANHOLE_WIDTH = 96;
         private readonly int _zIndex;
+        private readonly Point _originalLocation;
+        private string _imageName;
 
         internal PoleSprite(PoleType type, string biomeType, Point p, int zIndex)
         {
             _zIndex = zIndex;
             _biome = biomeType;
             _poleType = type;
-            Initialize(type, biomeType, p);
+            _originalLocation = p;
+            Initialize(type, biomeType);
         }
 
         public PoleTile CollisionTile { get; set; }
 
-        private void Initialize(PoleType poleType, string biomeType, Point p)
+        public string ImageName
         {
-             SetSprite(poleType, biomeType);
+            get
+            {
+                return _imageName;
+            }
+        }
+
+        private void Initialize(PoleType poleType, string biomeType)
+        {
+            SetSprite(poleType, biomeType);
         }
 
         private void SetSprite(PoleType poleType, string biomeType)
@@ -387,7 +474,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
         public Image Image => _sprite;
 
-        public Point Location => this.CollisionTile.Location; 
+        public Point Location => this.CollisionTile?.Location ?? _originalLocation;
 
         public event EventHandler<ObjectEventArgs> Create;
 

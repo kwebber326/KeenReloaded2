@@ -1877,9 +1877,6 @@
     <None Include="Resources\keen4_cave_pole_bottom.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen4_cave_pole_manhole.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen4_cave_pole_manhole_floor.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1892,9 +1889,6 @@
     <None Include="Resources\keen4_exit_sign_wall.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen4_forest_pole_manhole.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen4_forest_pole_tile.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1902,9 +1896,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_mirage_pole_bottom.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_mirage_pole_manhole.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_mirage_pole_manhole_floor.png" />
@@ -1920,9 +1911,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_oracle_door2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_pyramid_pole_manhole.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_pyramid_pole_manhole_floor.png" />
@@ -1961,9 +1949,6 @@
     <None Include="Resources\keen5_black_pole_bottom.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen5_black_pole_manhole.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen5_black_pole_manhole_floor.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1989,9 +1974,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen5_green_pole_bottom.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen5_green_pole_manhole.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen5_green_pole_manhole_floor.png" />
@@ -2045,9 +2027,6 @@
     <None Include="Resources\keen5_red_pole_bottom.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen5_red_pole_manhole.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen5_red_pole_manhole_floor.png" />
   </ItemGroup>
   <ItemGroup>
@@ -2076,9 +2055,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_dome_pole_manhole - Copy.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_dome_pole_manhole.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_dome_pole_manhole_floor - Copy.png" />
@@ -2117,9 +2093,6 @@
     <None Include="Resources\keen6_forest_pole_manhole - Copy.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen6_forest_pole_manhole.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen6_forest_pole_manhole_floor - Copy.png" />
   </ItemGroup>
   <ItemGroup>
@@ -2145,9 +2118,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_industrial_pole_manhole - Copy.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_industrial_pole_manhole.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_industrial_pole_manhole_floor.png" />
@@ -3549,6 +3519,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_removable_platform_inactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_cave_pole_manhole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_forest_pole_manhole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_pole_manhole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_pyramid_pole_manhole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_black_pole_manhole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_pole_manhole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_pole_manhole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_dome_pole_manhole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_forest_pole_manhole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_industrial_pole_manhole.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

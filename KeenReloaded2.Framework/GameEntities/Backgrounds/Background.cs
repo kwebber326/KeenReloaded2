@@ -39,6 +39,14 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
             }
         }
 
+        public Background(Rectangle area, Image sprite, bool stretchImage, int zIndex)
+        {
+            _area = area;
+            _image = sprite;
+            _stretchImage = stretchImage;
+            _zIndex = zIndex;
+        }
+
         public int ZIndex => _zIndex;
 
         public Image Image => _image;
