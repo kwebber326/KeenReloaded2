@@ -1419,10 +1419,12 @@ namespace KeenReloaded2.Entities.ReferenceData
             backgroundReferenceData.Add(mineKeyName, mineObj);
             #endregion
 
+            #region keen 4
+
             #region Spikes
             string keen4spikeImagePath = keen4HazardFiles.FirstOrDefault(m => m.Contains(nameof(Properties.Resources.keen_4_spikes)));
             string spikeKeyName = FileIOUtility.ExtractFileNameFromPath(keen4spikeImagePath);
-            Image keen4SpikeImage = Image.FromFile(keen4MineImagePath);
+            Image keen4SpikeImage = Image.FromFile(keen4spikeImagePath);
 
             MapMakerObjectProperty[] keen4SpikeProperties = new MapMakerObjectProperty[]
             {
@@ -1453,7 +1455,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                   {
                       PropertyName = "zIndex",
                       DataType = typeof(int),
-                      Value = 20,
+                      Value = 18,
                       DisplayName ="Z Index: "
                   },
             };
@@ -1462,11 +1464,58 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             backgroundReferenceData.Add(spikeKeyName, keen4SpikeObj);
             #endregion
-            #region Keen 4
 
+            #region spears
+            var keen4spearImagePaths = keen4HazardFiles.Where(m => m.Contains("spear"));
+            foreach (var file in keen4spearImagePaths)
+            {
+                string spearKeyName = FileIOUtility.ExtractFileNameFromPath(file);
+                Image keen4SpearImage = Image.FromFile(file);
 
+                MapMakerObjectProperty[] keen4SpearProperties = new MapMakerObjectProperty[]
+                {
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, keen4MineImage.Width, keen4MineImage.Height),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "direction",
+                      DataType = typeof(Direction),
+                      Hidden = true,
+                      PossibleValues = Enum.GetNames(typeof(Direction)),
+                      Value = InferDirectionFromFile(file)
+                  }
+                };
+
+                MapMakerObject keen4SpearObj = new MapMakerObject(typeof(Spear), file, false, keen4SpearProperties);
+
+                backgroundReferenceData.Add(spearKeyName, keen4SpearObj);
+
+            }
+            #endregion
 
             #endregion
+
+
 
             #endregion
 
@@ -2209,6 +2258,20 @@ namespace KeenReloaded2.Entities.ReferenceData
         }
 
         #region helper methods
+
+        private static Direction InferDirectionFromFile(string file)
+        {
+            if (file.Contains("left"))
+                return Direction.LEFT;
+            if (file.Contains("right"))
+                return Direction.RIGHT;
+            if (file.Contains("up"))
+                return Direction.UP;
+            if (file.Contains("down"))
+                return Direction.DOWN;
+
+            return Direction.UP;
+        }
 
         private static PoleType InferPoleTypeFromImage(string imageFile)
         {
