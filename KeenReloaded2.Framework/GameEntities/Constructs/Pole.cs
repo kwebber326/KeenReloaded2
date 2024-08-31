@@ -59,13 +59,13 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                 this.Manhole = pManhole;
 
 
-                PoleSprite pManholeFloor = new PoleSprite(PoleType.MANHOLE_FLOOR, _biomeType, new Point(_area.X, pManhole.Location.X + pManhole.Image.Height), _zIndex);
+                PoleSprite pManholeFloor = new PoleSprite(PoleType.MANHOLE_FLOOR, _biomeType, new Point(_area.X, pManhole.Location.Y + pManhole.Image.Height), _zIndex);
                 this.Sprites.Add(pManholeFloor);
                 this.ManholeFloor = pManholeFloor;
 
                 if (_collisionGrid != null)
                 {
-                    pManhole.CollisionTile = new PoleTile(_collisionGrid, new Rectangle(pManhole.Location.X, pManhole.Location.Y + pManhole.Image.Height / 2, pManhole.Image.Width, pManhole.Image.Height / 2), pManhole.Image, _zIndex);
+                    pManhole.CollisionTile = new PoleTile(_collisionGrid, new Rectangle(pManhole.Location.X, pManhole.Location.Y + pManhole.Image.Height, pManhole.Image.Width, pManhole.Image.Height / 2), pManhole.Image, _zIndex);
                 }
 
                 Size canvas = new Size(pManhole.Image.Width, pManhole.Image.Height + pManholeFloor.Image.Height);
@@ -201,7 +201,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                 try
                 {
                     int x = this.ManholeFloor.Location.X;
-                    int y = this.ManholeFloor.Location.Y - 32;
+                    int y = this.ManholeFloor.Location.Y;
                     int width = this.ManholeFloor.Image.Width;
                     int height = this.ManholeFloor.Image.Height - 12;
                     Rectangle areaRect = new Rectangle(x, y, width, height);

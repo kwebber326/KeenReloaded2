@@ -18,3 +18,7 @@ keen4_cave_floor_middle|479|545|48|64|10
 keen4_cave_air_floor_edge_right|527|545|52|64|10
 neural_stunner1|408|336|30|22|50|1000
 keen4_forest_pole_manhole|446|412|96|32|15|keen4_forest_pole_manhole|MANHOLE|KEEN4_GREEN
+keen4_forest_pole_manhole|446|340|96|72|15|keen4_forest_pole_manhole|MANHOLE|KEEN4_GREEN
+keen4_mirage_pole_manhole|446|264|96|76|15|keen4_mirage_pole_manhole|MANHOLE|KEEN4_MIRAGE
+keen4_cave_pole_manhole|446|192|96|72|15|keen4_cave_pole_manhole|MANHOLE|KEEN4_CAVE
+keen4_cave_pole_top|488|161|12|32|15|keen4_cave_pole_top|TOP|KEEN4_CAVE
