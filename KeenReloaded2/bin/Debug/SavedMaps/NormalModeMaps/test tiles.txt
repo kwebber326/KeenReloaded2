@@ -21,8 +21,6 @@ keen4_forest_pole_manhole|446|340|96|72|15|keen4_forest_pole_manhole|MANHOLE|KEE
 keen4_mirage_pole_manhole|446|264|96|76|15|keen4_mirage_pole_manhole|MANHOLE|KEEN4_MIRAGE
 keen4_cave_pole_manhole|446|192|96|72|15|keen4_cave_pole_manhole|MANHOLE|KEEN4_CAVE
 keen4_cave_pole_top|488|161|12|32|15|keen4_cave_pole_top|TOP|KEEN4_CAVE
-keen4_cave_pole_bottom|488|514|12|28|15|keen4_cave_pole_bottom|BOTTOM|KEEN4_CAVE
-keen4_cave_pole_middle|488|484|12|32|15|keen4_cave_pole_middle|MIDDLE|KEEN4_CAVE
 keen4_mirage_pole_bottom|383|517|12|28|15|keen4_mirage_pole_bottom|BOTTOM|KEEN4_MIRAGE
 keen4_mirage_pole_middle|383|485|12|32|15|keen4_mirage_pole_middle|MIDDLE|KEEN4_MIRAGE
 keen4_mirage_pole_middle|383|453|12|32|15|keen4_mirage_pole_middle|MIDDLE|KEEN4_MIRAGE
@@ -30,3 +28,5 @@ keen4_mirage_pole_middle|383|421|12|32|15|keen4_mirage_pole_middle|MIDDLE|KEEN4_
 keen4_mirage_pole_middle|383|389|12|32|15|keen4_mirage_pole_middle|MIDDLE|KEEN4_MIRAGE
 keen4_mirage_pole_top|383|357|12|32|15|keen4_mirage_pole_top|TOP|KEEN4_MIRAGE
 neural_stunner1|408|136|30|22|50|1000
+pole_middle|488|484|12|32|15|pole_middle|MIDDLE|KEEN4_GREEN
+pole_bottom|488|516|12|28|15|pole_bottom|BOTTOM|KEEN4_GREEN

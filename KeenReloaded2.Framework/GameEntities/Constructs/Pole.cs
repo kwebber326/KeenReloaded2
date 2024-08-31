@@ -29,7 +29,9 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         private Image _image;
         private Rectangle _area;
         private bool _updated;
-        private const int MANHOLE_POLE_X_OFFSET = 48;
+        private const int MANHOLE_POLE_X_OFFSET = 40;
+        private const int INVISIBLE_TILE_LEFT_WIDTH = 10;
+        private const int INVISIBLE_TILE_RIGHT_WIDTH = 4;
 
         public Pole(Rectangle area, SpaceHashGrid grid, int zIndex, string objectKey, PoleType poleType, string biomeType)
             : base(grid, area)
@@ -66,6 +68,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                 if (_collisionGrid != null)
                 {
                     pManhole.CollisionTile = new PoleTile(_collisionGrid, new Rectangle(pManhole.Location.X, pManhole.Location.Y + pManhole.Image.Height, pManhole.Image.Width, pManhole.Image.Height / 2), pManhole.Image, _zIndex);
+                    ConstructCollisionTilesFromManholeCollisionTile(pManhole);
                 }
 
                 Size canvas = new Size(pManhole.Image.Width, pManhole.Image.Height + pManholeFloor.Image.Height);
@@ -96,6 +99,21 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                 this.UpdateCollisionNodes(Direction.DOWN);
                 ResetCollidingNodes();
             }
+        }
+
+        private void ConstructCollisionTilesFromManholeCollisionTile(PoleSprite pManhole)
+        {
+            int xLeft = pManhole.CollisionTile.HitBox.X;
+            int y = pManhole.CollisionTile.HitBox.Y;
+            int leftWidth = INVISIBLE_TILE_LEFT_WIDTH;
+            int blockCollisionHeight = pManhole.CollisionTile.HitBox.Height;
+            Rectangle leftArea = new Rectangle(xLeft, y, leftWidth, blockCollisionHeight);
+            InvisibleTile leftTile = new InvisibleTile(_collisionGrid, leftArea);
+
+            int rightWidth = INVISIBLE_TILE_RIGHT_WIDTH;
+            int xRight = pManhole.CollisionTile.HitBox.Right - rightWidth;
+            Rectangle rightArea = new Rectangle(xRight, y, rightWidth, blockCollisionHeight);
+            InvisibleTile rightTile = new InvisibleTile(_collisionGrid, rightArea);
         }
 
         void pManholeFloor_Remove(object sender, ObjectEventArgs e)
@@ -206,7 +224,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                     int height = this.ManholeFloor.Image.Height - 12;
                     Rectangle areaRect = new Rectangle(x, y, width, height);
                     Image image = BitMapTool.CropImage(this.ManholeFloor.Image, new Rectangle(0, 0, areaRect.Width, areaRect.Height));
-                    Background background = new Background(areaRect, image, true, _zIndex + 10);
+                    Background background = new Background(areaRect, image, true, _zIndex + 200);
                     ObjectEventArgs e = new ObjectEventArgs()
                     {
                         ObjectSprite = background

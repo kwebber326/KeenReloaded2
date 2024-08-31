@@ -2431,7 +2431,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                 return Biomes.BIOME_KEEN6_FINAL;
             }
 
-            return string.Empty;
+            return Biomes.BIOME_KEEN4_FOREST;
         }
 
         private static DoorType InferDoorTypeFromImage(string imgName)
