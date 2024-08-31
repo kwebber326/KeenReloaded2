@@ -20,7 +20,6 @@ namespace KeenReloaded2.Framework.Enums
         ITEM,
         POLE,
         POLE_TILE,
-        POLE_MANHOLE,
         ENEMY_PROJECTILE,
         FRIENDLY_PROJECTILE,
         FORCE_FIELD,

@@ -406,7 +406,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             {
                 if (item.CollisionType == CollisionType.BLOCK)
                     return true;
-                else if ((item.CollisionType == CollisionType.PLATFORM || item.CollisionType == CollisionType.POLE_MANHOLE) && item.HitBox.Top >= this.HitBox.Bottom)//PLATFORM CODE
+                else if ((item.CollisionType == CollisionType.PLATFORM || item.CollisionType == CollisionType.POLE_TILE) && item.HitBox.Top >= this.HitBox.Bottom)//PLATFORM CODE
                 {
                     return true;
                 }
@@ -417,7 +417,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         private int GetTopMostLandingPlatformYPos(List<CollisionObject> collisionObjects)
         {
             List<CollisionObject> items = collisionObjects  //added bounder
-                .Where(c => c.CollisionType == CollisionType.BLOCK || ((c.CollisionType == CollisionType.PLATFORM || c.CollisionType == CollisionType.POLE_MANHOLE) && c.HitBox.Top >= this.HitBox.Bottom)//PLATFORM CODE
+                .Where(c => c.CollisionType == CollisionType.BLOCK || ((c.CollisionType == CollisionType.PLATFORM || c.CollisionType == CollisionType.POLE_TILE) && c.HitBox.Top >= this.HitBox.Bottom)//PLATFORM CODE
                         || (c.CollisionType == CollisionType.KEEN6_SWITCH && !((Keen6Switch)c).IsActive))//keen6 switch ode
                 .ToList();
             if (!items.Any())
@@ -2283,7 +2283,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 _originalStandingHitbox = this.HitBox;
 
             var standingTile = GetTopMostLandingTile(2);
-            if (standingTile != null && standingTile.CollisionType == CollisionType.POLE && CanKeenGrabPole(false))
+            if (standingTile != null && standingTile.CollisionType == CollisionType.POLE_TILE && CanKeenGrabPole(false))
             {
                 _originalStandingHitbox = null;
                 HangOntoPole();
@@ -2456,6 +2456,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 {
                     this.HitBox = new Rectangle(new Point(this.HitBox.X, this.HitBox.Y - POLE_CLIMB_SPEED), this.HitBox.Size);
                     UpdateAndCheckCollision();
+                    
                 }
                 int lengthLimit = 0;
                 if (this.Direction == Enums.Direction.LEFT)
@@ -2571,8 +2572,20 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 {
                     _currentPoleHangDelayTick = this.MoveState == Enums.MoveState.ON_POLE ? POLE_HANG_DELAY : 0;
                     Rectangle areaToCheck = this.HitBox; //new Rectangle(this.HitBox.X + 5, this.HitBox.Y + 20, this.HitBox.Width - 10, this.HitBox.Height - 20);
-                    var collisionItems = this.CheckCollision(areaToCheck);
-                    _currentPole = collisionItems.OfType<Pole>().FirstOrDefault();
+                    var collisionItems = this.CheckCollision(areaToCheck).OfType<Pole>();
+
+                    if (collisionItems.Any())
+                    {
+                        collisionItems = PoleDirection == Direction.UP
+                            ? collisionItems.OrderBy(c => c.HitBox.Top).ToList()
+                            : collisionItems.OrderByDescending(c => c.HitBox.Top).ToList();
+                        _currentPole = collisionItems.FirstOrDefault();
+                    }
+                    else
+                    {
+                        _currentPole = null;
+                    }
+
                     canGrabPole = _currentPole != null;
                 }
             }
