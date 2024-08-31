@@ -91,6 +91,18 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                 {
                     _image = Properties.Resources.keen5_green_pole_manhole_full;
                 }
+                else if (_biomeType == Biomes.BIOME_KEEN6_DOME)
+                {
+                    _image = Properties.Resources.keen6_dome_pole_manhole_full;
+                }
+                else if (_biomeType == Biomes.BIOME_KEEN6_FOREST)
+                {
+                    _image = Properties.Resources.keen6_forest_pole_manhole_full;
+                }
+                else if (_biomeType == Biomes.BIOME_KEEN6_INDUSTRIAL)
+                {
+                    _image = Properties.Resources.keen6_industrial_pole_manhole_full;
+                }
             }
             else if (_poleType == PoleType.TOP)
             {
@@ -347,19 +359,19 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                     _sprite = Properties.Resources.keen5_black_pole_manhole_bottom_half;
                     break;
                 case Biomes.BIOME_KEEN5_RED:
-                    _sprite = Properties.Resources.keen5_red_pole_manhole_floor;
+                    _sprite = Properties.Resources.keen5_red_pole_manhole_bottom_half;
                     break;
                 case Biomes.BIOME_KEEN5_GREEN:
-                    _sprite = Properties.Resources.keen5_green_pole_manhole_floor;
+                    _sprite = Properties.Resources.keen5_green_pole_manhole_bottom_half;
                     break;
                 case Biomes.BIOME_KEEN6_FOREST:
-                    _sprite = Properties.Resources.keen6_forest_pole_manhole_floor;
+                    _sprite = Properties.Resources.keen6_forest_pole_manhole_bottom_half;
                     break;
                 case Biomes.BIOME_KEEN6_INDUSTRIAL:
-                    _sprite = Properties.Resources.keen6_industrial_pole_manhole_floor;
+                    _sprite = Properties.Resources.keen6_industrial_pole_manhole_bottom_half;
                     break;
                 case Biomes.BIOME_KEEN6_DOME:
-                    _sprite = Properties.Resources.keen6_dome_pole_manhole_floor;
+                    _sprite = Properties.Resources.keen6_dome_pole_manhole_bottom_half;
                     break;
             }
 

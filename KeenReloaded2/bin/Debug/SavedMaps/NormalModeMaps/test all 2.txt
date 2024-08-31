@@ -73,3 +73,4 @@ keen4_mine|850|121|46|46|DOWN|850|121|46|46|20
 keen4_mine|795|358|46|46|RIGHT|300|800|100|500|15
 keen_dreams_boobus_bomb2|155|613|30|30|50|15
 keen5_wall_black_edge_right|298|350|52|64|10
+keen5_black_pole_manhole|575|732|96|76|15|keen5_black_pole_manhole|MANHOLE|KEEN5_BLACK

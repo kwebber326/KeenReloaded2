@@ -3571,5 +3571,20 @@
   <ItemGroup>
     <None Include="Resources\keen5_black_pole_manhole_bottom_half.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_pole_manhole_bottom_half.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_pole_manhole_bottom_half.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_dome_pole_manhole_bottom_half.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_forest_pole_manhole_bottom_half.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_industrial_pole_manhole_bottom_half.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
