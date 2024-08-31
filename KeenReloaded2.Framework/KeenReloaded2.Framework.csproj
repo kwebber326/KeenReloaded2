@@ -76,6 +76,7 @@
     <Compile Include="GameEntities\Constructs\ToggleSwitch.cs" />
     <Compile Include="GameEntities\DestructibleObject.cs" />
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
+    <Compile Include="GameEntities\Hazards\DartGun.cs" />
     <Compile Include="GameEntities\Hazards\EnemySpawner.cs" />
     <Compile Include="GameEntities\Hazards\ForceField.cs" />
     <Compile Include="GameEntities\Hazards\Hazard.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="GameEntities\Projectiles\BFGProjectile.cs" />
     <Compile Include="GameEntities\Projectiles\BoobusBombExplosion.cs" />
     <Compile Include="GameEntities\Projectiles\BoobusBombShot.cs" />
+    <Compile Include="GameEntities\Projectiles\Dart.cs" />
     <Compile Include="GameEntities\Projectiles\KeenRailgunShot.cs" />
     <Compile Include="GameEntities\Projectiles\KeenRPGShot.cs" />
     <Compile Include="GameEntities\Projectiles\KeenStunShot.cs" />

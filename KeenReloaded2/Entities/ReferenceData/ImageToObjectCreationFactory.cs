@@ -1515,7 +1515,69 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region Dart Guns
 
+            var keen4DartGunImagePaths = keen4HazardFiles.Where(m => m.Contains("dart"));
+            foreach (var file in keen4DartGunImagePaths)
+            {
+                string dartGunKeyName = FileIOUtility.ExtractFileNameFromPath(file);
+                Image keen4DartGunImage = Image.FromFile(file);
+
+                MapMakerObjectProperty[] keen4DartGunProperties = new MapMakerObjectProperty[]
+                {
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, keen4MineImage.Width, keen4MineImage.Height),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "direction",
+                      DataType = typeof(Direction),
+                      Hidden = true,
+                      PossibleValues = Enum.GetNames(typeof(Direction)),
+                      Value = InferDirectionFromFile(file)
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "isFiring",
+                      DataType = typeof(bool),
+                      DisplayName = "Active: ",
+                      Value = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "shotDelayOffset",
+                      DataType = typeof(int),
+                      DisplayName = "Shot Timing Offset: ",
+                      Value = 0
+                  }
+                };
+
+                MapMakerObject keen4DartGunObj = new MapMakerObject(typeof(DartGun), file, false, keen4DartGunProperties);
+
+                backgroundReferenceData.Add(dartGunKeyName, keen4DartGunObj);
+
+            }
+
+            #endregion
 
             #endregion
 
