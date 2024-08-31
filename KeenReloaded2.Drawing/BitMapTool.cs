@@ -136,5 +136,16 @@ namespace KeenReloaded.Framework.Utilities
             }
             return bmp;
         }
+
+        public static Bitmap CropImage(Image image, Rectangle subSection)
+        {
+            var bitmap = new Bitmap(subSection.Width, subSection.Height);
+            using (Graphics g = Graphics.FromImage(bitmap))
+            {
+                g.DrawImage(image, 0, 0, subSection, GraphicsUnit.Pixel);
+            }
+
+            return bitmap;
+        }
     }
 }

@@ -205,7 +205,8 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                     int width = this.ManholeFloor.Image.Width;
                     int height = this.ManholeFloor.Image.Height - 12;
                     Rectangle areaRect = new Rectangle(x, y, width, height);
-                    Background background = new Background(areaRect, this.ManholeFloor.Image, true, _zIndex + 10);
+                    Image image = BitMapTool.CropImage(this.ManholeFloor.Image, new Rectangle(0, 0, areaRect.Width, areaRect.Height));
+                    Background background = new Background(areaRect, image, true, _zIndex + 10);
                     ObjectEventArgs e = new ObjectEventArgs()
                     {
                         ObjectSprite = background
