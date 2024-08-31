@@ -10,6 +10,7 @@ using KeenReloaded2.Framework.Interfaces;
 using KeenReloaded2.Framework.ReferenceDataClasses;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -214,7 +215,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                 }
                 catch (Exception ex)
                 {
-
+                    Debug.WriteLine(ex);
                 }
             }
         }
