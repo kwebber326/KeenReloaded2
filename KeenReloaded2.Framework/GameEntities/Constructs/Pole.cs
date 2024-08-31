@@ -71,11 +71,26 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                     ConstructCollisionTilesFromManholeCollisionTile(pManhole);
                 }
 
-                Size canvas = new Size(pManhole.Image.Width, pManhole.Image.Height + pManholeFloor.Image.Height);
-                Point[] locations = new Point[] { new Point(0, pManhole.Image.Height) };
-                Image[] images = new Image[] { pManholeFloor.Image };
+                if (_biomeType.Contains("KEEN4"))
+                {
+                    Size canvas = new Size(pManhole.Image.Width, pManhole.Image.Height + pManholeFloor.Image.Height);
+                    Point[] locations = new Point[] { new Point(0, pManhole.Image.Height) };
+                    Image[] images = new Image[] { pManholeFloor.Image };
 
-                _image = BitMapTool.DrawImagesOnCanvas(canvas, pManhole.Image, images, locations);
+                    _image = BitMapTool.DrawImagesOnCanvas(canvas, pManhole.Image, images, locations);
+                }
+                else if (_biomeType == Biomes.BIOME_KEEN5_BLACK)
+                {
+                    _image = Properties.Resources.keen5_black_pole_manhole_full;
+                }
+                else if (_biomeType == Biomes.BIOME_KEEN5_RED)
+                {
+                    _image = Properties.Resources.keen5_red_pole_manhole_full;
+                }
+                else if (_biomeType == Biomes.BIOME_KEEN5_GREEN)
+                {
+                    _image = Properties.Resources.keen5_green_pole_manhole_full;
+                }
             }
             else if (_poleType == PoleType.TOP)
             {
@@ -218,19 +233,38 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             {
                 try
                 {
-                    int x = this.ManholeFloor.Location.X;
-                    int y = this.ManholeFloor.Location.Y;
-                    int width = this.ManholeFloor.Image.Width;
-                    int height = this.ManholeFloor.Image.Height - 12;
-                    Rectangle areaRect = new Rectangle(x, y, width, height);
-                    Image image = BitMapTool.CropImage(this.ManholeFloor.Image, new Rectangle(0, 0, areaRect.Width, areaRect.Height));
-                    Background background = new Background(areaRect, image, true, _zIndex + 200);
-                    ObjectEventArgs e = new ObjectEventArgs()
+                    if (_biomeType.Contains("KEEN4"))
                     {
-                        ObjectSprite = background
-                    };
-                    OnCreate(e);
-                    _updated = true;
+                        int x = this.ManholeFloor.Location.X;
+                        int y = this.ManholeFloor.Location.Y;
+                        int width = this.ManholeFloor.Image.Width;
+                        int height = this.ManholeFloor.Image.Height - 12;
+                        Rectangle areaRect = new Rectangle(x, y, width, height);
+                        Image image = BitMapTool.CropImage(this.ManholeFloor.Image, new Rectangle(0, 0, areaRect.Width, areaRect.Height));
+                        Background background = new Background(areaRect, image, true, _zIndex + 200);
+                        ObjectEventArgs e = new ObjectEventArgs()
+                        {
+                            ObjectSprite = background
+                        };
+                        OnCreate(e);
+                        _updated = true;
+                    }
+                    else 
+                    {
+                        int x = this.Location.X;
+                        int y = this.Location.Y + 32;
+                        int width = this.ManholeFloor.Image.Width;
+                        int height = this.ManholeFloor.Image.Height;
+                        Rectangle areaRect = new Rectangle(x, y, width, height);
+                        Image image = this.ManholeFloor.Image;
+                        Background background = new Background(areaRect, image, true, _zIndex + 200);
+                        ObjectEventArgs e = new ObjectEventArgs()
+                        {
+                            ObjectSprite = background
+                        };
+                        OnCreate(e);
+                        _updated = true;
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -310,7 +344,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                     _sprite = Properties.Resources.keen4_mirage_pole_manhole_floor;
                     break;
                 case Biomes.BIOME_KEEN5_BLACK:
-                    _sprite = Properties.Resources.keen5_black_pole_manhole_floor;
+                    _sprite = Properties.Resources.keen5_black_pole_manhole_bottom_half;
                     break;
                 case Biomes.BIOME_KEEN5_RED:
                     _sprite = Properties.Resources.keen5_red_pole_manhole_floor;

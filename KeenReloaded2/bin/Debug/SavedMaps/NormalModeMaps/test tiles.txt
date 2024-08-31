@@ -30,3 +30,6 @@ keen4_mirage_pole_top|383|357|12|32|15|keen4_mirage_pole_top|TOP|KEEN4_MIRAGE
 neural_stunner1|408|136|30|22|50|1000
 pole_middle|488|484|12|32|15|pole_middle|MIDDLE|KEEN4_GREEN
 pole_bottom|488|516|12|28|15|pole_bottom|BOTTOM|KEEN4_GREEN
+keen5_red_pole_manhole|37|70|96|76|15|keen5_red_pole_manhole|MANHOLE|KEEN5_RED
+keen5_black_pole_manhole|188|37|96|76|15|keen5_black_pole_manhole|MANHOLE|KEEN5_BLACK
+keen5_green_pole_manhole|66|547|96|76|15|keen5_green_pole_manhole|MANHOLE|KEEN5_GREEN

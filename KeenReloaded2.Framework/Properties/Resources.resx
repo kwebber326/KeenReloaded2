@@ -1153,8 +1153,14 @@
   <data name="keen5_black_pole_manhole" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_black_pole_manhole.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen5_black_pole_manhole_bottom_half" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_black_pole_manhole_bottom_half.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keen5_black_pole_manhole_floor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_black_pole_manhole_floor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_black_pole_manhole_full" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_black_pole_manhole_full.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="keen5_black_pole_middle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_black_pole_middle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1239,6 +1245,9 @@
   </data>
   <data name="keen5_green_pole_manhole_floor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_green_pole_manhole_floor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_pole_manhole_full" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_pole_manhole_full.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="keen5_green_pole_middle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_green_pole_middle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1365,6 +1374,9 @@
   </data>
   <data name="keen5_red_pole_manhole_floor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_red_pole_manhole_floor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_pole_manhole_full" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_pole_manhole_full.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="keen5_red_pole_middle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_red_pole_middle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1690,6 +1702,9 @@
   <data name="keen6_dome_pole_manhole_floor___Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen6_dome_pole_manhole_floor - Copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen6_dome_pole_manhole_full" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen6_dome_pole_manhole_full.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keen6_dome_pole_manhole___Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen6_dome_pole_manhole - Copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -1792,6 +1807,9 @@
   <data name="keen6_forest_pole_manhole_floor___Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen6_forest_pole_manhole_floor - Copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen6_forest_pole_manhole_full" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen6_forest_pole_manhole_full.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keen6_forest_pole_manhole___Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen6_forest_pole_manhole - Copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -1857,6 +1875,9 @@
   </data>
   <data name="keen6_industrial_pole_manhole_floor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen6_industrial_pole_manhole_floor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_industrial_pole_manhole_full" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen6_industrial_pole_manhole_full.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="keen6_industrial_pole_manhole___Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen6_industrial_pole_manhole - Copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
