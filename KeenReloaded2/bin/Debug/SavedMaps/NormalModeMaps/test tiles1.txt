@@ -22,3 +22,4 @@ gem_red1|135|104|26|20|RED|50|False
 gem_yellow1|157|222|26|20|YELLOW|50|False
 gem_red1|297|276|26|20|RED|50|False
 gem_yellow1|242|276|26|20|YELLOW|100|False
+keen_stand_right|428|465|26|64|RIGHT

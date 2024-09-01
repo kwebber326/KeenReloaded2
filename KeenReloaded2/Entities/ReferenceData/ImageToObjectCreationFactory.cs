@@ -1513,8 +1513,6 @@ namespace KeenReloaded2.Entities.ReferenceData
             }
             #endregion
 
-            #endregion
-
             #region Dart Guns
 
             var keen4DartGunImagePaths = keen4HazardFiles.Where(m => m.Contains("dart"));
@@ -1578,6 +1576,60 @@ namespace KeenReloaded2.Entities.ReferenceData
             }
 
             #endregion
+
+            #region Fire
+
+            var keen4FireImagePaths = keen4HazardFiles.Where(m => m.Contains("fire"));
+            foreach (var file in keen4FireImagePaths)
+            {
+                string fireKeyName = FileIOUtility.ExtractFileNameFromPath(file);
+                Image keen4FireImage = Image.FromFile(file);
+
+                MapMakerObjectProperty[] keenFireProperties = new MapMakerObjectProperty[]
+                {
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, keen4MineImage.Width, keen4MineImage.Height),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "direction",
+                      DataType = typeof(Direction),
+                      Hidden = true,
+                      PossibleValues = Enum.GetNames(typeof(Direction)),
+                      Value = InferDirectionFromFile(file)
+                  },
+                };
+
+                MapMakerObject keen4FireObj = new MapMakerObject(typeof(Fire), file, false, keenFireProperties);
+
+                backgroundReferenceData.Add(fireKeyName, keen4FireObj);
+
+            }
+
+            #endregion
+
+            #endregion
+
+
 
             #endregion
 

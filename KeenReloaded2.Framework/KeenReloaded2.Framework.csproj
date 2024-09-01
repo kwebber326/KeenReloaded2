@@ -78,6 +78,7 @@
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
     <Compile Include="GameEntities\Hazards\DartGun.cs" />
     <Compile Include="GameEntities\Hazards\EnemySpawner.cs" />
+    <Compile Include="GameEntities\Hazards\Fire.cs" />
     <Compile Include="GameEntities\Hazards\ForceField.cs" />
     <Compile Include="GameEntities\Hazards\Hazard.cs" />
     <Compile Include="GameEntities\Hazards\LightningBolt.cs" />
