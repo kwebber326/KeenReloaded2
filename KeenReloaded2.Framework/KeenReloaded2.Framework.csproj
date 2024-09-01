@@ -86,6 +86,7 @@
     <Compile Include="GameEntities\Hazards\Mine.cs" />
     <Compile Include="GameEntities\Hazards\RocketPropelledPlatform.cs" />
     <Compile Include="GameEntities\Hazards\Spear.cs" />
+    <Compile Include="GameEntities\Hazards\TarPit.cs" />
     <Compile Include="GameEntities\HelperObjects\LocatedImage.cs" />
     <Compile Include="GameEntities\Interfaces\IActivateable.cs" />
     <Compile Include="GameEntities\Interfaces\IActivator.cs" />

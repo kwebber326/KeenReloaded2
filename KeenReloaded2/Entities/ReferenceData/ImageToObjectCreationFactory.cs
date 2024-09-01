@@ -1706,9 +1706,56 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region Tar Pit
+            string tarPoolFile = keen4HazardFiles.FirstOrDefault(f => f.Contains("tar"));
+            string tarPoolKey = FileIOUtility.ExtractFileNameFromPath(tarPoolFile);
+            Image tarImg = Image.FromFile(tarPoolFile);
+
+            MapMakerObjectProperty[] tarPoolProperties = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, tarImg.Width, tarImg.Height),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+                   new MapMakerObjectProperty()
+                  {
+                      PropertyName = "lengths",
+                      DataType = typeof(int),
+                      Value = 1,
+                      DisplayName ="Length: "
+                  },
+                   new MapMakerObjectProperty()
+                  {
+                      PropertyName = "depths",
+                      DataType = typeof(int),
+                      Value = 0,
+                      DisplayName ="Depth: "
+                  },
+            };
+
+            MapMakerObject tarPoolObj = new MapMakerObject(typeof(TarPit), tarPoolFile, false, tarPoolProperties);
+            backgroundReferenceData.Add(tarPoolKey, tarPoolObj);
             #endregion
 
-
+            #endregion
 
             #endregion
 

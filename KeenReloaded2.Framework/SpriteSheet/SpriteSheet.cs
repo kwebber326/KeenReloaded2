@@ -1110,6 +1110,28 @@ namespace KeenReloaded2.Framework.SpriteSheet
         }
         #endregion
 
+        #region Keen 4 TarPit
+        private static Image[] _keen4TarPitImages;
+
+        public static Image[] Keen4TarPitImages
+        {
+            get
+            {
+                if (_keen4TarPitImages == null)
+                {
+                    _keen4TarPitImages = new Image[]
+                    {
+                         Properties.Resources.keen4_tar1,
+                         Properties.Resources.keen4_tar2,
+                         Properties.Resources.keen4_tar3,
+                         Properties.Resources.keen4_tar4
+                    };
+                }
+                return _keen4TarPitImages;
+            }
+        }
+        #endregion
+
         #region Keen 4 Rocket-Propelled Platform
         private static Image[] _rocketPropelledPlatformImages;
 
