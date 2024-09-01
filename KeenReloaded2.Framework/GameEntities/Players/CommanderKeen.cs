@@ -448,7 +448,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         {
             Rectangle areaToCheck = new Rectangle(this.HitBox.Location.X, this.HitBox.Bottom + 1, this.HitBox.Width, 1);
             var collisionObjectsBelow = this.CheckCollision(areaToCheck);
-            bool platforms = collisionObjectsBelow.Any(t => (t.CollisionType == CollisionType.PLATFORM) && t.HitBox.Top == this.HitBox.Bottom + 1);//PLATFORM CODE
+            bool platforms = collisionObjectsBelow.Any(t => (t.CollisionType == CollisionType.PLATFORM) && t.HitBox.Top <= this.HitBox.Bottom + 1);//PLATFORM CODE
             return platforms;
         }
 
