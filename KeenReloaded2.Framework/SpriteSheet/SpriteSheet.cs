@@ -1050,6 +1050,66 @@ namespace KeenReloaded2.Framework.SpriteSheet
 
         #endregion
 
+        #endregion
+
+        #region Hazards
+        #region Keen 4 Poison Pool
+
+        private static Image[] _keen4PoisonPoolLeftImages;
+
+        public static Image[] Keen4PoisonPoolLeftImages
+        {
+            get
+            {
+                if (_keen4PoisonPoolLeftImages == null)
+                {
+                    _keen4PoisonPoolLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen4_poison_pool1_edge_left,
+                        Properties.Resources.keen4_poison_pool2_edge_left
+                    };
+                }
+                return _keen4PoisonPoolLeftImages;
+            }
+        }
+
+        private static Image[] _keen4PoisonPoolRightImages;
+
+        public static Image[] Keen4PoisonPoolRightImages
+        {
+            get
+            {
+                if (_keen4PoisonPoolRightImages == null)
+                {
+                    _keen4PoisonPoolRightImages = new Image[]
+                    {
+                        Properties.Resources.keen4_poison_pool1_edge_right,
+                        Properties.Resources.keen4_poison_pool2_edge_right
+                    };
+                }
+                return _keen4PoisonPoolRightImages;
+            }
+        }
+
+        private static Image[] _keen4PoisonPoolMiddleImages;
+
+        public static Image[] Keen4PoisonPoolMiddleImages
+        {
+            get
+            {
+                if (_keen4PoisonPoolMiddleImages == null)
+                {
+                    _keen4PoisonPoolMiddleImages = new Image[]
+                    {
+                        Properties.Resources.keen4_poison_pool1_middle,
+                        Properties.Resources.keen4_poison_pool2_middle
+                    };
+                }
+                return _keen4PoisonPoolMiddleImages;
+            }
+        }
+        #endregion
+
         #region Keen 4 Rocket-Propelled Platform
         private static Image[] _rocketPropelledPlatformImages;
 
@@ -1070,7 +1130,6 @@ namespace KeenReloaded2.Framework.SpriteSheet
             }
         }
         #endregion
-
         #endregion
 
         #region projectiles and explosions

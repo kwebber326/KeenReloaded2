@@ -7,7 +7,6 @@ keen5_wall_black_middle|243|350|64|64|10
 keen5_wall_black_edge_right|299|350|52|64|10
 keen5_single_platform_blue|623|132|32|36|10
 keen_stand_right|216|162|26|64|RIGHT
-keen4_gray_door|203|226|60|92|15|KEEN4_GRAY|3|2
 keen4_blue_door|280|227|60|92|10|KEEN4_BLUE|1|2
 keen4_cave_air_floor_edge_left|311|545|72|64|10
 keen4_cave_floor_middle|383|545|48|64|10
@@ -69,3 +68,6 @@ keen4_dart_gun_down|542|412|30|24|18|DOWN|True|0
 keen4_rocket_propelled_platform1|848|307|32|32|18
 keen4_rocket_propelled_platform1|880|307|32|32|18
 keen4_rocket_propelled_platform1|912|307|32|32|18
+keen4_gray_door|203|226|60|92|15|KEEN4_GRAY|3|4
+keen4_gray_door|342|1158|60|92|15|KEEN4_GRAY|4|3
+keen4_poison_pool1|450|1148|174|86|18|2

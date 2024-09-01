@@ -76,6 +76,7 @@
     <Compile Include="GameEntities\Constructs\ToggleSwitch.cs" />
     <Compile Include="GameEntities\DestructibleObject.cs" />
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
+    <Compile Include="GameEntities\Hazards\AcidPool.cs" />
     <Compile Include="GameEntities\Hazards\DartGun.cs" />
     <Compile Include="GameEntities\Hazards\EnemySpawner.cs" />
     <Compile Include="GameEntities\Hazards\Fire.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="GameEntities\Hazards\Mine.cs" />
     <Compile Include="GameEntities\Hazards\RocketPropelledPlatform.cs" />
     <Compile Include="GameEntities\Hazards\Spear.cs" />
+    <Compile Include="GameEntities\HelperObjects\LocatedImage.cs" />
     <Compile Include="GameEntities\Interfaces\IActivateable.cs" />
     <Compile Include="GameEntities\Interfaces\IActivator.cs" />
     <Compile Include="GameEntities\Interfaces\IAlertable.cs" />
@@ -2353,9 +2355,6 @@
     <None Include="Resources\keen4_poison_pool1_edge_right.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen4_poison_pool1_middle.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen4_poison_pool2.png" />
   </ItemGroup>
   <ItemGroup>
@@ -2363,9 +2362,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_poison_pool2_edge_right.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_poison_pool2_middle.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_spear_stab_down1.png" />
@@ -3590,6 +3586,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_industrial_pole_manhole_bottom_half.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_poison_pool1_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_poison_pool2_middle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

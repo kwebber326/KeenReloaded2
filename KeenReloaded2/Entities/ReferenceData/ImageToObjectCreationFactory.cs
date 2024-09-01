@@ -1662,6 +1662,50 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region Acid Pool
+
+            string acidPoolFile = keen4HazardFiles.FirstOrDefault(f => f.Contains("poison_pool"));
+            string acidPoolKey = FileIOUtility.ExtractFileNameFromPath(acidPoolFile);
+            Image acidImg = Image.FromFile(acidPoolFile);
+
+            MapMakerObjectProperty[] acidPoolProperties = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, acidImg.Width, acidImg.Height),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+                   new MapMakerObjectProperty()
+                  {
+                      PropertyName = "lengths",
+                      DataType = typeof(int),
+                      Value = 1,
+                      DisplayName ="Length: "
+                  },
+            };
+
+            MapMakerObject acidPoolObj = new MapMakerObject(typeof(AcidPool), acidPoolFile, false, acidPoolProperties);
+            backgroundReferenceData.Add(acidPoolKey, acidPoolObj);
+
+            #endregion
+
             #endregion
 
 

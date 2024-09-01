@@ -15,6 +15,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
     {
         public InvisibleTile(SpaceHashGrid grid, Rectangle hitbox) : base(grid, hitbox)
         {
+            this.HitBox = hitbox;
         }
 
         public override CollisionType CollisionType => CollisionType.BLOCK;

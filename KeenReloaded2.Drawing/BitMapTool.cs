@@ -131,7 +131,7 @@ namespace KeenReloaded.Framework.Utilities
                 for (int i = 0; i < count; i++)
                 {
                     if (extraImages[i] != null)
-                        g.DrawImage(extraImages[i], locations[i]);
+                        g.DrawImage(extraImages[i], locations[i].X, locations[i].Y, extraImages[i].Width ,extraImages[i].Height);
                 }
             }
             return bmp;

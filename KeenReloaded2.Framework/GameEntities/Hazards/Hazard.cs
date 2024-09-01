@@ -112,7 +112,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
 
         public Image Image => _sprite;
 
-        public Point Location => this.HitBox.Location;
+        public virtual Point Location => this.HitBox.Location;
 
         public override string ToString()
         {
