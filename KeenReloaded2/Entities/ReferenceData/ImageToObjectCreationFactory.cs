@@ -1627,6 +1627,41 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region Rocket Propelled Platform
+            string rppFile = keen4HazardFiles.FirstOrDefault(f => f.Contains("rocket"));
+            string rppKey = FileIOUtility.ExtractFileNameFromPath(rppFile);
+
+            MapMakerObjectProperty[] rppProperties = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, keen4MineImage.Width, keen4MineImage.Height),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+            };
+
+            MapMakerObject rppObj = new MapMakerObject(typeof(RocketPropelledPlatform), rppFile, false, rppProperties);
+            backgroundReferenceData.Add(rppKey, rppObj);
+
+            #endregion
+
             #endregion
 
 

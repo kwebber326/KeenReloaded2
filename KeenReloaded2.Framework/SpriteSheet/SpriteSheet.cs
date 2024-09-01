@@ -1050,6 +1050,27 @@ namespace KeenReloaded2.Framework.SpriteSheet
 
         #endregion
 
+        #region Keen 4 Rocket-Propelled Platform
+        private static Image[] _rocketPropelledPlatformImages;
+
+        public static Image[] RocketPropelledPlatformImages
+        {
+            get
+            {
+                if (_rocketPropelledPlatformImages == null)
+                {
+                    _rocketPropelledPlatformImages = new Image[]{
+                        Properties.Resources.keen4_rocket_propelled_platform1,
+                        Properties.Resources.keen4_rocket_propelled_platform2,
+                        Properties.Resources.keen4_rocket_propelled_platform3,
+                        Properties.Resources.keen4_rocket_propelled_platform4
+                    };
+                }
+                return _rocketPropelledPlatformImages;
+            }
+        }
+        #endregion
+
         #endregion
 
         #region projectiles and explosions

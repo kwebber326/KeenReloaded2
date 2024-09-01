@@ -83,6 +83,7 @@
     <Compile Include="GameEntities\Hazards\Hazard.cs" />
     <Compile Include="GameEntities\Hazards\LightningBolt.cs" />
     <Compile Include="GameEntities\Hazards\Mine.cs" />
+    <Compile Include="GameEntities\Hazards\RocketPropelledPlatform.cs" />
     <Compile Include="GameEntities\Hazards\Spear.cs" />
     <Compile Include="GameEntities\Interfaces\IActivateable.cs" />
     <Compile Include="GameEntities\Interfaces\IActivator.cs" />

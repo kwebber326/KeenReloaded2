@@ -66,3 +66,6 @@ keen4_cave_platform_middle|209|500|32|36|10
 keen4_cave_platform_left_edge|179|500|30|38|10
 keen4_cave_platform_right_edge|337|500|30|38|10
 keen4_dart_gun_down|542|412|30|24|18|DOWN|True|0
+keen4_rocket_propelled_platform1|848|307|32|32|18
+keen4_rocket_propelled_platform1|880|307|32|32|18
+keen4_rocket_propelled_platform1|912|307|32|32|18
