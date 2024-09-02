@@ -19,7 +19,9 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         public DartGun(Rectangle area, SpaceHashGrid grid, int zIndex, Direction direction, bool isFiring = true, int shotDelayOffset = 0)
             : base(grid, area, Enums.HazardType.DART_GUN, zIndex)
         {
-            _currentShotDelayTick = shotDelayOffset;
+            if (shotDelayOffset < 0)
+                shotDelayOffset = 0;
+            _currentShotDelayTick = shotDelayOffset >= SHOT_DELAY ? shotDelayOffset % SHOT_DELAY : shotDelayOffset;
             Initialize(direction, isFiring);
         }
 

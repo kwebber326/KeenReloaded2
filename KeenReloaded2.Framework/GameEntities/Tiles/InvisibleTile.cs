@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.GameEntities.Tiles
 {
-    public class InvisibleTile : CollisionObject, ICreateRemove
+    public class InvisibleTile : CollisionObject
     {
         public InvisibleTile(SpaceHashGrid grid, Rectangle hitbox) : base(grid, hitbox)
         {
@@ -46,8 +46,5 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
                 node.Objects.Remove(this);
             }
         }
-
-        public event EventHandler<ObjectEventArgs> Create;
-        public event EventHandler<ObjectEventArgs> Remove;
     }
 }

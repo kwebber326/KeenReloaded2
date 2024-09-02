@@ -56,7 +56,6 @@ keen5_floor_red_middle|855|1219|48|64|10
 keen5_floor_red_edge_right|903|1219|52|64|10
 keen4_spear_wait_up|420|566|16|10|18|UP
 keen4_spear_wait_right|339|366|8|16|18|RIGHT
-keen4_dart_gun_up|305|536|32|36|18|UP|True|10
 keen4_dart_gun_up|273|536|32|36|18|UP|True|0
 keen4_cave_platform_middle|305|500|32|36|10
 keen4_cave_platform_middle|273|500|32|36|10
@@ -78,4 +77,7 @@ keen4_removable_platform_left_edge_filled_pyramid|19|311|42|62|10|KEEN4_PYRAMID|
 keen4_removable_platform|61|311|32|62|10|KEEN4_GREEN|False|c8518a63-46fe-4904-bad8-1634b2c53461
 keen4_removable_platform|93|311|32|62|10|KEEN4_GREEN|False|e63291f6-d59c-49fd-8239-d55f7f2c393d
 keen4_removable_platform_right_edge_filled_pyramid|125|311|38|64|10|KEEN4_PYRAMID|False|51ad70ec-9cb6-42da-b64e-c0815753e5c8
+keen5_laser_turret_down|342|609|32|66|14|DOWN|True|KEEN5|10
+keen5_laser_turret_down|311|609|32|66|14|DOWN|True|KEEN5|0
+keen4_dart_gun_up|305|536|32|36|18|UP|True|10
 keen4_switch1_off|287|471|32|32|15|KEEN4_1|[b837d173-44f5-4b51-b244-8a2de2a99659,c8518a63-46fe-4904-bad8-1634b2c53461,e63291f6-d59c-49fd-8239-d55f7f2c393d,51ad70ec-9cb6-42da-b64e-c0815753e5c8]|False

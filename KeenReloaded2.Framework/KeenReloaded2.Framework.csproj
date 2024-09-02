@@ -46,6 +46,7 @@
     <Compile Include="Enums\CollisionType.cs" />
     <Compile Include="Enums\Direction.cs" />
     <Compile Include="Enums\DoorType.cs" />
+    <Compile Include="Enums\EnumProjectileType.cs" />
     <Compile Include="Enums\ExplosionState.cs" />
     <Compile Include="Enums\ExtraLifeType.cs" />
     <Compile Include="Enums\GemColor.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="GameEntities\Hazards\ForceField.cs" />
     <Compile Include="GameEntities\Hazards\Hazard.cs" />
     <Compile Include="GameEntities\Hazards\Keen5SpinningFire.cs" />
+    <Compile Include="GameEntities\Hazards\LaserTurret.cs" />
     <Compile Include="GameEntities\Hazards\LightningBolt.cs" />
     <Compile Include="GameEntities\Hazards\Mine.cs" />
     <Compile Include="GameEntities\Hazards\RocketPropelledPlatform.cs" />
@@ -137,6 +139,7 @@
     <Compile Include="GameEntities\Projectiles\RPGExplosion.cs" />
     <Compile Include="GameEntities\Projectiles\SnakeGunExplosion.cs" />
     <Compile Include="GameEntities\Projectiles\SnakeGunShot.cs" />
+    <Compile Include="GameEntities\Projectiles\StraighShotProjectile.cs" />
     <Compile Include="GameEntities\SpaceHashGrid.cs" />
     <Compile Include="GameEntities\Tiles\Ceilings\CeilingTile.cs" />
     <Compile Include="GameEntities\Tiles\DestructibleCollisionTile.cs" />
@@ -147,6 +150,7 @@
     <Compile Include="GameEntities\Tiles\Platforms\ActivateableLeftEdgeTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\ActivateableMiddleTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\ActivateableRightEdgeTile.cs" />
+    <Compile Include="GameEntities\Tiles\Platforms\InvisiblePlatformTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\LeftEdgePlatformTile.cs" />
     <Compile Include="GameEntities\Tiles\MaskedTile.cs" />
     <Compile Include="GameEntities\Tiles\Floors\MiddleFloorTile.cs" />
@@ -2228,18 +2232,6 @@
     <None Include="Resources\keen6_laser_field_top.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen6_laser_turret_down.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_laser_turret_left.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_laser_turret_right.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_laser_turret_up.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen6_slime_hazard_left1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -3594,6 +3586,102 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_poison_pool2_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_sprite_shot2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_sprite_shot1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_sprite_shot3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_sprite_shot4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_turret_laser_hit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_turret_laser_hit2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_turret_laser1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_turret_laser2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_turret_laser3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_turret_laser4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_robo_red_shot1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_robo_red_shot2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_robo_red_shot_hit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_robo_red_shot_hit2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_shot_hit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_shot_hit2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_shot1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_shot2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_standard_shikadi_electricity1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_standard_shikadi_electricity2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bobba_fireball1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bobba_fireball2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bobba_fireball3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bobba_fireball4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_laser_turret_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_laser_turret_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_laser_turret_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_laser_turret_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_laser_turret_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_laser_turret_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_laser_turret_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_laser_turret_up.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1795,6 +1795,78 @@ namespace KeenReloaded2.Entities.ReferenceData
             MapMakerObject spinningFireObj = new MapMakerObject(typeof(Keen5SpinningFire), spinningFireFile, false, spinningFireProperties);
             backgroundReferenceData.Add(spinningFirelKey, spinningFireObj);
             #endregion
+
+            #region Keen 5 Laser Turrets
+            var keen5LaserTurretImagePaths = keen5HazardFiles.Where(m => m.Contains("turret"));
+            foreach (var file in keen5LaserTurretImagePaths)
+            {
+                string laserTurretKeyName = FileIOUtility.ExtractFileNameFromPath(file);
+                Image keen5LaserTurretImage = Image.FromFile(file);
+
+                MapMakerObjectProperty[] keen5LaserTurretProperties = new MapMakerObjectProperty[]
+                {
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, keen5LaserTurretImage.Width, keen5LaserTurretImage.Height),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 14,
+                      DisplayName ="Z Index: "
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "direction",
+                      DataType = typeof(Direction),
+                      Hidden = true,
+                      PossibleValues = Enum.GetNames(typeof(Direction)),
+                      Value = InferDirectionFromFile(file)
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "isActive",
+                      DataType = typeof(bool),
+                      DisplayName = "Active: ",
+                      Value = true
+                  },
+                    new MapMakerObjectProperty()
+                  {
+                      PropertyName = "turretType",
+                      DataType = typeof(TurretType),
+                      PossibleValues = Enum.GetNames(typeof(TurretType)),
+                      DisplayName = "Type: ",
+                      Hidden = true,
+                      Value = TurretType.KEEN5
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "shotDelayOffset",
+                      DataType = typeof(int),
+                      DisplayName = "Shot Timing Offset: ",
+                      Value = 0
+                  }
+                };
+
+                MapMakerObject keen5LaserTurretObj = new MapMakerObject(typeof(LaserTurret), file, false, keen5LaserTurretProperties);
+
+                backgroundReferenceData.Add(laserTurretKeyName, keen5LaserTurretObj);
+
+            }
+            #endregion
+
             #endregion
 
             #endregion
