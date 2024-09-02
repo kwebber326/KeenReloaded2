@@ -18,9 +18,9 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
         public ActivateableMiddleTile(Rectangle area, SpaceHashGrid grid, Rectangle hitbox, string imageFile, int zIndex, string biome, bool isActive, Guid activationId)
             : base(area, grid, hitbox, imageFile, zIndex, biome)
         {
-            _isActive = isActive;
+
             _activationId = activationId;
-            this.SetImageFromBiome();
+            this.IsActive = isActive;
         }
 
         public bool IsActive
@@ -31,7 +31,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             }
             set
             {
-                if (_isActive && !value)
+                if (!value)
                 {
                     this.RemoveSelfFromCollisionGrid();
                 }
