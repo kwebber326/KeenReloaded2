@@ -267,6 +267,11 @@ namespace KeenReloaded2
             return mapping;
         }
 
+        private void ClearFocus()
+        {
+            label1.Focus();
+        }
+
         private void ClearMapMakerSelection()
         {
             mapObjectContainer1.ClearSelection();
@@ -485,6 +490,7 @@ namespace KeenReloaded2
 
         private void GameObjectMapping_Click(object sender, EventArgs e)
         {
+            ClearFocus();
             if (_cursorItem == null)
             {
                 ClearSelectedMapItem();
@@ -508,6 +514,7 @@ namespace KeenReloaded2
         }
         private void MapObjectContainer1_ObjectClicked(object sender, ControlEventArgs.MapMakerObjectEventArgs e)
         {
+            ClearFocus();
             ClearSelectedMapItem();
             if (e.MapMakerObject == null)
             {
@@ -580,6 +587,7 @@ namespace KeenReloaded2
                     }
                     break;
                 case Keys.Space:
+                    ClearFocus();
                     if (_cursorItem != null && UserWantsSmartPlacer())
                     {
                         _useSmartPlacer = true;
