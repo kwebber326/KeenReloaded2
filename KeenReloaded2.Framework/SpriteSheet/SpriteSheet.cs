@@ -1152,6 +1152,30 @@ namespace KeenReloaded2.Framework.SpriteSheet
             }
         }
         #endregion
+
+        #region Keen 5 Spinning Fire
+        private static Image[] _keen5SpinningFireImages;
+        public static Image[] Keen5SpinningFireImages
+        {
+            get
+            {
+                if (_keen5SpinningFireImages == null)
+                {
+                    _keen5SpinningFireImages = new Image[]
+                    {
+                        Properties.Resources.keen5_spinning_fire_hazard1,
+                        Properties.Resources.keen5_spinning_fire_hazard2,
+                        Properties.Resources.keen5_spinning_fire_hazard3,
+                        Properties.Resources.keen5_spinning_fire_hazard4,
+                        Properties.Resources.keen5_spinning_fire_hazard5,
+                        Properties.Resources.keen5_spinning_fire_hazard6,
+                        Properties.Resources.keen5_spinning_fire_hazard7
+                    };
+                }
+                return _keen5SpinningFireImages;
+            }
+        }
+        #endregion
         #endregion
 
         #region projectiles and explosions

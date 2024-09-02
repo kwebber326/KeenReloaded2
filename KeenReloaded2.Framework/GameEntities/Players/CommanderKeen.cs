@@ -784,7 +784,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     }
                 }
             }
-            else if (obj is Hazard)
+            else if (obj.CollisionType == CollisionType.HAZARD)
             {
                 var hazard = (Hazard)obj;
                 if (hazard.IsDeadly)

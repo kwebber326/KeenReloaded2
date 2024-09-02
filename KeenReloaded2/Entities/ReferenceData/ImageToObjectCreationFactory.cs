@@ -1342,6 +1342,9 @@ namespace KeenReloaded2.Entities.ReferenceData
             string keen4HazardPath = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_HAZARDS, "keen4", Biomes.BIOME_KEEN4_CAVE);
             string[] keen4HazardFiles = Directory.GetFiles(keen4HazardPath);
 
+            string keen5HazardPath = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_HAZARDS, "keen5", Biomes.BIOME_KEEN5_BLACK);
+            string[] keen5HazardFiles = Directory.GetFiles(keen5HazardPath);
+
             #region mine
             string keen4MineImagePath = keen4HazardFiles.FirstOrDefault(m => m.Contains(nameof(Properties.Resources.keen4_mine)));
             string mineKeyName = FileIOUtility.ExtractFileNameFromPath(keen4MineImagePath);
@@ -1755,6 +1758,43 @@ namespace KeenReloaded2.Entities.ReferenceData
             backgroundReferenceData.Add(tarPoolKey, tarPoolObj);
             #endregion
 
+            #endregion
+
+            #region keen 5
+            #region Spinning Fire
+            string spinningFireFile = keen5HazardFiles.FirstOrDefault(f => f.Contains("spinning_fire"));
+            string spinningFirelKey = FileIOUtility.ExtractFileNameFromPath(spinningFireFile);
+            Image spinningFireImg = Image.FromFile(spinningFireFile);
+
+            MapMakerObjectProperty[] spinningFireProperties = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, spinningFireImg.Width, spinningFireImg.Height),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+            };
+
+            MapMakerObject spinningFireObj = new MapMakerObject(typeof(Keen5SpinningFire), spinningFireFile, false, spinningFireProperties);
+            backgroundReferenceData.Add(spinningFirelKey, spinningFireObj);
+            #endregion
             #endregion
 
             #endregion

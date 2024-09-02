@@ -82,6 +82,7 @@
     <Compile Include="GameEntities\Hazards\Fire.cs" />
     <Compile Include="GameEntities\Hazards\ForceField.cs" />
     <Compile Include="GameEntities\Hazards\Hazard.cs" />
+    <Compile Include="GameEntities\Hazards\Keen5SpinningFire.cs" />
     <Compile Include="GameEntities\Hazards\LightningBolt.cs" />
     <Compile Include="GameEntities\Hazards\Mine.cs" />
     <Compile Include="GameEntities\Hazards\RocketPropelledPlatform.cs" />
