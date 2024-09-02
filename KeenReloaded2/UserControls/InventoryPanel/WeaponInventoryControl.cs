@@ -74,6 +74,7 @@ namespace KeenReloaded2.UserControls.InventoryPanel
                 WeaponDisplayControl control = new WeaponDisplayControl(weapon, 1, true);
                 pnlWeapons.Controls.Add(control);
             }
+            lblSelectedWeapon.Text = weapon.GetType().Name;
         }
 
         public void ChangeSelection(NeuralStunner weapon)
@@ -97,6 +98,7 @@ namespace KeenReloaded2.UserControls.InventoryPanel
             {
                 this.AddNewWeapon(weapon);
             }
+            lblSelectedWeapon.Text = weapon.GetType().Name;
         }
 
         public void UpdateWeapon(NeuralStunner weapon, bool selected = true)
