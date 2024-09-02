@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -115,37 +116,64 @@ namespace KeenReloaded.Framework.Utilities
         public static Bitmap DrawImageAtLocationWithDimensions(Image image, Rectangle area)
         {
             Bitmap bmp = new Bitmap(image, area.Size);
+
             return bmp;
         }
 
         public static Bitmap DrawImagesOnCanvas(Size canvas, Image backgroundImage, Image[] extraImages, Point[] locations)
         {
             Bitmap bmp = new Bitmap(canvas.Width, canvas.Height);
-            using (Graphics g = Graphics.FromImage(bmp))
+            try
             {
-                g.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceOver;
-                if (backgroundImage != null)
-                    g.DrawImage(backgroundImage, new Point(0, 0));
-
-                int count = extraImages.Length;
-                for (int i = 0; i < count; i++)
+                using (Graphics g = Graphics.FromImage(bmp))
                 {
-                    if (extraImages[i] != null)
-                        g.DrawImage(extraImages[i], locations[i].X, locations[i].Y, extraImages[i].Width ,extraImages[i].Height);
+                    g.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceOver;
+                    if (backgroundImage != null)
+                        g.DrawImage(backgroundImage, new Point(0, 0));
+
+                    int count = extraImages.Length;
+                    for (int i = 0; i < count; i++)
+                    {
+                        if (extraImages[i] != null)
+                            g.DrawImage(extraImages[i], locations[i].X, locations[i].Y, extraImages[i].Width, extraImages[i].Height);
+                    }
                 }
+                return bmp;
             }
-            return bmp;
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                bmp?.Dispose();
+                throw;
+            }
+            finally
+            {
+                GC.Collect();
+            }
         }
 
         public static Bitmap CropImage(Image image, Rectangle subSection)
         {
             var bitmap = new Bitmap(subSection.Width, subSection.Height);
-            using (Graphics g = Graphics.FromImage(bitmap))
+            try
             {
-                g.DrawImage(image, 0, 0, subSection, GraphicsUnit.Pixel);
-            }
+                using (Graphics g = Graphics.FromImage(bitmap))
+                {
+                    g.DrawImage(image, 0, 0, subSection, GraphicsUnit.Pixel);
+                }
 
-            return bitmap;
+                return bitmap;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                bitmap?.Dispose();
+                throw;
+            }
+            //finally
+            //{
+            //    image?.Dispose();
+            //}
         }
     }
 }

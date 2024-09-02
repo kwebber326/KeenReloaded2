@@ -113,6 +113,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             if (this.IsActive)
             {
                 this.HitBox = new Rectangle(this.HitBox.X, this.HitBox.Y - 10, this.HitBox.Width, this.HitBox.Height + 10);
+                _area = this.HitBox;
                 SetActivatedSprite();
             }
             OnToggled(e);
