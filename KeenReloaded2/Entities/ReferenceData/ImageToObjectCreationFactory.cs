@@ -1867,6 +1867,73 @@ namespace KeenReloaded2.Entities.ReferenceData
             }
             #endregion
 
+            #region Keen 5 Spinning burner platforms
+
+            var keen5SpinningBurnImagePaths = keen5HazardFiles.Where(m => m.Contains("spinning_burn"));
+            foreach (var file in keen5SpinningBurnImagePaths)
+            {
+                string spinningBurnKeyName = FileIOUtility.ExtractFileNameFromPath(file);
+                Image keen5SpinningBurnImage = Image.FromFile(file);
+                string indexStr = file[file.LastIndexOf('.') - 1].ToString();
+                int startIndex = int.TryParse(indexStr, out int index) ? index - 1 : 1;
+
+                MapMakerObjectProperty[] keen5SpinningBurnProperties = new MapMakerObjectProperty[]
+                {
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, keen5SpinningBurnImage.Width, keen5SpinningBurnImage.Height),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "startingImageName",
+                      DataType = typeof(string),
+                      Value = spinningBurnKeyName,
+                      Hidden = true,
+                      IsSpriteProperty = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 14,
+                      DisplayName ="Z Index: "
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "hasBurner",
+                      DataType = typeof(bool),
+                      Hidden = index != 7,
+                      DisplayName = "Has Burner: ",
+                      Value = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "startIndex",
+                      DataType = typeof(int),
+                      Hidden = true,
+                      Value = startIndex
+                  },
+                };
+
+                MapMakerObject keen5SpinningBurnObj = new MapMakerObject(typeof(Keen5SpinningBurnPlatform), file, false, keen5SpinningBurnProperties);
+
+                backgroundReferenceData.Add(spinningBurnKeyName, keen5SpinningBurnObj);
+
+            }
+
+            #endregion
+
             #endregion
 
             #endregion

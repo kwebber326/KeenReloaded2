@@ -1176,6 +1176,35 @@ namespace KeenReloaded2.Framework.SpriteSheet
             }
         }
         #endregion
+
+
+        #region Keen5 Spinning Burn Platform
+
+        private static Image[] _spinningBurnPlatformImages;
+
+        public static Image[] SpinningBurnPlatformImages
+        {
+            get
+            {
+                if (_spinningBurnPlatformImages == null)
+                {
+                    _spinningBurnPlatformImages = new Image[]
+                    {
+                        Properties.Resources.keen5_spinning_burn_platform1,
+                        Properties.Resources.keen5_spinning_burn_platform2,
+                        Properties.Resources.keen5_spinning_burn_platform3,
+                        Properties.Resources.keen5_spinning_burn_platform4,
+                        Properties.Resources.keen5_spinning_burn_platform5,
+                        Properties.Resources.keen5_spinning_burn_platform6,
+                        Properties.Resources.keen5_spinning_burn_platform7,
+                        Properties.Resources.keen5_spinning_burn_platform8
+                    };
+                }
+                return _spinningBurnPlatformImages;
+            }
+        }
+
+        #endregion
         #endregion
 
         #region projectiles and explosions
