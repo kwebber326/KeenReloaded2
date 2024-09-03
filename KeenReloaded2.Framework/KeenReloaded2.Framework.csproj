@@ -83,6 +83,7 @@
     <Compile Include="GameEntities\Hazards\Fire.cs" />
     <Compile Include="GameEntities\Hazards\ForceField.cs" />
     <Compile Include="GameEntities\Hazards\Hazard.cs" />
+    <Compile Include="GameEntities\Hazards\Keen5LaserField.cs" />
     <Compile Include="GameEntities\Hazards\Keen5PlatformBurner.cs" />
     <Compile Include="GameEntities\Hazards\Keen5SpinningBurnPlatform.cs" />
     <Compile Include="GameEntities\Hazards\Keen5SpinningFire.cs" />
@@ -1095,15 +1096,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen5_force_field_bottom.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen5_laser_field_laser1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen5_laser_field_laser2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen5_laser_field_laser3.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen_stun_shot1.png" />
@@ -2217,21 +2209,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_flame_thrower_on3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_laser_field_bottom.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_laser_field_laser1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_laser_field_laser2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_laser_field_laser3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_laser_field_top.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_slime_hazard_left1.png" />
@@ -3684,6 +3661,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen5_laser_turret_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_laser_field_bottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_laser_field_laser1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_laser_field_laser2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_laser_field_laser3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_laser_field_top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_laser_field_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_laser_field_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_laser_field_laser2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_laser_field_laser3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_laser_field_laser1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

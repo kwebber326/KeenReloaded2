@@ -1288,6 +1288,9 @@
   <data name="keen5_key_card_acquired" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_key_card_acquired.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen5_laser_field_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_laser_field_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keen5_laser_field_laser1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_laser_field_laser1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -1296,6 +1299,9 @@
   </data>
   <data name="keen5_laser_field_laser3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_laser_field_laser3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_laser_field_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_laser_field_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="keen5_laser_turret_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_laser_turret_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

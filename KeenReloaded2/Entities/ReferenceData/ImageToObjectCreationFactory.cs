@@ -1934,6 +1934,51 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region Keen 5 Laser Field
+
+            string laserFieldFile = keen5HazardFiles.FirstOrDefault(f => f.Contains("laser_field"));
+            string laserFieldlKey = FileIOUtility.ExtractFileNameFromPath(laserFieldFile);
+            Image laserFieldImg = Image.FromFile(laserFieldFile);
+
+            MapMakerObjectProperty[] laserFieldProperties = new MapMakerObjectProperty[]
+            {
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, laserFieldImg.Width, laserFieldImg.Height + 96),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "initialState",
+                      DataType = typeof(LaserFieldState),
+                      Value = LaserFieldState.OFF,
+                      PossibleValues = Enum.GetNames(typeof(LaserFieldState)),
+                      DisplayName ="Initial State: "
+                  },
+            };
+
+            MapMakerObject laserFieldObj = new MapMakerObject(typeof(Keen5LaserField), laserFieldFile, false, laserFieldProperties);
+            backgroundReferenceData.Add(laserFieldlKey, laserFieldObj);
+
+            #endregion
+
             #endregion
 
             #endregion
@@ -2626,6 +2671,8 @@ namespace KeenReloaded2.Entities.ReferenceData
             }
 
             #endregion
+
+
 
             return backgroundReferenceData;
         }

@@ -85,4 +85,6 @@ keen5_spinning_burn_platform7|772|216|28|32|keen5_spinning_burn_platform7|14|Fal
 keen5_spinning_burn_platform7|800|216|28|32|keen5_spinning_burn_platform7|14|False|6
 keen5_spinning_burn_platform1|716|216|28|58|keen5_spinning_burn_platform1|14|True|0
 keen5_spinning_burn_platform8|828|216|28|48|keen5_spinning_burn_platform8|14|True|7
+keen5_laser_field_up|825|750|32|500|18|PHASE2
+keen5_laser_field_up|863|750|32|500|18|OFF
 keen4_switch1_off|287|471|32|32|15|KEEN4_1|[b837d173-44f5-4b51-b244-8a2de2a99659,c8518a63-46fe-4904-bad8-1634b2c53461,e63291f6-d59c-49fd-8239-d55f7f2c393d,51ad70ec-9cb6-42da-b64e-c0815753e5c8]|False
