@@ -1986,6 +1986,7 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #region keen 6
 
+            #region burn hazard
             string keen6BurnFile = keen6HazardFiles.FirstOrDefault(f => f.Contains("burn_hazard"));
             string burnHazardKey = FileIOUtility.ExtractFileNameFromPath(keen6BurnFile);
             Image burnHazardImg = Image.FromFile(keen6BurnFile);
@@ -2018,6 +2019,52 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             MapMakerObject burnHazardObj = new MapMakerObject(typeof(Keen6BurnHazard), keen6BurnFile, false, burnHazardProperties);
             backgroundReferenceData.Add(burnHazardKey, burnHazardObj);
+            #endregion
+
+            #region spikes
+            string keen6SpikeImagePath = keen6HazardFiles.FirstOrDefault(m => m.Contains(nameof(Properties.Resources.keen6_dome_spikes)));
+            string keen6SpikeKeyName = FileIOUtility.ExtractFileNameFromPath(keen6SpikeImagePath);
+            Image keen6SpikeImage = Image.FromFile(keen6SpikeImagePath);
+
+            MapMakerObjectProperty[] keen6SpikeProperties = new MapMakerObjectProperty[]
+            {
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, keen6SpikeImage.Width, keen6SpikeImage.Height),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "hazardType",
+                      DataType = typeof(HazardType),
+                      Value = HazardType.KEEN6_SPIKE,
+                      Hidden = true,
+                      IsSpriteProperty = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+            };
+
+            MapMakerObject keen6SpikeObj = new MapMakerObject(typeof(Hazard), keen6SpikeImagePath, false, keen6SpikeProperties);
+
+            backgroundReferenceData.Add(keen6SpikeKeyName, keen6SpikeObj);
+
+            #endregion
 
             #endregion
 
