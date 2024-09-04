@@ -87,6 +87,7 @@
     <Compile Include="GameEntities\Hazards\Keen5PlatformBurner.cs" />
     <Compile Include="GameEntities\Hazards\Keen5SpinningBurnPlatform.cs" />
     <Compile Include="GameEntities\Hazards\Keen5SpinningFire.cs" />
+    <Compile Include="GameEntities\Hazards\Keen6BurnHarzard.cs" />
     <Compile Include="GameEntities\Hazards\LaserTurret.cs" />
     <Compile Include="GameEntities\Hazards\LightningBolt.cs" />
     <Compile Include="GameEntities\Hazards\Mine.cs" />
@@ -2142,61 +2143,7 @@
     <None Include="Resources\keen6_Switch_pole.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen6_conveyer_belt_left1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_conveyer_belt_left2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_conveyer_belt_left3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_conveyer_belt_left4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_conveyer_belt_middle1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_conveyer_belt_middle2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_conveyer_belt_middle3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_conveyer_belt_middle4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_conveyer_belt_right1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_conveyer_belt_right2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_conveyer_belt_right3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_conveyer_belt_right4.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen6_dome_spikes.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_drill1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_drill2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_drill3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_drill4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_electric_rods1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_electric_rods2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_flame_thrower_off.png" />
@@ -2209,33 +2156,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_flame_thrower_on3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_slime_hazard_left1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_slime_hazard_left2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_slime_hazard_left3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_slime_hazard_middle1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_slime_hazard_middle2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_slime_hazard_middle3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_slime_hazard_right1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_slime_hazard_right2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_slime_hazard_right3.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_smasher_1.png" />
@@ -3691,6 +3611,87 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen5_laser_field_laser1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_conveyer_belt_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_conveyer_belt_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_conveyer_belt_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_conveyer_belt_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_conveyer_belt_middle1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_conveyer_belt_middle2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_conveyer_belt_middle3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_conveyer_belt_middle4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_conveyer_belt_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_conveyer_belt_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_conveyer_belt_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_conveyer_belt_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_drill1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_drill2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_drill3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_drill4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_electric_rods1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_electric_rods2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_slime_hazard_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_slime_hazard_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_slime_hazard_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_slime_hazard_middle1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_slime_hazard_middle2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_slime_hazard_middle3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_slime_hazard_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_slime_hazard_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_slime_hazard_right3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1205,6 +1205,30 @@ namespace KeenReloaded2.Framework.SpriteSheet
         }
 
         #endregion
+
+        #region Keen 6 Burn Hazard
+
+        private static Image[] _keen6BurnHazardImages;
+
+        public static Image[] Keen6BurnHazardImages
+        {
+            get
+            {
+                if (_keen6BurnHazardImages == null)
+                {
+                    _keen6BurnHazardImages = new Image[]
+                    {
+                        Properties.Resources.keen6_burn_hazard1,
+                        Properties.Resources.keen6_burn_hazard2,
+                        Properties.Resources.keen6_burn_hazard3,
+                        Properties.Resources.keen6_burn_hazard4
+                    };
+                }
+                return _keen6BurnHazardImages;
+            }
+        }
+
+        #endregion
         #endregion
 
         #region projectiles and explosions

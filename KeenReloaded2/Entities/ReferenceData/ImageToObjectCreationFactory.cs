@@ -1345,6 +1345,9 @@ namespace KeenReloaded2.Entities.ReferenceData
             string keen5HazardPath = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_HAZARDS, "keen5", Biomes.BIOME_KEEN5_BLACK);
             string[] keen5HazardFiles = Directory.GetFiles(keen5HazardPath);
 
+            string keen6HazardPath = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_HAZARDS, "keen6", Biomes.BIOME_KEEN6_DOME);
+            string[] keen6HazardFiles = Directory.GetFiles(keen6HazardPath);
+
             #region mine
             string keen4MineImagePath = keen4HazardFiles.FirstOrDefault(m => m.Contains(nameof(Properties.Resources.keen4_mine)));
             string mineKeyName = FileIOUtility.ExtractFileNameFromPath(keen4MineImagePath);
@@ -1978,6 +1981,43 @@ namespace KeenReloaded2.Entities.ReferenceData
             backgroundReferenceData.Add(laserFieldlKey, laserFieldObj);
 
             #endregion
+
+            #endregion
+
+            #region keen 6
+
+            string keen6BurnFile = keen6HazardFiles.FirstOrDefault(f => f.Contains("burn_hazard"));
+            string burnHazardKey = FileIOUtility.ExtractFileNameFromPath(keen6BurnFile);
+            Image burnHazardImg = Image.FromFile(keen6BurnFile);
+
+            MapMakerObjectProperty[] burnHazardProperties = new MapMakerObjectProperty[]
+            {
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, burnHazardImg.Width, burnHazardImg.Height + 96),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+            };
+
+            MapMakerObject burnHazardObj = new MapMakerObject(typeof(Keen6BurnHazard), keen6BurnFile, false, burnHazardProperties);
+            backgroundReferenceData.Add(burnHazardKey, burnHazardObj);
 
             #endregion
 
