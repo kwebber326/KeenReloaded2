@@ -1998,7 +1998,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                       PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
                       DisplayName = "Area: ",
                       DataType = typeof(Rectangle),
-                      Value = new Rectangle(0, 0, burnHazardImg.Width, burnHazardImg.Height + 96),
+                      Value = new Rectangle(0, 0, burnHazardImg.Width, burnHazardImg.Height),
                   },
                   new MapMakerObjectProperty()
                   {
@@ -2063,6 +2063,43 @@ namespace KeenReloaded2.Entities.ReferenceData
             MapMakerObject keen6SpikeObj = new MapMakerObject(typeof(Hazard), keen6SpikeImagePath, false, keen6SpikeProperties);
 
             backgroundReferenceData.Add(keen6SpikeKeyName, keen6SpikeObj);
+
+            #endregion
+
+            #region drill hazard
+
+            string keen6DrillFile = keen6HazardFiles.FirstOrDefault(f => f.Contains("drill"));
+            string drillHazardKey = FileIOUtility.ExtractFileNameFromPath(keen6DrillFile);
+            Image drillHazardImg = Image.FromFile(keen6DrillFile);
+
+            MapMakerObjectProperty[] drillHazardProperties = new MapMakerObjectProperty[]
+            {
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, drillHazardImg.Width, drillHazardImg.Height),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+            };
+
+            MapMakerObject drillHazardObj = new MapMakerObject(typeof(Keen6Drill), keen6DrillFile, false, drillHazardProperties);
+            backgroundReferenceData.Add(drillHazardKey, drillHazardObj);
 
             #endregion
 

@@ -1229,6 +1229,28 @@ namespace KeenReloaded2.Framework.SpriteSheet
         }
 
         #endregion
+
+        #region Keen 6 Drill
+        private static Image[] _keen6DrillSprites;
+
+        public static Image[] Keen6DrillSprites
+        {
+            get
+            {
+                if (_keen6DrillSprites == null)
+                {
+                    _keen6DrillSprites = new Image[]
+                    {
+                         Properties.Resources.keen6_drill1,
+                         Properties.Resources.keen6_drill2,
+                         Properties.Resources.keen6_drill3,
+                         Properties.Resources.keen6_drill4
+                    };
+                }
+                return _keen6DrillSprites;
+            }
+        }
+        #endregion
         #endregion
 
         #region projectiles and explosions
