@@ -2157,6 +2157,51 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region smasher
+
+            string keen6SmasherFile = keen6HazardFiles.FirstOrDefault(f => f.Contains("smasher"));
+            string smasherHazardKey = FileIOUtility.ExtractFileNameFromPath(keen6SmasherFile);
+            Image smasherHazardImg = Image.FromFile(keen6SmasherFile);
+
+            MapMakerObjectProperty[] smasherHazardProperties = new MapMakerObjectProperty[]
+            {
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, smasherHazardImg.Width, smasherHazardImg.Height),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "initialState",
+                      DataType = typeof(SmasherState),
+                      Value = SmasherState.OFF,
+                      PossibleValues = Enum.GetNames(typeof(SmasherState)),
+                      DisplayName ="Initial State: "
+                  },
+            };
+
+            MapMakerObject smasherHazardObj = new MapMakerObject(typeof(Smasher), keen6SmasherFile, false, smasherHazardProperties);
+            backgroundReferenceData.Add(smasherHazardKey, smasherHazardObj);
+
+            #endregion
+
             #endregion
 
             #endregion
