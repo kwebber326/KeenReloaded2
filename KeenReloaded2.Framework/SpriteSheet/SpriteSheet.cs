@@ -1251,6 +1251,70 @@ namespace KeenReloaded2.Framework.SpriteSheet
             }
         }
         #endregion
+
+        #region Keen 6 Conveyer Belt
+
+        private static Image[] _keen6ConveyerBeltLeftSprites;
+
+        public static Image[] Keen6ConveyerBeltLeftSprites
+        {
+            get
+            {
+                if (_keen6ConveyerBeltLeftSprites == null)
+                {
+                    _keen6ConveyerBeltLeftSprites = new Image[]
+                    {
+                        Properties.Resources.keen6_conveyer_belt_left1,
+                        Properties.Resources.keen6_conveyer_belt_left2,
+                        Properties.Resources.keen6_conveyer_belt_left3,
+                        Properties.Resources.keen6_conveyer_belt_left4,
+                    };
+                }
+                return _keen6ConveyerBeltLeftSprites;
+            }
+        }
+
+        private static Image[] _keen6ConveyerBeltRightSprites;
+
+        public static Image[] Keen6ConveyerBeltRightSprites
+        {
+            get
+            {
+                if (_keen6ConveyerBeltRightSprites == null)
+                {
+                    _keen6ConveyerBeltRightSprites = new Image[]
+                    {
+                        Properties.Resources.keen6_conveyer_belt_right1,
+                        Properties.Resources.keen6_conveyer_belt_right2,
+                        Properties.Resources.keen6_conveyer_belt_right3,
+                        Properties.Resources.keen6_conveyer_belt_right4,
+                    };
+                }
+                return _keen6ConveyerBeltRightSprites;
+            }
+        }
+
+        private static Image[] _keen6ConveyerBeltMiddleSprites;
+
+        public static Image[] Keen6ConveyerBeltMiddleSprites
+        {
+            get
+            {
+                if (_keen6ConveyerBeltMiddleSprites == null)
+                {
+                    _keen6ConveyerBeltMiddleSprites = new Image[]
+                    {
+                        Properties.Resources.keen6_conveyer_belt_middle1,
+                        Properties.Resources.keen6_conveyer_belt_middle2,
+                        Properties.Resources.keen6_conveyer_belt_middle3,
+                        Properties.Resources.keen6_conveyer_belt_middle4,
+                    };
+                }
+                return _keen6ConveyerBeltMiddleSprites;
+            }
+        }
+
+        #endregion
         #endregion
 
         #region projectiles and explosions

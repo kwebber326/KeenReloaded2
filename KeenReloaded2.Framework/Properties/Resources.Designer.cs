@@ -7883,6 +7883,16 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen6_conveyer_belt_whole {
+            get {
+                object obj = ResourceManager.GetObject("keen6_conveyer_belt_whole", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen6_dome_ceiling1 {
             get {
                 object obj = ResourceManager.GetObject("keen6_dome_ceiling1", resourceCulture);

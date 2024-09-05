@@ -5,7 +5,6 @@ keen5_floor_black_middle|250|286|48|64|10
 keen5_floor_black_floor_edge_right|298|286|52|64|10
 keen5_wall_black_edge_left|179|350|64|64|10
 keen5_wall_black_middle|243|350|64|64|10
-keen5_wall_black_edge_right|299|350|52|64|10
 keen5_single_platform_blue|623|132|32|36|10
 keen4_cave_platform_middle|226|117|32|36|10
 keen4_cave_platform_left_edge|195|116|30|38|10
@@ -26,3 +25,4 @@ keen_stand_right|428|465|26|64|RIGHT
 keen6_burn_hazard3|454|330|32|32|18
 keen6_burn_hazard3|454|362|32|32|18
 keen6_drill1|302|493|26|38|18
+keen5_wall_black_edge_right|298|350|52|64|10

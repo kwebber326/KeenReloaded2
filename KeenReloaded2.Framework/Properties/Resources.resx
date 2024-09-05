@@ -1753,6 +1753,9 @@
   <data name="keen6_conveyer_belt_right4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen6_conveyer_belt_right4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen6_conveyer_belt_whole" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen6_conveyer_belt_whole.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keen6_dome_ceiling1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen6_dome_ceiling1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

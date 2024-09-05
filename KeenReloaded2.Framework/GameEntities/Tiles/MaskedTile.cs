@@ -30,7 +30,9 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
             try
             {
                 _area = area;
-                _image = Image.FromFile(imageFile);
+                if (imageFile != null)
+                    _image = Image.FromFile(imageFile);
+
                 this.HitBox = area;
                 _initialImageName = FileIOUtility.ExtractFileNameFromPath(imageFile);
             }
@@ -46,6 +48,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
 
         public Point Location => _area.Location;
 
+        public virtual bool Hangable => true;
+
         public override Rectangle HitBox
         {
             get
@@ -55,7 +59,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
             protected set
             {
                 base.HitBox = value;
-                if (_collidingNodes != null)
+                if (_collisionGrid != null && _collidingNodes != null)
                 {
                     this.UpdateCollisionNodes(Direction.DOWN_LEFT);
                     this.UpdateCollisionNodes(Direction.UP_RIGHT);

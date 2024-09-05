@@ -1725,7 +1725,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
 
         private void Hang(MaskedTile tile)
         {
-            if (tile != null && !(tile.CollisionType == CollisionType.CONVEYOR_BELT))
+            if (tile != null && tile.Hangable)
             {
                 int newX = this.Direction == Enums.Direction.RIGHT ? tile.HitBox.Left - this.HitBox.Width - 1 : tile.HitBox.Right + 1;
                 this.HitBox = new Rectangle(new Point(newX, tile.HitBox.Y), this.HitBox.Size);

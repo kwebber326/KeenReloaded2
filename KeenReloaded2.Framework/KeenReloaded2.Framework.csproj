@@ -78,6 +78,7 @@
     <Compile Include="GameEntities\DestructibleObject.cs" />
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
     <Compile Include="GameEntities\Hazards\AcidPool.cs" />
+    <Compile Include="GameEntities\Hazards\ConveyerBelt.cs" />
     <Compile Include="GameEntities\Hazards\DartGun.cs" />
     <Compile Include="GameEntities\Hazards\EnemySpawner.cs" />
     <Compile Include="GameEntities\Hazards\Fire.cs" />
@@ -3693,6 +3694,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_slime_hazard_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_conveyer_belt_whole.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -2103,6 +2103,60 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region conveyer belt
+
+            string keen6ConveyerBeltFile = keen6HazardFiles.FirstOrDefault(f => f.Contains("conveyer"));
+            string conveyerHazardKey = FileIOUtility.ExtractFileNameFromPath(keen6ConveyerBeltFile);
+            Image conveyerHazardImg = Image.FromFile(keen6ConveyerBeltFile);
+
+            MapMakerObjectProperty[] conveyerHazardProperties = new MapMakerObjectProperty[]
+            {
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, conveyerHazardImg.Width, conveyerHazardImg.Height),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "conveyerBeltDirection",
+                      DataType = typeof(Direction),
+                      Value = Direction.LEFT,
+                      PossibleValues = Enum.GetNames(typeof(Direction))
+                                        .Where(e => e == "LEFT" || e == "RIGHT")
+                                        .ToArray(),
+                      DisplayName ="Spin Direction: "
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "addedLengths",
+                      DataType = typeof(int),
+                      Value = 0,
+                      DisplayName ="Added Lengths: "
+                  },
+            };
+
+            MapMakerObject conveyerHazardObj = new MapMakerObject(typeof(ConveyerBelt), keen6ConveyerBeltFile, false, conveyerHazardProperties);
+            backgroundReferenceData.Add(conveyerHazardKey, conveyerHazardObj);
+
+            #endregion
+
             #endregion
 
             #endregion
