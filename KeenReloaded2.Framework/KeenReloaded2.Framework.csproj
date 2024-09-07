@@ -91,6 +91,7 @@
     <Compile Include="GameEntities\Hazards\Keen5SpinningFire.cs" />
     <Compile Include="GameEntities\Hazards\Keen6BurnHarzard.cs" />
     <Compile Include="GameEntities\Hazards\Keen6Drill.cs" />
+    <Compile Include="GameEntities\Hazards\Keen6ElectriRodcHazard.cs" />
     <Compile Include="GameEntities\Hazards\Keen6LaserField.cs" />
     <Compile Include="GameEntities\Hazards\LaserTurret.cs" />
     <Compile Include="GameEntities\Hazards\LightningBolt.cs" />

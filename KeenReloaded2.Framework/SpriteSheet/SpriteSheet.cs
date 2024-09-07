@@ -1359,6 +1359,26 @@ namespace KeenReloaded2.Framework.SpriteSheet
             }
         }
         #endregion
+
+        #region Keen 6 Electric Rods
+        private static Image[] _keen6ElectricRodSprites;
+
+        public static Image[] Keen6ElectricRodSprites
+        {
+            get
+            {
+                if (_keen6ElectricRodSprites == null)
+                {
+                    _keen6ElectricRodSprites = new Image[]
+                    {
+                        Properties.Resources.keen6_electric_rods1,
+                        Properties.Resources.keen6_electric_rods2
+                    };
+                }
+                return _keen6ElectricRodSprites;
+            }
+        }
+        #endregion
         #endregion
 
         #region projectiles and explosions

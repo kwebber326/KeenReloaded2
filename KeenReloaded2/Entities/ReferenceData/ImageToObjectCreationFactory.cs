@@ -2986,6 +2986,43 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region Keen 6 Electric Rods tile
+
+            string electricRodFile = keen6HazardFiles.FirstOrDefault(f => f.Contains("electric_rod"));
+            string electricRodKey = FileIOUtility.ExtractFileNameFromPath(electricRodFile);
+            Image electricRodImg = Image.FromFile(electricRodFile);
+
+            MapMakerObjectProperty[] electricRodProperties = new MapMakerObjectProperty[]
+            {
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, electricRodImg.Width, electricRodImg.Height + 96),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+            };
+
+            MapMakerObject electricRodObj = new MapMakerObject(typeof(Keen6ElectricRodHazard), electricRodFile, false, electricRodProperties);
+            backgroundReferenceData.Add(electricRodKey, electricRodObj);
+
+            #endregion
+
             return backgroundReferenceData;
         }
 
