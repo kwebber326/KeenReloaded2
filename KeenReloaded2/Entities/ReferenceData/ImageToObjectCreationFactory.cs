@@ -2202,6 +2202,51 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region flamethrower
+
+            string keen6FlamethrowerFile = keen6HazardFiles.FirstOrDefault(f => f.Contains("flame_thrower"));
+            string flamethrowerHazardKey = FileIOUtility.ExtractFileNameFromPath(keen6FlamethrowerFile);
+            Image flamethrowerHazardImg = Image.FromFile(keen6FlamethrowerFile);
+
+            MapMakerObjectProperty[] flamethrowerHazardProperties = new MapMakerObjectProperty[]
+            {
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, flamethrowerHazardImg.Width, flamethrowerHazardImg.Height),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "initialState",
+                      DataType = typeof(FlameThrowerState),
+                      Value = FlameThrowerState.OFF,
+                      PossibleValues = Enum.GetNames(typeof(FlameThrowerState)),
+                      DisplayName ="Initial State: "
+                  },
+            };
+
+            MapMakerObject flamethrowerHazardObj = new MapMakerObject(typeof(FlameThrower), keen6FlamethrowerFile, false, flamethrowerHazardProperties);
+            backgroundReferenceData.Add(flamethrowerHazardKey, flamethrowerHazardObj);
+
+            #endregion
+
             #endregion
 
             #endregion
@@ -2895,7 +2940,51 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region Keen 6 Laser Field
 
+            string laserField6File = keen6HazardFiles.FirstOrDefault(f => f.Contains("laser_field"));
+            string laserField6Key = FileIOUtility.ExtractFileNameFromPath(laserField6File);
+            Image laserField6Img = Image.FromFile(laserField6File);
+
+            MapMakerObjectProperty[] laserField6Properties = new MapMakerObjectProperty[]
+            {
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, laserField6Img.Width, laserField6Img.Height + 96),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "initialState",
+                      DataType = typeof(LaserFieldState),
+                      Value = LaserFieldState.OFF,
+                      PossibleValues = Enum.GetNames(typeof(LaserFieldState))
+                            .Where(e => e == "OFF" || e == "PHASE1").ToArray(),
+                      DisplayName ="Initial State: "
+                  },
+            };
+
+            MapMakerObject laserField6Obj = new MapMakerObject(typeof(Keen6LaserField), laserField6File, false, laserField6Properties);
+            backgroundReferenceData.Add(laserField6Key, laserField6Obj);
+
+            #endregion
 
             return backgroundReferenceData;
         }

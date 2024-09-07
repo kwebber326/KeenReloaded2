@@ -82,6 +82,7 @@
     <Compile Include="GameEntities\Hazards\DartGun.cs" />
     <Compile Include="GameEntities\Hazards\EnemySpawner.cs" />
     <Compile Include="GameEntities\Hazards\Fire.cs" />
+    <Compile Include="GameEntities\Hazards\Flamethrower.cs" />
     <Compile Include="GameEntities\Hazards\ForceField.cs" />
     <Compile Include="GameEntities\Hazards\Hazard.cs" />
     <Compile Include="GameEntities\Hazards\Keen5LaserField.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="GameEntities\Hazards\Keen5SpinningFire.cs" />
     <Compile Include="GameEntities\Hazards\Keen6BurnHarzard.cs" />
     <Compile Include="GameEntities\Hazards\Keen6Drill.cs" />
+    <Compile Include="GameEntities\Hazards\Keen6LaserField.cs" />
     <Compile Include="GameEntities\Hazards\LaserTurret.cs" />
     <Compile Include="GameEntities\Hazards\LightningBolt.cs" />
     <Compile Include="GameEntities\Hazards\Mine.cs" />

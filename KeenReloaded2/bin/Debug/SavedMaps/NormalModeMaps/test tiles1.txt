@@ -26,3 +26,4 @@ keen6_burn_hazard3|454|330|32|32|18
 keen6_burn_hazard3|454|362|32|32|18
 keen6_drill1|302|493|26|38|18
 keen5_wall_black_edge_right|298|350|52|64|10
+keen6_flame_thrower_off|204|272|26|48|18|OFF

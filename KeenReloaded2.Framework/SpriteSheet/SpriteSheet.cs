@@ -1315,6 +1315,50 @@ namespace KeenReloaded2.Framework.SpriteSheet
         }
 
         #endregion
+
+        #region Keen 6 Flame Thrower
+        private static Image[] _flameThrowerBurnImages;
+
+        public static Image[] Keen6FlameThrowerBurnImages
+        {
+            get
+            {
+                if (_flameThrowerBurnImages == null)
+                {
+                    _flameThrowerBurnImages = new Image[]
+                    {
+                        Properties.Resources.keen6_flame_thrower_off,
+                        Properties.Resources.keen6_flame_thrower_on1,
+                        Properties.Resources.keen6_flame_thrower_on2,
+                        Properties.Resources.keen6_flame_thrower_on3,
+                        Properties.Resources.keen6_flame_thrower_on2,
+                        Properties.Resources.keen6_flame_thrower_on1
+                    };
+                }
+                return _flameThrowerBurnImages;
+            }
+        }
+        #endregion
+
+        #region Keen 6 LaserField
+        private static Image[] _keen6LaserFieldImages;
+
+        public static Image[] Keen6LaserFieldImages
+        {
+            get
+            {
+                if (_keen6LaserFieldImages == null)
+                {
+                    _keen6LaserFieldImages = new Image[]{
+                        Properties.Resources.keen6_laser_field_laser1,
+                        Properties.Resources.keen6_laser_field_laser2,
+                        Properties.Resources.keen6_laser_field_laser3
+                    };
+                }
+                return _keen6LaserFieldImages;
+            }
+        }
+        #endregion
         #endregion
 
         #region projectiles and explosions
