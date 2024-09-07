@@ -28,7 +28,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         private Image[] _laserSprites;
         private Rectangle _area;
 
-        private const int WIDTH = 32, UP_HEIGHT = 24, Y_OFFSET = 4, DOWN_HEIGHT = 32;
+        private const int WIDTH = 32, UP_HEIGHT = 24, DOWN_HEIGHT = 32;
 
         public Keen6LaserField(Rectangle area, SpaceHashGrid grid, int zIndex, LaserFieldState initialState)
             : base(grid, area, Enums.HazardType.KEEN5_LASER_FIELD, zIndex)
