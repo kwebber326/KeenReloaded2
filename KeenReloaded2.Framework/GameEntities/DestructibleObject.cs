@@ -50,7 +50,7 @@ namespace KeenReloaded2.Framework.GameEntities
             }
         }
 
-        public bool IsDead()
+        public virtual bool IsDead()
         {
             return this.Health <= 0;
         }

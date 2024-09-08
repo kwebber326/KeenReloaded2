@@ -22,7 +22,6 @@ namespace KeenReloaded2.Framework.Enums
         POLE_TILE,
         ENEMY_PROJECTILE,
         FRIENDLY_PROJECTILE,
-        FORCE_FIELD,
         EXPLOSION,
         KEEN6_SWITCH,
         GEM_PLACEHOLDER,

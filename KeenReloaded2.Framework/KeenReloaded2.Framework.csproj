@@ -1097,18 +1097,6 @@
     <None Include="Resources\keen4_drop3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen5_force_field_explosion1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen5_force_field_explosion2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen5_force_field_top.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen5_force_field_bottom.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen_stun_shot1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -3705,6 +3693,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_conveyer_belt_whole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_force_field_explosion2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_force_field_explosion1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_force_field_top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_force_field_bottom.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

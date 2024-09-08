@@ -1983,6 +1983,51 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region Force Field
+
+
+            string forceFieldFile = keen5HazardFiles.FirstOrDefault(f => f.Contains("force_field"));
+            string forceFieldKey = FileIOUtility.ExtractFileNameFromPath(forceFieldFile);
+            Image forceFieldImg = Image.FromFile(forceFieldFile);
+
+            MapMakerObjectProperty[] forceFieldProperties = new MapMakerObjectProperty[]
+            {
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, forceFieldImg.Width, forceFieldImg.Height + 96),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+                   new MapMakerObjectProperty()
+                  {
+                      PropertyName = "health",
+                      DataType = typeof(int),
+                      Value = 1,
+                      DisplayName ="Health: "
+                  },
+            };
+
+            MapMakerObject forceFieldObj = new MapMakerObject(typeof(ForceField), forceFieldFile, false, forceFieldProperties);
+            backgroundReferenceData.Add(forceFieldKey, forceFieldObj);
+
+            #endregion
+
             #endregion
 
             #region keen 6
@@ -2479,6 +2524,8 @@ namespace KeenReloaded2.Entities.ReferenceData
             }
 
             #endregion
+
+         
 
             #endregion
 

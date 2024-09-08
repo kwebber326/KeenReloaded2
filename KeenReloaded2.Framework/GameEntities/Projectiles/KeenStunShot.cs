@@ -147,7 +147,14 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             else if (obj is DestructibleObject && !(obj is CommanderKeen))
             {
                 var destructoObject = (DestructibleObject)obj;
-                destructoObject.TakeDamage(this);
+                if (!destructoObject.IsDead())
+                {
+                    destructoObject.TakeDamage(this);
+                    if (--_pierce < 0 || obj is ForceField)
+                    {
+                        StopAtCollisionObject(obj);
+                    }
+                }
             }
         }
 

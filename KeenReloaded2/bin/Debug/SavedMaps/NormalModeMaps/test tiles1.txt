@@ -19,9 +19,7 @@ gem_yellow1|157|222|26|20|YELLOW|50|False
 keen_stand_right|428|465|26|64|RIGHT
 keen6_burn_hazard3|454|330|32|32|18
 keen6_burn_hazard3|454|362|32|32|18
-keen6_drill1|302|493|26|38|18
 keen5_wall_black_edge_right|298|350|52|64|10
-keen6_dome_platform_single|634|439|32|40|10
 keen6_dome_ceiling3|492|529|64|32|10
 keen6_dome_ceiling3|556|529|64|32|10
 keen6_slime_hazard_middle1|411|658|64|62|18|0
@@ -37,6 +35,8 @@ keen5_platform_blue_edge_left|148|537|32|34|10
 keen6_slime_hazard_right2|862|646|32|62|18|2
 keen6_slime_hazard_middle1|798|646|64|62|18|0
 keen6_slime_hazard_left1|766|646|32|62|18|1
-keen6_flame_thrower_off|254|264|26|48|18|OFF
 keen6_electric_rods1|486|330|128|96|18
 keen4_cave_platform_left_edge|195|117|30|38|10
+keen6_dome_platform_single|900|400|32|40|10
+keen5_force_field_bottom|623|168|32|500|18|3
+neural_stunner1|400|400|30|22|50|1000

@@ -1,6 +1,8 @@
 ﻿using KeenReloaded.Framework;
 using KeenReloaded.Framework.Utilities;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.GameEntities.HelperObjects;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Tiles;
 using KeenReloaded2.Framework.GameEventArgs;
@@ -28,11 +30,13 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         private int _health;
         private Image _image;
         private Point _location;
+        private Rectangle _area;
 
-        public ForceField(SpaceHashGrid grid, Rectangle hitbox, string imageFile, int zIndex, int health) : base(grid, hitbox)
+        public ForceField(Rectangle area, SpaceHashGrid grid, int zIndex, int health) : base(grid, area)
         {
-            _health = health;
-            _location = hitbox.Location;
+            _area = area;
+            _health = health < 1 ? 1 : health;
+            _location = area.Location;
             _zIndex = zIndex;
             this.Activate();
         }
@@ -49,7 +53,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
 
         public bool DeadlyTouch => false;
 
-        public override CollisionType CollisionType => CollisionType.BLOCK;
+        public override CollisionType CollisionType => CollisionType.DESTRUCTIBLE_BLOCK;
 
         public int ZIndex => _zIndex;
 
@@ -61,22 +65,61 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         {
             _isActive = true;
 
-            int bottomX = this.HitBox.X;
-            int bottomY = this.HitBox.Bottom - GENERATOR_HEIGHT;
-            int barrierX = this.HitBox.X;
-            int barrierY = this.HitBox.Y + GENERATOR_HEIGHT;
-            int barrierWidth = this.HitBox.Width;
-            int barrierHeight = this.HitBox.Height - (GENERATOR_HEIGHT * 2);
+            int bottomX = _area.X;
+            int bottomY = _area.Bottom - GENERATOR_HEIGHT;
+            int barrierX = _area.X;
+            int barrierY = _area.Y + GENERATOR_HEIGHT;
+            int barrierWidth = _area.Width;
+            int barrierHeight = _area.Height - (GENERATOR_HEIGHT * 2);
 
-            Rectangle generatorAreaTop = new Rectangle(this.HitBox.X, this.HitBox.Y, GENERATOR_WIDTH, GENERATOR_HEIGHT);
+            Rectangle generatorAreaTop = new Rectangle(_area.X, _area.Y, GENERATOR_WIDTH, GENERATOR_HEIGHT);
             Rectangle generatorAreaBottom = new Rectangle(bottomX, bottomY, GENERATOR_WIDTH, GENERATOR_HEIGHT);
             Rectangle barrierArea = new Rectangle(barrierX, barrierY, barrierWidth, barrierHeight);
-            string imageFileTop = FileIOUtility.GetResourcePathForMainProject() + nameof(Properties.Resources.keen5_force_field_top) + ".png";
-            string imageFileBottom = FileIOUtility.GetResourcePathForMainProject() + nameof(Properties.Resources.keen5_force_field_top) + ".png";
+            string imageFileTop = FileIOUtility.GetResourcePathForMainProject() + @"\" + nameof(Properties.Resources.keen5_force_field_top) + ".png";
+            string imageFileBottom = FileIOUtility.GetResourcePathForMainProject() + @"\" + nameof(Properties.Resources.keen5_force_field_top) + ".png";
             _top = new ForceFieldTop(_collisionGrid, generatorAreaTop, imageFileTop, _zIndex);
             _bottom = new ForceFieldBottom(_collisionGrid, generatorAreaBottom, imageFileBottom, _zIndex);
             _barrier = new ForceFieldBarrier(_collisionGrid, barrierArea, _health, _zIndex);
             _barrier.Killed += _barrier_Killed;
+            _barrier.Redrawn += _barrier_Redrawn;
+
+            this.DrawFullImage();
+        }
+
+        private void _barrier_Redrawn(object sender, EventArgs e)
+        {
+            this.DrawFullImage();
+        }
+
+        private void DrawFullImage()
+        {
+            if (_top == null || _bottom == null || _barrier == null)
+                return;
+
+            List<LocatedImage> locatedImages = new List<LocatedImage>()
+            {
+                new LocatedImage()
+                {
+                    Image = _top.Image,
+                    Location = new Point(0, 0)
+                },
+                new LocatedImage()
+                {
+                    Image = _barrier.Image,
+                    Location = new Point(0, _top.Image.Height)
+                },
+                new LocatedImage()
+                {
+                    Image = _bottom.Image,
+                    Location = new Point(0, _area.Height - _bottom.Image.Height)
+                }
+            };
+
+            Size canvas = _area.Size;
+            Image[] images = locatedImages.Select(i => i.Image).ToArray();
+            Point[] locations = locatedImages.Select(i => i.Location).ToArray();
+
+            _image = BitMapTool.DrawImagesOnCanvas(canvas, null, images, locations);
         }
 
         private void _barrier_Killed(object sender, ObjectEventArgs e)
@@ -87,11 +130,19 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         public void Deactivate()
         {
             _isActive = false;
+            this.DrawFullImage();
+        }
+
+        public override bool IsDead()
+        {
+            return !_isActive;
         }
 
         public override string ToString()
         {
-            return base.ToString() + $"{_health}";
+            string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
+
+            return $"{nameof(Properties.Resources.keen5_force_field_bottom)}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{_zIndex}{separator}{_health}";
         }
 
         public override void Die()
@@ -105,18 +156,21 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
 
         public override void TakeDamage(IProjectile projectile)
         {
-
+            var collisionObject = (CollisionObject)projectile;
+            if (collisionObject.HitBox.Bottom > _barrier.HitBox.Top && collisionObject.HitBox.Top < _barrier.HitBox.Bottom)
+                _barrier.TakeDamage(projectile);
         }
 
         public void HandleHit(IProjectile projectile)
         {
 
         }
+
+
     }
 
     internal class ForceFieldBarrier : DestructibleObject, ISprite, ICreateRemove, IHealthBar
     {
-        private PictureBox _sprite;
         private HealthBarTile _collisionTile;
         private Timer _animationTimer;
         private bool _isDestroyed;
@@ -126,6 +180,9 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         private Image _image;
         private Point _location;
         private readonly int _zIndex;
+        private CollisionType _collisionType = CollisionType.BLOCK;
+        public event EventHandler Redrawn;
+
 
         public ForceFieldBarrier(SpaceHashGrid grid, Rectangle hitbox, int health, int zIndex) : base(grid, hitbox)
         {
@@ -135,11 +192,6 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
 
         private void Initialize(SpaceHashGrid grid, Rectangle hitbox, int health)
         {
-            _sprite = new System.Windows.Forms.PictureBox();
-            _sprite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
-            _sprite.Size = hitbox.Size;
-            _sprite.Location = hitbox.Location;
-
             DrawForceFieldImage(hitbox);
             this.Health = health;
 
@@ -155,7 +207,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
 
         private void DrawForceFieldImage(Rectangle hitbox)
         {
-            string filePath = FileIOUtility.GetResourcePathForMainProject() + nameof(Properties.Resources.keen5_laser_field_laser3) + ".png";
+            string filePath = FileIOUtility.GetResourcePathForMainProject() + @"\" + nameof(Properties.Resources.keen5_laser_field_laser3) + ".png";
             int imgHeight = Properties.Resources.keen5_laser_field_laser3.Height;
             int imageCount = hitbox.Height / imgHeight;
             if (hitbox.Height % imgHeight != 0)
@@ -167,13 +219,14 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
                 fileList[i] = filePath;
             }
             _image = BitMapTool.CombineBitmap(fileList, 1, Color.White);
+            Redrawn?.Invoke(this, EventArgs.Empty);
         }
 
         private void DrawExplosionImage(Rectangle hitbox)
         {
             int imgVal = _random.Next(1, 3);
-            string filePath1 = FileIOUtility.GetResourcePathForMainProject() + nameof(Properties.Resources.keen5_force_field_explosion1) + ".png";
-            string filePath2 = FileIOUtility.GetResourcePathForMainProject() + nameof(Properties.Resources.keen5_force_field_explosion2) + ".png";
+            string filePath1 = FileIOUtility.GetResourcePathForMainProject() + @"\" + nameof(Properties.Resources.keen5_force_field_explosion1) + ".png";
+            string filePath2 = FileIOUtility.GetResourcePathForMainProject() + @"\" + nameof(Properties.Resources.keen5_force_field_explosion2) + ".png";
             int imgHeight = Properties.Resources.keen5_force_field_explosion1.Height; //same height, can pick either one
             int imageCount = hitbox.Height / imgHeight;
 
@@ -186,12 +239,12 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
                 fileList[i] = imgVal == 1 ? filePath1 : filePath2;
                 imgVal = _random.Next(1, 3);
             }
-            _sprite.Image = BitMapTool.CombineBitmap(fileList, 1, Color.White);
+            _image = BitMapTool.CombineBitmap(fileList, 1, Color.White);
+            Redrawn?.Invoke(this, EventArgs.Empty);
         }
 
         private void _animationTimer_Tick(object sender, EventArgs e)
         {
-
             if (!this.IsDead())
             {
                 DrawForceFieldImage(this.HitBox);
@@ -207,6 +260,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
                 _image = null;
                 _isDestroyed = true;
                 OnRemove(this);
+                Redrawn?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -223,6 +277,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         public override void TakeDamage(IProjectile projectile)
         {
             base.TakeDamage(projectile);
+            DrawExplosionImage(this.HitBox);
             ExecuteHitLogic();
             SetHealthBarValue();
             SetHealthBarVisible();
@@ -231,6 +286,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         public override void TakeDamage(int damage)
         {
             base.TakeDamage(damage);
+            DrawExplosionImage(this.HitBox);
             ExecuteHitLogic();
             SetHealthBarValue();
             SetHealthBarVisible();
@@ -274,9 +330,8 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             protected set
             {
                 base.HitBox = value;
-                if (_sprite != null && this.HitBox != null)
+                if (_collisionGrid != null && _collidingNodes != null && this.HitBox != null)
                 {
-                    _sprite.Location = this.HitBox.Location;
                     this.UpdateCollisionNodes(Enums.Direction.DOWN_LEFT);
                     this.UpdateCollisionNodes(Enums.Direction.UP_RIGHT);
                 }
@@ -285,7 +340,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
 
         public ProgressBar HealthBar => _collisionTile?.HealthBar;
 
-        public override CollisionType CollisionType => CollisionType.FORCE_FIELD;
+        public override CollisionType CollisionType => _collisionType;
 
         public int ZIndex => _zIndex;
 
@@ -326,6 +381,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         {
             OnRemove(_collisionTile);
             _image = null;
+            _collisionType = CollisionType.NONE;
         }
     }
 
@@ -341,7 +397,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
 
         private void Initialize(Rectangle hitbox)
         {
-           
+
             _image = Properties.Resources.keen5_force_field_top;
         }
     }
