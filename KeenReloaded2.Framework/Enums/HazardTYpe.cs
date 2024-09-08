@@ -32,6 +32,7 @@ namespace KeenReloaded2.Framework.Enums
         KEEN6_SLIME_FLOOR,
         KEEN6_DRILL,
         KEEN6_ELECTRIC_RODS,
-        KEEN6_CONVEYER_BELT
+        KEEN6_CONVEYER_BELT,
+        INVISIBLE
     }
 }

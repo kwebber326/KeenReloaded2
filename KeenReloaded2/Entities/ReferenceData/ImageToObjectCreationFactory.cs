@@ -22,6 +22,7 @@ using KeenReloaded2.Utilities;
 using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Tiles.Platforms;
+using KeenReloaded2.Framework.GameEntities.Tiles.Floors;
 
 namespace KeenReloaded2.Entities.ReferenceData
 {
@@ -2247,6 +2248,238 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region Keen 6 Laser Field
+
+            string laserField6File = keen6HazardFiles.FirstOrDefault(f => f.Contains("laser_field"));
+            string laserField6Key = FileIOUtility.ExtractFileNameFromPath(laserField6File);
+            Image laserField6Img = Image.FromFile(laserField6File);
+
+            MapMakerObjectProperty[] laserField6Properties = new MapMakerObjectProperty[]
+            {
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, laserField6Img.Width, laserField6Img.Height + 96),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "initialState",
+                      DataType = typeof(LaserFieldState),
+                      Value = LaserFieldState.OFF,
+                      PossibleValues = Enum.GetNames(typeof(LaserFieldState))
+                            .Where(e => e == "OFF" || e == "PHASE1").ToArray(),
+                      DisplayName ="Initial State: "
+                  },
+            };
+
+            MapMakerObject laserField6Obj = new MapMakerObject(typeof(Keen6LaserField), laserField6File, false, laserField6Properties);
+            backgroundReferenceData.Add(laserField6Key, laserField6Obj);
+
+            #endregion
+
+            #region Keen 6 Electric Rods tile
+
+            string electricRodFile = keen6HazardFiles.FirstOrDefault(f => f.Contains("electric_rod"));
+            string electricRodKey = FileIOUtility.ExtractFileNameFromPath(electricRodFile);
+            Image electricRodImg = Image.FromFile(electricRodFile);
+
+            MapMakerObjectProperty[] electricRodProperties = new MapMakerObjectProperty[]
+            {
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, electricRodImg.Width, electricRodImg.Height + 96),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+            };
+
+            MapMakerObject electricRodObj = new MapMakerObject(typeof(Keen6ElectricRodHazard), electricRodFile, false, electricRodProperties);
+            backgroundReferenceData.Add(electricRodKey, electricRodObj);
+
+            #endregion
+
+            #region Keen 6 slime Tiles
+
+            string keen6IndustrialTileDirectory = GetImageDirectory(
+                MapMakerConstants.Categories.OBJECT_CATEGORY_TILES, 
+                "keen6", 
+                Biomes.BIOME_KEEN6_INDUSTRIAL);
+            var keen6IndustrialFiles = Directory.GetFiles(keen6IndustrialTileDirectory).ToList();
+
+            string[] slimeTileLeftFiles = keen6IndustrialFiles.Where(f => f.Contains("slime_hazard_left")).ToArray();
+
+            foreach (var slimeTileLeftFile in slimeTileLeftFiles)
+            {
+                string slimeTileLeftKey = FileIOUtility.ExtractFileNameFromPath(slimeTileLeftFile);
+                Image slimeTileLeftImg = Image.FromFile(slimeTileLeftFile);
+                string indexStr = slimeTileLeftFile[slimeTileLeftFile.LastIndexOf('.') - 1].ToString();
+                int currentSpriteIndex = Convert.ToInt32(indexStr) - 1;
+
+                MapMakerObjectProperty[] slimeTileLeftProperties = new MapMakerObjectProperty[]
+                {
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, slimeTileLeftImg.Width, slimeTileLeftImg.Height + 96),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "currentSpriteIndex",
+                      DataType = typeof(int),
+                      Value = currentSpriteIndex,
+                      Hidden = true
+                  },
+                };
+
+                MapMakerObject slimeTileLeftObj = new MapMakerObject(typeof(Keen6SlimeHazardEdgeFloorLeft), slimeTileLeftFile, false, slimeTileLeftProperties);
+                backgroundReferenceData.Add(slimeTileLeftKey, slimeTileLeftObj);
+            }
+
+            string[] slimeTileRightFiles = keen6IndustrialFiles.Where(f => f.Contains("slime_hazard_right")).ToArray();
+
+            foreach (var slimeTileRightFile in slimeTileRightFiles)
+            {
+                string slimeTileRightKey = FileIOUtility.ExtractFileNameFromPath(slimeTileRightFile);
+                Image slimeTileRightImg = Image.FromFile(slimeTileRightFile);
+                string indexStr = slimeTileRightFile[slimeTileRightFile.LastIndexOf('.') - 1].ToString();
+                int currentSpriteIndex = Convert.ToInt32(indexStr) - 1;
+
+                MapMakerObjectProperty[] slimeTileRightProperties = new MapMakerObjectProperty[]
+                {
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, slimeTileRightImg.Width, slimeTileRightImg.Height + 96),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "currentSpriteIndex",
+                      DataType = typeof(int),
+                      Value = currentSpriteIndex,
+                      Hidden = true
+                  },
+                };
+
+                MapMakerObject slimeTileRightObj = new MapMakerObject(typeof(Keen6SlimeHazardEdgeFloorRight), slimeTileRightFile, false, slimeTileRightProperties);
+                backgroundReferenceData.Add(slimeTileRightKey, slimeTileRightObj);
+            }
+
+
+            string[] slimeTileMiddleFiles = keen6IndustrialFiles.Where(f => f.Contains("slime_hazard_middle")).ToArray();
+
+            foreach (var slimeTileMiddleFile in slimeTileMiddleFiles)
+            {
+                string slimeTileMiddleKey = FileIOUtility.ExtractFileNameFromPath(slimeTileMiddleFile);
+                Image slimeTileMiddleImg = Image.FromFile(slimeTileMiddleFile);
+                string indexStr = slimeTileMiddleFile[slimeTileMiddleFile.LastIndexOf('.') - 1].ToString();
+                int currentSpriteIndex = Convert.ToInt32(indexStr) - 1;
+
+                MapMakerObjectProperty[] slimeTileMiddleProperties = new MapMakerObjectProperty[]
+                {
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, slimeTileMiddleImg.Width, slimeTileMiddleImg.Height + 96),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "currentSpriteIndex",
+                      DataType = typeof(int),
+                      Value = currentSpriteIndex,
+                      Hidden = true
+                  },
+                };
+
+                MapMakerObject slimeTileMiddleObj = new MapMakerObject(typeof(Keen6SLimeHazardMiddleFloor), slimeTileMiddleFile, false, slimeTileMiddleProperties);
+                backgroundReferenceData.Add(slimeTileMiddleKey, slimeTileMiddleObj);
+            }
+
+            #endregion
+
             #endregion
 
             #endregion
@@ -2940,88 +3173,7 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
-            #region Keen 6 Laser Field
 
-            string laserField6File = keen6HazardFiles.FirstOrDefault(f => f.Contains("laser_field"));
-            string laserField6Key = FileIOUtility.ExtractFileNameFromPath(laserField6File);
-            Image laserField6Img = Image.FromFile(laserField6File);
-
-            MapMakerObjectProperty[] laserField6Properties = new MapMakerObjectProperty[]
-            {
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                      DisplayName = "Area: ",
-                      DataType = typeof(Rectangle),
-                      Value = new Rectangle(0, 0, laserField6Img.Width, laserField6Img.Height + 96),
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                       DataType = typeof(SpaceHashGrid),
-                       Value = null,
-                       Hidden = true,
-                       IsIgnoredInMapData = true
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = "zIndex",
-                      DataType = typeof(int),
-                      Value = 18,
-                      DisplayName ="Z Index: "
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = "initialState",
-                      DataType = typeof(LaserFieldState),
-                      Value = LaserFieldState.OFF,
-                      PossibleValues = Enum.GetNames(typeof(LaserFieldState))
-                            .Where(e => e == "OFF" || e == "PHASE1").ToArray(),
-                      DisplayName ="Initial State: "
-                  },
-            };
-
-            MapMakerObject laserField6Obj = new MapMakerObject(typeof(Keen6LaserField), laserField6File, false, laserField6Properties);
-            backgroundReferenceData.Add(laserField6Key, laserField6Obj);
-
-            #endregion
-
-            #region Keen 6 Electric Rods tile
-
-            string electricRodFile = keen6HazardFiles.FirstOrDefault(f => f.Contains("electric_rod"));
-            string electricRodKey = FileIOUtility.ExtractFileNameFromPath(electricRodFile);
-            Image electricRodImg = Image.FromFile(electricRodFile);
-
-            MapMakerObjectProperty[] electricRodProperties = new MapMakerObjectProperty[]
-            {
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                      DisplayName = "Area: ",
-                      DataType = typeof(Rectangle),
-                      Value = new Rectangle(0, 0, electricRodImg.Width, electricRodImg.Height + 96),
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                       DataType = typeof(SpaceHashGrid),
-                       Value = null,
-                       Hidden = true,
-                       IsIgnoredInMapData = true
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = "zIndex",
-                      DataType = typeof(int),
-                      Value = 18,
-                      DisplayName ="Z Index: "
-                  },
-            };
-
-            MapMakerObject electricRodObj = new MapMakerObject(typeof(Keen6ElectricRodHazard), electricRodFile, false, electricRodProperties);
-            backgroundReferenceData.Add(electricRodKey, electricRodObj);
-
-            #endregion
 
             return backgroundReferenceData;
         }

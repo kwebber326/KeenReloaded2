@@ -1360,6 +1360,65 @@ namespace KeenReloaded2.Framework.SpriteSheet
         }
         #endregion
 
+        #region Keen 6 Slime Hazard
+        private static Image[] _keen6SlimeHazardLeftImages;
+
+        public static Image[] Keen6SlimeHazardLeftImages
+        {
+            get
+            {
+                if (_keen6SlimeHazardLeftImages == null)
+                {
+                    _keen6SlimeHazardLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen6_slime_hazard_left1,
+                        Properties.Resources.keen6_slime_hazard_left2,
+                        Properties.Resources.keen6_slime_hazard_left3
+                    };
+                }
+                return _keen6SlimeHazardLeftImages;
+            }
+        }
+
+        private static Image[] _keen6SlimeHazardRightImages;
+
+        public static Image[] Keen6SlimeHazardRightImages
+        {
+            get
+            {
+                if (_keen6SlimeHazardRightImages == null)
+                {
+                    _keen6SlimeHazardRightImages = new Image[]
+                    {
+                        Properties.Resources.keen6_slime_hazard_right1,
+                        Properties.Resources.keen6_slime_hazard_right2,
+                        Properties.Resources.keen6_slime_hazard_right3
+                    };
+                }
+                return _keen6SlimeHazardRightImages;
+            }
+        }
+
+        private static Image[] _keen6SlimeHazardMiddleImages;
+
+        public static Image[] Keen6SlimeHazardMiddleImages
+        {
+            get
+            {
+                if (_keen6SlimeHazardMiddleImages == null)
+                {
+                    _keen6SlimeHazardMiddleImages = new Image[]
+                    {
+                        Properties.Resources.keen6_slime_hazard_middle1,
+                        Properties.Resources.keen6_slime_hazard_middle2,
+                        Properties.Resources.keen6_slime_hazard_middle3
+                    };
+                }
+                return _keen6SlimeHazardMiddleImages;
+            }
+        }
+        #endregion
+
         #region Keen 6 Electric Rods
         private static Image[] _keen6ElectricRodSprites;
 

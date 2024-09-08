@@ -85,6 +85,7 @@
     <Compile Include="GameEntities\Hazards\Flamethrower.cs" />
     <Compile Include="GameEntities\Hazards\ForceField.cs" />
     <Compile Include="GameEntities\Hazards\Hazard.cs" />
+    <Compile Include="GameEntities\Hazards\InvisibleHazard.cs" />
     <Compile Include="GameEntities\Hazards\Keen5LaserField.cs" />
     <Compile Include="GameEntities\Hazards\Keen5PlatformBurner.cs" />
     <Compile Include="GameEntities\Hazards\Keen5SpinningBurnPlatform.cs" />
@@ -153,6 +154,9 @@
     <Compile Include="GameEntities\SpaceHashGrid.cs" />
     <Compile Include="GameEntities\Tiles\Ceilings\CeilingTile.cs" />
     <Compile Include="GameEntities\Tiles\DestructibleCollisionTile.cs" />
+    <Compile Include="GameEntities\Tiles\Floors\Keen6SlimeHazardEdgeFloorLeft.cs" />
+    <Compile Include="GameEntities\Tiles\Floors\Keen6SlimeHazardEdgeFloorRight.cs" />
+    <Compile Include="GameEntities\Tiles\Floors\Keen6SLimeHazardMiddleFloor.cs" />
     <Compile Include="GameEntities\Tiles\Floors\LeftEdgeFloorTile.cs" />
     <Compile Include="GameEntities\Tiles\HealthBarTile.cs" />
     <Compile Include="GameEntities\Tiles\InvisibleTile.cs" />
