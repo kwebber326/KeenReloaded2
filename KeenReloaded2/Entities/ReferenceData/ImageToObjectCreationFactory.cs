@@ -23,6 +23,7 @@ using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Tiles.Platforms;
 using KeenReloaded2.Framework.GameEntities.Tiles.Floors;
+using KeenReloaded2.Framework.GameEntities.Enemies;
 
 namespace KeenReloaded2.Entities.ReferenceData
 {
@@ -249,7 +250,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                 #region backgrounds
                 string path = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_BACKGROUNDS, $"keen{i}", Biomes.BIOME_KEEN5_BLACK);
 
-                string[] imageFiles = Directory.GetFiles(path);
+                string[] imageFiles = Directory.GetFiles(path, "*.png");
                 foreach (var file in imageFiles)
                 {
                     try
@@ -1985,7 +1986,6 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #region Force Field
 
-
             string forceFieldFile = keen5HazardFiles.FirstOrDefault(f => f.Contains("force_field"));
             string forceFieldKey = FileIOUtility.ExtractFileNameFromPath(forceFieldFile);
             Image forceFieldImg = Image.FromFile(forceFieldFile);
@@ -3220,7 +3220,60 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region Enemies
 
+            #region keen 4
+
+            var keen4EnemyDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_ENEMIES, "keen4", Biomes.BIOME_KEEN4_CAVE);
+            var keen4EnemyFiles = Directory.GetFiles(keen4EnemyDirectory, "*.png");
+
+            #region thunder cloud
+
+            var thunderCloudImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("cloud"));
+            Image thunderCloudImg = Image.FromFile(thunderCloudImageFile);
+            string thunderCloudKey = FileIOUtility.ExtractFileNameFromPath(thunderCloudImageFile);
+
+            MapMakerObjectProperty[] thunderCloudProperties = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, thunderCloudImg.Width, thunderCloudImg.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "zIndex",
+                             DisplayName = "Z Index: ",
+                             DataType = typeof(int),
+                             Value = 25
+                         },
+                          new MapMakerObjectProperty()
+                         {
+                            PropertyName = "isLethal",
+                            DataType = typeof(bool),
+                            DisplayName = "Lethal: ",
+                            Value = true
+                         },
+            };
+
+            MapMakerObject thunderCloudObj = new MapMakerObject(typeof(ThunderCloud), thunderCloudImageFile, false, thunderCloudProperties);
+            backgroundReferenceData.Add(thunderCloudKey, thunderCloudObj);
+
+            #endregion
+
+            #endregion
+
+            #endregion
 
             return backgroundReferenceData;
         }

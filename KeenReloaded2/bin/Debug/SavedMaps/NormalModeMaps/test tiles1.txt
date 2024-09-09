@@ -40,3 +40,6 @@ keen4_cave_platform_left_edge|195|117|30|38|10
 keen6_dome_platform_single|900|400|32|40|10
 keen5_force_field_bottom|623|168|32|500|18|3
 neural_stunner1|400|400|30|22|50|1000
+keen4_jawbreaker1|389|85|30|30|50|KEEN4_JAWBREAKER
+keen4_thundercloud_dormant|204|225|128|48|25|True
+keen4_thundercloud_dormant|261|463|128|48|25|False

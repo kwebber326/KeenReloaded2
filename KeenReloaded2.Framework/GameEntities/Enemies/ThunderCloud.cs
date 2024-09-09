@@ -1,4 +1,5 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Hazards;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
@@ -6,6 +7,7 @@ using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.Tiles;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -15,11 +17,14 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.GameEntities.Enemies
 {
-    public class ThunderCloud : CollisionObject, IUpdatable, IMoveable, ISprite
+    public class ThunderCloud : CollisionObject, IUpdatable, IMoveable, ISprite, ICreateRemove
     {
-        public ThunderCloud(SpaceHashGrid grid, Rectangle hitbox, int zIndex)
-            : base(grid, hitbox)
+        public ThunderCloud(Rectangle area, SpaceHashGrid grid, int zIndex, bool isLethal)
+            : base(grid, area)
         {
+            _zIndex = zIndex;
+            _isLethal = isLethal;
+            this.HitBox = area;
             this.MotionState = ThunderCloudMoveState.DORMANT;
             _strikeRange = new Rectangle(new Point(this.HitBox.X + HORIZONTAL_STRIKE_RANGE_OFFSET, this.HitBox.Y),
                 new Size(40, VERTICAL_STRIKE_RANGE));
@@ -40,6 +45,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         private int _currentStrikingSpriteTick;
         private const int STRIKE_SPRITE_CHANGE_DELAY = 2;
         private readonly int _zIndex;
+        private readonly bool _isLethal;
         private bool _thunderSprite = true;
 
         private bool _striking = false;
@@ -47,30 +53,30 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         private Rectangle _strikeRange;
         private CommanderKeen _keen;
 
-        public event EventHandler<ObjectEventArgs> BoltCreated;
-        public event EventHandler<ObjectEventArgs> BoltRemoved;
+        public event EventHandler<ObjectEventArgs> Create;
+        public event EventHandler<ObjectEventArgs> Remove;
 
         protected void OnBoltCreated(LightningBolt bolt)
         {
-            if (BoltCreated != null)
+            if (Create != null)
             {
                 ObjectEventArgs args = new ObjectEventArgs()
                 {
                     ObjectSprite = bolt
                 };
-                BoltCreated(this, args);
+                Create(this, args);
             }
         }
 
         protected void OnBoltRemoved(LightningBolt bolt)
         {
-            if (BoltRemoved != null)
+            if (Remove != null)
             {
                 ObjectEventArgs args = new ObjectEventArgs()
                 {
                     ObjectSprite = bolt
                 };
-                BoltRemoved(this, args);
+                Remove(this, args);
             }
         }
 
@@ -79,11 +85,20 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             switch (MotionState)
             {
                 case ThunderCloudMoveState.DORMANT:
+                    if (!_isLethal)
+                        return;
+
                     var collisionItems = this.CheckCollision(this.HitBox);
-                    if (collisionItems.OfType<CommanderKeen>().Any())
+                    var keens = collisionItems.OfType<CommanderKeen>();
+                    if (keens.Any())
                     {
                         this.MotionState = ThunderCloudMoveState.PURSUING;
-                        var keen = collisionItems.OfType<CommanderKeen>().First();
+                        int centerX = this.HitBox.X + (this.HitBox.Width / 2);
+                        int centerY = this.HitBox.Y + (this.HitBox.Height / 2);
+                        Point centerPoint = new Point(centerX, centerY);
+                        var keen = keens
+                            .OrderBy(k => CommonGameFunctions.GetEuclideanDistance(this.HitBox.Location, k.HitBox.Location))
+                            .First();
                         _keen = keen;
                         this.Direction = GetDirectionToKeen(keen);
                     }
@@ -105,7 +120,6 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             }
             else
             {
-                //TODO: here strikes a lightning bolt 
                 if (!_striking)
                 {
                     _striking = true;
@@ -217,7 +231,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public void Stop()
         {
-            throw new NotImplementedException();
+            this.MotionState = ThunderCloudMoveState.DORMANT;
         }
 
         public Enums.MoveState MoveState
@@ -228,7 +242,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             }
             set
             {
-                throw new NotImplementedException();
+
             }
         }
 
@@ -244,6 +258,14 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             {
                 _moveState = value;
                 UpdateSprite();
+            }
+        }
+
+        public bool IsLethal
+        {
+            get
+            {
+                return _isLethal;
             }
         }
 
@@ -292,7 +314,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             protected set
             {
                 base.HitBox = value;
-                if (_sprite != null && this.HitBox != null)
+                if (_collisionGrid != null && _collidingNodes != null && this.HitBox != null)
                 {
                     _strikeRange.Location = new Point(this.HitBox.X + HORIZONTAL_STRIKE_RANGE_OFFSET, this.HitBox.Y);
                     this.UpdateCollisionNodes(this.Direction);
@@ -322,11 +344,13 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public Point Location => this.HitBox.Location;
 
-        public override CollisionType CollisionType => CollisionType.HAZARD;
+        public override CollisionType CollisionType => CollisionType.ENEMY;
 
         public override string ToString()
         {
-            return $"{this.GetType().Name}|{this.Location.X}|{this.Location.Y}";
+            string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
+            var _area = this.HitBox;
+            return $"{nameof(Properties.Resources.keen4_thundercloud_dormant)}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{_zIndex}{separator}{_isLethal}";
         }
     }
 

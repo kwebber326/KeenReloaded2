@@ -812,7 +812,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             else if (obj is ThunderCloud)
             {
                 var cloud = (ThunderCloud)obj;
-                if (cloud.MotionState == ThunderCloudMoveState.DORMANT)
+                if (cloud.IsLethal && cloud.MotionState == ThunderCloudMoveState.DORMANT)
                 {
                     cloud.PursueKeen(this);
                 }
