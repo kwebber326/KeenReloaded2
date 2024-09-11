@@ -3271,6 +3271,43 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region arachnut
+
+            var arachnutImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("arachnut"));
+            Image arachnutImg = Image.FromFile(arachnutImageFile);
+            string arachnutKey = FileIOUtility.ExtractFileNameFromPath(arachnutImageFile);
+
+            MapMakerObjectProperty[] arachnutProperties = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, arachnutImg.Width, arachnutImg.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "zIndex",
+                             DisplayName = "Z Index: ",
+                             DataType = typeof(int),
+                             Value = 25
+                         },
+            };
+
+            MapMakerObject arachnutObj = new MapMakerObject(typeof(Arachnut), arachnutImageFile, false, arachnutProperties);
+            backgroundReferenceData.Add(arachnutKey, arachnutObj);
+
+            #endregion
+
             #endregion
 
             #endregion

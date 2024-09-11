@@ -14,6 +14,7 @@ using System.Drawing;
 using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.GameEntities.AltCharacters;
 using KeenReloaded2.Entities.ReferenceData;
+using KeenReloaded2.Framework.GameEntities;
 
 namespace KeenReloaded2.Entities
 {
@@ -40,6 +41,7 @@ namespace KeenReloaded2.Entities
             if (map != null && map.MapData != null)
             {
                 _keen = map.MapData.Select(d => d.GameObject).OfType<CommanderKeen>().FirstOrDefault();
+
                 _gameObjects = map.MapData.Select(d => d.GameObject).ToList();
                 var updatables = _gameObjects.OfType<IUpdatable>();
                 if (updatables.Any())

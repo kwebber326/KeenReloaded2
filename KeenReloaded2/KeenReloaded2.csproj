@@ -1158,21 +1158,6 @@
     <None Include="Resources\pole_top.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen4_arachnut_stunned.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_arachnut1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_arachnut2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_arachnut3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_arachnut4.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen4_berkeloid_fire.png" />
   </ItemGroup>
   <ItemGroup>
@@ -5845,6 +5830,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen5_force_field_bottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_arachnut_stunned.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_arachnut1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_arachnut2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_arachnut3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_arachnut4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

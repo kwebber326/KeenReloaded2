@@ -123,7 +123,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 if (!_striking)
                 {
                     _striking = true;
-                    LightningBolt bolt = new LightningBolt(_collisionGrid, new Rectangle(this.HitBox.X + 26, this.HitBox.Bottom + 1, 48, 142), this.ZIndex);
+                    LightningBolt bolt = new LightningBolt(_collisionGrid, new Rectangle(this.HitBox.X + 26, this.HitBox.Bottom - 32, 48, 142), this.ZIndex);
                     bolt.Removed += new EventHandler<ObjectEventArgs>(bolt_Removed);
                     OnBoltCreated(bolt);
                 }

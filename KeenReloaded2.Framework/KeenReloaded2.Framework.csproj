@@ -75,7 +75,9 @@
     <Compile Include="GameEntities\Constructs\KeyGate.cs" />
     <Compile Include="GameEntities\Constructs\Pole.cs" />
     <Compile Include="GameEntities\Constructs\ToggleSwitch.cs" />
+    <Compile Include="GameEntities\CurrentPlayerList.cs" />
     <Compile Include="GameEntities\DestructibleObject.cs" />
+    <Compile Include="GameEntities\Enemies\Arachnut.cs" />
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
     <Compile Include="GameEntities\Hazards\AcidPool.cs" />
     <Compile Include="GameEntities\Hazards\ConveyerBelt.cs" />
@@ -3705,6 +3707,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen5_force_field_bottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_arachnut_stunned.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_arachnut1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_arachnut2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_arachnut3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_arachnut4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
