@@ -4383,6 +4383,106 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen4_bounder_bounceleft1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_bounder_bounceleft1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_bounder_bounceleft2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_bounder_bounceleft2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_bounder_bounceright1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_bounder_bounceright1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_bounder_bounceright2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_bounder_bounceright2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_bounder_stun1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_bounder_stun1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_bounder_stun2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_bounder_stun2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_bounder_stun3 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_bounder_stun3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_bounder_stun4 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_bounder_stun4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_bounder1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_bounder1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_bounder2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_bounder2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen4_candy_bar1 {
             get {
                 object obj = ResourceManager.GetObject("keen4_candy_bar1", resourceCulture);

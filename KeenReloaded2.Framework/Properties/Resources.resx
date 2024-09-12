@@ -703,6 +703,36 @@
   <data name="keen4_blue_eagle_walk_right4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_blue_eagle_walk_right4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen4_bounder1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_bounder1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_bounder2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_bounder2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_bounder_bounceleft1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_bounder_bounceleft1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_bounder_bounceleft2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_bounder_bounceleft2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_bounder_bounceright1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_bounder_bounceright1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_bounder_bounceright2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_bounder_bounceright2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_bounder_stun1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_bounder_stun1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_bounder_stun2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_bounder_stun2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_bounder_stun3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_bounder_stun3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_bounder_stun4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_bounder_stun4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keen4_candy_bar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_candy_bar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
