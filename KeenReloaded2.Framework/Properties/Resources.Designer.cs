@@ -4043,9 +4043,339 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen4_berkeloid_fire {
+            get {
+                object obj = ResourceManager.GetObject("keen4_berkeloid_fire", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_berkeloid_fire_hit1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_berkeloid_fire_hit1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_berkeloid_fire_hit2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_berkeloid_fire_hit2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_berkeloid_fire_hit3 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_berkeloid_fire_hit3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_berkeloid_move_left1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_berkeloid_move_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_berkeloid_move_left2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_berkeloid_move_left2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_berkeloid_move_left3 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_berkeloid_move_left3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_berkeloid_move_left4 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_berkeloid_move_left4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_berkeloid_move_right1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_berkeloid_move_right1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_berkeloid_move_right2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_berkeloid_move_right2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_berkeloid_move_right3 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_berkeloid_move_right3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_berkeloid_move_right4 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_berkeloid_move_right4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_berkeloid_throw_left1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_berkeloid_throw_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_berkeloid_throw_left2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_berkeloid_throw_left2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_berkeloid_throw_right1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_berkeloid_throw_right1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_berkeloid_throw_right2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_berkeloid_throw_right2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen4_blue_door {
             get {
                 object obj = ResourceManager.GetObject("keen4_blue_door", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_blue_eagle_egg {
+            get {
+                object obj = ResourceManager.GetObject("keen4_blue_eagle_egg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_blue_eagle_egg_hatch1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_blue_eagle_egg_hatch1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_blue_eagle_egg_hatch2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_blue_eagle_egg_hatch2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_blue_eagle_fly1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_blue_eagle_fly1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_blue_eagle_fly2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_blue_eagle_fly2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_blue_eagle_fly3 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_blue_eagle_fly3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_blue_eagle_fly4 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_blue_eagle_fly4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_blue_eagle_stunned {
+            get {
+                object obj = ResourceManager.GetObject("keen4_blue_eagle_stunned", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_blue_eagle_walk_left1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_blue_eagle_walk_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_blue_eagle_walk_left2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_blue_eagle_walk_left2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_blue_eagle_walk_left3 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_blue_eagle_walk_left3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_blue_eagle_walk_left3___Copy {
+            get {
+                object obj = ResourceManager.GetObject("keen4_blue_eagle_walk_left3___Copy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_blue_eagle_walk_left4 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_blue_eagle_walk_left4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_blue_eagle_walk_right1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_blue_eagle_walk_right1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_blue_eagle_walk_right2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_blue_eagle_walk_right2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_blue_eagle_walk_right3 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_blue_eagle_walk_right3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_blue_eagle_walk_right4 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_blue_eagle_walk_right4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -3308,6 +3308,43 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region berkeloid
+
+            var berkeloidImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("berkeloid"));
+            Image berkeloidImg = Image.FromFile(berkeloidImageFile);
+            string berkeloidKey = FileIOUtility.ExtractFileNameFromPath(berkeloidImageFile);
+
+            MapMakerObjectProperty[] berkeloidProperties = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, berkeloidImg.Width, berkeloidImg.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "zIndex",
+                             DisplayName = "Z Index: ",
+                             DataType = typeof(int),
+                             Value = 25
+                         },
+            };
+
+            MapMakerObject berkeloidObj = new MapMakerObject(typeof(Berkeloid), berkeloidImageFile, false, berkeloidProperties);
+            backgroundReferenceData.Add(berkeloidKey, berkeloidObj);
+
+            #endregion
+
             #endregion
 
             #endregion

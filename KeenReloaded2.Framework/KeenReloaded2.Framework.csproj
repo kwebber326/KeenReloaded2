@@ -78,6 +78,7 @@
     <Compile Include="GameEntities\CurrentPlayerList.cs" />
     <Compile Include="GameEntities\DestructibleObject.cs" />
     <Compile Include="GameEntities\Enemies\Arachnut.cs" />
+    <Compile Include="GameEntities\Enemies\Berkeloid.cs" />
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
     <Compile Include="GameEntities\Hazards\AcidPool.cs" />
     <Compile Include="GameEntities\Hazards\ConveyerBelt.cs" />
@@ -141,6 +142,7 @@
     <Compile Include="GameEntities\Items\WeaponsAmmo\SMGNeuralStunnerAmmo.cs" />
     <Compile Include="GameEntities\Items\WeaponsAmmo\SnakeGunAmmo.cs" />
     <Compile Include="GameEntities\Players\CommanderKeen.cs" />
+    <Compile Include="GameEntities\Projectiles\BerkeloidFire.cs" />
     <Compile Include="GameEntities\Projectiles\BFGExplosion.cs" />
     <Compile Include="GameEntities\Projectiles\BFGProjectile.cs" />
     <Compile Include="GameEntities\Projectiles\BoobusBombExplosion.cs" />
@@ -3722,6 +3724,105 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_arachnut4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_berkeloid_fire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_berkeloid_fire_hit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_berkeloid_fire_hit2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_berkeloid_fire_hit3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_berkeloid_move_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_berkeloid_move_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_berkeloid_move_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_berkeloid_move_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_berkeloid_move_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_berkeloid_move_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_berkeloid_move_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_berkeloid_move_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_berkeloid_throw_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_berkeloid_throw_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_berkeloid_throw_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_berkeloid_throw_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_blue_eagle_egg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_blue_eagle_egg_hatch1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_blue_eagle_egg_hatch2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_blue_eagle_fly1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_blue_eagle_fly2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_blue_eagle_fly3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_blue_eagle_fly4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_blue_eagle_stunned.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_blue_eagle_walk_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_blue_eagle_walk_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_blue_eagle_walk_left3 - Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_blue_eagle_walk_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_blue_eagle_walk_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_blue_eagle_walk_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_blue_eagle_walk_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_blue_eagle_walk_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_blue_eagle_walk_right4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
