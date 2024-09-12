@@ -5,6 +5,9 @@ using System.Text;
 using System.Drawing;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Tiles;
+using KeenReloaded2.Framework.GameEntities.Players;
+using KeenReloaded2.Framework.GameEntities;
+using KeenReloaded2.Utilities;
 
 namespace KeenReloaded.Framework
 {
@@ -100,7 +103,7 @@ namespace KeenReloaded.Framework
 
         public bool CollidesWith(CollisionObject obj)
         {
-            if (this.HitBox == null)
+            if (this.HitBox == null || obj == null)
                 return false;
 
             return this.HitBox.IntersectsWith(obj.HitBox);
@@ -469,6 +472,13 @@ namespace KeenReloaded.Framework
                 this.HitBox = new Rectangle(this.HitBox.X, this.HitBox.Y + fallVelocity, this.HitBox.Width, this.HitBox.Height);
             }
             return landingTile;
+        }
+
+        protected CommanderKeen GetClosestPlayer()
+        {
+            return CurrentPlayerList.Players
+                .OrderBy(p => CommonGameFunctions.GetEuclideanDistance(this.HitBox.Location, p.HitBox.Location))
+                .FirstOrDefault();
         }
 
         public virtual void DetachFromObjects()

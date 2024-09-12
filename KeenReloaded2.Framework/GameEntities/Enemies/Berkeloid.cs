@@ -296,7 +296,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         {
             bool changedDirection = false;
             var spriteSet = this.Direction == Enums.Direction.LEFT ? _moveLeftImages : _moveRightImages;
-            int xOffset = this.Direction == Enums.Direction.LEFT ? MOVE_VELOCITY * -1 : MOVE_VELOCITY;
+            int xOffset = this.Direction == Enums.Direction.LEFT ? this.HitBox.Width * -1 : this.HitBox.Width;
+            int velocty = this.Direction == Direction.LEFT ? MOVE_VELOCITY * -1 : MOVE_VELOCITY;
 
             CollisionObject moveCollideTile = this.Direction == Enums.Direction.LEFT ? GetRightMostLeftTile() : GetLeftMostRightTile();
 
@@ -309,7 +310,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             }
             else
             {
-                this.HitBox = new Rectangle(this.HitBox.X + xOffset, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
+                this.HitBox = new Rectangle(this.HitBox.X + velocty, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
             }
 
             if (!changedDirection)
@@ -318,11 +319,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             }
             KillKeen();
 
-            //if (KeenInFieldOfVision())
-            //{
             if (TryAttackKeen())
                 return;
-            //}
 
             if (_currentMoveSpriteChangeDelayTick >= MOVE_SPRITE_CHANGE_DELAY)
             {
@@ -357,29 +355,14 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             return false;
         }
 
-        private bool KeenInFieldOfVision()
-        {
-            if (_keen != null && _keen.HitBox.IntersectsWith(_fieldOfVision))
-            {
-                return true;
-            }
-            return false;
-        }
-
         private bool IsOnEdge(int xOffset)
         {
             Rectangle areaToCheck = new Rectangle(this.HitBox.X + xOffset, this.HitBox.Bottom, this.HitBox.Width, FALL_VELOCITY);
-            var collisions = this.CheckCollision(areaToCheck);
-            var tiles = collisions.Where(t => t.CollisionType == CollisionType.BLOCK || t.CollisionType == CollisionType.PLATFORM).ToList();
-            if (tiles.Any())
+            var tiles = this.CheckCollision(areaToCheck, true);
+          
+            if (!tiles.Any())
             {
-                int minX = tiles.Select(t => t.HitBox.Left).Min();
-                int maxX = tiles.Select(t => t.HitBox.Right).Max();
-                if ((this.Direction == Enums.Direction.LEFT && minX >= this.HitBox.Left) ||
-                    (this.Direction == Enums.Direction.RIGHT && maxX <= this.HitBox.Right))
-                {
-                    return true;
-                }
+                return true;
             }
             return false;
         }
@@ -486,6 +469,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             {
                 if (!_isFiring)
                 {
+                    _keen = this.GetClosestPlayer();
                     this.Move();
                 }
                 else

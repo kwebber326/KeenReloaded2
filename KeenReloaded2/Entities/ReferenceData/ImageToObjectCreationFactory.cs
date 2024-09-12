@@ -3345,6 +3345,43 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region blue eagle
+
+            var blueEagleEggImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("blue_eagle"));
+            Image blueEagleEggImg = Image.FromFile(blueEagleEggImageFile);
+            string blueEagleEggKey = FileIOUtility.ExtractFileNameFromPath(blueEagleEggImageFile);
+
+            MapMakerObjectProperty[] blueEagleEggProperties = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, blueEagleEggImg.Width, blueEagleEggImg.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "zIndex",
+                             DisplayName = "Z Index: ",
+                             DataType = typeof(int),
+                             Value = 25
+                         },
+            };
+
+            MapMakerObject blueEagleEggObj = new MapMakerObject(typeof(BlueEagleEgg), blueEagleEggImageFile, false, blueEagleEggProperties);
+            backgroundReferenceData.Add(blueEagleEggKey, blueEagleEggObj);
+
+            #endregion
+
             #endregion
 
             #endregion

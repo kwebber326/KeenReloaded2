@@ -53,6 +53,7 @@ namespace KeenReloaded2
                 _game.ChangeKeenSkin(characterName, out CommanderKeen keen);
                 _keen = keen;
             }
+            CurrentPlayerList.Players.Clear();
             CurrentPlayerList.Players.Add(_keen);
             inventoryPanel1.Keen = _keen;
             inventoryPanel1.ShowFlagInventory = gameMode == MainMenuConstants.OPTION_LABEL_CTF_MODE;

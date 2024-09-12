@@ -87,13 +87,6 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             }
         }
 
-        private CommanderKeen GetClosestPlayer()
-        {
-            return CurrentPlayerList.Players
-                .OrderBy(p => CommonGameFunctions.GetEuclideanDistance(this.HitBox.Location, p.HitBox.Location))
-                .FirstOrDefault();
-        }
-
         private void UpdateStunnedState()
         {
             if (_awakening || _currentStunTick++ == STUN_TIME)
