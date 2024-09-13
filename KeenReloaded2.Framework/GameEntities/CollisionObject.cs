@@ -8,6 +8,7 @@ using KeenReloaded2.Framework.GameEntities.Tiles;
 using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities;
 using KeenReloaded2.Utilities;
+using KeenReloaded2.Framework.GameEntities.Tiles.Platforms;
 
 namespace KeenReloaded.Framework
 {
@@ -66,7 +67,7 @@ namespace KeenReloaded.Framework
 
         private void AddIfTile(SpaceHashGridNode node)
         {
-            if (this.CollisionType == CollisionType.BLOCK || (this.CollisionType == CollisionType.PLATFORM /*&& !(this is MovingPlatformTile)*/) || this.CollisionType == CollisionType.POLE_TILE)
+            if (this.CollisionType == CollisionType.BLOCK || (this.CollisionType == CollisionType.PLATFORM && !(this is MovingPlatformTile)) || this.CollisionType == CollisionType.POLE_TILE)
             {
                 node.Tiles.Add(this);
             }

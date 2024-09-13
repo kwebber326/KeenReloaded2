@@ -29,6 +29,7 @@ namespace KeenReloaded2.Framework.Enums
         MAP_EDGE_TILE,
         CTF_DESTINATION,
         CONVEYOR_BELT,
-        TOGGLE_SWITCH
+        TOGGLE_SWITCH,
+        KEEN_ONLY_PLATFORM
     }
 }

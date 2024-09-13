@@ -91,7 +91,10 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             //SetDirectionFromKeenLocation();
             SetVision();
             if (_collisionGrid != null)
-                _headTile = new MovingPlatformTile(_collisionGrid, this.HitBox, null, _zIndex);
+            {
+                Rectangle platformRect = new Rectangle(this.HitBox.X, this.HitBox.Y, this.HitBox.Width, 16);
+                _headTile = new MovingPlatformTile(_collisionGrid, platformRect, null, _zIndex);
+            }
         }
 
 

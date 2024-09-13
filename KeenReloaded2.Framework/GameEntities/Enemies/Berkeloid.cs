@@ -294,6 +294,11 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public void Move()
         {
+            if (this.IsNothingBeneath())
+            {
+                this.Fall();
+                return;
+            }
             bool changedDirection = false;
             var spriteSet = this.Direction == Enums.Direction.LEFT ? _moveLeftImages : _moveRightImages;
             int xOffset = this.Direction == Enums.Direction.LEFT ? this.HitBox.Width * -1 : this.HitBox.Width;
@@ -406,6 +411,13 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public void Stop()
         {
+        }
+
+        protected override bool IsNothingBeneath()
+        {
+            Rectangle areaToCheck = new Rectangle(this.HitBox.X, this.HitBox.Bottom, this.HitBox.Width, 6);
+            var items = this.CheckCollision(areaToCheck, true);
+            return !items.Any();
         }
 
         public override Rectangle HitBox

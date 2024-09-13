@@ -77,7 +77,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             }
         }
 
-        public override CollisionType CollisionType => CollisionType.PLATFORM;
+        public override CollisionType CollisionType => CollisionType.KEEN_ONLY_PLATFORM;
 
         public void Move(Point p)
         {
