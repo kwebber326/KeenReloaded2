@@ -85,6 +85,7 @@
     <Compile Include="GameEntities\Enemies\Dopefish.cs" />
     <Compile Include="GameEntities\Enemies\GnosticeneAncient.cs" />
     <Compile Include="GameEntities\Enemies\GnosticeneAncientItemDestroyer.cs" />
+    <Compile Include="GameEntities\Enemies\Inchworm.cs" />
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
     <Compile Include="GameEntities\Hazards\AcidPool.cs" />
     <Compile Include="GameEntities\Hazards\ConveyerBelt.cs" />
@@ -3948,6 +3949,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_gnosticene_ancient_vanish4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_inchworm_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_inchworm_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_inchworm_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_inchworm_right2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

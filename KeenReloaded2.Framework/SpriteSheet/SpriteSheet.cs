@@ -1440,6 +1440,44 @@ namespace KeenReloaded2.Framework.SpriteSheet
         #endregion
         #endregion
 
+        #region Enemies
+
+        #region Keen 4
+        #region Inchworm
+
+        private static Image[] _inchwormLeftImages = new Image[]
+        {
+            Properties.Resources.keen4_inchworm_left1,
+            Properties.Resources.keen4_inchworm_left2
+        };
+
+        public static Image[] InchwormLeftImages
+        {
+            get
+            {
+                return _inchwormLeftImages;
+            }
+        }
+
+        private static Image[] _inchwormRightImages = new Image[]
+        {
+            Properties.Resources.keen4_inchworm_right1,
+            Properties.Resources.keen4_inchworm_right2
+        };
+
+        public static Image[] InchwormRightImages
+        {
+            get
+            {
+                return _inchwormRightImages;
+            }
+        }
+
+        #endregion
+        #endregion
+
+        #endregion
+
         #region projectiles and explosions
 
         private static Image[] _rpgExplosionImages;

@@ -72,47 +72,9 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         private void Initialize()
         {
             UpdateSprite();
-            SetDirectionToRandomHorizontalDirection();
+            this.Direction = GetRandomHorizontalDirection();
             _visionSize = new Size(100, this.HitBox.Height);
             SetAttackVision();
-        }
-
-        private void SetDirectionToRandomHorizontalDirection()
-        {
-            int rand = this.GenerateRandomInteger(1, 2);
-            _direction = rand == 1 ? Direction.LEFT : Direction.RIGHT;
-        }
-
-        private void SetDirectionToRandomDirection()
-        {
-            int rand = this.GenerateRandomInteger(1, 8);
-            switch (rand)
-            {
-                case 1:
-                    this.Direction = Direction.LEFT;
-                    break;
-                case 2:
-                    this.Direction = Direction.RIGHT;
-                    break;
-                case 3:
-                    this.Direction = Direction.UP;
-                    break;
-                case 4:
-                    this.Direction = Direction.DOWN;
-                    break;
-                case 5:
-                    this.Direction = Direction.UP_LEFT;
-                    break;
-                case 6:
-                    this.Direction = Direction.UP_RIGHT;
-                    break;
-                case 7:
-                    this.Direction = Direction.DOWN_LEFT;
-                    break;
-                case 8:
-                    this.Direction = Direction.DOWN_RIGHT;
-                    break;
-            }
         }
 
         private void SetAttackVision()
@@ -323,7 +285,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             }
             else
             {
-                SetDirectionToRandomDirection();
+               this.Direction = GetRandomDirection();
             }
             int xOffset = GetXOffsetForCollisionDetection(velocity), yOffset = GetYOffsetForCollisionDetection(velocity);
 

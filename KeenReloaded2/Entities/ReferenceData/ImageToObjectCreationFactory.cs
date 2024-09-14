@@ -3493,6 +3493,43 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region inchworm
+
+            var inchwormImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("inchworm"));
+            Image inchwormImg = Image.FromFile(inchwormImageFile);
+            string inchwormKey = FileIOUtility.ExtractFileNameFromPath(inchwormImageFile);
+
+            MapMakerObjectProperty[] inchwormProperties = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, inchwormImg.Width, inchwormImg.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "zIndex",
+                             DisplayName = "Z Index: ",
+                             DataType = typeof(int),
+                             Value = 25
+                         },
+            };
+
+            MapMakerObject inchwormObj = new MapMakerObject(typeof(Inchworm), inchwormImageFile, false, inchwormProperties);
+            backgroundReferenceData.Add(inchwormKey, inchwormObj);
+
+            #endregion
+
             #endregion
 
             #endregion
