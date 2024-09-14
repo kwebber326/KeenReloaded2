@@ -83,6 +83,8 @@
     <Compile Include="GameEntities\Enemies\BlueEagleEgg.cs" />
     <Compile Include="GameEntities\Enemies\Bounder.cs" />
     <Compile Include="GameEntities\Enemies\Dopefish.cs" />
+    <Compile Include="GameEntities\Enemies\GnosticeneAncient.cs" />
+    <Compile Include="GameEntities\Enemies\GnosticeneAncientItemDestroyer.cs" />
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
     <Compile Include="GameEntities\Hazards\AcidPool.cs" />
     <Compile Include="GameEntities\Hazards\ConveyerBelt.cs" />
@@ -3886,6 +3888,66 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_dopefish_move_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_gnosticene_ancient_dust1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_gnosticene_ancient_dust2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_gnosticene_ancient_dust3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_gnosticene_ancient_dust4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_gnosticene_ancient_jump_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_gnosticene_ancient_jump_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_gnosticene_ancient_jump_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_gnosticene_ancient_jump_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_gnosticene_ancient_jump_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_gnosticene_ancient_jump_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_gnosticene_ancient_look_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_gnosticene_ancient_look_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_gnosticene_ancient_stun1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_gnosticene_ancient_stun2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_gnosticene_ancient_stun3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_gnosticene_ancient_stun4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_gnosticene_ancient_vanish1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_gnosticene_ancient_vanish2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_gnosticene_ancient_vanish3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_gnosticene_ancient_vanish4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

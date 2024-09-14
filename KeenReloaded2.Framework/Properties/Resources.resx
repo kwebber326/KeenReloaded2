@@ -958,6 +958,66 @@
   <data name="keen4_forest_wall_right_edge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_forest_wall_right_edge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen4_gnosticene_ancient_dust1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_gnosticene_ancient_dust1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_gnosticene_ancient_dust2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_gnosticene_ancient_dust2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_gnosticene_ancient_dust3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_gnosticene_ancient_dust3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_gnosticene_ancient_dust4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_gnosticene_ancient_dust4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_gnosticene_ancient_jump_left1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_gnosticene_ancient_jump_left1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_gnosticene_ancient_jump_left2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_gnosticene_ancient_jump_left2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_gnosticene_ancient_jump_left3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_gnosticene_ancient_jump_left3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_gnosticene_ancient_jump_right1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_gnosticene_ancient_jump_right1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_gnosticene_ancient_jump_right2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_gnosticene_ancient_jump_right2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_gnosticene_ancient_jump_right3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_gnosticene_ancient_jump_right3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_gnosticene_ancient_look_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_gnosticene_ancient_look_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_gnosticene_ancient_look_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_gnosticene_ancient_look_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_gnosticene_ancient_stun1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_gnosticene_ancient_stun1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_gnosticene_ancient_stun2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_gnosticene_ancient_stun2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_gnosticene_ancient_stun3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_gnosticene_ancient_stun3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_gnosticene_ancient_stun4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_gnosticene_ancient_stun4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_gnosticene_ancient_vanish1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_gnosticene_ancient_vanish1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_gnosticene_ancient_vanish2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_gnosticene_ancient_vanish2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_gnosticene_ancient_vanish3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_gnosticene_ancient_vanish3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_gnosticene_ancient_vanish4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_gnosticene_ancient_vanish4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keen4_gray_door" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_gray_door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

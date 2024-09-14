@@ -214,6 +214,9 @@ namespace KeenReloaded2.Entities
 
                     foreach (var item in sortedMapObjectsByZIndex)
                     {
+                        if (item?.Image == null)
+                            continue;
+
                         var bitmap = ((Bitmap)item.Image);
                         g.DrawImage(bitmap, new Rectangle(item.Location, bitmap.Size));
                     }

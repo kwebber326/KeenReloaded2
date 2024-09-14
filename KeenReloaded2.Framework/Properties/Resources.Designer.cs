@@ -5233,6 +5233,206 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen4_gnosticene_ancient_dust1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_gnosticene_ancient_dust1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_gnosticene_ancient_dust2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_gnosticene_ancient_dust2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_gnosticene_ancient_dust3 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_gnosticene_ancient_dust3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_gnosticene_ancient_dust4 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_gnosticene_ancient_dust4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_gnosticene_ancient_jump_left1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_gnosticene_ancient_jump_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_gnosticene_ancient_jump_left2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_gnosticene_ancient_jump_left2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_gnosticene_ancient_jump_left3 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_gnosticene_ancient_jump_left3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_gnosticene_ancient_jump_right1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_gnosticene_ancient_jump_right1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_gnosticene_ancient_jump_right2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_gnosticene_ancient_jump_right2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_gnosticene_ancient_jump_right3 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_gnosticene_ancient_jump_right3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_gnosticene_ancient_look_left {
+            get {
+                object obj = ResourceManager.GetObject("keen4_gnosticene_ancient_look_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_gnosticene_ancient_look_right {
+            get {
+                object obj = ResourceManager.GetObject("keen4_gnosticene_ancient_look_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_gnosticene_ancient_stun1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_gnosticene_ancient_stun1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_gnosticene_ancient_stun2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_gnosticene_ancient_stun2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_gnosticene_ancient_stun3 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_gnosticene_ancient_stun3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_gnosticene_ancient_stun4 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_gnosticene_ancient_stun4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_gnosticene_ancient_vanish1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_gnosticene_ancient_vanish1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_gnosticene_ancient_vanish2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_gnosticene_ancient_vanish2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_gnosticene_ancient_vanish3 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_gnosticene_ancient_vanish3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_gnosticene_ancient_vanish4 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_gnosticene_ancient_vanish4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen4_gray_door {
             get {
                 object obj = ResourceManager.GetObject("keen4_gray_door", resourceCulture);

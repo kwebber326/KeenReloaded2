@@ -3456,6 +3456,43 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region gnosticene ancient
+
+            var gnosticeneAncientImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("gnosticene"));
+            Image gnosticeneAncientImg = Image.FromFile(gnosticeneAncientImageFile);
+            string gnosticeneAncientKey = FileIOUtility.ExtractFileNameFromPath(gnosticeneAncientImageFile);
+
+            MapMakerObjectProperty[] gnosticeneAncientProperties = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, gnosticeneAncientImg.Width, gnosticeneAncientImg.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "zIndex",
+                             DisplayName = "Z Index: ",
+                             DataType = typeof(int),
+                             Value = 25
+                         },
+            };
+
+            MapMakerObject gnosticeneAncientObj = new MapMakerObject(typeof(GnosticeneAncient), gnosticeneAncientImageFile, false, gnosticeneAncientProperties);
+            backgroundReferenceData.Add(gnosticeneAncientKey, gnosticeneAncientObj);
+
+            #endregion
+
             #endregion
 
             #endregion
