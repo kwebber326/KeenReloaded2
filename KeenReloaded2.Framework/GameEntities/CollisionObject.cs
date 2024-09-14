@@ -142,6 +142,67 @@ namespace KeenReloaded.Framework
             return null;
         }
 
+        protected virtual void SetFullDirectionFromKeenLocation(CommanderKeen keen, ref Direction direction)
+        {
+            if (keen == null)
+                throw new ArgumentNullException("keen cannot be null");
+            var initVertDir = Direction.LEFT;
+            SetVerticalDirectionFromKeenLocation(keen, ref initVertDir);
+            if (initVertDir == Direction.UP)
+            {
+                if (keen.HitBox.Left < this.HitBox.Left)
+                {
+                    direction = Direction.UP_LEFT;
+                }
+                else if (keen.HitBox.Right > this.HitBox.Right)
+                {
+                    direction = Direction.UP_RIGHT;
+                }
+                else
+                {
+                    direction = Direction.UP;
+                }
+            }
+            else if (initVertDir == Direction.DOWN)
+            {
+                if (keen.HitBox.Left < this.HitBox.Left)
+                {
+                    direction = Direction.DOWN_LEFT;
+                }
+                else if (keen.HitBox.Right > this.HitBox.Right)
+                {
+                    direction = Direction.DOWN_RIGHT;
+                }
+                else
+                {
+                    direction = Direction.DOWN;
+                }
+            }
+            else if (keen.HitBox.Left < this.HitBox.Left)
+            {
+                direction = Direction.LEFT;
+            }
+            else
+            {
+                direction = Direction.RIGHT;
+            }
+        }
+
+        protected virtual void SetVerticalDirectionFromKeenLocation(CommanderKeen keen, ref Direction direction)
+        {
+            if (keen == null)
+                throw new ArgumentNullException("keen cannot be null");
+
+            if (keen.HitBox.Bottom < this.HitBox.Top)
+            {
+                direction = Direction.UP;
+            }
+            else if (keen.HitBox.Bottom > this.HitBox.Bottom)
+            {
+                direction = Direction.DOWN;
+            }
+        }
+
         protected virtual bool IsNothingBeneath()
         {
             Rectangle areaToCheck = new Rectangle(this.HitBox.X, this.HitBox.Bottom, this.HitBox.Width, 2);
@@ -478,6 +539,14 @@ namespace KeenReloaded.Framework
         protected CommanderKeen GetClosestPlayer()
         {
             return CurrentPlayerList.Players
+                .OrderBy(p => CommonGameFunctions.GetEuclideanDistance(this.HitBox.Location, p.HitBox.Location))
+                .FirstOrDefault();
+        }
+
+        protected CommanderKeen GetClosestAlivePlayer()
+        {
+            return CurrentPlayerList.Players
+                .Where(p => !p.IsDead())
                 .OrderBy(p => CommonGameFunctions.GetEuclideanDistance(this.HitBox.Location, p.HitBox.Location))
                 .FirstOrDefault();
         }

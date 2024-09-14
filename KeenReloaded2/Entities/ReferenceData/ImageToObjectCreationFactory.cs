@@ -3419,6 +3419,43 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region dopefish
+
+            var dopefishImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("dopefish"));
+            Image dopefishImg = Image.FromFile(dopefishImageFile);
+            string dopefishKey = FileIOUtility.ExtractFileNameFromPath(dopefishImageFile);
+
+            MapMakerObjectProperty[] dopefishProperties = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, dopefishImg.Width, dopefishImg.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "zIndex",
+                             DisplayName = "Z Index: ",
+                             DataType = typeof(int),
+                             Value = 25
+                         },
+            };
+
+            MapMakerObject dopefishObj = new MapMakerObject(typeof(Dopefish), dopefishImageFile, false, dopefishProperties);
+            backgroundReferenceData.Add(dopefishKey, dopefishObj);
+
+            #endregion
+
             #endregion
 
             #endregion

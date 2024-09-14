@@ -82,6 +82,7 @@
     <Compile Include="GameEntities\Enemies\BlueEagle.cs" />
     <Compile Include="GameEntities\Enemies\BlueEagleEgg.cs" />
     <Compile Include="GameEntities\Enemies\Bounder.cs" />
+    <Compile Include="GameEntities\Enemies\Dopefish.cs" />
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
     <Compile Include="GameEntities\Hazards\AcidPool.cs" />
     <Compile Include="GameEntities\Hazards\ConveyerBelt.cs" />
@@ -152,6 +153,7 @@
     <Compile Include="GameEntities\Projectiles\BoobusBombExplosion.cs" />
     <Compile Include="GameEntities\Projectiles\BoobusBombShot.cs" />
     <Compile Include="GameEntities\Projectiles\Dart.cs" />
+    <Compile Include="GameEntities\Projectiles\FartBubble.cs" />
     <Compile Include="GameEntities\Projectiles\KeenRailgunShot.cs" />
     <Compile Include="GameEntities\Projectiles\KeenRPGShot.cs" />
     <Compile Include="GameEntities\Projectiles\KeenStunShot.cs" />
@@ -3857,6 +3859,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_bounder2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_dopefish_attack_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_dopefish_attack_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_dopefish_fart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_dopefish_fart_bubble.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_dopefish_look.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_dopefish_move_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_dopefish_move_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_dopefish_move_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_dopefish_move_right2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

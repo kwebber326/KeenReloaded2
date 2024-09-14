@@ -841,6 +841,33 @@
   <data name="keen4_dart_up2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_dart_up2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen4_dopefish_attack_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_dopefish_attack_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_dopefish_attack_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_dopefish_attack_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_dopefish_fart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_dopefish_fart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_dopefish_fart_bubble" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_dopefish_fart_bubble.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_dopefish_look" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_dopefish_look.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_dopefish_move_left1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_dopefish_move_left1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_dopefish_move_left2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_dopefish_move_left2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_dopefish_move_right1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_dopefish_move_right1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_dopefish_move_right2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_dopefish_move_right2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keen4_doughnut1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_doughnut1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
