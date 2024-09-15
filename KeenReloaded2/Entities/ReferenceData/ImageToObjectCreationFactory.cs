@@ -3567,6 +3567,43 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region mad mushroom
+
+            var madMushroomImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("mad_mushroom"));
+            Image madMushroomImg = Image.FromFile(madMushroomImageFile);
+            string madMushroomKey = FileIOUtility.ExtractFileNameFromPath(madMushroomImageFile);
+
+            MapMakerObjectProperty[] madMushroomProperties = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, madMushroomImg.Width, madMushroomImg.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "zIndex",
+                             DisplayName = "Z Index: ",
+                             DataType = typeof(int),
+                             Value = 25
+                         },
+            };
+
+            MapMakerObject madMushroomObj = new MapMakerObject(typeof(MadMushroom), madMushroomImageFile, false, madMushroomProperties);
+            backgroundReferenceData.Add(madMushroomKey, madMushroomObj);
+
+            #endregion
+
             #endregion
 
             #endregion

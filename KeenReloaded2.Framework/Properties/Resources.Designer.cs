@@ -5743,6 +5743,46 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen4_mad_mushroom_left1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_mad_mushroom_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_mad_mushroom_left2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_mad_mushroom_left2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_mad_mushroom_right1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_mad_mushroom_right1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_mad_mushroom_right2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_mad_mushroom_right2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen4_mine {
             get {
                 object obj = ResourceManager.GetObject("keen4_mine", resourceCulture);

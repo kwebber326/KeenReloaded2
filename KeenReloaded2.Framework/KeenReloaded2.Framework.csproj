@@ -87,6 +87,7 @@
     <Compile Include="GameEntities\Enemies\GnosticeneAncientItemDestroyer.cs" />
     <Compile Include="GameEntities\Enemies\Inchworm.cs" />
     <Compile Include="GameEntities\Enemies\Lick.cs" />
+    <Compile Include="GameEntities\Enemies\MadMushroom.cs" />
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
     <Compile Include="GameEntities\Hazards\AcidPool.cs" />
     <Compile Include="GameEntities\Hazards\ConveyerBelt.cs" />
@@ -4016,6 +4017,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_lick_stun4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mad_mushroom_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mad_mushroom_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mad_mushroom_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mad_mushroom_right2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
