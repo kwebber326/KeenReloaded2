@@ -88,6 +88,7 @@
     <Compile Include="GameEntities\Enemies\Inchworm.cs" />
     <Compile Include="GameEntities\Enemies\Lick.cs" />
     <Compile Include="GameEntities\Enemies\MadMushroom.cs" />
+    <Compile Include="GameEntities\Enemies\Mimrock.cs" />
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
     <Compile Include="GameEntities\Hazards\AcidPool.cs" />
     <Compile Include="GameEntities\Hazards\ConveyerBelt.cs" />
@@ -4029,6 +4030,63 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_mad_mushroom_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mimrock_fall_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mimrock_fall_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mimrock_fall_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mimrock_fall_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mimrock_jump_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mimrock_jump_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mimrock_stun1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mimrock_stun2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mimrock_stun3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mimrock_stun4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mimrock_wait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mimrock_walk_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mimrock_walk_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mimrock_walk_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mimrock_walk_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mimrock_walk_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mimrock_walk_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mimrock_walk_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mimrock_walk_right4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

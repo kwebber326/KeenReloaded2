@@ -3604,6 +3604,43 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region mimrock
+
+            var mimrockImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("mimrock"));
+            Image mimrockImg = Image.FromFile(mimrockImageFile);
+            string mimrockKey = FileIOUtility.ExtractFileNameFromPath(mimrockImageFile);
+
+            MapMakerObjectProperty[] mimrockProperties = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, mimrockImg.Width, mimrockImg.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "zIndex",
+                             DisplayName = "Z Index: ",
+                             DataType = typeof(int),
+                             Value = 25
+                         },
+            };
+
+            MapMakerObject mimrockObj = new MapMakerObject(typeof(Mimrock), mimrockImageFile, false, mimrockProperties);
+            backgroundReferenceData.Add(mimrockKey, mimrockObj);
+
+            #endregion
+
             #endregion
 
             #endregion
