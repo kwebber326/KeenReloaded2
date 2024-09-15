@@ -86,6 +86,7 @@
     <Compile Include="GameEntities\Enemies\GnosticeneAncient.cs" />
     <Compile Include="GameEntities\Enemies\GnosticeneAncientItemDestroyer.cs" />
     <Compile Include="GameEntities\Enemies\Inchworm.cs" />
+    <Compile Include="GameEntities\Enemies\Lick.cs" />
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
     <Compile Include="GameEntities\Hazards\AcidPool.cs" />
     <Compile Include="GameEntities\Hazards\ConveyerBelt.cs" />
@@ -3961,6 +3962,60 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_inchworm_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_lick_left_fall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_lick_left_fire1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_lick_left_fire2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_lick_left_fire3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_lick_left_jump1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_lick_left_jump2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_lick_left_land.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_lick_right_fall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_lick_right_fire1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_lick_right_fire2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_lick_right_fire3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_lick_right_jump1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_lick_right_jump2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_lick_right_land.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_lick_stun1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_lick_stun2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_lick_stun3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_lick_stun4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

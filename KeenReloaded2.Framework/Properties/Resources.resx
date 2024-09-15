@@ -1045,6 +1045,60 @@
   <data name="keen4_jawbreaker2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_jawbreaker2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen4_lick_left_fall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_lick_left_fall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_lick_left_fire1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_lick_left_fire1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_lick_left_fire2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_lick_left_fire2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_lick_left_fire3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_lick_left_fire3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_lick_left_jump1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_lick_left_jump1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_lick_left_jump2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_lick_left_jump2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_lick_left_land" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_lick_left_land.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_lick_right_fall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_lick_right_fall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_lick_right_fire1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_lick_right_fire1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_lick_right_fire2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_lick_right_fire2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_lick_right_fire3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_lick_right_fire3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_lick_right_jump1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_lick_right_jump1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_lick_right_jump2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_lick_right_jump2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_lick_right_land" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_lick_right_land.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_lick_stun1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_lick_stun1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_lick_stun2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_lick_stun2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_lick_stun3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_lick_stun3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_lick_stun4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_lick_stun4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keen4_lifewater_flask1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_lifewater_flask1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

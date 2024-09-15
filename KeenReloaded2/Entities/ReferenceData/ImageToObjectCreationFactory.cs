@@ -3530,6 +3530,43 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region lick
+
+            var lickImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("lick"));
+            Image lickImg = Image.FromFile(lickImageFile);
+            string lickKey = FileIOUtility.ExtractFileNameFromPath(lickImageFile);
+
+            MapMakerObjectProperty[] lickProperties = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, lickImg.Width, lickImg.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "zIndex",
+                             DisplayName = "Z Index: ",
+                             DataType = typeof(int),
+                             Value = 25
+                         },
+            };
+
+            MapMakerObject lickObj = new MapMakerObject(typeof(Lick), lickImageFile, false, lickProperties);
+            backgroundReferenceData.Add(lickKey, lickObj);
+
+            #endregion
+
             #endregion
 
             #endregion
