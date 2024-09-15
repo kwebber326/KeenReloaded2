@@ -89,6 +89,7 @@
     <Compile Include="GameEntities\Enemies\Lick.cs" />
     <Compile Include="GameEntities\Enemies\MadMushroom.cs" />
     <Compile Include="GameEntities\Enemies\Mimrock.cs" />
+    <Compile Include="GameEntities\Enemies\Schoolfish.cs" />
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
     <Compile Include="GameEntities\Hazards\AcidPool.cs" />
     <Compile Include="GameEntities\Hazards\ConveyerBelt.cs" />
@@ -4087,6 +4088,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_mimrock_walk_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_schoolfish_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_schoolfish_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_schoolfish_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_schoolfish_left1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

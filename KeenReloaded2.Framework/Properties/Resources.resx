@@ -1390,6 +1390,18 @@
   <data name="keen4_rocket_propelled_platform4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_rocket_propelled_platform4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen4_schoolfish_left1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_schoolfish_left1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_schoolfish_left2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_schoolfish_left2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_schoolfish_right1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_schoolfish_right1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_schoolfish_right2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_schoolfish_right2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keen4_secret_platform1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_secret_platform1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

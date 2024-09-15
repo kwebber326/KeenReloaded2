@@ -3641,6 +3641,43 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region schoolfish
+
+            var schoolfishImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("schoolfish"));
+            Image schoolfishImg = Image.FromFile(schoolfishImageFile);
+            string schoolfishKey = FileIOUtility.ExtractFileNameFromPath(schoolfishImageFile);
+
+            MapMakerObjectProperty[] schoolfishProperties = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, schoolfishImg.Width, schoolfishImg.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "zIndex",
+                             DisplayName = "Z Index: ",
+                             DataType = typeof(int),
+                             Value = 25
+                         },
+            };
+
+            MapMakerObject schoolfishObj = new MapMakerObject(typeof(Schoolfish), schoolfishImageFile, false, schoolfishProperties);
+            backgroundReferenceData.Add(schoolfishKey, schoolfishObj);
+
+            #endregion
+
             #endregion
 
             #endregion

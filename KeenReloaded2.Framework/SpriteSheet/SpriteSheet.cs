@@ -1474,6 +1474,39 @@ namespace KeenReloaded2.Framework.SpriteSheet
         }
 
         #endregion
+
+        #region Schoolfish
+
+        private static Image[] _schoolFishLeftImages = new Image[]
+        {
+            Properties.Resources.keen4_schoolfish_left1,
+            Properties.Resources.keen4_schoolfish_left2
+        };
+
+        public static Image[] SchoolFishLeftImages
+        {
+            get
+            {
+                return _schoolFishLeftImages;
+            }
+        }
+
+        private static Image[] _schoolFishRightImages = new Image[]
+        {
+            Properties.Resources.keen4_schoolfish_right1,
+            Properties.Resources.keen4_schoolfish_right2
+        };
+
+        public static Image[] SchoolFishRightImages
+        {
+            get
+            {
+                return _schoolFishRightImages;
+            }
+        }
+
+
+        #endregion
         #endregion
 
         #endregion
