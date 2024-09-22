@@ -110,25 +110,25 @@ namespace KeenReloaded.Framework
             return this.HitBox.IntersectsWith(obj.HitBox);
         }
 
-        //protected void KillKeenIfCollidingDiagonalMovement(Rectangle areaToCheck, CommanderKeen keen, Direction direction)
-        //{
-        //    if (keen.HitBox.Right >= areaToCheck.Left && keen.HitBox.Left <= areaToCheck.Right)
-        //    {
-        //        double rise = areaToCheck.Height - this.HitBox.Height, run = areaToCheck.Width;
-        //        double slope = rise / run;
-        //        if (IsUpDirection(direction))
-        //            slope *= -1.0;
+        protected void KillKeenIfCollidingDiagonalMovement(Rectangle areaToCheck, CommanderKeen keen, Direction direction)
+        {
+            if (keen.HitBox.Right >= areaToCheck.Left && keen.HitBox.Left <= areaToCheck.Right)
+            {
+                double rise = areaToCheck.Height - this.HitBox.Height, run = areaToCheck.Width;
+                double slope = rise / run;
+                if (IsUpDirection(direction))
+                    slope *= -1.0;
 
-        //        double xInputKeen = keen.HitBox.Right - areaToCheck.Left;
-        //        double yOutput = this.HitBox.Y + slope * xInputKeen;
+                double xInputKeen = keen.HitBox.Right - areaToCheck.Left;
+                double yOutput = this.HitBox.Y + slope * xInputKeen;
 
-        //        Rectangle killArea = new Rectangle(keen.HitBox.Left, (int)yOutput, this.HitBox.Width, this.HitBox.Height);
-        //        if (keen.HitBox.IntersectsWith(killArea))
-        //        {
-        //            keen.Die();
-        //        }
-        //    }
-        //}
+                Rectangle killArea = new Rectangle(keen.HitBox.Left, (int)yOutput, this.HitBox.Width, this.HitBox.Height);
+                if (keen.HitBox.IntersectsWith(killArea))
+                {
+                    keen.Die();
+                }
+            }
+        }
 
         protected virtual CollisionObject GetCeilingTile(List<CollisionObject> collisions)
         {

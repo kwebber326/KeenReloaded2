@@ -3678,6 +3678,43 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region skyPest
+
+            var skyPestImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("skypest"));
+            Image skyPestImg = Image.FromFile(skyPestImageFile);
+            string skyPestKey = FileIOUtility.ExtractFileNameFromPath(skyPestImageFile);
+
+            MapMakerObjectProperty[] skyPestProperties = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, skyPestImg.Width, skyPestImg.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "zIndex",
+                             DisplayName = "Z Index: ",
+                             DataType = typeof(int),
+                             Value = 25
+                         },
+            };
+
+            MapMakerObject skyPestObj = new MapMakerObject(typeof(SkyPest), skyPestImageFile, false, skyPestProperties);
+            backgroundReferenceData.Add(skyPestKey, skyPestObj);
+
+            #endregion
+
             #endregion
 
             #endregion

@@ -90,6 +90,7 @@
     <Compile Include="GameEntities\Enemies\MadMushroom.cs" />
     <Compile Include="GameEntities\Enemies\Mimrock.cs" />
     <Compile Include="GameEntities\Enemies\Schoolfish.cs" />
+    <Compile Include="GameEntities\Enemies\SkyPest.cs" />
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
     <Compile Include="GameEntities\Hazards\AcidPool.cs" />
     <Compile Include="GameEntities\Hazards\ConveyerBelt.cs" />
@@ -4100,6 +4101,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_schoolfish_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_skypest_dead.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_skypest_fly_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_skypest_fly_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_skypest_flyleft1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_skypest_flyleft2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_skypest_wait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_skypest_wait_lick1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_skypest_wait_lick2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_skypest_wait_lick3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_skypest_wait_lick4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_skypest_wait_lick5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_skypest_wait_lick6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_skypest_wait_lick7.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
