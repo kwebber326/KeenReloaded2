@@ -279,11 +279,11 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 {
                     if (Direction == Enums.Direction.LEFT)
                     {
-                        enemies = enemies.Where(e => ((CollisionObject)e).HitBox.Right > tile.HitBox.Right);
+                        enemies = enemies.Where(e => ((CollisionObject)e).HitBox.Right >= tile.HitBox.Right);
                     }
                     else
                     {
-                        enemies = enemies.Where(e => ((CollisionObject)e).HitBox.Left < tile.HitBox.Left);
+                        enemies = enemies.Where(e => ((CollisionObject)e).HitBox.Left <= tile.HitBox.Left);
                     }
                 }
                 HandleEnemyCollision(enemies.ToList());

@@ -92,6 +92,9 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         private void SetHitboxBasedOnDirectionSubsequentChains()
         {
+            if (_borderTile == null)
+                return;
+
             switch (_direction)
             {
                 case Direction.DOWN:
