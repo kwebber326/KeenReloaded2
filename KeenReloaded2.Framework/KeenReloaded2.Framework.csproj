@@ -89,6 +89,7 @@
     <Compile Include="GameEntities\Enemies\Lick.cs" />
     <Compile Include="GameEntities\Enemies\MadMushroom.cs" />
     <Compile Include="GameEntities\Enemies\Mimrock.cs" />
+    <Compile Include="GameEntities\Enemies\PoisonSlug.cs" />
     <Compile Include="GameEntities\Enemies\Schoolfish.cs" />
     <Compile Include="GameEntities\Enemies\SkyPest.cs" />
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="GameEntities\Hazards\LaserTurret.cs" />
     <Compile Include="GameEntities\Hazards\LightningBolt.cs" />
     <Compile Include="GameEntities\Hazards\Mine.cs" />
+    <Compile Include="GameEntities\Hazards\PoisonSlugPoop.cs" />
     <Compile Include="GameEntities\Hazards\RocketPropelledPlatform.cs" />
     <Compile Include="GameEntities\Hazards\Smasher.cs" />
     <Compile Include="GameEntities\Hazards\Spear.cs" />
@@ -1809,18 +1811,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\enemy_spawner_lightning2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_slug_poop_active.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_slug_poop_left.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_slug_poop_right.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_slug_poop_fading.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen5_spinning_burn_platform1.png" />
@@ -4140,6 +4130,54 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_skypest_wait_lick7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_slug_move_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_slug_move_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_slug_move_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_slug_move_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_slug_poop_active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_slug_poop_fading.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_slug_poop_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_slug_poop_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_slug_stunned1_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_slug_stunned1_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_slug_stunned1_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_slug_stunned1_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_slug_stunned2_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_slug_stunned2_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_slug_stunned2_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_slug_stunned2_4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

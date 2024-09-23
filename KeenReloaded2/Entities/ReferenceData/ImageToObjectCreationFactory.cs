@@ -3715,6 +3715,43 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region poison slug
+
+            var poisonSlugImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("slug"));
+            Image poisonSlugImg = Image.FromFile(poisonSlugImageFile);
+            string poisonSlugKey = FileIOUtility.ExtractFileNameFromPath(poisonSlugImageFile);
+
+            MapMakerObjectProperty[] poisonSlugProperties = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, poisonSlugImg.Width, poisonSlugImg.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "zIndex",
+                             DisplayName = "Z Index: ",
+                             DataType = typeof(int),
+                             Value = 25
+                         },
+            };
+
+            MapMakerObject poisonSlugObj = new MapMakerObject(typeof(PoisonSlug), poisonSlugImageFile, false, poisonSlugProperties);
+            backgroundReferenceData.Add(poisonSlugKey, poisonSlugObj);
+
+            #endregion
+
             #endregion
 
             #endregion

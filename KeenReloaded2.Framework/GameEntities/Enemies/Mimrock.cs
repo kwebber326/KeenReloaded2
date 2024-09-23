@@ -417,7 +417,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 int xLoc = this.Direction == Enums.Direction.LEFT ? tile.HitBox.Right + 1 : tile.HitBox.Left - this.HitBox.Width - 1;
                 this.HitBox = new Rectangle(xLoc, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
             }
-            else if (!IsOnEdge(xOffset))
+            else if (!IsOnEdge(this.Direction, xOffset))
             {
                 this.HitBox = new Rectangle(this.HitBox.X + xOffset, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
             }
@@ -446,25 +446,6 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             var collisions = this.CheckCollision(areaToCheck, true);
             var tiles = collisions.ToList();
             return tiles;
-        }
-
-        private bool IsOnEdge(int xOffset)
-        {
-            var items = this.GetTilesBelow(xOffset);
-            if (items.Any())
-            {
-                if (this.Direction == Enums.Direction.RIGHT)
-                {
-                    int maxX = items.Select(h => h.HitBox.Right).Max();
-                    return maxX < this.HitBox.Right;
-                }
-                else
-                {
-                    int minX = items.Select(h => h.HitBox.Left).Min();
-                    return minX > this.HitBox.Left;
-                }
-            }
-            return false;
         }
 
         public void Stop()

@@ -119,7 +119,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             }
         }
 
-        private bool IsNothingBeneath()
+        protected override bool IsNothingBeneath()
         {
             Rectangle areaToCheck = new Rectangle(this.HitBox.X, this.HitBox.Bottom, this.HitBox.Width, 10);
             var items = this.CheckCollision(areaToCheck, true);
