@@ -69,7 +69,6 @@ keen4_rocket_propelled_platform1|912|307|32|32|18
 keen4_gray_door|203|226|60|92|15|KEEN4_GRAY|3|4
 keen4_gray_door|342|1158|60|92|15|KEEN4_GRAY|4|3
 keen4_poison_pool1|450|1148|174|86|18|2
-keen4_tar1|0|1308|64|64|18|23|2
 keen5_spinning_fire_hazard1|138|1201|32|32|18
 keen5_spinning_fire_hazard1|220|1154|32|32|18
 keen4_removable_platform_left_edge_filled_pyramid|19|311|42|62|10|KEEN4_PYRAMID|False|b837d173-44f5-4b51-b244-8a2de2a99659
@@ -98,4 +97,6 @@ keen4_schoolfish_left1|244|732|26|16|25
 keen4_schoolfish_left1|114|190|26|16|25
 keen4_schoolfish_left1|156|202|26|16|25
 keen4_gray_door|609|57|60|92|10|KEEN4_GRAY|2|1
+keen4_tar1|0|1308|64|64|18|23|2
+keen4_sprite_look_right|318|78|46|46|25
 keen4_switch1_off|287|471|32|32|15|KEEN4_1|[b837d173-44f5-4b51-b244-8a2de2a99659,c8518a63-46fe-4904-bad8-1634b2c53461,e63291f6-d59c-49fd-8239-d55f7f2c393d,51ad70ec-9cb6-42da-b64e-c0815753e5c8]|False

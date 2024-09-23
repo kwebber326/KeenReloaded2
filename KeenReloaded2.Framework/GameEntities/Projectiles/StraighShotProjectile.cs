@@ -34,11 +34,11 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         private int _currentSpriteDelay;
         private int UPDATE_SPRITE_DELAY = 1;
 
-        public StraightShotProjectile(SpaceHashGrid grid, Rectangle hitbox, Direction direction, EnemyProjectileType trajectoryType)
+        public StraightShotProjectile(SpaceHashGrid grid, Rectangle hitbox, Direction direction, EnemyProjectileType projectileType)
             : base(grid, hitbox)
         {
             this.Direction = direction;
-            _trajectoryType = trajectoryType;
+            _trajectoryType = projectileType;
             Initialize();
         }
 

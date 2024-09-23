@@ -7173,6 +7173,46 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen4_sprite_look_left {
+            get {
+                object obj = ResourceManager.GetObject("keen4_sprite_look_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_sprite_look_right {
+            get {
+                object obj = ResourceManager.GetObject("keen4_sprite_look_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_sprite_shoot_left {
+            get {
+                object obj = ResourceManager.GetObject("keen4_sprite_shoot_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_sprite_shoot_right {
+            get {
+                object obj = ResourceManager.GetObject("keen4_sprite_shoot_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen4_sprite_shot1 {
             get {
                 object obj = ResourceManager.GetObject("keen4_sprite_shot1", resourceCulture);
@@ -7206,6 +7246,16 @@ namespace KeenReloaded2.Framework.Properties {
         internal static System.Drawing.Bitmap keen4_sprite_shot4 {
             get {
                 object obj = ResourceManager.GetObject("keen4_sprite_shot4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_sprite_waiting {
+            get {
+                object obj = ResourceManager.GetObject("keen4_sprite_waiting", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

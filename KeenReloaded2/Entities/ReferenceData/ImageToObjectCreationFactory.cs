@@ -3229,35 +3229,9 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #region thunder cloud
 
-            var thunderCloudImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("cloud"));
-            Image thunderCloudImg = Image.FromFile(thunderCloudImageFile);
-            string thunderCloudKey = FileIOUtility.ExtractFileNameFromPath(thunderCloudImageFile);
-
-            MapMakerObjectProperty[] thunderCloudProperties = new MapMakerObjectProperty[]
+            var thunderCloudSpecificProperties = new MapMakerObjectProperty[]
             {
                  new MapMakerObjectProperty()
-                        {
-                            DisplayName = "Area: ",
-                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                            DataType = typeof(Rectangle),
-                            Value = new Rectangle(0, 0, thunderCloudImg.Width, thunderCloudImg.Height),
-                        },
-                        new MapMakerObjectProperty()
-                        {
-                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                            DataType = typeof(SpaceHashGrid),
-                            Value = null,
-                            Hidden = true,
-                            IsIgnoredInMapData = true
-                        },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "zIndex",
-                             DisplayName = "Z Index: ",
-                             DataType = typeof(int),
-                             Value = 25
-                         },
-                          new MapMakerObjectProperty()
                          {
                             PropertyName = "isLethal",
                             DataType = typeof(bool),
@@ -3266,458 +3240,91 @@ namespace KeenReloaded2.Entities.ReferenceData
                          },
             };
 
-            MapMakerObject thunderCloudObj = new MapMakerObject(typeof(ThunderCloud), thunderCloudImageFile, false, thunderCloudProperties);
-            backgroundReferenceData.Add(thunderCloudKey, thunderCloudObj);
+            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "thundercloud", typeof(ThunderCloud), thunderCloudSpecificProperties);
 
             #endregion
 
             #region arachnut
 
-            var arachnutImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("arachnut"));
-            Image arachnutImg = Image.FromFile(arachnutImageFile);
-            string arachnutKey = FileIOUtility.ExtractFileNameFromPath(arachnutImageFile);
-
-            MapMakerObjectProperty[] arachnutProperties = new MapMakerObjectProperty[]
-            {
-                 new MapMakerObjectProperty()
-                        {
-                            DisplayName = "Area: ",
-                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                            DataType = typeof(Rectangle),
-                            Value = new Rectangle(0, 0, arachnutImg.Width, arachnutImg.Height),
-                        },
-                        new MapMakerObjectProperty()
-                        {
-                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                            DataType = typeof(SpaceHashGrid),
-                            Value = null,
-                            Hidden = true,
-                            IsIgnoredInMapData = true
-                        },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "zIndex",
-                             DisplayName = "Z Index: ",
-                             DataType = typeof(int),
-                             Value = 25
-                         },
-            };
-
-            MapMakerObject arachnutObj = new MapMakerObject(typeof(Arachnut), arachnutImageFile, false, arachnutProperties);
-            backgroundReferenceData.Add(arachnutKey, arachnutObj);
+            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "arachnut", typeof(Arachnut));
 
             #endregion
 
             #region berkeloid
 
-            var berkeloidImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("berkeloid"));
-            Image berkeloidImg = Image.FromFile(berkeloidImageFile);
-            string berkeloidKey = FileIOUtility.ExtractFileNameFromPath(berkeloidImageFile);
-
-            MapMakerObjectProperty[] berkeloidProperties = new MapMakerObjectProperty[]
-            {
-                 new MapMakerObjectProperty()
-                        {
-                            DisplayName = "Area: ",
-                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                            DataType = typeof(Rectangle),
-                            Value = new Rectangle(0, 0, berkeloidImg.Width, berkeloidImg.Height),
-                        },
-                        new MapMakerObjectProperty()
-                        {
-                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                            DataType = typeof(SpaceHashGrid),
-                            Value = null,
-                            Hidden = true,
-                            IsIgnoredInMapData = true
-                        },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "zIndex",
-                             DisplayName = "Z Index: ",
-                             DataType = typeof(int),
-                             Value = 25
-                         },
-            };
-
-            MapMakerObject berkeloidObj = new MapMakerObject(typeof(Berkeloid), berkeloidImageFile, false, berkeloidProperties);
-            backgroundReferenceData.Add(berkeloidKey, berkeloidObj);
+            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "berkeloid", typeof(Berkeloid));
 
             #endregion
 
             #region blue eagle
 
-            var blueEagleEggImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("blue_eagle"));
-            Image blueEagleEggImg = Image.FromFile(blueEagleEggImageFile);
-            string blueEagleEggKey = FileIOUtility.ExtractFileNameFromPath(blueEagleEggImageFile);
-
-            MapMakerObjectProperty[] blueEagleEggProperties = new MapMakerObjectProperty[]
-            {
-                 new MapMakerObjectProperty()
-                        {
-                            DisplayName = "Area: ",
-                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                            DataType = typeof(Rectangle),
-                            Value = new Rectangle(0, 0, blueEagleEggImg.Width, blueEagleEggImg.Height),
-                        },
-                        new MapMakerObjectProperty()
-                        {
-                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                            DataType = typeof(SpaceHashGrid),
-                            Value = null,
-                            Hidden = true,
-                            IsIgnoredInMapData = true
-                        },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "zIndex",
-                             DisplayName = "Z Index: ",
-                             DataType = typeof(int),
-                             Value = 25
-                         },
-            };
-
-            MapMakerObject blueEagleEggObj = new MapMakerObject(typeof(BlueEagleEgg), blueEagleEggImageFile, false, blueEagleEggProperties);
-            backgroundReferenceData.Add(blueEagleEggKey, blueEagleEggObj);
+            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "eagle", typeof(BlueEagleEgg));
 
             #endregion
 
             #region bounder
 
-            var bounderImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("bounder"));
-            Image bounderImg = Image.FromFile(bounderImageFile);
-            string bounderKey = FileIOUtility.ExtractFileNameFromPath(bounderImageFile);
-
-            MapMakerObjectProperty[] bounderProperties = new MapMakerObjectProperty[]
-            {
-                 new MapMakerObjectProperty()
-                        {
-                            DisplayName = "Area: ",
-                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                            DataType = typeof(Rectangle),
-                            Value = new Rectangle(0, 0, bounderImg.Width, bounderImg.Height),
-                        },
-                        new MapMakerObjectProperty()
-                        {
-                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                            DataType = typeof(SpaceHashGrid),
-                            Value = null,
-                            Hidden = true,
-                            IsIgnoredInMapData = true
-                        },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "zIndex",
-                             DisplayName = "Z Index: ",
-                             DataType = typeof(int),
-                             Value = 25
-                         },
-            };
-
-            MapMakerObject bounderObj = new MapMakerObject(typeof(Bounder), bounderImageFile, false, bounderProperties);
-            backgroundReferenceData.Add(bounderKey, bounderObj);
+            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "bounder", typeof(Bounder));
 
             #endregion
 
             #region dopefish
 
-            var dopefishImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("dopefish"));
-            Image dopefishImg = Image.FromFile(dopefishImageFile);
-            string dopefishKey = FileIOUtility.ExtractFileNameFromPath(dopefishImageFile);
-
-            MapMakerObjectProperty[] dopefishProperties = new MapMakerObjectProperty[]
-            {
-                 new MapMakerObjectProperty()
-                        {
-                            DisplayName = "Area: ",
-                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                            DataType = typeof(Rectangle),
-                            Value = new Rectangle(0, 0, dopefishImg.Width, dopefishImg.Height),
-                        },
-                        new MapMakerObjectProperty()
-                        {
-                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                            DataType = typeof(SpaceHashGrid),
-                            Value = null,
-                            Hidden = true,
-                            IsIgnoredInMapData = true
-                        },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "zIndex",
-                             DisplayName = "Z Index: ",
-                             DataType = typeof(int),
-                             Value = 25
-                         },
-            };
-
-            MapMakerObject dopefishObj = new MapMakerObject(typeof(Dopefish), dopefishImageFile, false, dopefishProperties);
-            backgroundReferenceData.Add(dopefishKey, dopefishObj);
+            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "dopefish", typeof(Dopefish));
 
             #endregion
 
             #region gnosticene ancient
 
-            var gnosticeneAncientImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("gnosticene"));
-            Image gnosticeneAncientImg = Image.FromFile(gnosticeneAncientImageFile);
-            string gnosticeneAncientKey = FileIOUtility.ExtractFileNameFromPath(gnosticeneAncientImageFile);
-
-            MapMakerObjectProperty[] gnosticeneAncientProperties = new MapMakerObjectProperty[]
-            {
-                 new MapMakerObjectProperty()
-                        {
-                            DisplayName = "Area: ",
-                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                            DataType = typeof(Rectangle),
-                            Value = new Rectangle(0, 0, gnosticeneAncientImg.Width, gnosticeneAncientImg.Height),
-                        },
-                        new MapMakerObjectProperty()
-                        {
-                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                            DataType = typeof(SpaceHashGrid),
-                            Value = null,
-                            Hidden = true,
-                            IsIgnoredInMapData = true
-                        },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "zIndex",
-                             DisplayName = "Z Index: ",
-                             DataType = typeof(int),
-                             Value = 25
-                         },
-            };
-
-            MapMakerObject gnosticeneAncientObj = new MapMakerObject(typeof(GnosticeneAncient), gnosticeneAncientImageFile, false, gnosticeneAncientProperties);
-            backgroundReferenceData.Add(gnosticeneAncientKey, gnosticeneAncientObj);
+            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "gnosticene", typeof(GnosticeneAncient));
 
             #endregion
 
             #region inchworm
 
-            var inchwormImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("inchworm"));
-            Image inchwormImg = Image.FromFile(inchwormImageFile);
-            string inchwormKey = FileIOUtility.ExtractFileNameFromPath(inchwormImageFile);
-
-            MapMakerObjectProperty[] inchwormProperties = new MapMakerObjectProperty[]
-            {
-                 new MapMakerObjectProperty()
-                        {
-                            DisplayName = "Area: ",
-                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                            DataType = typeof(Rectangle),
-                            Value = new Rectangle(0, 0, inchwormImg.Width, inchwormImg.Height),
-                        },
-                        new MapMakerObjectProperty()
-                        {
-                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                            DataType = typeof(SpaceHashGrid),
-                            Value = null,
-                            Hidden = true,
-                            IsIgnoredInMapData = true
-                        },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "zIndex",
-                             DisplayName = "Z Index: ",
-                             DataType = typeof(int),
-                             Value = 25
-                         },
-            };
-
-            MapMakerObject inchwormObj = new MapMakerObject(typeof(Inchworm), inchwormImageFile, false, inchwormProperties);
-            backgroundReferenceData.Add(inchwormKey, inchwormObj);
+            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "inchworm", typeof(Inchworm));
 
             #endregion
 
             #region lick
 
-            var lickImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("lick"));
-            Image lickImg = Image.FromFile(lickImageFile);
-            string lickKey = FileIOUtility.ExtractFileNameFromPath(lickImageFile);
-
-            MapMakerObjectProperty[] lickProperties = new MapMakerObjectProperty[]
-            {
-                 new MapMakerObjectProperty()
-                        {
-                            DisplayName = "Area: ",
-                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                            DataType = typeof(Rectangle),
-                            Value = new Rectangle(0, 0, lickImg.Width, lickImg.Height),
-                        },
-                        new MapMakerObjectProperty()
-                        {
-                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                            DataType = typeof(SpaceHashGrid),
-                            Value = null,
-                            Hidden = true,
-                            IsIgnoredInMapData = true
-                        },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "zIndex",
-                             DisplayName = "Z Index: ",
-                             DataType = typeof(int),
-                             Value = 25
-                         },
-            };
-
-            MapMakerObject lickObj = new MapMakerObject(typeof(Lick), lickImageFile, false, lickProperties);
-            backgroundReferenceData.Add(lickKey, lickObj);
+            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "lick", typeof(Lick));
 
             #endregion
 
             #region mad mushroom
 
-            var madMushroomImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("mad_mushroom"));
-            Image madMushroomImg = Image.FromFile(madMushroomImageFile);
-            string madMushroomKey = FileIOUtility.ExtractFileNameFromPath(madMushroomImageFile);
-
-            MapMakerObjectProperty[] madMushroomProperties = new MapMakerObjectProperty[]
-            {
-                 new MapMakerObjectProperty()
-                        {
-                            DisplayName = "Area: ",
-                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                            DataType = typeof(Rectangle),
-                            Value = new Rectangle(0, 0, madMushroomImg.Width, madMushroomImg.Height),
-                        },
-                        new MapMakerObjectProperty()
-                        {
-                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                            DataType = typeof(SpaceHashGrid),
-                            Value = null,
-                            Hidden = true,
-                            IsIgnoredInMapData = true
-                        },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "zIndex",
-                             DisplayName = "Z Index: ",
-                             DataType = typeof(int),
-                             Value = 25
-                         },
-            };
-
-            MapMakerObject madMushroomObj = new MapMakerObject(typeof(MadMushroom), madMushroomImageFile, false, madMushroomProperties);
-            backgroundReferenceData.Add(madMushroomKey, madMushroomObj);
+            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "mad_mushroom", typeof(MadMushroom));
 
             #endregion
 
             #region mimrock
 
-            var mimrockImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("mimrock"));
-            Image mimrockImg = Image.FromFile(mimrockImageFile);
-            string mimrockKey = FileIOUtility.ExtractFileNameFromPath(mimrockImageFile);
-
-            MapMakerObjectProperty[] mimrockProperties = new MapMakerObjectProperty[]
-            {
-                 new MapMakerObjectProperty()
-                        {
-                            DisplayName = "Area: ",
-                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                            DataType = typeof(Rectangle),
-                            Value = new Rectangle(0, 0, mimrockImg.Width, mimrockImg.Height),
-                        },
-                        new MapMakerObjectProperty()
-                        {
-                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                            DataType = typeof(SpaceHashGrid),
-                            Value = null,
-                            Hidden = true,
-                            IsIgnoredInMapData = true
-                        },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "zIndex",
-                             DisplayName = "Z Index: ",
-                             DataType = typeof(int),
-                             Value = 25
-                         },
-            };
-
-            MapMakerObject mimrockObj = new MapMakerObject(typeof(Mimrock), mimrockImageFile, false, mimrockProperties);
-            backgroundReferenceData.Add(mimrockKey, mimrockObj);
+            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "mimrock", typeof(Mimrock));
 
             #endregion
 
             #region schoolfish
 
-            var schoolfishImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("schoolfish"));
-            Image schoolfishImg = Image.FromFile(schoolfishImageFile);
-            string schoolfishKey = FileIOUtility.ExtractFileNameFromPath(schoolfishImageFile);
-
-            MapMakerObjectProperty[] schoolfishProperties = new MapMakerObjectProperty[]
-            {
-                 new MapMakerObjectProperty()
-                        {
-                            DisplayName = "Area: ",
-                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                            DataType = typeof(Rectangle),
-                            Value = new Rectangle(0, 0, schoolfishImg.Width, schoolfishImg.Height),
-                        },
-                        new MapMakerObjectProperty()
-                        {
-                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                            DataType = typeof(SpaceHashGrid),
-                            Value = null,
-                            Hidden = true,
-                            IsIgnoredInMapData = true
-                        },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "zIndex",
-                             DisplayName = "Z Index: ",
-                             DataType = typeof(int),
-                             Value = 25
-                         },
-            };
-
-            MapMakerObject schoolfishObj = new MapMakerObject(typeof(Schoolfish), schoolfishImageFile, false, schoolfishProperties);
-            backgroundReferenceData.Add(schoolfishKey, schoolfishObj);
+            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "schoolfish", typeof(Schoolfish));
 
             #endregion
 
             #region skyPest
 
-            var skyPestImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("skypest"));
-            Image skyPestImg = Image.FromFile(skyPestImageFile);
-            string skyPestKey = FileIOUtility.ExtractFileNameFromPath(skyPestImageFile);
-
-            MapMakerObjectProperty[] skyPestProperties = new MapMakerObjectProperty[]
-            {
-                 new MapMakerObjectProperty()
-                        {
-                            DisplayName = "Area: ",
-                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                            DataType = typeof(Rectangle),
-                            Value = new Rectangle(0, 0, skyPestImg.Width, skyPestImg.Height),
-                        },
-                        new MapMakerObjectProperty()
-                        {
-                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                            DataType = typeof(SpaceHashGrid),
-                            Value = null,
-                            Hidden = true,
-                            IsIgnoredInMapData = true
-                        },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "zIndex",
-                             DisplayName = "Z Index: ",
-                             DataType = typeof(int),
-                             Value = 25
-                         },
-            };
-
-            MapMakerObject skyPestObj = new MapMakerObject(typeof(SkyPest), skyPestImageFile, false, skyPestProperties);
-            backgroundReferenceData.Add(skyPestKey, skyPestObj);
+            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "skypest", typeof(SkyPest));
 
             #endregion
 
             #region poison slug
 
             AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "slug", typeof(PoisonSlug));
+
+            #endregion
+
+            #region sprite
+
+            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "sprite", typeof(Keen4Sprite));
 
             #endregion
 

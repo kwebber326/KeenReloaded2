@@ -86,6 +86,7 @@
     <Compile Include="GameEntities\Enemies\GnosticeneAncient.cs" />
     <Compile Include="GameEntities\Enemies\GnosticeneAncientItemDestroyer.cs" />
     <Compile Include="GameEntities\Enemies\Inchworm.cs" />
+    <Compile Include="GameEntities\Enemies\Keen4Sprite.cs" />
     <Compile Include="GameEntities\Enemies\Lick.cs" />
     <Compile Include="GameEntities\Enemies\MadMushroom.cs" />
     <Compile Include="GameEntities\Enemies\Mimrock.cs" />
@@ -4178,6 +4179,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_slug_stunned2_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_sprite_look_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_sprite_look_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_sprite_shoot_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_sprite_shoot_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_sprite_waiting.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
