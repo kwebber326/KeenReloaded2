@@ -331,7 +331,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             int xOffset = this.Direction == Enums.Direction.LEFT ? MOVE_VELOCITY * -1 : MOVE_VELOCITY;
             int collisionStartPoint = this.Direction == Enums.Direction.LEFT ? this.HitBox.X : this.HitBox.Right;
 
-            Rectangle areaToCheck = new Rectangle(collisionStartPoint + xOffset, this.HitBox.Y, xOffset, this.HitBox.Height);
+            Rectangle areaToCheck = new Rectangle(collisionStartPoint + xOffset, this.HitBox.Y, Math.Abs(xOffset), this.HitBox.Height);
             var collisions = this.CheckCollision(areaToCheck);
             CollisionObject tile = this.Direction == Enums.Direction.LEFT ? GetRightMostLeftTile(collisions) : GetLeftMostRightTile(collisions);
             KillCollidingKeens(collisions);
@@ -356,7 +356,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 return;
             }
 
-            List<CollisionObject> tilesBelow = GetTilesBelow(xOffset);
+            List<CollisionObject> tilesBelow = GetTilesBelow(Math.Abs(xOffset));
             if (!tilesBelow.Any())
             {
                 this.State = SlugMoveState.FALLING;
@@ -500,7 +500,6 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         private void UpdateSprite()
         {
-            var oldSprite = _sprite;
             switch (State)
             {
                 case SlugMoveState.FALLING:
@@ -519,11 +518,13 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     _sprite = this.Direction == Enums.Direction.LEFT ? Properties.Resources.keen4_slug_poop_left : Properties.Resources.keen4_slug_poop_right;
                     break;
                 case SlugMoveState.STUNNED:
+                    var oldSprite = _sprite;
                     _sprite = _currentStunnedSpriteSet == 1 ? _stunImages1[_currentStunnedSprite] : _stunImages2[_currentStunnedSprite];
+                    int heightDifference = oldSprite == null ? 0 : oldSprite.Height - _sprite.Height;
+                    this.HitBox = new Rectangle(new Point(this.HitBox.X, this.HitBox.Y + heightDifference), _sprite.Size);
                     break;
             }
-            int heightDifference = oldSprite == null ? 0 : oldSprite.Height - _sprite.Height;
-            this.HitBox = new Rectangle(new Point(this.HitBox.X, this.HitBox.Y + heightDifference), _sprite.Size);
+           
         }
 
         public bool DeadlyTouch

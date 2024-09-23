@@ -3717,38 +3717,7 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #region poison slug
 
-            var poisonSlugImageFile = keen4EnemyFiles.FirstOrDefault(f => f.Contains("slug"));
-            Image poisonSlugImg = Image.FromFile(poisonSlugImageFile);
-            string poisonSlugKey = FileIOUtility.ExtractFileNameFromPath(poisonSlugImageFile);
-
-            MapMakerObjectProperty[] poisonSlugProperties = new MapMakerObjectProperty[]
-            {
-                 new MapMakerObjectProperty()
-                        {
-                            DisplayName = "Area: ",
-                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                            DataType = typeof(Rectangle),
-                            Value = new Rectangle(0, 0, poisonSlugImg.Width, poisonSlugImg.Height),
-                        },
-                        new MapMakerObjectProperty()
-                        {
-                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                            DataType = typeof(SpaceHashGrid),
-                            Value = null,
-                            Hidden = true,
-                            IsIgnoredInMapData = true
-                        },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "zIndex",
-                             DisplayName = "Z Index: ",
-                             DataType = typeof(int),
-                             Value = 25
-                         },
-            };
-
-            MapMakerObject poisonSlugObj = new MapMakerObject(typeof(PoisonSlug), poisonSlugImageFile, false, poisonSlugProperties);
-            backgroundReferenceData.Add(poisonSlugKey, poisonSlugObj);
+            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "slug", typeof(PoisonSlug));
 
             #endregion
 
@@ -3806,6 +3775,50 @@ namespace KeenReloaded2.Entities.ReferenceData
         }
 
         #region helper methods
+
+        private static void AddSimpleEnemyObject(Dictionary<string, MapMakerObject> referenceData, string[] imageFiles, string searchKeyword, Type objectType, MapMakerObjectProperty[] additionalProperties = null)
+        {
+            var imageFile = imageFiles.FirstOrDefault(f => f.Contains(searchKeyword));
+            Image img = Image.FromFile(imageFile);
+            string key = FileIOUtility.ExtractFileNameFromPath(imageFile);
+
+            List<MapMakerObjectProperty> objectProperties = new List<MapMakerObjectProperty>()
+            {
+                 new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, img.Width, img.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "zIndex",
+                             DisplayName = "Z Index: ",
+                             DataType = typeof(int),
+                             Value = 25
+                         },
+            };
+
+            if (additionalProperties != null)
+            {
+                foreach (var property in additionalProperties)
+                {
+                    objectProperties.Add(property);
+                }
+            }
+
+            MapMakerObject poisonSlugObj = new MapMakerObject(objectType, imageFile, false, objectProperties.ToArray());
+            referenceData.Add(key, poisonSlugObj);
+        }
 
         private static Direction InferDirectionFromFile(string file)
         {
