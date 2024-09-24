@@ -285,7 +285,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         private CollisionObject GetRightMostLeftTileSubsequentExplosions(List<CollisionObject> collisions)
         {
-            var debugTiles = collisions.OfType<MaskedTile>();
+            var debugTiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK && !(c is DestructibleObject));
             if (collisions.Any() && debugTiles.Any())
             {
                 var leftTiles = debugTiles.Where(c => c.HitBox.Right <= this.HitBox.Right && c.HitBox.Right >= this.HitBox.Left && c.HitBox.Top < this.HitBox.Bottom && c.HitBox.Bottom > this.HitBox.Top).ToList();
@@ -301,7 +301,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         private CollisionObject GetLeftMostRightTileSubsequentExplosions(List<CollisionObject> collisions)
         {
-            var debugTiles = collisions.OfType<MaskedTile>();
+            var debugTiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK && !(c is DestructibleObject));
             if (collisions.Any() && debugTiles.Any())
             {
                 var rightTiles = debugTiles.Where(c => c.HitBox.Right >= this.HitBox.Right && c.HitBox.Left <= this.HitBox.Right && c.HitBox.Top < this.HitBox.Bottom && c.HitBox.Bottom > this.HitBox.Top).ToList();
@@ -317,7 +317,8 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         private CollisionObject GetCeilingTileForSubsequentExplosions(List<CollisionObject> collisions)
         {
-            var debugTiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK && c.HitBox.Bottom <= this.HitBox.Top).ToList();
+            var debugTiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK 
+                && !(c is DestructibleObject) && c.HitBox.Bottom <= this.HitBox.Top).ToList();
             if (debugTiles.Any())
             {
                 int maxBottom = debugTiles.Select(c => c.HitBox.Bottom).Max();
