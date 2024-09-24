@@ -1317,6 +1317,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
 
         private void SetBackupWeapon()
         {
+            OnWeaponChanged(new WeaponEventArgs() { Weapon = this.CurrentWeapon });
             var backupWeapon = _weapons.LastOrDefault(w => w.Ammo > 0);
             if (backupWeapon == null)
             {
