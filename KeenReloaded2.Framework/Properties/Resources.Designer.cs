@@ -7433,6 +7433,156 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen4_wormmouth_attack_left1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_wormmouth_attack_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_wormmouth_attack_left2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_wormmouth_attack_left2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_wormmouth_attack_left3 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_wormmouth_attack_left3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_wormmouth_attack_right1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_wormmouth_attack_right1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_wormmouth_attack_right2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_wormmouth_attack_right2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_wormmouth_attack_right3 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_wormmouth_attack_right3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_wormmouth_move {
+            get {
+                object obj = ResourceManager.GetObject("keen4_wormmouth_move", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_wormmouth_peek_left1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_wormmouth_peek_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_wormmouth_peek_left2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_wormmouth_peek_left2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_wormmouth_peek_right1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_wormmouth_peek_right1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_wormmouth_peek_right2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_wormmouth_peek_right2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_wormmouth_stun1 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_wormmouth_stun1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_wormmouth_stun2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_wormmouth_stun2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_wormmouth_stun3 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_wormmouth_stun3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_wormmouth_stun4 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_wormmouth_stun4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen5_bag_o_sugar1 {
             get {
                 object obj = ResourceManager.GetObject("keen5_bag_o_sugar1", resourceCulture);

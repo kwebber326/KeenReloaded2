@@ -94,6 +94,7 @@
     <Compile Include="GameEntities\Enemies\Schoolfish.cs" />
     <Compile Include="GameEntities\Enemies\SkyPest.cs" />
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
+    <Compile Include="GameEntities\Enemies\Wormmouth.cs" />
     <Compile Include="GameEntities\Hazards\AcidPool.cs" />
     <Compile Include="GameEntities\Hazards\ConveyerBelt.cs" />
     <Compile Include="GameEntities\Hazards\DartGun.cs" />
@@ -4194,6 +4195,51 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_sprite_waiting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_wormmouth_attack_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_wormmouth_attack_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_wormmouth_attack_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_wormmouth_attack_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_wormmouth_attack_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_wormmouth_attack_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_wormmouth_move.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_wormmouth_peek_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_wormmouth_peek_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_wormmouth_peek_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_wormmouth_peek_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_wormmouth_stun1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_wormmouth_stun2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_wormmouth_stun3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_wormmouth_stun4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

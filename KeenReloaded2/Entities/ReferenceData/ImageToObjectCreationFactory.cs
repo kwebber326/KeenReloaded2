@@ -3328,6 +3328,12 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region wormmouth
+
+            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "wormmouth", typeof(Wormmouth));
+
+            #endregion
+
             #endregion
 
             #endregion
@@ -3423,8 +3429,8 @@ namespace KeenReloaded2.Entities.ReferenceData
                 }
             }
 
-            MapMakerObject poisonSlugObj = new MapMakerObject(objectType, imageFile, false, objectProperties.ToArray());
-            referenceData.Add(key, poisonSlugObj);
+            MapMakerObject gameObject = new MapMakerObject(objectType, imageFile, false, objectProperties.ToArray());
+            referenceData.Add(key, gameObject);
         }
 
         private static Direction InferDirectionFromFile(string file)

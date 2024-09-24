@@ -1507,6 +1507,30 @@ namespace KeenReloaded2.Framework.SpriteSheet
 
 
         #endregion
+
+        #region Wormmouth
+
+        private static Image[] _wormmouthStunSprites;
+
+        public static Image[] WormmouthStunSprites
+        {
+            get
+            {
+                if (_wormmouthStunSprites == null)
+                {
+                    _wormmouthStunSprites = new Image[]
+                    {
+                        Properties.Resources.keen4_wormmouth_stun2,
+                        Properties.Resources.keen4_wormmouth_stun3,
+                        Properties.Resources.keen4_wormmouth_stun4
+                    };
+
+                }
+                return _wormmouthStunSprites;
+            }
+        }
+
+        #endregion
         #endregion
 
         #endregion
