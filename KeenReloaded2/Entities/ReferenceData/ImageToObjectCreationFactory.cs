@@ -3336,6 +3336,16 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region keen 5
+            var keen5EnemyDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_ENEMIES, "keen5", Biomes.BIOME_KEEN5_BLACK);
+            var keen5EnemyFiles = Directory.GetFiles(keen5EnemyDirectory, "*.png");
+
+            #region korath inhabitant
+            AddSimpleEnemyObject(backgroundReferenceData, keen5EnemyFiles, "korath", typeof(KorathInhabitant));
+            #endregion
+
+            #endregion
+
             #endregion
 
             return backgroundReferenceData;

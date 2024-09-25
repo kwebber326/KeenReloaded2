@@ -8043,6 +8043,136 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen5_korath_inhabitant_look {
+            get {
+                object obj = ResourceManager.GetObject("keen5_korath_inhabitant_look", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_korath_inhabitant_stunned1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_korath_inhabitant_stunned1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_korath_inhabitant_stunned2 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_korath_inhabitant_stunned2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_korath_inhabitant_stunned3 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_korath_inhabitant_stunned3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_korath_inhabitant_stunned4 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_korath_inhabitant_stunned4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_korath_inhabitant_walk_left1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_korath_inhabitant_walk_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_korath_inhabitant_walk_left2 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_korath_inhabitant_walk_left2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_korath_inhabitant_walk_left3 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_korath_inhabitant_walk_left3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_korath_inhabitant_walk_left4 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_korath_inhabitant_walk_left4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_korath_inhabitant_walk_right1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_korath_inhabitant_walk_right1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_korath_inhabitant_walk_right2 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_korath_inhabitant_walk_right2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_korath_inhabitant_walk_right3 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_korath_inhabitant_walk_right3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_korath_inhabitant_walk_right4 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_korath_inhabitant_walk_right4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen5_laser_field_down {
             get {
                 object obj = ResourceManager.GetObject("keen5_laser_field_down", resourceCulture);

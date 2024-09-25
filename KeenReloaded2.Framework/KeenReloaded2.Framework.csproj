@@ -87,6 +87,7 @@
     <Compile Include="GameEntities\Enemies\GnosticeneAncientItemDestroyer.cs" />
     <Compile Include="GameEntities\Enemies\Inchworm.cs" />
     <Compile Include="GameEntities\Enemies\Keen4Sprite.cs" />
+    <Compile Include="GameEntities\Enemies\KorathInhabitant.cs" />
     <Compile Include="GameEntities\Enemies\Lick.cs" />
     <Compile Include="GameEntities\Enemies\MadMushroom.cs" />
     <Compile Include="GameEntities\Enemies\Mimrock.cs" />
@@ -4240,6 +4241,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_wormmouth_stun4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_korath_inhabitant_look.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_korath_inhabitant_stunned1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_korath_inhabitant_stunned2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_korath_inhabitant_stunned3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_korath_inhabitant_stunned4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_korath_inhabitant_walk_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_korath_inhabitant_walk_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_korath_inhabitant_walk_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_korath_inhabitant_walk_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_korath_inhabitant_walk_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_korath_inhabitant_walk_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_korath_inhabitant_walk_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_korath_inhabitant_walk_right4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

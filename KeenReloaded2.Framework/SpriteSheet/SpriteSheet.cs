@@ -1533,6 +1533,70 @@ namespace KeenReloaded2.Framework.SpriteSheet
         #endregion
         #endregion
 
+        #region Keen 5
+
+        #region Korath Inhabitant
+        private static Image[] _korathIWalkLeftImages;
+        public static Image[] KorathIWalkLeftImages
+        {
+            get
+            {
+                if (_korathIWalkLeftImages == null)
+                {
+                    _korathIWalkLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen5_korath_inhabitant_walk_left1,
+                        Properties.Resources.keen5_korath_inhabitant_walk_left2,
+                        Properties.Resources.keen5_korath_inhabitant_walk_left3,
+                        Properties.Resources.keen5_korath_inhabitant_walk_left4
+                    };
+                }
+                return _korathIWalkLeftImages;
+            }
+        }
+
+        private static Image[] _korathIWalkRightImages;
+        public static Image[] KorathIWalkRightImages
+        {
+            get
+            {
+                if (_korathIWalkRightImages == null)
+                {
+                    _korathIWalkRightImages = new Image[]
+                    {
+                        Properties.Resources.keen5_korath_inhabitant_walk_right1,
+                        Properties.Resources.keen5_korath_inhabitant_walk_right2,
+                        Properties.Resources.keen5_korath_inhabitant_walk_right3,
+                        Properties.Resources.keen5_korath_inhabitant_walk_right4
+                    };
+                }
+                return _korathIWalkRightImages;
+            }
+        }
+
+        private static Image[] _korathIStunnedImages;
+        public static Image[] KorathIStunnedImages
+        {
+            get
+            {
+                if (_korathIStunnedImages == null)
+                {
+                    _korathIStunnedImages = new Image[]
+                    {
+                        Properties.Resources.keen5_korath_inhabitant_stunned1,
+                        Properties.Resources.keen5_korath_inhabitant_stunned2,
+                        Properties.Resources.keen5_korath_inhabitant_stunned3,
+                        Properties.Resources.keen5_korath_inhabitant_stunned4
+                    };
+                }
+                return _korathIStunnedImages;
+            }
+        }
+
+        #endregion
+
+        #endregion
+
         #endregion
 
         #region projectiles and explosions
