@@ -209,6 +209,12 @@ namespace KeenReloaded.Framework
             return rand == 1 ? Direction.LEFT : Direction.RIGHT;
         }
 
+        protected virtual Direction GetRandomVerticalDirection()
+        {
+            int rand = this.GenerateRandomInteger(1, 2);
+            return rand == 1 ? Direction.UP : Direction.DOWN;
+        }
+
         protected virtual Direction GetRandomDirection()
         {
             int rand = this.GenerateRandomInteger(1, 8);

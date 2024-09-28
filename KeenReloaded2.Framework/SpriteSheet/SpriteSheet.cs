@@ -1595,6 +1595,69 @@ namespace KeenReloaded2.Framework.SpriteSheet
 
         #endregion
 
+        #region Keen 5 Control Panel (for little amptons)
+        private static Image[] _keen5ControlPanelImages;
+
+        public static Image[] Keen5ControlPanelImages
+        {
+            get
+            {
+                if (_keen5ControlPanelImages == null)
+                {
+                    _keen5ControlPanelImages = new Image[]
+                    {
+                         Properties.Resources.keen5_control_panel1,
+                         Properties.Resources.keen5_control_panel2
+                    };
+                }
+                return _keen5ControlPanelImages;
+            }
+        }
+
+        private static Dictionary<int, Image> _keen5LittleAmptonCalibrationImages;
+
+        public static Dictionary<int, Image> Keen5LittleAmptonCalibrationImages
+        {
+            get
+            {
+                if (_keen5LittleAmptonCalibrationImages == null)
+                {
+                    _keen5LittleAmptonCalibrationImages = new Dictionary<int, Image>()
+                    {
+                        { 0, Properties.Resources.keen5_little_ampton_calibrate1 },
+                        { 1, Properties.Resources.keen5_little_ampton_calibrate1 },
+                        { 2, Properties.Resources.keen5_little_ampton_calibrate1 },
+                        { 3, Properties.Resources.keen5_little_ampton_calibrate1 },
+                        { 4, Properties.Resources.keen5_little_ampton_calibrate2 },
+                        { 5, Properties.Resources.keen5_little_ampton_calibrate2 },
+                        { 6, Properties.Resources.keen5_little_ampton_calibrate2 },
+                        { 7, Properties.Resources.keen5_little_ampton_calibrate2 },
+
+                        { 8, Properties.Resources.keen5_little_ampton_calibrate1 },
+                        { 9, Properties.Resources.keen5_little_ampton_calibrate1 },
+                        { 10, Properties.Resources.keen5_little_ampton_calibrate1 },
+                        { 11, Properties.Resources.keen5_little_ampton_calibrate1 },
+                        { 12, Properties.Resources.keen5_little_ampton_calibrate2 },
+                        { 13, Properties.Resources.keen5_little_ampton_calibrate2 },
+                        { 14, Properties.Resources.keen5_little_ampton_calibrate2 },
+                        { 15, Properties.Resources.keen5_little_ampton_calibrate2 },
+
+
+                        { 16, Properties.Resources.keen5_little_ampton_calibrate1 },
+                        { 17, Properties.Resources.keen5_little_ampton_calibrate1 },
+                        { 18, Properties.Resources.keen5_little_ampton_calibrate1 },
+                        { 19, Properties.Resources.keen5_little_ampton_calibrate1 },
+                        { 20, Properties.Resources.keen5_little_ampton_calibrate2 },
+                        { 21, Properties.Resources.keen5_little_ampton_calibrate2 },
+                        { 22, Properties.Resources.keen5_little_ampton_calibrate2 },
+                        { 23, Properties.Resources.keen5_little_ampton_calibrate2 },
+                    };
+                }
+                return _keen5LittleAmptonCalibrationImages;
+            }
+        }
+        #endregion
+
         #endregion
 
         #endregion

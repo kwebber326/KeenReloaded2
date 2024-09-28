@@ -71,6 +71,7 @@
     <Compile Include="GameEntities\Constructs\Door.cs" />
     <Compile Include="GameEntities\Constructs\ExitDoor.cs" />
     <Compile Include="GameEntities\Constructs\GemPlaceHolder.cs" />
+    <Compile Include="GameEntities\Constructs\Keen5ControlPanel.cs" />
     <Compile Include="GameEntities\Constructs\Keen6Switch.cs" />
     <Compile Include="GameEntities\Constructs\KeyGate.cs" />
     <Compile Include="GameEntities\Constructs\Pole.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="GameEntities\Enemies\Keen4Sprite.cs" />
     <Compile Include="GameEntities\Enemies\KorathInhabitant.cs" />
     <Compile Include="GameEntities\Enemies\Lick.cs" />
+    <Compile Include="GameEntities\Enemies\LittleAmpton.cs" />
     <Compile Include="GameEntities\Enemies\MadMushroom.cs" />
     <Compile Include="GameEntities\Enemies\Mimrock.cs" />
     <Compile Include="GameEntities\Enemies\PoisonSlug.cs" />
@@ -4280,6 +4282,60 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen5_korath_inhabitant_walk_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_little_ampton_calibrate1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_little_ampton_calibrate2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_little_ampton_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_little_ampton_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_little_ampton_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_little_ampton_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_little_ampton_look.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_little_ampton_pole.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_little_ampton_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_little_ampton_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_little_ampton_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_little_ampton_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_little_ampton_stunned1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_little_ampton_stunned2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_little_ampton_stunned3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_little_ampton_stunned4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_control_panel2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_control_panel1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

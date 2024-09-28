@@ -7733,6 +7733,26 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen5_control_panel1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_control_panel1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_control_panel2 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_control_panel2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen5_door {
             get {
                 object obj = ResourceManager.GetObject("keen5_door", resourceCulture);
@@ -8256,6 +8276,166 @@ namespace KeenReloaded2.Framework.Properties {
         internal static System.Drawing.Bitmap keen5_laser_turret_up {
             get {
                 object obj = ResourceManager.GetObject("keen5_laser_turret_up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_little_ampton_calibrate1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_little_ampton_calibrate1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_little_ampton_calibrate2 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_little_ampton_calibrate2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_little_ampton_left1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_little_ampton_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_little_ampton_left2 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_little_ampton_left2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_little_ampton_left3 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_little_ampton_left3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_little_ampton_left4 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_little_ampton_left4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_little_ampton_look {
+            get {
+                object obj = ResourceManager.GetObject("keen5_little_ampton_look", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_little_ampton_pole {
+            get {
+                object obj = ResourceManager.GetObject("keen5_little_ampton_pole", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_little_ampton_right1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_little_ampton_right1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_little_ampton_right2 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_little_ampton_right2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_little_ampton_right3 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_little_ampton_right3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_little_ampton_right4 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_little_ampton_right4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_little_ampton_stunned1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_little_ampton_stunned1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_little_ampton_stunned2 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_little_ampton_stunned2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_little_ampton_stunned3 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_little_ampton_stunned3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_little_ampton_stunned4 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_little_ampton_stunned4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

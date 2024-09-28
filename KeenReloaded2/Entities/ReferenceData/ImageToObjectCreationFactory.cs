@@ -2774,6 +2774,10 @@ namespace KeenReloaded2.Entities.ReferenceData
             allFiles.AddRange(keen5ConstructFiles);
             allFiles.AddRange(keen6ConstructFiles);
 
+            #region miscellaneous
+            AddSimplGameObject(backgroundReferenceData, keen5ConstructFiles, "control_panel", typeof(Keen5ControlPanel), null, 10);
+            #endregion
+
             #region Doors
             var doorFiles = allFiles.Where(f => f.Contains("door") || f.Contains("chute"));
             foreach (var file in doorFiles)
@@ -3240,97 +3244,97 @@ namespace KeenReloaded2.Entities.ReferenceData
                          },
             };
 
-            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "thundercloud", typeof(ThunderCloud), thunderCloudSpecificProperties);
+            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "thundercloud", typeof(ThunderCloud), thunderCloudSpecificProperties);
 
             #endregion
 
             #region arachnut
 
-            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "arachnut", typeof(Arachnut));
+            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "arachnut", typeof(Arachnut));
 
             #endregion
 
             #region berkeloid
 
-            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "berkeloid", typeof(Berkeloid));
+            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "berkeloid", typeof(Berkeloid));
 
             #endregion
 
             #region blue eagle
 
-            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "eagle", typeof(BlueEagleEgg));
+            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "eagle", typeof(BlueEagleEgg));
 
             #endregion
 
             #region bounder
 
-            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "bounder", typeof(Bounder));
+            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "bounder", typeof(Bounder));
 
             #endregion
 
             #region dopefish
 
-            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "dopefish", typeof(Dopefish));
+            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "dopefish", typeof(Dopefish));
 
             #endregion
 
             #region gnosticene ancient
 
-            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "gnosticene", typeof(GnosticeneAncient));
+            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "gnosticene", typeof(GnosticeneAncient));
 
             #endregion
 
             #region inchworm
 
-            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "inchworm", typeof(Inchworm));
+            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "inchworm", typeof(Inchworm));
 
             #endregion
 
             #region lick
 
-            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "lick", typeof(Lick));
+            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "lick", typeof(Lick));
 
             #endregion
 
             #region mad mushroom
 
-            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "mad_mushroom", typeof(MadMushroom));
+            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "mad_mushroom", typeof(MadMushroom));
 
             #endregion
 
             #region mimrock
 
-            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "mimrock", typeof(Mimrock));
+            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "mimrock", typeof(Mimrock));
 
             #endregion
 
             #region schoolfish
 
-            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "schoolfish", typeof(Schoolfish));
+            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "schoolfish", typeof(Schoolfish));
 
             #endregion
 
             #region skyPest
 
-            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "skypest", typeof(SkyPest));
+            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "skypest", typeof(SkyPest));
 
             #endregion
 
             #region poison slug
 
-            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "slug", typeof(PoisonSlug));
+            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "slug", typeof(PoisonSlug));
 
             #endregion
 
             #region sprite
 
-            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "sprite", typeof(Keen4Sprite));
+            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "sprite", typeof(Keen4Sprite));
 
             #endregion
 
             #region wormmouth
 
-            AddSimpleEnemyObject(backgroundReferenceData, keen4EnemyFiles, "wormmouth", typeof(Wormmouth));
+            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "wormmouth", typeof(Wormmouth));
 
             #endregion
 
@@ -3341,7 +3345,11 @@ namespace KeenReloaded2.Entities.ReferenceData
             var keen5EnemyFiles = Directory.GetFiles(keen5EnemyDirectory, "*.png");
 
             #region korath inhabitant
-            AddSimpleEnemyObject(backgroundReferenceData, keen5EnemyFiles, "korath", typeof(KorathInhabitant));
+            AddSimplGameObject(backgroundReferenceData, keen5EnemyFiles, "korath", typeof(KorathInhabitant));
+            #endregion
+
+            #region little ampton
+            AddSimplGameObject(backgroundReferenceData, keen5EnemyFiles, "little_ampton", typeof(LittleAmpton));
             #endregion
 
             #endregion
@@ -3399,7 +3407,7 @@ namespace KeenReloaded2.Entities.ReferenceData
 
         #region helper methods
 
-        private static void AddSimpleEnemyObject(Dictionary<string, MapMakerObject> referenceData, string[] imageFiles, string searchKeyword, Type objectType, MapMakerObjectProperty[] additionalProperties = null)
+        private static void AddSimplGameObject(Dictionary<string, MapMakerObject> referenceData, string[] imageFiles, string searchKeyword, Type objectType, MapMakerObjectProperty[] additionalProperties = null, int zIndex = 25)
         {
             var imageFile = imageFiles.FirstOrDefault(f => f.Contains(searchKeyword));
             Image img = Image.FromFile(imageFile);
@@ -3427,7 +3435,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                              PropertyName = "zIndex",
                              DisplayName = "Z Index: ",
                              DataType = typeof(int),
-                             Value = 25
+                             Value = zIndex
                          },
             };
 
