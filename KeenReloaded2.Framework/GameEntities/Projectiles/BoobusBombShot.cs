@@ -421,9 +421,11 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 else
                 {
                     enemyToMoveTo = enemies.FirstOrDefault(e => e.IsActive) as CollisionObject;
-                    if (enemyToMoveTo != null && enemyToMoveTo.CollisionType == CollisionType.ALERTABLE)
+                    if (enemyToMoveTo != null && enemyToMoveTo is IAlertable)
                     {
-                        ((IAlertable)enemyToMoveTo).Alert();
+                        var alertable = (IAlertable)enemyToMoveTo;
+                        if (!alertable.IsOnAlert)
+                            alertable.Alert();
                     }
                 }
                 if (enemyToMoveTo != null)
@@ -508,9 +510,11 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 else
                 {
                     enemyToMoveTo = enemies.FirstOrDefault(e => e.IsActive) as CollisionObject;
-                    if (enemyToMoveTo != null && enemyToMoveTo.CollisionType == CollisionType.ALERTABLE)
+                    if (enemyToMoveTo != null && enemyToMoveTo is IAlertable)
                     {
-                        ((IAlertable)enemyToMoveTo).Alert();
+                        var alertable = (IAlertable)enemyToMoveTo;
+                        if (!alertable.IsOnAlert)
+                            alertable.Alert();
                     }
                 }
                 if (enemyToMoveTo != null)

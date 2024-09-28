@@ -8,6 +8,7 @@ namespace KeenReloaded2.Framework.GameEntities.Interfaces
 {
     public interface IAlertable
     {
+        bool IsOnAlert { get; }
         void Alert();
     }
 }

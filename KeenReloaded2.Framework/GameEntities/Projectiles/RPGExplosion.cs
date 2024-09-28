@@ -67,8 +67,9 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             }
             else if (obj is IAlertable)
             {
-                var alertable = obj as IAlertable;
-                alertable.Alert();
+                var alertable = (IAlertable)obj;
+                if (!alertable.IsOnAlert)
+                    alertable.Alert();
             }
         }
 

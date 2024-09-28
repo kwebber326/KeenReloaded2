@@ -107,7 +107,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 int _alertVal = _random.Next(1, SHOT_CHANCE_UPON_HEARING_NOISE + 1);
                 if (_alertVal == SHOT_CHANCE_UPON_HEARING_NOISE)
                 {
-                    this.Alert();
+                    if (!this.IsOnAlert)
+                        this.Alert();
                     return;
                 }
             }
@@ -327,6 +328,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         public Image Image => _sprite;
 
         public Point Location => _area.Location;
+
+        public bool IsOnAlert => this.State == RoboRedState.ALERTED || this.State == RoboRedState.FIRING;
 
         public event EventHandler<ObjectEventArgs> Create;
 
