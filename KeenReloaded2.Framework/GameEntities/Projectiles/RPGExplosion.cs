@@ -53,7 +53,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             this.Explode();
         }
 
-        protected void HandleCollision(CollisionObject obj)
+        protected virtual void HandleCollision(CollisionObject obj)
         {
             var destructoObject = obj as DestructibleObject;
             if (destructoObject != null && !destructoObject.IsDead())
@@ -64,6 +64,11 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             {
                 var stunnableObject = obj as IStunnable;
                 stunnableObject.Stun();
+            }
+            else if (obj is IAlertable)
+            {
+                var alertable = obj as IAlertable;
+                alertable.Alert();
             }
         }
 

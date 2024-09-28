@@ -8923,6 +8923,26 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen5_robo_red_left {
+            get {
+                object obj = ResourceManager.GetObject("keen5_robo_red_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_robo_red_right {
+            get {
+                object obj = ResourceManager.GetObject("keen5_robo_red_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen5_robo_red_shot_hit1 {
             get {
                 object obj = ResourceManager.GetObject("keen5_robo_red_shot_hit1", resourceCulture);

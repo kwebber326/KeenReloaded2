@@ -83,6 +83,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             var destructoObjectsToKill = collisions.OfType<DestructibleObject>();
             var stunnableObjects = collisions.OfType<IStunnable>();
             var explodableObjects = collisions.OfType<IExplodable>();
+            var alertableObjects = collisions.OfType<IAlertable>();
 
             if (destructoObjectsToKill.Any())
             {
@@ -117,9 +118,20 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     }
                 }
             }
+            if (alertableObjects.Any())
+            {
+                foreach (var obj in alertableObjects)
+                {
+                    var alertable = obj as CollisionObject;
+                    if (alertable != null)
+                    {
+                        this.HandleCollision(alertable);
+                    }
+                }
+            }
         }
 
-        protected void HandleCollision(CollisionObject obj)
+        protected override void HandleCollision(CollisionObject obj)
         {
             var destructoObject = obj as DestructibleObject;
             if (destructoObject != null && !destructoObject.IsDead() && (destructoObject.CollisionType != Enums.CollisionType.PLAYER))
@@ -135,6 +147,11 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             {
                 var explodableObject = obj as IExplodable;
                 explodableObject.Explode();
+            }
+            else if (obj is IAlertable)
+            {
+                var alertable = obj as IAlertable;
+                alertable.Alert();
             }
         }
 
