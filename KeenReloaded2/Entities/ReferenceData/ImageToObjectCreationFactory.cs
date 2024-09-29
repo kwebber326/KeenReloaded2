@@ -3374,6 +3374,10 @@ namespace KeenReloaded2.Entities.ReferenceData
             });
             #endregion
 
+            #region shikadi mine
+            AddSimplGameObject(backgroundReferenceData, keen5EnemyFiles, "shikadi_mine", typeof(ShikadiMine));
+            #endregion
+
             #endregion
 
             #endregion

@@ -13,6 +13,8 @@ namespace KeenReloaded2.Entities
 
         public string MapName { get; set; }
 
+        public string GameMode { get; set; }
+
         public List<GameObjectMapping> MapData { get; set; }
     }
 }

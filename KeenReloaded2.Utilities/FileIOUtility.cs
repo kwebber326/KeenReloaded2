@@ -97,6 +97,11 @@ namespace KeenReloaded2.Utilities
             return imgName;
         }
 
+        //public static string ExtractGameModeFromPath(string path)
+        //{
+
+        //}
+
         public static string GetResourcePathForMainProject()
         {
             string directory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;

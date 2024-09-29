@@ -15,6 +15,8 @@ using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.GameEntities.AltCharacters;
 using KeenReloaded2.Entities.ReferenceData;
 using KeenReloaded2.Framework.GameEntities;
+using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.Factories;
 
 namespace KeenReloaded2.Entities
 {
@@ -175,6 +177,25 @@ namespace KeenReloaded2.Entities
                     flag.FlagCaptured += Flag_FlagCaptured;
                 }
             }
+            if (obj is IZombieBountyEnemy)
+            {
+                var zombieEnemy = (IZombieBountyEnemy)obj;
+                zombieEnemy.Killed += ZombieEnemy_Killed;
+            }
+        }
+
+        private void ZombieEnemy_Killed(object sender, ObjectEventArgs e)
+        {
+            var removedObject = e.ObjectSprite;
+            if (this.Map?.GameMode == MainMenuConstants.OPTION_LABEL_ZOMBIE_MODE)
+            {
+                var zombieBountyEnemy = (IZombieBountyEnemy)removedObject;
+                PointItem item = PointItemFactory.GeneratePointItemFromType(zombieBountyEnemy);
+                if (item != null)
+                {
+                    item_CreatedObject(this, new ObjectEventArgs() { ObjectSprite = item });
+                }
+            }
         }
 
         public void DetachEventsForObject(object obj)
@@ -195,6 +216,11 @@ namespace KeenReloaded2.Entities
                     var flag = (IFlag)obj;
                     flag.FlagCaptured -= Flag_FlagCaptured;
                 }
+            }
+            if (obj is IZombieBountyEnemy)
+            {
+                var zombieEnemy = (IZombieBountyEnemy)obj;
+                zombieEnemy.Killed -= ZombieEnemy_Killed;
             }
         }
 

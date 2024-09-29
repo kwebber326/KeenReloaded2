@@ -494,6 +494,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         public override void Die()
         {
             UpdateSprite();
+            OnKilled();
         }
 
         public void Fire()

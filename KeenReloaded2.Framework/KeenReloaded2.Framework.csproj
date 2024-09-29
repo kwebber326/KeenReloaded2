@@ -57,6 +57,7 @@
     <Compile Include="Enums\PointItemType.cs" />
     <Compile Include="Enums\PoleType.cs" />
     <Compile Include="Enums\SwitchType.cs" />
+    <Compile Include="Factories\PointItemFactory.cs" />
     <Compile Include="GameEntities\AltCharacters\BabyLouie.cs" />
     <Compile Include="GameEntities\AltCharacters\CouncilPage.cs" />
     <Compile Include="GameEntities\AltCharacters\Locoyorp.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="GameEntities\Enemies\Schoolfish.cs" />
     <Compile Include="GameEntities\Enemies\Shelley.cs" />
     <Compile Include="GameEntities\Enemies\ShikadiMaster.cs" />
+    <Compile Include="GameEntities\Enemies\ShikadiMine.cs" />
     <Compile Include="GameEntities\Enemies\SkyPest.cs" />
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
     <Compile Include="GameEntities\Enemies\Wormmouth.cs" />

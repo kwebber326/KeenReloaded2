@@ -42,6 +42,14 @@ namespace KeenReloaded.Framework
 
         public abstract CollisionType CollisionType { get; }
 
+        public SpaceHashGrid CollisionGrid
+        {
+            get
+            {
+                return _collisionGrid;
+            }
+        }
+
         protected virtual int GenerateRandomInteger(int min, int max)
         {
             int seed = new Random().Next(0, int.MaxValue);

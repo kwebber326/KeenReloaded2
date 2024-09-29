@@ -60,7 +60,8 @@ namespace KeenReloaded2.Utilities
 
                 MapMakerData mapMakerData = new MapMakerData()
                 {
-                    MapName = FileIOUtility.ExtractFileNameFromPath(mapFile)
+                    MapName = FileIOUtility.ExtractFileNameFromPath(mapFile),
+                    GameMode = GetGameModeFromFolderPath(mapFile)
                 };
                 List<GameObjectMapping> mapData = new List<GameObjectMapping>();
 
@@ -199,6 +200,15 @@ namespace KeenReloaded2.Utilities
                 {
                     associatedProperty.Value = result;
                 }
+                else if (associatedProperty.DataType == typeof(Rectangle))
+                {
+                    int areaX = Convert.ToInt32(properties[i++]);
+                    int areaY = Convert.ToInt32(properties[i++]);
+                    int areaWidth = Convert.ToInt32(properties[i++]);
+                    int areaHeight = Convert.ToInt32(properties[i]);
+                    Rectangle areaPropVal = new Rectangle(areaX, areaY, areaWidth, areaHeight);
+                    associatedProperty.Value = areaPropVal;
+                }
             }
 
             GameObjectMapping mapping = new GameObjectMapping()
@@ -242,6 +252,23 @@ namespace KeenReloaded2.Utilities
                     return MapMakerConstants.CAPTURE_THE_FLAG_MAPS_FOLDER;
             }
             return string.Empty;
+        }
+
+        private static string GetGameModeFromFolderPath(string path)
+        {
+            if (string.IsNullOrEmpty(path))
+                return null;
+
+            if (path.Contains(MapMakerConstants.NORMAL_MAPS_FOLDER))
+                return MainMenuConstants.OPTION_LABEL_NORMAL_MODE;
+            if (path.Contains(MapMakerConstants.ZOMBIE_MAPS_FOLDER))
+                return MainMenuConstants.OPTION_LABEL_ZOMBIE_MODE;
+            if (path.Contains(MapMakerConstants.KING_OF_THE_HILL_FOLDER))
+                return MainMenuConstants.OPTION_LABEL_KOTH_MODE;
+            if (path.Contains(MapMakerConstants.CAPTURE_THE_FLAG_MAPS_FOLDER))
+                return MainMenuConstants.OPTION_LABEL_CTF_MODE;
+
+            return null;
         }
 
         public static class Validation

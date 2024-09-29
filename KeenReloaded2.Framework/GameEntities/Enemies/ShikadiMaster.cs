@@ -130,8 +130,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         private void TeleportToRandomLocationWithinBounds()
         {
-            int newXPos = _random.Next(_teleportBounds.X, _teleportBounds.Right + 1);
-            int newYPos = _random.Next(_teleportBounds.Y, _teleportBounds.Bottom + 1);
+            int newXPos = this.GenerateRandomInteger(_teleportBounds.X, _teleportBounds.Right + 1);
+            int newYPos = this.GenerateRandomInteger(_teleportBounds.Y, _teleportBounds.Bottom + 1);
             this.HitBox = new Rectangle(newXPos, newYPos, this.HitBox.Width, this.HitBox.Height);
         }
 
@@ -437,7 +437,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
             var _area = this.HitBox;
             string imageName = nameof(Properties.Resources.keen5_shikadi_master_look1);
-            return $"{imageName}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{_zIndex}";
+            return $"{imageName}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{_zIndex}{separator}{_teleportBounds.X}{separator}{_teleportBounds.Y}{separator}{_teleportBounds.Width}{separator}{_teleportBounds.Height}";
         }
     }
 

@@ -1738,6 +1738,43 @@ namespace KeenReloaded2.Framework.SpriteSheet
         }
         #endregion
 
+
+        #region Shikadi Mine
+        private static Image[] _shikadiMineSelfDestructImages;
+        private static Image[] _shikadiMineExplodeImages;
+        public static Image[] ShikadiMineSelfDestructImages
+        {
+            get
+            {
+                if (_shikadiMineSelfDestructImages == null)
+                {
+                    _shikadiMineSelfDestructImages = new Image[]
+                    {
+                        Properties.Resources.keen5_shikadi_mine_self_destruct_sequence1,
+                        Properties.Resources.keen5_shikadi_mine_self_destruct_sequence2
+                    };
+                }
+                return _shikadiMineSelfDestructImages;
+            }
+        }
+
+        public static Image[] ShikadiMineExplodeImages
+        {
+            get
+            {
+                if (_shikadiMineExplodeImages == null)
+                {
+                    _shikadiMineExplodeImages = new Image[]
+                    {
+                        Properties.Resources.keen5_shikadi_mine_explode1,
+                        Properties.Resources.keen5_shikadi_mine_explode2
+                    };
+                }
+                return _shikadiMineExplodeImages;
+            }
+        }
+        #endregion
+
         #endregion
 
         #endregion

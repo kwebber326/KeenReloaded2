@@ -286,6 +286,7 @@ namespace KeenReloaded2
             {
                 MapData = _mapMakerObjects,
                 MapName = txtMapName.Text,
+                GameMode = cmbGameMode.Text,
                 MapSize = this.GetMapSize()
             };
             bool isValid = MapUtility.Validation.ValidateAllMapObjects(data, out List<string> errorMessages);
@@ -304,6 +305,7 @@ namespace KeenReloaded2
             {
                 MapData = _mapMakerObjects,
                 MapName = txtMapName.Text,
+                GameMode = cmbGameMode.Text,
                 MapSize = this.GetMapSize()
             };
 
@@ -661,6 +663,7 @@ namespace KeenReloaded2
             {
                 MapData = _mapMakerObjects,
                 MapName = txtMapName.Text,
+                GameMode = cmbGameMode.Text,
                 MapSize = mapSize
             };
 
@@ -887,6 +890,7 @@ namespace KeenReloaded2
             {
                 MapData = _mapMakerObjects,
                 MapName = txtMapName.Text,
+                GameMode = cmbGameMode.Text,
                 MapSize = mapSize
             };
 
