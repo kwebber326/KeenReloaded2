@@ -120,6 +120,16 @@ namespace KeenReloaded.Framework.Utilities
             return bmp;
         }
 
+        public static Bitmap DrawBackgroundColor(Color color, Size dimensions)
+        {
+            Bitmap bmp = new Bitmap(dimensions.Width, dimensions.Height);
+            using (Graphics g = Graphics.FromImage(bmp))
+            {
+                g.Clear(color);
+            }
+            return bmp;
+        }
+
         public static Bitmap DrawImagesOnCanvas(Size canvas, Image backgroundImage, Image[] extraImages, Point[] locations)
         {
             Bitmap bmp = new Bitmap(canvas.Width, canvas.Height);

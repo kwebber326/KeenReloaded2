@@ -936,6 +936,11 @@ namespace KeenReloaded2
 
             //set map name default
             txtMapName.Text = "<New Map>";
+
+            //clear mapMaker Objects
+            this.ClearMapMakerSelection();
+            this.ClearSelectedMapItem();
+            _mapMakerObjects.Clear();
         }
 
         private void MapMaker_FormClosing(object sender, FormClosingEventArgs e)

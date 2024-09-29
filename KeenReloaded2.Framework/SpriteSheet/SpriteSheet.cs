@@ -1775,6 +1775,123 @@ namespace KeenReloaded2.Framework.SpriteSheet
         }
         #endregion
 
+        #region Shockshund
+        private static Image[] _shockShundWalkLeftSprites;
+
+        public static Image[] ShockShundWalkLeftSprites
+        {
+            get
+            {
+                if (_shockShundWalkLeftSprites == null)
+                {
+                    _shockShundWalkLeftSprites = new Image[]
+                    {
+                        Properties.Resources.keen5_shockshund_left1,
+                        Properties.Resources.keen5_shockshund_left2,
+                        Properties.Resources.keen5_shockshund_left3,
+                        Properties.Resources.keen5_shockshund_left4
+                    };
+                }
+                return _shockShundWalkLeftSprites;
+            }
+        }
+
+        private static Image[] _shockShundWalkRightSprites;
+
+        public static Image[] ShockShundWalkRightSprites
+        {
+            get
+            {
+                if (_shockShundWalkRightSprites == null)
+                {
+                    _shockShundWalkRightSprites = new Image[]
+                    {
+                        Properties.Resources.keen5_shockshund_right1,
+                        Properties.Resources.keen5_shockshund_right2,
+                        Properties.Resources.keen5_shockshund_right3,
+                        Properties.Resources.keen5_shockshund_right4
+                    };
+                }
+                return _shockShundWalkRightSprites;
+            }
+        }
+
+        private static Image[] _shockShundLookSprites;
+
+        public static Image[] ShockShundLookSprites
+        {
+            get
+            {
+                if (_shockShundLookSprites == null)
+                {
+                    _shockShundLookSprites = new Image[]
+                    {
+                        Properties.Resources.keen5_shockshund_look1,
+                        Properties.Resources.keen5_shockshund_look2
+                    };
+                }
+                return _shockShundLookSprites;
+            }
+        }
+
+        private static Image[] _shockShundShootLeftSprites;
+
+        public static Image[] ShockShundShootLeftSprites
+        {
+            get
+            {
+                if (_shockShundShootLeftSprites == null)
+                {
+                    _shockShundShootLeftSprites = new Image[]
+                    {
+                        Properties.Resources.keen5_shockshund_shoot_left1,
+                        Properties.Resources.keen5_shockshund_shoot_left2
+                    };
+                }
+                return _shockShundShootLeftSprites;
+            }
+        }
+
+        private static Image[] _shockShundShootRightSprites;
+
+        public static Image[] ShockShundShootRightSprites
+        {
+            get
+            {
+                if (_shockShundShootRightSprites == null)
+                {
+                    _shockShundShootRightSprites = new Image[]
+                    {
+                        Properties.Resources.keen5_shockshund_shoot_right1,
+                        Properties.Resources.keen5_shockshund_shoot_right2
+                    };
+                }
+                return _shockShundShootRightSprites;
+            }
+        }
+
+        private static Image[] _shockShundStunnedSprites;
+
+        public static Image[] ShockShundStunnedSprites
+        {
+            get
+            {
+                if (_shockShundStunnedSprites == null)
+                {
+                    _shockShundStunnedSprites = new Image[]
+                    {
+                        Properties.Resources.keen5_shockshund_stunned1,
+                        Properties.Resources.keen5_shockshund_stunned2,
+                        Properties.Resources.keen5_shockshund_stunned3,
+                        Properties.Resources.keen5_shockshund_stunned4
+                    };
+                }
+                return _shockShundStunnedSprites;
+            }
+        }
+
+        #endregion
+
         #endregion
 
         #endregion

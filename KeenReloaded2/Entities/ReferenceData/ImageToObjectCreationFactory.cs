@@ -1,29 +1,25 @@
-﻿using System;
+﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
+using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.GameEntities.Backgrounds;
+using KeenReloaded2.Framework.GameEntities.Constructs;
+using KeenReloaded2.Framework.GameEntities.Enemies;
+using KeenReloaded2.Framework.GameEntities.Hazards;
+using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Framework.GameEntities.Items;
+using KeenReloaded2.Framework.GameEntities.Items.WeaponsAmmo;
+using KeenReloaded2.Framework.GameEntities.Players;
+using KeenReloaded2.Framework.GameEntities.Tiles;
+using KeenReloaded2.Framework.GameEntities.Tiles.Floors;
+using KeenReloaded2.Framework.GameEntities.Tiles.Platforms;
+using KeenReloaded2.Framework.ReferenceDataClasses;
+using KeenReloaded2.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using KeenReloaded.Framework;
-using KeenReloaded2.Constants;
-using KeenReloaded2.Entities;
-using KeenReloaded2.Framework.Enums;
-using KeenReloaded2.Framework.GameEntities.Backgrounds;
-using KeenReloaded2.Framework.GameEntities.Hazards;
-using KeenReloaded2.Framework.GameEntities.Items;
-using KeenReloaded2.Framework.GameEntities.Items.WeaponsAmmo;
-using KeenReloaded2.Framework.GameEntities.Players;
-using KeenReloaded2.Framework.GameEntities.Tiles;
-using KeenReloaded2.Framework.GameEntities.Weapons;
-using KeenReloaded2.Framework.ReferenceDataClasses;
-using KeenReloaded2.Utilities;
-using KeenReloaded2.Framework.GameEntities.Constructs;
-using KeenReloaded2.Framework.GameEntities.Interfaces;
-using KeenReloaded2.Framework.GameEntities.Tiles.Platforms;
-using KeenReloaded2.Framework.GameEntities.Tiles.Floors;
-using KeenReloaded2.Framework.GameEntities.Enemies;
 
 namespace KeenReloaded2.Entities.ReferenceData
 {
@@ -2775,7 +2771,7 @@ namespace KeenReloaded2.Entities.ReferenceData
             allFiles.AddRange(keen6ConstructFiles);
 
             #region miscellaneous
-            AddSimplGameObject(backgroundReferenceData, keen5ConstructFiles, "control_panel", typeof(Keen5ControlPanel), null, 10);
+            AddSimpleGameObject(backgroundReferenceData, keen5ConstructFiles, "control_panel", typeof(Keen5ControlPanel), null, 10);
             #endregion
 
             #region Doors
@@ -3244,97 +3240,97 @@ namespace KeenReloaded2.Entities.ReferenceData
                          },
             };
 
-            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "thundercloud", typeof(ThunderCloud), thunderCloudSpecificProperties);
+            AddSimpleGameObject(backgroundReferenceData, keen4EnemyFiles, "thundercloud", typeof(ThunderCloud), thunderCloudSpecificProperties);
 
             #endregion
 
             #region arachnut
 
-            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "arachnut", typeof(Arachnut));
+            AddSimpleGameObject(backgroundReferenceData, keen4EnemyFiles, "arachnut", typeof(Arachnut));
 
             #endregion
 
             #region berkeloid
 
-            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "berkeloid", typeof(Berkeloid));
+            AddSimpleGameObject(backgroundReferenceData, keen4EnemyFiles, "berkeloid", typeof(Berkeloid));
 
             #endregion
 
             #region blue eagle
 
-            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "eagle", typeof(BlueEagleEgg));
+            AddSimpleGameObject(backgroundReferenceData, keen4EnemyFiles, "eagle", typeof(BlueEagleEgg));
 
             #endregion
 
             #region bounder
 
-            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "bounder", typeof(Bounder));
+            AddSimpleGameObject(backgroundReferenceData, keen4EnemyFiles, "bounder", typeof(Bounder));
 
             #endregion
 
             #region dopefish
 
-            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "dopefish", typeof(Dopefish));
+            AddSimpleGameObject(backgroundReferenceData, keen4EnemyFiles, "dopefish", typeof(Dopefish));
 
             #endregion
 
             #region gnosticene ancient
 
-            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "gnosticene", typeof(GnosticeneAncient));
+            AddSimpleGameObject(backgroundReferenceData, keen4EnemyFiles, "gnosticene", typeof(GnosticeneAncient));
 
             #endregion
 
             #region inchworm
 
-            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "inchworm", typeof(Inchworm));
+            AddSimpleGameObject(backgroundReferenceData, keen4EnemyFiles, "inchworm", typeof(Inchworm));
 
             #endregion
 
             #region lick
 
-            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "lick", typeof(Lick));
+            AddSimpleGameObject(backgroundReferenceData, keen4EnemyFiles, "lick", typeof(Lick));
 
             #endregion
 
             #region mad mushroom
 
-            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "mad_mushroom", typeof(MadMushroom));
+            AddSimpleGameObject(backgroundReferenceData, keen4EnemyFiles, "mad_mushroom", typeof(MadMushroom));
 
             #endregion
 
             #region mimrock
 
-            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "mimrock", typeof(Mimrock));
+            AddSimpleGameObject(backgroundReferenceData, keen4EnemyFiles, "mimrock", typeof(Mimrock));
 
             #endregion
 
             #region schoolfish
 
-            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "schoolfish", typeof(Schoolfish));
+            AddSimpleGameObject(backgroundReferenceData, keen4EnemyFiles, "schoolfish", typeof(Schoolfish));
 
             #endregion
 
             #region skyPest
 
-            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "skypest", typeof(SkyPest));
+            AddSimpleGameObject(backgroundReferenceData, keen4EnemyFiles, "skypest", typeof(SkyPest));
 
             #endregion
 
             #region poison slug
 
-            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "slug", typeof(PoisonSlug));
+            AddSimpleGameObject(backgroundReferenceData, keen4EnemyFiles, "slug", typeof(PoisonSlug));
 
             #endregion
 
             #region sprite
 
-            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "sprite", typeof(Keen4Sprite));
+            AddSimpleGameObject(backgroundReferenceData, keen4EnemyFiles, "sprite", typeof(Keen4Sprite));
 
             #endregion
 
             #region wormmouth
 
-            AddSimplGameObject(backgroundReferenceData, keen4EnemyFiles, "wormmouth", typeof(Wormmouth));
+            AddSimpleGameObject(backgroundReferenceData, keen4EnemyFiles, "wormmouth", typeof(Wormmouth));
 
             #endregion
 
@@ -3345,23 +3341,23 @@ namespace KeenReloaded2.Entities.ReferenceData
             var keen5EnemyFiles = Directory.GetFiles(keen5EnemyDirectory, "*.png");
 
             #region korath inhabitant
-            AddSimplGameObject(backgroundReferenceData, keen5EnemyFiles, "korath", typeof(KorathInhabitant));
+            AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "korath", typeof(KorathInhabitant));
             #endregion
 
             #region little ampton
-            AddSimplGameObject(backgroundReferenceData, keen5EnemyFiles, "little_ampton", typeof(LittleAmpton));
+            AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "little_ampton", typeof(LittleAmpton));
             #endregion
 
             #region robo red
-            AddSimplGameObject(backgroundReferenceData, keen5EnemyFiles, "robo", typeof(RoboRed));
+            AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "robo", typeof(RoboRed));
             #endregion
 
             #region shelley
-            AddSimplGameObject(backgroundReferenceData, keen5EnemyFiles, "shelley", typeof(Shelley));
+            AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "shelley", typeof(Shelley));
             #endregion
 
             #region shikadi master
-            AddSimplGameObject(backgroundReferenceData, keen5EnemyFiles, "master", typeof(ShikadiMaster),
+            AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "master", typeof(ShikadiMaster),
                 new MapMakerObjectProperty[]
             {
                 new MapMakerObjectProperty()
@@ -3375,7 +3371,11 @@ namespace KeenReloaded2.Entities.ReferenceData
             #endregion
 
             #region shikadi mine
-            AddSimplGameObject(backgroundReferenceData, keen5EnemyFiles, "shikadi_mine", typeof(ShikadiMine));
+            AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "shikadi_mine", typeof(ShikadiMine));
+            #endregion
+
+            #region shockshund
+            AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "shockshund", typeof(Shockshund));
             #endregion
 
             #endregion
@@ -3433,7 +3433,7 @@ namespace KeenReloaded2.Entities.ReferenceData
 
         #region helper methods
 
-        private static void AddSimplGameObject(Dictionary<string, MapMakerObject> referenceData, string[] imageFiles, string searchKeyword, Type objectType, MapMakerObjectProperty[] additionalProperties = null, int zIndex = 25)
+        private static void AddSimpleGameObject(Dictionary<string, MapMakerObject> referenceData, string[] imageFiles, string searchKeyword, Type objectType, MapMakerObjectProperty[] additionalProperties = null, int zIndex = 25)
         {
             var imageFile = imageFiles.FirstOrDefault(f => f.Contains(searchKeyword));
             Image img = Image.FromFile(imageFile);
