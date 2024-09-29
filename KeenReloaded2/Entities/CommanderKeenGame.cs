@@ -193,6 +193,7 @@ namespace KeenReloaded2.Entities
                 PointItem item = PointItemFactory.GeneratePointItemFromType(zombieBountyEnemy);
                 if (item != null)
                 {
+                    RegisterItemEventsForObject(item);
                     item_CreatedObject(this, new ObjectEventArgs() { ObjectSprite = item });
                 }
             }
