@@ -3353,7 +3353,11 @@ namespace KeenReloaded2.Entities.ReferenceData
             #endregion
 
             #region robo red
-            AddSimplGameObject(backgroundReferenceData, keen5EnemyFiles, "robo", typeof(RoboRed), null, 19);
+            AddSimplGameObject(backgroundReferenceData, keen5EnemyFiles, "robo", typeof(RoboRed));
+            #endregion
+
+            #region shelley
+            AddSimplGameObject(backgroundReferenceData, keen5EnemyFiles, "shelley", typeof(Shelley));
             #endregion
 
             #endregion

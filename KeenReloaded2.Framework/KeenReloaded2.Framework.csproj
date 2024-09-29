@@ -96,6 +96,7 @@
     <Compile Include="GameEntities\Enemies\PoisonSlug.cs" />
     <Compile Include="GameEntities\Enemies\RoboRed.cs" />
     <Compile Include="GameEntities\Enemies\Schoolfish.cs" />
+    <Compile Include="GameEntities\Enemies\Shelley.cs" />
     <Compile Include="GameEntities\Enemies\SkyPest.cs" />
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
     <Compile Include="GameEntities\Enemies\Wormmouth.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="GameEntities\Hazards\Spear.cs" />
     <Compile Include="GameEntities\Hazards\TarPit.cs" />
     <Compile Include="GameEntities\HelperObjects\LocatedImage.cs" />
+    <Compile Include="GameEntities\Interfaces\FragmentType.cs" />
     <Compile Include="GameEntities\Interfaces\IActivateable.cs" />
     <Compile Include="GameEntities\Interfaces\IActivator.cs" />
     <Compile Include="GameEntities\Interfaces\IAlertable.cs" />
@@ -170,11 +172,13 @@
     <Compile Include="GameEntities\Projectiles\BoobusBombShot.cs" />
     <Compile Include="GameEntities\Projectiles\Dart.cs" />
     <Compile Include="GameEntities\Projectiles\FartBubble.cs" />
+    <Compile Include="GameEntities\Projectiles\Fragment.cs" />
     <Compile Include="GameEntities\Projectiles\KeenRailgunShot.cs" />
     <Compile Include="GameEntities\Projectiles\KeenRPGShot.cs" />
     <Compile Include="GameEntities\Projectiles\KeenStunShot.cs" />
     <Compile Include="GameEntities\Projectiles\RoboRedShot.cs" />
     <Compile Include="GameEntities\Projectiles\RPGExplosion.cs" />
+    <Compile Include="GameEntities\Projectiles\ShelleyExplosion.cs" />
     <Compile Include="GameEntities\Projectiles\SnakeGunExplosion.cs" />
     <Compile Include="GameEntities\Projectiles\SnakeGunShot.cs" />
     <Compile Include="GameEntities\Projectiles\StraighShotProjectile.cs" />
@@ -3530,24 +3534,6 @@
     <None Include="Resources\keen5_turret_laser4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen5_shockshund_shot_hit1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen5_shockshund_shot_hit2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen5_shockshund_shot1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen5_shockshund_shot2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen5_standard_shikadi_electricity1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen5_standard_shikadi_electricity2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen6_bobba_fireball1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -4344,6 +4330,399 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen5_robo_red_shot2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shelley_explosion1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shelley_explosion2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shelley_explosion3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shelley_explosion4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shelley_jump_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shelley_jump_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shelley_jump_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shelley_jump_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shelley_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shelley_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shelley_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shelley_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shelley_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shelley_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shelley_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shelley_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shelley_shard1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shelley_shard2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_master_energy_ball1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_master_energy_ball2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_master_energy_ball3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_master_energy_ball4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_master_look1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_master_look2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_master_look3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_master_look4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_master_shockwave1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_master_shockwave2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_master_shockwave3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_master_shockwave4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_master_shoot_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_master_shoot_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_master_teleport1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_master_teleport2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_mine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_mine_explode1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_mine_explode2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_mine_eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_mine_fragment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_mine_self_destruct_sequence1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shikadi_mine_self_destruct_sequence2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_jump_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_jump_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_look1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_look2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_shoot_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_shoot_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_shoot_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_shoot_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_shot_hit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_shot_hit2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_shot1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_shot2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_stunned1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_stunned2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_stunned3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_shockshund_stunned4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_slicestar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_slicestar_destroyed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sparky_change_direction1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sparky_change_direction2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sparky_change_direction3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sparky_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sparky_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sparky_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sparky_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sparky_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sparky_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sparky_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sparky_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sparky_stunned1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sparky_stunned2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sparky_stunned3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sparky_stunned4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sphereful_orb1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sphereful_orb2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sphereful_orb3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sphereful_orb4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sphereful1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sphereful2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sphereful3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_sphereful4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_spindred1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_spindred2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_spindred3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_spindred4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_spirogrip_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_spirogrip_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_spirogrip_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_spirogrip_rotate1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_spirogrip_rotate2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_spirogrip_rotate3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_spirogrip_rotate4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_spirogrip_rotate5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_spirogrip_rotate6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_spirogrip_rotate7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_spirogrip_rotate8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_spirogrip_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_standard_shikadi_electricity1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_standard_shikadi_electricity2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_standard_shikadi_look1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_standard_shikadi_look2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_standard_shikadi_look3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_standard_shikadi_look4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_standard_shikadi_shoot_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_standard_shikadi_shoot_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_standard_shikadi_stunned1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_standard_shikadi_stunned2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_standard_shikadi_stunned3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_standard_shikadi_stunned4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_standard_shikadi_walk_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_standard_shikadi_walk_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_standard_shikadi_walk_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_standard_shikadi_walk_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_standard_shikadi_walk_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_standard_shikadi_walk_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_standard_shikadi_walk_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_standard_shikadi_walk_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_volte-face_stunned.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_volte-face1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_volte-face2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_volte-face3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_volte-face4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

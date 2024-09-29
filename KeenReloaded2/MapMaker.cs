@@ -574,6 +574,7 @@ namespace KeenReloaded2
                         mapObjectContainer1.ClearSelection();
                         mapMakerObjectPropertyListControl1.SetProperties(null);
                         ClearSelectedMapItem();
+                        _mapHasUnsavedChanges = true;
                     }
                     break;
                 case Keys.Up:
