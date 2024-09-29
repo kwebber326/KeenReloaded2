@@ -1658,6 +1658,86 @@ namespace KeenReloaded2.Framework.SpriteSheet
         }
         #endregion
 
+        #region Shikadi Master
+        private static Image[] _shikadiMasterLookImages;
+
+        public static Image[] ShikadiMasterLookImages
+        {
+            get
+            {
+                if (_shikadiMasterLookImages == null)
+                {
+                    _shikadiMasterLookImages = new Image[]
+                    {
+                        Properties.Resources.keen5_shikadi_master_look1,
+                        Properties.Resources.keen5_shikadi_master_look2,
+                        Properties.Resources.keen5_shikadi_master_look3,
+                        Properties.Resources.keen5_shikadi_master_look4
+                    };
+                }
+                return _shikadiMasterLookImages;
+            }
+        }
+
+        private static Image[] _shikadiMasterTeleportImages;
+
+        public static Image[] ShikadiMasterTeleportImages
+        {
+            get
+            {
+                if (_shikadiMasterTeleportImages == null)
+                {
+                    _shikadiMasterTeleportImages = new Image[]
+                    {
+                        Properties.Resources.keen5_shikadi_master_teleport1,
+                        Properties.Resources.keen5_shikadi_master_teleport2
+                    };
+                }
+                return _shikadiMasterTeleportImages;
+            }
+        }
+
+        private static Image[] _energyBallImages;
+
+        public static Image[] ShikadiMasterEnergyBallImages
+        {
+            get
+            {
+                if (_energyBallImages == null)
+                {
+                    _energyBallImages = new Image[]
+                    {
+                        Properties.Resources.keen5_shikadi_master_energy_ball1,
+                        Properties.Resources.keen5_shikadi_master_energy_ball2,
+                        Properties.Resources.keen5_shikadi_master_energy_ball3,
+                        Properties.Resources.keen5_shikadi_master_energy_ball4
+                    };
+                }
+                return _energyBallImages;
+            }
+        }
+
+        private static Image[] _shockwaveImages;
+
+        public static Image[] ShikadiMasterShockwaveImages
+        {
+            get
+            {
+                if (_shockwaveImages == null)
+                {
+                    _shockwaveImages = new Image[]
+                    {
+                        Properties.Resources.keen5_shikadi_master_shockwave1,
+                        Properties.Resources.keen5_shikadi_master_shockwave2,
+                        Properties.Resources.keen5_shikadi_master_shockwave3,
+                        Properties.Resources.keen5_shikadi_master_shockwave4
+                    };
+                }
+                return _shockwaveImages;
+            }
+        }
+        #endregion
+
         #endregion
 
         #endregion

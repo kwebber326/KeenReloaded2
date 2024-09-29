@@ -3360,6 +3360,20 @@ namespace KeenReloaded2.Entities.ReferenceData
             AddSimplGameObject(backgroundReferenceData, keen5EnemyFiles, "shelley", typeof(Shelley));
             #endregion
 
+            #region shikadi master
+            AddSimplGameObject(backgroundReferenceData, keen5EnemyFiles, "master", typeof(ShikadiMaster),
+                new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "teleportBounds",
+                    DisplayName = "Bounds: ",
+                    DataType = typeof(Rectangle),
+                    Value = new Rectangle(0, 0, 200, 200)
+                }
+            });
+            #endregion
+
             #endregion
 
             #endregion

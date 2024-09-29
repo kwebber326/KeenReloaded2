@@ -146,7 +146,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 int collisionXPos = _currentHorizontalVelocity < 0 ? horizontalTile.HitBox.Right + 1 : horizontalTile.HitBox.Left - this.HitBox.Width - 1;
                 this.HitBox = new Rectangle(collisionXPos, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
                 GetHorizontalImpact();
-                KillCollidingKeens();
+                KillCollidingPlayers();
                 DecelerateHorizontalMovement();
             }
             else
@@ -154,7 +154,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 Rectangle areaToCheckToKillKeen = new Rectangle(
                     _currentHorizontalVelocity < 0 ? this.HitBox.X + _currentHorizontalVelocity : this.HitBox.X,
                     this.HitBox.Y, this.HitBox.Width + Math.Abs(_currentHorizontalVelocity), this.HitBox.Height);
-                KillCollidingKeens();
+                KillCollidingPlayers();
                 this.HitBox = new Rectangle(this.HitBox.X + _currentHorizontalVelocity, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
                 DecelerateHorizontalMovement();
             }
@@ -164,7 +164,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 int _collisionYPos = _currentVerticalVelocity < 0 ? verticalTile.HitBox.Bottom + 1 : verticalTile.HitBox.Top - this.HitBox.Height - 1;
                 this.HitBox = new Rectangle(this.HitBox.X, _collisionYPos, this.HitBox.Width, this.HitBox.Height);
                 GetVerticalImpact();
-                KillCollidingKeens();
+                KillCollidingPlayers();
             }
             else
             {
@@ -173,7 +173,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                    _currentVerticalVelocity < 0 ? this.HitBox.Y + _currentVerticalVelocity : this.HitBox.Y
                    , this.HitBox.Width, this.HitBox.Height + Math.Abs(_currentVerticalVelocity));
 
-                KillCollidingKeens();
+                KillCollidingPlayers();
                 this.HitBox = new Rectangle(this.HitBox.X, this.HitBox.Y + _currentVerticalVelocity, this.HitBox.Width, this.HitBox.Height);
                 AccelerateVerticalMovement();
                 if (_currentHorizontalVelocity == 0 && Math.Abs(_lastVerticalImpact) <= MIN_VERTICAL_VELOCITY)

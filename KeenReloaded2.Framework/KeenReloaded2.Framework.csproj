@@ -97,6 +97,7 @@
     <Compile Include="GameEntities\Enemies\RoboRed.cs" />
     <Compile Include="GameEntities\Enemies\Schoolfish.cs" />
     <Compile Include="GameEntities\Enemies\Shelley.cs" />
+    <Compile Include="GameEntities\Enemies\ShikadiMaster.cs" />
     <Compile Include="GameEntities\Enemies\SkyPest.cs" />
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
     <Compile Include="GameEntities\Enemies\Wormmouth.cs" />
@@ -179,6 +180,8 @@
     <Compile Include="GameEntities\Projectiles\RoboRedShot.cs" />
     <Compile Include="GameEntities\Projectiles\RPGExplosion.cs" />
     <Compile Include="GameEntities\Projectiles\ShelleyExplosion.cs" />
+    <Compile Include="GameEntities\Projectiles\ShikadiMasterEnergyBall.cs" />
+    <Compile Include="GameEntities\Projectiles\ShikadiMasterShockwave.cs" />
     <Compile Include="GameEntities\Projectiles\SnakeGunExplosion.cs" />
     <Compile Include="GameEntities\Projectiles\SnakeGunShot.cs" />
     <Compile Include="GameEntities\Projectiles\StraighShotProjectile.cs" />

@@ -110,7 +110,14 @@ namespace KeenReloaded.Framework
             return this.HitBox.IntersectsWith(obj.HitBox);
         }
 
-        protected virtual void KillCollidingKeens()
+        protected virtual List<CommanderKeen> GetCollidingPlayers()
+        {
+            var collisions = this.CheckCollision(this.HitBox);
+            var players = collisions.OfType<CommanderKeen>()?.ToList() ?? new List<CommanderKeen>();
+            return players;
+        }
+
+        protected virtual void KillCollidingPlayers()
         {
             var collisions = this.CheckCollision(this.HitBox);
             var players = collisions.Where(c => c.CollisionType == CollisionType.PLAYER);
