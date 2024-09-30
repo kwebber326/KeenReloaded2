@@ -3446,6 +3446,10 @@ namespace KeenReloaded2.Entities.ReferenceData
             AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "sparky", typeof(Sparky));
             #endregion
 
+            #region sphereful
+            AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "sphereful", typeof(Sphereful));
+            #endregion
+
             #endregion
 
             #endregion
