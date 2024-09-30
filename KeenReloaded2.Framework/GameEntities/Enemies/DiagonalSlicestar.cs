@@ -182,13 +182,25 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 if (IsUpDirection(this.Direction))
                     slope *= -1.0;
 
-                double xInputKeen = keen.HitBox.Right - areaToCheck.Left;
+                int collisionPoint = this.IsRightDirection(this.Direction) ? keen.HitBox.Left : keen.HitBox.Right;
+                double xInputKeen = collisionPoint - areaToCheck.Left;
                 double yOutput = this.HitBox.Y + slope * xInputKeen;
 
                 Rectangle killArea = new Rectangle(keen.HitBox.Left, (int)yOutput, this.HitBox.Width, this.HitBox.Height);
                 if (keen.HitBox.IntersectsWith(killArea))
                 {
-                    keen.Die();
+                    var collisions = this.CheckCollision(killArea, true);
+                    bool killKeen = true;
+                    if (this.IsDownDirection(this.Direction))
+                    {
+                        killKeen = !collisions.Any(c => c.HitBox.Top < keen.HitBox.Top && c.HitBox.Right > keen.HitBox.Left && c.HitBox.Left < keen.HitBox.Right);
+                    }
+                    else
+                    {
+                        killKeen = !collisions.Any(c => c.HitBox.Bottom > keen.HitBox.Bottom && c.HitBox.Right > keen.HitBox.Left && c.HitBox.Left < keen.HitBox.Right);
+                    }
+                    if (killKeen)
+                        keen.Die();
                 }
             }
         }
