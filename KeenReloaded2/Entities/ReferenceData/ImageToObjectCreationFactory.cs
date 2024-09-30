@@ -3378,6 +3378,70 @@ namespace KeenReloaded2.Entities.ReferenceData
             AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "shockshund", typeof(Shockshund));
             #endregion
 
+            #region horizontal slicestar
+            AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "horizontal_slicestar", typeof(HorizontalSlicestar), 
+            new MapMakerObjectProperty[] 
+            {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "direction",
+                    DisplayName = "Direction: ",
+                    DataType = typeof(Direction),
+                    Value = Direction.LEFT,
+                    PossibleValues = Enum.GetNames(typeof(Direction))
+                        .Where(e => e == "LEFT" || e == "RIGHT").ToArray()
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "startPointX",
+                    DisplayName = "Start X: ",
+                    DataType = typeof(int),
+                    Value = 0
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "endPointX",
+                    DisplayName = "End X: ",
+                    DataType = typeof(int),
+                    Value = 100,
+                }
+            });
+            #endregion
+
+            #region vertical slicestar
+            AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "vertical_slicestar", typeof(VerticalSlicestar),
+            new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "direction",
+                    DisplayName = "Direction: ",
+                    DataType = typeof(Direction),
+                    Value = Direction.UP,
+                    PossibleValues = Enum.GetNames(typeof(Direction))
+                        .Where(e => e == "UP" || e == "DOWN").ToArray()
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "startPointY",
+                    DisplayName = "Start Y: ",
+                    DataType = typeof(int),
+                    Value = 0
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "endPointY",
+                    DisplayName = "End Y: ",
+                    DataType = typeof(int),
+                    Value = 100,
+                }
+            });
+            #endregion
+
+            #region diagonal slicestar
+            AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "keen5_slicestar", typeof(DiagonalSlicestar));
+            #endregion
+
             #endregion
 
             #endregion

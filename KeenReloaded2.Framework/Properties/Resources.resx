@@ -1792,6 +1792,9 @@
   <data name="keen5_green_wall_to_platform_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_green_wall_to_platform_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen5_horizontal_slicestar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_horizontal_slicestar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keen5_keg_o_vitalin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_keg_o_vitalin1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -2565,6 +2568,9 @@
   </data>
   <data name="keen5_turret_laser_hit2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_turret_laser_hit2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_vertical_slicestar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_vertical_slicestar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="keen5_vitalin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_vitalin1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

@@ -8013,6 +8013,16 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen5_horizontal_slicestar {
+            get {
+                object obj = ResourceManager.GetObject("keen5_horizontal_slicestar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen5_keg_o_vitalin1 {
             get {
                 object obj = ResourceManager.GetObject("keen5_keg_o_vitalin1", resourceCulture);
@@ -10586,6 +10596,16 @@ namespace KeenReloaded2.Framework.Properties {
         internal static System.Drawing.Bitmap keen5_turret_laser4 {
             get {
                 object obj = ResourceManager.GetObject("keen5_turret_laser4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_vertical_slicestar {
+            get {
+                object obj = ResourceManager.GetObject("keen5_vertical_slicestar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

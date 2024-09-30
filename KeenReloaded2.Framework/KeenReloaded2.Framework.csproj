@@ -84,9 +84,11 @@
     <Compile Include="GameEntities\Enemies\BlueEagle.cs" />
     <Compile Include="GameEntities\Enemies\BlueEagleEgg.cs" />
     <Compile Include="GameEntities\Enemies\Bounder.cs" />
+    <Compile Include="GameEntities\Enemies\DiagonalSlicestar.cs" />
     <Compile Include="GameEntities\Enemies\Dopefish.cs" />
     <Compile Include="GameEntities\Enemies\GnosticeneAncient.cs" />
     <Compile Include="GameEntities\Enemies\GnosticeneAncientItemDestroyer.cs" />
+    <Compile Include="GameEntities\Enemies\HorizontalSlicestar.cs" />
     <Compile Include="GameEntities\Enemies\Inchworm.cs" />
     <Compile Include="GameEntities\Enemies\Keen4Sprite.cs" />
     <Compile Include="GameEntities\Enemies\KorathInhabitant.cs" />
@@ -102,7 +104,9 @@
     <Compile Include="GameEntities\Enemies\ShikadiMine.cs" />
     <Compile Include="GameEntities\Enemies\Shockshund.cs" />
     <Compile Include="GameEntities\Enemies\SkyPest.cs" />
+    <Compile Include="GameEntities\Enemies\Slicestar.cs" />
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
+    <Compile Include="GameEntities\Enemies\VerticalSlicestar.cs" />
     <Compile Include="GameEntities\Enemies\Wormmouth.cs" />
     <Compile Include="GameEntities\Hazards\AcidPool.cs" />
     <Compile Include="GameEntities\Hazards\ConveyerBelt.cs" />
@@ -4730,6 +4734,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen5_volte-face4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_horizontal_slicestar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_vertical_slicestar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

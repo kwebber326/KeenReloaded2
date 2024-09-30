@@ -138,6 +138,19 @@ namespace KeenReloaded.Framework
             }
         }
 
+        protected virtual void KillCollidingPlayers(Rectangle area)
+        {
+            var collisions = this.CheckCollision(area);
+            var players = collisions.Where(c => c.CollisionType == CollisionType.PLAYER);
+            if (players.Any())
+            {
+                foreach (var player in players)
+                {
+                    ((CommanderKeen)player).Die();
+                }
+            }
+        }
+
         protected void KillKeenIfCollidingDiagonalMovement(Rectangle areaToCheck, CommanderKeen keen, Direction direction)
         {
             if (keen.HitBox.Right >= areaToCheck.Left && keen.HitBox.Left <= areaToCheck.Right)
