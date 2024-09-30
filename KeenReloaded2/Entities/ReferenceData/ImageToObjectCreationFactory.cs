@@ -3450,6 +3450,22 @@ namespace KeenReloaded2.Entities.ReferenceData
             AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "sphereful", typeof(Sphereful));
             #endregion
 
+            #region spindred
+            AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "spindred", typeof(Spindred),
+                new MapMakerObjectProperty[] 
+                {
+                    new MapMakerObjectProperty()
+                    {
+                        PropertyName = "direction",
+                        DisplayName = "Direction: ",
+                        DataType = typeof(Direction),
+                        Value = Direction.UP,
+                        PossibleValues = Enum.GetNames(typeof(Direction))
+                            .Where(e => e == "UP" || e == "DOWN").ToArray()
+                    }
+                });
+            #endregion
+
             #endregion
 
             #endregion

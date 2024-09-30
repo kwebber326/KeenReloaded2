@@ -1892,6 +1892,27 @@ namespace KeenReloaded2.Framework.SpriteSheet
 
         #endregion
 
+        #region Spindred
+        private static Image[] _spindredImages;
+        public static Image[] SpindredImages
+        {
+            get
+            {
+                if (_spindredImages == null)
+                {
+                    _spindredImages = new Image[]
+                    {
+                        Properties.Resources.keen5_spindred1,
+                        Properties.Resources.keen5_spindred2,
+                        Properties.Resources.keen5_spindred3,
+                        Properties.Resources.keen5_spindred4
+                    };
+                }
+                return _spindredImages;
+            }
+        }
+        #endregion
+
         #endregion
 
         #endregion
