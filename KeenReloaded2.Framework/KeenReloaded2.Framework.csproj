@@ -105,6 +105,7 @@
     <Compile Include="GameEntities\Enemies\Shockshund.cs" />
     <Compile Include="GameEntities\Enemies\SkyPest.cs" />
     <Compile Include="GameEntities\Enemies\Slicestar.cs" />
+    <Compile Include="GameEntities\Enemies\Sparky.cs" />
     <Compile Include="GameEntities\Enemies\ThunderCloud.cs" />
     <Compile Include="GameEntities\Enemies\VerticalSlicestar.cs" />
     <Compile Include="GameEntities\Enemies\Wormmouth.cs" />
