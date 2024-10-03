@@ -3466,6 +3466,10 @@ namespace KeenReloaded2.Entities.ReferenceData
                 });
             #endregion
 
+            #region spirogrip
+            AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "spirogrip", typeof(Spirogrip));
+            #endregion
+
             #endregion
 
             #endregion
