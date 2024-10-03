@@ -72,9 +72,9 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         private void Initialize()
         {
-            _sprite = _rotateSprites[_currentRotateSprite];
+            _sprite = Properties.Resources.keen5_spirogrip_rotate5;
             _originalPos = new Point(this.HitBox.X, this.HitBox.Y);
-            this.State = SpiroGripState.ROTATING;
+            _state = SpiroGripState.ROTATING;
             this.ResetRandomVariable();
         }
 
