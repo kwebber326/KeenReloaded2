@@ -52,7 +52,6 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         private const int LOOK_TIME = 50;
         private const int LOOK_SPRITE_CHANGE_DELAY = 1;
         private int _currentLookTimeTick;
-        private int _currentLookSpriteChangeDelayTick;
 
         private const int FIRE_CHANCE = 30;
         private const int FIRE_SPRITE_CHANGE_DELAY = 2;
@@ -77,8 +76,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             this.Health = 2;
             this.Direction = this.GetRandomHorizontalDirection();
             this.State = ShockshundState.WALKING;
-            int seed = new Random().Next(0, int.MaxValue);
-            _random = new Random(seed);
+            if (this.HitBox.X % 2 == 0 || this.HitBox.Y % 7 == 1)
+                this.ResetRandomVariable();
             _hitTimer.Interval = 500;
             _hitTimer.Elapsed += _hitTimer_Elapsed;
         }
@@ -185,15 +184,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             }
             if (_hitAnimation)
             {
-                _sprite = GetCurrentSpriteWithWhiteBackground();
+                _sprite = this.GetCurrentSpriteWithWhiteBackground(_sprite);
             }
-        }
-
-        private Image GetCurrentSpriteWithWhiteBackground()
-        {
-           Image background = BitMapTool.DrawBackgroundColor(Color.White, this.HitBox.Size);
-           Image combinedImage = BitMapTool.DrawImagesOnCanvas(this.HitBox.Size, background, new Image[] { _sprite }, new Point[] { new Point(0, 0) });
-           return combinedImage;
         }
 
         private Image _sprite;
@@ -447,7 +439,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 return;
             }
 
-            int chaseVal = this.GenerateRandomInteger(1, CHASE_KEEN_CHANCE);//_random.Next(1, CHASE_KEEN_CHANCE + 1);
+            int chaseVal = _random.Next(1, CHASE_KEEN_CHANCE + 1);
             if (chaseVal == CHASE_KEEN_CHANCE)
             {
                 this.Direction = SetDirectionFromObjectHorizontal(_keen, true);
@@ -455,7 +447,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
             if (IsOnEdge(_direction, 3))
             {
-                int jumpVal = this.GenerateRandomInteger(1, JUMP_CHANCE_EDGE); //_random.Next(1, JUMP_CHANCE_EDGE + 1);
+                int jumpVal = _random.Next(1, JUMP_CHANCE_EDGE + 1);
                 if (jumpVal == JUMP_CHANCE_EDGE)
                 {
                     this.Jump();
@@ -468,7 +460,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             }
             else
             {
-                int jumpVal = this.GenerateRandomInteger(1, JUMP_CHANCE);//_random.Next(1, JUMP_CHANCE + 1);
+                int jumpVal = _random.Next(1, JUMP_CHANCE + 1);
                 if (jumpVal == JUMP_CHANCE)
                 {
                     this.Jump();
@@ -476,14 +468,14 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 }
             }
 
-            int lookVal = this.GenerateRandomInteger(1, LOOK_CHANCE);// _random.Next(1, LOOK_CHANCE + 1);
+            int lookVal = _random.Next(1, LOOK_CHANCE + 1);
             if (lookVal == LOOK_CHANCE)
             {
                 this.Look();
                 return;
             }
 
-            int fireVal = this.GenerateRandomInteger(1, FIRE_CHANCE);//_random.Next(1, FIRE_CHANCE + 1);
+            int fireVal = _random.Next(1, FIRE_CHANCE + 1);
             if (fireVal == FIRE_CHANCE)
             {
                 this.Fire();
@@ -501,19 +493,13 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             {
                 int xCollidePos = _direction == Enums.Direction.LEFT ? tile.HitBox.Right + 1 : tile.HitBox.Left - this.HitBox.Width - 1;
                 this.HitBox = new Rectangle(xCollidePos, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
-                if (_keen.HitBox.IntersectsWith(this.HitBox))
-                {
-                    _keen.Die();
-                }
+                this.KillCollidingPlayers();
                 this.Direction = this.ChangeHorizontalDirection(this.Direction);
             }
             else
             {
                 this.HitBox = new Rectangle(this.HitBox.X + xOffset, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
-                if (_keen.HitBox.IntersectsWith(areaToCheck))
-                {
-                    _keen.Die();
-                }
+                this.KillCollidingPlayers();
             }
 
             if (_currentWalkSpriteChangeDelayTick++ == WALK_SPRITE_CHANGE_DELAY)
@@ -556,6 +542,16 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             this.TakeDamage(projectile);
 
             if (this.Health > 0)
+            {
+                _hitAnimation = true;
+                UpdateSprite();
+            }
+        }
+
+        public override void TakeDamage(int damage)
+        {
+            base.TakeDamage(damage);
+            if (!this.IsDead())
             {
                 _hitAnimation = true;
                 UpdateSprite();

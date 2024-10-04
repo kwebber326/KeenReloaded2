@@ -100,6 +100,7 @@
     <Compile Include="GameEntities\Enemies\RoboRed.cs" />
     <Compile Include="GameEntities\Enemies\Schoolfish.cs" />
     <Compile Include="GameEntities\Enemies\Shelley.cs" />
+    <Compile Include="GameEntities\Enemies\Shikadi.cs" />
     <Compile Include="GameEntities\Enemies\ShikadiMaster.cs" />
     <Compile Include="GameEntities\Enemies\ShikadiMine.cs" />
     <Compile Include="GameEntities\Enemies\Shockshund.cs" />
@@ -193,6 +194,7 @@
     <Compile Include="GameEntities\Projectiles\ShelleyExplosion.cs" />
     <Compile Include="GameEntities\Projectiles\ShikadiMasterEnergyBall.cs" />
     <Compile Include="GameEntities\Projectiles\ShikadiMasterShockwave.cs" />
+    <Compile Include="GameEntities\Projectiles\ShikadiShock.cs" />
     <Compile Include="GameEntities\Projectiles\ShockshundProjectile.cs" />
     <Compile Include="GameEntities\Projectiles\SnakeGunExplosion.cs" />
     <Compile Include="GameEntities\Projectiles\SnakeGunShot.cs" />

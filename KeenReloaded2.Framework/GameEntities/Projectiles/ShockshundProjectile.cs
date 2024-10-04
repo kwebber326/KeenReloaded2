@@ -47,7 +47,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 itemsToCheck.AddRange(keenStunShots);
                 if (itemsToCheck.Any())
                 {
-                    HandleCollisionByDirection(collisionObjects);
+                    HandleCollisionByDirection(itemsToCheck);
                 }
                 else
                 {

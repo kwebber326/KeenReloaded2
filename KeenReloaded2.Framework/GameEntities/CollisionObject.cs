@@ -9,6 +9,7 @@ using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities;
 using KeenReloaded2.Utilities;
 using KeenReloaded2.Framework.GameEntities.Tiles.Platforms;
+using KeenReloaded.Framework.Utilities;
 
 namespace KeenReloaded.Framework
 {
@@ -116,6 +117,18 @@ namespace KeenReloaded.Framework
                 return false;
 
             return this.HitBox.IntersectsWith(obj.HitBox);
+        }
+
+        public CollisionObject GetClosestCollision(List<CollisionObject> objects)
+        {
+            if (objects == null || !objects.Any())
+                return null;
+
+            var closest = objects
+                .OrderBy(o =>
+                    CommonGameFunctions.GetEuclideanDistance(this.HitBox.Location, o.HitBox.Location))
+                .FirstOrDefault();
+            return closest;
         }
 
         protected virtual List<CommanderKeen> GetCollidingPlayers()
@@ -584,6 +597,13 @@ namespace KeenReloaded.Framework
                 if (node != null && node.Tiles != null)
                     node.Tiles.Remove(this);
             }
+        }
+
+        protected virtual Image GetCurrentSpriteWithWhiteBackground(Image backgroundImage)
+        {
+            Image background = BitMapTool.DrawBackgroundColor(Color.White, this.HitBox.Size);
+            Image combinedImage = BitMapTool.DrawImagesOnCanvas(this.HitBox.Size, background, new Image[] { backgroundImage }, new Point[] { new Point(0, 0) });
+            return combinedImage;
         }
 
         public virtual List<CollisionObject> CheckCollision(Rectangle areaToCheck, bool tilesOnly = false, bool includeEnemies = true)

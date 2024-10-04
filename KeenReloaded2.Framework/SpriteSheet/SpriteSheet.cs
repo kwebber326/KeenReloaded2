@@ -1913,6 +1913,88 @@ namespace KeenReloaded2.Framework.SpriteSheet
         }
         #endregion
 
+        #region Shikadi
+        private static Image[] _shikadiLookImages;
+
+        public static Image[] ShikadiLookImages
+        {
+            get
+            {
+                if (_shikadiLookImages == null)
+                {
+                    _shikadiLookImages = new Image[]
+                    {
+                        Properties.Resources.keen5_standard_shikadi_look1,
+                        Properties.Resources.keen5_standard_shikadi_look2,
+                        Properties.Resources.keen5_standard_shikadi_look3,
+                        Properties.Resources.keen5_standard_shikadi_look4,
+                    };
+                }
+                return _shikadiLookImages;
+            }
+        }
+
+        private static Image[] _shikadiWalkLeftImages;
+
+        public static Image[] ShikadWalkLeftImages
+        {
+            get
+            {
+                if (_shikadiWalkLeftImages == null)
+                {
+                    _shikadiWalkLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen5_standard_shikadi_walk_left1,
+                        Properties.Resources.keen5_standard_shikadi_walk_left2,
+                        Properties.Resources.keen5_standard_shikadi_walk_left3,
+                        Properties.Resources.keen5_standard_shikadi_walk_left4
+                    };
+                }
+                return _shikadiWalkLeftImages;
+            }
+        }
+
+        private static Image[] _shikadiWalkRightImages;
+
+        public static Image[] ShikadWalkRightImages
+        {
+            get
+            {
+                if (_shikadiWalkRightImages == null)
+                {
+                    _shikadiWalkRightImages = new Image[]
+                    {
+                        Properties.Resources.keen5_standard_shikadi_walk_right1,
+                        Properties.Resources.keen5_standard_shikadi_walk_right2,
+                        Properties.Resources.keen5_standard_shikadi_walk_right3,
+                        Properties.Resources.keen5_standard_shikadi_walk_right4
+                    };
+                }
+                return _shikadiWalkRightImages;
+            }
+        }
+
+        private static Image[] _shikadiStunnedImages;
+
+        public static Image[] ShikadiStunnedImages
+        {
+            get
+            {
+                if (_shikadiStunnedImages == null)
+                {
+                    _shikadiStunnedImages = new Image[]
+                    {
+                        Properties.Resources.keen5_standard_shikadi_stunned1,
+                        Properties.Resources.keen5_standard_shikadi_stunned2,
+                        Properties.Resources.keen5_standard_shikadi_stunned3,
+                        Properties.Resources.keen5_standard_shikadi_stunned4
+                    };
+                }
+                return _shikadiStunnedImages;
+            }
+        }
+        #endregion
+
         #endregion
 
         #endregion

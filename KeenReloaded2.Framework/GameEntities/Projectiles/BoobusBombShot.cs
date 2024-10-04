@@ -1,9 +1,11 @@
 ﻿using KeenReloaded.Framework;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.GameEntities.Hazards;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Tiles;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -87,8 +89,16 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 this.HitBox = new Rectangle(
                     this.KeenStandDirection == Enums.Direction.LEFT ? tile.HitBox.Right + 1 : tile.HitBox.Left - this.HitBox.Width - 1,
                    this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
-                this.Direction = ChangeHorizontalDirection(this.Direction);
-                _velocity *= -1;
+                if (tile is ForceFieldBarrier)
+                {
+                    ((DestructibleObject)tile).TakeDamage(this.Damage);
+                    this.Explode();
+                }
+                else
+                {
+                    this.Direction = ChangeHorizontalDirection(this.Direction);
+                    _velocity *= -1;
+                }
             }
             if (IsVerticalDirection(direction))
             {
@@ -605,6 +615,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 };
                 OnCreate(e);
                 _exploded = true;
+                OnRemove(new ObjectEventArgs() { ObjectSprite = this });
             }
         }
 

@@ -3470,6 +3470,10 @@ namespace KeenReloaded2.Entities.ReferenceData
             AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "spirogrip", typeof(Spirogrip));
             #endregion
 
+            #region shikadi
+            AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "standard_shikadi", typeof(Shikadi));
+            #endregion
+
             #endregion
 
             #endregion
