@@ -92,7 +92,9 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 if (tile is ForceFieldBarrier)
                 {
                     ((DestructibleObject)tile).TakeDamage(this.Damage);
-                    this.Explode();
+                    this.ForceExplosion();
+                    _explodeDelayTick = EXPLODE_DELAY;
+                    _readyToExplode = true;
                 }
                 else
                 {

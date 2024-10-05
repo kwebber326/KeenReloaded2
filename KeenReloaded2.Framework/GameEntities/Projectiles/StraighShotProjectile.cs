@@ -47,7 +47,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             InitializeTrajectories();
         }
 
-        protected void HandleCollision(CollisionObject obj)
+        protected virtual void HandleCollision(CollisionObject obj)
         {
             if (obj.CollisionType == CollisionType.BLOCK)
             {
