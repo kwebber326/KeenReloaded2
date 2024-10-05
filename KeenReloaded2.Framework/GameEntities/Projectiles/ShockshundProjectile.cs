@@ -71,51 +71,6 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             OnObjectComplete();
         }
 
-        protected void HandleCollision(CollisionObject obj)
-        {
-            if (obj.CollisionType == CollisionType.BLOCK)
-            {
-                StopAtCollisionObject(obj);
-            }
-            else if (obj is CommanderKeen)
-            {
-                var keen = (CommanderKeen)obj;
-                keen.Die();
-                if (--_pierce < 0)
-                {
-                    StopAtCollisionObject(obj);
-                }
-            }
-            else if (obj is Shelley)
-            {
-                var shelley = (Shelley)obj;
-                shelley.Explode();
-                if (--_pierce < 0)
-                {
-                    StopAtCollisionObject(obj);
-                }
-            }
-            else if (obj is KeenStunShot && !(obj is IExplodable))
-            {
-                if (--_pierce < 0)
-                {
-                    StopAtCollisionObject(obj);
-                }
-            }
-            else if (obj is IExplodable)
-            {
-                if (--_pierce < 0)
-                {
-                    StopAtCollisionObject(obj);
-                }
-                var boobusBomb = obj as BoobusBombShot;
-                if (boobusBomb != null)
-                {
-                    boobusBomb.ForceExplosion();
-                }
-            }
-        }
-
         public void Cancel()
         {
             _shotComplete = true;

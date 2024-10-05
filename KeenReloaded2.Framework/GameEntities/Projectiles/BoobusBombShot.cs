@@ -274,6 +274,9 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             var collisions = this.CheckCollision(areaToCheck);
             var tiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK);
             var enemies = collisions.OfType<IEnemy>();
+            List<CollisionObject> cancellableProjectiles =
+                collisions.Where(c => c is ICancellableProjectile).ToList();
+
             if (enemies.Any())
             {
                 enemies = enemies.Where(e => e.IsActive && !(e is ISquashable)).ToList();
@@ -282,6 +285,15 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             CollisionObject tile = this.Direction == Enums.Direction.LEFT ? GetRightMostLeftTile(collisions) : GetLeftMostRightTile(collisions);
             CollisionObject groundTile = _fallVelocity > 0 ? GetTopMostLandingTile(collisions) : null;
             CollisionObject ceilingTile = GetCeilingTile(collisions);
+    
+            if (cancellableProjectiles.Any())
+            {
+                var projectileCollision = this.GetClosestCollision(cancellableProjectiles);
+                this.StopAtCollisionObject(projectileCollision);
+                this.ForceExplosion();
+                ((ICancellableProjectile)projectileCollision).Cancel();
+                return;
+            }
 
             if (enemies.Any())
             {
@@ -298,14 +310,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 }
                 HandleEnemyCollision(enemies.ToList());
 
-                if (!_suppressExplosion)
-                {
-                    OnObjectComplete();
-                }
-                else
-                {
-                    _suppressExplosion = false;
-                }
+                EndObjectWithoutSelfDestructSequence();
                 return;
             }
 
@@ -373,6 +378,18 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             }
             SetHorizontalDirection();
             HandleCornerCaseCollisions(collisions);
+        }
+
+        private void EndObjectWithoutSelfDestructSequence()
+        {
+            if (!_suppressExplosion)
+            {
+                ForceExplosion();
+            }
+            else
+            {
+                _suppressExplosion = false;
+            }
         }
 
         private void HandleCornerCaseCollisions(List<CollisionObject> collisions)
@@ -662,6 +679,9 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         private void RemoveThisFromCollidingNodes()
         {
+            if (_collidingNodes == null)
+                return;
+
             foreach (var node in _collidingNodes)
             {
                 node.Objects.Remove(this);

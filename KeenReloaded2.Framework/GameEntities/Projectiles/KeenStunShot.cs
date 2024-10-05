@@ -158,7 +158,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             }
         }
 
-        private void StopAtCollisionObject(CollisionObject obj)
+        protected void StopAtCollisionObject(CollisionObject obj)
         {
             SetLocationByCollision(obj);
             this.Stop();
