@@ -209,6 +209,10 @@ namespace KeenReloaded2.Utilities
                     Rectangle areaPropVal = new Rectangle(areaX, areaY, areaWidth, areaHeight);
                     associatedProperty.Value = areaPropVal;
                 }
+                else if (associatedProperty.DataType == typeof(List<Point>))
+                {
+                    associatedProperty.Value = GetPointsFromArrayString(rawValue);
+                }
             }
 
             GameObjectMapping mapping = new GameObjectMapping()
@@ -236,6 +240,35 @@ namespace KeenReloaded2.Utilities
             }
 
             return mapping;
+        }
+
+        private static List<Point> GetPointsFromArrayString(string rawValue)
+        {
+            List<Point> points = new List<Point>();
+            if (string.IsNullOrEmpty(rawValue))
+                return points;
+
+
+            string[] values = rawValue.Replace(MapMakerConstants.MAP_MAKER_ARRAY_START, "")
+                .Replace(MapMakerConstants.MAP_MAKER_ARRAY_END, "")
+                .Split(MapMakerConstants.MAP_MAKER_ELEMENT_SEPARATOR.ToCharArray()[0]);
+
+            if (!values.Any() || values.Length % 2 != 0)
+                return points;
+
+            int index = 0;
+            while (index < values.Length)
+            {
+                string part1 = values[index];
+                string part2 = values[++index];
+                int x = Convert.ToInt32(part1);
+                int y = Convert.ToInt32(part2);
+                Point p = new Point(x, y);
+                points.Add(p);
+                index++;
+            }
+
+            return points;
         }
 
         private static string GetFolderFromGameMode(string gameMode)

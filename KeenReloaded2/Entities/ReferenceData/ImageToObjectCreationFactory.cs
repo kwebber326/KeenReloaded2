@@ -3474,6 +3474,20 @@ namespace KeenReloaded2.Entities.ReferenceData
             AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "standard_shikadi", typeof(Shikadi));
             #endregion
 
+            #region volteface
+            MapMakerObjectProperty[] locationNodes = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "locationNodes",
+                    DataType = typeof(List<Point>),
+                    DisplayName = "Points: ",
+                    Value = new List<Point>()
+                }
+            };
+            AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "volte", typeof(VolteFace), locationNodes);
+            #endregion
+
             #endregion
 
             #endregion

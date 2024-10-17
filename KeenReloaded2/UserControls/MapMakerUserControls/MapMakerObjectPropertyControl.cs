@@ -23,7 +23,8 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         private CheckBox _chkValue = new CheckBox();
         private AreaControl _areaValue = new AreaControl();
         private ActivatorListControl _activatorControl = new ActivatorListControl();
-        private DestinationDoorActivatorControl _doorControl = new DestinationDoorActivatorControl(); 
+        private DestinationDoorActivatorControl _doorControl = new DestinationDoorActivatorControl();
+        private PointSelectorUserControl _pointSelectorControl = new PointSelectorUserControl();
 
         private Control _selectedControl;
         private bool _selectedControlAdded = false;
@@ -70,7 +71,21 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             _areaValue.AreaChanged += _areaValue_AreaChanged;
             _activatorControl.EditItemsClicked += _activatorControl_EditItemsClicked;
             _doorControl.DoorSelect += _doorControl_DoorSelect;
+            _pointSelectorControl.EditItemsClicked += _pointSelectorControl_EditItemsClicked;
             UpdateControl(_mapMakerObjectProperty);
+        }
+
+        private void _pointSelectorControl_EditItemsClicked(object sender, EventArgs e)
+        {
+            List<Point> points = _mapMakerObjectProperty.Value as List<Point>;
+            if (points != null)
+            {
+                PathwayCreatorForm pathwayCreatorForm = new PathwayCreatorForm(points);
+                if (pathwayCreatorForm.ShowDialog() == DialogResult.OK)
+                {
+                    _mapMakerObjectProperty.Value = pathwayCreatorForm.PathWayPoints;
+                }
+            }
         }
 
         private void _doorControl_DoorSelect(object sender, EventArgs e)
@@ -180,6 +195,10 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             else if (_mapMakerObjectProperty.IsDoorSelectionProperty)
             {
                 _selectedControl = _doorControl;
+            }
+            else if (_mapMakerObjectProperty.DataType == typeof(List<Point>))
+            {
+                _selectedControl = _pointSelectorControl;
             }
             else
             {

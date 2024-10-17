@@ -52,6 +52,7 @@
     <Compile Include="ControlEventArgs\EventStoreData\ActivatorSelectionChangedEventArgs.cs" />
     <Compile Include="ControlEventArgs\EventStoreData\ActivatorSelectionCompletedEventArgs.cs" />
     <Compile Include="ControlEventArgs\EventStoreData\DoorSelectionChangedEventArgs.cs" />
+    <Compile Include="ControlEventArgs\EventStoreData\PointListChangedEventArgs.cs" />
     <Compile Include="ControlEventArgs\MainMenuOptionEventArgs.cs" />
     <Compile Include="ControlEventArgs\MapMakerObjectEventArgs.cs" />
     <Compile Include="Entities\CommanderKeenGame.cs" />
@@ -208,6 +209,18 @@
     <Compile Include="UserControls\MapMakerUserControls\MapObjectContainer.Designer.cs">
       <DependentUpon>MapObjectContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MapMakerUserControls\PathwayCreatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\MapMakerUserControls\PathwayCreatorForm.Designer.cs">
+      <DependentUpon>PathwayCreatorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MapMakerUserControls\PointSelectorUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MapMakerUserControls\PointSelectorUserControl.Designer.cs">
+      <DependentUpon>PointSelectorUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MapMakerUserControls\SmartPlacer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -292,6 +305,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MapMakerUserControls\MapObjectContainer.resx">
       <DependentUpon>MapObjectContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MapMakerUserControls\PathwayCreatorForm.resx">
+      <DependentUpon>PathwayCreatorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MapMakerUserControls\PointSelectorUserControl.resx">
+      <DependentUpon>PointSelectorUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MapMakerUserControls\SmartPlacer.resx">
       <DependentUpon>SmartPlacer.cs</DependentUpon>
