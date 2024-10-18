@@ -96,6 +96,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             if (!string.IsNullOrEmpty(item))
             {
                 lstPoints.Items.RemoveAt(lstPoints.SelectedIndex);
+                OnPointsListChanged();
             }
         }
 

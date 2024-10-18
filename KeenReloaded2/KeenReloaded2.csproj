@@ -215,6 +215,12 @@
     <Compile Include="UserControls\MapMakerUserControls\PathwayCreatorForm.Designer.cs">
       <DependentUpon>PathwayCreatorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MapMakerUserControls\PointMarkerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MapMakerUserControls\PointMarkerControl.Designer.cs">
+      <DependentUpon>PointMarkerControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MapMakerUserControls\PointSelectorUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -308,6 +314,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MapMakerUserControls\PathwayCreatorForm.resx">
       <DependentUpon>PathwayCreatorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MapMakerUserControls\PointMarkerControl.resx">
+      <DependentUpon>PointMarkerControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MapMakerUserControls\PointSelectorUserControl.resx">
       <DependentUpon>PointSelectorUserControl.cs</DependentUpon>

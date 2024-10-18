@@ -48,6 +48,7 @@ namespace KeenReloaded2.Constants
             public const string EVENT_DOOR_SELECTION_CHANGED = "doorSelectionChanged";
             public const string EVENT_DOOR_SELECTION_COMPLETE = "doorSelectionComplete";
             public const string EVENT_POINTS_LIST_CHANGED = "pointsListChanged";
+            public const string EVENT_POINTS_LIST_FINALIZED = "pointsListFinalized";
         }
     }
 }

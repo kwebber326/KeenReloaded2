@@ -35,6 +35,7 @@ namespace KeenReloaded2
         private bool _useSmartPlacer = false;
         private bool _mapHasUnsavedChanges = false;
         private string _lastFilePath;
+        private List<PointMarkerControl> _pathWayPoints = new List<PointMarkerControl>();
 
         public MapMaker()
         {
@@ -61,6 +62,8 @@ namespace KeenReloaded2
             EventStore<ActivatorSelectionCompletedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ACTIVATOR_SELECTION_COMPLETE, ActivatorSelection_Complete);
             EventStore<DoorSelectionChangedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_DOOR_SELECTION_CHANGED, DoorSelection_Changed);
             EventStore<DoorSelectionChangedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_DOOR_SELECTION_COMPLETE, DoorSelection_Complete);
+            EventStore<PointListChangedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_POINTS_LIST_CHANGED, PointList_Changed);
+            EventStore<PointListChangedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_POINTS_LIST_FINALIZED, PointList_Finalized);
         }
 
         private void InitializeGameModeList()
@@ -401,6 +404,40 @@ namespace KeenReloaded2
                     matchingDoor.BackColor = Color.Red;
                 }
             }
+        }
+
+        private void PointList_Finalized(object sender, ControlEventArgs<PointListChangedEventArgs> e)
+        {
+            ClearPathwayPointControls();
+        }
+
+        private void PointList_Changed(object sender, ControlEventArgs<PointListChangedEventArgs> e)
+        {
+            ClearPathwayPointControls();
+            List<Point> points = e?.Data?.NewPoints;
+            if (points == null || !points.Any())
+                return;
+
+            for (int i = 0; i < points.Count; i++)
+            {
+                PointMarkerControl ctrl = new PointMarkerControl(i + 1);
+                ctrl.Location = new Point(points[i].X + pnlMapCanvas.AutoScrollPosition.X, points[i].Y + pnlMapCanvas.AutoScrollPosition.Y);
+                _pathWayPoints.Add(ctrl);
+                pnlMapCanvas.Controls.Add(ctrl);
+                ctrl.BringToFront();
+            }
+        }
+
+        private void ClearPathwayPointControls()
+        {
+            if (_pathWayPoints.Any())
+            {
+                foreach (var marker in _pathWayPoints)
+                {
+                    pnlMapCanvas.Controls.Remove(marker);
+                }
+            }
+            _pathWayPoints.Clear();
         }
 
         private void DoorSelection_Complete(object sender, ControlEventArgs<DoorSelectionChangedEventArgs> e)

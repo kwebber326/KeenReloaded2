@@ -11,6 +11,8 @@ using KeenReloaded2.Entities;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Constants;
+using KeenReloaded2.Utilities;
+using KeenReloaded2.ControlEventArgs.EventStoreData;
 
 namespace KeenReloaded2.UserControls.MapMakerUserControls
 {
@@ -85,6 +87,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                 {
                     _mapMakerObjectProperty.Value = pathwayCreatorForm.PathWayPoints;
                 }
+                EventStore<PointListChangedEventArgs>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_POINTS_LIST_FINALIZED, null);
             }
         }
 
