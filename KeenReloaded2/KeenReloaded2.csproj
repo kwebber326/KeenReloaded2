@@ -52,6 +52,7 @@
     <Compile Include="ControlEventArgs\EventStoreData\ActivatorSelectionChangedEventArgs.cs" />
     <Compile Include="ControlEventArgs\EventStoreData\ActivatorSelectionCompletedEventArgs.cs" />
     <Compile Include="ControlEventArgs\EventStoreData\DoorSelectionChangedEventArgs.cs" />
+    <Compile Include="ControlEventArgs\EventStoreData\IndexedPoint.cs" />
     <Compile Include="ControlEventArgs\EventStoreData\PointListChangedEventArgs.cs" />
     <Compile Include="ControlEventArgs\MainMenuOptionEventArgs.cs" />
     <Compile Include="ControlEventArgs\MapMakerObjectEventArgs.cs" />

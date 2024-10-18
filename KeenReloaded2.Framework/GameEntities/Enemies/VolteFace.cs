@@ -1,20 +1,12 @@
 ﻿using KeenReloaded.Framework;
-using KeenReloaded.Framework.Utilities;
 using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
-using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
-using KeenReloaded2.Framework.GameEntities.Players;
-using KeenReloaded2.Framework.GameEntities.Projectiles;
-using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.Interfaces;
-using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Timers;
 
 namespace KeenReloaded2.Framework.GameEntities.Enemies
 {
@@ -162,6 +154,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             UpdateSprite();
             //determine next node index to approach if we reached the goal node
             int nextIndex = GetNextLocationIndex();
+
             //set direction based on next node
             SetDirectionBasedOnNextNode(nextIndex);
 

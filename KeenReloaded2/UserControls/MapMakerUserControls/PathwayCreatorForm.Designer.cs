@@ -38,6 +38,7 @@
             this.btnDone = new System.Windows.Forms.Button();
             this.btnDown = new System.Windows.Forms.Button();
             this.btnUp = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -78,9 +79,9 @@
             // 
             this.btnAddPoint.Location = new System.Drawing.Point(303, 13);
             this.btnAddPoint.Name = "btnAddPoint";
-            this.btnAddPoint.Size = new System.Drawing.Size(127, 41);
+            this.btnAddPoint.Size = new System.Drawing.Size(127, 65);
             this.btnAddPoint.TabIndex = 4;
-            this.btnAddPoint.Text = "Add Point";
+            this.btnAddPoint.Text = "Add New";
             this.btnAddPoint.UseVisualStyleBackColor = true;
             this.btnAddPoint.Click += new System.EventHandler(this.BtnAddPoint_Click);
             // 
@@ -96,7 +97,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(304, 75);
+            this.btnDelete.Location = new System.Drawing.Point(308, 296);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(126, 46);
             this.btnDelete.TabIndex = 6;
@@ -116,7 +117,7 @@
             // 
             // btnDown
             // 
-            this.btnDown.Location = new System.Drawing.Point(304, 127);
+            this.btnDown.Location = new System.Drawing.Point(309, 348);
             this.btnDown.Name = "btnDown";
             this.btnDown.Size = new System.Drawing.Size(126, 65);
             this.btnDown.TabIndex = 8;
@@ -126,7 +127,7 @@
             // 
             // btnUp
             // 
-            this.btnUp.Location = new System.Drawing.Point(303, 198);
+            this.btnUp.Location = new System.Drawing.Point(308, 419);
             this.btnUp.Name = "btnUp";
             this.btnUp.Size = new System.Drawing.Size(127, 60);
             this.btnUp.TabIndex = 9;
@@ -134,11 +135,22 @@
             this.btnUp.UseVisualStyleBackColor = true;
             this.btnUp.Click += new System.EventHandler(this.BtnUp_Click);
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(436, 13);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(104, 65);
+            this.btnUpdate.TabIndex = 10;
+            this.btnUpdate.Text = "Update Selected";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
+            // 
             // PathwayCreatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(552, 493);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnUp);
             this.Controls.Add(this.btnDown);
             this.Controls.Add(this.btnDone);
@@ -171,5 +183,6 @@
         private System.Windows.Forms.Button btnDone;
         private System.Windows.Forms.Button btnDown;
         private System.Windows.Forms.Button btnUp;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

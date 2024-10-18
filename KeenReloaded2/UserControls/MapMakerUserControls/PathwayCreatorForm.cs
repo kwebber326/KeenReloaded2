@@ -44,16 +44,21 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         private void LstPoints_SelectedIndexChanged(object sender, EventArgs e)
         {
             SetEditButtonsEnabledStatusBasedOnSelectedStatus();
+            var selectedItem = lstPoints.SelectedItem;
+            if (selectedItem != null)
+            {
+                Point selectedPoint = FromListItem(selectedItem.ToString());
+                txtXPosition.Text = selectedPoint.X.ToString();
+                txtYPosition.Text = selectedPoint.Y.ToString();
+                EventStore<int>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SELECTED_INDEX_CHANGED, lstPoints.SelectedIndex + 1);
+            }
         }
 
         private void BtnAddPoint_Click(object sender, EventArgs e)
         {
             try
             {
-                int x = Convert.ToInt32(txtXPosition.Text);
-                int y = Convert.ToInt32(txtYPosition.Text);
-
-                Point p = new Point(x, y);
+                Point p = GetPointFromUserEntry();
                 string item = ToListItem(p);
                 lstPoints.Items.Add(item);
                 OnPointsListChanged();
@@ -64,12 +69,22 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             }
         }
 
+        private Point GetPointFromUserEntry()
+        {
+            int x = Convert.ToInt32(txtXPosition.Text);
+            int y = Convert.ToInt32(txtYPosition.Text);
+
+            Point p = new Point(x, y);
+            return p;
+        }
+
         private void SetEditButtonsEnabledStatusBasedOnSelectedStatus()
         {
             bool enabled = lstPoints.SelectedIndex != -1;
             btnDelete.Enabled = enabled;
             btnDown.Enabled = enabled;
             btnUp.Enabled = enabled;
+            btnUpdate.Enabled = enabled;
         }
 
         private void OnPointsListChanged()
@@ -110,6 +125,29 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         private void BtnUp_Click(object sender, EventArgs e)
         {
             MoveByDirection(false);
+        }
+
+        private void BtnDone_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            Point p = GetPointFromUserEntry();
+            if (lstPoints.SelectedIndex != -1)
+            {
+                string text = ToListItem(p);
+                lstPoints.Items[lstPoints.SelectedIndex] = text;
+                EventStore<IndexedPoint>.Publish(
+                    MapMakerConstants.EventStoreEventNames.EVENT_LOCATION_CHANGED, 
+                    new IndexedPoint()
+                    {
+                        Index = lstPoints.SelectedIndex + 1,
+                        Location = p
+                    });
+            }
         }
 
         #endregion
@@ -190,12 +228,6 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             int x = Convert.ToInt32(part1);
             int y = Convert.ToInt32(part2);
             return new Point(x, y);
-        }
-
-        private void BtnDone_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-            this.Close();
         }
     }
 }
