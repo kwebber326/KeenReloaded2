@@ -102,12 +102,14 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
 
         private void BtnDown_Click(object sender, EventArgs e)
         {
-
+            MoveByDirection(true);
         }
+
+    
 
         private void BtnUp_Click(object sender, EventArgs e)
         {
-
+            MoveByDirection(false);
         }
 
         #endregion
@@ -117,6 +119,30 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             get
             {
                 return GetPointsFromListBoxItems();
+            }
+        }
+
+        private void MoveByDirection(bool downDirection)
+        {
+            if (lstPoints.Items.Count < 2)
+                return;
+
+            string item = lstPoints.SelectedItem?.ToString();
+            if (!string.IsNullOrEmpty(item))
+            {
+
+                int currentIndex = lstPoints.SelectedIndex;
+                int downIndex = currentIndex == lstPoints.Items.Count - 1 ? 0 : currentIndex + 1;
+                int upIndex = currentIndex == 0 ? lstPoints.Items.Count - 1 : currentIndex - 1;
+                int nextIndex = downDirection ? downIndex : upIndex;
+                string tmp = item;
+                string other = lstPoints.Items[nextIndex].ToString();
+                lstPoints.Items[currentIndex] = other;
+                lstPoints.Items[nextIndex] = tmp;
+                _currentPoints[currentIndex] = FromListItem(other);
+                _currentPoints[nextIndex] = FromListItem(tmp);
+                lstPoints.SelectedIndex = nextIndex;
+                OnPointsListChanged();
             }
         }
 
