@@ -266,7 +266,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     isUpDirection ? this.HitBox.Y + yOffset : this.HitBox.Y, //y
                     this.HitBox.Width + Math.Abs(xOffset), //width
                     this.HitBox.Height + Math.Abs(yOffset));//height
-                this.KillCollidingPlayers(areaToCheck);
+                this.KillCollidingPlayers(killArea);
                 this.HitBox = new Rectangle(xPos, yPos, this.HitBox.Width, this.HitBox.Height);
             }
 
