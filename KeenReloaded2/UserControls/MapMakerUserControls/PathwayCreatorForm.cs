@@ -61,6 +61,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                 Point p = GetPointFromUserEntry();
                 string item = ToListItem(p);
                 lstPoints.Items.Add(item);
+                lstPoints.SelectedIndex = lstPoints.Items.Count - 1;
                 OnPointsListChanged();
             }
             catch
@@ -177,8 +178,6 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                 string other = lstPoints.Items[nextIndex].ToString();
                 lstPoints.Items[currentIndex] = other;
                 lstPoints.Items[nextIndex] = tmp;
-                _currentPoints[currentIndex] = FromListItem(other);
-                _currentPoints[nextIndex] = FromListItem(tmp);
                 lstPoints.SelectedIndex = nextIndex;
                 OnPointsListChanged();
             }
