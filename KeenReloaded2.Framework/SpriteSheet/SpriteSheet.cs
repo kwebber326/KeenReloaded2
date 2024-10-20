@@ -1997,6 +1997,153 @@ namespace KeenReloaded2.Framework.SpriteSheet
 
         #endregion
 
+        #region keen 6
+        #region Keen 6 Babobba
+        private static Image[] _babobbaStunnedImages;
+
+        public static Image[] BabobbaStunnedImages
+        {
+            get
+            {
+                if (_babobbaStunnedImages == null)
+                {
+                    _babobbaStunnedImages = new Image[]
+                    {
+                        Properties.Resources.keen6_babobba_stunned1,
+                        Properties.Resources.keen6_babobba_stunned2,
+                        Properties.Resources.keen6_babobba_stunned3,
+                        Properties.Resources.keen6_babobba_stunned4
+                    };
+                }
+                return _babobbaStunnedImages;
+            }
+        }
+
+        private static Image[] _babobbaSleepImages;
+
+        public static Image[] BabobbaSleepImages
+        {
+            get
+            {
+                if (_babobbaSleepImages == null)
+                {
+                    _babobbaSleepImages = new Image[]
+                    {
+                        Properties.Resources.keen6_babobba_fall_asleep1,
+                        Properties.Resources.keen6_babobba_fall_asleep2,
+                        Properties.Resources.keen6_babobba_fall_asleep3,
+                        Properties.Resources.keen6_babobba_fall_asleep4
+                    };
+                }
+                return _babobbaSleepImages;
+            }
+        }
+        #endregion
+
+        #region Keen 6 Bip Ship
+        private static Image[] _bipShipTurnLeftImages;
+
+        public static Image[] BipShipTurnLeftImages
+        {
+            get
+            {
+                if (_bipShipTurnLeftImages == null)
+                {
+                    _bipShipTurnLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen6_bip_ship_turn_left1,
+                        Properties.Resources.keen6_bip_ship_turn_left2,
+                        Properties.Resources.keen6_bip_ship_turn_left3
+                    };
+                }
+                return _bipShipTurnLeftImages;
+            }
+        }
+
+        private static Image[] _bipShipTurnRightImages;
+
+        public static Image[] BipShipTurnRightImages
+        {
+            get
+            {
+                if (_bipShipTurnRightImages == null)
+                {
+                    _bipShipTurnRightImages = new Image[]
+                    {
+                        Properties.Resources.keen6_bip_ship_turn_right1,
+                        Properties.Resources.keen6_bip_ship_turn_right2,
+                        Properties.Resources.keen6_bip_ship_turn_right3
+                    };
+                }
+                return _bipShipTurnRightImages;
+            }
+        }
+
+        private static Image[] _bipShipExplodeImages;
+
+        public static Image[] BipShipExplodeImages
+        {
+            get
+            {
+                if (_bipShipExplodeImages == null)
+                {
+                    _bipShipExplodeImages = new Image[]
+                    {
+                        Properties.Resources.keen6_bip_ship_explosion1,
+                        Properties.Resources.keen6_bip_ship_explosion2
+                    };
+                }
+                return _bipShipExplodeImages;
+            }
+        }
+
+        #endregion
+
+        #region Keen 6 Bip
+
+        private static Image[] _bipLeftImages;
+
+        public static Image[] BipLeftImages
+        {
+            get
+            {
+                if (_bipLeftImages == null)
+                {
+                    _bipLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen6_bip_left1,
+                        Properties.Resources.keen6_bip_left2,
+                        Properties.Resources.keen6_bip_left3,
+                        Properties.Resources.keen6_bip_left4
+                    };
+                }
+                return _bipLeftImages;
+            }
+        }
+
+        private static Image[] _bipRightImages;
+
+        public static Image[] BipRightImages
+        {
+            get
+            {
+                if (_bipRightImages == null)
+                {
+                    _bipRightImages = new Image[]
+                    {
+                        Properties.Resources.keen6_bip_right1,
+                        Properties.Resources.keen6_bip_right2,
+                        Properties.Resources.keen6_bip_right3,
+                        Properties.Resources.keen6_bip_right4
+                    };
+                }
+                return _bipRightImages;
+            }
+        }
+
+        #endregion
+        #endregion
+
         #endregion
 
         #region projectiles and explosions

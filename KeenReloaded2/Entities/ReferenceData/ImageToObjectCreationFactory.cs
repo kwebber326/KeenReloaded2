@@ -3490,6 +3490,25 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region keen 6
+            var keen6EnemyDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_ENEMIES, "keen6", Biomes.BIOME_KEEN6_FINAL);
+            var keen6EnemyFiles = Directory.GetFiles(keen6EnemyDirectory, "*.png");
+
+            #region babobba
+
+            AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "babobba", typeof(Babobba));
+
+            #endregion
+
+            #region bip
+            AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "bip_left1", typeof(Bip));
+            #endregion
+
+            #region bip ship
+            AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "bip_ship", typeof(BipShip));
+            #endregion
+            #endregion
+
             #endregion
 
             return backgroundReferenceData;

@@ -80,7 +80,9 @@
     <Compile Include="GameEntities\CurrentPlayerList.cs" />
     <Compile Include="GameEntities\DestructibleObject.cs" />
     <Compile Include="GameEntities\Enemies\Arachnut.cs" />
+    <Compile Include="GameEntities\Enemies\Babobba.cs" />
     <Compile Include="GameEntities\Enemies\Berkeloid.cs" />
+    <Compile Include="GameEntities\Enemies\Bip.cs" />
     <Compile Include="GameEntities\Enemies\BlueEagle.cs" />
     <Compile Include="GameEntities\Enemies\BlueEagleEgg.cs" />
     <Compile Include="GameEntities\Enemies\Bounder.cs" />
@@ -179,9 +181,14 @@
     <Compile Include="GameEntities\Items\WeaponsAmmo\SMGNeuralStunnerAmmo.cs" />
     <Compile Include="GameEntities\Items\WeaponsAmmo\SnakeGunAmmo.cs" />
     <Compile Include="GameEntities\Players\CommanderKeen.cs" />
+    <Compile Include="GameEntities\Projectiles\BabobbaFireBall.cs" />
     <Compile Include="GameEntities\Projectiles\BerkeloidFire.cs" />
     <Compile Include="GameEntities\Projectiles\BFGExplosion.cs" />
     <Compile Include="GameEntities\Projectiles\BFGProjectile.cs" />
+    <Compile Include="GameEntities\Enemies\BipShip.cs" />
+    <Compile Include="GameEntities\Projectiles\BipShipDebris.cs" />
+    <Compile Include="GameEntities\Projectiles\BipShipExplosion.cs" />
+    <Compile Include="GameEntities\Projectiles\BipShipShot.cs" />
     <Compile Include="GameEntities\Projectiles\BoobusBombExplosion.cs" />
     <Compile Include="GameEntities\Projectiles\BoobusBombShot.cs" />
     <Compile Include="GameEntities\Projectiles\Dart.cs" />
@@ -1887,18 +1894,6 @@
     <None Include="Resources\keen5_spinning_fire_hazard6.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen6_burn_hazard1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_burn_hazard2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_burn_hazard3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_burn_hazard4.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen4_thundercloud_dormant.png" />
   </ItemGroup>
   <ItemGroup>
@@ -3552,18 +3547,6 @@
     <None Include="Resources\keen5_turret_laser4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen6_bobba_fireball1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_bobba_fireball2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_bobba_fireball3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_bobba_fireball4.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen6_laser_turret_down.png" />
   </ItemGroup>
   <ItemGroup>
@@ -4747,6 +4730,672 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen5_vertical_slicestar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_babobba_fall_asleep1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_babobba_fall_asleep2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_babobba_fall_asleep3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_babobba_fall_asleep4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_babobba_fall_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_babobba_fall_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_babobba_fire_ball1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_babobba_fire_ball2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_babobba_jump_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_babobba_jump_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_babobba_land_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_babobba_land_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_babobba_stunned1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_babobba_stunned2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_babobba_stunned3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_babobba_stunned4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_look.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_ship_debris.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_ship_destroyed_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_ship_destroyed_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_ship_explosion1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_ship_explosion2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_ship_laser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_ship_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_ship_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_ship_turn_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_ship_turn_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_ship_turn_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_ship_turn_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_ship_turn_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_ship_turn_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_squashed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bloog_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bloog_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bloog_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bloog_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bloog_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bloog_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bloog_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bloog_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bloog_stunned1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bloog_stunned2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bloog_stunned3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bloog_stunned4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_blue_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_blue_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_blue_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_blue_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_blue_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_blue_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_blue_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_blue_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_blue_stunned1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_blue_stunned2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_blue_stunned3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_blue_stunned4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_green_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_green_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_green_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_green_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_green_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_green_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_green_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_green_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_green_stunned1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_green_stunned2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_green_stunned3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_green_stunned4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_red_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_red_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_red_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_red_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_red_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_red_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_red_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_red_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_red_stunned1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_red_stunned2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_red_stunned3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_red_stunned4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_yellow_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_yellow_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_yellow_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_yellow_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_yellow_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_yellow_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_yellow_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_yellow_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_yellow_stunned1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_yellow_stunned2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_yellow_stunned3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooglet_yellow_stunned4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooguard_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooguard_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooguard_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooguard_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooguard_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooguard_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooguard_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooguard_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooguard_smash_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooguard_smash_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooguard_smash_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooguard_smash_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooguard_smash_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooguard_smash_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooguard_stunned1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooguard_stunned2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooguard_stunned3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blooguard_stunned4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blorb1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_blorb2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bobba_fall_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bobba_fall_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bobba_fireball1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bobba_fireball2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bobba_fireball3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bobba_fireball4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bobba_jump_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bobba_jump_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bobba_land_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bobba_land_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_burn_hazard1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_burn_hazard2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_burn_hazard3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_burn_hazard4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_ceilick_peak_head1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_ceilick_peak_head2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_ceilick_peak_head3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_ceilick_peak_head4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_ceilick_peak_head5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_ceilick_peak_head6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_ceilick_peak_head7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_ceilick_stunned1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_ceilick_stunned2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_ceilick_stunned3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_ceilick_stunned4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_ceilick_tongue_attack1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_ceilick_tongue_attack2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_ceilick_tongue_attack3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_ceilick_tongue_attack4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_ceilick_tongue_waiting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_flect_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_flect_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_flect_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_flect_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_flect_left5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_flect_look.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_flect_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_flect_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_flect_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_flect_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_flect_right5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_flect_stunned1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_flect_stunned2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_flect_stunned3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_flect_stunned4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_fleex_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_fleex_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_fleex_look1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_fleex_look2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_fleex_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_fleex_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_fleex_stunned1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_fleex_stunned2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_fleex_stunned3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_fleex_stunned4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_gix_jump_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_gix_jump_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_gix_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_gix_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_gix_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_gix_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_gix_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_gix_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_gix_slide_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_gix_slide_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_gix_slide_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_gix_slide_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_nospike_charge_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_nospike_charge_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_nospike_charge_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_nospike_charge_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_nospike_charge_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_nospike_charge_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_nospike_charge_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_nospike_charge_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_nospike_confused.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_nospike_look.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_nospike_patrol_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_nospike_patrol_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_nospike_patrol_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_nospike_patrol_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_nospike_patrol_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_nospike_patrol_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_nospike_patrol_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_nospike_patrol_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_nospike_stunned1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_nospike_stunned2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_nospike_stunned3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_nospike_stunned4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_orbatrix_attack1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_orbatrix_attack2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_orbatrix_attack3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_orbatrix_attack4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_orbatrix_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_orbatrix_look_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_orbatrix_look_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_orbatrix_look_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_orbatrix_look_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_orbatrix_look1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_orbatrix_look2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_orbatrix_look3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_orbatrix_look4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
