@@ -2142,6 +2142,944 @@ namespace KeenReloaded2.Framework.SpriteSheet
         }
 
         #endregion
+
+        #region Keen 6 Blooglet Red
+
+        private static Image[] _bloogletRedRightImages;
+
+        public static Image[] BloogletRedRightImages
+        {
+            get
+            {
+                if (_bloogletRedRightImages == null)
+                {
+                    _bloogletRedRightImages = new Image[]
+                    {
+                        Properties.Resources.keen6_blooglet_red_right1,
+                        Properties.Resources.keen6_blooglet_red_right2,
+                        Properties.Resources.keen6_blooglet_red_right3,
+                        Properties.Resources.keen6_blooglet_red_right4
+                    };
+                }
+                return _bloogletRedRightImages;
+            }
+        }
+
+        private static Image[] _bloogletRedLeftImages;
+
+        public static Image[] BloogletRedLeftImages
+        {
+            get
+            {
+                if (_bloogletRedLeftImages == null)
+                {
+                    _bloogletRedLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen6_blooglet_red_left1,
+                        Properties.Resources.keen6_blooglet_red_left2,
+                        Properties.Resources.keen6_blooglet_red_left3,
+                        Properties.Resources.keen6_blooglet_red_left4
+                    };
+                }
+                return _bloogletRedLeftImages;
+            }
+        }
+
+        private static Image[] _bloogletRedStunnedImages;
+
+        public static Image[] BloogletRedStunnedImages
+        {
+            get
+            {
+                if (_bloogletRedStunnedImages == null)
+                {
+                    _bloogletRedStunnedImages = new Image[]
+                    {
+                        Properties.Resources.keen6_blooglet_red_stunned1,
+                        Properties.Resources.keen6_blooglet_red_stunned2,
+                        Properties.Resources.keen6_blooglet_red_stunned3,
+                        Properties.Resources.keen6_blooglet_red_stunned4
+                    };
+                }
+                return _bloogletRedStunnedImages;
+            }
+        }
+
+        #endregion
+
+        #region Keen 6 Blooglet Blue
+
+        private static Image[] _bloogletBlueRightImages;
+
+        public static Image[] BloogletBlueRightImages
+        {
+            get
+            {
+                if (_bloogletBlueRightImages == null)
+                {
+                    _bloogletBlueRightImages = new Image[]
+                    {
+                        Properties.Resources.keen6_blooglet_blue_right1,
+                        Properties.Resources.keen6_blooglet_blue_right2,
+                        Properties.Resources.keen6_blooglet_blue_right3,
+                        Properties.Resources.keen6_blooglet_blue_right4
+                    };
+                }
+                return _bloogletBlueRightImages;
+            }
+        }
+
+        private static Image[] _bloogletBlueLeftImages;
+
+        public static Image[] BloogletBlueLeftImages
+        {
+            get
+            {
+                if (_bloogletBlueLeftImages == null)
+                {
+                    _bloogletBlueLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen6_blooglet_blue_left1,
+                        Properties.Resources.keen6_blooglet_blue_left2,
+                        Properties.Resources.keen6_blooglet_blue_left3,
+                        Properties.Resources.keen6_blooglet_blue_left4
+                    };
+                }
+                return _bloogletBlueLeftImages;
+            }
+        }
+
+        private static Image[] _bloogletBlueStunnedImages;
+
+        public static Image[] BloogletBlueStunnedImages
+        {
+            get
+            {
+                if (_bloogletBlueStunnedImages == null)
+                {
+                    _bloogletBlueStunnedImages = new Image[]
+                    {
+                        Properties.Resources.keen6_blooglet_blue_stunned1,
+                        Properties.Resources.keen6_blooglet_blue_stunned2,
+                        Properties.Resources.keen6_blooglet_blue_stunned3,
+                        Properties.Resources.keen6_blooglet_blue_stunned4
+                    };
+                }
+                return _bloogletBlueStunnedImages;
+            }
+        }
+
+        #endregion
+
+        #region Keen 6 Blooglet Green
+
+        private static Image[] _bloogletGreenRightImages;
+
+        public static Image[] BloogletGreenRightImages
+        {
+            get
+            {
+                if (_bloogletGreenRightImages == null)
+                {
+                    _bloogletGreenRightImages = new Image[]
+                    {
+                        Properties.Resources.keen6_blooglet_green_right1,
+                        Properties.Resources.keen6_blooglet_green_right2,
+                        Properties.Resources.keen6_blooglet_green_right3,
+                        Properties.Resources.keen6_blooglet_green_right4
+                    };
+                }
+                return _bloogletGreenRightImages;
+            }
+        }
+
+        private static Image[] _bloogletGreenLeftImages;
+
+        public static Image[] BloogletGreenLeftImages
+        {
+            get
+            {
+                if (_bloogletGreenLeftImages == null)
+                {
+                    _bloogletGreenLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen6_blooglet_green_left1,
+                        Properties.Resources.keen6_blooglet_green_left2,
+                        Properties.Resources.keen6_blooglet_green_left3,
+                        Properties.Resources.keen6_blooglet_green_left4
+                    };
+                }
+                return _bloogletGreenLeftImages;
+            }
+        }
+
+        private static Image[] _bloogletGreenStunnedImages;
+
+        public static Image[] BloogletGreenStunnedImages
+        {
+            get
+            {
+                if (_bloogletGreenStunnedImages == null)
+                {
+                    _bloogletGreenStunnedImages = new Image[]
+                    {
+                        Properties.Resources.keen6_blooglet_green_stunned1,
+                        Properties.Resources.keen6_blooglet_green_stunned2,
+                        Properties.Resources.keen6_blooglet_green_stunned3,
+                        Properties.Resources.keen6_blooglet_green_stunned4
+                    };
+                }
+                return _bloogletGreenStunnedImages;
+            }
+        }
+
+        #endregion
+
+        #region Keen 6 Blooglet Yellow
+
+        private static Image[] _bloogletYellowRightImages;
+
+        public static Image[] BloogletYellowRightImages
+        {
+            get
+            {
+                if (_bloogletYellowRightImages == null)
+                {
+                    _bloogletYellowRightImages = new Image[]
+                    {
+                        Properties.Resources.keen6_blooglet_yellow_right1,
+                        Properties.Resources.keen6_blooglet_yellow_right2,
+                        Properties.Resources.keen6_blooglet_yellow_right3,
+                        Properties.Resources.keen6_blooglet_yellow_right4
+                    };
+                }
+                return _bloogletYellowRightImages;
+            }
+        }
+
+        private static Image[] _bloogletYellowLeftImages;
+
+        public static Image[] BloogletYellowLeftImages
+        {
+            get
+            {
+                if (_bloogletYellowLeftImages == null)
+                {
+                    _bloogletYellowLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen6_blooglet_yellow_left1,
+                        Properties.Resources.keen6_blooglet_yellow_left2,
+                        Properties.Resources.keen6_blooglet_yellow_left3,
+                        Properties.Resources.keen6_blooglet_yellow_left4
+                    };
+                }
+                return _bloogletYellowLeftImages;
+            }
+        }
+
+        private static Image[] _bloogletYellowStunnedImages;
+
+        public static Image[] BloogletYellowStunnedImages
+        {
+            get
+            {
+                if (_bloogletYellowStunnedImages == null)
+                {
+                    _bloogletYellowStunnedImages = new Image[]
+                    {
+                        Properties.Resources.keen6_blooglet_yellow_stunned1,
+                        Properties.Resources.keen6_blooglet_yellow_stunned2,
+                        Properties.Resources.keen6_blooglet_yellow_stunned3,
+                        Properties.Resources.keen6_blooglet_yellow_stunned4
+                    };
+                }
+                return _bloogletYellowStunnedImages;
+            }
+        }
+
+        #endregion
+
+        #region Keen 6 Bloog
+
+        private static Image[] _bloogWalkLeftImages;
+
+        public static Image[] BloogWalkLeftImages
+        {
+            get
+            {
+                if (_bloogWalkLeftImages == null)
+                {
+                    _bloogWalkLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen6_bloog_left1,
+                        Properties.Resources.keen6_bloog_left2,
+                        Properties.Resources.keen6_bloog_left3,
+                        Properties.Resources.keen6_bloog_left4
+                    };
+                }
+                return _bloogWalkLeftImages;
+            }
+        }
+
+        private static Image[] _bloogWalkRightImages;
+
+        public static Image[] BloogWalkRightImages
+        {
+            get
+            {
+                if (_bloogWalkRightImages == null)
+                {
+                    _bloogWalkRightImages = new Image[]
+                    {
+                        Properties.Resources.keen6_bloog_right1,
+                        Properties.Resources.keen6_bloog_right2,
+                        Properties.Resources.keen6_bloog_right3,
+                        Properties.Resources.keen6_bloog_right4
+                    };
+                }
+                return _bloogWalkRightImages;
+            }
+        }
+
+        private static Image[] _bloogStunnedImages;
+
+        public static Image[] BloogStunnedImages
+        {
+            get
+            {
+                if (_bloogStunnedImages == null)
+                {
+                    _bloogStunnedImages = new Image[]
+                    {
+                        Properties.Resources.keen6_bloog_stunned1,
+                        Properties.Resources.keen6_bloog_stunned2,
+                        Properties.Resources.keen6_bloog_stunned3,
+                        Properties.Resources.keen6_bloog_stunned4
+                    };
+                }
+                return _bloogStunnedImages;
+            }
+        }
+
+        #endregion
+
+        #region Keen 6 Blooguard
+
+        private static Image[] _blooguardWalkLeftImages;
+
+        public static Image[] BlooguardWalkLeftImages
+        {
+            get
+            {
+                if (_blooguardWalkLeftImages == null)
+                {
+                    _blooguardWalkLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen6_blooguard_left1,
+                        Properties.Resources.keen6_blooguard_left2,
+                        Properties.Resources.keen6_blooguard_left3,
+                        Properties.Resources.keen6_blooguard_left4
+                    };
+                }
+                return _blooguardWalkLeftImages;
+            }
+        }
+
+        private static Image[] _blooguardWalkRightImages;
+
+        public static Image[] BlooguardWalkRightImages
+        {
+            get
+            {
+                if (_blooguardWalkRightImages == null)
+                {
+                    _blooguardWalkRightImages = new Image[]
+                    {
+                        Properties.Resources.keen6_blooguard_right1,
+                        Properties.Resources.keen6_blooguard_right2,
+                        Properties.Resources.keen6_blooguard_right3,
+                        Properties.Resources.keen6_blooguard_right4
+                    };
+                }
+                return _blooguardWalkRightImages;
+            }
+        }
+
+        private static Image[] _blooguardStunnedImages;
+
+        public static Image[] BlooguardStunnedImages
+        {
+            get
+            {
+                if (_blooguardStunnedImages == null)
+                {
+                    _blooguardStunnedImages = new Image[]
+                    {
+                        Properties.Resources.keen6_blooguard_stunned1,
+                        Properties.Resources.keen6_blooguard_stunned2,
+                        Properties.Resources.keen6_blooguard_stunned3,
+                        Properties.Resources.keen6_blooguard_stunned4
+                    };
+                }
+                return _blooguardStunnedImages;
+            }
+        }
+
+
+        private static Image[] _blooguardSmashLeftImages;
+
+        public static Image[] BlooguardSmashLeftImages
+        {
+            get
+            {
+                if (_blooguardSmashLeftImages == null)
+                {
+                    _blooguardSmashLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen6_blooguard_smash_left1,
+                        Properties.Resources.keen6_blooguard_smash_left2,
+                        Properties.Resources.keen6_blooguard_smash_left3
+                    };
+                }
+                return _blooguardSmashLeftImages;
+            }
+        }
+
+        private static Image[] _blooguardSmashRightImages;
+
+        public static Image[] BlooguardSmashRightImages
+        {
+            get
+            {
+                if (_blooguardSmashRightImages == null)
+                {
+                    _blooguardSmashRightImages = new Image[]
+                    {
+                        Properties.Resources.keen6_blooguard_smash_right1,
+                        Properties.Resources.keen6_blooguard_smash_right2,
+                        Properties.Resources.keen6_blooguard_smash_right3
+                    };
+                }
+                return _blooguardSmashRightImages;
+            }
+        }
+
+        #endregion
+
+        #region Keen 6 Bobba
+
+        private static Image[] _bobbaFireBallImages;
+
+        public static Image[] BobbaFireBallImages
+        {
+            get
+            {
+                if (_bobbaFireBallImages == null)
+                {
+                    _bobbaFireBallImages = new Image[]
+                    {
+                        Properties.Resources.keen6_bobba_fireball1,
+                        Properties.Resources.keen6_bobba_fireball2,
+                        Properties.Resources.keen6_bobba_fireball3,
+                        Properties.Resources.keen6_bobba_fireball4
+                    };
+                }
+                return _bobbaFireBallImages;
+            }
+        }
+
+        #endregion
+
+        #region Keen 6 Gix
+
+        private static Image[] _gixMoveLeftImages;
+
+        public static Image[] GixMoveLeftImages
+        {
+            get
+            {
+                if (_gixMoveLeftImages == null)
+                {
+                    _gixMoveLeftImages = new Image[] {
+                        Properties.Resources.keen6_gix_left1,
+                        Properties.Resources.keen6_gix_left2,
+                        Properties.Resources.keen6_gix_left3
+                    };
+                }
+                return _gixMoveLeftImages;
+            }
+        }
+
+        private static Image[] _gixMoveRightImages;
+
+        public static Image[] GixMoveRightImages
+        {
+            get
+            {
+                if (_gixMoveRightImages == null)
+                {
+                    _gixMoveRightImages = new Image[] {
+                        Properties.Resources.keen6_gix_right1,
+                        Properties.Resources.keen6_gix_right2,
+                        Properties.Resources.keen6_gix_right3
+                    };
+                }
+                return _gixMoveRightImages;
+            }
+        }
+
+        private static Image[] _gixSlideLeftImages;
+
+        public static Image[] GixSlideLeftImages
+        {
+            get
+            {
+                if (_gixSlideLeftImages == null)
+                {
+                    _gixSlideLeftImages = new Image[] {
+                        Properties.Resources.keen6_gix_slide_left1,
+                        Properties.Resources.keen6_gix_slide_left2
+                    };
+                }
+                return _gixSlideLeftImages;
+            }
+        }
+
+        private static Image[] _gixSlideRightImages;
+
+        public static Image[] GixSlideRightImages
+        {
+            get
+            {
+                if (_gixSlideRightImages == null)
+                {
+                    _gixSlideRightImages = new Image[] {
+                        Properties.Resources.keen6_gix_slide_right1,
+                        Properties.Resources.keen6_gix_slide_right2
+                    };
+                }
+                return _gixSlideRightImages;
+            }
+        }
+
+        #endregion
+
+        #region Keen 6 Flect
+
+        private static Image[] _flectWalkLeftImages;
+
+        public static Image[] FlectWalkLeftImages
+        {
+            get
+            {
+                if (_flectWalkLeftImages == null)
+                {
+                    _flectWalkLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen6_flect_left1,
+                        Properties.Resources.keen6_flect_left2,
+                        Properties.Resources.keen6_flect_left3,
+                        Properties.Resources.keen6_flect_left4,
+                        Properties.Resources.keen6_flect_left5
+                    };
+                }
+                return _flectWalkLeftImages;
+            }
+        }
+
+
+        private static Image[] _flectWalkRightImages;
+
+        public static Image[] FlectWalkRightImages
+        {
+            get
+            {
+                if (_flectWalkRightImages == null)
+                {
+                    _flectWalkRightImages = new Image[]
+                    {
+                        Properties.Resources.keen6_flect_right1,
+                        Properties.Resources.keen6_flect_right2,
+                        Properties.Resources.keen6_flect_right3,
+                        Properties.Resources.keen6_flect_right4,
+                        Properties.Resources.keen6_flect_right5
+                    };
+                }
+                return _flectWalkRightImages;
+            }
+        }
+
+        private static Image[] _flectStunnedImages;
+
+        public static Image[] FlectStunnedImages
+        {
+            get
+            {
+                if (_flectStunnedImages == null)
+                {
+                    _flectStunnedImages = new Image[]
+                    {
+                        Properties.Resources.keen6_flect_stunned1,
+                        Properties.Resources.keen6_flect_stunned2,
+                        Properties.Resources.keen6_flect_stunned3,
+                        Properties.Resources.keen6_flect_stunned4
+                    };
+                }
+                return _flectStunnedImages;
+            }
+        }
+
+        #endregion
+
+        #region Keen 6 Nospike
+
+        private static Image[] _nospikePatrolLeftImages;
+
+        public static Image[] NospikePatrolLeftImages
+        {
+            get
+            {
+                if (_nospikePatrolLeftImages == null)
+                {
+                    _nospikePatrolLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen6_nospike_patrol_left1,
+                        Properties.Resources.keen6_nospike_patrol_left2,
+                        Properties.Resources.keen6_nospike_patrol_left3,
+                        Properties.Resources.keen6_nospike_patrol_left4
+                    };
+                }
+                return _nospikePatrolLeftImages;
+            }
+        }
+
+        private static Image[] _nospikePatrolRightImages;
+
+        public static Image[] NospikePatrolRightImages
+        {
+            get
+            {
+                if (_nospikePatrolRightImages == null)
+                {
+                    _nospikePatrolRightImages = new Image[]
+                    {
+                        Properties.Resources.keen6_nospike_patrol_right1,
+                        Properties.Resources.keen6_nospike_patrol_right2,
+                        Properties.Resources.keen6_nospike_patrol_right3,
+                        Properties.Resources.keen6_nospike_patrol_right4
+                    };
+                }
+                return _nospikePatrolRightImages;
+            }
+        }
+
+
+        private static Image[] _nospikeChargeLeftImages;
+
+        public static Image[] NospikeChargeLeftImages
+        {
+            get
+            {
+                if (_nospikeChargeLeftImages == null)
+                {
+                    _nospikeChargeLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen6_nospike_charge_left1,
+                        Properties.Resources.keen6_nospike_charge_left2,
+                        Properties.Resources.keen6_nospike_charge_left3,
+                        Properties.Resources.keen6_nospike_charge_left4
+                    };
+                }
+                return _nospikeChargeLeftImages;
+            }
+        }
+
+        private static Image[] _nospikeChargeRightImages;
+
+        public static Image[] NospikeChargeRightImages
+        {
+            get
+            {
+                if (_nospikeChargeRightImages == null)
+                {
+                    _nospikeChargeRightImages = new Image[]
+                    {
+                        Properties.Resources.keen6_nospike_charge_right1,
+                        Properties.Resources.keen6_nospike_charge_right2,
+                        Properties.Resources.keen6_nospike_charge_right3,
+                        Properties.Resources.keen6_nospike_charge_right4
+                    };
+                }
+                return _nospikeChargeRightImages;
+            }
+        }
+
+        private static Image[] _nospikeStunnedImages;
+
+        public static Image[] NospikeStunnedImages
+        {
+            get
+            {
+                if (_nospikeStunnedImages == null)
+                {
+                    _nospikeStunnedImages = new Image[]{
+                        Properties.Resources.keen6_nospike_stunned1,
+                        Properties.Resources.keen6_nospike_stunned2,
+                        Properties.Resources.keen6_nospike_stunned3,
+                        Properties.Resources.keen6_nospike_stunned4
+                    };
+                }
+                return _nospikeStunnedImages;
+            }
+        }
+
+        #endregion
+
+        #region Keen 6 Ceilick
+
+        private static Image[] _ceilickAttackImages;
+
+        public static Image[] CeilickAttackImages
+        {
+            get
+            {
+                if (_ceilickAttackImages == null)
+                {
+                    _ceilickAttackImages = new Image[]{
+                        Properties.Resources.keen6_ceilick_tongue_attack1,
+                        Properties.Resources.keen6_ceilick_tongue_attack2,
+                        Properties.Resources.keen6_ceilick_tongue_attack3,
+                        Properties.Resources.keen6_ceilick_tongue_attack4
+                    };
+                }
+                return _ceilickAttackImages;
+            }
+        }
+
+
+        private static Image[] _ceilickPeakImages;
+
+        public static Image[] CeilickPeakImages
+        {
+            get
+            {
+                if (_ceilickPeakImages == null)
+                {
+                    _ceilickPeakImages = new Image[]{
+                        Properties.Resources.keen6_ceilick_peak_head1,
+                        Properties.Resources.keen6_ceilick_peak_head2,
+                        Properties.Resources.keen6_ceilick_peak_head3,
+                        Properties.Resources.keen6_ceilick_peak_head4,
+                        Properties.Resources.keen6_ceilick_peak_head5,
+                        Properties.Resources.keen6_ceilick_peak_head6,
+                        Properties.Resources.keen6_ceilick_peak_head7
+                    };
+                }
+                return _ceilickPeakImages;
+            }
+        }
+
+        private static Image[] _ceilickStunnedImages;
+
+        public static Image[] CeilickStunnedImages
+        {
+            get
+            {
+                if (_ceilickStunnedImages == null)
+                {
+                    _ceilickStunnedImages = new Image[]{
+                        Properties.Resources.keen6_ceilick_stunned1,
+                        Properties.Resources.keen6_ceilick_stunned2,
+                        Properties.Resources.keen6_ceilick_stunned3,
+                        Properties.Resources.keen6_ceilick_stunned4
+                    };
+                }
+                return _ceilickStunnedImages;
+            }
+        }
+
+        #endregion
+
+        #region Keen 6 Blorb
+        private static Image[] _blorbImages;
+
+        public static Image[] BlorbImages
+        {
+            get
+            {
+                if (_blorbImages == null)
+                {
+                    _blorbImages = new Image[]
+                    {
+                        Properties.Resources.keen6_blorb1,
+                        Properties.Resources.keen6_blorb2
+                    };
+                }
+                return _blorbImages;
+            }
+        }
+        #endregion
+
+        #region Keen 6 Orbatrix
+
+        private static Image[] _orbatrixLookImages;
+
+        public static Image[] OrbatrixLookImages
+        {
+            get
+            {
+                if (_orbatrixLookImages == null)
+                {
+                    _orbatrixLookImages = new Image[]
+                    {
+                        Properties.Resources.keen6_orbatrix_look1,
+                        Properties.Resources.keen6_orbatrix_look2,
+                        Properties.Resources.keen6_orbatrix_look3,
+                        Properties.Resources.keen6_orbatrix_look4,
+                    };
+                }
+                return _orbatrixLookImages;
+            }
+        }
+
+        private static Image[] _orbatrixLookLeftImages;
+
+        public static Image[] OrbatrixLookLeftImages
+        {
+            get
+            {
+                if (_orbatrixLookLeftImages == null)
+                {
+                    _orbatrixLookLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen6_orbatrix_look_left1,
+                        Properties.Resources.keen6_orbatrix_look_left2
+                    };
+                }
+                return _orbatrixLookLeftImages;
+            }
+        }
+
+        private static Image[] _orbatrixLookRightImages;
+
+        public static Image[] OrbatrixLookRightImages
+        {
+            get
+            {
+                if (_orbatrixLookRightImages == null)
+                {
+                    _orbatrixLookRightImages = new Image[]
+                    {
+                        Properties.Resources.keen6_orbatrix_look_right1,
+                        Properties.Resources.keen6_orbatrix_look_right2
+                    };
+                }
+                return _orbatrixLookRightImages;
+            }
+        }
+
+        private static Image[] _orbatrixAttackImages;
+
+        public static Image[] OrbatrixAttackImages
+        {
+            get
+            {
+                if (_orbatrixAttackImages == null)
+                {
+                    _orbatrixAttackImages = new Image[]
+                    {
+                        Properties.Resources.keen6_orbatrix_attack1,
+                        Properties.Resources.keen6_orbatrix_attack2,
+                        Properties.Resources.keen6_orbatrix_attack3,
+                        Properties.Resources.keen6_orbatrix_attack4,
+                    };
+                }
+                return _orbatrixAttackImages;
+            }
+        }
+
+        #endregion
+
+        #region Keen 6 Fleex
+
+        private static Image[] _fleexLookImages;
+
+        public static Image[] FleexLookImages
+        {
+            get
+            {
+                if (_fleexLookImages == null)
+                {
+                    _fleexLookImages = new Image[]
+                    {
+                        Properties.Resources.keen6_fleex_look1,
+                        Properties.Resources.keen6_fleex_look2
+                    };
+                }
+                return _fleexLookImages;
+            }
+        }
+
+
+        private static Image[] _fleexRightImages;
+
+        public static Image[] FleexRightImages
+        {
+            get
+            {
+                if (_fleexRightImages == null)
+                {
+                    _fleexRightImages = new Image[]
+                    {
+                        Properties.Resources.keen6_fleex_right1,
+                        Properties.Resources.keen6_fleex_right2
+                    };
+                }
+                return _fleexRightImages;
+            }
+        }
+
+
+        private static Image[] _fleexLeftImages;
+
+        public static Image[] FleexLeftImages
+        {
+            get
+            {
+                if (_fleexLeftImages == null)
+                {
+                    _fleexLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen6_fleex_left1,
+                        Properties.Resources.keen6_fleex_left2
+                    };
+                }
+                return _fleexLeftImages;
+            }
+        }
+
+
+        private static Image[] _fleexStunnedImages;
+
+        public static Image[] FleexStunnedImages
+        {
+            get
+            {
+                if (_fleexStunnedImages == null)
+                {
+                    _fleexStunnedImages = new Image[]
+                    {
+                        Properties.Resources.keen6_fleex_stunned1,
+                        Properties.Resources.keen6_fleex_stunned2,
+                        Properties.Resources.keen6_fleex_stunned3,
+                        Properties.Resources.keen6_fleex_stunned4
+                    };
+                }
+                return _fleexStunnedImages;
+            }
+        }
+
+        #endregion
         #endregion
 
         #endregion

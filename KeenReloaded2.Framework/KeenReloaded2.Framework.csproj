@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameEntities\Enemies\Bloog.cs" />
     <Compile Include="Enums\CollisionType.cs" />
     <Compile Include="Enums\Direction.cs" />
     <Compile Include="Enums\DoorType.cs" />

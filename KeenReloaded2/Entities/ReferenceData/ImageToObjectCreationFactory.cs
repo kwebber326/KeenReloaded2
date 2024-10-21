@@ -3507,6 +3507,10 @@ namespace KeenReloaded2.Entities.ReferenceData
             #region bip ship
             AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "bip_ship", typeof(BipShip));
             #endregion
+
+            #region bloog
+            AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "bloog_right", typeof(Bloog));
+            #endregion
             #endregion
 
             #endregion
