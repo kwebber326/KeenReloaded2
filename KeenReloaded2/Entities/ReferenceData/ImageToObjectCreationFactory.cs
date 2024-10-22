@@ -3511,6 +3511,20 @@ namespace KeenReloaded2.Entities.ReferenceData
             #region bloog
             AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "bloog_right", typeof(Bloog));
             #endregion
+
+            #region blooglet
+            var bloogletRedProps = GetBloogletAdditionalProperties(Color.Red);
+            AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "blooglet_red", typeof(Blooglet), bloogletRedProps);
+
+            var bloogletBlueProps = GetBloogletAdditionalProperties(Color.Blue);
+            AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "blooglet_blue", typeof(Blooglet), bloogletBlueProps);
+
+            var bloogletGreenProps = GetBloogletAdditionalProperties(Color.Green);
+            AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "blooglet_green", typeof(Blooglet), bloogletGreenProps);
+
+            var bloogletYellowProps = GetBloogletAdditionalProperties(Color.Yellow);
+            AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "blooglet_yellow", typeof(Blooglet), bloogletYellowProps);
+            #endregion
             #endregion
 
             #endregion
@@ -3723,6 +3737,28 @@ namespace KeenReloaded2.Entities.ReferenceData
                 return GemColor.YELLOW;
 
             return GemColor.RED;
+        }
+
+        private static MapMakerObjectProperty[] GetBloogletAdditionalProperties(Color color)
+        {
+            MapMakerObjectProperty[] additionalProperties = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "color",
+                    DataType  = typeof(Color),
+                    Value = color,
+                    Hidden = true
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "holdsItem",
+                    DataType  = typeof(bool),
+                    Value = false,
+                    DisplayName = "Has Gem: "
+                },
+            };
+            return additionalProperties;
         }
 
         private static MapMakerObject GetWeaponObjectFromWeaponsData<TWeapon>(string weaponsPath, string resourceName, out string mapMakerObjectKey)

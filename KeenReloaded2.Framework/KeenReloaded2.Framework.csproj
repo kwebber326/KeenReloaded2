@@ -84,6 +84,7 @@
     <Compile Include="GameEntities\Enemies\Babobba.cs" />
     <Compile Include="GameEntities\Enemies\Berkeloid.cs" />
     <Compile Include="GameEntities\Enemies\Bip.cs" />
+    <Compile Include="GameEntities\Enemies\Blooglet.cs" />
     <Compile Include="GameEntities\Enemies\BlueEagle.cs" />
     <Compile Include="GameEntities\Enemies\BlueEagleEgg.cs" />
     <Compile Include="GameEntities\Enemies\Bounder.cs" />
