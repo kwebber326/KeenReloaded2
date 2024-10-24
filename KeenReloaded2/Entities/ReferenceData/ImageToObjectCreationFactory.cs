@@ -3529,6 +3529,14 @@ namespace KeenReloaded2.Entities.ReferenceData
             #region blooguard
             AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "blooguard", typeof(Blooguard));
             #endregion
+
+            #region blorb
+            AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "blorb", typeof(Blorb));
+            #endregion
+
+            #region bobba
+            AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "keen6_bobba", typeof(Bobba));
+            #endregion
             #endregion
 
             #endregion

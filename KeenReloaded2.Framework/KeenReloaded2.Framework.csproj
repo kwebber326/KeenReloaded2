@@ -86,8 +86,10 @@
     <Compile Include="GameEntities\Enemies\Bip.cs" />
     <Compile Include="GameEntities\Enemies\Blooglet.cs" />
     <Compile Include="GameEntities\Enemies\Blooguard.cs" />
+    <Compile Include="GameEntities\Enemies\Blorb.cs" />
     <Compile Include="GameEntities\Enemies\BlueEagle.cs" />
     <Compile Include="GameEntities\Enemies\BlueEagleEgg.cs" />
+    <Compile Include="GameEntities\Enemies\Bobba.cs" />
     <Compile Include="GameEntities\Enemies\Bounder.cs" />
     <Compile Include="GameEntities\Enemies\DiagonalSlicestar.cs" />
     <Compile Include="GameEntities\Enemies\Dopefish.cs" />
