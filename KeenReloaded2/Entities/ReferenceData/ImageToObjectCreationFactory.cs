@@ -3525,6 +3525,10 @@ namespace KeenReloaded2.Entities.ReferenceData
             var bloogletYellowProps = GetBloogletAdditionalProperties(Color.Yellow);
             AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "blooglet_yellow", typeof(Blooglet), bloogletYellowProps);
             #endregion
+
+            #region blooguard
+            AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "blooguard", typeof(Blooguard));
+            #endregion
             #endregion
 
             #endregion

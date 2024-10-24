@@ -26,7 +26,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         protected const int FALL_VELOCITY = 30;
         protected const int MOVE_VELOCITY = 5;
         protected const int TICKS_BEFORE_CHASING_KEEN = 10;
-        private readonly int _zIndex;
+        protected readonly int _zIndex;
         protected int _currentChaseTick;
         protected CommanderKeen _keen;
         protected Image _intialStunImage = Properties.Resources.keen6_bloog_stunned1;
