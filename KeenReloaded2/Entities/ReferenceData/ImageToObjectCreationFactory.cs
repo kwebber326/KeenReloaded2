@@ -3537,6 +3537,10 @@ namespace KeenReloaded2.Entities.ReferenceData
             #region bobba
             AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "keen6_bobba", typeof(Bobba));
             #endregion
+
+            #region ceilick
+            AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "ceilick", typeof(Ceilick));
+            #endregion
             #endregion
 
             #endregion
