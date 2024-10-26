@@ -107,9 +107,9 @@
             // 
             // btnDone
             // 
-            this.btnDone.Location = new System.Drawing.Point(441, 432);
+            this.btnDone.Location = new System.Drawing.Point(491, 419);
             this.btnDone.Name = "btnDone";
-            this.btnDone.Size = new System.Drawing.Size(99, 47);
+            this.btnDone.Size = new System.Drawing.Size(108, 60);
             this.btnDone.TabIndex = 7;
             this.btnDone.Text = "Done";
             this.btnDone.UseVisualStyleBackColor = true;
@@ -139,7 +139,7 @@
             // 
             this.btnUpdate.Location = new System.Drawing.Point(436, 13);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(104, 65);
+            this.btnUpdate.Size = new System.Drawing.Size(163, 65);
             this.btnUpdate.TabIndex = 10;
             this.btnUpdate.Text = "Update Selected";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -149,7 +149,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(552, 493);
+            this.ClientSize = new System.Drawing.Size(611, 493);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnUp);
             this.Controls.Add(this.btnDown);

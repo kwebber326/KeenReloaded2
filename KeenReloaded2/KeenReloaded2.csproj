@@ -5875,5 +5875,8 @@
   <ItemGroup>
     <None Include="Resources\keen4_arachnut4.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Gems\gem_placeholder_yellow_empty.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

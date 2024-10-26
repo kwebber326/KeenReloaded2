@@ -889,9 +889,6 @@
     <None Include="Resources\gem_placeholder_red_filled.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\gem_placeholder_yellow_empty.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\gem_placeholder_yellow_filled.png" />
   </ItemGroup>
   <ItemGroup>
@@ -5402,6 +5399,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_orbatrix_look4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gem_placeholder_yellow_empty.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

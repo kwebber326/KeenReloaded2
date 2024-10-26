@@ -36,10 +36,13 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             if (index == _ordinalPosition)
             {
                 this.BorderStyle = BorderStyle.Fixed3D;
+                this.BackColor = Color.Gold;
+                this.BringToFront();
             }
             else
             {
                 this.BorderStyle = BorderStyle.None;
+                this.BackColor = Color.Transparent;
             }
         }
 

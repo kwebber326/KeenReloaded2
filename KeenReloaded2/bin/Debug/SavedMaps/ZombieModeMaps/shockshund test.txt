@@ -49,6 +49,6 @@ keen5_floor_red_middle|1161|598|48|64|10
 keen5_floor_red_middle|1209|598|48|64|10
 keen5_floor_red_middle|1257|598|48|64|10
 keen5_floor_red_edge_right|1305|598|52|64|10
-keen5_shockshund_look1|1201|574|48|32|25
 keen_dreams_boobus_bomb2|415|554|30|30|50|50
-keen5_shockshund_look1|1274|569|48|32|25
+keen5_shockshund_look1|1248|555|48|32|25
+keen5_shockshund_look1|1174|540|48|32|25
