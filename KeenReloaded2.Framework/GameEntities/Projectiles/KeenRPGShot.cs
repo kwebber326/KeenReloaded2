@@ -33,6 +33,12 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             _shotCompleteSprites = new Image[]{
 
             };
+            SetImageBasedOnDirection();
+            _sprite = _shotSprites[0];
+        }
+
+        private void SetImageBasedOnDirection()
+        {
             switch (this.Direction)
             {
                 case Enums.Direction.RIGHT:
@@ -64,7 +70,6 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     };
                     break;
             }
-            _sprite = _shotSprites[0];
         }
 
         public void Explode()
@@ -78,6 +83,19 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 ObjectSprite = explosion
             };
             OnCreate(e);
+        }
+
+        public override Direction Direction
+        {
+            get
+            {
+                return base.Direction;
+            }
+            set
+            {
+                base.Direction = value;
+                SetImageBasedOnDirection();
+            }
         }
 
         public override void Update()

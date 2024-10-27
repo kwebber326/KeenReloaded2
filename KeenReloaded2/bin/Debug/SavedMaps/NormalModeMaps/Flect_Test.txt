@@ -27,3 +27,6 @@ keen6_dome_platform_single|497|298|32|40|10
 keen6_dome_platform_single|465|298|32|40|10
 keen6_flect_look|200|382|42|60|25
 keen6_flect_look|881|378|42|60|25
+keen5_background_omegamatic_blue1|0|0|1500|1500|keen5_background_omegamatic_blue1.png|True|0
+neural_stunner_shotgun|547|361|53|22|50|5
+neural_stunner_rocket_launcher1|548|395|55|26|50|5

@@ -384,7 +384,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             }
         }
 
-        public Enums.Direction Direction
+        public virtual Enums.Direction Direction
         {
             get;
             set;
