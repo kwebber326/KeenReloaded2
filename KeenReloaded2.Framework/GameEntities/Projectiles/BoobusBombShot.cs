@@ -401,13 +401,13 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             {
                 if (_fallVelocity > 0)
                 {
-                    var landingTile = collisions.OrderBy(c => c.HitBox.Top).FirstOrDefault();
+                    var landingTile = currentCollisions.OrderBy(c => c.HitBox.Top).FirstOrDefault();
                     this.HitBox = new Rectangle(this.HitBox.X, landingTile.HitBox.Top - this.HitBox.Height - 1, this.HitBox.Width, this.HitBox.Height);
                     _fallVelocity = GetImpactVelocityVertical(_fallVelocity);
                 }
                 else
                 {
-                    var topTile = collisions.OrderByDescending(c => c.HitBox.Bottom).FirstOrDefault();
+                    var topTile = currentCollisions.OrderByDescending(c => c.HitBox.Bottom).FirstOrDefault();
                     this.HitBox = new Rectangle(this.HitBox.X, topTile.HitBox.Bottom + 1, this.HitBox.Width, this.HitBox.Height);
                     _fallVelocity = GetImpactVelocityVertical(_fallVelocity);
                 }

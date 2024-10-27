@@ -3545,6 +3545,10 @@ namespace KeenReloaded2.Entities.ReferenceData
             #region flect
             AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "flect", typeof(Flect));
             #endregion
+
+            #region fleex
+            AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "fleex", typeof(Fleex));
+            #endregion
             #endregion
 
             #endregion

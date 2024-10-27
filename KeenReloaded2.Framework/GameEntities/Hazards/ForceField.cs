@@ -147,15 +147,22 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
 
         public override void Die()
         {
+
         }
 
         public override void TakeDamage(int damage)
         {
+            if (this.IsDead())
+                return;
+
             _barrier.TakeDamage(damage);
         }
 
         public override void TakeDamage(IProjectile projectile)
         {
+            if (this.IsDead())
+                return;
+
             var collisionObject = (CollisionObject)projectile;
             if (collisionObject.HitBox.Bottom > _barrier.HitBox.Top && collisionObject.HitBox.Top < _barrier.HitBox.Bottom)
                 _barrier.TakeDamage(projectile);
@@ -369,9 +376,13 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             };
             foreach (var node in _collidingNodes)
             {
-                node.Tiles.Remove(_collisionTile);
-                node.NonEnemies.Remove(_collisionTile);
-                node.Objects.Remove(_collisionTile);
+                var collisionObj = obj as CollisionObject;
+                if (collisionObj != null)
+                {
+                    node.Tiles.Remove(collisionObj);
+                    node.NonEnemies.Remove(collisionObj);
+                    node.Objects.Remove(collisionObj);
+                }
             }
             this.Remove?.Invoke(this, eventArgs);
             _collisionTile = null;

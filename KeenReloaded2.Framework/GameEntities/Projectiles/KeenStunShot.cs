@@ -75,7 +75,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             if (_mostRecentDeflector == obj)
                 return;
 
-            if (obj.CollisionType == CollisionType.BLOCK)
+            if (obj.CollisionType == CollisionType.BLOCK && !(obj is ForceFieldBarrier))
             {
                 StopAtCollisionObject(obj);
             }
@@ -134,7 +134,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     StopAtCollisionObject(obj);
                 }
             }
-            else if (obj is CommanderKeen)
+            else if (obj is CommanderKeen && _deflected)
             {
                 var keen = (CommanderKeen)obj;
                 keen.Stun();
