@@ -32,11 +32,49 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         private HashSet<IEnemy> _hitObjects = new HashSet<IEnemy>();
         private HashSet<CommanderKeen> _hitKeens = new HashSet<CommanderKeen>();
+        private IDeflector _mostRecentDeflector;
+        private const int DEFLECTION_LIMIT = 20;
+        private int _currentDeflectionCount = 0;
+        private bool _deflected;
 
-        private bool _updatedOnDeflection;
+        protected virtual void ChangeHorizontalLocationFromDeflection(CollisionObject deflectingObject)
+        {
+            this.Direction = this.ChangeHorizontalDirection(this.Direction);
+            //upon deflection, reset the hitbox to no longer collide with the deflecting object
+            if (this.IsLeftDirection(this.Direction))
+            {
+                this.HitBox = new Rectangle(deflectingObject.HitBox.Left - this.HitBox.Width - 1,
+                    this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
+            }
+            else
+            {
+                this.HitBox = new Rectangle(deflectingObject.HitBox.Right + 1, this.HitBox.Y,
+                    this.HitBox.Width, this.HitBox.Height);
+            }
+        }
+
+        protected virtual void ChangeVerticalLocationFromDeflection(CollisionObject deflectingObject)
+        {
+            this.Direction = this.ChangeVerticalDirection(this.Direction);
+            //upon deflection, reset the hitbox to no longer collide with the deflecting object
+            if (this.IsUpDirection(this.Direction))
+            {
+                this.HitBox = new Rectangle(this.HitBox.X,
+                    deflectingObject.HitBox.Top - this.HitBox.Height - 1,
+                    this.HitBox.Width, this.HitBox.Height);
+            }
+            else
+            {
+                this.HitBox = new Rectangle(this.HitBox.X, deflectingObject.HitBox.Bottom + 1,
+                    this.HitBox.Width, this.HitBox.Height);
+            }
+        }
 
         protected void HandleCollision(CollisionObject obj)
         {
+            if (_mostRecentDeflector == obj)
+                return;
+
             if (obj.CollisionType == CollisionType.BLOCK)
             {
                 StopAtCollisionObject(obj);
@@ -46,74 +84,36 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 var enemy = (IEnemy)obj;
                 if (enemy.IsActive)
                 {
-                    if (obj is IDeflector && !_deflected)
+                    if (obj is IDeflector && _currentDeflectionCount < DEFLECTION_LIMIT)
                     {
                         var deflector = (IDeflector)obj;
 
                         if (deflector.DeflectsHorizontally && this.IsHorizontalDirection(this.Direction))
                         {
-                            if (!_updatedOnDeflection)
-                            {
-                                SetLocationByCollision(obj);
-                                this.Direction = ChangeHorizontalDirection(this.Direction);
-                                _deflected = true;
-                                this.Update();
-                                this.UpdateCollisionNodes(Enums.Direction.DOWN_LEFT);
-                                this.UpdateCollisionNodes(Enums.Direction.UP_RIGHT);
-                                _updatedOnDeflection = true;
-                                return;
-                            }
+                            ChangeHorizontalLocationFromDeflection(obj);
+                            _mostRecentDeflector = deflector;
+                            _currentDeflectionCount++;
+                            _deflected = true;
+                            this.Update();
+                            this.UpdateCollisionNodes(Enums.Direction.DOWN_LEFT);
+                            this.UpdateCollisionNodes(Enums.Direction.UP_RIGHT);
+
+                            return;
+
                         }
                         else if (deflector.DeflectsVertically && this.IsVerticalDirection(this.Direction))
                         {
-                            if (!_updatedOnDeflection)
-                            {
-                                SetLocationByCollision(obj);
-                                this.Direction = this.ChangeVerticalDirection(this.Direction);
-                                _deflected = true;
-                                this.Update();
-                                this.UpdateCollisionNodes(Enums.Direction.DOWN_LEFT);
-                                this.UpdateCollisionNodes(Enums.Direction.UP_RIGHT);
-                                return;
-                            }
+                            ChangeVerticalLocationFromDeflection(obj);
+                            _mostRecentDeflector = deflector;
+                            _currentDeflectionCount++;
+                            _deflected = true;
+                            this.Update();
+                            this.UpdateCollisionNodes(Enums.Direction.DOWN_LEFT);
+                            this.UpdateCollisionNodes(Enums.Direction.UP_RIGHT);
+                            return;
                         }
                     }
-                    else if (obj is IDeflector && _deflected)
-                    {
-                        var deflector = (IDeflector)obj;
-                        if (deflector.DeflectsHorizontally && this.IsHorizontalDirection(this.Direction))
-                        {
-                            if (!_updatedOnDeflection)
-                            {
-                                this.Update();
-                                this.UpdateCollisionNodes(Enums.Direction.DOWN_LEFT);
-                                this.UpdateCollisionNodes(Enums.Direction.UP_RIGHT);
-                                _updatedOnDeflection = true;
-                                return;
-                            }
-                            else
-                            {
-                                _updatedOnDeflection = false;
-                                return;
-                            }
-                        }
-                        else if (deflector.DeflectsVertically && this.IsVerticalDirection(this.Direction))
-                        {
-                            if (!_updatedOnDeflection)
-                            {
-                                this.Update();
-                                this.UpdateCollisionNodes(Enums.Direction.DOWN_LEFT);
-                                this.UpdateCollisionNodes(Enums.Direction.UP_RIGHT);
-                                _updatedOnDeflection = true;
-                                return;
-                            }
-                            else
-                            {
-                                _updatedOnDeflection = false;
-                                return;
-                            }
-                        }
-                    }
+                
                     if (!_hitObjects.Contains(enemy))
                     {
                         enemy.HandleHit(this);
@@ -134,7 +134,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     StopAtCollisionObject(obj);
                 }
             }
-            else if (_deflected && obj is CommanderKeen)
+            else if (obj is CommanderKeen)
             {
                 var keen = (CommanderKeen)obj;
                 keen.Stun();
@@ -257,7 +257,6 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         private int _currentSpriteDelay = 0;
 
         protected bool _shotComplete;
-        protected bool _deflected;
         private Point _location;
 
         public event EventHandler ObjectComplete;
@@ -457,7 +456,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 var areaToCheck = GetAreaToCheckForCollision();
                 var collisionObjects = this.CheckCollision(areaToCheck);
                 var debugTiles = collisionObjects.Where(c => c.CollisionType == CollisionType.BLOCK);
-                var enemies = collisionObjects.OfType<IEnemy>().Where(i => i.IsActive).ToList();
+                var enemies = collisionObjects.OfType<IEnemy>().Where(i => i.IsActive && i != _mostRecentDeflector).ToList();
                 var cancellables = collisionObjects.OfType<ICancellableProjectile>().OfType<CollisionObject>().ToList();
                 var itemsToCheck = new List<CollisionObject>();
                 itemsToCheck.AddRange(debugTiles);
@@ -476,7 +475,6 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                             }
                         }
                     }
-
                 }
                 foreach (var enemy in enemies)
                 {
@@ -489,7 +487,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 }
                 if (itemsToCheck.Any())
                 {
-                    HandleCollisionByDirection(collisionObjects);
+                    HandleCollisionByDirection(itemsToCheck);
                 }
                 else
                 {

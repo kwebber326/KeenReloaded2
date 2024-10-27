@@ -3541,6 +3541,10 @@ namespace KeenReloaded2.Entities.ReferenceData
             #region ceilick
             AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "ceilick", typeof(Ceilick));
             #endregion
+
+            #region flect
+            AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "flect", typeof(Flect));
+            #endregion
             #endregion
 
             #endregion
