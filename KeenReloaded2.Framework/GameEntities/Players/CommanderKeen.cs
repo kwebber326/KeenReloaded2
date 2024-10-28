@@ -1032,17 +1032,24 @@ namespace KeenReloaded2.Framework.GameEntities.Players
 
         public void MoveKeenToPosition(Point p, CollisionObject collidingObject)
         {
+            if (this.MoveState == MoveState.ENTERING_DOOR)
+                return; 
+
             Rectangle areaToCheck = new Rectangle(p, this.HitBox.Size);
+            Point previousDir = this.HitBox.Location;
             var collisions = this.CheckCollision(areaToCheck, true);
             collisions = collisions.Where(c => !(c.CollisionType == CollisionType.PLATFORM) && c != collidingObject).ToList();
             if (!collisions.Any())
             {
                 Rectangle previousPos = this.HitBox;
                 this.HitBox = areaToCheck;
+                //update original standing hitbox of looking down
                 if (_originalStandingHitbox != null)
                 {
                     _originalStandingHitbox = new Rectangle(this.HitBox.X, _originalStandingHitbox.Value.Y, _originalStandingHitbox.Value.Width, _originalStandingHitbox.Value.Height);
+                    _originalStandingHitbox = new Rectangle(_originalStandingHitbox.Value.X, _originalStandingHitbox.Value.Y - (previousDir.Y - this.HitBox.Y), _originalStandingHitbox.Value.Width, _originalStandingHitbox.Value.Height);
                 }
+
                 if (p.X < previousPos.X)
                 {
                     this.UpdateCollisionNodes(Enums.Direction.LEFT);

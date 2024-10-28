@@ -39,7 +39,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         private const int MIN_HORIZONTAL_VELOCITY = 10;
         private const int INITIAL_VERTICAL_VELOCITY_ON_JUMP = 15;
         private int _currentVerticalVelocity, _currentHorizontalVelocity;
-        private const int JUMP_VISION_RANGE_WIDTH = 150, JUMP_VISION_RANGE_HEIGHT = 60;
+        private const int JUMP_VISION_RANGE_WIDTH = 150, JUMP_VISION_RANGE_HEIGHT = 40;
         private const int SLIDE_VELOCITY = 20;
         private const int SLIDE_HIT_TIME = 3;
         private int _slideHitTick;
