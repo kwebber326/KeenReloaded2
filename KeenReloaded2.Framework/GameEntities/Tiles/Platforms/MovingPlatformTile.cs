@@ -14,7 +14,6 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
     public class MovingPlatformTile : MaskedTile
     {
         private CommanderKeen _keen;
-
         public MovingPlatformTile(SpaceHashGrid grid, Rectangle hitbox, string imageFile, int zIndex)
             : base(hitbox, grid, hitbox, imageFile, zIndex)
         {
@@ -43,13 +42,23 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             _keen = null;
         }
 
+        public void UnassignKeen(CommanderKeen keen)
+        {
+            if (_keen == keen)
+            {
+                UnassignKeen();
+            }
+        }
+
         private bool KeenIsStandingOnThis()
         {
             if (_keen != null)
             {
+                Rectangle keenYIntersectArea = new Rectangle(_keen.HitBox.X, _keen.HitBox.Bottom - 4, _keen.HitBox.Width, 8);
+                Rectangle thisYIntersectArea = new Rectangle(this.HitBox.X, this.HitBox.Top, this.HitBox.Width, 4);
                 bool xIntersect = _keen.HitBox.Left < this.HitBox.Right && _keen.HitBox.Right > this.HitBox.Left;
                 var platform = this.AssociatedObject as SetPathPlatform;
-                bool yStanding = (_keen.HitBox.Bottom == this.HitBox.Top - 1);
+                bool yStanding = keenYIntersectArea.IntersectsWith(thisYIntersectArea);
                 bool isStanding = xIntersect && yStanding;
 
                 return isStanding;

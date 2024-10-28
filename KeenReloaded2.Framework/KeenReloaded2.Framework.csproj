@@ -96,6 +96,7 @@
     <Compile Include="GameEntities\Enemies\Dopefish.cs" />
     <Compile Include="GameEntities\Enemies\Flect.cs" />
     <Compile Include="GameEntities\Enemies\Fleex.cs" />
+    <Compile Include="GameEntities\Enemies\Gix.cs" />
     <Compile Include="GameEntities\Enemies\GnosticeneAncient.cs" />
     <Compile Include="GameEntities\Enemies\GnosticeneAncientItemDestroyer.cs" />
     <Compile Include="GameEntities\Enemies\HorizontalSlicestar.cs" />

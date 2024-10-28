@@ -161,7 +161,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     weaponSet[i] = new SnakeGun(_collisionGrid, new Rectangle(weaponSet[i].HitBox.Location, weaponSet[i].HitBox.Size), weaponSet[i].Ammo);
                 }
                 RegisterProjectileEvents(weaponSet[i]);
-                //OnKeenAcquiredWeapon(new WeaponAcquiredEventArgs() { Weapon = weaponSet[i] });
+
                 _weapons.Add(weaponSet[i]);
             }
             this.CurrentWeapon = _weapons[0];
@@ -256,17 +256,11 @@ namespace KeenReloaded2.Framework.GameEntities.Players
 
         protected void UpdateSprite()
         {
-            //if (_sprite == null)
-            //{
-            //    _sprite = new PictureBox();
-            //    _sprite.Location = this.HitBox.Location;
-            //    _sprite.SizeMode = PictureBoxSizeMode.AutoSize;
-            //}
             if (!IsDead())
             {
                 if (_isLookingUp)
                 {
-                    _sprite = _keenLookUp; //Properties.Resources.keen_look_up;
+                    _sprite = _keenLookUp; 
                     if (IsFiring)
                         UpdateShootSprite();
                 }
@@ -276,7 +270,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 }
                 else if (_togglingSwitch)
                 {
-                    _sprite = _keenEnterDoor1; //Properties.Resources.keen_enter_door1;
+                    _sprite = _keenEnterDoor1; 
                 }
                 else
                 {
@@ -293,7 +287,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     }
                     if (this.MoveState == Enums.MoveState.STUNNED)
                     {
-                        _sprite = _keenStunned; //Properties.Resources.keen_stunned;
+                        _sprite = _keenStunned; 
                         return;
                     }
 
@@ -302,7 +296,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                         case Enums.Direction.RIGHT:
                             if (this.MoveState == MoveState.STANDING)
                             {
-                                _sprite = _keenStandright; //Properties.Resources.keen_stand_right;
+                                _sprite = _keenStandright;
                             }
                             else if (this.MoveState == Enums.MoveState.RUNNING)
                             {
@@ -311,15 +305,15 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                             }
                             else if (this.MoveState == Enums.MoveState.FALLING)
                             {
-                                _sprite = _keenFallRight; //Properties.Resources.keen_fall_right;
+                                _sprite = _keenFallRight; 
                             }
                             else if (this.MoveState == Enums.MoveState.JUMPING)
                             {
-                                _sprite = _keenJumpRight1; //Properties.Resources.keen_jump_right1;
+                                _sprite = _keenJumpRight1; 
                             }
                             else if (this.MoveState == Enums.MoveState.HANGING)
                             {
-                                _sprite = _keenHangRight; //Properties.Resources.keen_hang_right;
+                                _sprite = _keenHangRight;
                             }
                             else if (this.MoveState == Enums.MoveState.CLIMBING)
                             {
@@ -340,7 +334,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                             break;
                         case Enums.Direction.LEFT:
                             if (this.MoveState == MoveState.STANDING)
-                                _sprite = _keenStandLeft;//Properties.Resources.keen_stand_left;
+                                _sprite = _keenStandLeft;
                             else if (this.MoveState == Enums.MoveState.RUNNING)
                             {
                                 _sprite = _keenRunLeftSprites[_currentRunImage];
@@ -348,15 +342,15 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                             }
                             else if (this.MoveState == Enums.MoveState.FALLING)
                             {
-                                _sprite = _keenFallLeft;//Properties.Resources.keen_fall_left;
+                                _sprite = _keenFallLeft;
                             }
                             else if (this.MoveState == Enums.MoveState.JUMPING)
                             {
-                                _sprite = _keenJumpLeft1;//Properties.Resources.keen_jump_left1;
+                                _sprite = _keenJumpLeft1;
                             }
                             else if (this.MoveState == Enums.MoveState.HANGING)
                             {
-                                _sprite = _keenHangLeft;//Properties.Resources.keen_hang_left;
+                                _sprite = _keenHangLeft;
                             }
                             else if (this.MoveState == Enums.MoveState.CLIMBING)
                             {
@@ -417,7 +411,9 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         private int GetTopMostLandingPlatformYPos(List<CollisionObject> collisionObjects)
         {
             List<CollisionObject> items = collisionObjects  //added bounder
-                .Where(c => c.CollisionType == CollisionType.KEEN_ONLY_PLATFORM || c.CollisionType == CollisionType.BLOCK || ((c.CollisionType == CollisionType.PLATFORM || c.CollisionType == CollisionType.POLE_TILE) && c.HitBox.Top >= this.HitBox.Bottom)//PLATFORM CODE
+                .Where(c => (c.CollisionType == CollisionType.KEEN_ONLY_PLATFORM && c.HitBox.Top > this.HitBox.Bottom) 
+                        || c.CollisionType == CollisionType.BLOCK || ((c.CollisionType == CollisionType.PLATFORM 
+                        || c.CollisionType == CollisionType.POLE_TILE) && c.HitBox.Top >= this.HitBox.Bottom)//PLATFORM CODE
                         || (c.CollisionType == CollisionType.KEEN6_SWITCH && !((Keen6Switch)c).IsActive))//keen6 switch ode
                 .ToList();
             if (!items.Any())
@@ -716,13 +712,6 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         {
             Random random = new Random();
             int imgNum = random.Next(1, 3);
-
-            //if (_sprite == null)
-            //{
-            //    _sprite = new PictureBox();
-            //    _sprite.Location = this.HitBox.Location;
-            //    _sprite.SizeMode = PictureBoxSizeMode.AutoSize;
-            //}
 
             if (imgNum == 1)
             {
@@ -1050,6 +1039,10 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             {
                 Rectangle previousPos = this.HitBox;
                 this.HitBox = areaToCheck;
+                if (_originalStandingHitbox != null)
+                {
+                    _originalStandingHitbox = new Rectangle(this.HitBox.X, _originalStandingHitbox.Value.Y, _originalStandingHitbox.Value.Width, _originalStandingHitbox.Value.Height);
+                }
                 if (p.X < previousPos.X)
                 {
                     this.UpdateCollisionNodes(Enums.Direction.LEFT);
@@ -1437,7 +1430,6 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             var landingTiles = collisions.Where(h => (h.CollisionType == CollisionType.BLOCK 
             || h.CollisionType == CollisionType.PLATFORM 
             || h.CollisionType == CollisionType.KEEN_ONLY_PLATFORM 
-            || h.CollisionType == CollisionType.POLE 
             || h.CollisionType == CollisionType.POLE_TILE 
             || h.CollisionType == CollisionType.KEEN6_SWITCH)
                 && h.HitBox.Top >= this.HitBox.Top);
@@ -2238,50 +2230,50 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 case Enums.MoveState.FALLING:
                     if (IsKeyPressed(KEY_UP))
                     {
-                        _sprite = _keenShootUpAerial; //Properties.Resources.keen_shoot_up_aerial;
+                        _sprite = _keenShootUpAerial;
                     }
                     else if (IsKeyPressed(KEY_DOWN))
                     {
-                        _sprite = _keenShootDownAerial; //Properties.Resources.keen_shoot_down_aerial;
+                        _sprite = _keenShootDownAerial; 
                     }
                     else
                     {
                         _sprite = this.Direction == Enums.Direction.LEFT
-                            ? _keenShootLeftAerial//Properties.Resources.keen_shoot_left_aerial 
-                            : _keenShootRightAerial;//Properties.Resources.keen_shoot_right_aerial;
+                            ? _keenShootLeftAerial
+                            : _keenShootRightAerial;
                     }
                     break;
                 case Enums.MoveState.RUNNING:
                 case Enums.MoveState.STANDING:
                     if (_isLookingUp)
                     {
-                        _sprite = _keenShootUp;//Properties.Resources.keen_shoot_up;
+                        _sprite = _keenShootUp;
                     }
                     else
                     {
                         _sprite = this.Direction == Enums.Direction.LEFT
-                            ? _keenShootLeft//Properties.Resources.keen_shoot_left_standing 
-                            : _keenShootRight; //Properties.Resources.keen_shoot_right_standing;
+                            ? _keenShootLeft 
+                            : _keenShootRight; 
                     }
                     break;
                 case Enums.MoveState.ON_POLE:
                     if (IsKeyPressed(KEY_DOWN))
                     {
                         _sprite = this.Direction == Enums.Direction.LEFT
-                            ? _keenShootDownLeftPole//Properties.Resources.keen_shoot_down_pole_left 
-                            : _keenShootDownRightPole; //Properties.Resources.keen_shoot_down_pole_right;
+                            ? _keenShootDownLeftPole
+                            : _keenShootDownRightPole; 
                     }
                     else if (IsKeyPressed(KEY_UP))
                     {
                         _sprite = this.Direction == Enums.Direction.LEFT
-                            ? _keenShootUpLeftPole//Properties.Resources.keen_shoot_up_pole_left 
-                            : _keenShootUpRightPole; //Properties.Resources.keen_shoot_up_pole_right;
+                            ? _keenShootUpLeftPole
+                            : _keenShootUpRightPole; 
                     }
                     else
                     {
                         _sprite = this.Direction == Enums.Direction.LEFT
-                            ? _keenShootPoleLeft//Properties.Resources.keen_shoot_left_pole 
-                            : _keenShootPoleRight;//Properties.Resources.keen_shoot_right_pole;
+                            ? _keenShootPoleLeft
+                            : _keenShootPoleRight;
                     }
                     break;
             }
@@ -2341,7 +2333,6 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 switch (_currentLookDownSprite)
                 {
                     case 0:
-                        // this.HitBox = new Rectangle(_originalStandingHitbox.Value.X, _originalStandingHitbox.Value.Y + 10, _originalStandingHitbox.Value.Width, _originalStandingHitbox.Value.Height - 10);
                         this.HitBox = new Rectangle(this.HitBox.X, this.HitBox.Y + 10, _originalStandingHitbox.Value.Width, _originalStandingHitbox.Value.Height - 10);
                         break;
                     case 1:
@@ -2359,16 +2350,27 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     int newY = lowestTile.HitBox.Bottom + 1;
                     this.HitBox = new Rectangle(this.HitBox.X, newY, this.HitBox.Width, this.HitBox.Height);
                     this.UpdateCollisionNodes(Direction.DOWN);
+
                     //if we bump our head on the ceiling while riding on a conveyer belt,
                     //we are essentially sandwiched between the converyer belt, so it should
                     //result in death
-                    var squashDebugTiles = this.CheckCollision(this.HitBox, true);
+                    var squashDebugTiles = this.CheckCollision(this.HitBox);
                     bool isSquashed = squashDebugTiles
                         .Any(c => c.CollisionType == CollisionType.CONVEYOR_BELT 
                         && c.HitBox.Top < this.HitBox.Bottom - 2);
                     if (isSquashed)
                     {
                         this.Die();
+                    }
+                    //alternatively, we should unassign the player from moving platform tiles
+                    //in the event of a squish between a block and said platform tile
+                    var movingPlatformTiles = squashDebugTiles.OfType<MovingPlatformTile>();
+                    if (movingPlatformTiles.Any())
+                    {
+                        foreach (var tile in movingPlatformTiles)
+                        {
+                            tile.UnassignKeen(this);
+                        }
                     }
                 }
             }
@@ -2590,7 +2592,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                  || this.MoveState == Enums.MoveState.ON_POLE)
                 {
                     _currentPoleHangDelayTick = this.MoveState == Enums.MoveState.ON_POLE ? POLE_HANG_DELAY : 0;
-                    Rectangle areaToCheck = this.HitBox; //new Rectangle(this.HitBox.X + 5, this.HitBox.Y + 20, this.HitBox.Width - 10, this.HitBox.Height - 20);
+                    Rectangle areaToCheck = this.HitBox;
                     var collisionItems = this.CheckCollision(areaToCheck).OfType<Pole>();
 
                     if (collisionItems.Any())
@@ -2701,17 +2703,10 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 int checkCollideXLimit = -1;
                 if (wallTiles.Any())
                 {
-                    //foreach (var c in collisionItems)
-                    //{
-                    //    this.HandleCollision(c);
-                    //}
-                    //if (this.MoveState == Enums.MoveState.RUNNING)
-                    //{
                     int xPos = wallTiles.Select(c => c.HitBox.Right).Max() + 1;
                     checkCollideXLimit = xPos;
                     Point collideP = new Point(xPos, this.HitBox.Y);
                     this.HitBox = new Rectangle(collideP, this.HitBox.Size);
-                    //}
                 }
                 else if (!_beingPushedRight)
                 {

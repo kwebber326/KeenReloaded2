@@ -3549,6 +3549,10 @@ namespace KeenReloaded2.Entities.ReferenceData
             #region fleex
             AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "fleex", typeof(Fleex));
             #endregion
+
+            #region gix
+            AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "gix", typeof(Gix));
+            #endregion
             #endregion
 
             #endregion
