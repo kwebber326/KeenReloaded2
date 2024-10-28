@@ -109,6 +109,7 @@
     <Compile Include="GameEntities\Enemies\Mimrock.cs" />
     <Compile Include="GameEntities\Enemies\NoSpike.cs" />
     <Compile Include="GameEntities\Enemies\NoSpikeQuestionMark.cs" />
+    <Compile Include="GameEntities\Enemies\Orbatrix.cs" />
     <Compile Include="GameEntities\Enemies\PoisonSlug.cs" />
     <Compile Include="GameEntities\Enemies\RoboRed.cs" />
     <Compile Include="GameEntities\Enemies\Schoolfish.cs" />

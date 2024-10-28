@@ -3557,6 +3557,10 @@ namespace KeenReloaded2.Entities.ReferenceData
             #region nospike
             AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "nospike", typeof(NoSpike));
             #endregion
+
+            #region orbatrix
+            AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "orbatrix", typeof(Orbatrix));
+            #endregion
             #endregion
 
             #endregion
