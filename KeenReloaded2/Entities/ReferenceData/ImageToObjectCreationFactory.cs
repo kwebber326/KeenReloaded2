@@ -3553,6 +3553,10 @@ namespace KeenReloaded2.Entities.ReferenceData
             #region gix
             AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "gix", typeof(Gix));
             #endregion
+
+            #region nospike
+            AddSimpleGameObject(backgroundReferenceData, keen6EnemyFiles, "nospike", typeof(NoSpike));
+            #endregion
             #endregion
 
             #endregion

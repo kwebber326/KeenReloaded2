@@ -36,9 +36,9 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             _originalWidth = area.Width;
         }
 
-        public override void HandleHit(IProjectile trajectory)
+        public override void HandleHit(IProjectile projectile)
         {
-            base.HandleHit(trajectory);
+            base.HandleHit(projectile);
 
             if (this.Health > 0)
             {
