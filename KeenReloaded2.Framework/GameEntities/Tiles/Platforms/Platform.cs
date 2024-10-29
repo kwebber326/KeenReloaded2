@@ -12,10 +12,9 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
 {
-    public abstract class Platform : CollisionObject, IUpdatable, ISprite
+    public abstract class Platform : MovingPlatformTile, IUpdatable, ISprite
     {
         protected PlatformType _type;
-        private Image _sprite;
         protected CommanderKeen _keen;
         protected int _moveVelocity = 5;
         protected int _acceleration = 10;
@@ -25,50 +24,19 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
 
         protected Image[] _images;
         protected readonly Guid _activationId;
-        protected readonly int _zIndex;
 
         public Platform(SpaceHashGrid grid, Rectangle hitbox, PlatformType type, int zIndex, Guid activationId)
-            : base(grid, hitbox)
+            : base(grid, hitbox, null, zIndex)
         {
-            _zIndex = zIndex;
             _type = type;
             _activationId = activationId;
             this.HitBox = hitbox;
             Initialize();
         }
 
-        public void AssignKeen(CommanderKeen keen)
-        {
-            _keen = keen;
-            _keen.KeenMoved += new EventHandler(_keen_KeenMoved);
-        }
-
-        void _keen_KeenMoved(object sender, EventArgs e)
-        {
-            if (_keen != null && (_keen.IsDead() || _keen.MoveState == Enums.MoveState.ON_POLE || !IsKeenStandingOnPlatform()))
-            {
-                UnassignKeen();
-            }
-        }
-
-        private void UnassignKeen()
-        {
-            _keen.KeenMoved -= _keen_KeenMoved;
-            _keen = null;
-        }
-
-        public void UnassignKeen(CommanderKeen keen)
-        {
-            if (_keen == keen)
-            {
-                UnassignKeen();
-            }
-        }
-
         protected virtual void Initialize()
         {
             SetInitialSprite();
-            this.HitBox = new Rectangle(this.HitBox.X, this.HitBox.Y + (_sprite.Height / 2), _sprite.Width, _sprite.Height / 2);
         }
 
         protected void SetInitialSprite()
@@ -76,28 +44,28 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             switch (_type)
             {
                 case PlatformType.KEEN4:
-                    _sprite = Properties.Resources.keen4_platorm_stationary;
+                    _image = Properties.Resources.keen4_platorm_stationary;
                     _images = new Image[]
                     {
                         Properties.Resources.keen4_platorm_stationary
                     };
                     break;
                 case PlatformType.KEEN5_PINK:
-                    _sprite = Properties.Resources.keen5_pink_platform;
+                    _image = Properties.Resources.keen5_pink_platform;
                     _images = new Image[]
                     {
                         Properties.Resources.keen5_pink_platform
                     };
                     break;
                 case PlatformType.KEEN5_ORANGE:
-                    _sprite = Properties.Resources.keen5_orange_platform;
+                    _image = Properties.Resources.keen5_orange_platform;
                     _images = new Image[]
                     {
                         Properties.Resources.keen5_orange_platform
                     };
                     break;
                 case PlatformType.KEEN6:
-                    _sprite = Properties.Resources.keen6_bip_platform;
+                    _image = Properties.Resources.keen6_bip_platform;
                     _images = new Image[]
                     {
                         Properties.Resources.keen6_bip_platform
@@ -156,19 +124,13 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             protected set
             {
                 base.HitBox = value;
+                _area = new Rectangle(this.HitBox.X, this.HitBox.Y - this.HitBox.Height / 2,
+                    this.HitBox.Width, this.HitBox.Height * 2);
                 if (_collidingNodes != null && _collisionGrid != null && value != null)
                 {
                     this.UpdateCollisionNodes(_direction);
                 }
             }
         }
-
-        public Guid ActivationID => _activationId;
-
-        public int ZIndex => _zIndex;
-
-        public Image Image => _sprite;
-
-        public Point Location => this.HitBox.Location;
     }
 }

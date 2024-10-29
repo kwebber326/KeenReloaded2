@@ -42,11 +42,11 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
             }
         }
 
-        public int ZIndex => _zIndex;
+        public virtual int ZIndex => _zIndex;
 
-        public Image Image => _image;
+        public virtual Image Image => _image;
 
-        public Point Location => _area.Location;
+        public virtual Point Location => _area.Location;
 
         public virtual bool Hangable => true;
 

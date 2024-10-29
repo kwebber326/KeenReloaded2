@@ -3125,7 +3125,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                     DataType = typeof(Guid),
                     Value = new Guid(),
                     DisplayName ="Id: ",
-                    Readonly = true
+                    Hidden = true
                 },
                 new MapMakerObjectProperty()
                 {
@@ -3147,7 +3147,7 @@ namespace KeenReloaded2.Entities.ReferenceData
             };
             additionalKeen6SetPathPlatformProperties.AddRange(commonPlatformProperties);
 
-            AddSimpleGameObject(backgroundReferenceData, keen6ConstructFiles, "bip_platform", typeof(SetPathPlatform), additionalKeen6SetPathPlatformProperties.ToArray());
+            AddSimpleGameObject(backgroundReferenceData, keen6ConstructFiles, "bip_platform", typeof(SetPathPlatform), additionalKeen6SetPathPlatformProperties.ToArray(), 18);
             #endregion
 
             #endregion

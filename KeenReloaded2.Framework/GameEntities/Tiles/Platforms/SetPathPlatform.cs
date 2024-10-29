@@ -15,9 +15,6 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
     public class SetPathPlatform : Platform, IActivateable
     {
         private bool _isActive;
-        private int _currentSprite;
-        private bool _isKeenStandingOnPlatform;
-        private bool _wasStandingOnPlatform;
         List<Point> _pathwayPoints;
         int _currentPathwayPointIndex = 1;
         int _horizontalMoveKeenVal = 0;
@@ -33,24 +30,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             _isActive = initiallyActive;
             if (_pathwayPoints.Any())
             {
-                _pathwayPoints.Insert(0, this.HitBox.Location);
                 SetDirectionBasedOnNextNode(_currentPathwayPointIndex);
-            }
-        }
-
-        public override Rectangle HitBox
-        {
-            get
-            {
-                return base.HitBox;
-            }
-            protected set
-            {
-                base.HitBox = value;
-                if (_collisionGrid != null && _collidingNodes != null && value != null)
-                {
-                    this.UpdateCollisionNodes(_direction);
-                }
             }
         }
 
@@ -85,6 +65,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
 
         public override CollisionType CollisionType => CollisionType.PLATFORM;
 
+        public Guid ActivationID => _activationId;
+
         protected override void UpdateKeenHorizontalPosition()
         {
             if (!_keen.IsDead())
@@ -98,57 +80,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
 
             if (_isActive)
             {
-                _isKeenStandingOnPlatform = IsKeenStandingOnPlatform();
-                int yOffset = _direction == Direction.UP ? _moveVelocity * -1 : _moveVelocity;
-                int yLocation = _direction == Direction.UP ? this.HitBox.Y + yOffset : this.HitBox.Y;
-                int originalX = this.HitBox.X;
-                Move();
-
-                if (_keen == null)
-                {
-                    _wasStandingOnPlatform = false;
-                    return;
-                }
-
-                if (_keen.IsLookingDown && _wasStandingOnPlatform)
-                {
-                    this.UpdateKeenVerticalPosition();
-                    if (this.HitBox.X != originalX)
-                        this.UpdateKeenHorizontalPosition();
-                }
-                else
-                {
-                    if (_isKeenStandingOnPlatform)
-                    {
-                        UpdateKeenPosition(originalX);
-                    }
-                    else if (this.IsUpDirection(_direction))
-                    {
-                        Rectangle r = new Rectangle(this.HitBox.X, this.HitBox.Y - _moveVelocity, this.HitBox.Width, this.HitBox.Height + _moveVelocity);
-                        if ((_keen.MoveState == MoveState.STANDING || _keen.MoveState == MoveState.RUNNING || _keen.MoveState == MoveState.FALLING) &&
-                            _keen.HitBox.IntersectsWith(r) && _keen.HitBox.Bottom < this.HitBox.Bottom && !_keen.IsDead())
-                        {
-                            UpdateKeenPosition(originalX);
-                        }
-                        else
-                        {
-                            _wasStandingOnPlatform = false;
-                        }
-                    }
-                    else
-                    {
-                        _wasStandingOnPlatform = false;
-                    }
-                }
+               Move();
             }
-        }
-
-        private void UpdateKeenPosition(int originalX)
-        {
-            this.UpdateKeenVerticalPosition();
-            if (this.HitBox.X != originalX)
-                this.UpdateKeenHorizontalPosition();
-            _wasStandingOnPlatform = true;
         }
 
         private void Move()
@@ -218,7 +151,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
                 {
                     if (Math.Abs(yOffset) <= yDistanceToNextPoint)
                     {
-                        this.HitBox = new Rectangle(this.HitBox.X, this.HitBox.Y + yOffset, this.HitBox.Width, this.HitBox.Height);
+                        this.Move(new Point(this.HitBox.X, this.HitBox.Y + yOffset));
                     }
                     else
                     {
@@ -226,13 +159,13 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
                         {
                             yDistanceToNextPoint *= -1;
                         }
-                        this.HitBox = new Rectangle(this.HitBox.X, this.HitBox.Y + yDistanceToNextPoint, this.HitBox.Width, this.HitBox.Height);
+                        this.Move(new Point(this.HitBox.X, this.HitBox.Y + yDistanceToNextPoint));
                     }
                 }
                 else if (Math.Abs(yOffset) <= yDistanceToNextPoint)
                 {
                     int yCollidePos = isUpDirection ? verticalTile.HitBox.Bottom + 1 : verticalTile.HitBox.Top - this.HitBox.Height - 1;
-                    this.HitBox = new Rectangle(this.HitBox.X, yCollidePos, this.HitBox.Width, this.HitBox.Height);
+                    this.Move(new Point(this.HitBox.X, yCollidePos));
                 }
                 else
                 {
@@ -240,7 +173,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
                     {
                         yDistanceToNextPoint *= -1;
                     }
-                    this.HitBox = new Rectangle(this.HitBox.X, this.HitBox.Y + yDistanceToNextPoint, this.HitBox.Width, this.HitBox.Height);
+                    this.Move(new Point(this.HitBox.X, this.HitBox.Y + yDistanceToNextPoint));
                 }
             }
 
@@ -251,25 +184,25 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
                     if (Math.Abs(xOffset) <= xDistanceToNextPoint)
                     {
                         _horizontalMoveKeenVal = Math.Abs(xOffset);
-                        this.HitBox = new Rectangle(this.HitBox.X + xOffset, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
+                        this.Move(new Point(this.HitBox.X + xOffset, this.HitBox.Y));
                     }
                     else
                     {
-                        int xDistanceToTravel = /*Math.Abs(xOffset) - */xDistanceToNextPoint;
+                        int xDistanceToTravel = xDistanceToNextPoint;
                         _horizontalMoveKeenVal = xDistanceToTravel;
                         if (isLeftDirection)
                         {
                             xDistanceToTravel *= -1;
                         }
 
-                        this.HitBox = new Rectangle(this.HitBox.X + xDistanceToTravel, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
+                        this.Move(new Point(this.HitBox.X + xDistanceToTravel, this.HitBox.Y));
                     }
                 }
                 else if (Math.Abs(xOffset) <= xDistanceToNextPoint)
                 {
                     int xCollidePos = isLeftDirection ? horizontalTile.HitBox.Right + 1 : horizontalTile.HitBox.Left - this.HitBox.Width - 1;
                     _horizontalMoveKeenVal = Math.Abs(this.HitBox.X - xCollidePos);
-                    this.HitBox = new Rectangle(xCollidePos, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
+                    this.Move(new Point(xCollidePos, this.HitBox.Y));
                 }
                 else
                 {
@@ -278,7 +211,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
                     {
                         xDistanceToNextPoint *= -1;
                     }
-                    this.HitBox = new Rectangle(this.HitBox.X + xDistanceToNextPoint, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
+                    this.Move(new Point(this.HitBox.X + xDistanceToNextPoint, this.HitBox.Y));
                 }
             }
             else
