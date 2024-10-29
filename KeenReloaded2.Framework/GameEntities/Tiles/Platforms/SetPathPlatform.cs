@@ -1,4 +1,5 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Players;
@@ -22,8 +23,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
         int _horizontalMoveKeenVal = 0;
         private bool _currentLocationReached;
 
-        public SetPathPlatform(SpaceHashGrid grid, Rectangle hitbox, PlatformType type, CommanderKeen keen, List<Point> locations, Guid activationId, bool initiallyActive = false)
-            : base(grid, hitbox, type, keen, activationId)
+        public SetPathPlatform(Rectangle area, SpaceHashGrid grid, int zIndex, PlatformType type, List<Point> locations, Guid activationId, bool initiallyActive = false)
+            : base(grid, area, type, zIndex, activationId)
         {
             if (locations == null)
                 throw new ArgumentNullException("Pathway Platforms need a pathway to move");
@@ -46,7 +47,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             protected set
             {
                 base.HitBox = value;
-                if (value != null)
+                if (_collisionGrid != null && _collidingNodes != null && value != null)
                 {
                     this.UpdateCollisionNodes(_direction);
                 }
@@ -102,6 +103,12 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
                 int yLocation = _direction == Direction.UP ? this.HitBox.Y + yOffset : this.HitBox.Y;
                 int originalX = this.HitBox.X;
                 Move();
+
+                if (_keen == null)
+                {
+                    _wasStandingOnPlatform = false;
+                    return;
+                }
 
                 if (_keen.IsLookingDown && _wasStandingOnPlatform)
                 {
@@ -346,6 +353,40 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
                         break;
                 }
             }
+        }
+
+        private string GetImageNameFromType()
+        {
+            switch (_type)
+            {
+                case PlatformType.KEEN4:
+                    return nameof(Properties.Resources.keen4_platform_horizontal_left1);
+                case PlatformType.KEEN5_PINK:
+                    return nameof(Properties.Resources.keen5_pink_platform);
+                case PlatformType.KEEN5_ORANGE:
+                    return nameof(Properties.Resources.keen5_orange_platform);
+                case PlatformType.KEEN6:
+                    return nameof(Properties.Resources.keen6_bip_platform);
+            }
+
+            return nameof(Properties.Resources.keen6_bip_platform);
+        }
+
+        public override string ToString()
+        {
+            string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
+            var _area = this.HitBox;
+            string imageName = GetImageNameFromType();
+            string pathArray = MapMakerConstants.MAP_MAKER_ARRAY_START;
+            foreach (var node in _pathwayPoints)
+            {
+                string item = node.X + MapMakerConstants.MAP_MAKER_ELEMENT_SEPARATOR + node.Y + (node == _pathwayPoints.Last()
+                    ? ""
+                    : MapMakerConstants.MAP_MAKER_ELEMENT_SEPARATOR);
+                pathArray += item;
+            }
+            pathArray += MapMakerConstants.MAP_MAKER_ARRAY_END;
+            return $"{imageName}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{_zIndex}{separator}{_type}{separator}{pathArray}{separator}{_activationId}{separator}{_isActive}";
         }
     }
 }

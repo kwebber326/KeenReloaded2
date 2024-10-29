@@ -57,7 +57,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
                 Rectangle keenYIntersectArea = new Rectangle(_keen.HitBox.X, _keen.HitBox.Bottom - 4, _keen.HitBox.Width, 8);
                 Rectangle thisYIntersectArea = new Rectangle(this.HitBox.X, this.HitBox.Top, this.HitBox.Width, 4);
                 bool xIntersect = _keen.HitBox.Left < this.HitBox.Right && _keen.HitBox.Right > this.HitBox.Left;
-                var platform = this.AssociatedObject as SetPathPlatform;
+
                 bool yStanding = keenYIntersectArea.IntersectsWith(thisYIntersectArea);
                 bool isStanding = xIntersect && yStanding;
 

@@ -25,18 +25,44 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
 
         protected Image[] _images;
         protected readonly Guid _activationId;
-        protected readonly int _zindex;
+        protected readonly int _zIndex;
 
-        public Platform(SpaceHashGrid grid, Rectangle hitbox, PlatformType type, CommanderKeen keen, Guid activationId)
+        public Platform(SpaceHashGrid grid, Rectangle hitbox, PlatformType type, int zIndex, Guid activationId)
             : base(grid, hitbox)
         {
-            if (keen == null)
-                throw new ArgumentNullException("Keen was not properly set");
-
-            _keen = keen;
+            _zIndex = zIndex;
             _type = type;
             _activationId = activationId;
+            this.HitBox = hitbox;
             Initialize();
+        }
+
+        public void AssignKeen(CommanderKeen keen)
+        {
+            _keen = keen;
+            _keen.KeenMoved += new EventHandler(_keen_KeenMoved);
+        }
+
+        void _keen_KeenMoved(object sender, EventArgs e)
+        {
+            if (_keen != null && (_keen.IsDead() || _keen.MoveState == Enums.MoveState.ON_POLE || !IsKeenStandingOnPlatform()))
+            {
+                UnassignKeen();
+            }
+        }
+
+        private void UnassignKeen()
+        {
+            _keen.KeenMoved -= _keen_KeenMoved;
+            _keen = null;
+        }
+
+        public void UnassignKeen(CommanderKeen keen)
+        {
+            if (_keen == keen)
+            {
+                UnassignKeen();
+            }
         }
 
         protected virtual void Initialize()
@@ -82,6 +108,9 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
 
         protected virtual bool IsKeenStandingOnPlatform()
         {
+            if (_keen == null)
+                return false;
+
             bool intersectsX = _keen.HitBox.Right > this.HitBox.Left && _keen.HitBox.Left < this.HitBox.Right;//_keen.HitBox.Left > this.HitBox.Left && _keen.HitBox.Left < this.HitBox.Right;
             if (_keen.IsLookingDown && _direction == Direction.DOWN)
             {
@@ -127,7 +156,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             protected set
             {
                 base.HitBox = value;
-                if (_sprite != null && value != null)
+                if (_collidingNodes != null && _collisionGrid != null && value != null)
                 {
                     this.UpdateCollisionNodes(_direction);
                 }
@@ -136,7 +165,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
 
         public Guid ActivationID => _activationId;
 
-        public int ZIndex => _zindex;
+        public int ZIndex => _zIndex;
 
         public Image Image => _sprite;
 
