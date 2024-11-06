@@ -234,6 +234,7 @@
     <Compile Include="GameEntities\Tiles\Platforms\ActivateableMiddleTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\ActivateableRightEdgeTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\InvisiblePlatformTile.cs" />
+    <Compile Include="GameEntities\Tiles\Platforms\Keen6SetPathPlatform.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\LeftEdgePlatformTile.cs" />
     <Compile Include="GameEntities\Tiles\MaskedTile.cs" />
     <Compile Include="GameEntities\Tiles\Floors\MiddleFloorTile.cs" />

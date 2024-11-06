@@ -3135,19 +3135,8 @@ namespace KeenReloaded2.Entities.ReferenceData
                     DisplayName ="Active: "
                 },
             };
-            List<MapMakerObjectProperty> additionalKeen6SetPathPlatformProperties = new List<MapMakerObjectProperty>
-            {
-                new MapMakerObjectProperty()
-                {
-                    PropertyName = "type",
-                    DataType = typeof(PlatformType),
-                    Value = PlatformType.KEEN6,
-                    Hidden =true
-                }
-            };
-            additionalKeen6SetPathPlatformProperties.AddRange(commonPlatformProperties);
 
-            AddSimpleGameObject(backgroundReferenceData, keen6ConstructFiles, "bip_platform", typeof(SetPathPlatform), additionalKeen6SetPathPlatformProperties.ToArray(), 18);
+            AddSimpleGameObject(backgroundReferenceData, keen6ConstructFiles, "bip_platform", typeof(Keen6SetPathPlatform), commonPlatformProperties.ToArray(), 18);
             #endregion
 
             #endregion

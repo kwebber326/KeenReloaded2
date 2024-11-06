@@ -15,8 +15,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
 {
     public class SetPathPlatform : Platform, IActivateable
     {
-        private bool _isActive;
-        List<Point> _pathwayPoints;
+        protected bool _isActive;
+        protected List<Point> _pathwayPoints;
         int _currentPathwayPointIndex = 1;
         int _horizontalMoveKeenVal = 0;
         private bool _currentLocationReached;
@@ -56,7 +56,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             return direction == Direction.UP || direction == Direction.DOWN || IsDiagonalDirection(direction);
         }
 
-        public Direction Direction
+        public virtual Direction Direction
         {
             get
             {

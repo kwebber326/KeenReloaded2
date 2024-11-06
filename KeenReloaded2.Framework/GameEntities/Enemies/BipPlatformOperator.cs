@@ -13,7 +13,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
     {
         private readonly int _zIndex;
         private Image _sprite;
-        private readonly Point _location;
+        private Point _location;
         private Direction _direction;
 
         public BipPlatformOperator(Point location, int zIndex)
@@ -34,6 +34,11 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 _direction = value;
                 _sprite = GetImageFromCurrentDirection();
             }
+        }
+
+        public void SetLocation(Point location)
+        {
+            _location = location;
         }
 
         private Image GetImageFromCurrentDirection()
