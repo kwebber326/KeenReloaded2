@@ -1,6 +1,7 @@
 ﻿using KeenReloaded.Framework;
 using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.GameEntities.Enemies;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Players;
 using System;
@@ -60,6 +61,10 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             get
             {
                 return _direction;
+            }
+            protected set
+            {
+                _direction = value;
             }
         }
 
@@ -245,13 +250,13 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
                 switch (xVal)
                 {
                     case 0:
-                        _direction = Enums.Direction.UP;
+                        this.Direction = Enums.Direction.UP;
                         break;
                     case 1:
-                        _direction = Enums.Direction.UP_RIGHT;
+                        this.Direction = Enums.Direction.UP_RIGHT;
                         break;
                     case -1:
-                        _direction = Enums.Direction.UP_LEFT;
+                        this.Direction = Enums.Direction.UP_LEFT;
                         break;
                 }
             }
@@ -261,13 +266,13 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
                 switch (xVal)
                 {
                     case 0:
-                        _direction = Enums.Direction.DOWN;
+                        this.Direction = Enums.Direction.DOWN;
                         break;
                     case 1:
-                        _direction = Enums.Direction.DOWN_RIGHT;
+                        this.Direction = Enums.Direction.DOWN_RIGHT;
                         break;
                     case -1:
-                        _direction = Enums.Direction.DOWN_LEFT;
+                        this.Direction = Enums.Direction.DOWN_LEFT;
                         break;
                 }
             }
@@ -279,10 +284,10 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
                         _currentLocationReached = true;
                         break;
                     case 1:
-                        _direction = Enums.Direction.RIGHT;
+                        this.Direction = Enums.Direction.RIGHT;
                         break;
                     case -1:
-                        _direction = Enums.Direction.LEFT;
+                        this.Direction = Enums.Direction.LEFT;
                         break;
                 }
             }

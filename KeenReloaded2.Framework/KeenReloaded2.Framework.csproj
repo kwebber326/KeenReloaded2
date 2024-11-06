@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameEntities\Enemies\BipPlatformOperator.cs" />
     <Compile Include="GameEntities\Enemies\Bloog.cs" />
     <Compile Include="Enums\CollisionType.cs" />
     <Compile Include="Enums\Direction.cs" />
@@ -701,30 +702,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_bip_platform.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_bip_platform_down.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_bip_platform_down_left.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_bip_platform_down_right.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_bip_platform_left.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_bip_platform_right.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_bip_platform_up.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_bip_platform_up_left.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_bip_platform_up_right.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_claw_platform.png" />
@@ -5408,6 +5385,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\gem_placeholder_yellow_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_platform_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_platform_down_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_platform_down_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_platform_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_platform_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_platform_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_platform_up_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_bip_platform_up_right.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
