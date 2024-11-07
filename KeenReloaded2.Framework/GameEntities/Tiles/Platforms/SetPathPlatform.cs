@@ -68,8 +68,6 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             }
         }
 
-        public override CollisionType CollisionType => CollisionType.PLATFORM;
-
         public Guid ActivationID => _activationId;
 
         protected override void UpdateKeenHorizontalPosition()

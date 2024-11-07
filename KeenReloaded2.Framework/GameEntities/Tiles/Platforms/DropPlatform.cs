@@ -1,19 +1,8 @@
 ﻿using KeenReloaded.Framework;
 using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
-using KeenReloaded2.Framework.GameEntities.Enemies;
-using KeenReloaded2.Framework.GameEntities.Interfaces;
-using KeenReloaded2.Framework.GameEntities.Players;
-using KeenReloaded2.Framework.GameEntities.Projectiles;
-using KeenReloaded2.Framework.GameEventArgs;
-using KeenReloaded2.Framework.Interfaces;
-using KeenReloaded2.Utilities;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
@@ -70,7 +59,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
 
         public override void Update()
         {
-            bool keenStandingOnPlatform = IsKeenStandingOnPlatform();
+            bool keenStandingOnPlatform = KeenIsStandingOnThis();
             if (keenStandingOnPlatform && _currentFallDistance < _fallDistanceLimit)
             {
                 if (_currentVerticalVelocity < 0)
@@ -122,7 +111,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
                     _currentFallDistance = 0;
                 }
             }
-            if (this.CollidesWith(_keen) && !IsKeenStandingOnPlatform() && _currentVerticalVelocity <= (MAX_GRAVITY_SPEED / 2) * -1)
+            if (this.CollidesWith(_keen) && !KeenIsStandingOnThis() && _currentVerticalVelocity <= (MAX_GRAVITY_SPEED / 2) * -1)
             {
                 UpdateKeenVerticalPosition();
             }

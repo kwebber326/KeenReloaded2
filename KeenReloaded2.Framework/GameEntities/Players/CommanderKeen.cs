@@ -260,7 +260,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             {
                 if (_isLookingUp)
                 {
-                    _sprite = _keenLookUp; 
+                    _sprite = _keenLookUp;
                     if (IsFiring)
                         UpdateShootSprite();
                 }
@@ -270,7 +270,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 }
                 else if (_togglingSwitch)
                 {
-                    _sprite = _keenEnterDoor1; 
+                    _sprite = _keenEnterDoor1;
                 }
                 else
                 {
@@ -287,7 +287,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     }
                     if (this.MoveState == Enums.MoveState.STUNNED)
                     {
-                        _sprite = _keenStunned; 
+                        _sprite = _keenStunned;
                         return;
                     }
 
@@ -305,11 +305,11 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                             }
                             else if (this.MoveState == Enums.MoveState.FALLING)
                             {
-                                _sprite = _keenFallRight; 
+                                _sprite = _keenFallRight;
                             }
                             else if (this.MoveState == Enums.MoveState.JUMPING)
                             {
-                                _sprite = _keenJumpRight1; 
+                                _sprite = _keenJumpRight1;
                             }
                             else if (this.MoveState == Enums.MoveState.HANGING)
                             {
@@ -411,8 +411,8 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         private int GetTopMostLandingPlatformYPos(List<CollisionObject> collisionObjects)
         {
             List<CollisionObject> items = collisionObjects  //added bounder
-                .Where(c => (c.CollisionType == CollisionType.KEEN_ONLY_PLATFORM && c.HitBox.Top > this.HitBox.Bottom) 
-                        || c.CollisionType == CollisionType.BLOCK || ((c.CollisionType == CollisionType.PLATFORM 
+                .Where(c => (c.CollisionType == CollisionType.KEEN_ONLY_PLATFORM && c.HitBox.Top > this.HitBox.Bottom - 16)
+                        || c.CollisionType == CollisionType.BLOCK || ((c.CollisionType == CollisionType.PLATFORM
                         || c.CollisionType == CollisionType.POLE_TILE) && c.HitBox.Top >= this.HitBox.Bottom)//PLATFORM CODE
                         || (c.CollisionType == CollisionType.KEEN6_SWITCH && !((Keen6Switch)c).IsActive))//keen6 switch ode
                 .ToList();
@@ -436,6 +436,14 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             if (tile != null && tile is MapEdgeTile)
             {
                 HandleCollision(tile);
+            }
+            else if (tile != null && tile is MovingPlatformTile)
+            {
+                var movingTile = ((MovingPlatformTile)tile);
+                if (movingTile.Keen != this)
+                {
+                    movingTile.AssignKeen(this);
+                }
             }
             return false;
         }
@@ -883,7 +891,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 {
                     CreateWeaponAndSetToCurrentWeapon(ammoAmmount, item);
                 }
-               
+
             }
             else if (item is Gem)
             {
@@ -1033,7 +1041,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         public void MoveKeenToPosition(Point p, CollisionObject collidingObject)
         {
             if (this.MoveState == MoveState.ENTERING_DOOR)
-                return; 
+                return;
 
             Rectangle areaToCheck = new Rectangle(p, this.HitBox.Size);
             Point previousDir = this.HitBox.Location;
@@ -1434,10 +1442,10 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         protected override CollisionObject GetTopMostLandingTile(List<CollisionObject> collisions)
         {
             CollisionObject topMostTile = null;
-            var landingTiles = collisions.Where(h => (h.CollisionType == CollisionType.BLOCK 
-            || h.CollisionType == CollisionType.PLATFORM 
-            || h.CollisionType == CollisionType.KEEN_ONLY_PLATFORM 
-            || h.CollisionType == CollisionType.POLE_TILE 
+            var landingTiles = collisions.Where(h => (h.CollisionType == CollisionType.BLOCK
+            || h.CollisionType == CollisionType.PLATFORM
+            || h.CollisionType == CollisionType.KEEN_ONLY_PLATFORM
+            || h.CollisionType == CollisionType.POLE_TILE
             || h.CollisionType == CollisionType.KEEN6_SWITCH)
                 && h.HitBox.Top >= this.HitBox.Top);
 
@@ -1884,13 +1892,13 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     else if (_stunTimeTick++ == STUN_TIME)
                     {
                         this.MoveState = Enums.MoveState.STANDING;
-                       // _sprite.Location = this.HitBox.Location;
+                        // _sprite.Location = this.HitBox.Location;
                     }
                     else if (_stunTimeTick == 1)
                     {
                         int spriteHeight = _sprite.Height;
                         int hitboxHeight = this.HitBox.Height;
-                       // _sprite.Location = new Point(_sprite.Location.X, this.HitBox.Y + (hitboxHeight - spriteHeight));
+                        // _sprite.Location = new Point(_sprite.Location.X, this.HitBox.Y + (hitboxHeight - spriteHeight));
                     }
 
                     if (IsKeyPressed(KEY_SPACE) && !this.IsStunned)
@@ -2241,7 +2249,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     }
                     else if (IsKeyPressed(KEY_DOWN))
                     {
-                        _sprite = _keenShootDownAerial; 
+                        _sprite = _keenShootDownAerial;
                     }
                     else
                     {
@@ -2259,8 +2267,8 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     else
                     {
                         _sprite = this.Direction == Enums.Direction.LEFT
-                            ? _keenShootLeft 
-                            : _keenShootRight; 
+                            ? _keenShootLeft
+                            : _keenShootRight;
                     }
                     break;
                 case Enums.MoveState.ON_POLE:
@@ -2268,13 +2276,13 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     {
                         _sprite = this.Direction == Enums.Direction.LEFT
                             ? _keenShootDownLeftPole
-                            : _keenShootDownRightPole; 
+                            : _keenShootDownRightPole;
                     }
                     else if (IsKeyPressed(KEY_UP))
                     {
                         _sprite = this.Direction == Enums.Direction.LEFT
                             ? _keenShootUpLeftPole
-                            : _keenShootUpRightPole; 
+                            : _keenShootUpRightPole;
                     }
                     else
                     {
@@ -2363,7 +2371,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     //result in death
                     var squashDebugTiles = this.CheckCollision(this.HitBox);
                     bool isSquashed = squashDebugTiles
-                        .Any(c => c.CollisionType == CollisionType.CONVEYOR_BELT 
+                        .Any(c => c.CollisionType == CollisionType.CONVEYOR_BELT
                         && c.HitBox.Top < this.HitBox.Bottom - 2);
                     if (isSquashed)
                     {
@@ -2484,7 +2492,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 {
                     this.HitBox = new Rectangle(new Point(this.HitBox.X, this.HitBox.Y - POLE_CLIMB_SPEED), this.HitBox.Size);
                     UpdateAndCheckCollision();
-                    
+
                 }
                 int lengthLimit = 0;
                 if (this.Direction == Enums.Direction.LEFT)

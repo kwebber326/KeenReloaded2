@@ -3152,6 +3152,15 @@ namespace KeenReloaded2.Entities.ReferenceData
                 DisplayName = "Max Fall: "
             };
 
+            MapMakerObjectProperty bottomOutDistanceProperty = new MapMakerObjectProperty()
+            {
+                PropertyName = "bottomOutDistance",
+                DataType = typeof(int),
+                Value = 100,
+                DisplayName = "Terminal Fall: "
+            };
+
+
             var keen6PlatformImg = Properties.Resources.keen6_bip_platform;
             var keen6PlatformSize = new Size(keen6PlatformImg.Width, keen6PlatformImg.Height);
             List<MapMakerObjectProperty> commonObjectProperties = GetCommonObjectProperties(keen6PlatformSize);
@@ -3162,9 +3171,19 @@ namespace KeenReloaded2.Entities.ReferenceData
                 maxDropProperty,
             };
 
+            List<MapMakerObjectProperty> keen6BottomOutDistanceProperties = new List<MapMakerObjectProperty>(commonObjectProperties)
+            {
+                keen6PlatformTypeProperty,
+                bottomOutDistanceProperty,
+            };
+
             string keen6DropImageFile = keen6ConstructFiles.FirstOrDefault(s => s.Contains("drop_platform"));
             MapMakerObject keen6DropPlatformObject = new MapMakerObject(typeof(DropPlatform), keen6DropImageFile, false, keen6DropPlatformProperties.ToArray());
             backgroundReferenceData.Add("keen6_drop_platform", keen6DropPlatformObject);
+
+            string keen6BottomOutImageFile = keen6ConstructFiles.FirstOrDefault(s => s.Contains("bottom_out_platform"));
+            MapMakerObject keen6BottomOutPlatformObject = new MapMakerObject(typeof(BottomOutPlatform), keen6BottomOutImageFile, false, keen6BottomOutDistanceProperties.ToArray());
+            backgroundReferenceData.Add("keen6_bottom_out_platform", keen6BottomOutPlatformObject);
             
             AddSimpleGameObject(backgroundReferenceData, keen6ConstructFiles, "bip_platform", typeof(Keen6SetPathPlatform), commonPlatformProperties.ToArray(), 18);
             #endregion

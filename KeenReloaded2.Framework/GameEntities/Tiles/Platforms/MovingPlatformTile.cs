@@ -50,7 +50,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             }
         }
 
-        private bool KeenIsStandingOnThis()
+        protected bool KeenIsStandingOnThis()
         {
             if (_keen != null)
             {
