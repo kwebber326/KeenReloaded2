@@ -61,11 +61,6 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
                 bool yStanding = keenYIntersectArea.IntersectsWith(thisYIntersectArea);
                 bool isStanding = xIntersect && yStanding;
 
-                if (isStanding && _keen.HitBox.Bottom != this.HitBox.Top - 1)
-                {
-                    _keen.MoveKeenToPosition(new Point(_keen.HitBox.X, this.HitBox.Y - _keen.HitBox.Height - 1), this);
-                }
-
                 return isStanding;
             }
             return false;
