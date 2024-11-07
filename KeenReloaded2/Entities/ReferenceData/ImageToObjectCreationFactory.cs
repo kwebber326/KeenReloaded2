@@ -3136,6 +3136,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                 },
             };
 
+            #region keen 6
             MapMakerObjectProperty keen6PlatformTypeProperty = new MapMakerObjectProperty()
             {
                 PropertyName = "type",
@@ -3163,21 +3164,21 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             var keen6PlatformImg = Properties.Resources.keen6_bip_platform;
             var keen6PlatformSize = new Size(keen6PlatformImg.Width, keen6PlatformImg.Height);
-            List<MapMakerObjectProperty> commonObjectProperties = GetCommonObjectProperties(keen6PlatformSize);
+            List<MapMakerObjectProperty> keen6CommonObjectProperties = GetCommonObjectProperties(keen6PlatformSize);
 
-            List<MapMakerObjectProperty> keen6DropPlatformProperties = new List<MapMakerObjectProperty>(commonObjectProperties)
+            List<MapMakerObjectProperty> keen6DropPlatformProperties = new List<MapMakerObjectProperty>(keen6CommonObjectProperties)
             {
                 keen6PlatformTypeProperty,
                 maxDropProperty,
             };
 
-            List<MapMakerObjectProperty> keen6BottomOutProperties = new List<MapMakerObjectProperty>(commonObjectProperties)
+            List<MapMakerObjectProperty> keen6BottomOutProperties = new List<MapMakerObjectProperty>(keen6CommonObjectProperties)
             {
                 keen6PlatformTypeProperty,
                 bottomOutDistanceProperty,
             };
 
-            List<MapMakerObjectProperty> keen6TrickPlatformProperties = new List<MapMakerObjectProperty>(commonObjectProperties)
+            List<MapMakerObjectProperty> keen6TrickPlatformProperties = new List<MapMakerObjectProperty>(keen6CommonObjectProperties)
             {
                 keen6PlatformTypeProperty
             };
@@ -3195,6 +3196,8 @@ namespace KeenReloaded2.Entities.ReferenceData
             backgroundReferenceData.Add("keen6_trick_platform", keen6TrickPlatformObject);
 
             AddSimpleGameObject(backgroundReferenceData, keen6ConstructFiles, "bip_platform", typeof(Keen6SetPathPlatform), commonPlatformProperties.ToArray(), 18);
+
+            #endregion
             #endregion
 
             #endregion

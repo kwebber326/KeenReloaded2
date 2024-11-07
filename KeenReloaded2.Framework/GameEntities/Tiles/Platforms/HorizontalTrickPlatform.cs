@@ -172,11 +172,28 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             return inVision;
         }
 
+        protected override string GetImageNameFromType()
+        {
+            switch (_type)
+            {
+                case PlatformType.KEEN4:
+                    return "keen4_trick_platform";
+                case PlatformType.KEEN5_PINK:
+                    return "keen5_pink_trick_platform";
+                case PlatformType.KEEN5_ORANGE:
+                    return "keen5_orange_trick_platform";
+                case PlatformType.KEEN6:
+                    return "keen6_trick_platform";
+            }
+
+            return nameof(Properties.Resources.keen6_bip_platform);
+        }
+
         public override string ToString()
         {
             string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
             var _area = this.HitBox;
-            string imageName = "keen6_trick_platform";
+            string imageName = this.GetImageNameFromType();
 
             return $"{imageName}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{_zIndex}{separator}{_type}";
         }

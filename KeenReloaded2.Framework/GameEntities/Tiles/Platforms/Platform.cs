@@ -92,7 +92,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             return _keen.HitBox.Bottom == this.HitBox.Top - 1 && intersectsX;
         }
 
-        protected string GetImageNameFromType()
+        protected virtual string GetImageNameFromType()
         {
             switch (_type)
             {
