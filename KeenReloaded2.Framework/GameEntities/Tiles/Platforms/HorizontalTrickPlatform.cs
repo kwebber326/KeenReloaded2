@@ -100,7 +100,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             if (hitTile == null)
             {
                 this.HitBox = new Rectangle(this.HitBox.X + xOffset, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
-                if (IsKeenStandingOnPlatform() && (this.HitBox.X != originalX))
+                if (KeenIsStandingOnThis() && (this.HitBox.X != originalX))
                     UpdateKeenHorizontalPosition(_returnDirection);
             }
         }
@@ -142,7 +142,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
                 this.HitBox = new Rectangle(newXLocation, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
                 this.ReturnToOriginalLocation();
             }
-            if (IsKeenStandingOnPlatform() && (this.HitBox.X != originalX))
+            if (KeenIsStandingOnThis() && (this.HitBox.X != originalX))
                 UpdateKeenHorizontalPosition(_direction);
         }
 
@@ -157,7 +157,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             _direction = GetDirectionFromKeenLocation();
 
             bool keenInVision = IsKeenInVision();
-            bool keenStandingOnPlatform = IsKeenStandingOnPlatform();
+            bool keenStandingOnPlatform = KeenIsStandingOnThis();
             if (keenInVision && !keenStandingOnPlatform && (_keen.MoveState == MoveState.FALLING || _keen.MoveState == MoveState.JUMPING))
             {
                 _direction = GetDirectionFromKeenLocation();

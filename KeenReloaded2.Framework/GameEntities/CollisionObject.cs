@@ -888,6 +888,8 @@ namespace KeenReloaded.Framework
                 }
 
                 _collidingNodes = newCollidingNodes;
+                if (!_collidingNodes.Any())
+                    _collidingNodes = _collisionGrid.GetCurrentHashes(this);
                 AddObjectToBuckets();
             }
         }

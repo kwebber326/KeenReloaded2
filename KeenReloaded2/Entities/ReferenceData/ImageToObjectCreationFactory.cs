@@ -3136,15 +3136,6 @@ namespace KeenReloaded2.Entities.ReferenceData
                 },
             };
 
-            #region keen 6
-            MapMakerObjectProperty keen6PlatformTypeProperty = new MapMakerObjectProperty()
-            {
-                PropertyName = "type",
-                DataType = typeof(PlatformType),
-                Value = PlatformType.KEEN6,
-                Hidden = true
-            };
-
             MapMakerObjectProperty maxDropProperty = new MapMakerObjectProperty()
             {
                 PropertyName = "maxDrop",
@@ -3161,6 +3152,14 @@ namespace KeenReloaded2.Entities.ReferenceData
                 DisplayName = "Terminal Fall: "
             };
 
+            #region keen 6
+            MapMakerObjectProperty keen6PlatformTypeProperty = new MapMakerObjectProperty()
+            {
+                PropertyName = "type",
+                DataType = typeof(PlatformType),
+                Value = PlatformType.KEEN6,
+                Hidden = true
+            };
 
             var keen6PlatformImg = Properties.Resources.keen6_bip_platform;
             var keen6PlatformSize = new Size(keen6PlatformImg.Width, keen6PlatformImg.Height);
@@ -3197,6 +3196,42 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             AddSimpleGameObject(backgroundReferenceData, keen6ConstructFiles, "bip_platform", typeof(Keen6SetPathPlatform), commonPlatformProperties.ToArray(), 18);
 
+            #endregion
+
+            #region keen 5
+
+            MapMakerObjectProperty keen5OrangePlatformTypeProperty = new MapMakerObjectProperty()
+            {
+                PropertyName = "type",
+                DataType = typeof(PlatformType),
+                Value = PlatformType.KEEN5_ORANGE,
+                Hidden = true
+            };
+
+            MapMakerObjectProperty keen5PinkPlatformTypeProperty = new MapMakerObjectProperty()
+            {
+                PropertyName = "type",
+                DataType = typeof(PlatformType),
+                Value = PlatformType.KEEN5_PINK,
+                Hidden = true
+            };
+
+            List<MapMakerObjectProperty> keen5SetPathPropertiesOrange = new List<MapMakerObjectProperty>()
+            {
+                keen5OrangePlatformTypeProperty
+            };
+
+            keen5SetPathPropertiesOrange.AddRange(commonPlatformProperties);
+
+            List<MapMakerObjectProperty> keen5SetPathPropertiesPink = new List<MapMakerObjectProperty>()
+            {
+                keen5PinkPlatformTypeProperty
+            };
+
+            keen5SetPathPropertiesPink.AddRange(commonPlatformProperties);
+
+            AddSimpleGameObject(backgroundReferenceData, keen5ConstructFiles, "orange_platform", typeof(SetPathPlatform), keen5SetPathPropertiesOrange.ToArray(), 18);
+            AddSimpleGameObject(backgroundReferenceData, keen5ConstructFiles, "pink_platform", typeof(SetPathPlatform), keen5SetPathPropertiesPink.ToArray(), 18);
             #endregion
             #endregion
 

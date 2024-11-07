@@ -74,24 +74,6 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             }
         }
 
-        protected virtual bool IsKeenStandingOnPlatform()
-        {
-            if (_keen == null)
-                return false;
-
-            bool intersectsX = _keen.HitBox.Right > this.HitBox.Left && _keen.HitBox.Left < this.HitBox.Right;//_keen.HitBox.Left > this.HitBox.Left && _keen.HitBox.Left < this.HitBox.Right;
-            if (_keen.IsLookingDown && _direction == Direction.DOWN)
-            {
-                bool standingOnPlatformLookingDown = intersectsX && _keen.HitBox.Bottom >= this.HitBox.Top - 21 && _keen.HitBox.Top <= this.HitBox.Top;
-                if (standingOnPlatformLookingDown)
-                {
-                    this.UpdateKeenVerticalPosition();
-                }
-                return standingOnPlatformLookingDown;
-            }
-            return _keen.HitBox.Bottom == this.HitBox.Top - 1 && intersectsX;
-        }
-
         protected virtual string GetImageNameFromType()
         {
             switch (_type)
