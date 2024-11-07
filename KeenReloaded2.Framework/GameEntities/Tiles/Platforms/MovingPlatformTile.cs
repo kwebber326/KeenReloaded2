@@ -13,7 +13,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
 {
     public class MovingPlatformTile : MaskedTile
     {
-        private CommanderKeen _keen;
+        protected CommanderKeen _keen;
         public MovingPlatformTile(SpaceHashGrid grid, Rectangle hitbox, string imageFile, int zIndex)
             : base(hitbox, grid, hitbox, imageFile, zIndex)
         {

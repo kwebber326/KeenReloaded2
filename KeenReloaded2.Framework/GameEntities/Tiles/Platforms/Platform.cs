@@ -15,7 +15,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
     public abstract class Platform : MovingPlatformTile, IUpdatable, ISprite
     {
         protected PlatformType _type;
-        protected CommanderKeen _keen;
+
         protected int _moveVelocity = 5;
         protected int _acceleration = 10;
         protected Direction _direction;

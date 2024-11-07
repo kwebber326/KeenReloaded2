@@ -97,12 +97,10 @@ keen4_blue_door|934|794|60|92|15|KEEN4_BLUE|3|2
 keen5_shockshund_look1|990|1080|48|32|25
 keen5_shockshund_look1|1095|1077|48|32|25
 keen5_shockshund_look1|1185|1089|48|32|25
-keen5_volte_face1|417|1089|62|48|25|[740,1089,750,900,850,750,1350,750,1400,900,1450,1000,1450,1300,700,1300,700,1089,417,1089]
 keen5_volte_face1|135|192|62|48|25|[350,192,206,121,64,50,64,192,206,121,350,50]
 keen6_bip_left1|331|502|16|16|25
 keen6_blooglet_yellow_right1|262|220|46|42|25|Color [Yellow]|True
 keen6_blooglet_green_right1|224|68|46|42|25|Color [Green]|True
-keen6_blooglet_blue_right1|279|1115|46|42|25|Color [Blue]|False
 keen6_bip_ship_right|1109|848|62|32|25
 keen4_forest_floor_edge_right|1237|387|52|64|10
 keen4_forest_floor_middle|1189|387|48|64|10
