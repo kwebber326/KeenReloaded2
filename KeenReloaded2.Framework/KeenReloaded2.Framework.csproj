@@ -235,6 +235,7 @@
     <Compile Include="GameEntities\Tiles\Platforms\ActivateableRightEdgeTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\BottomOutPlatform.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\DropPlatform.cs" />
+    <Compile Include="GameEntities\Tiles\Platforms\HorizontalTrickPlatform.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\InvisiblePlatformTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\Keen6SetPathPlatform.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\LeftEdgePlatformTile.cs" />

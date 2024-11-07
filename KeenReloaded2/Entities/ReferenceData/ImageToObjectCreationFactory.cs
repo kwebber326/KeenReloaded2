@@ -3171,10 +3171,15 @@ namespace KeenReloaded2.Entities.ReferenceData
                 maxDropProperty,
             };
 
-            List<MapMakerObjectProperty> keen6BottomOutDistanceProperties = new List<MapMakerObjectProperty>(commonObjectProperties)
+            List<MapMakerObjectProperty> keen6BottomOutProperties = new List<MapMakerObjectProperty>(commonObjectProperties)
             {
                 keen6PlatformTypeProperty,
                 bottomOutDistanceProperty,
+            };
+
+            List<MapMakerObjectProperty> keen6TrickPlatformProperties = new List<MapMakerObjectProperty>(commonObjectProperties)
+            {
+                keen6PlatformTypeProperty
             };
 
             string keen6DropImageFile = keen6ConstructFiles.FirstOrDefault(s => s.Contains("drop_platform"));
@@ -3182,9 +3187,13 @@ namespace KeenReloaded2.Entities.ReferenceData
             backgroundReferenceData.Add("keen6_drop_platform", keen6DropPlatformObject);
 
             string keen6BottomOutImageFile = keen6ConstructFiles.FirstOrDefault(s => s.Contains("bottom_out_platform"));
-            MapMakerObject keen6BottomOutPlatformObject = new MapMakerObject(typeof(BottomOutPlatform), keen6BottomOutImageFile, false, keen6BottomOutDistanceProperties.ToArray());
+            MapMakerObject keen6BottomOutPlatformObject = new MapMakerObject(typeof(BottomOutPlatform), keen6BottomOutImageFile, false, keen6BottomOutProperties.ToArray());
             backgroundReferenceData.Add("keen6_bottom_out_platform", keen6BottomOutPlatformObject);
-            
+
+            string keen6TrickPlatformImageFile = keen6ConstructFiles.FirstOrDefault(s => s.Contains("trick_platform"));
+            MapMakerObject keen6TrickPlatformObject = new MapMakerObject(typeof(HorizontalTrickPlatform), keen6TrickPlatformImageFile, false, keen6TrickPlatformProperties.ToArray());
+            backgroundReferenceData.Add("keen6_trick_platform", keen6TrickPlatformObject);
+
             AddSimpleGameObject(backgroundReferenceData, keen6ConstructFiles, "bip_platform", typeof(Keen6SetPathPlatform), commonPlatformProperties.ToArray(), 18);
             #endregion
 
