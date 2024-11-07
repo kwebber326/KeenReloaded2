@@ -92,6 +92,23 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             return _keen.HitBox.Bottom == this.HitBox.Top - 1 && intersectsX;
         }
 
+        protected string GetImageNameFromType()
+        {
+            switch (_type)
+            {
+                case PlatformType.KEEN4:
+                    return nameof(Properties.Resources.keen4_platform_horizontal_left1);
+                case PlatformType.KEEN5_PINK:
+                    return nameof(Properties.Resources.keen5_pink_platform);
+                case PlatformType.KEEN5_ORANGE:
+                    return nameof(Properties.Resources.keen5_orange_platform);
+                case PlatformType.KEEN6:
+                    return nameof(Properties.Resources.keen6_bip_platform);
+            }
+
+            return nameof(Properties.Resources.keen6_bip_platform);
+        }
+
         protected virtual void UpdateKeenVerticalPosition()
         {
             if (!_keen.IsDead())

@@ -3136,6 +3136,36 @@ namespace KeenReloaded2.Entities.ReferenceData
                 },
             };
 
+            MapMakerObjectProperty keen6PlatformTypeProperty = new MapMakerObjectProperty()
+            {
+                PropertyName = "type",
+                DataType = typeof(PlatformType),
+                Value = PlatformType.KEEN6,
+                Hidden = true
+            };
+
+            MapMakerObjectProperty maxDropProperty = new MapMakerObjectProperty()
+            {
+                PropertyName = "maxDrop",
+                DataType = typeof(int),
+                Value = 100,
+                DisplayName = "Max Fall: "
+            };
+
+            var keen6PlatformImg = Properties.Resources.keen6_bip_platform;
+            var keen6PlatformSize = new Size(keen6PlatformImg.Width, keen6PlatformImg.Height);
+            List<MapMakerObjectProperty> commonObjectProperties = GetCommonObjectProperties(keen6PlatformSize);
+
+            List<MapMakerObjectProperty> keen6DropPlatformProperties = new List<MapMakerObjectProperty>(commonObjectProperties)
+            {
+                keen6PlatformTypeProperty,
+                maxDropProperty,
+            };
+
+            string keen6DropImageFile = keen6ConstructFiles.FirstOrDefault(s => s.Contains("drop_platform"));
+            MapMakerObject keen6DropPlatformObject = new MapMakerObject(typeof(DropPlatform), keen6DropImageFile, false, keen6DropPlatformProperties.ToArray());
+            backgroundReferenceData.Add("keen6_drop_platform", keen6DropPlatformObject);
+            
             AddSimpleGameObject(backgroundReferenceData, keen6ConstructFiles, "bip_platform", typeof(Keen6SetPathPlatform), commonPlatformProperties.ToArray(), 18);
             #endregion
 
@@ -3786,6 +3816,35 @@ namespace KeenReloaded2.Entities.ReferenceData
                 return "yellow_flag_destination";
 
             return string.Empty;
+        }
+
+        private static List<MapMakerObjectProperty> GetCommonObjectProperties(Size imageSize)
+        {
+           return new List<MapMakerObjectProperty>()
+            {
+                  new MapMakerObjectProperty()
+                        {
+                            DisplayName = "Area: ",
+                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                            DataType = typeof(Rectangle),
+                            Value = new Rectangle(0, 0, imageSize.Width, imageSize.Height),
+                        },
+                        new MapMakerObjectProperty()
+                        {
+                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                            DataType = typeof(SpaceHashGrid),
+                            Value = null,
+                            Hidden = true,
+                            IsIgnoredInMapData = true
+                        },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "zIndex",
+                             DisplayName = "Z Index: ",
+                             DataType = typeof(int),
+                             Value = 18
+                         },
+            };
         }
 
         private static GemColor InferFlagColorFromKey(string key)
