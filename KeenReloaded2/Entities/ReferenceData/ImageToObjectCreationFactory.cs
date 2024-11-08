@@ -3230,7 +3230,7 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             keen5SetPathPropertiesPink.AddRange(commonPlatformProperties);
 
-
+            //orange
             var keen5OrangePlatformImg = Properties.Resources.keen5_orange_platform;
             var keen5OrangePlatformSize = new Size(keen5OrangePlatformImg.Width, keen5OrangePlatformImg.Height);
             List<MapMakerObjectProperty> keen5OrangeCommonObjectProperties = GetCommonObjectProperties(keen5OrangePlatformSize);
@@ -3259,9 +3259,43 @@ namespace KeenReloaded2.Entities.ReferenceData
                 keen5OrangePlatformTypeProperty
             };
 
-            string keen5OrangeTrickPlatformImageFile = keen5ConstructFiles.FirstOrDefault(s => s.Contains("trick_platform"));
+
+            string keen5OrangeTrickPlatformImageFile = keen5ConstructFiles.FirstOrDefault(s => s.Contains("orange_trick_platform"));
             MapMakerObject keen5OrangeTrickPlatformObject = new MapMakerObject(typeof(HorizontalTrickPlatform), keen5OrangeTrickPlatformImageFile, false, keen5OrangeTrickPlatformProperties.ToArray());
             backgroundReferenceData.Add("keen5_orange_trick_platform", keen5OrangeTrickPlatformObject);
+
+            //pink
+            var keen5PinkPlatformImg = Properties.Resources.keen5_pink_platform;
+            var keen5PinkPlatformSize = new Size(keen5PinkPlatformImg.Width, keen5PinkPlatformImg.Height);
+            List<MapMakerObjectProperty> keen5PinkCommonObjectProperties = GetCommonObjectProperties(keen5PinkPlatformSize);
+            List<MapMakerObjectProperty> keen5PinkDropPlatformProperties = new List<MapMakerObjectProperty>(keen5PinkCommonObjectProperties)
+            {
+                keen5PinkPlatformTypeProperty,
+                maxDropProperty,
+            };
+
+            string keen5PinkDropImageFile = keen5ConstructFiles.FirstOrDefault(s => s.Contains("pink_drop_platform"));
+            MapMakerObject keen5PinkDropPlatformObject = new MapMakerObject(typeof(DropPlatform), keen5PinkDropImageFile, false, keen5PinkDropPlatformProperties.ToArray());
+            backgroundReferenceData.Add("keen5_pink_drop_platform", keen5PinkDropPlatformObject);
+
+            List<MapMakerObjectProperty> keen5PinkBottomOutProperties = new List<MapMakerObjectProperty>(keen5PinkCommonObjectProperties)
+            {
+                keen5PinkPlatformTypeProperty,
+                bottomOutDistanceProperty,
+            };
+
+            string keen5PinkBottomOutImageFile = keen5ConstructFiles.FirstOrDefault(s => s.Contains("pink_bottom_out_platform"));
+            MapMakerObject keen5PinkBottomOutPlatformObject = new MapMakerObject(typeof(BottomOutPlatform), keen5PinkBottomOutImageFile, false, keen5PinkBottomOutProperties.ToArray());
+            backgroundReferenceData.Add("keen5_pink_bottom_out_platform", keen5PinkBottomOutPlatformObject);
+
+            List<MapMakerObjectProperty> keen5PinkTrickPlatformProperties = new List<MapMakerObjectProperty>(keen5PinkCommonObjectProperties)
+            {
+                keen5PinkPlatformTypeProperty
+            };
+
+            string keen5PinkTrickPlatformImageFile = keen5ConstructFiles.FirstOrDefault(s => s.Contains("pink_trick_platform"));
+            MapMakerObject keen5PinkTrickPlatformObject = new MapMakerObject(typeof(HorizontalTrickPlatform), keen5PinkTrickPlatformImageFile, false, keen5PinkTrickPlatformProperties.ToArray());
+            backgroundReferenceData.Add("keen5_pink_trick_platform", keen5PinkTrickPlatformObject);
 
             AddSimpleGameObject(backgroundReferenceData, keen5ConstructFiles, "orange_platform", typeof(SetPathPlatform), keen5SetPathPropertiesOrange.ToArray(), 18);
             AddSimpleGameObject(backgroundReferenceData, keen5ConstructFiles, "pink_platform", typeof(SetPathPlatform), keen5SetPathPropertiesPink.ToArray(), 18);
