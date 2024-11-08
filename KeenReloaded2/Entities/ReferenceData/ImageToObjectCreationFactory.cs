@@ -3311,6 +3311,39 @@ namespace KeenReloaded2.Entities.ReferenceData
                 Hidden = true
             };
 
+            var keen4PlatformImg = Properties.Resources.keen4_platorm_stationary;
+            var keen4PlatformSize = new Size(keen4PlatformImg.Width, keen4PlatformImg.Height);
+            List<MapMakerObjectProperty> keen4CommonObjectProperties = GetCommonObjectProperties(keen4PlatformSize);
+
+            List<MapMakerObjectProperty> keen4DropPlatformProperties = new List<MapMakerObjectProperty>(keen4CommonObjectProperties)
+            {
+                keen4PlatformTypeProperty,
+                maxDropProperty,
+            };
+
+            List<MapMakerObjectProperty> keen4BottomOutProperties = new List<MapMakerObjectProperty>(keen4CommonObjectProperties)
+            {
+                keen4PlatformTypeProperty,
+                bottomOutDistanceProperty,
+            };
+
+            List<MapMakerObjectProperty> keen4TrickPlatformProperties = new List<MapMakerObjectProperty>(keen4CommonObjectProperties)
+            {
+                keen4PlatformTypeProperty
+            };
+
+            string keen4DropImageFile = keen4ConstructFiles.FirstOrDefault(s => s.Contains("drop_platform"));
+            MapMakerObject keen4DropPlatformObject = new MapMakerObject(typeof(DropPlatform), keen4DropImageFile, false, keen4DropPlatformProperties.ToArray());
+            backgroundReferenceData.Add("keen4_drop_platform", keen4DropPlatformObject);
+
+            string keen4BottomOutImageFile = keen4ConstructFiles.FirstOrDefault(s => s.Contains("bottom_out"));
+            MapMakerObject keen4BottomOutPlatformObject = new MapMakerObject(typeof(BottomOutPlatform), keen4BottomOutImageFile, false, keen4BottomOutProperties.ToArray());
+            backgroundReferenceData.Add("keen4_bottom_out_platform", keen4BottomOutPlatformObject);
+
+            string keen4TrickPlatformImageFile = keen4ConstructFiles.FirstOrDefault(s => s.Contains("trick"));
+            MapMakerObject keen4TrickPlatformObject = new MapMakerObject(typeof(HorizontalTrickPlatform), keen4TrickPlatformImageFile, false, keen4TrickPlatformProperties.ToArray());
+            backgroundReferenceData.Add("keen4_trick_platform", keen4TrickPlatformObject);
+
             AddSimpleGameObject(backgroundReferenceData, keen4ConstructFiles, "platform_stationary", typeof(Keen4SetPathPlatform), commonPlatformProperties.ToArray(), 18);
             #endregion
 
