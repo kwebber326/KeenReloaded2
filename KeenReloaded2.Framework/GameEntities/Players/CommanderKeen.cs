@@ -400,17 +400,9 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             {
                 if (item.CollisionType == CollisionType.BLOCK)
                     return true;
-                else if ((item.CollisionType == CollisionType.PLATFORM || item.CollisionType == CollisionType.POLE_TILE) && item.HitBox.Top >= this.HitBox.Bottom)//PLATFORM CODE
+                else if ((item.CollisionType == CollisionType.KEEN_ONLY_PLATFORM || item.CollisionType == CollisionType.PLATFORM || item.CollisionType == CollisionType.POLE_TILE) && item.HitBox.Top >= this.HitBox.Bottom)//PLATFORM CODE
                 {
                     return true;
-                }
-                else if (item.CollisionType == CollisionType.KEEN_ONLY_PLATFORM)
-                {
-                    var tile = item as MovingPlatformTile;
-                    if (tile != null && tile.Keen == this)
-                    {
-                        return true;
-                    }
                 }
             }
             return false;
