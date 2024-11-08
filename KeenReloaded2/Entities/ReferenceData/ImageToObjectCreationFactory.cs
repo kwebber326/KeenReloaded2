@@ -3300,6 +3300,20 @@ namespace KeenReloaded2.Entities.ReferenceData
             AddSimpleGameObject(backgroundReferenceData, keen5ConstructFiles, "orange_platform", typeof(SetPathPlatform), keen5SetPathPropertiesOrange.ToArray(), 18);
             AddSimpleGameObject(backgroundReferenceData, keen5ConstructFiles, "pink_platform", typeof(SetPathPlatform), keen5SetPathPropertiesPink.ToArray(), 18);
             #endregion
+
+            #region keen 4
+
+            MapMakerObjectProperty keen4PlatformTypeProperty = new MapMakerObjectProperty()
+            {
+                PropertyName = "type",
+                DataType = typeof(PlatformType),
+                Value = PlatformType.KEEN4,
+                Hidden = true
+            };
+
+            AddSimpleGameObject(backgroundReferenceData, keen4ConstructFiles, "platform_stationary", typeof(Keen4SetPathPlatform), commonPlatformProperties.ToArray(), 18);
+            #endregion
+
             #endregion
 
             #endregion

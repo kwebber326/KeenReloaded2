@@ -3107,5 +3107,48 @@ namespace KeenReloaded2.Framework.SpriteSheet
         }
 
         #endregion
+
+        #region platforms
+
+        #region keen 4 
+
+        private static Image[] _keen4MovingPlatformLeftImages;
+
+        public static Image[] Keen4MovingPlatformLeftImages
+        {
+            get
+            {
+                if (_keen4MovingPlatformLeftImages == null)
+                {
+                    _keen4MovingPlatformLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen4_platform_horizontal_left1,
+                        Properties.Resources.keen4_platform_horizontal_left2
+                    };
+                }
+                return _keen4MovingPlatformLeftImages;
+            }
+        }
+
+        private static Image[] _keen4MovingPlatformRightImages;
+
+        public static  Image[] Keen4MovingPlatformRightImages
+        {
+            get
+            {
+                if (_keen4MovingPlatformRightImages == null)
+                {
+                    _keen4MovingPlatformRightImages = new Image[]
+                    {
+                        Properties.Resources.keen4_platform_horizontal_right1,
+                        Properties.Resources.keen4_platform_horizontal_right2
+                    };
+                }
+                return _keen4MovingPlatformRightImages;
+            }
+        }
+        #endregion
+
+        #endregion
     }
 }

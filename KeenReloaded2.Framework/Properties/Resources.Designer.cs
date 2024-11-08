@@ -6343,7 +6343,7 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap keen4_platorm_stationary {
+        internal static System.Drawing.Bitmap keen4_platform_stationary {
             get {
                 object obj = ResourceManager.GetObject("keen4_platorm_stationary", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));

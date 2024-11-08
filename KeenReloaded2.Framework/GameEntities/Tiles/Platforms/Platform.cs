@@ -44,10 +44,10 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             switch (_type)
             {
                 case PlatformType.KEEN4:
-                    _image = Properties.Resources.keen4_platorm_stationary;
+                    _image = Properties.Resources.keen4_platform_stationary;
                     _images = new Image[]
                     {
-                        Properties.Resources.keen4_platorm_stationary
+                        Properties.Resources.keen4_platform_stationary
                     };
                     break;
                 case PlatformType.KEEN5_PINK:
