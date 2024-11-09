@@ -33,6 +33,7 @@ namespace KeenReloaded2
         {
             openFileDialog1.InitialDirectory = _path;
             openFileDialog1.ShowDialog();
+            this.Close();
         }
 
         private void OpenFileDialog1_FileOk(object sender, CancelEventArgs e)
