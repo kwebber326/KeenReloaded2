@@ -79,9 +79,21 @@ namespace KeenReloaded2
 
         private void _keen_KeenLevelCompleted(object sender, Framework.GameEventArgs.ObjectEventArgs e)
         {
+            _gameUpdateTimer.Stop();
+            RemoveKeenFromGame();
             KeenReloadedMessageWindow window = new KeenReloadedMessageWindow("Level Completed!");
             window.ShowDialog();
             this.Dispose();
+        }
+
+        private void RemoveKeenFromGame()
+        {
+            var keenObject = _game.Map.MapData.FirstOrDefault(o => o.GameObject == _keen);
+            if (keenObject != null)
+            {
+                _game.Map.MapData.Remove(keenObject);
+                _game.UpdateGame();
+            }
         }
 
         private void _keen_KeenDied(object sender, Framework.GameEventArgs.ObjectEventArgs e)
