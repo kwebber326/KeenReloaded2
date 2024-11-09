@@ -28,13 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileDialog1_FileOk);
             // 
             // MapLoader
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(881, 605);
+            this.ClientSize = new System.Drawing.Size(1175, 756);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MapLoader";
             this.Text = "MapLoader";
             this.Load += new System.EventHandler(this.MapLoader_Load);
@@ -43,5 +50,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

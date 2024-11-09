@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KeenReloaded2.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace KeenReloaded2
     public partial class MapLoader : Form
     {
         private readonly string _gameMode;
+        private string _path;
 
         public MapLoader()
         {
@@ -23,12 +25,22 @@ namespace KeenReloaded2
         {
             InitializeComponent();
             _gameMode = gameMode;
+            _path = MapUtility.GetSavedMapsPath(_gameMode);
         }
 
 
         private void MapLoader_Load(object sender, EventArgs e)
         {
+            openFileDialog1.InitialDirectory = _path;
+            openFileDialog1.ShowDialog();
+        }
 
+        private void OpenFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            var mapData = MapUtility.LoadMapData(openFileDialog1.FileName);
+            Form1 game = new Form1(_gameMode, mapData);
+            game.ShowDialog();
+            this.Close();
         }
     }
 }
