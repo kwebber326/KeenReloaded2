@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KeenReloaded2.DialogWindows;
 
 namespace KeenReloaded2
 {
@@ -68,10 +69,24 @@ namespace KeenReloaded2
             _gameUpdateTimer.Tick += _gameUpdateTimer_Tick;
             _gameUpdateTimer.Start();
             _keen.KeenMoved += _keen_KeenMoved;
+            _keen.KeenDied += _keen_KeenDied;
+            _keen.KeenLevelCompleted += _keen_KeenLevelCompleted;
             UpdateViewRectangle();
             pnlGameWindow.AutoScroll = true;
             pnlGameWindow.MouseWheel += PnlGameWindow_MouseWheel;
             this.MouseWheel += PnlGameWindow_MouseWheel;
+        }
+
+        private void _keen_KeenLevelCompleted(object sender, Framework.GameEventArgs.ObjectEventArgs e)
+        {
+            KeenReloadedMessageWindow window = new KeenReloadedMessageWindow("Level Completed!");
+            window.ShowDialog();
+            this.Dispose();
+        }
+
+        private void _keen_KeenDied(object sender, Framework.GameEventArgs.ObjectEventArgs e)
+        {
+           
         }
 
         private void PnlGameWindow_MouseWheel(object sender, MouseEventArgs e)

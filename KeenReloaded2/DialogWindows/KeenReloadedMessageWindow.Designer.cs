@@ -50,7 +50,7 @@ namespace KeenReloaded2.DialogWindows
             this.lblText.AutoSize = true;
             this.lblText.BackColor = System.Drawing.Color.Transparent;
             this.lblText.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblText.Location = new System.Drawing.Point(137, 68);
+            this.lblText.Location = new System.Drawing.Point(244, 67);
             this.lblText.Name = "lblText";
             this.lblText.Size = new System.Drawing.Size(166, 27);
             this.lblText.TabIndex = 1;
@@ -60,7 +60,7 @@ namespace KeenReloaded2.DialogWindows
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 156);
+            this.ClientSize = new System.Drawing.Size(881, 302);
             this.ControlBox = false;
             this.Controls.Add(this.lblText);
             this.Controls.Add(this.pictureBox1);
@@ -75,7 +75,7 @@ namespace KeenReloaded2.DialogWindows
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KeenReloadedMessageWindow";
             this.Load += new System.EventHandler(this.KeenReloadedMessageWindow_Load);
-            this.KeyUp += new KeyEventHandler(KeenReloadedMessageWindow_KeyUp);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeenReloadedMessageWindow_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
