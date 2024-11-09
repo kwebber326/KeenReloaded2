@@ -5725,4 +5725,13 @@
   <data name="gem_placeholder_yellow_empty1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\MapMakerObjects\Gems\gem_placeholder_yellow_empty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen_message_window" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen_message_window.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen_message_window_option_selected1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen_message_window_option_selected1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen_message_window_option_selected2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen_message_window_option_selected2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

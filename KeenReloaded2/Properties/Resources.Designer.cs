@@ -3053,6 +3053,36 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen_message_window {
+            get {
+                object obj = ResourceManager.GetObject("keen_message_window", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_message_window_option_selected1 {
+            get {
+                object obj = ResourceManager.GetObject("keen_message_window_option_selected1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_message_window_option_selected2 {
+            get {
+                object obj = ResourceManager.GetObject("keen_message_window_option_selected2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen_pole_left1 {
             get {
                 object obj = ResourceManager.GetObject("keen_pole_left1", resourceCulture);
