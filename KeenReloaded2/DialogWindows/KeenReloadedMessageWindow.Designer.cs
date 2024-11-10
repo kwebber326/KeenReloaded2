@@ -50,7 +50,7 @@ namespace KeenReloaded2.DialogWindows
             this.lblText.AutoSize = true;
             this.lblText.BackColor = System.Drawing.Color.Transparent;
             this.lblText.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblText.Location = new System.Drawing.Point(244, 67);
+            this.lblText.Location = new System.Drawing.Point(238, 102);
             this.lblText.Name = "lblText";
             this.lblText.Size = new System.Drawing.Size(166, 27);
             this.lblText.TabIndex = 1;

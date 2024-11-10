@@ -98,10 +98,15 @@ namespace KeenReloaded2
         private void _keen_KeenLevelCompleted(object sender, Framework.GameEventArgs.ObjectEventArgs e)
         {
             _gameUpdateTimer.Stop();
-            RemoveKeenFromGame();
-            KeenReloadedMessageWindow window = new KeenReloadedMessageWindow("Level Completed!");
-            window.ShowDialog();
-            this.Dispose();
+            if (!_levelCompleted)
+            {
+                _levelCompleted = true;
+
+                RemoveKeenFromGame();
+                KeenReloadedMessageWindow window = new KeenReloadedMessageWindow("Level Completed!");
+                window.ShowDialog();
+                this.Close();
+            }
         }
 
         private void RemoveKeenFromGame()
