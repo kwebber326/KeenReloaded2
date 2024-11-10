@@ -29,8 +29,9 @@ namespace KeenReloaded2.DialogWindows
         {
             lblText.Text = _messageText;
         }
-        private void KeenReloadedMessageWindow_KeyUp(object sender, KeyEventArgs e)
+        protected virtual void KeenReloadedMessageWindow_KeyUp(object sender, KeyEventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
     }

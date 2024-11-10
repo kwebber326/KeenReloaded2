@@ -56,11 +56,20 @@
     <Compile Include="ControlEventArgs\EventStoreData\PointListChangedEventArgs.cs" />
     <Compile Include="ControlEventArgs\MainMenuOptionEventArgs.cs" />
     <Compile Include="ControlEventArgs\MapMakerObjectEventArgs.cs" />
+    <Compile Include="DialogWindows\KeenOptionButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DialogWindows\KeenOptionButton.Designer.cs">
+      <DependentUpon>KeenOptionButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="DialogWindows\KeenReloadedMessageWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DialogWindows\KeenReloadedMessageWindow.Designer.cs">
       <DependentUpon>KeenReloadedMessageWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogWindows\KeenReloadedYesNoDialogWindow.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Entities\CommanderKeenGame.cs" />
     <Compile Include="Entities\GameObjectMapping.cs">
@@ -242,6 +251,10 @@
     </Compile>
     <Compile Include="Utilities\EventStore.cs" />
     <Compile Include="Utilities\MapUtility.cs" />
+    <Compile Include="Utilities\UserControlSprites.cs" />
+    <EmbeddedResource Include="DialogWindows\KeenOptionButton.resx">
+      <DependentUpon>KeenOptionButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DialogWindows\KeenReloadedMessageWindow.resx">
       <DependentUpon>KeenReloadedMessageWindow.cs</DependentUpon>
     </EmbeddedResource>

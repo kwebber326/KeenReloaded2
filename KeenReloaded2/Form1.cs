@@ -43,10 +43,15 @@ namespace KeenReloaded2
         {
             InitializeComponent();
             _gameMode = gameMode;
+            InitializeGameData(gameMode, data);
+        }
+
+        private void InitializeGameData(string gameMode, MapMakerData data)
+        {
             _game = new CommanderKeenGame(data);
             var gameObjects = data.MapData.Select(d => d.GameObject);
             _keen = gameObjects.OfType<CommanderKeen>().FirstOrDefault();
-          
+
 
             string characterName = FileIOUtility.LoadSavedCharacterSelection();
             if (characterName != MainMenuConstants.Characters.COMMANDER_KEEN)
@@ -96,9 +101,31 @@ namespace KeenReloaded2
             }
         }
 
+        private void ResetGame()
+        {
+            DetachEvents();
+        }
+
+        private void DetachEvents()
+        {
+            _keen.KeenDied -= _keen_KeenDied;
+            _keen.KeenLevelCompleted -= _keen_KeenLevelCompleted;
+            _keen.KeenMoved -= _keen_KeenMoved;
+            _gameUpdateTimer.Tick -= _gameUpdateTimer_Tick;
+        }
+
         private void _keen_KeenDied(object sender, Framework.GameEventArgs.ObjectEventArgs e)
         {
-           
+            KeenReloadedYesNoDialogWindow yesNoDialogWindow = new KeenReloadedYesNoDialogWindow("You failed. Try again?", true);
+            var dialogResult = yesNoDialogWindow.ShowDialog();
+            if (dialogResult == DialogResult.Yes)
+            {
+                ResetGame();
+            }
+            else
+            {
+                this.Dispose();
+            }
         }
 
         private void PnlGameWindow_MouseWheel(object sender, MouseEventArgs e)
