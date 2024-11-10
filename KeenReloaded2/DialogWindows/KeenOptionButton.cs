@@ -25,6 +25,7 @@ namespace KeenReloaded2.DialogWindows
             _timer.Interval = 300;
             _timer.Tick += _timer_Tick;
             this.Selected = selected;
+            lblText.BackColor = Color.Transparent;
             lblText.Text = text;
             this.BackgroundImageLayout = ImageLayout.Stretch;
         }

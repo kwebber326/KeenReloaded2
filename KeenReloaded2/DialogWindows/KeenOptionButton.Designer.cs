@@ -45,9 +45,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.lblText);
             this.Name = "KeenOptionButton";
-            this.Size = new System.Drawing.Size(100, 28);
+            this.Size = new System.Drawing.Size(128, 40);
             this.ResumeLayout(false);
             this.PerformLayout();
 
