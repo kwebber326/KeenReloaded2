@@ -258,10 +258,10 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         {
             if (_keen.HitBox.Top < this.HitBox.Bottom && _keen.HitBox.Bottom > this.HitBox.Top)
             {
-                if (_keen.HitBox.Right < this.HitBox.Left + this.HitBox.Width / 2 && _direction == Enums.Direction.RIGHT)
+                if (_keen.HitBox.Right < this.HitBox.Left - this.HitBox.Width / 2 && _direction == Enums.Direction.RIGHT)
                     return true;
 
-                if (_keen.HitBox.Left > this.HitBox.Left + this.HitBox.Width / 2 && _direction == Enums.Direction.LEFT)
+                if (_keen.HitBox.Left > this.HitBox.Right + this.HitBox.Width / 2 && _direction == Enums.Direction.LEFT)
                     return true;
             }
 
