@@ -61,6 +61,7 @@ namespace KeenReloaded2.Utilities
                 MapMakerData mapMakerData = new MapMakerData()
                 {
                     MapName = FileIOUtility.ExtractFileNameFromPath(mapFile),
+                    MapPath = mapFile,
                     GameMode = GetGameModeFromFolderPath(mapFile)
                 };
                 List<GameObjectMapping> mapData = new List<GameObjectMapping>();

@@ -43,15 +43,27 @@ namespace KeenReloaded2
         {
             InitializeComponent();
             _gameMode = gameMode;
-            InitializeGameData(gameMode, data);
+            InitializeGameData(gameMode, data, false);
         }
 
-        private void InitializeGameData(string gameMode, MapMakerData data)
+        private void InitializeGameData(string gameMode, MapMakerData data, bool isReset)
         {
             _game = new CommanderKeenGame(data);
             var gameObjects = data.MapData.Select(d => d.GameObject);
+
+            int lives = _keen?.Lives ?? 0;
+            int drops = _keen?.Drops ?? 0;
+            long points = _keen?.Points ?? 0;
+           
             _keen = gameObjects.OfType<CommanderKeen>().FirstOrDefault();
 
+            if (isReset)
+            {
+                if (_gameMode != MainMenuConstants.OPTION_LABEL_NORMAL_MODE)
+                    _keen.ResetKeenAfterDeath(lives, drops, points);
+                else
+                    _keen.ResetKeenAfterDeath(lives, drops, 0);
+            }
 
             string characterName = FileIOUtility.LoadSavedCharacterSelection();
             if (characterName != MainMenuConstants.Characters.COMMANDER_KEEN)
@@ -61,6 +73,7 @@ namespace KeenReloaded2
             }
             CurrentPlayerList.Players.Clear();
             CurrentPlayerList.Players.Add(_keen);
+
             inventoryPanel1.Keen = _keen;
             inventoryPanel1.ShowFlagInventory = gameMode == MainMenuConstants.OPTION_LABEL_CTF_MODE;
             _maxVisionY = _game.Map.MapSize.Height - VIEW_RADIUS;
@@ -104,6 +117,9 @@ namespace KeenReloaded2
         private void ResetGame()
         {
             DetachEvents();
+            var mapMakerData = MapUtility.LoadMapData(_game.Map.MapPath);
+            InitializeGameData(_gameMode, mapMakerData, true);
+            InitializeGameState();
         }
 
         private void DetachEvents()
@@ -112,9 +128,16 @@ namespace KeenReloaded2
             _keen.KeenLevelCompleted -= _keen_KeenLevelCompleted;
             _keen.KeenMoved -= _keen_KeenMoved;
             _gameUpdateTimer.Tick -= _gameUpdateTimer_Tick;
+            pnlGameWindow.MouseWheel -= PnlGameWindow_MouseWheel;
+            this.MouseWheel -= PnlGameWindow_MouseWheel;
         }
 
         private void _keen_KeenDied(object sender, Framework.GameEventArgs.ObjectEventArgs e)
+        {
+
+        }
+
+        private void ShowRestartDialogPrompt()
         {
             KeenReloadedYesNoDialogWindow yesNoDialogWindow = new KeenReloadedYesNoDialogWindow("You failed. Try again?", true);
             var dialogResult = yesNoDialogWindow.ShowDialog();
@@ -124,7 +147,7 @@ namespace KeenReloaded2
             }
             else
             {
-                this.Dispose();
+                this.Close();
             }
         }
 
@@ -143,6 +166,16 @@ namespace KeenReloaded2
             if (!_paused && !_levelCompleted)
             {
                 pbGameImage.Image = _game.UpdateGame();
+                if (_keen.IsDead())
+                {
+                    if (IsKeenOutOfVisibleRange())
+                    {
+                        _gameUpdateTimer.Stop();
+                        ShowRestartDialogPrompt();
+                    }
+                    return;
+                }
+
                 if (_keen.IsLookingUp)
                 {
                     if (_currentVisionOffset * -1 < MAX_VISION_OFFSET)
@@ -238,27 +271,33 @@ namespace KeenReloaded2
             switch (key)
             {
                 case Keys.Escape:
-                    //_paused = true;
-                    //var messageWindow = new KeenReloadedYesNoDialogWindow("Are you sure you want to quit?", false);
+                    _paused = true;
+                    var messageWindow = new KeenReloadedYesNoDialogWindow("Are you sure you want to quit?", false);
 
-                    //var dialogResult = messageWindow.ShowDialog();
-                    //if (dialogResult == DialogResult.No)
-                    //{
-                    //    _paused = false;
-                    //}
-                    //else
-                    //{
-                    //    this.Close();
-                    //}
+                    var dialogResult = messageWindow.ShowDialog();
+                    if (dialogResult == DialogResult.No)
+                    {
+                        _paused = false;
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
                     break;
             }
+        }
+
+        private bool IsKeenOutOfVisibleRange()
+        {
+            return _keen.HitBox.X > pnlGameWindow.Width || _keen.HitBox.Right < pnlGameWindow.Location.X
+                || _keen.HitBox.Y > pnlGameWindow.Height;
         }
 
         private void UpdateViewRectangle()
         {
             if (!_keen.IsDead())
             {
-               // pnlGameWindow.AutoScroll = false;
+                // pnlGameWindow.AutoScroll = false;
                 int x = _keen.HitBox.X - VIEW_RADIUS;
                 int y = (_keen.HitBox.Y - VIEW_RADIUS < 0 ? 0 : _keen.HitBox.Y - VIEW_RADIUS) + (_currentVisionOffset * VISION_OFFSET_COEFFICIENT);
 

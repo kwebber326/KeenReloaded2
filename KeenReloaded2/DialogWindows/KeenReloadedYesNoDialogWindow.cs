@@ -17,11 +17,11 @@ namespace KeenReloaded2.DialogWindows
         public KeenReloadedYesNoDialogWindow(string text, bool defaultYes) : base(text)
         {
             _yesButton = new KeenOptionButton("Yes", defaultYes);
-            _yesButton.Location = new Point(180, 100);
+            _yesButton.Location = new Point(180, 80);
             _yesButton.Click += _yesButton_Click;
 
             _noButton = new KeenOptionButton("No", !defaultYes);
-            _noButton.Location = new Point(280, 100);
+            _noButton.Location = new Point(280, 80);
             _noButton.Click += _noButton_Click;
 
             this.Controls.Add(_noButton);
