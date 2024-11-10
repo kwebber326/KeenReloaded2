@@ -27,7 +27,6 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             _ordinalPosition = ordinalPosition;
             InitializeComponent();
             EventStore<int>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_SELECTED_INDEX_CHANGED, PathwayForm_SelectedIndex_Changed);
-            EventStore<IndexedPoint>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_LOCATION_CHANGED, Location_Changed);
         }
 
         public void PathwayForm_SelectedIndex_Changed(object sender, ControlEventArgs<int> args)
@@ -43,14 +42,6 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             {
                 this.BorderStyle = BorderStyle.None;
                 this.BackColor = Color.Transparent;
-            }
-        }
-
-        public void Location_Changed(object sender, ControlEventArgs<IndexedPoint> args)
-        {
-            if (_ordinalPosition == args.Data.Index)
-            {
-                this.Location = args.Data.Location;
             }
         }
 

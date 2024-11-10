@@ -63,7 +63,9 @@ namespace KeenReloaded2
             EventStore<DoorSelectionChangedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_DOOR_SELECTION_CHANGED, DoorSelection_Changed);
             EventStore<DoorSelectionChangedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_DOOR_SELECTION_COMPLETE, DoorSelection_Complete);
             EventStore<PointListChangedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_POINTS_LIST_CHANGED, PointList_Changed);
+            EventStore<IndexedPoint>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_LOCATION_CHANGED, SinglePointLocation_Changed);
             EventStore<PointListChangedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_POINTS_LIST_FINALIZED, PointList_Finalized);
+            EventStore<int>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_SELECTED_INDEX_CHANGED, PathwayForm_SelectedIndex_Changed);
         }
 
         private void InitializeGameModeList()
@@ -413,6 +415,26 @@ namespace KeenReloaded2
             ClearPathwayPointControls();
         }
 
+        private void SinglePointLocation_Changed(object sender, ControlEventArgs<IndexedPoint> e)
+        {
+            if (e?.Data == null)
+                return;
+
+            int index = e.Data.Index - 1;
+            var ctrl = _pathWayPoints[index];
+            ctrl.Location = GetOffsetPointForCanvas(e.Data.Location);
+            pnlMapCanvas.ScrollControlIntoView(ctrl);
+        }
+
+        private void PathwayForm_SelectedIndex_Changed(object sender, ControlEventArgs<int> e)
+        {
+            if (e == null)
+                return;
+
+            int index = e.Data - 1;
+            pnlMapCanvas.ScrollControlIntoView(_pathWayPoints[index]);
+        }
+
         private void PointList_Changed(object sender, ControlEventArgs<PointListChangedEventArgs> e)
         {
             ClearPathwayPointControls();
@@ -422,12 +444,18 @@ namespace KeenReloaded2
 
             for (int i = 0; i < points.Count; i++)
             {
-                PointMarkerControl ctrl = new PointMarkerControl(i + 1);
-                ctrl.Location = new Point(points[i].X + pnlMapCanvas.AutoScrollPosition.X, points[i].Y + pnlMapCanvas.AutoScrollPosition.Y);
+                int index = i + 1;
+                PointMarkerControl ctrl = new PointMarkerControl(index);
+                ctrl.Location = GetOffsetPointForCanvas(points[i]);
                 _pathWayPoints.Add(ctrl);
                 pnlMapCanvas.Controls.Add(ctrl);
                 ctrl.BringToFront();
             }
+        }
+        
+        private Point GetOffsetPointForCanvas(Point point)
+        {
+            return new Point(point.X + pnlMapCanvas.AutoScrollPosition.X, point.Y + pnlMapCanvas.AutoScrollPosition.Y);
         }
 
         private void ClearPathwayPointControls()

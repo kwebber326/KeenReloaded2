@@ -17,7 +17,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
     {
         protected bool _isActive;
         protected List<Point> _pathwayPoints;
-        int _currentPathwayPointIndex = 1;
+        int _currentPathwayPointIndex = 0;
         int _horizontalMoveKeenVal = 0;
         private bool _currentLocationReached;
 
@@ -31,7 +31,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             _isActive = initiallyActive;
             if (_pathwayPoints.Any())
             {
-                SetDirectionBasedOnNextNode(_currentPathwayPointIndex);
+                SetDirectionBasedOnNextNode(0);
             }
         }
 

@@ -3363,8 +3363,8 @@ namespace KeenReloaded2.Entities.ReferenceData
             string[] keen6InteractiveTileFiles = Directory.GetFiles(keen6InteractiveTileDirectory);
 
             List<string> allInteractiveTileFiles = new List<string>(keen4InteractiveTileFiles);
-            allFiles.AddRange(keen5InteractiveTileFiles);
-            allFiles.AddRange(keen6InteractiveTileFiles);
+            allInteractiveTileFiles.AddRange(keen5InteractiveTileFiles);
+            allInteractiveTileFiles.AddRange(keen6InteractiveTileFiles);
 
             foreach (var file in allInteractiveTileFiles)
             {
