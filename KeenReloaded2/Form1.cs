@@ -54,15 +54,21 @@ namespace KeenReloaded2
             int lives = _keen?.Lives ?? 0;
             int drops = _keen?.Drops ?? 0;
             long points = _keen?.Points ?? 0;
-
+            var weapons = _gameMode != MainMenuConstants.OPTION_LABEL_NORMAL_MODE && isReset ? _keen.Weapons : null;
+            var shield = inventoryPanel1.Shield;
             _keen = gameObjects.OfType<CommanderKeen>().FirstOrDefault();
 
             if (isReset)
             {
                 if (_gameMode != MainMenuConstants.OPTION_LABEL_NORMAL_MODE)
-                    _keen.ResetKeenAfterDeath(lives, drops, points);
+                {
+                    _keen.ResetKeenAfterDeath(lives, drops, points, weapons, shield);
+                }
                 else
+                {
                     _keen.ResetKeenAfterDeath(lives, drops, 0);
+                    inventoryPanel1.ResetShieldCount();
+                }
             }
 
             string characterName = FileIOUtility.LoadSavedCharacterSelection();

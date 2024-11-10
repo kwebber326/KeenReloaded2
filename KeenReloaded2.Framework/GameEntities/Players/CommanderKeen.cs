@@ -1824,7 +1824,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             SetNextExtraLifePointGoal();
             this.HasKeyCard = false;
             _currentShieldToggleDelay = MAX_SHIELD_TOGGLE_DELAY;
-            _shield = null;
+            _shield = shield;
             if (shield != null)
                 this.HandleItemCollection(shield);
 

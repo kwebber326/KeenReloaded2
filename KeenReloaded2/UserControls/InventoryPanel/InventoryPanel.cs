@@ -39,6 +39,14 @@ namespace KeenReloaded2.UserControls.InventoryPanel
             }
         }
 
+        public Shield Shield
+        {
+            get
+            {
+                return shieldInventoryControl1.Shield;
+            }
+        }
+
         public CommanderKeen Keen
         {
             get
@@ -59,6 +67,12 @@ namespace KeenReloaded2.UserControls.InventoryPanel
                     weaponInventoryControl1.SetWeaponInventory(_keen);
                 }
             }
+        }
+
+        public void ResetShieldCount()
+        {
+            shieldInventoryControl1.SetShieldCount(0);
+            shieldInventoryControl1.SetShieldActiveStatus(false);
         }
 
         private void RegisterKeenEvents()
