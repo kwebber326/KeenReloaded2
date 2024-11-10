@@ -156,7 +156,13 @@ namespace KeenReloaded2.UserControls.InventoryPanel
         private ImageWithLocation[] GetLifeAmountImages()
         {
             ImageWithLocation[] imageWithLocations = new ImageWithLocation[0];
-
+            if (Keen.Lives < 0)
+            {
+                Image img = _digitLEDs['0'];
+                Point location = new Point(INITIAL_LIFE_HORIZONTAL_OFFSET, LIFE_VERTICAL_OFFSET);
+                ImageWithLocation imageWithLocation = new ImageWithLocation(img, location);
+                return new ImageWithLocation[] { imageWithLocation };
+            }
             string livesString = _keen.Lives.ToString();
 
             imageWithLocations = new ImageWithLocation[LIFE_DIGIT_COUNT];

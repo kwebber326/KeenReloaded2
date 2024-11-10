@@ -54,7 +54,7 @@ namespace KeenReloaded2
             int lives = _keen?.Lives ?? 0;
             int drops = _keen?.Drops ?? 0;
             long points = _keen?.Points ?? 0;
-           
+
             _keen = gameObjects.OfType<CommanderKeen>().FirstOrDefault();
 
             if (isReset)
@@ -171,7 +171,10 @@ namespace KeenReloaded2
                     if (IsKeenOutOfVisibleRange())
                     {
                         _gameUpdateTimer.Stop();
-                        ShowRestartDialogPrompt();
+                        if (_keen.Lives >= 0)
+                            ShowRestartDialogPrompt();
+                        else
+                            InitiateGameOverProtocol();
                     }
                     return;
                 }
@@ -207,6 +210,13 @@ namespace KeenReloaded2
                     pnlGameWindow.AutoScrollPosition = new Point(x, y);
                 }
             }
+        }
+
+        private void InitiateGameOverProtocol()
+        {
+            KeenReloadedMessageWindow messageWindow = new KeenReloadedMessageWindow("Game Over");
+            messageWindow.ShowDialog();
+            this.Close();
         }
 
         protected override bool IsInputKey(Keys keyData)
