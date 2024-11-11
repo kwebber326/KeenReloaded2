@@ -157,6 +157,11 @@ namespace KeenReloaded2.Framework.GameEntities.Items
             _isCaptured = true;
             OnCaptured();
         }
+
+        public Flag Copy()
+        {
+            return new Flag(new Rectangle(_originalLocation, this.HitBox.Size), _collisionGrid, _imageName, _zIndex, _color, _maxPoints, _minPoints, _pointsDegradedPerSecond);
+        }
         #endregion
 
         #region protected methods

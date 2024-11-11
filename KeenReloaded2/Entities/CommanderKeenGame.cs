@@ -264,14 +264,14 @@ namespace KeenReloaded2.Entities
         private void Flag_FlagCaptured(object sender, FlagCapturedEventArgs e)
         {
             var flag = e.Flag;
-            //if (flag != null)
-            //{
-            //    var newFlag = new Flag(this.Map.Grid, new System.Drawing.Rectangle(flag.LocationOfOrigin.X, flag.LocationOfOrigin.Y, flag.HitBox.Width, flag.HitBox.Height), flag.Color, flag.MaxPoints, flag.MinPoints, flag.PointsDegradedPerSecond, _keen);
-            //    this.Map.MapData.Add(newFlag);
-            //    this.RegisterItemEventsForObject(newFlag);
+            if (flag != null)
+            {
+                var newFlag = flag.Copy();
 
-            //    OnObjectCreated(new ObjectEventArgs() { ObjectSprite = newFlag });
-            //}
+                this.RegisterItemEventsForObject(newFlag);
+
+                item_CreatedObject(this, new ObjectEventArgs() { ObjectSprite = newFlag });
+            }
         }
 
         void item_RemovedObject(object sender, ObjectEventArgs e)

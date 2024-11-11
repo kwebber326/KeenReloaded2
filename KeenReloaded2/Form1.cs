@@ -310,8 +310,8 @@ namespace KeenReloaded2
 
         private bool IsKeenOutOfVisibleRange()
         {
-            return _keen.HitBox.X > _game.Map.MapSize.Width || _keen.HitBox.Right < 0
-                || _keen.HitBox.Y > _game.Map.MapSize.Height;
+            return _keen.HitBox.X >= _game.Map.MapSize.Width || _keen.HitBox.Right <= 0
+                || _keen.HitBox.Y >= _game.Map.MapSize.Height;
         }
 
         private void UpdateViewRectangle()
