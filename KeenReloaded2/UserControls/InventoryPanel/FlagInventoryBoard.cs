@@ -30,6 +30,16 @@ namespace KeenReloaded2.UserControls.InventoryPanel
 
         }
 
+        public void ResetInventory()
+        {
+            foreach (var ctrl in _flagControls)
+            {
+                this.Controls.Remove(ctrl);
+            }
+
+            _flagControls.Clear();
+        }
+
         public void AddFlag(Flag flag)
         {
             if (flag == null)

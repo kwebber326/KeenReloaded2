@@ -33,7 +33,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             if (shotDelayOffset < 0)
                 shotDelayOffset = 0;
             _currentFireDelayTick = shotDelayOffset >= FIRE_DELAY ? shotDelayOffset % FIRE_DELAY : shotDelayOffset;
-            SetSpriteFromType(type == TurretType.KEEN5 ? HazardType.KEEN5_LASER_TURRET : HazardType.KEEN6_LASER_TURRET);
+            Initialize();
         }
 
         public override bool IsDeadly
@@ -44,9 +44,8 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             }
         }
 
-        protected override void SetSpriteFromType(HazardType type)
+        protected void Initialize()
         {
-            base.SetSpriteFromType(type);
             switch (_direction)
             {
                 case Direction.RIGHT:

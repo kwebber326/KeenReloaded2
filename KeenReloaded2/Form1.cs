@@ -67,8 +67,8 @@ namespace KeenReloaded2
                 else
                 {
                     _keen.ResetKeenAfterDeath(lives, drops, 0);
-                    inventoryPanel1.ResetShieldCount();
                 }
+                inventoryPanel1.Reset();
             }
 
             string characterName = FileIOUtility.LoadSavedCharacterSelection();

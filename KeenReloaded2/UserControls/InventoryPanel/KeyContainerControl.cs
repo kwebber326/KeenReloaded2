@@ -62,6 +62,14 @@ namespace KeenReloaded2.UserControls.InventoryPanel
             }
         }
 
+        public void ResetInventory()
+        {
+            this.RemoveGem(GemColor.BLUE);
+            this.RemoveGem(GemColor.GREEN);
+            this.RemoveGem(GemColor.RED);
+            this.RemoveGem(GemColor.YELLOW);
+        }
+
         private void UpdateDisplay()
         {
             List<Image> images = new List<Image>();
