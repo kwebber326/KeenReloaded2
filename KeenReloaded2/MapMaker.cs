@@ -432,6 +432,10 @@ namespace KeenReloaded2
                 return;
 
             int index = e.Data - 1;
+            if (index >= _pathWayPoints.Count)
+            {
+                return;
+            }
             pnlMapCanvas.ScrollControlIntoView(_pathWayPoints[index]);
         }
 
