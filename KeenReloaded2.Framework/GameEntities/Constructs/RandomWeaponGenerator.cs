@@ -112,6 +112,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                 this.WeaponSprite = null;
             }
             _sprite = _sprites[_currentSprite];
+            WriteCostOntoImage();
         }
 
         public RandomWeaponGenerator(Rectangle area, SpaceHashGrid grid, int zIndex, int cost) : base(grid, area)
