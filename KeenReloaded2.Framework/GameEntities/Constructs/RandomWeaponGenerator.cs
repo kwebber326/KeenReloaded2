@@ -41,8 +41,6 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         private RandomWeaponGeneratorState _state;
         private bool _closingDoor;
         private string _weaponType;
-        private const int WEAPON_IMAGE_WIDTH = 64;
-        private const int WEAPON_IMAGE_HEIGHT = 32;
 
         private const string STUNNER_NEURAL = "NeuralStunner";
         private const string STUNNER_SHOTGUN = "Shotgun";
@@ -76,9 +74,24 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         public event EventHandler<ObjectEventArgs> Create;
         public event EventHandler<ObjectEventArgs> Remove;
 
-        public Image WeaponSprite
+        public ImageDisplay WeaponImageDisplay
         {
             get; private set;
+        }
+
+        public Image WeaponSprite
+        {
+            get
+            {
+                return this.WeaponImageDisplay?.Image;
+            }
+            private set
+            {
+                if (this.WeaponImageDisplay != null)
+                {
+                    this.WeaponImageDisplay.UpdateImage(value);
+                }
+            }
         }
 
         RandomWeaponGeneratorState State
@@ -109,7 +122,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             }
             if (_state == RandomWeaponGeneratorState.OFF)
             {
-                this.WeaponSprite = null;
+                this.HideWeaponDisplay();
             }
             _sprite = _sprites[_currentSprite];
             WriteCostOntoImage();
@@ -135,13 +148,32 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             _switch.Toggled += _switch_Toggled;
 
             WriteCostOntoImage();
+            InitializeWeaponImageDisplay();
 
             ResetRandomVariable();
         }
 
+        private void InitializeWeaponImageDisplay()
+        {
+            Point location = new Point(this.HitBox.X + 38, this.HitBox.Top - 32);
+            this.WeaponImageDisplay = new ImageDisplay(Properties.Resources.neural_stunner1, location, _zIndex);
+        }
+
+        private void ShowWeaponImageDisplay()
+        {
+            OnCreated(new ObjectEventArgs() { ObjectSprite = this.WeaponImageDisplay });
+        }
+
+        private void HideWeaponDisplay()
+        {
+            OnRemoved(new ObjectEventArgs() { ObjectSprite = this.WeaponImageDisplay });
+        }
+
         private void WriteCostOntoImage()
         {
-            Point location = new Point(52, 2);
+            int offsetPerDigit = 3;
+            int totalOffset = (_cost.ToString().Length - 1) * offsetPerDigit;
+            Point location = new Point(54 - totalOffset, 2);
             string text = _cost.ToString();
             using (Font font = new Font("Arial", 8))
             {
@@ -203,7 +235,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                 this.State = RandomWeaponGeneratorState.CHOOSING_WEAPON;
                 _currentWeaponDecisionTimeTick = 0;
                 ChooseRandomWeaponType();
-
+                ShowWeaponImageDisplay();
             }
 
             if (_currentWeaponDecisionTimeTick++ == WEAPON_DECISION_TIME)

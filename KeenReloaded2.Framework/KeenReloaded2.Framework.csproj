@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameEntities\Constructs\ImageDisplay.cs" />
     <Compile Include="GameEntities\Constructs\RandomWeaponGenerator.cs" />
     <Compile Include="GameEntities\Enemies\BipPlatformOperator.cs" />
     <Compile Include="GameEntities\Enemies\Bloog.cs" />
