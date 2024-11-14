@@ -125,6 +125,7 @@ namespace KeenReloaded2
             cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_CTF_ITEMS);
             cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_SHIELD);
             cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_INTERACTIVE_TILES);
+            cmbCategory.Items.Add(MapMakerConstants.Categories.OBJECT_CATEGORY_MISCELLANEOUS);
 
             cmbCategory.SelectedIndex = 0;
         }
@@ -200,7 +201,8 @@ namespace KeenReloaded2
               || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_PLAYER
               || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_GEMS
               || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_CTF_ITEMS
-              || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_SHIELD)
+              || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_SHIELD
+              || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_MISCELLANEOUS)
             {
                 cmbBiome.Visible = false;
                 cmbEpisode.Visible = false;

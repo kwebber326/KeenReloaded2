@@ -122,6 +122,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                 throw new ArgumentNullException("Cost for random weapon generator must be greater than or equal to zero");
 
             _zIndex = zIndex;
+            this.HitBox = area;
             _cost = cost;
             Initialize();
         }
@@ -131,7 +132,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             _sprites = SpriteSheet.SpriteSheet.WeaponGeneratorImages;
             _weaponSprites = SpriteSheet.SpriteSheet.WeaponImages;
             _sprite = _sprites[_currentSprite];
-            _switch = new RandomWeaponGeneratorSwitch(_collisionGrid, new Rectangle(this.HitBox.Right - 16, this.HitBox.Bottom - 32, 12, 28), _cost, _keen);
+            _switch = new RandomWeaponGeneratorSwitch(_collisionGrid, new Rectangle(this.HitBox.Right - 16, this.HitBox.Bottom - 32, 12, 28), _cost);
             _switch.Toggled += _switch_Toggled;
             //this.WeaponSprite.Location =
             //    new Point((this.HitBox.X + this.HitBox.Width / 2) - this.WeaponSprite.Width / 2
@@ -368,6 +369,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
         private void CreateWeapon()
         {
+            _keen = this.GetClosestPlayer();
             GameEntities.Items.Item weapon = null;
             int ammoAmount = 0;
             string filePath = Path.Combine(System.Environment.CurrentDirectory, MapMakerConstants.MAP_MAKER_FOLDER, MapMakerConstants.Categories.OBJECT_CATEGORY_WEAPONS);
@@ -377,7 +379,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             { //have decision login on random weapon ammo amount
                 case STUNNER_NEURAL:
                     ammoAmount = _random.Next(AMMO_MIN_STUNNER_NEURAL, AMMO_MAX_STUNNER_NEURAL + 1);
-                    string imageNamePistol = Path.Combine(filePath, nameof(Properties.Resources.neural_stunner1) + ".png");
+                    string imageNamePistol = Path.Combine(filePath, nameof(Properties.Resources.neural_stunner1));
                     weapon = new NeuralStunnerAmmo(_collisionGrid, new Rectangle(
                         (this.HitBox.X + this.HitBox.Width / 2) - 15,//x
                         (this.HitBox.Bottom - this.HitBox.Height / 2) + 11,//y
@@ -398,7 +400,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                         ammoAmount /= 5;
                         ammoAmount *= 5;
                     }
-                    string imageNameShotty = Path.Combine(filePath, nameof(Properties.Resources.neural_stunner_shotgun) + ".png");
+                    string imageNameShotty = Path.Combine(filePath, nameof(Properties.Resources.neural_stunner_shotgun));
                     weapon = new ShotgunNeuralStunnerAmmo(_collisionGrid, new Rectangle(
                       (this.HitBox.X + this.HitBox.Width / 2) - 26,//x
                       (this.HitBox.Bottom - this.HitBox.Height / 2) + 11,//y
@@ -408,7 +410,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                     break;
                 case STUNNER_SMG:
                     ammoAmount = _random.Next(AMMO_MIN_STUNNER_SMG, AMMO_MAX_STUNNER_SMG + 1);
-                    string imageNameSMG = Path.Combine(filePath, nameof(Properties.Resources.neural_stunner_smg_1) + ".png");
+                    string imageNameSMG = Path.Combine(filePath, nameof(Properties.Resources.neural_stunner_smg_1));
                     weapon = new SMGNeuralStunnerAmmo(_collisionGrid, new Rectangle(
                         (this.HitBox.X + this.HitBox.Width / 2) - 23,//x
                         (this.HitBox.Bottom - this.HitBox.Height / 2) + 11,//y
@@ -418,7 +420,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                     break;
                 case STUNNER_RPG:
                     ammoAmount = _random.Next(AMMO_MIN_STUNNER_RPG, AMMO_MAX_STUNNER_RPG + 1);
-                    string imageNameRPG = Path.Combine(filePath, nameof(Properties.Resources.neural_stunner_rpg1) + ".png");
+                    string imageNameRPG = Path.Combine(filePath, nameof(Properties.Resources.neural_stunner_rocket_launcher1));
                     weapon = new RPGNeuralStunnerAmmo(_collisionGrid, new Rectangle(
                         (this.HitBox.X + this.HitBox.Width / 2) - 27,//x
                         (this.HitBox.Bottom - this.HitBox.Height / 2) + 13,//y
@@ -428,7 +430,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                     break;
                 case STUNNER_BOOBUS_BOMB:
                     ammoAmount = _random.Next(AMMO_MIN_STUNNER_BOOBUS_BOMB, AMMO_MAX_STUNNER_BOOBUS_BOMB + 1);
-                    string imageNameGrenade = Path.Combine(filePath, nameof(Properties.Resources.keen_dreams_boobus_bomb1) + ".png");
+                    string imageNameGrenade = Path.Combine(filePath, nameof(Properties.Resources.keen_dreams_boobus_bomb2));
                     weapon = new BoobusBombLauncherAmmo(_collisionGrid, new Rectangle(
                         (this.HitBox.X + this.HitBox.Width / 2) - 15,//x
                         (this.HitBox.Bottom - this.HitBox.Height / 2) + 15,//y
@@ -438,7 +440,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                     break;
                 case STUNNER_RAILGUN:
                     ammoAmount = _random.Next(AMMO_MIN_STUNNER_RAILGUN, AMMO_MAX_STUNNER_RAILGUN + 1);
-                    string imageNameRailgun = Path.Combine(filePath, nameof(Properties.Resources.neural_stunner_railgun1) + ".png");
+                    string imageNameRailgun = Path.Combine(filePath, nameof(Properties.Resources.neural_stunner_railgun1));
                     weapon = new RailgunNeuralStunnerAmmo(_collisionGrid, new Rectangle(
                         (this.HitBox.X + this.HitBox.Width / 2) - 26,//x
                         (this.HitBox.Bottom - this.HitBox.Height / 2) + 11,//y
@@ -448,7 +450,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                     break;
                 case BFG:
                     ammoAmount = _random.Next(AMMO_MIN_BFG, AMMO_MAX_BFG + 1);
-                    string imageNameBFG = Path.Combine(filePath, nameof(Properties.Resources.BFG1) + "png");
+                    string imageNameBFG = Path.Combine(filePath, nameof(Properties.Resources.BFG1));
                     weapon = new BFGAmmo(_collisionGrid, new Rectangle(
                         (this.HitBox.X + this.HitBox.Width / 2) - 30,//x
                         (this.HitBox.Bottom - this.HitBox.Height / 2) + 12,//y
@@ -458,7 +460,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                     break;
                 case SNAKE_GUN:
                     ammoAmount = _random.Next(AMMO_MIN_SNAKE_GUN, AMMO_MAX_SNAKE_GUN + 1);
-                    string imageNameSnakeGun = Path.Combine(filePath, nameof(Properties.Resources.snake_gun1) + ".png");
+                    string imageNameSnakeGun = Path.Combine(filePath, nameof(Properties.Resources.snake_gun1));
                     weapon = new SnakeGunAmmo(_collisionGrid, new Rectangle(
                       (this.HitBox.X + this.HitBox.Width / 2) - 28,//x
                       (this.HitBox.Bottom - this.HitBox.Height / 2) + 10,//y
@@ -483,6 +485,13 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         {
             OnRemoved(e);
         }
+
+        public override string ToString()
+        {
+            string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
+            string imageName = nameof(Properties.Resources.random_item_generator_closed);
+            return $"{imageName}{separator}{this.HitBox.X}{separator}{this.HitBox.Y}{separator}{this.HitBox.Width}{separator}{this.HitBox.Height}{separator}{_zIndex}{separator}{_cost}";
+        }
     }
 
     enum RandomWeaponGeneratorState
@@ -498,14 +507,11 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         private CommanderKeen _keen;
         private readonly int _cost;
 
-        public RandomWeaponGeneratorSwitch(SpaceHashGrid grid, Rectangle hitbox, int cost, CommanderKeen keen) : base(grid, hitbox)
+        public RandomWeaponGeneratorSwitch(SpaceHashGrid grid, Rectangle hitbox, int cost) : base(grid, hitbox)
         {
-            if (keen == null)
-                throw new ArgumentNullException("Keen was not properly set");
             if (_cost < 0)
                 throw new ArgumentNullException("Cost for random weapon generator must be greater than or equal to zero");
 
-            _keen = keen;
             _cost = cost;
         }
 
@@ -526,6 +532,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
         public void Toggle()
         {
+            _keen = this.GetClosestPlayer();
             if (_keen.Points >= _cost && !_isActive)
             {
                 _keen.Points -= _cost;

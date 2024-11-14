@@ -39,6 +39,7 @@ namespace KeenReloaded2.Constants
             public const string OBJECT_CATEGORY_INTERACTIVE_TILES = "Interactive Tiles";
             public const string OBJECT_CATEGORY_ANIMATED_BACKGROUNDS = "Animated Backgrounds";
             public const string OBJECT_CATEGORY_ANIMATED_FOREGROUNDS = "Animated Foregrounds";
+            public const string OBJECT_CATEGORY_MISCELLANEOUS = "Miscellaneous";
         }
 
         public static class EventStoreEventNames

@@ -3805,6 +3805,23 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region miscellaneous
+            var miscellaneousFilesPath = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_MISCELLANEOUS, "keen5", Biomes.BIOME_KEEN5_BLACK);
+            var miscallaneousImageFiles = Directory.GetFiles(miscellaneousFilesPath);
+            MapMakerObjectProperty[] weaponGeneratorPropertiesExtra = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "cost",
+                    DataType = typeof(int),
+                    Value = 0,
+                    DisplayName = "Cost: "
+                }
+            };
+
+            AddSimpleGameObject(backgroundReferenceData, miscallaneousImageFiles, "item_generator", typeof(RandomWeaponGenerator), weaponGeneratorPropertiesExtra, 18);
+            #endregion
+
             return backgroundReferenceData;
         }
 
@@ -3828,7 +3845,8 @@ namespace KeenReloaded2.Entities.ReferenceData
               || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_PLAYER
               || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_GEMS
               || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_CTF_ITEMS
-              || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_SHIELD)
+              || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_SHIELD
+              || categoryFolder == MapMakerConstants.Categories.OBJECT_CATEGORY_MISCELLANEOUS)
             {
                 path = Path.Combine(System.Environment.CurrentDirectory, mapMakerFolder, categoryFolder);
             }
