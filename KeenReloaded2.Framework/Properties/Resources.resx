@@ -1285,6 +1285,9 @@
   <data name="keen4_platform_horizontal_right2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_platform_horizontal_right2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen4_platform_stationary" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_platform_stationary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keen4_platform_vertical1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_platform_vertical1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -5127,6 +5130,24 @@
   </data>
   <data name="princess_indi_wall_hang_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\princess_indi_wall_hang_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="random_item_generator_closed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\random_item_generator_closed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="random_item_generator_open1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\random_item_generator_open1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="random_item_generator_open2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\random_item_generator_open2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="random_item_generator_open3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\random_item_generator_open3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="random_item_generator_open4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\random_item_generator_open4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="random_item_generator_open5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\random_item_generator_open5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Red_Flag" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Red Flag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

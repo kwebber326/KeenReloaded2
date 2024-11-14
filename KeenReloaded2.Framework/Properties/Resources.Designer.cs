@@ -6323,6 +6323,16 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen4_platform_stationary {
+            get {
+                object obj = ResourceManager.GetObject("keen4_platform_stationary", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen4_platform_vertical1 {
             get {
                 object obj = ResourceManager.GetObject("keen4_platform_vertical1", resourceCulture);
@@ -6343,7 +6353,7 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap keen4_platform_stationary {
+        internal static System.Drawing.Bitmap keen4_platorm_stationary {
             get {
                 object obj = ResourceManager.GetObject("keen4_platorm_stationary", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -16756,6 +16766,66 @@ namespace KeenReloaded2.Framework.Properties {
         internal static System.Drawing.Bitmap princess_indi_wall_hang_right {
             get {
                 object obj = ResourceManager.GetObject("princess_indi_wall_hang_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap random_item_generator_closed {
+            get {
+                object obj = ResourceManager.GetObject("random_item_generator_closed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap random_item_generator_open1 {
+            get {
+                object obj = ResourceManager.GetObject("random_item_generator_open1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap random_item_generator_open2 {
+            get {
+                object obj = ResourceManager.GetObject("random_item_generator_open2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap random_item_generator_open3 {
+            get {
+                object obj = ResourceManager.GetObject("random_item_generator_open3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap random_item_generator_open4 {
+            get {
+                object obj = ResourceManager.GetObject("random_item_generator_open4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap random_item_generator_open5 {
+            get {
+                object obj = ResourceManager.GetObject("random_item_generator_open5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

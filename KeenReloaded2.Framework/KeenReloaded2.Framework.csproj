@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameEntities\Constructs\RandomWeaponGenerator.cs" />
     <Compile Include="GameEntities\Enemies\BipPlatformOperator.cs" />
     <Compile Include="GameEntities\Enemies\Bloog.cs" />
     <Compile Include="Enums\CollisionType.cs" />
@@ -5414,6 +5415,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_bip_platform_up_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\random_item_generator_open5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\random_item_generator_open4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\random_item_generator_open3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\random_item_generator_open2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\random_item_generator_open1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\random_item_generator_closed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_platform_stationary.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

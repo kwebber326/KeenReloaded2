@@ -3150,5 +3150,52 @@ namespace KeenReloaded2.Framework.SpriteSheet
         #endregion
 
         #endregion
+
+        #region Keen Weapons
+        private static Image[] _weaponImages;
+
+        public static Image[] WeaponImages
+        {
+            get
+            {
+                if (_weaponImages == null)
+                {
+                    _weaponImages = new Image[]
+                    {
+                        Properties.Resources.neural_stunner1,
+                        Properties.Resources.neural_stunner_shotgun,
+                        Properties.Resources.neural_stunner_smg_1,
+                        Properties.Resources.neural_stunner_rocket_launcher1,
+                        Properties.Resources.keen_dreams_boobus_bomb1,
+                        Properties.Resources.neural_stunner_railgun1
+                    };
+                }
+                return _weaponImages;
+            }
+        }
+        #endregion
+        #region Keen Weapon Generator
+        private static Image[] _weaponGeneratorImages;
+
+        public static Image[] WeaponGeneratorImages
+        {
+            get
+            {
+                if (_weaponGeneratorImages == null)
+                {
+                    _weaponGeneratorImages = new Image[]
+                    {
+                        Properties.Resources.random_item_generator_closed,
+                        Properties.Resources.random_item_generator_open1,
+                        Properties.Resources.random_item_generator_open2,
+                        Properties.Resources.random_item_generator_open3,
+                        Properties.Resources.random_item_generator_open4,
+                        Properties.Resources.random_item_generator_open5
+                    };
+                }
+                return _weaponGeneratorImages;
+            }
+        }
+        #endregion
     }
 }
