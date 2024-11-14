@@ -162,6 +162,24 @@ namespace KeenReloaded.Framework.Utilities
             }
         }
 
+        public static void WriteTextOnImage(Image originalImage, string text, Point locationOnImage, Font font, Brush color)
+        {
+            if (originalImage == null)
+                return;
+            try
+            {
+                using (Graphics g = Graphics.FromImage(originalImage))
+                {
+                    g.DrawString(text, font, color, locationOnImage);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                throw;
+            }
+        }
+
         public static Bitmap CropImage(Image image, Rectangle subSection)
         {
             var bitmap = new Bitmap(subSection.Width, subSection.Height);

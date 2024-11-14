@@ -72,8 +72,6 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         private const int BFG_PROBABILITY_DENOMINATOR = 100;//the higher the value, the lower the chance
         private const int SNAKE_GUN_PROBABILITY_DENOMINATOR = 100;//
 
-        private Image _costLabel;
-
 
         public event EventHandler<ObjectEventArgs> Create;
         public event EventHandler<ObjectEventArgs> Remove;
@@ -134,25 +132,21 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             _sprite = _sprites[_currentSprite];
             _switch = new RandomWeaponGeneratorSwitch(_collisionGrid, new Rectangle(this.HitBox.Right - 16, this.HitBox.Bottom - 32, 12, 28), _cost);
             _switch.Toggled += _switch_Toggled;
-            //this.WeaponSprite.Location =
-            //    new Point((this.HitBox.X + this.HitBox.Width / 2) - this.WeaponSprite.Width / 2
-            //    , this.HitBox.Y - WEAPON_IMAGE_HEIGHT - 8);
 
-            //_costLabel = new Label();
-            //_costLabel.Text = _cost.ToString();
-            //_costLabel.ForeColor = Color.Red;
-            //_costLabel.Location = new Point(
-            //    this.HitBox.Right + 2,//x
-            //    this.HitBox.Bottom - 64);//y
+            WriteCostOntoImage();
 
             ResetRandomVariable();
         }
 
-        public Image CostLabel
+        private void WriteCostOntoImage()
         {
-            get
+            Point location = new Point(52, 2);
+            string text = _cost.ToString();
+            using (Font font = new Font("Arial", 8))
             {
-                return _costLabel;
+                Brush color = Brushes.Red;
+                _sprite = new Bitmap(_sprites[_currentSprite]);
+                BitMapTool.WriteTextOnImage(_sprite, text, location, font, color);
             }
         }
 
