@@ -779,7 +779,8 @@ namespace KeenReloaded2
             try
             {
                 //load the map data
-                string path = dialogMapLoader.FileName;
+                string path = dialogMapLoader.FileName ??
+                    Path.Combine(MapUtility.GetSavedMapsPath(cmbGameMode.Text), txtMapName.Text);
                 _lastFilePath = path;
                 var mapMakerData = MapUtility.LoadMapData(path);
                 _mapMakerObjects = mapMakerData.MapData;
