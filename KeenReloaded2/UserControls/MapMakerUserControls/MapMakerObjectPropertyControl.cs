@@ -191,7 +191,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
              || _mapMakerObjectProperty.DataType == typeof(string[])
              || _mapMakerObjectProperty.DataType == typeof(List<string>))
             {
-                if (!_mapMakerObjectProperty.IsMultiSelect)
+                if (!_mapMakerObjectProperty.IsMultiSelect || _mapMakerObjectProperty.DataType.IsEnum)
                 {
                     _selectedControl = _cmbValue;
                     SetValuesForComboBox();
@@ -249,10 +249,24 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         private void SetValuesForListBox()
         {
             var values = _mapMakerObjectProperty.PossibleValues;
+            List<string> selectedValues = new List<string>();
+            if (_mapMakerObjectProperty.DataType == typeof(string[]))
+            {
+                selectedValues = ((string[])_mapMakerObjectProperty.Value).ToList();
+            }
+            else
+            {
+                selectedValues = (List<string>)_mapMakerObjectProperty.Value;
+            }
+            
             _lstBoxValues.Items.Clear();
             foreach(var value in values)
             {
                 _lstBoxValues.Items.Add(value);
+                if (selectedValues.Contains(value))
+                {
+                    _lstBoxValues.SelectedItems.Add(value);
+                }
             }
         }
 
