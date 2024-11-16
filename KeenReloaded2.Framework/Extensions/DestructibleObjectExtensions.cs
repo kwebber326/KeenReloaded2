@@ -23,9 +23,9 @@ namespace KeenReloaded2.Framework.Extensions
             if (destructibleObject == null || collisionGrid == null)
                 return;
 
-            if (IsOutSideOfMap(destructibleObject, collisionGrid))
+            if (IsOutSideOfMap(destructibleObject, collisionGrid) && !destructibleObject.IsDead())
             {
-                destructibleObject.Die();
+                destructibleObject.TakeDamage(int.MaxValue);
             }
         }
     }

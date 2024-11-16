@@ -1,6 +1,7 @@
 ﻿using KeenReloaded.Framework;
 using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.Extensions;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.Interfaces;
@@ -122,6 +123,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public void Update()
         {
+            this.KillIfOutSideBoundsOfMap(_collisionGrid);
             if (!this.IsDead())
                 _keen = this.GetClosestPlayer();
 

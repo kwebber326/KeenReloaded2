@@ -1,6 +1,7 @@
 ﻿using KeenReloaded.Framework;
 using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.Extensions;
 using KeenReloaded2.Framework.GameEntities.Hazards;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Players;
@@ -258,6 +259,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public void Update()
         {
+            this.KillIfOutSideBoundsOfMap(_collisionGrid);
             if (this.State == SlugMoveState.FALLING)
             {
                 this.Fall();

@@ -1,6 +1,7 @@
 ﻿using KeenReloaded.Framework;
 using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.Extensions;
 using KeenReloaded2.Framework.GameEntities.Players;
 using System.Collections.Generic;
 using System.Drawing;
@@ -115,6 +116,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 this.KillCollidingPlayers(areaToCheck);
                 this.HitBox = new Rectangle(this.HitBox.X + xOffset, this.HitBox.Y + yOffset, this.HitBox.Width, this.HitBox.Height);
             }
+            this.KillIfOutSideBoundsOfMap(_collisionGrid);
         }
 
         protected override void KillCollidingPlayers(Rectangle area)

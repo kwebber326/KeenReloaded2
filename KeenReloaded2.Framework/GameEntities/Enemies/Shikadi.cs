@@ -2,6 +2,7 @@
 using KeenReloaded.Framework.Utilities;
 using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.Extensions;
 using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Framework.GameEntities.HelperObjects;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
@@ -82,6 +83,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public void Update()
         {
+            this.KillIfOutSideBoundsOfMap(_collisionGrid);
             if (_state != ShikadiState.STUNNED)
             {
                 _keen = this.GetClosestPlayer();

@@ -14,7 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KeenReloaded2.Framework.GameEntities.Items;
-
+using KeenReloaded2.Framework.Extensions;
 
 namespace KeenReloaded2.Framework.GameEntities.Enemies
 {
@@ -167,7 +167,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public void Update()
         {
-
+            this.KillIfOutSideBoundsOfMap(_collisionGrid);
             if (!_disposed)
             {
                 _keen = this.GetClosestPlayer();
