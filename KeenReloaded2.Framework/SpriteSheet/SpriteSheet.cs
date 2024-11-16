@@ -3174,6 +3174,7 @@ namespace KeenReloaded2.Framework.SpriteSheet
             }
         }
         #endregion
+
         #region Keen Weapon Generator
         private static Image[] _weaponGeneratorImages;
 
@@ -3196,6 +3197,28 @@ namespace KeenReloaded2.Framework.SpriteSheet
                 return _weaponGeneratorImages;
             }
         }
+        #endregion
+
+        #region Keen enemy spawner
+
+        private static Image[] _enemySpawnerImages;
+
+        public static Image[] EnemySpawnerImages
+        {
+            get
+            {
+                if (_enemySpawnerImages == null)
+                {
+                    _enemySpawnerImages = new Image[]{
+                        Properties.Resources.enemy_spawner1,
+                        Properties.Resources.enemy_spawner2,
+                        Properties.Resources.enemy_spawner3
+                    };
+                }
+                return _enemySpawnerImages;
+            }
+        }
+
         #endregion
     }
 }

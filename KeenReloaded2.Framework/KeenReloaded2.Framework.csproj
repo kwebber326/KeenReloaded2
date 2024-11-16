@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\DestructibleObjectExtensions.cs" />
+    <Compile Include="GameEntities\Constructs\EnemySpawner.cs" />
     <Compile Include="GameEntities\Constructs\ImageDisplay.cs" />
     <Compile Include="GameEntities\Constructs\RandomWeaponGenerator.cs" />
     <Compile Include="GameEntities\Enemies\BipPlatformOperator.cs" />
@@ -280,6 +282,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ReferenceDataClasses\Biomes.cs" />
+    <Compile Include="ReferenceDataClasses\Enemies.cs" />
     <Compile Include="SpriteSheet\SpriteSheet.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1834,12 +1837,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_lightning_bolt2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\enemy_spawner_lightning1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\enemy_spawner_lightning2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen5_spinning_burn_platform1.png" />
@@ -5437,6 +5434,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_platform_stationary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enemy_spawner1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enemy_spawner2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enemy_spawner3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enemy_spawner_lightning1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enemy_spawner_lightning2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

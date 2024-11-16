@@ -27,5 +27,7 @@ namespace KeenReloaded2.Entities
         public bool IsIgnoredInMapData { get; set; }
 
         public bool IsDoorSelectionProperty { get; set; }
+
+        public bool IsMultiSelect { get; set; }
     }
 }

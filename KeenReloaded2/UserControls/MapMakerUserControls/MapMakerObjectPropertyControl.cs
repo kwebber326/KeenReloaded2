@@ -27,6 +27,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         private ActivatorListControl _activatorControl = new ActivatorListControl();
         private DestinationDoorActivatorControl _doorControl = new DestinationDoorActivatorControl();
         private PointSelectorUserControl _pointSelectorControl = new PointSelectorUserControl();
+        private ListBox _lstBoxValues = new ListBox() { SelectionMode = SelectionMode.MultiSimple, Height = 64 };
 
         private Control _selectedControl;
         private bool _selectedControlAdded = false;
@@ -74,7 +75,25 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             _activatorControl.EditItemsClicked += _activatorControl_EditItemsClicked;
             _doorControl.DoorSelect += _doorControl_DoorSelect;
             _pointSelectorControl.EditItemsClicked += _pointSelectorControl_EditItemsClicked;
+            _lstBoxValues.SelectedIndexChanged += _lstBoxValues_SelectedIndexChanged; ;
             UpdateControl(_mapMakerObjectProperty);
+        }
+
+        private void _lstBoxValues_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<string> items = new List<string>();
+            foreach (var item in _lstBoxValues.SelectedItems)
+            {
+                items.Add(item?.ToString());
+            }
+            if (_mapMakerObjectProperty.DataType == typeof(string[]))
+            {
+                _mapMakerObjectProperty.Value = items.ToArray();
+            }
+            else
+            {
+                _mapMakerObjectProperty.Value = items;
+            }
         }
 
         private void _pointSelectorControl_EditItemsClicked(object sender, EventArgs e)
@@ -172,8 +191,16 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
              || _mapMakerObjectProperty.DataType == typeof(string[])
              || _mapMakerObjectProperty.DataType == typeof(List<string>))
             {
-                _selectedControl = _cmbValue;
-                SetValuesForComboBox();
+                if (!_mapMakerObjectProperty.IsMultiSelect)
+                {
+                    _selectedControl = _cmbValue;
+                    SetValuesForComboBox();
+                }
+                else
+                {
+                    _selectedControl = _lstBoxValues;
+                    SetValuesForListBox();
+                }
             }
             else if (_mapMakerObjectProperty.DataType == typeof(bool))
             {
@@ -216,6 +243,16 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             {
                 this.Controls.Add(_selectedControl);
                 _selectedControlAdded = true;
+            }
+        }
+
+        private void SetValuesForListBox()
+        {
+            var values = _mapMakerObjectProperty.PossibleValues;
+            _lstBoxValues.Items.Clear();
+            foreach(var value in values)
+            {
+                _lstBoxValues.Items.Add(value);
             }
         }
 

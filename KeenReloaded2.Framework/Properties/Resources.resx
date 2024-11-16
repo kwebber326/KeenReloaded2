@@ -502,6 +502,15 @@
   <data name="edge_of_map_tile_debug" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edge_of_map_tile_debug.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="enemy_spawner1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enemy_spawner1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enemy_spawner2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enemy_spawner2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enemy_spawner3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enemy_spawner3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="enemy_spawner_lightning1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\enemy_spawner_lightning1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

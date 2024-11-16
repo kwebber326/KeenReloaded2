@@ -17,6 +17,7 @@ using KeenReloaded2.Entities.ReferenceData;
 using KeenReloaded2.Framework.GameEntities;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.Factories;
+using KeenReloaded2.Framework.GameEntities.Constructs;
 
 namespace KeenReloaded2.Entities
 {
@@ -52,6 +53,17 @@ namespace KeenReloaded2.Entities
                 foreach (var obj in _gameObjects)
                 {
                     this.RegisterItemEventsForObject(obj);
+                }
+                //initialize any enemy spawners placed on the map
+                var enemySpawners = _gameObjects.OfType<EnemySpawner>();
+                if (enemySpawners.Any())
+                {
+                    var biomeTiles = _gameObjects.OfType<IBiomeTile>()?.ToList() 
+                        ?? new List<IBiomeTile>();
+                    foreach (var spawner in enemySpawners)
+                    {
+                        spawner.Initialize(biomeTiles);
+                    }
                 }
             }
             this.Map = map;

@@ -139,7 +139,7 @@ namespace KeenReloaded2
         {
             cmbBiome.Items.Clear();
             if (cmbEpisode.SelectedItem != null &&
-                Biomes.BiomeRepository.TryGetValue(cmbEpisode.SelectedItem?.ToString(), out List<string> biomes))
+                Biomes.EpisodeToBiomeMapping.TryGetValue(cmbEpisode.SelectedItem?.ToString(), out List<string> biomes))
             {
                 foreach (var biome in biomes)
                 {

@@ -23,7 +23,7 @@ namespace KeenReloaded2.Framework.ReferenceDataClasses
         public const string BIOME_KEEN6_INDUSTRIAL = "KEEN6_INDUSTRIAL";
         public const string BIOME_KEEN6_FINAL = "KEEN6_FINAL";
 
-        public static readonly Dictionary<string, List<string>> BiomeRepository
+        public static readonly Dictionary<string, List<string>> EpisodeToBiomeMapping
             = new Dictionary<string, List<string>>()
         {
                 {
@@ -53,5 +53,22 @@ namespace KeenReloaded2.Framework.ReferenceDataClasses
                     }
                 }
         };
+
+        public static readonly Dictionary<string, string> BiomeToEpisodeMapping
+            = new Dictionary<string, string>()
+        {
+            { BIOME_KEEN4_CAVE, GeneralGameConstants.Episodes.EPISODE_4 },
+            { BIOME_KEEN4_FOREST, GeneralGameConstants.Episodes.EPISODE_4 },
+            { BIOME_KEEN4_MIRAGE, GeneralGameConstants.Episodes.EPISODE_4 },
+            { BIOME_KEEN4_PYRAMID, GeneralGameConstants.Episodes.EPISODE_4 },
+            { BIOME_KEEN5_BLACK, GeneralGameConstants.Episodes.EPISODE_5 },
+            { BIOME_KEEN5_GREEN, GeneralGameConstants.Episodes.EPISODE_5 },
+            { BIOME_KEEN5_RED, GeneralGameConstants.Episodes.EPISODE_5 },
+            { BIOME_KEEN6_DOME, GeneralGameConstants.Episodes.EPISODE_6 },
+            { BIOME_KEEN6_FINAL, GeneralGameConstants.Episodes.EPISODE_6 },
+            { BIOME_KEEN6_FOREST, GeneralGameConstants.Episodes.EPISODE_6 },
+            { BIOME_KEEN6_INDUSTRIAL, GeneralGameConstants.Episodes.EPISODE_6 },
+        };
     }
 }
+

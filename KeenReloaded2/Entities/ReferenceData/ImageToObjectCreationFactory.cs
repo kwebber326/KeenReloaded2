@@ -2375,8 +2375,8 @@ namespace KeenReloaded2.Entities.ReferenceData
             #region Keen 6 slime Tiles
 
             string keen6IndustrialTileDirectory = GetImageDirectory(
-                MapMakerConstants.Categories.OBJECT_CATEGORY_TILES, 
-                "keen6", 
+                MapMakerConstants.Categories.OBJECT_CATEGORY_TILES,
+                "keen6",
                 Biomes.BIOME_KEEN6_INDUSTRIAL);
             var keen6IndustrialFiles = Directory.GetFiles(keen6IndustrialTileDirectory).ToList();
 
@@ -2521,7 +2521,7 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
-         
+
 
             #endregion
 
@@ -3619,8 +3619,8 @@ namespace KeenReloaded2.Entities.ReferenceData
             #endregion
 
             #region horizontal slicestar
-            AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "horizontal_slicestar", typeof(HorizontalSlicestar), 
-            new MapMakerObjectProperty[] 
+            AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "horizontal_slicestar", typeof(HorizontalSlicestar),
+            new MapMakerObjectProperty[]
             {
                 new MapMakerObjectProperty()
                 {
@@ -3692,7 +3692,7 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #region spindred
             AddSimpleGameObject(backgroundReferenceData, keen5EnemyFiles, "spindred", typeof(Spindred),
-                new MapMakerObjectProperty[] 
+                new MapMakerObjectProperty[]
                 {
                     new MapMakerObjectProperty()
                     {
@@ -3806,6 +3806,7 @@ namespace KeenReloaded2.Entities.ReferenceData
             #endregion
 
             #region miscellaneous
+            //random weapon generator
             var miscellaneousFilesPath = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_MISCELLANEOUS, "keen5", Biomes.BIOME_KEEN5_BLACK);
             var miscallaneousImageFiles = Directory.GetFiles(miscellaneousFilesPath);
             MapMakerObjectProperty[] weaponGeneratorPropertiesExtra = new MapMakerObjectProperty[]
@@ -3820,6 +3821,68 @@ namespace KeenReloaded2.Entities.ReferenceData
             };
 
             AddSimpleGameObject(backgroundReferenceData, miscallaneousImageFiles, "item_generator", typeof(RandomWeaponGenerator), weaponGeneratorPropertiesExtra, 18);
+
+            //enemy spawner
+            MapMakerObjectProperty[] enemySpawnerPropertiesExtra = new MapMakerObjectProperty[]
+           {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "enemyTypeList",
+                    DataType = typeof(string[]),
+                    Value = new string[] { },
+                    IsMultiSelect = true,
+                    PossibleValues = new string[]
+                    {
+                           typeof(PoisonSlug).Name,
+                           typeof(Lick).Name,
+                           typeof(Bounder).Name,
+                           typeof(Wormmouth).Name,
+                           typeof(SkyPest).Name,
+                           typeof(Mimrock).Name,
+                           typeof(GnosticeneAncient).Name,
+                           typeof(Sparky).Name,
+                           typeof(LittleAmpton).Name,
+                           typeof(DiagonalSlicestar).Name,
+                           typeof(Shikadi).Name,
+                           typeof(Shockshund).Name,
+                           typeof(ShikadiMine).Name,
+                           typeof(KorathInhabitant).Name,
+                           typeof(Shelley).Name,
+                           typeof(Bloog).Name,
+                           typeof(Blooglet).Name,
+                           typeof(Blooguard).Name,
+                           typeof(Babobba).Name,
+                           typeof(Fleex).Name,
+                           typeof(NoSpike).Name,
+                           typeof(BipShip).Name,
+                           typeof(Bip).Name,
+                    },
+                    DisplayName = "Possible Enemies: "
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "maxConcurrentSpawn",
+                    DataType = typeof(int),
+                    Value = 1,
+                    DisplayName = "Spawn Limit: "
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "spawnDelayTicks",
+                    DataType = typeof(int),
+                    Value = 20,
+                    DisplayName = "Spawn Delay: "
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "health",
+                    DataType = typeof(int),
+                    Value = 100,
+                    DisplayName = "Health: "
+                }
+           };
+
+            AddSimpleGameObject(backgroundReferenceData, miscallaneousImageFiles, "enemy_spawner", typeof(EnemySpawner), enemySpawnerPropertiesExtra, 18);
             #endregion
 
             return backgroundReferenceData;
@@ -4018,7 +4081,7 @@ namespace KeenReloaded2.Entities.ReferenceData
 
         private static List<MapMakerObjectProperty> GetCommonObjectProperties(Size imageSize)
         {
-           return new List<MapMakerObjectProperty>()
+            return new List<MapMakerObjectProperty>()
             {
                   new MapMakerObjectProperty()
                         {
