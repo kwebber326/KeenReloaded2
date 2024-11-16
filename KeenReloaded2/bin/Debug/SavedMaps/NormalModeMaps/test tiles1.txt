@@ -134,8 +134,7 @@ keen4_mirage_floor_edge_right|1361|387|52|64|10
 keen5_exit_door_closed|1291|304|124|114|15
 keen5_key_card1|1332|254|24|28
 random_item_generator_closed|199|217|124|92|18|100
-enemy_spawner1|476|1168|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth,SkyPest,Mimrock,GnosticeneAncient,Sparky,LittleAmpton,DiagonalSlicestar,Shikadi,Shockshund,ShikadiMine,KorathInhabitant,Shelley,Bloog,Blooglet,Blooguard,Babobba,Fleex,NoSpike,BipShip,Bip]|1|20|100
-keen5_shikadi_mine|496|672|68|52|25
+enemy_spawner1|466|1171|92|94|18|[ShikadiMine]|1|20|100
 keen5_switch2_on|429|1218|32|32|15|KEEN5_2|[70310c97-ae2c-41bd-9ed4-763ac0fc0b8e,929fce0a-a077-49b6-ac5f-68d785a6f937,c89ea85e-d490-4e8f-b256-c62d30df8fa4,eade7ac8-ea79-4240-8d66-d6b7f5adf678,4fd83e70-3b44-417f-9378-6d28c3431a06,6e6360da-1cb4-40ab-8aa2-3c9bfa8f2e57,0ba05693-b59a-4ab9-b0e2-f82b626c524c,b1132813-e223-4863-8eb8-31801890d5a0,d7dfa746-4a10-4f0d-a48f-d095664aaeaf,b72112c2-4d0c-4344-a638-6ce6bc8650ed,37e4bfc6-ad5d-4d77-9357-049ec422ebfa,83a5d498-a256-49c6-b5c9-7cae44c733fb,ab13c287-6221-4458-ac71-093d532a8a50]|True
 keen4_switch2_on|1248|846|32|32|5|KEEN4_2|[0f1672d7-1543-43d7-883a-657abdf7aa6e,7bcff239-d742-45d3-954b-c15c56ce1008,57a379c5-a0a3-48e5-b45d-1fdc368790c7,7b618c0a-b1fa-4080-b198-b5e4132e78ac,cbdb61fc-93a6-4ec1-ad29-d3d0d0f64ead,2cead773-0472-412b-9734-10de04413ac8,f34a8313-3888-499d-8ca7-4723a87084e2]|True
 gem_placeholder_blue_empty|901|392|26|22|18|BLUE|[37c6cce7-ad21-428f-8c64-6fd9c8129359]

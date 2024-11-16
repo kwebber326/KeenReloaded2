@@ -318,20 +318,6 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                         obj.DetachFromCollisionGrid();
                     }
                     OnRemove(new ObjectEventArgs() { ObjectSprite = spriteObj });
-                    RemoveEnemyAccessories(spriteObj);
-                }
-            }
-        }
-
-        private void RemoveEnemyAccessories(object enemy)
-        {
-            if (enemy is Bounder)
-            {
-                var bounder = (Bounder)enemy;
-                if (bounder.HeadTile != null)
-                {
-                    bounder.HeadTile.DetachFromCollisionGrid();
-                    OnRemove(new ObjectEventArgs() { ObjectSprite = bounder.HeadTile });
                 }
             }
         }
@@ -371,19 +357,6 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                         _enemies.Add(enemy);
                     }
                     OnCreate(new ObjectEventArgs() { ObjectSprite = spriteObj });
-                    CreateAccessoryObjects(spriteObj);
-                }
-            }
-        }
-
-        private void CreateAccessoryObjects(ISprite spriteObj)
-        {
-            if (spriteObj is ShikadiMine)
-            {
-                var shikadiMine = (ShikadiMine)spriteObj;
-                if (shikadiMine.Eye != null)
-                {
-                    OnCreate(new ObjectEventArgs() { ObjectSprite = shikadiMine.Eye });
                 }
             }
         }
@@ -598,7 +571,6 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
         void object_Remove(object sender, ObjectEventArgs e)
         {
-
             OnRemove(e);
         }
 
