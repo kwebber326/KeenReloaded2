@@ -27,7 +27,9 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
                 try
                 {
                     Background b = new Background(area, i, stretchImage, zIndex);
-                    return b.Draw();
+                    var img = b.Draw();
+                    img.Tag = i;
+                    return img;
                 }
                 catch (Exception ex)
                 {

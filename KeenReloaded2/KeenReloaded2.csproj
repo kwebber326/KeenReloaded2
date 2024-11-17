@@ -5909,5 +5909,8 @@
   <ItemGroup>
     <None Include="Resources\keen_message_window_option_selected2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Animated Foregrounds\keen5\keen5_arrow_down_on\1_keen5_arrow_down_on.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

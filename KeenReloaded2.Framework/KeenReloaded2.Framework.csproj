@@ -5467,5 +5467,8 @@
   <ItemGroup>
     <None Include="Resources\random_mirage_hill.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_keen5_arrow_down_on.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

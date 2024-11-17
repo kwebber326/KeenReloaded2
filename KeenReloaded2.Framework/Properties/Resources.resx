@@ -5401,4 +5401,7 @@
   <data name="yorp_wall_hang_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\yorp_wall_hang_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="_1_keen5_arrow_down_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1_keen5_arrow_down_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
