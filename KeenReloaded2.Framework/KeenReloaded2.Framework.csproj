@@ -45,7 +45,9 @@
   <ItemGroup>
     <Compile Include="Extensions\DestructibleObjectExtensions.cs" />
     <Compile Include="GameEntities\Constructs\EnemySpawner.cs" />
+    <Compile Include="GameEntities\Constructs\Hill.cs" />
     <Compile Include="GameEntities\Constructs\ImageDisplay.cs" />
+    <Compile Include="GameEntities\Constructs\RandomHill.cs" />
     <Compile Include="GameEntities\Constructs\RandomWeaponGenerator.cs" />
     <Compile Include="GameEntities\Enemies\BipPlatformOperator.cs" />
     <Compile Include="GameEntities\Enemies\Bloog.cs" />
@@ -5449,6 +5451,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\enemy_spawner_lightning2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mirage_hill1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mirage_hill2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mirage_hill3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mirage_hill4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\random_mirage_hill.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

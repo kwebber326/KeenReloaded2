@@ -3883,6 +3883,48 @@ namespace KeenReloaded2.Entities.ReferenceData
            };
 
             AddSimpleGameObject(backgroundReferenceData, miscallaneousImageFiles, "enemy_spawner", typeof(EnemySpawner), enemySpawnerPropertiesExtra, 18);
+
+            MapMakerObjectProperty[] hillPropertiesExtra = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "points",
+                    DataType = typeof(List<Point>),
+                    DisplayName = "Locations: ",
+                    Value = new List<Point>()
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "holdTimeSeconds",
+                    DataType = typeof(int),
+                    DisplayName = "Hold Time: ",
+                    Value = 200
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "spawnDelaySeconds",
+                    DataType = typeof(int),
+                    DisplayName = "Spawn Delay: ",
+                    Value = 20
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "pointsPerSecond",
+                    DataType = typeof(int),
+                    DisplayName = "Points Per Second: ",
+                    Value = 100
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "additionPointsPerMonster",
+                    DataType = typeof(int),
+                    DisplayName = "Monster Bonus: ",
+                    Value = 100
+                }
+            };
+
+            AddSimpleGameObject(backgroundReferenceData, miscallaneousImageFiles, "mirage_hill4", typeof(Hill), hillPropertiesExtra, 15);
+            AddSimpleGameObject(backgroundReferenceData, miscallaneousImageFiles, "random_mirage", typeof(RandomHill), hillPropertiesExtra, 15);
             #endregion
 
             return backgroundReferenceData;

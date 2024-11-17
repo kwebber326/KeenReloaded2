@@ -3220,5 +3220,26 @@ namespace KeenReloaded2.Framework.SpriteSheet
         }
 
         #endregion
+
+        #region Hill
+        private static Image[] _hillSprites;
+        public static Image[] HillSprites
+        {
+            get
+            {
+                if (_hillSprites == null)
+                {
+                    _hillSprites = new Image[]
+                    {
+                        Properties.Resources.mirage_hill1,
+                        Properties.Resources.mirage_hill2,
+                        Properties.Resources.mirage_hill3,
+                        Properties.Resources.mirage_hill4
+                    };
+                }
+                return _hillSprites;
+            }
+        }
+        #endregion
     }
 }

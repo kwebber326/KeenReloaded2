@@ -14793,6 +14793,46 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mirage_hill1 {
+            get {
+                object obj = ResourceManager.GetObject("mirage_hill1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mirage_hill2 {
+            get {
+                object obj = ResourceManager.GetObject("mirage_hill2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mirage_hill3 {
+            get {
+                object obj = ResourceManager.GetObject("mirage_hill3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mirage_hill4 {
+            get {
+                object obj = ResourceManager.GetObject("mirage_hill4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mm_dead1 {
             get {
                 object obj = ResourceManager.GetObject("mm_dead1", resourceCulture);
@@ -16856,6 +16896,16 @@ namespace KeenReloaded2.Framework.Properties {
         internal static System.Drawing.Bitmap random_item_generator_open5 {
             get {
                 object obj = ResourceManager.GetObject("random_item_generator_open5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap random_mirage_hill {
+            get {
+                object obj = ResourceManager.GetObject("random_mirage_hill", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
