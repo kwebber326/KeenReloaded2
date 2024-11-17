@@ -583,6 +583,11 @@ namespace KeenReloaded2.Entities.ReferenceData
                     backgroundReferenceData.Add(imageName, obj);
                 }
             }
+
+            string keen5TileDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_TILES, "keen5", Biomes.BIOME_KEEN5_BLACK);
+            string[] keen5TileFiles = Directory.GetFiles(keen5TileDirectory);
+            string searchText = "keen5_pipe_platform";
+            AddSimpleGameObject(backgroundReferenceData, keen5TileFiles, searchText, typeof(Keen5LargePipePlatform), new MapMakerObjectProperty[] { }, 10);
             #endregion
 
             #region gems

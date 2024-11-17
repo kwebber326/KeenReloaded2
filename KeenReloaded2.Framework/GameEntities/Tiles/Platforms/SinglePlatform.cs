@@ -14,7 +14,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
     public class SinglePlatform : MaskedTile, IBiomeTile
     {
         protected string _biome;
-        public SinglePlatform(Rectangle area, SpaceHashGrid grid, Rectangle hitbox, string imageFile, int zIndex, string biome) : base(area, grid, hitbox, imageFile, zIndex)
+        public SinglePlatform(Rectangle area, SpaceHashGrid grid, Rectangle hitbox, string imageFile, int zIndex, string biome) 
+            : base(area, grid, hitbox, imageFile, zIndex)
         {
             _biome = biome;
             this.SetImageFromBiome();

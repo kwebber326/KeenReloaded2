@@ -15,7 +15,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
     {
         protected string _biome;
 
-        public MiddlePlatformTile(Rectangle area, SpaceHashGrid grid, Rectangle hitbox, string imageFile, int zIndex, string biome) : base(area, grid, hitbox, imageFile, zIndex)
+        public MiddlePlatformTile(Rectangle area, SpaceHashGrid grid, Rectangle hitbox, string imageFile, int zIndex, string biome) 
+            : base(area, grid, hitbox, imageFile, zIndex)
         {
             _biome = biome;
             SetImageFromBiome();
