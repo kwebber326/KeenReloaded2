@@ -37,6 +37,7 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
             }).Where(i => i != null).ToList();
             _animation = new Animation(imageList, imageRotationDelayMilliseconds, true);
             _animation.AnimationMoveNext += _animation_AnimationMoveNext;
+            this.StartAnimation();
         }
 
         private void _animation_AnimationMoveNext(object sender, EventArgs e)

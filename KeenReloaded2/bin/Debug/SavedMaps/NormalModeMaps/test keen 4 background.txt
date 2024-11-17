@@ -1,6 +1,6 @@
 1500|1500
-keen4_living_tree_background|0|0|576|384|keen4_living_tree_background.png|True|0|[keen4_living_tree_background1.png,keen4_living_tree_background2.png]|200
-keen4_living_tree_background|576|0|576|384|keen4_living_tree_background.png|True|0|[keen4_living_tree_background1.png,keen4_living_tree_background2.png]|200
 keen4_cave_torch|163|232|64|152|keen4_cave_torch.png|True|100|[keen4_cave_torch1.png,keen4_cave_torch2.png,keen4_cave_torch3.png]|200
 keen_stand_right|353|185|26|64|RIGHT
 keen4_forest_platform_single|349|264|32|40|10
+keen4_living_tree_background|0|0|576|384|keen4_living_tree_background.png|True|0|[keen4_living_tree_background1.png,keen4_living_tree_background2.png]|1000
+keen4_living_tree_background|576|0|576|384|keen4_living_tree_background.png|True|0|[keen4_living_tree_background1.png,keen4_living_tree_background2.png]|1000
