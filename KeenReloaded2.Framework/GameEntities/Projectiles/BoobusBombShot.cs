@@ -181,6 +181,11 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         public override void Update()
         {
+            if (IsOutOfBounds(200))
+            {
+                this.Stop();
+                return;
+            }
             if (!_readyToExplode)
                 this.Move();
             else

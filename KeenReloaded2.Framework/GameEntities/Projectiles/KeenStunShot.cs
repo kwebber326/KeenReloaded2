@@ -446,6 +446,11 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         public virtual void Update()
         {
+            if (IsOutOfBounds())
+            {
+                this.Stop();
+                return;
+            }
             if (!_shotComplete)
             {
                 if (!_spreadApplied)

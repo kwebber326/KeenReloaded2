@@ -258,7 +258,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         public void Update()
         {
-            if (!_hitWall)
+            if (!_hitWall && !IsOutOfBounds())
             {
                 this.Move();
             }

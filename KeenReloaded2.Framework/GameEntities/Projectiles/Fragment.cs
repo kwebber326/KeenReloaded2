@@ -124,7 +124,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         public void Update()
         {
-            if (_stoppedHorizontalMovement && _stoppedVerticalMovement)
+            if ((_stoppedHorizontalMovement && _stoppedVerticalMovement) || IsOutOfBounds())
             {
                 OnRemove(new ObjectEventArgs() { ObjectSprite = this });
                 return;
