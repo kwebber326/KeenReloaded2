@@ -818,6 +818,8 @@ namespace KeenReloaded2
                 RefreshZIndexPositioning();
 
                 pnlMapCanvas.Focus();
+
+                this.ValidateMap();
             }
             catch (Exception ex)
             {
@@ -902,12 +904,12 @@ namespace KeenReloaded2
 
         private void CmbWidth_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.ValidateMap();
+          
         }
 
         private void CmbHeight_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.ValidateMap();
+            
         }
 
         private void PnlMapCanvas_MouseEnter(object sender, EventArgs e)

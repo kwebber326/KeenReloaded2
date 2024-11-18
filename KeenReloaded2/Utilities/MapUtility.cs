@@ -309,7 +309,7 @@ namespace KeenReloaded2.Utilities
         {
             public static bool ValidateObjectPlacement(Rectangle objectArea, Rectangle mapArea)
             {
-                bool isValid = objectArea.Top >= mapArea.Top && objectArea.Bottom <= mapArea.Bottom
+                bool isValid = objectArea.Top >= mapArea.Top && objectArea.Top <= mapArea.Bottom
                      && objectArea.Right <= mapArea.Right && objectArea.Left >= mapArea.Left;
 
                 return isValid;
@@ -324,7 +324,7 @@ namespace KeenReloaded2.Utilities
                     foreach (var obj in mapData.MapData)
                     {
                         if (obj.GameObject.Location.X < 0 || obj.GameObject.Location.X + (obj.GameObject.Image?.Width ?? 0) > mapData.MapSize.Width
-                            || obj.GameObject.Location.Y < 0 || obj.GameObject.Location.Y + (obj.GameObject.Image?.Height ?? 0) > mapData.MapSize.Height)
+                            || obj.GameObject.Location.Y < 0 || obj.GameObject.Location.Y > mapData.MapSize.Height)
                         {
                             areAllObjectsValid = false;
                             break;

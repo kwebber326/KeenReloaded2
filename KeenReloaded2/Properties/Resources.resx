@@ -5737,7 +5737,280 @@
   <data name="_1_keen5_arrow_down_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\MapMakerObjects\Animated Foregrounds\keen5\keen5_arrow_down_on\1_keen5_arrow_down_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fg_keen4_cave_wall_bottom1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_bottom1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_cave_wall_bottom2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_bottom2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_cave_wall_bottom3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_bottom3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_cave_wall_bottom4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_bottom4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_cave_wall_bottom5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_bottom5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_cave_wall_bottom6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_bottom6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_cave_wall_bottom7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_bottom7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_cave_wall_edge_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_edge_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_cave_wall_middle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_middle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_forest_wall_bottom1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_forest_wall_bottom1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_forest_wall_left_edge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_forest_wall_left_edge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_forest_wall_middle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_forest_wall_middle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_mirage_wall_bottom1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_mirage_wall_bottom1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_mirage_wall_bottom2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_mirage_wall_bottom2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_mirage_wall_bottom3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_mirage_wall_bottom3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_mirage_wall_bottom4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_mirage_wall_bottom4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_mirage_wall_left_edge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_mirage_wall_left_edge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_mirage_wall_middle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_mirage_wall_middle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_pyramid_wall_bottom1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_pyramid_wall_bottom1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_pyramid_wall_bottom2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_pyramid_wall_bottom2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_pyramid_wall_edge_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_pyramid_wall_edge_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_pyramid_wall_middle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_pyramid_wall_middle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_seaweed1_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_seaweed1_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_seaweed2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_seaweed2_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen5_ceiling_green_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_ceiling_green_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen5_ceiling_red_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_ceiling_red_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen5_wall_black_bottom_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_wall_black_bottom_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen5_wall_black_edge_left_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_wall_black_edge_left_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen5_wall_black_middle_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_wall_black_middle_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen5_wall_green_edge_left_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_wall_green_edge_left_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen5_wall_green_middle_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_wall_green_middle_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen5_wall_red_edge_left_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_wall_red_edge_left_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen5_wall_red_middle_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_wall_red_middle_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_dome_ceiling1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_dome_ceiling1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_dome_ceiling2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_dome_ceiling2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_dome_ceiling3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_dome_ceiling3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_dome_wall_edge_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_dome_wall_edge_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_dome_wall_middle1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_dome_wall_middle1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_dome_wall_middle2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_dome_wall_middle2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_forest_ceiling1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_forest_ceiling1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_forest_ceiling2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_forest_ceiling2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_forest_wall_edge_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_forest_wall_edge_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_forest_wall_middle1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_forest_wall_middle1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_forest_wall_middle2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_forest_wall_middle2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_industrial_ceiling" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_industrial_ceiling.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_industrial_wall_edge_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_industrial_wall_edge_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_industrial_wall_middle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_industrial_wall_middle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_background_cave_blue11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen4\keen4_background_cave_blue1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_background_cave_blue21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen4\keen4_background_cave_blue2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_blue_star_cluster1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_blue_star_cluster.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_bright_star1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_bright_star.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_distant_galaxy1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_distant_galaxy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_korath_planet_surface1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_korath_planet_surface.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_korath_planet_surface_middle_down1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_korath_planet_surface_middle_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_korath_planet_surface_middle_up1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_korath_planet_surface_middle_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_large_star_cluster1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_large_star_cluster.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_large_star_cluster21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_large_star_cluster2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_lone_star_blue1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_lone_star_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_lone_star_blue_small1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_lone_star_blue_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_moon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_moon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_pink_diamond_background1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_pink_diamond_background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_spaceship_thruster11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_spaceship_thruster1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_spaceship_thruster21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_spaceship_thruster2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_spaceship_thruster31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_spaceship_thruster3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_vent1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_vent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_yellow_diamond_background1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_yellow_diamond_background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_blue_sky1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_blue_sky.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_caution_sign11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_caution_sign1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_caution_sign21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_caution_sign2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_cliff_background1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_cliff_background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_cloud_cluster1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_cloud_cluster.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_cloud_large1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_cloud_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_cloud_medium11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_cloud_medium1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_cloud_medium21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_cloud_medium2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_dome_background_bold11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_dome_background_bold1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_dome_background_bold21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_dome_background_bold2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_dome_background_eye_down1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_dome_background_eye_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_dome_background_eye_down_right1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_dome_background_eye_down_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_dome_background_eye_forward1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_dome_background_eye_forward.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_dome_background_faded11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_dome_background_faded1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_dome_background_faded21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_dome_background_faded2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_dome_underground_background1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_dome_underground_background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_space_black1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_space_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_space_stars11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_space_stars1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_space_stars21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_space_stars2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_space_stars31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_space_stars3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_space_stars41" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_space_stars4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_space_stars51" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_space_stars5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_space_stars61" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_space_stars6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="_1_keen5_arrow_down_on1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\MapMakerObjects\Animated Foregrounds\keen5\keen5_arrow_down_on\1_keen5_arrow_down_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_background_mirage_crystal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen4\keen4_background_mirage_crystal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_background_mirage_ice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen4\keen4_background_mirage_ice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

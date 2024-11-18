@@ -5912,5 +5912,278 @@
   <ItemGroup>
     <None Include="bin\Debug\MapMakerObjects\Animated Foregrounds\keen5\keen5_arrow_down_on\1_keen5_arrow_down_on.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_bottom1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_bottom2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_bottom3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_bottom4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_bottom5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_bottom6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_bottom7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_forest_wall_bottom1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_forest_wall_left_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_forest_wall_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_mirage_wall_bottom1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_mirage_wall_bottom2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_mirage_wall_bottom3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_mirage_wall_bottom4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_mirage_wall_left_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_mirage_wall_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_pyramid_wall_bottom1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_pyramid_wall_bottom2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_pyramid_wall_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_pyramid_wall_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_seaweed1_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_seaweed2_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_ceiling_green_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_ceiling_red_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_wall_black_bottom_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_wall_black_edge_left_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_wall_black_middle_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_wall_green_edge_left_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_wall_green_middle_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_wall_red_edge_left_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_wall_red_middle_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_dome_ceiling1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_dome_ceiling2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_dome_ceiling3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_dome_wall_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_dome_wall_middle1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_dome_wall_middle2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_forest_ceiling1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_forest_ceiling2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_forest_wall_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_forest_wall_middle1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_forest_wall_middle2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_industrial_ceiling.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_industrial_wall_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_industrial_wall_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen4\keen4_background_cave_blue1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen4\keen4_background_cave_blue2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_blue_star_cluster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_bright_star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_distant_galaxy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_korath_planet_surface.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_korath_planet_surface_middle_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_korath_planet_surface_middle_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_large_star_cluster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_large_star_cluster2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_lone_star_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_lone_star_blue_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_moon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_pink_diamond_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_spaceship_thruster1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_spaceship_thruster2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_spaceship_thruster3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_vent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen5\keen5_yellow_diamond_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_blue_sky.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_caution_sign1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_caution_sign2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_cliff_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_cloud_cluster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_cloud_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_cloud_medium1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_cloud_medium2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_dome_background_bold1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_dome_background_bold2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_dome_background_eye_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_dome_background_eye_down_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_dome_background_eye_forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_dome_background_faded1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_dome_background_faded2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_dome_underground_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_space_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_space_stars1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_space_stars2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_space_stars3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_space_stars4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_space_stars5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen6\keen6_space_stars6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen4\keen4_background_mirage_crystal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen4\keen4_background_mirage_ice.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -580,7 +580,8 @@ namespace KeenReloaded2.Entities.ReferenceData
                          }
                     };
                     MapMakerObject obj = new MapMakerObject(type, path, false, properties);
-                    backgroundReferenceData.Add(imageName, obj);
+                    if (!backgroundReferenceData.ContainsKey(imageName))
+                        backgroundReferenceData.Add(imageName, obj);
                 }
             }
 
