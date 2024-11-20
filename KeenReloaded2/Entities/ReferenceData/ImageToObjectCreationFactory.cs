@@ -12,6 +12,7 @@ using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.Tiles;
 using KeenReloaded2.Framework.GameEntities.Tiles.Floors;
 using KeenReloaded2.Framework.GameEntities.Tiles.Platforms;
+using KeenReloaded2.Framework.GameEntities.Tiles.Walls;
 using KeenReloaded2.Framework.ReferenceDataClasses;
 using KeenReloaded2.Utilities;
 using System;
@@ -585,10 +586,72 @@ namespace KeenReloaded2.Entities.ReferenceData
                 }
             }
 
+            string keen4MirageTileDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_TILES, "keen4", Biomes.BIOME_KEEN4_MIRAGE);
+            string[] keen4MirageTileFiles = Directory.GetFiles(keen4MirageTileDirectory);
+
             string keen5TileDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_TILES, "keen5", Biomes.BIOME_KEEN5_BLACK);
             string[] keen5TileFiles = Directory.GetFiles(keen5TileDirectory);
+
+            string keen6DomeTileDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_TILES, "keen6", Biomes.BIOME_KEEN6_DOME);
+            string[] keen6DomeTileFiles = Directory.GetFiles(keen6DomeTileDirectory);
+
             string searchText = "keen5_pipe_platform";
             AddSimpleGameObject(backgroundReferenceData, keen5TileFiles, searchText, typeof(Keen5LargePipePlatform), new MapMakerObjectProperty[] { }, 10);
+
+            #region wall to platform Tiles
+            MapMakerObjectProperty leftDirection = new MapMakerObjectProperty()
+            {
+                PropertyName = "direction",
+                DataType = typeof(Direction),
+                Hidden = true,
+                PossibleValues = Enum.GetNames(typeof(Direction))
+                        .Where(e => e == "LEFT" || e == "RIGHT").ToArray(),
+                Value = Direction.LEFT
+            };
+
+            MapMakerObjectProperty rightDirection = new MapMakerObjectProperty()
+            {
+                PropertyName = "direction",
+                DataType = typeof(Direction),
+                Hidden = true,
+                PossibleValues = Enum.GetNames(typeof(Direction))
+                       .Where(e => e == "LEFT" || e == "RIGHT").ToArray(),
+                Value = Direction.RIGHT
+            };
+
+            MapMakerObjectProperty keen5BlackBiomeProperty = new MapMakerObjectProperty()
+            {
+                PropertyName = "biome",
+                DataType = typeof(string),
+                Value = Biomes.BIOME_KEEN5_BLACK,
+                Readonly = true
+            };
+
+            MapMakerObjectProperty keen4MirageBiomeProperty = new MapMakerObjectProperty()
+            {
+                PropertyName = "biome",
+                DataType = typeof(string),
+                Value = Biomes.BIOME_KEEN4_MIRAGE,
+                Readonly = true
+            };
+
+            //keen 5 black
+            MapMakerObjectProperty[] keen5WallToPlatformLeftProps = new MapMakerObjectProperty[]
+            {
+                keen5BlackBiomeProperty,
+                leftDirection
+            };
+            AddSimpleGameObject(backgroundReferenceData, keen5TileFiles, "keen5_black_wall_to_platform_left", typeof(WallToPlatformTile), keen5WallToPlatformLeftProps, 10);
+
+            //keen 4 mirage
+            MapMakerObjectProperty[] keen4MirageWallToPlatformLeftProps = new MapMakerObjectProperty[]
+            {
+                keen4MirageBiomeProperty,
+                leftDirection
+            };
+            AddSimpleGameObject(backgroundReferenceData, keen4MirageTileFiles, "keen4_mirage_wall_to_platform_left", typeof(WallToPlatformTile), keen4MirageWallToPlatformLeftProps, 10);
+            #endregion
+
             #endregion
 
             #region gems

@@ -260,6 +260,7 @@
     <Compile Include="GameEntities\Tiles\Walls\LeftEdgeWallTile.cs" />
     <Compile Include="GameEntities\Tiles\Walls\MiddleWallTile.cs" />
     <Compile Include="GameEntities\Tiles\Walls\RightEdgeWallTile.cs" />
+    <Compile Include="GameEntities\Tiles\Walls\WallToPlatformTile.cs" />
     <Compile Include="GameEntities\Weapons\BFG.cs" />
     <Compile Include="GameEntities\Weapons\BoobusBombLauncher.cs" />
     <Compile Include="GameEntities\Weapons\NeuralStunner.cs" />
