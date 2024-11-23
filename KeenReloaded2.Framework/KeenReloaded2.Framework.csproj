@@ -229,6 +229,7 @@
     <Compile Include="GameEntities\SpaceHashGrid.cs" />
     <Compile Include="GameEntities\Tiles\Ceilings\CeilingTile.cs" />
     <Compile Include="GameEntities\Tiles\DestructibleCollisionTile.cs" />
+    <Compile Include="GameEntities\Tiles\Floors\FloorToPlatformTile.cs" />
     <Compile Include="GameEntities\Tiles\Floors\Keen6SlimeHazardEdgeFloorLeft.cs" />
     <Compile Include="GameEntities\Tiles\Floors\Keen6SlimeHazardEdgeFloorRight.cs" />
     <Compile Include="GameEntities\Tiles\Floors\Keen6SLimeHazardMiddleFloor.cs" />

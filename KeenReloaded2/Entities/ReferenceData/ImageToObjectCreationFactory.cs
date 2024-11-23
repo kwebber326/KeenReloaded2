@@ -665,6 +665,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                 Readonly = true
             };
 
+            #region wall to platform
             //keen 5 black
             MapMakerObjectProperty[] keen5WallToPlatformLeftProps = new MapMakerObjectProperty[]
             {
@@ -704,6 +705,30 @@ namespace KeenReloaded2.Entities.ReferenceData
                 leftDirection
             };
             AddSimpleGameObject(backgroundReferenceData, keen6DomeTileFiles, "keen6_dome_wall_to_platform", typeof(WallToPlatformTile), keen6DomeProperties, 10);
+            #endregion
+
+            #region floor to platform
+            //keen 4 mirage
+            MapMakerObjectProperty[] keen4MirageFTPProperties = new MapMakerObjectProperty[]
+            {
+                keen4MirageBiomeProperty
+            };
+            AddSimpleGameObject(backgroundReferenceData, keen4MirageTileFiles, "keen4_mirage_floor_to_platform_left", typeof(FloorToPlatformTile), keen4MirageFTPProperties, 10);
+
+            //keen 5 black
+            MapMakerObjectProperty[] keen5BlackFTPProperties = new MapMakerObjectProperty[]
+            {
+                keen5BlackBiomeProperty
+            };
+            AddSimpleGameObject(backgroundReferenceData, keen5BlackTileFiles, "keen5_black_floor_to_platform_left", typeof(FloorToPlatformTile), keen5BlackFTPProperties, 10);
+
+            //keen 5 red
+            MapMakerObjectProperty[] keen5RedFTPProperties = new MapMakerObjectProperty[]
+            {
+                keen5RedBiomeProperty
+            };
+            AddSimpleGameObject(backgroundReferenceData, keen5RedTileFiles, "keen5_red_floor_to_platform_left", typeof(FloorToPlatformTile), keen5RedFTPProperties, 10);
+            #endregion
             #endregion
 
             #endregion
