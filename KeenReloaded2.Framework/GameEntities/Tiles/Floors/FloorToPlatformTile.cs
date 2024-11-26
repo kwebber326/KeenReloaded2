@@ -37,7 +37,6 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Floors
         {
             get
             {
-
                 return base.HitBox;
             }
             protected set

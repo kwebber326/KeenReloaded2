@@ -78,7 +78,17 @@
     <Compile Include="Entities\MapMakerData.cs" />
     <Compile Include="Entities\MapMakerObject.cs" />
     <Compile Include="Entities\MapMakerObjectProperty.cs" />
+    <Compile Include="Entities\Statistics\CTFStats.cs" />
+    <Compile Include="Entities\Statistics\HighScores\CTFHighScore.cs" />
+    <Compile Include="Entities\Statistics\HighScores\HighScore.cs" />
+    <Compile Include="Entities\Statistics\HighScores\KOTHHighScore.cs" />
+    <Compile Include="Entities\Statistics\HighScores\NormalModeHighScore.cs" />
+    <Compile Include="Entities\Statistics\HighScores\ZombieModeHighScore.cs" />
+    <Compile Include="Entities\Statistics\KOTHStats.cs" />
+    <Compile Include="Entities\Statistics\NormalModeStats.cs" />
+    <Compile Include="Entities\Statistics\PlayerStats.cs" />
     <Compile Include="Entities\ReferenceData\ImageToObjectCreationFactory.cs" />
+    <Compile Include="Entities\Statistics\ZombieModeStats.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,6 +261,7 @@
     </Compile>
     <Compile Include="Utilities\EventStore.cs" />
     <Compile Include="Utilities\MapUtility.cs" />
+    <Compile Include="Utilities\StatUtility.cs" />
     <Compile Include="Utilities\UserControlSprites.cs" />
     <EmbeddedResource Include="DialogWindows\KeenOptionButton.resx">
       <DependentUpon>KeenOptionButton.cs</DependentUpon>
