@@ -20,6 +20,7 @@ namespace KeenReloaded2
     public partial class Form1 : Form
     {
         private readonly string _gameMode;
+        private readonly bool _inMapMakerMode;
         private Timer _gameUpdateTimer = new Timer();
         private CommanderKeenGame _game;
         private bool _paused;
@@ -39,10 +40,11 @@ namespace KeenReloaded2
             InitializeComponent();
         }
 
-        public Form1(string gameMode, MapMakerData data)
+        public Form1(string gameMode, MapMakerData data, bool inMapMakerMode)
         {
             InitializeComponent();
             _gameMode = gameMode;
+            _inMapMakerMode = inMapMakerMode;
             InitializeGameData(gameMode, data, false);
         }
 
@@ -158,6 +160,10 @@ namespace KeenReloaded2
             }
             else
             {
+                if (!_inMapMakerMode)
+                {
+                    ShowHighScoreBoard();
+                }
                 this.Close();
             }
         }
@@ -228,6 +234,17 @@ namespace KeenReloaded2
             KeenReloadedMessageWindow messageWindow = new KeenReloadedMessageWindow("Game Over");
             messageWindow.ShowDialog();
             this.Close();
+
+            if (!_inMapMakerMode)
+            {
+                ShowHighScoreBoard();
+            }
+        }
+
+        private static void ShowHighScoreBoard()
+        {
+            HighScoreForm highScoreForm = new HighScoreForm();
+            highScoreForm.ShowDialog();
         }
 
         protected override bool IsInputKey(Keys keyData)
@@ -302,6 +319,10 @@ namespace KeenReloaded2
                     }
                     else
                     {
+                        if (!_inMapMakerMode)
+                        {
+                            ShowHighScoreBoard();
+                        }
                         this.Close();
                     }
                     break;

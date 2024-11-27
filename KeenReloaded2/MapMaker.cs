@@ -986,7 +986,7 @@ namespace KeenReloaded2
             string directory = MapUtility.GetSavedMapsPath(cmbGameMode.Text);
             string mapFile = Path.Combine(directory, txtMapName.Text + ".txt");
             var mapData = MapUtility.LoadMapData(mapFile);
-            Form1 gameForm = new Form1(cmbGameMode.Text, mapData);
+            Form1 gameForm = new Form1(cmbGameMode.Text, mapData, true);
             gameForm.ShowDialog();
             dialogMapLoader.FileName = _lastFilePath;
             DialogMapLoader_FileOk(this, null);
