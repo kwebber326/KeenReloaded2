@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Entities.Statistics.HighScores
 {
-    public class NormalModeHighScore
+    public class NormalModeHighScore : HighScore
     {
         public TimeSpan Time { get; set; }
     }

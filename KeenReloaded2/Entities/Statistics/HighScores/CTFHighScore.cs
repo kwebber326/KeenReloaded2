@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Entities.Statistics.HighScores
 {
-    public class CTFHighScore
+    public class CTFHighScore : HighScore
     {
         public long Score { get; set; }
     }

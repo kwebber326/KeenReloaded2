@@ -10,6 +10,8 @@ namespace KeenReloaded2.Entities.Statistics
     {
         public string PlayerName { get; set; }
 
+        public string CharacterUsed { get; set; }
+
         public string MapName { get; set; }
 
         public int Deaths { get; set; }

@@ -266,6 +266,9 @@
       <DependentUpon>SmartPlacer.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilities\EventStore.cs" />
+    <Compile Include="Utilities\HighScoreFactory\HighScoreFactory.cs" />
+    <Compile Include="Utilities\HighScoreFactory\IHighScore.cs" />
+    <Compile Include="Utilities\HighScoreFactory\NormalModeHighScoreUtility.cs" />
     <Compile Include="Utilities\MapUtility.cs" />
     <Compile Include="Utilities\StatUtility.cs" />
     <Compile Include="Utilities\UserControlSprites.cs" />
