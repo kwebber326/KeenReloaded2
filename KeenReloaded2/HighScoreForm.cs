@@ -1,4 +1,5 @@
-﻿using KeenReloaded2.Entities.Statistics.HighScores;
+﻿using KeenReloaded2.DialogWindows;
+using KeenReloaded2.Entities.Statistics.HighScores;
 using KeenReloaded2.Utilities.HighScoreFactory;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,10 @@ namespace KeenReloaded2
         private readonly string _gameMode;
         private readonly string _mapName;
         private readonly IHighScoreUtility _highScoreUtility;
+        private const int INITIAL_VERTICAL_OFFSET = 96;
+        private const int VERTICAL_OFFSET = 12;
+        private const int PLAYER_NAME_HORIZONTAL_OFFSET = 12;
+        private const int SCORE_HORIZONTAL_OFFSET = 400;
 
         public HighScoreForm(string gameMode, string mapName)
         {
@@ -78,13 +83,16 @@ namespace KeenReloaded2
                     //if the player achieved a high score, prompt the user to enter their name
                     if (highScores.Contains(_newHighScore))
                     {
-                        //TODO: use prompt to get their name and write the new list to the scores
-
+                        //use prompt to get their name and write the new list to the scores
+                        KeenReloadedTextInputDialog highScoreUserNameDialog = new KeenReloadedTextInputDialog("You've achieved a high score!\n Enter your name here:");
+                        highScoreUserNameDialog.ShowDialog();
+                        _newHighScore.PlayerName = highScoreUserNameDialog.UserNameText;
                         _highScoreUtility.WriteHighScores(highScores, _mapName);
                     }
                     //TODO: write player stats
                 }
                 //TODO: use image writing utility to write the image version of the names/scores of every player
+                WriteHighScoresAndBoard();
             }
             catch (Exception ex)
             {
@@ -92,5 +100,7 @@ namespace KeenReloaded2
                 MessageBox.Show("Error retrieving high scores");
             }
         }
+
+        private void WriteHighScoresAndBoard() { }
     }
 }

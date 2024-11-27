@@ -11,12 +11,16 @@ namespace KeenReloaded2.Utilities.HighScoreFactory
     {
         public List<IHighScore> ReadHighScores(string mapName)
         {
-            throw new NotImplementedException();
+            return new List<IHighScore>()
+            {
+                new NormalModeHighScore("test1", mapName, TimeSpan.FromMinutes(2.2)),
+                new NormalModeHighScore("test2", mapName, TimeSpan.FromMinutes(5.0))
+            };
         }
 
         public bool WriteHighScores(List<IHighScore> highScores, string mapName)
         {
-            throw new NotImplementedException();
+            return false;
         }
     }
 }

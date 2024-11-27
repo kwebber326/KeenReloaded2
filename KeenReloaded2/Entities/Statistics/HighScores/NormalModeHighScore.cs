@@ -15,7 +15,7 @@ namespace KeenReloaded2.Entities.Statistics.HighScores
             this.PlayerName = playerName;
         }
         public TimeSpan Time { get; private set; }
-        public string PlayerName { get; private set; }
+        public string PlayerName { get; set; }
         public string MapName { get; private set; }
         public object Value
         {

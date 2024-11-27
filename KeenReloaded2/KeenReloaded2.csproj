@@ -68,6 +68,9 @@
     <Compile Include="DialogWindows\KeenReloadedMessageWindow.Designer.cs">
       <DependentUpon>KeenReloadedMessageWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="DialogWindows\KeenReloadedTextInputDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DialogWindows\KeenReloadedYesNoDialogWindow.cs">
       <SubType>Form</SubType>
     </Compile>

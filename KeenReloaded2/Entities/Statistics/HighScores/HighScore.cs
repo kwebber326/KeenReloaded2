@@ -8,7 +8,7 @@ namespace KeenReloaded2.Entities.Statistics.HighScores
 {
     public interface IHighScore
     {
-        string PlayerName { get; }
+        string PlayerName { get; set; }
 
         string MapName { get; }
 

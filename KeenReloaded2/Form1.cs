@@ -243,7 +243,9 @@ namespace KeenReloaded2
         private void ShowHighScoreBoard()
         {
             IHighScore score = this.GetPlayerScore();
-            HighScoreForm highScoreForm = new HighScoreForm(score, _gameMode, _game?.Map?.MapName);
+            HighScoreForm highScoreForm = score != null
+                ? new HighScoreForm(score, _gameMode, _game?.Map?.MapName)
+                : new HighScoreForm(_gameMode, _game?.Map?.MapName);
             highScoreForm.ShowDialog();
         }
 
@@ -259,7 +261,9 @@ namespace KeenReloaded2
                 case MainMenuConstants.OPTION_LABEL_ZOMBIE_MODE:
                     return new ZombieModeHighScore(string.Empty, mapName, _keen.Points);
                 case MainMenuConstants.OPTION_LABEL_NORMAL_MODE:
-                    return new NormalModeHighScore(string.Empty, mapName, _gameTimer.Elapsed);
+                    return _levelCompleted ?
+                        new NormalModeHighScore(string.Empty, mapName, _gameTimer.Elapsed)
+                       : null;
             }
             return null;
         }
