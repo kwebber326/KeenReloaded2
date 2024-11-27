@@ -14,6 +14,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KeenReloaded2.DialogWindows;
+using KeenReloaded2.Entities.Statistics.HighScores;
+using System.Diagnostics;
 
 namespace KeenReloaded2
 {
@@ -22,6 +24,7 @@ namespace KeenReloaded2
         private readonly string _gameMode;
         private readonly bool _inMapMakerMode;
         private Timer _gameUpdateTimer = new Timer();
+        private Stopwatch _gameTimer = new Stopwatch();
         private CommanderKeenGame _game;
         private bool _paused;
         private CommanderKeen _keen;
@@ -86,6 +89,11 @@ namespace KeenReloaded2
             inventoryPanel1.ShowFlagInventory = gameMode == MainMenuConstants.OPTION_LABEL_CTF_MODE;
             _maxVisionY = _game.Map.MapSize.Height - VIEW_RADIUS;
             _maxVisionX = _game.Map.MapSize.Width - VIEW_RADIUS;
+
+            if (_gameMode == MainMenuConstants.OPTION_LABEL_NORMAL_MODE && !isReset)
+            {
+                _gameTimer.Start();
+            }
         }
 
         private void InitializeGameState()
@@ -234,8 +242,26 @@ namespace KeenReloaded2
 
         private void ShowHighScoreBoard()
         {
-            HighScoreForm highScoreForm = new HighScoreForm(_gameMode, _game?.Map?.MapName);
+            IHighScore score = this.GetPlayerScore();
+            HighScoreForm highScoreForm = new HighScoreForm(score, _gameMode, _game?.Map?.MapName);
             highScoreForm.ShowDialog();
+        }
+
+        private IHighScore GetPlayerScore()
+        {
+            string mapName = _game?.Map?.MapName;
+            switch (_gameMode)
+            {
+                case MainMenuConstants.OPTION_LABEL_CTF_MODE:
+                    return new CTFHighScore(string.Empty, mapName, _keen.Points);
+                case MainMenuConstants.OPTION_LABEL_KOTH_MODE:
+                    return new KOTHHighScore(string.Empty, mapName, _keen.Points);
+                case MainMenuConstants.OPTION_LABEL_ZOMBIE_MODE:
+                    return new ZombieModeHighScore(string.Empty, mapName, _keen.Points);
+                case MainMenuConstants.OPTION_LABEL_NORMAL_MODE:
+                    return new NormalModeHighScore(string.Empty, mapName, _gameTimer.Elapsed);
+            }
+            return null;
         }
 
         protected override bool IsInputKey(Keys keyData)
@@ -318,6 +344,7 @@ namespace KeenReloaded2
 
         private void ExecuteShutdownProtocol()
         {
+            _gameTimer.Stop();
             if (!_inMapMakerMode)
             {
                 ShowHighScoreBoard();

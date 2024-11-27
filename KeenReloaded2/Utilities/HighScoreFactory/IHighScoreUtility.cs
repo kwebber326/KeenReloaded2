@@ -9,7 +9,7 @@ namespace KeenReloaded2.Utilities.HighScoreFactory
 {
     public interface IHighScoreUtility
     {
-        bool WriteHighScore(IHighScore highScore, string mapName);
+        bool WriteHighScores(List<IHighScore> highScores, string mapName);
 
         List<IHighScore> ReadHighScores(string mapName);
     }

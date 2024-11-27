@@ -79,9 +79,12 @@ namespace KeenReloaded2
                     if (highScores.Contains(_newHighScore))
                     {
                         //TODO: use prompt to get their name and write the new list to the scores
+
+                        _highScoreUtility.WriteHighScores(highScores, _mapName);
                     }
                     //TODO: write player stats
                 }
+                //TODO: use image writing utility to write the image version of the names/scores of every player
             }
             catch (Exception ex)
             {

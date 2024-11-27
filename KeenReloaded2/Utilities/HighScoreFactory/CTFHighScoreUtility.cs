@@ -14,7 +14,7 @@ namespace KeenReloaded2.Utilities.HighScoreFactory
             throw new NotImplementedException();
         }
 
-        public bool WriteHighScore(IHighScore highScore, string mapName)
+        public bool WriteHighScores(List<IHighScore> highScores, string mapName)
         {
             throw new NotImplementedException();
         }
