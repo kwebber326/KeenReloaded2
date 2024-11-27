@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Entities.Statistics.HighScores
 {
-    public abstract class HighScore
+    public interface IHighScore
     {
-        public string PlayerName { get; set; }
+        string PlayerName { get; }
 
-        public string MapName { get; set; }
+        string MapName { get; }
+
+        object Value { get; }
     }
 }

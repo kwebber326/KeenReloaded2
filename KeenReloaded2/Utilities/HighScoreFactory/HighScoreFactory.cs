@@ -26,34 +26,5 @@ namespace KeenReloaded2.Utilities.HighScoreFactory
 
             return null;
         }
-
-        public static Tuple<string, string> GenerateHighScoreInput(string gameMode, HighScore highScore)
-        {
-            try
-            {
-                switch (gameMode)
-                {
-                    case MainMenuConstants.OPTION_LABEL_NORMAL_MODE:
-                        var normalScore = (NormalModeHighScore)highScore;
-                        return new Tuple<string, string>(normalScore.PlayerName, normalScore.Time.ToString());
-                    case MainMenuConstants.OPTION_LABEL_ZOMBIE_MODE:
-                        var zombieScore = (ZombieModeHighScore)highScore;
-                        return new Tuple<string, string>(zombieScore.PlayerName, zombieScore.Score.ToString());
-                    case MainMenuConstants.OPTION_LABEL_CTF_MODE:
-                        var ctfScore = (CTFHighScore)highScore;
-                        return new Tuple<string, string>(ctfScore.PlayerName, ctfScore.Score.ToString());
-                    case MainMenuConstants.OPTION_LABEL_KOTH_MODE:
-                        var kothScore = (KOTHHighScore)highScore;
-                        return new Tuple<string, string>(kothScore.PlayerName, kothScore.Score.ToString());
-                }
-
-                return null;
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex);
-                return null;
-            }
-        }
     }
 }

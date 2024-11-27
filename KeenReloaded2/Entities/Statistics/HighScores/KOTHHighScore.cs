@@ -6,8 +6,23 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Entities.Statistics.HighScores
 {
-    public class KOTHHighScore : HighScore
+    public class KOTHHighScore : IHighScore
     {
-        public long Score { get; set; }
+        public KOTHHighScore(string playerName, string mapName, long score)
+        {
+            this.Score = score;
+            this.MapName = mapName;
+            this.PlayerName = playerName;
+        }
+        public long Score { get; private set; }
+        public string PlayerName { get; private set; }
+        public string MapName { get; private set; }
+        public object Value
+        {
+            get
+            {
+                return this.Score;
+            }
+        }
     }
 }

@@ -9,12 +9,12 @@ namespace KeenReloaded2.Utilities.HighScoreFactory
 {
     public class ZombieModeHighScoreUtility : IHighScoreUtility
     {
-        public List<Tuple<string, string>> ReadHighScores(string mapName)
+        public List<IHighScore> ReadHighScores(string mapName)
         {
             throw new NotImplementedException();
         }
 
-        public bool WriteHighScore(Tuple<string, string> highScore, string mapName)
+        public bool WriteHighScore(IHighScore highScore, string mapName)
         {
             throw new NotImplementedException();
         }

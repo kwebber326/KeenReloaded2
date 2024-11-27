@@ -234,7 +234,7 @@ namespace KeenReloaded2
 
         private void ShowHighScoreBoard()
         {
-            HighScoreForm highScoreForm = new HighScoreForm(_gameMode);
+            HighScoreForm highScoreForm = new HighScoreForm(_gameMode, _game?.Map?.MapName);
             highScoreForm.ShowDialog();
         }
 

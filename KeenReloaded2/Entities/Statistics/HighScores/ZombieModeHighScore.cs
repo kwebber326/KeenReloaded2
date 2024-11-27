@@ -6,8 +6,23 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Entities.Statistics.HighScores
 {
-    public class ZombieModeHighScore : HighScore
+    public class ZombieModeHighScore : IHighScore
     {
-        public long Score { get; set; }
+        public ZombieModeHighScore(string playerName, string mapName, long score)
+        {
+            this.Score = score;
+            this.MapName = mapName;
+            this.PlayerName = playerName;
+        }
+        public long Score { get; private set; }
+        public string PlayerName { get; private set; }
+        public string MapName { get; private set; }
+        public object Value
+        {
+            get
+            {
+                return this.Score;
+            }
+        }
     }
 }

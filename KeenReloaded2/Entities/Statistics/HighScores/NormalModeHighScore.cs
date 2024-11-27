@@ -6,8 +6,23 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Entities.Statistics.HighScores
 {
-    public class NormalModeHighScore : HighScore
+    public class NormalModeHighScore : IHighScore
     {
-        public TimeSpan Time { get; set; }
+        public NormalModeHighScore(string playerName, string mapName, TimeSpan time)
+        {
+            this.Time = time;
+            this.MapName = mapName;
+            this.PlayerName = playerName;
+        }
+        public TimeSpan Time { get; private set; }
+        public string PlayerName { get; private set; }
+        public string MapName { get; private set; }
+        public object Value
+        {
+            get
+            {
+                return this.Time;
+            }
+        }
     }
 }
