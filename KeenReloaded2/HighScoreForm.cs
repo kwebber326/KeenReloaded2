@@ -1,4 +1,5 @@
 ﻿using KeenReloaded2.Entities.Statistics.HighScores;
+using KeenReloaded2.Utilities.HighScoreFactory;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,13 +16,27 @@ namespace KeenReloaded2
     {
         private bool _canClose = false;
         Timer _closeTimer = new Timer();
-        List<HighScore> _highScores = new List<HighScore>();
+        HighScore _newHighScore;
+        private string _gameMode;
+        private readonly IHighScoreUtility _highScoreUtility;
 
-        public HighScoreForm()
+        public HighScoreForm(string gameMode)
         {
             InitializeComponent();
+            _gameMode = gameMode;
             _closeTimer.Interval = 2000;
             _closeTimer.Tick += _closeTimer_Tick;
+            _highScoreUtility = HighScoreFactory.Generate(_gameMode);
+        }
+
+        public HighScoreForm(HighScore highScore, string gameMode)
+        {
+            InitializeComponent();
+            _newHighScore = highScore;
+            _gameMode = gameMode;
+            _closeTimer.Interval = 2000;
+            _closeTimer.Tick += _closeTimer_Tick;
+            _highScoreUtility = HighScoreFactory.Generate(_gameMode);
         }
 
         private void _closeTimer_Tick(object sender, EventArgs e)
@@ -41,6 +56,11 @@ namespace KeenReloaded2
             {
                 this.Close();
             }
+        }
+
+        private void WriteHighScoresToBoard()
+        {
+            
         }
     }
 }

@@ -160,11 +160,7 @@ namespace KeenReloaded2
             }
             else
             {
-                if (!_inMapMakerMode)
-                {
-                    ShowHighScoreBoard();
-                }
-                this.Close();
+                ExecuteShutdownProtocol();
             }
         }
 
@@ -233,17 +229,12 @@ namespace KeenReloaded2
         {
             KeenReloadedMessageWindow messageWindow = new KeenReloadedMessageWindow("Game Over");
             messageWindow.ShowDialog();
-            this.Close();
-
-            if (!_inMapMakerMode)
-            {
-                ShowHighScoreBoard();
-            }
+            ExecuteShutdownProtocol();
         }
 
-        private static void ShowHighScoreBoard()
+        private void ShowHighScoreBoard()
         {
-            HighScoreForm highScoreForm = new HighScoreForm();
+            HighScoreForm highScoreForm = new HighScoreForm(_gameMode);
             highScoreForm.ShowDialog();
         }
 
@@ -319,14 +310,19 @@ namespace KeenReloaded2
                     }
                     else
                     {
-                        if (!_inMapMakerMode)
-                        {
-                            ShowHighScoreBoard();
-                        }
-                        this.Close();
+                        ExecuteShutdownProtocol();
                     }
                     break;
             }
+        }
+
+        private void ExecuteShutdownProtocol()
+        {
+            if (!_inMapMakerMode)
+            {
+                ShowHighScoreBoard();
+            }
+            this.Close();
         }
 
         private bool IsKeenOutOfVisibleRange()

@@ -10,6 +10,6 @@ namespace KeenReloaded2.Entities.Statistics.HighScores
     {
         public string PlayerName { get; set; }
 
-        public string MapNames { get; set; }
+        public string MapName { get; set; }
     }
 }

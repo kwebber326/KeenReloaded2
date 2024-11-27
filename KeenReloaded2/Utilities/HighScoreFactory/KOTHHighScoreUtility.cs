@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Utilities.HighScoreFactory
 {
-    public class NormalModeHighScoreUtility : IHighScoreUtility
+    public class KOTHHighScoreUtility : IHighScoreUtility
     {
         public List<Tuple<string, string>> ReadHighScores(string mapName)
         {

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Utilities.HighScoreFactory
 {
-    public interface IHighScore<T> where T : HighScore
+    public interface IHighScoreUtility
     {
-        bool WriteHighScore(T highScore);
+        bool WriteHighScore(Tuple<string, string> highScore, string mapName);
 
-        List<T> ReadHighScores();
+        List<Tuple<string, string>> ReadHighScores(string mapName);
     }
 }
