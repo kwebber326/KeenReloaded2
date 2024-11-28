@@ -96,7 +96,9 @@ namespace KeenReloaded2.Utilities
             try
             {
                 if (!File.Exists(path))
-                    File.Create(path);
+                {
+                    using (FileStream fs1 = File.Create(path)) { };
+                }
 
                 using (FileStream fs = File.OpenRead(path))
                 using (StreamReader reader = new StreamReader(fs))
