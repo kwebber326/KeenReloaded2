@@ -1,5 +1,8 @@
-﻿using KeenReloaded2.DialogWindows;
+﻿using KeenReloaded.Framework.Utilities;
+using KeenReloaded2.DialogWindows;
+using KeenReloaded2.Entities.ReferenceData;
 using KeenReloaded2.Entities.Statistics.HighScores;
+using KeenReloaded2.Framework.GameEntities.HelperObjects;
 using KeenReloaded2.Utilities.HighScoreFactory;
 using System;
 using System.Collections.Generic;
@@ -22,9 +25,9 @@ namespace KeenReloaded2
         private readonly string _mapName;
         private readonly IHighScoreUtility _highScoreUtility;
         private const int INITIAL_VERTICAL_OFFSET = 96;
-        private const int VERTICAL_OFFSET = 12;
-        private const int PLAYER_NAME_HORIZONTAL_OFFSET = 12;
-        private const int SCORE_HORIZONTAL_OFFSET = 400;
+        private const int VERTICAL_OFFSET = 32;
+        private const int PLAYER_NAME_HORIZONTAL_OFFSET = 64;
+        private const int SCORE_HORIZONTAL_OFFSET = 408;
 
         public HighScoreForm(string gameMode, string mapName)
         {
@@ -91,8 +94,8 @@ namespace KeenReloaded2
                     }
                     //TODO: write player stats
                 }
-                //TODO: use image writing utility to write the image version of the names/scores of every player
-                WriteHighScoresAndBoard();
+                //use image writing utility to write the image version of the names/scores of every player
+                WriteHighScoresAndBoard(highScores);
             }
             catch (Exception ex)
             {
@@ -101,6 +104,62 @@ namespace KeenReloaded2
             }
         }
 
-        private void WriteHighScoresAndBoard() { }
+        private void WriteHighScoresAndBoard(List<IHighScore> scores)
+        {
+            int x1 = PLAYER_NAME_HORIZONTAL_OFFSET, x2 = SCORE_HORIZONTAL_OFFSET;
+            int y = INITIAL_VERTICAL_OFFSET;
+            List<LocatedImage> characters = new List<LocatedImage>();
+
+            var characterMapping = ImageToCharacterFactory.CharacterImageMapping;
+            for (int i = 0; i < scores.Count; i++)
+            {
+                Point p1 = new Point(x1, y);
+                Point p2 = new Point(x2, y);
+
+                if (!string.IsNullOrEmpty(scores[i].PlayerName))
+                {
+                    AddCharactersFromStartingPosition(p1, scores[i].PlayerName, characters, characterMapping);
+                }
+                string scoreStr = scores[i].Value?.ToString();
+                if (!string.IsNullOrEmpty(scoreStr))
+                {
+                    AddCharactersFromStartingPosition(p2, scoreStr, characters, characterMapping);
+                }
+
+                y += VERTICAL_OFFSET;
+            }
+            Size canvasSize = pbHighScoreImage.Size;
+            Image[] extraImages = characters.Select(c => c.Image).ToArray();
+            Point[] locations = characters.Select(c => c.Location).ToArray();
+
+            pbHighScoreImage.Image = BitMapTool.DrawImagesOnCanvas(canvasSize, pbHighScoreImage.Image, canvasSize, extraImages, locations);
+        }
+
+        private void AddCharactersFromStartingPosition(Point startPos, string value, List<LocatedImage> characters, Dictionary<char, Image> characterMapping)
+        {
+            int letterMargin = 2;
+            int x = startPos.X;
+            int y = startPos.Y;
+            if (string.IsNullOrEmpty(value))
+                return;
+
+            if (!string.IsNullOrEmpty(value))
+            {
+                foreach (char c in value)
+                {
+                    if (characterMapping.TryGetValue(c, out Image image))
+                    {
+                        LocatedImage character = new LocatedImage()
+                        {
+                            Location = startPos,
+                            Image = image
+                        };
+                        characters.Add(character);
+                        x = x + image.Width + letterMargin;
+                        startPos = new Point(x, y);
+                    }
+                }
+            }
+        }
     }
 }

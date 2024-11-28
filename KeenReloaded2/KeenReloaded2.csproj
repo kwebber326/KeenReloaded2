@@ -81,6 +81,7 @@
     <Compile Include="Entities\MapMakerData.cs" />
     <Compile Include="Entities\MapMakerObject.cs" />
     <Compile Include="Entities\MapMakerObjectProperty.cs" />
+    <Compile Include="Entities\ReferenceData\ImageToCharacterFactory.cs" />
     <Compile Include="Entities\Statistics\CTFStats.cs" />
     <Compile Include="Entities\Statistics\HighScores\CTFHighScore.cs" />
     <Compile Include="Entities\Statistics\HighScores\HighScore.cs" />

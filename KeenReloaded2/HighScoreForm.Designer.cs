@@ -37,8 +37,8 @@
             this.pbHighScoreImage.Image = global::KeenReloaded2.Properties.Resources.high_score_panel;
             this.pbHighScoreImage.Location = new System.Drawing.Point(-3, -2);
             this.pbHighScoreImage.Name = "pbHighScoreImage";
-            this.pbHighScoreImage.Size = new System.Drawing.Size(640, 400);
-            this.pbHighScoreImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbHighScoreImage.Size = new System.Drawing.Size(955, 583);
+            this.pbHighScoreImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbHighScoreImage.TabIndex = 0;
             this.pbHighScoreImage.TabStop = false;
             // 
@@ -46,7 +46,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(953, 581);
+            this.ClientSize = new System.Drawing.Size(949, 577);
             this.ControlBox = false;
             this.Controls.Add(this.pbHighScoreImage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -62,7 +62,6 @@
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HighScoreForm_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pbHighScoreImage)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

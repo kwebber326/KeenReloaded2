@@ -162,6 +162,38 @@ namespace KeenReloaded.Framework.Utilities
             }
         }
 
+        public static Bitmap DrawImagesOnCanvas(Size canvas, Image backgroundImage, Size backgroundImageSize, Image[] extraImages, Point[] locations)
+        {
+            Bitmap bmp = new Bitmap(canvas.Width, canvas.Height);
+            try
+            {
+                using (Graphics g = Graphics.FromImage(bmp))
+                {
+                    g.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceOver;
+                    if (backgroundImage != null)
+                        g.DrawImage(backgroundImage, new Rectangle(new Point(0, 0), backgroundImageSize));
+
+                    int count = extraImages.Length;
+                    for (int i = 0; i < count; i++)
+                    {
+                        if (extraImages[i] != null)
+                            g.DrawImage(extraImages[i], locations[i].X, locations[i].Y, extraImages[i].Width, extraImages[i].Height);
+                    }
+                }
+                return bmp;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                bmp?.Dispose();
+                throw;
+            }
+            finally
+            {
+                GC.Collect();
+            }
+        }
+
         public static void WriteTextOnImage(Image originalImage, string text, Point locationOnImage, Font font, Brush color)
         {
             if (originalImage == null)
