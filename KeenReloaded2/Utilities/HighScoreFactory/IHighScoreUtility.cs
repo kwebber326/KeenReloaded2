@@ -12,5 +12,7 @@ namespace KeenReloaded2.Utilities.HighScoreFactory
         bool WriteHighScores(List<IHighScore> highScores, string mapName);
 
         List<IHighScore> ReadHighScores(string mapName);
+
+        List<IHighScore> GetSortedList(List<IHighScore> highScores);
     }
 }

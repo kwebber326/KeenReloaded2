@@ -9,6 +9,11 @@ namespace KeenReloaded2.Utilities.HighScoreFactory
 {
     public class ZombieModeHighScoreUtility : IHighScoreUtility
     {
+        public List<IHighScore> GetSortedList(List<IHighScore> highScores)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<IHighScore> ReadHighScores(string mapName)
         {
             throw new NotImplementedException();

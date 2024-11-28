@@ -121,7 +121,7 @@ namespace KeenReloaded2
                 RemoveKeenFromGame();
                 KeenReloadedMessageWindow window = new KeenReloadedMessageWindow("Level Completed!");
                 window.ShowDialog();
-                this.Close();
+                ExecuteShutdownProtocol();
             }
         }
 

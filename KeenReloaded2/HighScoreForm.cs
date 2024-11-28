@@ -83,6 +83,7 @@ namespace KeenReloaded2
                     var min = highScores.Min(h => h.Value);
                     var firstMin = highScores.FirstOrDefault(h => h.Value == min);
                     highScores.Remove(firstMin);
+                   
                     //if the player achieved a high score, prompt the user to enter their name
                     if (highScores.Contains(_newHighScore))
                     {
@@ -94,8 +95,16 @@ namespace KeenReloaded2
                     }
                     //TODO: write player stats
                 }
+                highScores = _highScoreUtility.GetSortedList(highScores);
                 //use image writing utility to write the image version of the names/scores of every player
-                WriteHighScoresAndBoard(highScores);
+                if (_highScoreUtility.WriteHighScores(highScores, _mapName))
+                {
+                    WriteHighScoresOnBoard(highScores);
+                }
+                else
+                {
+                    MessageBox.Show("Error writing high scores", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
@@ -104,7 +113,7 @@ namespace KeenReloaded2
             }
         }
 
-        private void WriteHighScoresAndBoard(List<IHighScore> scores)
+        private void WriteHighScoresOnBoard(List<IHighScore> scores)
         {
             int x1 = PLAYER_NAME_HORIZONTAL_OFFSET, x2 = SCORE_HORIZONTAL_OFFSET;
             int y = INITIAL_VERTICAL_OFFSET;

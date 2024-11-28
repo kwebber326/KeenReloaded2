@@ -47,5 +47,11 @@
     <Compile Include="InputValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KeenReloaded2.Constants\KeenReloaded2.Constants.csproj">
+      <Project>{2E1F0654-B7C5-4D8F-9688-A9335D048254}</Project>
+      <Name>KeenReloaded2.Constants</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
