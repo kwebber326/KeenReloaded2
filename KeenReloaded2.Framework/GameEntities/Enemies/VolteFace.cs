@@ -261,13 +261,14 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 {
                     xPos = this.HitBox.X + xOffset;
                 }
-                Rectangle killArea = new Rectangle(
-                    isLeftDirection ? this.HitBox.X + xOffset : this.HitBox.X, //x
-                    isUpDirection ? this.HitBox.Y + yOffset : this.HitBox.Y, //y
-                    this.HitBox.Width + Math.Abs(xOffset), //width
-                    this.HitBox.Height + Math.Abs(yOffset));//height
-                this.KillCollidingPlayers(killArea);
+                //Rectangle killArea = new Rectangle(
+                //    isLeftDirection ? this.HitBox.X + xOffset : this.HitBox.X, //x
+                //    isUpDirection ? this.HitBox.Y + yOffset : this.HitBox.Y, //y
+                //    this.HitBox.Width + Math.Abs(xOffset), //width
+                //    this.HitBox.Height + Math.Abs(yOffset));//height
+                //this.KillCollidingPlayers(killArea);
                 this.HitBox = new Rectangle(xPos, yPos, this.HitBox.Width, this.HitBox.Height);
+                this.KillCollidingPlayers();
             }
 
             //register to get next node if we reached the current node

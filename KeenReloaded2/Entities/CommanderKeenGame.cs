@@ -189,11 +189,7 @@ namespace KeenReloaded2.Entities
                     flag.FlagCaptured += Flag_FlagCaptured;
                 }
             }
-            if (obj is IZombieBountyEnemy)
-            {
-                var zombieEnemy = (IZombieBountyEnemy)obj;
-                zombieEnemy.Killed += ZombieEnemy_Killed;
-            }
+            RegisterZombieEnemy(obj);
         }
 
         private void ZombieEnemy_Killed(object sender, ObjectEventArgs e)
@@ -230,10 +226,24 @@ namespace KeenReloaded2.Entities
                     flag.FlagCaptured -= Flag_FlagCaptured;
                 }
             }
+            UnRegisterZombieEnemy(obj);
+        }
+
+        private void UnRegisterZombieEnemy(object obj)
+        {
             if (obj is IZombieBountyEnemy)
             {
                 var zombieEnemy = (IZombieBountyEnemy)obj;
                 zombieEnemy.Killed -= ZombieEnemy_Killed;
+            }
+        }
+
+        private void RegisterZombieEnemy(object obj)
+        {
+            if (obj is IZombieBountyEnemy)
+            {
+                var zombieEnemy = (IZombieBountyEnemy)obj;
+                zombieEnemy.Killed += ZombieEnemy_Killed;
             }
         }
 
@@ -311,6 +321,7 @@ namespace KeenReloaded2.Entities
                 if (obj != null)
                 {
                     _updatableGameObjects.Add(obj);
+                    RegisterZombieEnemy(obj);
                 }
             }
 
