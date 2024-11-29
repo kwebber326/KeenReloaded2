@@ -182,6 +182,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                 {
                     var enemy = args.ObjectSprite as IEnemy;
                     _enemies.Remove(enemy);
+                    RemoveBounderHeadTiles(enemy);
                 }
             }
         }
@@ -597,7 +598,29 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                 {
                     _enemies.Remove(enemy);
                     OnRemove(e);
+                    RemoveBounderHeadTiles(enemy);
                 }
+            }
+        }
+
+        private void RemoveBounderHeadTiles(IEnemy enemy)
+        {
+            if (enemy is Bounder)
+            {
+                var headTile = ((Bounder)enemy).HeadTile;
+                WipeObjectFromMap(headTile);
+            }
+        }
+
+        private void WipeObjectFromMap(Tiles.Platforms.MovingPlatformTile headTile)
+        {
+            var collidingNodes = _collisionGrid.GetCurrentHashes(headTile);
+            foreach (var node in collidingNodes)
+            {
+                node.Objects.Remove(headTile);
+                node.Tiles.Remove(headTile);
+                node.NonEnemies.Remove(headTile);
+                OnRemove(new ObjectEventArgs() { ObjectSprite = headTile });
             }
         }
 

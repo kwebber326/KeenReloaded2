@@ -138,7 +138,6 @@
     <Compile Include="GameEntities\Hazards\AcidPool.cs" />
     <Compile Include="GameEntities\Hazards\ConveyerBelt.cs" />
     <Compile Include="GameEntities\Hazards\DartGun.cs" />
-    <Compile Include="GameEntities\Hazards\EnemySpawner.cs" />
     <Compile Include="GameEntities\Hazards\Fire.cs" />
     <Compile Include="GameEntities\Hazards\Flamethrower.cs" />
     <Compile Include="GameEntities\Hazards\ForceField.cs" />

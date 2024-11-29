@@ -85,8 +85,6 @@ keen4_forest_floor_middle|736|1440|48|64|10
 keen4_forest_floor_middle|688|1440|48|64|10
 keen4_forest_floor_middle|640|1440|48|64|10
 keen_stand_right|152|1362|26|64|RIGHT
-keen4_forest_floor_middle|592|1440|48|64|10
-keen4_forest_floor_middle|544|1440|48|64|10
 keen4_forest_floor_middle|496|1440|48|64|10
 keen4_forest_floor_middle|448|1440|48|64|10
 keen4_forest_floor_middle|400|1440|48|64|10
@@ -136,7 +134,6 @@ keen4_drop_platform|223|580|104|32|18|KEEN4|100
 keen4_drop_platform|596|580|104|32|18|KEEN4|100
 keen4_drop_platform|408|580|104|32|18|KEEN4|100
 random_item_generator_closed|1284|224|124|92|18|1000
-enemy_spawner1|1312|352|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth,SkyPest,Mimrock,GnosticeneAncient]|10|20|10000000
 neural_stunner1|208|1418|30|22|50|5
 neural_stunner1|256|1418|30|22|50|5
 neural_stunner1|304|1418|30|22|50|5
@@ -157,5 +154,17 @@ keen4_rocket_propelled_platform1|123|596|32|32|18
 keen_4_spikes|86|352|63|70
 keen4_rocket_propelled_platform1|155|596|32|32|18
 keen4_rocket_propelled_platform1|187|596|32|32|18
+keen4_dart_gun_down|1312|352|30|24|18|DOWN|True|20
+keen4_dart_gun_down|1264|352|30|24|18|DOWN|True|10
+keen4_dart_gun_down|1192|352|30|24|18|DOWN|True|0
+keen4_dart_gun_down|960|32|30|24|18|DOWN|True|10
+keen4_dart_gun_down|1024|32|30|24|18|DOWN|True|25
+keen4_dart_gun_down|1088|32|30|24|18|DOWN|True|35
+keen4_forest_floor_middle|544|1440|48|64|10
+keen4_forest_floor_middle|592|1440|48|64|10
+keen4_fire_left1|546|1441|32|42|18|LEFT
+keen4_fire_right1|578|1441|31|42|18|RIGHT
+enemy_spawner1|1312|352|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth,SkyPest,GnosticeneAncient]|10|20|10000000
+enemy_spawner1|65|634|92|94|18|[PoisonSlug]|5|20|100
 gem_placeholder_red_empty|147|157|26|22|50|RED|[d1dc61b7-540c-4e9b-adc2-4ac6089b8421]
 gem_placeholder_yellow_empty|1203|300|26|22|50|YELLOW|[1c4fe2c5-0713-4dc4-8f2a-ee86a9e5a354]
