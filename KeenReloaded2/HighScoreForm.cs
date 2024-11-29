@@ -164,7 +164,7 @@ namespace KeenReloaded2
                             Image = image
                         };
                         characters.Add(character);
-                        x = x + image.Width + letterMargin;
+                        x = x + (image?.Width ?? 32) + letterMargin;
                         startPos = new Point(x, y);
                     }
                 }
