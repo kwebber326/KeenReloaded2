@@ -63,6 +63,13 @@ namespace KeenReloaded2
             var shield = inventoryPanel1.Shield;
             _keen = gameObjects.OfType<CommanderKeen>().FirstOrDefault();
 
+            string characterName = FileIOUtility.LoadSavedCharacterSelection();
+            if (characterName != MainMenuConstants.Characters.COMMANDER_KEEN)
+            {
+                _game.ChangeKeenSkin(characterName, out CommanderKeen keen);
+                _keen = keen;
+            }
+
             if (isReset)
             {
                 if (_gameMode != MainMenuConstants.OPTION_LABEL_NORMAL_MODE)
@@ -76,12 +83,6 @@ namespace KeenReloaded2
                 inventoryPanel1.Reset();
             }
 
-            string characterName = FileIOUtility.LoadSavedCharacterSelection();
-            if (characterName != MainMenuConstants.Characters.COMMANDER_KEEN)
-            {
-                _game.ChangeKeenSkin(characterName, out CommanderKeen keen);
-                _keen = keen;
-            }
             CurrentPlayerList.Players.Clear();
             CurrentPlayerList.Players.Add(_keen);
 
