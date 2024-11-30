@@ -783,6 +783,11 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             }
             else if (obj.CollisionType == CollisionType.HAZARD)
             {
+                if (obj is MapEdgeTile)
+                {
+                    Die();
+                    return;
+                }
                 var hazard = (Hazard)obj;
                 if (hazard.IsDeadly)
                 {

@@ -10,7 +10,7 @@ namespace KeenReloaded2.Utilities
     {
         public static string SanitizeStringForIntegerNumerics(string text)
         {
-            var numeric = "1234567890";
+            var numeric = "-1234567890";
             string result = string.Empty;
             foreach (char c in text)
             {

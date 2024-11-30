@@ -3957,6 +3957,7 @@ namespace KeenReloaded2.Entities.ReferenceData
             //random weapon generator
             var miscellaneousFilesPath = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_MISCELLANEOUS, "keen5", Biomes.BIOME_KEEN5_BLACK);
             var miscallaneousImageFiles = Directory.GetFiles(miscellaneousFilesPath);
+            
             MapMakerObjectProperty[] weaponGeneratorPropertiesExtra = new MapMakerObjectProperty[]
             {
                 new MapMakerObjectProperty()
@@ -4073,6 +4074,22 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             AddSimpleGameObject(backgroundReferenceData, miscallaneousImageFiles, "mirage_hill4", typeof(Hill), hillPropertiesExtra, 15);
             AddSimpleGameObject(backgroundReferenceData, miscallaneousImageFiles, "random_mirage", typeof(RandomHill), hillPropertiesExtra, 15);
+
+            string mapEdgeTileFile = miscallaneousImageFiles.FirstOrDefault(f => f.Contains("edge_of_map"));
+
+            MapMakerObjectProperty[] mapEdgeTileExtraProperties = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "behavior",
+                    DataType =  typeof(MapEdgeBehavior),
+                    Value = MapEdgeBehavior.BARRIER,
+                    PossibleValues = Enum.GetNames(typeof(MapEdgeBehavior))
+                }
+            };
+
+            AddSimpleGameObject(backgroundReferenceData, miscallaneousImageFiles, "edge_of_map", typeof(MapEdgeTile), mapEdgeTileExtraProperties);
+
             #endregion
 
             return backgroundReferenceData;

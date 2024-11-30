@@ -7,6 +7,7 @@ using KeenReloaded2.Entities.ReferenceData;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Framework.GameEntities.Tiles;
 using KeenReloaded2.Framework.ReferenceDataClasses;
 using KeenReloaded2.UserControls.MapMakerUserControls;
 using KeenReloaded2.Utilities;
@@ -511,7 +512,7 @@ namespace KeenReloaded2
                 var objectArea = new Rectangle(placedItem.Location, placedItem.Image.Size);
                 var mapSize = this.GetMapSize();
                 var mapArea = new Rectangle(new Point(0, 0), mapSize);
-                if (!MapUtility.Validation.ValidateObjectPlacement(objectArea, mapArea))
+                if (!(placedItem is MapEdgeTile) && !MapUtility.Validation.ValidateObjectPlacement(objectArea, mapArea))
                 {
                     MessageBox.Show($"This object would be placed outside the bounds of the map. Please ensure the location and size of the object does not place the object outside the bounds of the map", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;

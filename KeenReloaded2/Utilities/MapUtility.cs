@@ -5,6 +5,7 @@ using KeenReloaded2.Entities.ReferenceData;
 using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Players;
+using KeenReloaded2.Framework.GameEntities.Tiles;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -309,6 +310,7 @@ namespace KeenReloaded2.Utilities
         {
             public static bool ValidateObjectPlacement(Rectangle objectArea, Rectangle mapArea)
             {
+               
                 bool isValid = objectArea.Top >= mapArea.Top && objectArea.Top <= mapArea.Bottom
                      && objectArea.Right <= mapArea.Right && objectArea.Left >= mapArea.Left;
 
@@ -323,6 +325,9 @@ namespace KeenReloaded2.Utilities
                     bool areAllObjectsValid = true;
                     foreach (var obj in mapData.MapData)
                     {
+                        if (obj.GameObject is MapEdgeTile)
+                            continue;
+
                         if (obj.GameObject.Location.X < 0 || obj.GameObject.Location.X + (obj.GameObject.Image?.Width ?? 0) > mapData.MapSize.Width
                             || obj.GameObject.Location.Y < 0 || obj.GameObject.Location.Y > mapData.MapSize.Height)
                         {
