@@ -465,6 +465,11 @@ namespace KeenReloaded2
             return new Point(point.X + pnlMapCanvas.AutoScrollPosition.X, point.Y + pnlMapCanvas.AutoScrollPosition.Y);
         }
 
+        private Point GetReverseOffsetPointForCanvas(Point point)
+        {
+            return new Point(point.X - pnlMapCanvas.AutoScrollPosition.X, point.Y - pnlMapCanvas.AutoScrollPosition.Y);
+        }
+
         private void ClearPathwayPointControls()
         {
             if (_pathWayPoints.Any())
@@ -714,7 +719,7 @@ namespace KeenReloaded2
                             if (areaRect.X < mapSize.Width - areaRect.Width)
                             {
                                 areaProperty.Value = new Rectangle(areaRect.X + 1, areaRect.Y, areaRect.Width, areaRect.Height);
-                                _selectedGameObjectMapping.Location = new Point(areaRect.Location.X + 1, areaRect.Location.Y);
+                                _selectedGameObjectMapping.Location = GetReverseOffsetPointForCanvas(new Point(areaRect.Location.X + 1, areaRect.Location.Y));
                                 mapMakerObjectPropertyListControl1.SetProperties(_selectedGameObjectMapping.MapMakerObject, true);
                             }
                             break;

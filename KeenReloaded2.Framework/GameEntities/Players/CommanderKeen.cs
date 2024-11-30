@@ -755,15 +755,22 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     //perform hang only if falling and colliding a wall keen is a higher y position than
                     if (obj.HitBox.Y > this.HitBox.Y)
                     {
-                        Rectangle areaToCheck = new Rectangle(obj.HitBox.X, obj.HitBox.Y - 64, obj.HitBox.Width, 64);
+                        int xOffsetWallCollide = this.Direction == Direction.LEFT 
+                            ? obj.HitBox.Right - this.HitBox.Width : obj.HitBox.Left + this.HitBox.Width;
+                        Rectangle areaToCheck = new Rectangle(xOffsetWallCollide, obj.HitBox.Y - this.HitBox.Height, this.HitBox.Width, this.HitBox.Height);
                         var collisionWalls = obj.CheckCollision(areaToCheck).Where(c => c.CollisionType == CollisionType.BLOCK);
                         //we can't hang on a wall if there are floors below at a lower Y distance than keen's height 
                         Rectangle areaToCheck2 = this.Direction == Enums.Direction.RIGHT ?
                             new Rectangle(obj.HitBox.X - this.HitBox.Width, obj.HitBox.Y, this.HitBox.Width, this.HitBox.Height) :
-                            new Rectangle(obj.HitBox.Right - 1, obj.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
+                            new Rectangle(obj.HitBox.Right + this.HitBox.Width, obj.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
                         var bottomCollisions = obj.CheckCollision(areaToCheck2).Where(c => c.CollisionType == CollisionType.BLOCK);
+                        //check for overhead collisions
+                        Rectangle overheadArea = this.Direction == Direction.RIGHT ?
+                            new Rectangle(obj.HitBox.Left - 32, obj.HitBox.Y - 32, 32, 64) :
+                            new Rectangle(obj.HitBox.Right + 32, obj.HitBox.Y - 32, 32, 64);
+                        var overheadCollisions = this.CheckCollision(overheadArea, true).Where(c => c.CollisionType == CollisionType.BLOCK);
 
-                        if (!collisionWalls.Any() && !bottomCollisions.Any())
+                        if (!collisionWalls.Any() && !bottomCollisions.Any() && !overheadCollisions.Any())
                         {
                             this.Hang(obj as MaskedTile);
                         }
