@@ -24,10 +24,11 @@ namespace KeenReloaded2
         private readonly string _gameMode;
         private readonly string _mapName;
         private readonly IHighScoreUtility _highScoreUtility;
-        private const int INITIAL_VERTICAL_OFFSET = 96;
-        private const int VERTICAL_OFFSET = 32;
+        private const int INITIAL_VERTICAL_OFFSET = 100;
+        private const int VERTICAL_OFFSET = 30;
         private const int PLAYER_NAME_HORIZONTAL_OFFSET = 64;
         private const int SCORE_HORIZONTAL_OFFSET = 408;
+        private const int HIGH_SCORE_MAX_NUMBER_OF_ENTRIES = 8;
 
         public HighScoreForm(string gameMode, string mapName)
         {
@@ -75,13 +76,14 @@ namespace KeenReloaded2
             try
             {
                 //get high score list
-                var highScores = _highScoreUtility.ReadHighScores(_mapName);
+                var highScores = _highScoreUtility.ReadHighScores(_mapName)
+                    .Take(HIGH_SCORE_MAX_NUMBER_OF_ENTRIES).ToList();
                 if (_newHighScore != null)
                 {
                     //insert new high score to list and determine if the player achieved a high score
                     highScores.Add(_newHighScore);
                     var min = highScores.Min(h => h.Value);
-                    var firstMin = highScores.FirstOrDefault(h => h.Value == min);
+                    var firstMin = highScores.FirstOrDefault(h => h.Value?.ToString() == min?.ToString());
                     highScores.Remove(firstMin);
                    
                     //if the player achieved a high score, prompt the user to enter their name
@@ -95,7 +97,8 @@ namespace KeenReloaded2
                     }
                     //TODO: write player stats
                 }
-                highScores = _highScoreUtility.GetSortedList(highScores);
+                highScores = _highScoreUtility.GetSortedList(highScores)
+                    .Take(HIGH_SCORE_MAX_NUMBER_OF_ENTRIES).ToList();
                 //use image writing utility to write the image version of the names/scores of every player
                 if (_highScoreUtility.WriteHighScores(highScores, _mapName))
                 {

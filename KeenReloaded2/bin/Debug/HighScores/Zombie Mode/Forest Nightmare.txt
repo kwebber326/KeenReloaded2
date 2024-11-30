@@ -6,4 +6,3 @@ Kenny 2|15400
 efhf|9400
 sd|4100
 no boo plate (single player)|100
-d|0
