@@ -6215,5 +6215,11 @@
   <ItemGroup>
     <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen4\keen4_background_mirage_ice.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Animated Backgrounds\keen6\bg_keen6_caution_sign1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Animated Backgrounds\keen6\bg_keen6_dome_background_eye_down.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

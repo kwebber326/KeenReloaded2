@@ -415,6 +415,14 @@ keen6_pizza_slice1|1548|1204|32|32|50|KEEN6_PIZZA_SLICE
 keen6_industrial_wall_edge_left|1083|854|64|64|10
 keen6_industrial_ceiling|1465|1034|64|32|10
 keen6_burn_hazard3|1147|679|32|32|18
+keen6_industrial_wall_edge_left|1595|974|64|64|10
+keen6_industrial_wall_edge_left|1595|910|64|64|10
+keen6_industrial_ceiling|1531|910|64|32|10
+keen6_industrial_ceiling|1467|910|64|32|10
+keen6_industrial_wall_middle|1397|201|64|64|10
+keen6_industrial_wall_middle|1397|137|64|64|10
+keen6_industrial_wall_middle|1397|73|64|64|10
+keen6_industrial_wall_middle|1397|9|64|64|10
 keen5_switch1_on|890|224|32|32|5|KEEN5_1|[748aa519-abee-4cfc-a144-32eb15d21ac1,eb23cb46-b52a-4840-b839-737926f483ef]|True
 keen5_switch1_on|826|224|32|32|5|KEEN5_1|[c8576cf8-00ee-416d-8792-54a76e76c077,41b56fa3-5db5-433d-a9c5-9cfa5d9478f3]|True
 keen5_switch1_on|1018|224|32|32|5|KEEN5_1|[0056aa83-8879-48d0-ad82-f08e29ed93cd,99c48eca-f028-4bde-9051-204768a51498]|True

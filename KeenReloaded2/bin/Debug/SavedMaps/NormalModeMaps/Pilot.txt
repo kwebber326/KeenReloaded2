@@ -388,6 +388,7 @@ keen5_pink_platform|72|2025|62|30|18|KEEN5_PINK|[72,400,72,2100]|ea746716-c45c-4
 keen_stand_right|92|2169|26|64|RIGHT
 keen5_wall_black_edge_left|1624|1444|64|64|10
 chute|76|1700|64|64|15|CHUTE|4|
+keen5_warning_sign|1736|1660|152|120|keen5_warning_sign.png|True|1
 gem_placeholder_green_empty|1714|2219|26|22|50|GREEN|[3800d294-de0f-4b99-ab3d-7f1e79bc6cfc]
 gem_placeholder_blue_empty|1037|703|26|22|50|BLUE|[f3b8d70f-795f-463f-bcf2-c0fda8cf2777]
 keen5_switch2_off|1546|1439|32|32|19|KEEN5_2|[ea746716-c45c-4d08-9ad4-b4c958ae94cd]|False
