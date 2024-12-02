@@ -83,8 +83,11 @@ namespace KeenReloaded2
                     //insert new high score to list and determine if the player achieved a high score
                     highScores.Add(_newHighScore);
                     var min = highScores.Min(h => h.Value);
-                    var firstMin = highScores.FirstOrDefault(h => h.Value?.ToString() == min?.ToString());
-                    highScores.Remove(firstMin);
+                    if (highScores.Count > HIGH_SCORE_MAX_NUMBER_OF_ENTRIES)
+                    {
+                        var firstMin = highScores.FirstOrDefault(h => h.Value?.ToString() == min?.ToString());
+                        highScores.Remove(firstMin);
+                    }
                    
                     //if the player achieved a high score, prompt the user to enter their name
                     if (highScores.Contains(_newHighScore))

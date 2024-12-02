@@ -107,10 +107,14 @@ namespace KeenReloaded2.Utilities
                     {
                         string rawData = reader.ReadLine();
                         int separatorIndex = rawData.LastIndexOf(MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR);
-                        string playerName = rawData.Substring(0, separatorIndex);
-                        string score = rawData.Substring(separatorIndex + 1);
-                        Tuple<string, string> dataPoint = new Tuple<string, string>(playerName, score);
-                        data.Add(dataPoint);
+                        if (separatorIndex != -1)
+                        {
+                            string playerName = rawData.Substring(0, separatorIndex);
+                            string score = rawData.Substring(separatorIndex + 1);
+
+                            Tuple<string, string> dataPoint = new Tuple<string, string>(playerName, score);
+                            data.Add(dataPoint);
+                        }
                     }
                 }
             }
@@ -140,7 +144,7 @@ namespace KeenReloaded2.Utilities
                 }
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex);
                 return false;
