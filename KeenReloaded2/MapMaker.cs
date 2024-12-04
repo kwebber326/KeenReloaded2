@@ -409,6 +409,7 @@ namespace KeenReloaded2
                 {
                     matchingDoor.BorderStyle = BorderStyle.Fixed3D;
                     matchingDoor.BackColor = Color.Red;
+                    pnlMapCanvas.ScrollControlIntoView(matchingDoor);
                 }
             }
         }
