@@ -184,6 +184,30 @@ namespace KeenReloaded2
                 obj.BringToFront();
             }
         }
+
+        private void RefreshZIndexPositioningForCollidingObjects(GameObjectMapping newlyPlacedObject)
+        {
+            var objectsToBringToFront = _mapMakerObjects.Where(o =>
+            {
+                if (o.GameObject?.Image == null || newlyPlacedObject?.GameObject?.Image == null)
+                    return false;
+
+                var rectangle1 = new Rectangle(o.Location, o.GameObject.Image.Size);
+                var rectangle2 = new Rectangle(newlyPlacedObject.Location, newlyPlacedObject.Image.Size);
+
+                bool result = o.GameObject.ZIndex > newlyPlacedObject.GameObject.ZIndex
+                    && rectangle1.IntersectsWith(rectangle2);
+
+                return result;
+            });
+
+            newlyPlacedObject.BringToFront();
+            foreach (var item in objectsToBringToFront)
+            {
+                item.BringToFront();
+            }
+        }
+
         private void SetObjectContainer()
         {
             string categoryFolder = cmbCategory.SelectedItem?.ToString();
@@ -541,15 +565,15 @@ namespace KeenReloaded2
                     placedItem.Location.Y + pnlMapCanvas.AutoScrollPosition.Y);
                 gameObjectMapping.SizeMode = PictureBoxSizeMode.AutoSize;
                 gameObjectMapping.Image = placedItem.Image;
-                // gameObjectMapping.Click += GameObjectMapping_Click;
+                // register events
                 RegisterEventsForGameObjectMapping(gameObjectMapping);
 
                 //add to collections
                 _mapMakerObjects.Add(gameObjectMapping);
                 pnlMapCanvas.Controls.Add(gameObjectMapping);
 
-                //redraw grid
-                RefreshZIndexPositioning();
+                //reposition only the necessary items (items that collide and have higher zIndex)
+                RefreshZIndexPositioningForCollidingObjects(gameObjectMapping);
 
                 //replace existing selection if we have one
                 if (_selectedGameObjectMapping != null)
@@ -886,8 +910,9 @@ namespace KeenReloaded2
                 _selectedGameObjectMapping.BorderStyle = BorderStyle.Fixed3D;
                 mapMakerObjectPropertyListControl1.SetProperties(_selectedGameObjectMapping.MapMakerObject, true);
 
+                var tmp = _cursorItem;
                 _cursorItem = null;
-                RefreshZIndexPositioning();
+                RefreshZIndexPositioningForCollidingObjects(tmp);
 
                 RemoveSmartPlacerFromCanvas();
 

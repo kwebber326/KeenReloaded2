@@ -703,7 +703,6 @@ keen4_removable_platform|1723|1230|32|62|10|KEEN4_GREEN|True|332b00b8-b5a2-4b93-
 keen4_removable_platform|1755|1230|32|62|10|KEEN4_GREEN|True|d83530be-fb75-4fdd-b567-0d92b1f82e10
 keen4_removable_platform|1787|1230|32|62|10|KEEN4_GREEN|True|c702197f-4963-42d0-ba31-cc501b8e4714
 keen4_removable_platform|1817|1230|32|62|10|KEEN4_GREEN|True|dc4495da-6e45-4477-b5df-553925f8c4ae
-keen5_single_platform_blue|1777|1294|32|36|10
 gem_blue1|1853|98|26|20|BLUE|50|False
 gem_red1|2378|297|26|20|RED|50|False
 keen4_removable_platform|1909|1353|32|62|10|KEEN4_GREEN|True|50c6bf0b-bc6a-4f9d-9ee2-3f2c21e2fd9f
