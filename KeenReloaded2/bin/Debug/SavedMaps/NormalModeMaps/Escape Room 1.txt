@@ -186,7 +186,6 @@ keen6_door|70|953|124|126|15|KEEN6|14|18
 keen6_door|214|953|124|126|15|KEEN6|15|1
 keen6_door|357|953|124|126|15|KEEN6|16|1
 keen6_door|499|953|124|126|15|KEEN6|17|1
-keen6_caution_sign2|52|1114|650|275|keen6_caution_sign2.png|True|0
 keen6_burn_hazard3|542|1193|32|32|18
 keen6_burn_hazard3|542|1225|32|32|18
 keen6_burn_hazard3|384|1229|32|32|18
@@ -739,13 +738,13 @@ keen6_Switch_pole|1191|1762|20|20|keen6_Switch_pole.png|True|5
 keen6_Switch_pole|1191|1782|20|20|keen6_Switch_pole.png|True|5
 gem_yellow1|987|1858|26|20|YELLOW|50|False
 key_gate1|884|1692|26|110|10|45757462-51a5-4cda-ae11-d4b17a0e5839
-neural_stunner1|284|1689|30|22|50|5
 key_gate1|128|1827|26|102|10|3b4d223d-d14c-4a34-9980-66113dc9d7ad
-neural_stunner1|254|1689|30|22|50|5
 keen6_blooglet_blue_right1|501|1887|46|42|25|Color [Blue]|True
 keen6_blooglet_green_right1|565|1887|46|42|25|Color [Green]|True
 keen6_blooglet_red_right1|437|1887|46|42|25|Color [Red]|True
 keen6_blooglet_yellow_right1|373|1887|46|42|25|Color [Yellow]|True
+keen6_caution_sign2|52|1114|650|275|keen6_caution_sign2.png|True|1
+neural_stunner1|284|1689|30|22|50|500
 keen5_switch1_on|890|224|32|32|5|KEEN5_1|[748aa519-abee-4cfc-a144-32eb15d21ac1,eb23cb46-b52a-4840-b839-737926f483ef]|True
 keen5_switch1_on|826|224|32|32|5|KEEN5_1|[c8576cf8-00ee-416d-8792-54a76e76c077,41b56fa3-5db5-433d-a9c5-9cfa5d9478f3]|True
 keen5_switch1_on|1018|224|32|32|5|KEEN5_1|[0056aa83-8879-48d0-ad82-f08e29ed93cd,99c48eca-f028-4bde-9051-204768a51498]|True

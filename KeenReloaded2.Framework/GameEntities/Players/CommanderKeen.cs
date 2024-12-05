@@ -2476,6 +2476,28 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         {
             UpdateCollisionNodes(this.Direction);
             var collisionItems = this.CheckCollision(this.HitBox);
+            if (_hangTile != null && collisionItems.Any(c => c.HitBox.Y != _hangTile.HitBox.Y))
+            {
+                var climbCollisions = collisionItems.Where(c => c.HitBox.Y != _hangTile.HitBox.Y).ToList();
+                if (this.Direction == Direction.LEFT)
+                {
+                    int maxX = climbCollisions.Select(c => c.HitBox.Right).Max();
+                    var closestTile = climbCollisions.FirstOrDefault(c => c.HitBox.Right == maxX);
+                    if (closestTile != null)
+                    {
+                        this.HitBox = new Rectangle(closestTile.HitBox.Right + 1, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
+                    }
+                }
+                else if (this.Direction == Direction.RIGHT)
+                {
+                    int minX = climbCollisions.Select(c => c.HitBox.Left).Min();
+                    var closestTile = climbCollisions.FirstOrDefault(c => c.HitBox.Left == minX);
+                    if (closestTile != null)
+                    {
+                        this.HitBox = new Rectangle(closestTile.HitBox.Left - this.HitBox.Width - 1, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
+                    }
+                }
+            }
             foreach (var item in collisionItems)
             {
                 this.HandleCollision(item);
