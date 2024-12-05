@@ -18,11 +18,28 @@ using KeenReloaded2.Framework.GameEntities;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.Factories;
 using KeenReloaded2.Framework.GameEntities.Constructs;
+using KeenReloaded2.Entities.DataStructures;
 
 namespace KeenReloaded2.Entities
 {
     public class CommanderKeenGame : IDisposable
     {
+        public event EventHandler<ObjectEventArgs> ObjectRemoved;
+        public event EventHandler<ObjectEventArgs> ObjectCreated;
+        private Dictionary<string, bool> _keysPressed;
+        private CommanderKeen _keen;
+        private OrderedList<ISprite> _gameObjects;
+        private List<IUpdatable> _updatableGameObjects = new List<IUpdatable>();
+
+        private Func<ISprite, ISprite, int> _compareFunction = (x1, x2) =>
+        {
+            if (x1.ZIndex == x2.ZIndex)
+                return 0;
+            if (x1.ZIndex > x2.ZIndex)
+                return 1;
+
+            return -1;
+        };
         public CommanderKeenGame(MapMakerData map)
         {
             _keysPressed = new Dictionary<string, bool>();
@@ -45,10 +62,10 @@ namespace KeenReloaded2.Entities
             {
                 _keen = map.MapData.Select(d => d.GameObject).OfType<CommanderKeen>().FirstOrDefault();
 
-                _gameObjects = map.MapData.Select(d => d.GameObject).ToList();
+                _gameObjects = OrderedList<ISprite>.FromEnumerable(map.MapData.Select(d => d.GameObject), _compareFunction, true);
                 var updatables = _gameObjects.OfType<IUpdatable>();
                 if (updatables.Any())
-                    _updatableGameObjects = updatables.ToList(); 
+                    _updatableGameObjects = updatables.ToList();
 
                 foreach (var obj in _gameObjects)
                 {
@@ -58,7 +75,7 @@ namespace KeenReloaded2.Entities
                 var enemySpawners = _gameObjects.OfType<EnemySpawner>();
                 if (enemySpawners.Any())
                 {
-                    var biomeTiles = _gameObjects.OfType<IBiomeTile>()?.ToList() 
+                    var biomeTiles = _gameObjects.OfType<IBiomeTile>()?.ToList()
                         ?? new List<IBiomeTile>();
                     foreach (var spawner in enemySpawners)
                     {
@@ -68,13 +85,6 @@ namespace KeenReloaded2.Entities
             }
             this.Map = map;
         }
-
-        public event EventHandler<ObjectEventArgs> ObjectRemoved;
-        public event EventHandler<ObjectEventArgs> ObjectCreated;
-        private Dictionary<string, bool> _keysPressed;
-        private CommanderKeen _keen;
-        private List<ISprite> _gameObjects;
-        private List<IUpdatable> _updatableGameObjects = new List<IUpdatable>();
 
         public MapMakerData Map
         {
@@ -139,7 +149,7 @@ namespace KeenReloaded2.Entities
             //assign output variable
             keen = _keen;
             //attach new keen object to events and updatable objects
-            _gameObjects.Add(_keen);
+            _gameObjects.InsertAscending(_keen);
             _updatableGameObjects.Add(_keen);
             RegisterItemEventsForObject(_keen);
         }
@@ -258,10 +268,8 @@ namespace KeenReloaded2.Entities
                 using (Graphics g = Graphics.FromImage(mapCanvas))
                 {
                     g.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceOver;
-                    var sortedMapObjectsByZIndex = _gameObjects
-                        .OrderBy(o => o.ZIndex).ToList();
 
-                    foreach (var item in sortedMapObjectsByZIndex)
+                    foreach (var item in _gameObjects)
                     {
                         if (item?.Image == null)
                             continue;
@@ -316,7 +324,7 @@ namespace KeenReloaded2.Entities
             ISprite addedObject = e.ObjectSprite as ISprite;
             if (addedObject != null)
             {
-                _gameObjects.Add(addedObject);
+                _gameObjects.InsertAscending(addedObject);
                 IUpdatable obj = e.ObjectSprite as IUpdatable;
                 if (obj != null)
                 {

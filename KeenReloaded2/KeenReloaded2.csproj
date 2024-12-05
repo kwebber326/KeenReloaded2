@@ -75,6 +75,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Entities\CommanderKeenGame.cs" />
+    <Compile Include="Entities\DataStructures\OrderedList.cs" />
     <Compile Include="Entities\GameObjectMapping.cs">
       <SubType>Component</SubType>
     </Compile>
