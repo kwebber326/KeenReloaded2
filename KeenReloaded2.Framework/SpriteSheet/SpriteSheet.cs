@@ -3112,6 +3112,29 @@ namespace KeenReloaded2.Framework.SpriteSheet
 
         #region keen 4 
 
+        #region Keen 4 Secret Platform
+        private static Image[] _keen4SecretPlatformImages;
+
+        public static Image[] Keen4SecretPlatformImages
+        {
+            get
+            {
+                if (_keen4SecretPlatformImages == null)
+                {
+                    _keen4SecretPlatformImages = new Image[]
+                    {
+                        null,
+                        Properties.Resources.keen4_secret_platform1,
+                        Properties.Resources.keen4_secret_platform3,
+                        Properties.Resources.keen4_secret_platform2
+
+                    };
+                }
+                return _keen4SecretPlatformImages;
+            }
+        }
+        #endregion
+
         private static Image[] _keen4MovingPlatformLeftImages;
 
         public static Image[] Keen4MovingPlatformLeftImages

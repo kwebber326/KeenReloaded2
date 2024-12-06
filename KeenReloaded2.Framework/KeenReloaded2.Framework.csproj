@@ -254,6 +254,7 @@
     <Compile Include="GameEntities\Tiles\Platforms\MovingPlatformTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\Platform.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\RightEdgePlatformTile.cs" />
+    <Compile Include="GameEntities\Tiles\Platforms\SecretPlatformTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\SetPathPlatform.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\SinglePlatform.cs" />
     <Compile Include="GameEntities\Tiles\PoleTile.cs" />
@@ -5744,6 +5745,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_background_mirage_ice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_secret_platform_large_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

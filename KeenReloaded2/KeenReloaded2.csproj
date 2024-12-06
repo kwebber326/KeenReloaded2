@@ -6222,5 +6222,8 @@
   <ItemGroup>
     <None Include="bin\Debug\MapMakerObjects\Animated Backgrounds\keen6\bg_keen6_dome_background_eye_down.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Tiles\Keen4\KEEN4_CAVE\keen4_secret_platform_large_icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

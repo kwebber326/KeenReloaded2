@@ -16,7 +16,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
     public abstract class MaskedTile : CollisionObject, ISprite
     {
         protected readonly int _zIndex;
-        protected readonly string _initialImageName;
+        protected string _initialImageName;
         protected readonly string _separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
         protected int _upwardCollisionOffset = 0, _downwardCollisionOffset = 0, _leftwardCollisionOffset = 0, _rightwardCollisionOffset = 0;
 

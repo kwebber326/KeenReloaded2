@@ -604,6 +604,22 @@ namespace KeenReloaded2.Entities.ReferenceData
             string searchText = "keen5_pipe_platform";
             AddSimpleGameObject(backgroundReferenceData, keen5BlackTileFiles, searchText, typeof(Keen5LargePipePlatform), new MapMakerObjectProperty[] { }, 10);
 
+            //keen 4 secret platform
+            string secretPlatformKey = nameof(Properties.Resources.keen4_secret_platform_large_icon);
+            MapMakerObjectProperty[] addedPropertiesForSecretPlatform = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "initialState",
+                    DataType = typeof(SecretPlatformState),
+                    PossibleValues = Enum.GetNames(typeof(SecretPlatformState))
+                    .Where(s => s != SecretPlatformState.HIDDEN.ToString())
+                    .ToArray(),
+                    Value = SecretPlatformState.SHOW3
+                }
+            };
+            AddSimpleGameObject(backgroundReferenceData, keen4MirageTileFiles, secretPlatformKey, typeof(SecretPlatformTile), addedPropertiesForSecretPlatform, 15);
+
             #region wall to platform Tiles
             MapMakerObjectProperty leftDirection = new MapMakerObjectProperty()
             {
