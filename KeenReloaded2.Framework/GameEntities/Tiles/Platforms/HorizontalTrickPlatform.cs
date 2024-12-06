@@ -29,6 +29,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
         private int _currentLungeDistance;
         private Direction _returnDirection;
         private int _originalX;
+        private Rectangle _hitBox;
 
         public HorizontalTrickPlatform(Rectangle area, SpaceHashGrid grid, int zIndex, PlatformType type)
             : base(grid, area, type, zIndex, Guid.Empty)
@@ -56,6 +57,23 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
         public override void Deactivate()
         {
 
+        }
+        public override Rectangle HitBox
+        {
+            get
+            {
+                return _hitBox;
+            }
+            protected set
+            {
+                _hitBox = value;
+                _area = new Rectangle(this.HitBox.X, this.HitBox.Y - this.HitBox.Height / 2,
+                    this.HitBox.Width, this.HitBox.Height * 2);
+                if (_collidingNodes != null && _collisionGrid != null && value != null)
+                {
+                    this.UpdateCollisionNodes(_direction);
+                }
+            }
         }
 
         public override void Update()
@@ -161,7 +179,10 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             if (keenInVision && !keenStandingOnPlatform && (_keen.MoveState == MoveState.FALLING || _keen.MoveState == MoveState.JUMPING))
             {
                 _direction = GetDirectionFromKeenLocation();
-                this.Lunge();
+                var collisions = this.CheckCollision(this.HitBox, true)
+                    .Where(c => c.CollisionType == CollisionType.BLOCK);
+                if (!collisions.Any())
+                    this.Lunge();
             }
         }
 
