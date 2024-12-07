@@ -17,7 +17,7 @@ namespace KeenReloaded2.Framework.GameEntities.Weapons
         {
             VELOCITY = 60;
             REFIRE_DELAY = 20;
-            BLAST_RADIUS = 64;
+            BLAST_RADIUS = 80;
             DAMAGE = 2;
         }
 

@@ -72,10 +72,40 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             }
         }
 
+        private Rectangle GetExplosionPointBasedOnHitbox()
+        {
+            int x = this.HitBox.X;
+            int y = this.HitBox.Y;
+            int width = this.HitBox.Width;
+            int height = this.HitBox.Height;
+            switch (Direction)
+            {
+                case Direction.LEFT:
+
+                    x -= BlastRadius / 4;
+                    break;
+                case Direction.RIGHT:
+
+                    x += BlastRadius / 4;
+                    break;
+                case Direction.DOWN:
+                    var blockCollisions = this.CheckCollision(new Rectangle(x, y + (BlastRadius / 4), width, height), true);
+                    if (!blockCollisions.Any())
+                        y += BlastRadius / 4;
+                    break;
+                case Direction.UP:
+                    y -= BlastRadius / 4;
+                    break;
+            }
+
+            return new Rectangle(x, y, width, height);
+        }
+
         public void Explode()
         {
             Direction direction = this.ReverseDirection(this.Direction);
-            RPGExplosion explosion = new RPGExplosion(_collisionGrid, this.HitBox, this.BlastRadius, this.Damage, direction);
+            Rectangle hitbox = GetExplosionPointBasedOnHitbox();
+            RPGExplosion explosion = new RPGExplosion(_collisionGrid, hitbox, this.BlastRadius, this.Damage, direction);
             explosion.Remove += new EventHandler<ObjectEventArgs>(explosion_Remove);
             explosion.Create += new EventHandler<ObjectEventArgs>(explosion_Create);
             ObjectEventArgs e = new ObjectEventArgs()

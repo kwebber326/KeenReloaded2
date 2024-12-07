@@ -4,6 +4,7 @@ using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.Extensions;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Players;
+using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ using System.Linq;
 
 namespace KeenReloaded2.Framework.GameEntities.Enemies
 {
-    public class KorathInhabitant : DestructibleObject, IUpdatable, ISprite, IEnemy, IZombieBountyEnemy
+    public class KorathInhabitant : DestructibleObject, IUpdatable, ISprite, IEnemy, IZombieBountyEnemy, ICreateRemove
     {
         private KorathInhabitantState _state;
         private Image _sprite;
@@ -38,6 +39,9 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         private const int LOOK_TIME = 10;
         private int _currentLookTimeTick;
         private readonly int _zIndex;
+
+        public event EventHandler<ObjectEventArgs> Create;
+        public event EventHandler<ObjectEventArgs> Remove;
 
         public KorathInhabitant(Rectangle area, SpaceHashGrid grid,  int zIndex)
             : base(grid, area)

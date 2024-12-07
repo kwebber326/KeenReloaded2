@@ -533,6 +533,14 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                 babobba.Killed += new EventHandler<ObjectEventArgs>(enemy_Killed);
                 return babobba;
             }
+            else if (enemyType == typeof(KorathInhabitant).Name)
+            {
+                KorathInhabitant korathInhabitant = new KorathInhabitant(new Rectangle(this.HitBox.X + (this.HitBox.Width / 2) - 24, this.HitBox.Bottom - 44, 48, 44), _collisionGrid, _zIndex);
+                korathInhabitant.Create += new EventHandler<ObjectEventArgs>(object_Create);
+                korathInhabitant.Remove += new EventHandler<ObjectEventArgs>(object_Remove);
+                korathInhabitant.Killed += new EventHandler<ObjectEventArgs>(enemy_Killed);
+                return korathInhabitant;
+            }
             return null;
         }
 

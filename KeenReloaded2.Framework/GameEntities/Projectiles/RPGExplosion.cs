@@ -18,7 +18,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         protected Image _sprite;
         protected int _blastRadius;
         protected Enums.ExplosionState _state;
-        protected int SPRITE_CHANGE_DELAY = 0;
+        protected int SPRITE_CHANGE_DELAY = 1;
         protected int _currentSpriteChangeDelayTick;
         protected int _blastRadiusIncreaseAmount;
         protected int _currentBlastRadiusAmount;
@@ -107,7 +107,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             if (leftTile != null && leftTile.HitBox.Top < _initialExplosionArea.Bottom && leftTile.HitBox.Bottom > _initialExplosionArea.Top)
             {
                 xPos = leftTile.HitBox.Right + 1;
-                width = this.HitBox.Right - xPos;
+                width += this.HitBox.Right - xPos;
                 if (width < 1)
                     width = 1;
             }
@@ -121,7 +121,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             var downTile = this.GetTopMostLandingTile(barriers);
             if (downTile != null)
             {
-                height = downTile.HitBox.Top - yPos - 1;
+                height += downTile.HitBox.Top - yPos - 1;
                 if (height < 1)
                     height = 1;
             }
@@ -146,7 +146,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             var rightTile = this.GetLeftMostRightTile(barriers);
             if (rightTile != null && rightTile.HitBox.Top < _initialExplosionArea.Bottom && rightTile.HitBox.Bottom > _initialExplosionArea.Top)
             {
-                width = this.HitBox.Left - xPos - 1;
+                width += this.HitBox.Left - xPos - 1;
                 if (width < 1)
                     width = 1;
             }
@@ -160,7 +160,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             var downTile = this.GetTopMostLandingTile(barriers);
             if (downTile != null)
             {
-                height = downTile.HitBox.Top - yPos - 1;
+                height += downTile.HitBox.Top - yPos - 1;
                 if (height < 1)
                     height = 1;
             }
@@ -190,7 +190,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             var rightTile = this.GetLeftMostRightTile(barriers);
             if (rightTile != null && rightTile.HitBox.Top < this.HitBox.Bottom && rightTile.HitBox.Bottom > this.HitBox.Top)
             {
-                width = this.HitBox.Left - xPos - 1;
+                width += this.HitBox.Left - xPos - 1;
                 if (width < 1)
                     width = 1;
             }
@@ -199,7 +199,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             if (upTile != null)
             {
                 yPos = upTile.HitBox.Bottom + 1;
-                height = this.HitBox.Bottom - yPos;
+                height += this.HitBox.Bottom - yPos;
                 if (height < 1)
                     height = 1;
             }
@@ -229,7 +229,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             var rightTile = this.GetLeftMostRightTile(barriers);
             if (rightTile != null && rightTile.HitBox.Top < this.HitBox.Bottom && rightTile.HitBox.Bottom > this.HitBox.Top)
             {
-                width = this.HitBox.Left - xPos - 1;
+                width += this.HitBox.Left - xPos - 1;
                 if (width < 1)
                     width = 1;
             }
@@ -237,7 +237,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             var downTile = this.GetTopMostLandingTile(barriers);
             if (downTile != null)
             {
-                height = downTile.HitBox.Top - yPos - 1;
+                height += downTile.HitBox.Top - yPos - 1;
                 if (height < 1)
                     height = 1;
             }
@@ -295,6 +295,15 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 UpdateSprite();
             }
 
+            var collisions = this.CheckCollision(this.HitBox);
+            var destructibleCollisions = collisions.OfType<DestructibleObject>();
+            if (destructibleCollisions.Any())
+            {
+                foreach (var collision in destructibleCollisions)
+                {
+                    collision.TakeDamage(this._damage);
+                }
+            }
 
             if (_currentBlastRadiusAmount + _blastRadiusIncreaseAmount <= _blastRadius)
             {
