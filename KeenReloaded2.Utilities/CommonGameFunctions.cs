@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Reflection;
 
 namespace KeenReloaded2.Utilities
 {
@@ -19,6 +20,14 @@ namespace KeenReloaded2.Utilities
 
             double euclideanDistance = Math.Sqrt(xDist + yDist);
             return euclideanDistance;
+        }
+
+        public static List<FieldInfo> GetConstants(Type type)
+        {
+            FieldInfo[] fieldInfos = type.GetFields(BindingFlags.Public |
+                 BindingFlags.Static | BindingFlags.FlattenHierarchy);
+
+            return fieldInfos.Where(fi => fi.IsLiteral && !fi.IsInitOnly).ToList();
         }
     }
 }

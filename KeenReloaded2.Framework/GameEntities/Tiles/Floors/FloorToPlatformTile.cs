@@ -55,6 +55,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Floors
             switch (_biome)
             {
                 case Biomes.BIOME_KEEN4_MIRAGE:
+                default:
                     _sprite = Properties.Resources.keen4_mirage_floor_to_platform_left;
                     _initialImageName = nameof(Properties.Resources.keen4_mirage_floor_to_platform_left);
                     break;
@@ -66,8 +67,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Floors
                     _sprite = Properties.Resources.keen5_red_floor_to_platform_left;
                     _initialImageName = nameof(Properties.Resources.keen5_red_floor_to_platform_left);
                     break;
-                default:
-                    throw new ArgumentException("Wall-to-platform tile type does not currently have an image for that biome tile");
+                    
             }
 
             _floorTile = new InvisibleTile(_collisionGrid, new Rectangle(this.HitBox.X + EDGE_HORIZONTAL_OFFSET_LEFT, this.HitBox.Y + FLOOR_VERTICAL_OFFSET, FLOOR_WIDTH, this.HitBox.Height - FLOOR_VERTICAL_OFFSET));

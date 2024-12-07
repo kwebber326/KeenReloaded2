@@ -2936,10 +2936,45 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #region miscellaneous
             AddSimpleGameObject(backgroundReferenceData, keen5ConstructFiles, "control_panel", typeof(Keen5ControlPanel), null, 10);
-            #endregion
 
-            #region Doors
-            var doorFiles = allFiles.Where(f => f.Contains("door") || f.Contains("chute"));
+            MapMakerObjectProperty[] biomeChangerAdditionalProperties = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "minDelay",
+                    DataType = typeof(int),
+                    DisplayName ="Min Delay:",
+                    Value = 20
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "maxDelay",
+                    DataType = typeof(int),
+                    DisplayName = "Max Delay:",
+                    Value = 100
+                },
+                new MapMakerObjectProperty()
+                {
+                   PropertyName = "maxVelocity",
+                   DataType = typeof(int),
+                   DisplayName = "Max Speed:",
+                   Value = 200,
+                },
+                new MapMakerObjectProperty()
+                {
+                   PropertyName = "health",
+                   DataType = typeof(int),
+                   DisplayName = "Health:",
+                   Value = 50,
+                }
+            };
+
+            AddSimpleGameObject(backgroundReferenceData, keen5ConstructFiles, "dynamo_sphere", typeof(BiomeChanger), biomeChangerAdditionalProperties);
+
+    #endregion
+
+    #region Doors
+    var doorFiles = allFiles.Where(f => f.Contains("door") || f.Contains("chute"));
             foreach (var file in doorFiles)
             {
                 bool isExitDoor = file.Contains("exit");
@@ -3973,7 +4008,7 @@ namespace KeenReloaded2.Entities.ReferenceData
             //random weapon generator
             var miscellaneousFilesPath = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_MISCELLANEOUS, "keen5", Biomes.BIOME_KEEN5_BLACK);
             var miscallaneousImageFiles = Directory.GetFiles(miscellaneousFilesPath);
-            
+
             MapMakerObjectProperty[] weaponGeneratorPropertiesExtra = new MapMakerObjectProperty[]
             {
                 new MapMakerObjectProperty()

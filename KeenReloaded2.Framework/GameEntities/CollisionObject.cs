@@ -627,6 +627,13 @@ namespace KeenReloaded.Framework
             return combinedImage;
         }
 
+        protected virtual Image GetCurrentSpriteWithBackgroundColor(Image backgroundImage, Color backgroundColor)
+        {
+            Image background = BitMapTool.DrawBackgroundColor(backgroundColor, this.HitBox.Size);
+            Image combinedImage = BitMapTool.DrawImagesOnCanvas(this.HitBox.Size, background, new Image[] { backgroundImage }, new Point[] { new Point(0, 0) });
+            return combinedImage;
+        }
+
         public virtual List<CollisionObject> CheckCollision(Rectangle areaToCheck, bool tilesOnly = false, bool includeEnemies = true)
         {
             HashSet<CollisionObject> collidingObjects = new HashSet<CollisionObject>();

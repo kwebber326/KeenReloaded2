@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\DestructibleObjectExtensions.cs" />
+    <Compile Include="GameEntities\Constructs\BiomeChanger.cs" />
     <Compile Include="GameEntities\Constructs\EnemySpawner.cs" />
     <Compile Include="GameEntities\Constructs\Hill.cs" />
     <Compile Include="GameEntities\Constructs\ImageDisplay.cs" />
@@ -204,6 +205,7 @@
     <Compile Include="GameEntities\Projectiles\BFGExplosion.cs" />
     <Compile Include="GameEntities\Projectiles\BFGProjectile.cs" />
     <Compile Include="GameEntities\Enemies\BipShip.cs" />
+    <Compile Include="GameEntities\Projectiles\BiomeProjectile.cs" />
     <Compile Include="GameEntities\Projectiles\BipShipDebris.cs" />
     <Compile Include="GameEntities\Projectiles\BipShipExplosion.cs" />
     <Compile Include="GameEntities\Projectiles\BipShipShot.cs" />

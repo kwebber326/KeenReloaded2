@@ -45,6 +45,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Walls
             switch (_biome)
             {
                 case Biomes.BIOME_KEEN4_MIRAGE:
+                default:
                     _sprite = _direction == Direction.LEFT
                         ? Properties.Resources.keen4_mirage_wall_to_platform_left
                         : Properties.Resources.keen4_mirage_wall_to_platform_right;
@@ -78,8 +79,6 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Walls
                     _sprite = Properties.Resources.keen6_industrial_wall_to_platform_left;
                     _initialImageName = nameof(Properties.Resources.keen6_industrial_wall_to_platform_left);
                     break;
-                default:
-                    throw new ArgumentException("Wall-to-platform tile type does not currently have an image for that biome tile");
             }
 
             if (_direction == Direction.LEFT)

@@ -6,3 +6,4 @@ C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\obj\Debug\Keen
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\bin\Debug\KeenReloaded2.Constants.dll
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\bin\Debug\KeenReloaded2.Constants.pdb
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\obj\Debug\KeenReloaded2.Utilities.csproj.CopyComplete
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\obj\Debug\KeenReloaded2.Utilities.csprojAssemblyReference.cache

@@ -3244,6 +3244,35 @@ namespace KeenReloaded2.Framework.SpriteSheet
 
         #endregion
 
+        #region Keen Biome Changer
+        private static Image[] _biomeChangerImages;
+        public static Image[] BiomeChangerImages
+        {
+            get
+            {
+                if (_biomeChangerImages == null)
+                {
+                    _biomeChangerImages = new Image[]
+                    {
+                        Properties.Resources.keen5_quantum_dynamo_sphere1,
+                        Properties.Resources.keen5_quantum_dynamo_sphere2,
+                        Properties.Resources.keen5_quantum_dynamo_sphere3,
+                        Properties.Resources.keen5_quantum_dynamo_sphere4,
+                        Properties.Resources.keen5_quantum_dynamo_sphere5,
+                        Properties.Resources.keen5_quantum_dynamo_sphere6,
+                        Properties.Resources.keen5_quantum_dynamo_sphere7,
+                        Properties.Resources.keen5_quantum_dynamo_sphere8,
+                        Properties.Resources.keen5_quantum_dynamo_sphere9,
+                        Properties.Resources.keen5_quantum_dynamo_sphere10,
+                        Properties.Resources.keen5_quantum_dynamo_sphere11,
+                        Properties.Resources.keen5_quantum_dynamo_sphere12
+                    };
+                }
+                return _biomeChangerImages;
+            }
+        }
+        #endregion
+
         #region Hill
         private static Image[] _hillSprites;
         public static Image[] HillSprites
