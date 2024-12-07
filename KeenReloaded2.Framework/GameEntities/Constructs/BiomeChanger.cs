@@ -263,7 +263,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
             var _area = this.HitBox;
             int minDelay = _minDelay;
-            int maxDelay = _maxVelocity;
+            int maxDelay = _maxDelay;
             int maxVelocty = _maxVelocity;
             int health = this.Health;
             string imageName = nameof(Properties.Resources.keen5_quantum_dynamo_sphere1);

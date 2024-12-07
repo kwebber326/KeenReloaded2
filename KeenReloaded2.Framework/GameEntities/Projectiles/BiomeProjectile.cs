@@ -37,6 +37,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             _verticalVelocity = initialHorizontalVelocity;
             _horizontalVelocity = initialHorizontalVelocity;
             Initialize();
+            this.Move();
         }
 
         public override Rectangle HitBox
