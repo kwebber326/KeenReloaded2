@@ -219,8 +219,11 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             if (this.State != KorathInhabitantState.STUNNED)
             {
                 this.State = KorathInhabitantState.STUNNED;
-                _keen.SetKeenPushState(Enums.Direction.LEFT, false, this);
-                _keen.SetKeenPushState(Enums.Direction.RIGHT, false, this);
+                if (_keen != null)
+                {
+                    _keen.SetKeenPushState(Enums.Direction.LEFT, false, this);
+                    _keen.SetKeenPushState(Enums.Direction.RIGHT, false, this);
+                }
             }
 
             if (IsNothingBeneath())
