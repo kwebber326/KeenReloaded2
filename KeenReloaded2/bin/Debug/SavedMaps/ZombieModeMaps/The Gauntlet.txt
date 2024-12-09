@@ -309,7 +309,6 @@ keen5_black_pole_middle|1120|489|12|32|15|keen5_black_pole_middle|MIDDLE|KEEN5_B
 keen5_black_pole_middle|1120|457|12|32|15|keen5_black_pole_middle|MIDDLE|KEEN5_BLACK
 keen5_black_pole_middle|1120|425|12|32|15|keen5_black_pole_middle|MIDDLE|KEEN5_BLACK
 keen5_black_pole_top|1120|393|12|32|15|keen5_black_pole_top|TOP|KEEN5_BLACK
-keen5_pink_platform|412|306|62|30|18|KEEN5_PINK|[1000,306,1000,700,412,700,412,306]|ce2fdd90-1c4f-43d7-a1cf-8073185589b8|True
 keen5_pipe_platform|550|630|346|80|10
 enemy_spawner1|52|222|92|94|18|[KorathInhabitant]|1|20|10000000
 enemy_spawner1|1344|222|92|94|18|[KorathInhabitant]|1|20|1000000
@@ -333,5 +332,6 @@ keen5_door|1288|96|92|94|15|KEEN5_REGULAR|7|2
 keen5_teal_sign2|1317|56|32|32|keen5_teal_sign2.png|True|1
 keen5_spindred1|647|351|46|48|25
 keen5_spindred1|745|353|46|48|25
+keen5_pink_platform|412|306|62|30|18|KEEN5_PINK|[900,306,900,750,500,750,500,306]|ce2fdd90-1c4f-43d7-a1cf-8073185589b8|True
 keen5_switch1_on|388|126|32|32|5|KEEN5_1|[6ac791d4-fb92-4fc7-b4f2-269abea0b21b,9ff67b76-a8f5-446e-84c1-02d84e72c74d,42f54578-bc51-433b-b8ee-a76dc7f9ee2a,a548771a-0feb-4780-94d0-167b8f763a3f,3f38603f-c2be-48f8-815e-0784dab613b0,71799143-d208-41fd-8dc1-014f426a8b9f,0f4c6413-97cd-4c33-9da4-ea4ddd8025b7,f6922075-0d5f-471b-890f-223e50b818c4,02f00fea-90a6-47e3-a6c6-f518ce94d3e2,a79998fb-70a4-42db-acf9-8b14de9234a2,4dc6aa2d-9b23-4e8f-bddd-220f496f33b4,bc9447a9-3e26-4c2c-afb1-c3e5ce4aab41,c7f37c82-38a2-483e-ab8f-1e28b97c4936,564d48dc-b1c8-40d8-be27-e80d14d5bd0c,58841ab2-c1fc-4649-9869-abd399c27eec,ab2cba29-de55-47b0-b5ca-b408efd1fbf9,bd684834-16c1-4124-aaa7-f307356cdeb5,8b4c7ce7-f850-431b-b3db-b32f9a74de8b,9491540e-a759-4464-a2eb-8c8a9c14c014]|True
 keen5_switch1_on|1068|126|32|32|5|KEEN5_1|[6ac791d4-fb92-4fc7-b4f2-269abea0b21b,9ff67b76-a8f5-446e-84c1-02d84e72c74d,42f54578-bc51-433b-b8ee-a76dc7f9ee2a,a548771a-0feb-4780-94d0-167b8f763a3f,3f38603f-c2be-48f8-815e-0784dab613b0,71799143-d208-41fd-8dc1-014f426a8b9f,0f4c6413-97cd-4c33-9da4-ea4ddd8025b7,f6922075-0d5f-471b-890f-223e50b818c4,02f00fea-90a6-47e3-a6c6-f518ce94d3e2,a79998fb-70a4-42db-acf9-8b14de9234a2,4dc6aa2d-9b23-4e8f-bddd-220f496f33b4,bc9447a9-3e26-4c2c-afb1-c3e5ce4aab41,c7f37c82-38a2-483e-ab8f-1e28b97c4936,564d48dc-b1c8-40d8-be27-e80d14d5bd0c,58841ab2-c1fc-4649-9869-abd399c27eec,ab2cba29-de55-47b0-b5ca-b408efd1fbf9,bd684834-16c1-4124-aaa7-f307356cdeb5,8b4c7ce7-f850-431b-b3db-b32f9a74de8b,9491540e-a759-4464-a2eb-8c8a9c14c014]|True

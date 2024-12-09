@@ -14,7 +14,7 @@ namespace KeenReloaded2.UserControls.InventoryPanel
     public partial class LifeDropInventoryControl : UserControl
     {
         const int VERTICAL_OFFSET = 24;
-        const int HORIZONTAL_OFFSET = 68;
+        const int HORIZONTAL_OFFSET = 51;
         const int LED_WIDTH = 14;
         const int MARGIN = 4;
         private Dictionary<char, Image> _digitLEDs = new Dictionary<char, Image>();
@@ -53,13 +53,14 @@ namespace KeenReloaded2.UserControls.InventoryPanel
             }
             else
             {
-                for (int i = countStr.Length - 1; i >= 0; i--)
+                for (int i = 0; i < countStr.Length; i++)
                 {
-                    x = HORIZONTAL_OFFSET + (i * (MARGIN + LED_WIDTH));
+                    
                     Point p = new Point(x, y);
                     locations.Add(p);
                     Image img = _digitLEDs[countStr[i]];
                     images.Add(img);
+                    x += (MARGIN + LED_WIDTH);
                 }
             }
 

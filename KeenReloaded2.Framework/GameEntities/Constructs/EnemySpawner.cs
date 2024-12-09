@@ -341,7 +341,12 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             if (pickedTile != null)
             {
                 string episodeMapping = _biomeMapping[pickedTile.Biome];
-                var episodeEnemies = _enemyTypeList.Where(e => _enemyMapping[e] == episodeMapping).ToList();
+                var episodeEnemies = _enemyTypeList.Where(e => 
+                {
+                    if (_enemyMapping.TryGetValue(e, out string mapping))
+                        return mapping == episodeMapping;
+                    return false;
+                }).ToList();
                 if (!episodeEnemies.Any())
                 {
                     episodeEnemies = _enemyTypeList;
