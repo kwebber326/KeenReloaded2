@@ -1020,7 +1020,7 @@ namespace KeenReloaded2
             var mapData = MapUtility.LoadMapData(mapFile);
             Form1 gameForm = new Form1(cmbGameMode.Text, mapData, true);
             gameForm.ShowDialog();
-            dialogMapLoader.FileName = string.IsNullOrEmpty(_lastFilePath) ? mapFile : _lastFilePath;
+            dialogMapLoader.FileName = mapFile;
             DialogMapLoader_FileOk(this, null);
         }
 
