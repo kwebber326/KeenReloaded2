@@ -3,6 +3,7 @@ using KeenReloaded2.Constants;
 using KeenReloaded2.ControlEventArgs;
 using KeenReloaded2.ControlEventArgs.EventStoreData;
 using KeenReloaded2.Entities;
+using KeenReloaded2.Entities.DataStructures;
 using KeenReloaded2.Entities.ReferenceData;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Constructs;
@@ -27,7 +28,16 @@ namespace KeenReloaded2
     public partial class MapMaker : Form
     {
         private Dictionary<string, string> _episodeFileFolderDict = new Dictionary<string, string>();
-        private List<GameObjectMapping> _mapMakerObjects = new List<GameObjectMapping>();
+        private Func<GameObjectMapping, GameObjectMapping, int> _comparatorFunction = (o1, o2) =>
+        {
+            int value1 = o1?.GameObject?.ZIndex ?? -10000;
+            int value2 = o2?.GameObject?.ZIndex ?? -10000;
+
+            if (value1 > value2) return 1;
+            if (value1 < value2) return -1;
+            return 0;
+        };
+        private OrderedList<GameObjectMapping> _mapMakerObjects;
         private GameObjectMapping _selectedGameObjectMapping;
         private GameObjectMapping _cursorItem;
         private Timer _cursorUpdateTimer = new Timer();
@@ -41,6 +51,7 @@ namespace KeenReloaded2
         public MapMaker()
         {
             InitializeComponent();
+            _mapMakerObjects = new OrderedList<GameObjectMapping>(_comparatorFunction);
         }
 
         #region Initialization Methods
@@ -188,19 +199,7 @@ namespace KeenReloaded2
         private void RefreshZIndexPositioningForCollidingObjects(GameObjectMapping newlyPlacedObject)
         {
             var objectsToBringToFront = _mapMakerObjects.Where(o =>
-            {
-                if (o.GameObject?.Image == null || newlyPlacedObject?.GameObject?.Image == null)
-                    return false;
-
-                var rectangle1 = new Rectangle(o.Location, o.GameObject.Image.Size);
-                var rectangle2 = new Rectangle(newlyPlacedObject.Location, newlyPlacedObject.Image.Size);
-
-                bool result = o.GameObject.ZIndex > newlyPlacedObject.GameObject.ZIndex
-                    && rectangle1.IntersectsWith(rectangle2);
-
-                return result;
-            });
-
+                (o?.GameObject?.ZIndex ?? -10000) > newlyPlacedObject.GameObject.ZIndex);
             newlyPlacedObject.BringToFront();
             foreach (var item in objectsToBringToFront)
             {
@@ -569,7 +568,7 @@ namespace KeenReloaded2
                 RegisterEventsForGameObjectMapping(gameObjectMapping);
 
                 //add to collections
-                _mapMakerObjects.Add(gameObjectMapping);
+                _mapMakerObjects.InsertAscending(gameObjectMapping);
                 pnlMapCanvas.Controls.Add(gameObjectMapping);
 
                 //reposition only the necessary items (items that collide and have higher zIndex)
@@ -814,7 +813,7 @@ namespace KeenReloaded2
                     Path.Combine(MapUtility.GetSavedMapsPath(cmbGameMode.Text), txtMapName.Text);
                 _lastFilePath = path;
                 var mapMakerData = MapUtility.LoadMapData(path);
-                _mapMakerObjects = mapMakerData.MapData;
+                _mapMakerObjects = OrderedList<GameObjectMapping>.FromEnumerable(mapMakerData.MapData, _comparatorFunction, true);
                 mapMakerObjectPropertyListControl1.SetObjectBank(_mapMakerObjects);
 
                 //clear events for existing items
@@ -896,7 +895,7 @@ namespace KeenReloaded2
                 SetNewAreaForMappingObject(area, _cursorItem);
 
                 pnlMapCanvas.Controls.Add(_cursorItem);
-                _mapMakerObjects.Add(_cursorItem);
+                _mapMakerObjects.InsertAscending(_cursorItem);
                 this.Controls.Remove(_cursorItem);
 
                 Rectangle offsetArea = new Rectangle(area.X - pnlMapCanvas.AutoScrollPosition.X,
