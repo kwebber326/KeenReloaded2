@@ -475,7 +475,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             }
             else if (enemyType == typeof(Fleex).Name)
             {
-                Fleex fleex = new Fleex(new Rectangle(this.HitBox.X + (this.HitBox.Width / 2 - 47), this.HitBox.Bottom - 106, 94, 106), _collisionGrid, _zIndex);
+                Fleex fleex = new Fleex(new Rectangle(this.HitBox.X + (this.HitBox.Width / 2 - 47), this.HitBox.Bottom - 53, 94, 106), _collisionGrid, _zIndex);
                 fleex.Killed += new EventHandler<ObjectEventArgs>(enemy_Killed);
                 return fleex;
             }

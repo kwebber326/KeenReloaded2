@@ -24,7 +24,7 @@ namespace KeenReloaded2
         private readonly string _gameMode;
         private readonly bool _inMapMakerMode;
         private Timer _gameUpdateTimer = new Timer();
-        private Stopwatch _gameTimer = new Stopwatch();
+        private Stopwatch _levelCompletionTimer = new Stopwatch();
         private CommanderKeenGame _game;
         private bool _paused;
         private CommanderKeen _keen;
@@ -93,7 +93,7 @@ namespace KeenReloaded2
 
             if (_gameMode == MainMenuConstants.OPTION_LABEL_NORMAL_MODE && !isReset)
             {
-                _gameTimer.Start();
+                _levelCompletionTimer.Start();
             }
         }
 
@@ -263,7 +263,7 @@ namespace KeenReloaded2
                     return new ZombieModeHighScore(string.Empty, mapName, _keen.Points);
                 case MainMenuConstants.OPTION_LABEL_NORMAL_MODE:
                     return _levelCompleted ?
-                        new NormalModeHighScore(string.Empty, mapName, _gameTimer.Elapsed)
+                        new NormalModeHighScore(string.Empty, mapName, _levelCompletionTimer.Elapsed)
                        : null;
             }
             return null;
@@ -332,12 +332,14 @@ namespace KeenReloaded2
             {
                 case Keys.Escape:
                     _paused = true;
+                    _levelCompletionTimer.Stop();
                     var messageWindow = new KeenReloadedYesNoDialogWindow("Are you sure you want to quit?", false);
 
                     var dialogResult = messageWindow.ShowDialog();
                     if (dialogResult == DialogResult.No)
                     {
                         _paused = false;
+                        _levelCompletionTimer.Start();
                     }
                     else
                     {
@@ -349,7 +351,7 @@ namespace KeenReloaded2
 
         private void ExecuteShutdownProtocol()
         {
-            _gameTimer.Stop();
+            _levelCompletionTimer.Stop();
             if (!_inMapMakerMode)
             {
                 ShowHighScoreBoard();
