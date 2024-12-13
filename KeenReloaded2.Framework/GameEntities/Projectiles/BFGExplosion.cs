@@ -84,6 +84,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             var stunnableObjects = collisions.OfType<IStunnable>();
             var explodableObjects = collisions.OfType<IExplodable>();
             var alertableObjects = collisions.OfType<IAlertable>();
+            var squashableObjects = collisions.OfType<ISquashable>();
 
             if (destructoObjectsToKill.Any())
             {
@@ -129,6 +130,17 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     }
                 }
             }
+            if (squashableObjects.Any())
+            {
+                foreach (var obj in squashableObjects)
+                {
+                    var squashable = obj as CollisionObject;
+                    if (squashable != null)
+                    {
+                        this.HandleCollision(squashable);
+                    }
+                }
+            }
         }
 
         protected override void HandleCollision(CollisionObject obj)
@@ -153,6 +165,12 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 var alertable = (IAlertable)obj;
                 if (!alertable.IsOnAlert)
                     alertable.Alert();
+            }
+            else if (obj is ISquashable)
+            {
+                var squashable = (ISquashable)obj;
+                if (!squashable.IsSquashed)
+                    squashable.Squash();
             }
         }
 

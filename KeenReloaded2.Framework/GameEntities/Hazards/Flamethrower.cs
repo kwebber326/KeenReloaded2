@@ -29,13 +29,14 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         private const int OFF_TIME = 25;
         private int _offTimeTick;
         private bool _firstTime = true;
-
+        private bool _initialized;
         private const int SPRITE_WIDTH = 26;
         private const int STANDING_TILE_WIDTH = 36, STANDING_TILE_HEIGHT = 32;
 
         public FlameThrower(Rectangle area, SpaceHashGrid grid, int zIndex, FlameThrowerState initialState)
             : base(grid, area, Enums.HazardType.KEEN6_FLAME_THROWER, zIndex)
         {
+            this.HitBox = area;
             _originalBottom = this.HitBox.Bottom;
             _originalLeft = this.HitBox.Left;
             _originalWidth = this.HitBox.Width;
@@ -49,6 +50,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
 
             StandingTile = new InvisibleTile(_collisionGrid, new Rectangle(this.HitBox.X - ((STANDING_TILE_WIDTH - SPRITE_WIDTH) / 2), this.HitBox.Bottom - STANDING_TILE_HEIGHT, STANDING_TILE_WIDTH, STANDING_TILE_HEIGHT));
             this.State = initialState;
+            _initialized = true;
         }
 
         public override bool IsDeadly
@@ -98,7 +100,8 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         private void UpdateSprite()
         {
             _sprite = _sprites[(int)_state];
-            UpdatePosition();
+            if (_initialized)
+                UpdatePosition();
         }
 
         public void Update()

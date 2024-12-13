@@ -146,7 +146,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public bool DeadlyTouch
         {
-            get { return this.State == LickMoveState.BREATHING_FIRE; }
+            get { return !this.IsDead() && this.State == LickMoveState.BREATHING_FIRE; }
         }
 
         public void HandleHit(IProjectile projectile)
@@ -295,7 +295,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         }
         public void Stop()
         {
-            throw new NotImplementedException();
+            this.State = LickMoveState.STUNNED;
         }
 
 
@@ -459,7 +459,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     {
                         this.Fire();
                     }
-                    else
+                    else 
                     {
                         this.Jump();
                     }

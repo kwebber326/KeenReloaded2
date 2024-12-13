@@ -2815,7 +2815,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                           PropertyName = "pointsDegradedPerSecond",
                           DataType = typeof(int),
                           Value = 10,
-                          DisplayName ="Min Points: "
+                          DisplayName ="Point Loss Per Second: "
                         },
                     };
 
@@ -3105,7 +3105,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                       {
                             PropertyName = "zIndex",
                             DataType = typeof(int),
-                            Value = 5,
+                            Value = 15,
                             DisplayName ="Z Index: "
                       },
                       new MapMakerObjectProperty()
@@ -3168,7 +3168,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                       {
                             PropertyName = "zIndex",
                             DataType = typeof(int),
-                            Value = 5,
+                            Value = 15,
                             DisplayName ="Z Index: "
                       },
                       new MapMakerObjectProperty()

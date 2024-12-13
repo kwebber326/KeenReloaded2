@@ -212,12 +212,18 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
         protected virtual void SpawnAtNextLocation()
         {
+
             this.HillState = HillState.STRENGTH1;
+
+            if (!_points.Any())
+                return;
+
             if (++_currentPoint >= _points.Count)
             {
                 _currentPoint = 0;
 
             }
+           
             this.HitBox = new Rectangle(_points[_currentPoint], this.HitBox.Size);
         }
 

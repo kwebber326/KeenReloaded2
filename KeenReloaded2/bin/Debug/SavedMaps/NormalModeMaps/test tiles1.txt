@@ -143,6 +143,7 @@ keen6_bip_ship_right|1109|848|62|32|25
 keen4_berkeloid_move_left4|691|1268|58|86|25
 edge_of_map_tile_debug|-30|333|32|32|25|BARRIER
 keen5_quantum_dynamo_sphere1|884|586|87|83|25|20|200|200|50
+keen4_skypest_fly_right1|220|220|46|32|25
 gem_blue1|73|119|26|20|BLUE|50|False
 gem_green1|63|266|26|20|GREEN|50|False
 gem_red1|135|104|26|20|RED|50|False
