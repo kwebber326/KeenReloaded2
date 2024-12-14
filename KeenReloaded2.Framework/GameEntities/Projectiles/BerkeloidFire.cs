@@ -131,7 +131,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         public void Move()
         {
-            if (this.IsOutOfBounds(200))
+            if (this.IsOutOfBounds(this.Direction, 200))
             {
                 this.Stop();
                 return;

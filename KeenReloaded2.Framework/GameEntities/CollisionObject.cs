@@ -454,12 +454,12 @@ namespace KeenReloaded.Framework
             return Direction.RIGHT;
         }
 
-        protected virtual bool IsOutOfBounds(int offset = 0)
+        protected virtual bool IsOutOfBounds(Direction direction, int offset = 0)
         {
-            bool isOutOfBounds = (this.HitBox.X - this.HitBox.Width < offset * -1)
-                              || (this.HitBox.Right + this.HitBox.Width > _collisionGrid.Size.Width + offset)
-                              || (this.HitBox.Y - this.HitBox.Height) < offset * -1
-                              || (this.HitBox.Bottom + this.HitBox.Height > _collisionGrid.Size.Height + offset);
+            bool isOutOfBounds = (this.IsLeftDirection(direction) && (this.HitBox.X + this.HitBox.Width < offset * -1))
+                              || (this.IsRightDirection(direction) && (this.HitBox.Right - this.HitBox.Width > _collisionGrid.Size.Width + offset))
+                              || (this.IsUpDirection(direction) && (this.HitBox.Y + this.HitBox.Height) < offset * -1)
+                              || (this.IsDownDirection(direction) && (this.HitBox.Bottom - this.HitBox.Height > _collisionGrid.Size.Height + offset));
             return isOutOfBounds;
         }
 

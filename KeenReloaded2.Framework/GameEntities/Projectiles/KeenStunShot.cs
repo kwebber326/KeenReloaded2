@@ -446,7 +446,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         public virtual void Update()
         {
-            if (IsOutOfBounds())
+            if (IsOutOfBounds(this.Direction))
             {
                 this.Stop();
                 return;
