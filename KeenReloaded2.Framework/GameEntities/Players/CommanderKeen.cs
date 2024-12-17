@@ -2103,36 +2103,43 @@ namespace KeenReloaded2.Framework.GameEntities.Players
 
         private void RotateWeaponBackward()
         {
-            if (this.CurrentWeapon != null)
+            if (this.CurrentWeapon != null && _weapons.Any(w => w.Ammo > 0))
             {
                 int index = _weapons.IndexOf(this.CurrentWeapon);
-                if (index == 0)
+                do
                 {
-                    index = _weapons.Count - 1;
-                }
-                else
-                {
-                    index--;
-                }
-                this.CurrentWeapon = _weapons[index];
+                    if (index == 0)
+                    {
+                        index = _weapons.Count - 1;
+                    }
+                    else
+                    {
+                        index--;
+                    }
+                    this.CurrentWeapon = _weapons[index];
+                } while (_weapons[index].Ammo <= 0);
                 _currentWeaponRotateDelayTick = 0;
             }
         }
 
         private void RotateWeaponForward()
         {
-            if (this.CurrentWeapon != null)
+            if (this.CurrentWeapon != null && _weapons.Any(w => w.Ammo > 0))
             {
+                
                 int index = _weapons.IndexOf(this.CurrentWeapon);
-                if (index == _weapons.Count - 1)
+                do
                 {
-                    index = 0;
-                }
-                else
-                {
-                    index++;
-                }
-                this.CurrentWeapon = _weapons[index];
+                    if (index == _weapons.Count - 1)
+                    {
+                        index = 0;
+                    }
+                    else
+                    {
+                        index++;
+                    }
+                    this.CurrentWeapon = _weapons[index];
+                } while (_weapons[index].Ammo <= 0);
                 _currentWeaponRotateDelayTick = 0;
             }
         }
