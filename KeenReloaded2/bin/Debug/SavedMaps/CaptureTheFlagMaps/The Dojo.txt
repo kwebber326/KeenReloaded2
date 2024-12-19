@@ -323,6 +323,37 @@ keen6_industrial_wall_edge_right|823|1260|52|64|10
 keen6_industrial_wall_edge_right|823|1324|52|64|10
 keen6_industrial_wall_edge_right|823|1388|52|64|10
 keen6_industrial_wall_edge_right|823|1449|52|64|10
+keen6_industrial_floor_middle|849|1004|48|64|10
+keen6_industrial_floor_middle|897|1004|48|64|10
+keen6_removable_platform_forest_right_edge_filled|945|1004|42|64|10|KEEN6_FOREST|True|8e09b715-fe77-4ef9-859f-63c14898cd08
+keen4_removable_platform|987|1004|32|62|10|KEEN4_GREEN|True|ca98a782-00ff-496f-ab52-283c443cd47e
+keen4_removable_platform|1019|1004|32|62|10|KEEN4_GREEN|True|a7db95cc-79b8-40ab-bc49-0501a95d63fd
+keen4_removable_platform|1051|1004|32|62|10|KEEN4_GREEN|True|0870e91c-c1ab-48f9-8a07-bf258222cdda
+keen4_removable_platform|1083|1004|32|62|10|KEEN4_GREEN|True|d0682a40-debe-4696-a913-2f912f7c6d44
+keen4_removable_platform|1115|1004|32|62|10|KEEN4_GREEN|True|d12280ab-534f-41c8-9ec3-4c8da11f9012
+keen6_removable_platform_forest_left_edge_filled|1147|1004|38|64|10|KEEN6_FOREST|True|eeae170f-cac7-44cb-8f2f-3ad757054224
+keen6_industrial_wall_edge_left|1180|896|64|64|10
+keen6_industrial_wall_edge_left|1180|960|64|64|10
+keen6_industrial_wall_edge_left|1180|1005|64|64|10
+keen5_platform_blue_middle|851|1311|30|34|10
+keen5_platform_blue_middle|881|1311|30|34|10
+keen5_platform_blue_middle|911|1311|30|34|10
+keen5_platform_blue_middle|941|1311|30|34|10
+keen5_platform_blue_middle|971|1311|30|34|10
+keen5_platform_blue_middle|1001|1311|30|34|10
+keen5_platform_blue_middle|1031|1311|30|34|10
+keen5_platform_blue_edge_right|1061|1311|32|34|10
+keen5_platform_blue_edge_right|1060|1150|32|34|10
+keen5_platform_blue_middle|1030|1150|30|34|10
+keen5_platform_blue_middle|1000|1150|30|34|10
+keen5_platform_blue_middle|970|1150|30|34|10
+keen5_platform_blue_middle|940|1150|30|34|10
+keen5_platform_blue_middle|910|1150|30|34|10
+keen5_platform_blue_middle|880|1150|30|34|10
+keen5_platform_blue_middle|850|1150|30|34|10
+keen6_laser_turret_left|771|1286|54|32|14|LEFT|True|KEEN6|0
+keen6_laser_turret_down|650|888|32|64|14|DOWN|True|KEEN6|0
+keen6_laser_turret_right|537|1044|68|32|14|RIGHT|True|KEEN6|0
 keen6_door|868|94|124|126|15|KEEN6|3|
 keen6_door|1178|94|124|126|15|KEEN6|4|
 keen6_door|1601|94|124|126|15|KEEN6|5|
@@ -332,6 +363,42 @@ keen6_door|248|734|124|126|15|KEEN6|8|1
 keen6_door|2190|468|124|126|15|KEEN6|7|6
 keen6_door|558|94|124|126|15|KEEN6|2|9
 keen6_door|248|1374|124|126|15|KEEN6|9|2
+keen6_industrial_pole_top|772|896|12|32|15|keen6_industrial_pole_top|TOP|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|772|928|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|772|960|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|772|992|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|772|1024|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_top|717|973|12|32|15|keen6_industrial_pole_top|TOP|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|717|1005|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|717|1037|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|717|1069|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|717|1101|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_top|661|1066|12|32|15|keen6_industrial_pole_top|TOP|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|661|1098|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|661|1130|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|661|1162|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|661|1194|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|661|1226|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_bottom - Copy|661|1258|12|28|15|keen6_industrial_pole_bottom - Copy|BOTTOM|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|717|1133|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_bottom - Copy|717|1165|12|28|15|keen6_industrial_pole_bottom - Copy|BOTTOM|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|772|1056|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_bottom - Copy|772|1088|12|28|15|keen6_industrial_pole_bottom - Copy|BOTTOM|KEEN6_INDUSTRIAL
+keen6_industrial_pole_top|2115|892|12|32|15|keen6_industrial_pole_top|TOP|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|2115|924|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|2115|956|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|2115|988|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|2115|1020|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|2115|1052|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|2115|1084|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|2115|1116|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|2115|1148|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|2115|1180|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|2115|1212|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|2115|1244|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|2115|1276|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_middle|2115|1308|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_bottom - Copy|2115|1340|12|28|15|keen6_industrial_pole_bottom - Copy|BOTTOM|KEEN6_INDUSTRIAL
 keen6_burn_hazard3|340|57|32|32|18
 keen6_burn_hazard3|620|57|32|32|18
 keen6_burn_hazard3|652|57|32|32|18
@@ -381,12 +448,30 @@ keen6_flame_thrower_off|1897|154|30|64|18|ON_PHASE2
 keen6_flame_thrower_off|1768|538|30|64|18|ON_PHASE2
 keen6_flame_thrower_off|1984|552|26|50|18|ON_PHASE1
 keen6_flame_thrower_off|2090|506|26|96|18|ON_PHASE3
+keen6_burn_hazard3|783|1257|32|32|18
+keen6_bip_platform|1297|1000|98|32|18|[2200,1000,1297,1000]|c047ea28-13c1-4aa3-b67f-14dcf7f5f86a|True
 keen_stand_right|64|40|26|64|RIGHT
 Yellow Flag|1799|105|51|64|20|YELLOW|10000|5000|10
 Red Flag|2227|398|51|64|20|RED|1000|1000|0
 red_flag_destination|52|845|130|12|20|RED
+Blue Flag|1322|909|51|64|20|BLUE|100000|100000|0
+blue_flag_destination|92|1483|130|12|20|BLUE
+keen6_blooglet_blue_right1|1138|1444|46|42|25|Color [Blue]|False
+keen6_blooglet_blue_right1|1422|1441|46|42|25|Color [Blue]|False
+keen6_blooglet_blue_right1|1748|1442|46|42|25|Color [Blue]|False
+keen6_blooglet_blue_right1|2015|1438|46|42|25|Color [Blue]|False
+keen6_blooglet_blue_right1|2296|1439|46|42|25|Color [Blue]|False
+keen6_blooguard_right4|2150|1388|94|90|25
+keen6_blooguard_right4|1862|1402|94|90|25
+keen6_blooguard_right4|1595|1402|94|90|25
+keen6_gix_right3|1189|1459|48|30|25
 gem_red1|438|833|26|20|RED|50|False
 gem_blue1|437|1463|26|20|BLUE|50|False
+neural_stunner1|837|972|30|22|50|5
+neural_stunner1|867|972|30|22|50|5
+neural_stunner1|897|972|30|22|50|5
+neural_stunner1|927|972|30|22|50|5
+keen4_switch1_on|860|1000|32|32|15|KEEN4_1|[8e09b715-fe77-4ef9-859f-63c14898cd08,ca98a782-00ff-496f-ab52-283c443cd47e,a7db95cc-79b8-40ab-bc49-0501a95d63fd,0870e91c-c1ab-48f9-8a07-bf258222cdda,d0682a40-debe-4696-a913-2f912f7c6d44,d12280ab-534f-41c8-9ec3-4c8da11f9012,eeae170f-cac7-44cb-8f2f-3ad757054224]|True
 gem_placeholder_red_empty|220|196|26|22|50|RED|[]
 gem_placeholder_red_empty|374|196|26|22|50|RED|[]
 gem_placeholder_blue_empty|530|196|26|22|50|BLUE|[]

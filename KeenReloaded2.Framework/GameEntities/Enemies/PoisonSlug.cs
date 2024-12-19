@@ -104,11 +104,18 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public override void Die()
         {
-            this.State = SlugMoveState.STUNNED;
-            Random random = new Random();
-            _currentStunnedSpriteSet = random.Next(1, 3);
-            _stunSpritesChosen = true;
-            OnKilled();
+            if (!_stunSpritesChosen)
+            {
+                this.State = SlugMoveState.STUNNED;
+                Random random = new Random();
+                _currentStunnedSpriteSet = random.Next(1, 3);
+                _stunSpritesChosen = true;
+            }
+            if (!_killedEventFired)
+            {
+                OnKilled();
+                _killedEventFired = true;
+            }
         }
 
         public override Rectangle HitBox
@@ -526,7 +533,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     this.HitBox = new Rectangle(new Point(this.HitBox.X, this.HitBox.Y + heightDifference), _sprite.Size);
                     break;
             }
-           
+
         }
 
         public bool DeadlyTouch

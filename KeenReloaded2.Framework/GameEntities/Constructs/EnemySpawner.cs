@@ -512,7 +512,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             }
             else if (enemyType == typeof(GnosticeneAncient).Name)
             {
-                GnosticeneAncient ancient = new GnosticeneAncient(new Rectangle(this.HitBox.X + (this.HitBox.Width / 2 - 45), this.HitBox.Bottom - 72, 90, 72), _collisionGrid, _zIndex);
+                GnosticeneAncient ancient = new GnosticeneAncient(new Rectangle(this.HitBox.X + (this.HitBox.Width / 2 - 45), this.HitBox.Bottom - 36, 90, 72), _collisionGrid, _zIndex);
                 ancient.Create += new EventHandler<ObjectEventArgs>(object_Create);
                 ancient.Remove += new EventHandler<ObjectEventArgs>(object_Remove);
                 ancient.Killed += new EventHandler<ObjectEventArgs>(enemy_Killed);

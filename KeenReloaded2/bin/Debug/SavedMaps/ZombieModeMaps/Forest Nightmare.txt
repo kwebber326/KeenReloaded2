@@ -158,7 +158,7 @@ keen4_dart_gun_down|1088|32|30|24|18|DOWN|True|35
 keen4_fire_left1|546|1441|32|42|18|LEFT
 keen4_fire_right1|578|1441|31|42|18|RIGHT
 enemy_spawner1|1312|352|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth,SkyPest,GnosticeneAncient]|10|20|10000000
-enemy_spawner1|65|634|92|94|18|[PoisonSlug]|5|20|10000000
+enemy_spawner1|65|634|92|94|18|[PoisonSlug,Lick,Wormmouth,GnosticeneAncient]|5|20|10000000
 keen_stand_right|152|1362|26|64|RIGHT
 neural_stunner1|208|1418|30|22|50|5
 neural_stunner1|256|1418|30|22|50|5
