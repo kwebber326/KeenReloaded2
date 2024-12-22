@@ -110,6 +110,7 @@ keen5_wall_black_bottom|1183|449|64|32|10
 keen5_wall_black_bottom|1311|385|64|32|10
 keen5_wall_black_middle|1368|352|64|64|10
 keen5_wall_black_edge_right|1112|287|52|64|10
+mirage_hill4|280|351|324|256|13|[400,351,520,351,640,351,760,351,880,351]|200|20|100|100
 keen5_spinning_burn_platform7|188|479|28|32|keen5_spinning_burn_platform7|14|True|6
 keen5_spinning_burn_platform7|160|479|28|32|keen5_spinning_burn_platform7|14|True|6
 keen5_spinning_burn_platform7|132|479|28|32|keen5_spinning_burn_platform7|14|True|6
@@ -146,7 +147,6 @@ keen5_spinning_burn_platform7|1036|607|28|32|keen5_spinning_burn_platform7|14|Fa
 keen5_spinning_burn_platform7|1064|607|28|32|keen5_spinning_burn_platform7|14|False|6
 keen5_spinning_burn_platform4|1091|609|28|52|keen5_spinning_burn_platform4|14|True|3
 keen5_spinning_burn_platform7|868|607|28|32|keen5_spinning_burn_platform7|14|False|6
-mirage_hill4|280|351|324|256|15|[400,351,520,351,640,351,760,351,880,351]|200|20|100|100
 keen5_laser_field_up|1278|286|32|140|18|OFF
 keen5_laser_field_up|1194|286|32|166|18|PHASE3
 enemy_spawner1|1020|287|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth,SkyPest,Sparky,LittleAmpton,Shikadi,ShikadiMine,KorathInhabitant,Shelley,Bloog,Blooglet,Blooguard,Babobba,Fleex,NoSpike,BipShip]|3|20|10000000

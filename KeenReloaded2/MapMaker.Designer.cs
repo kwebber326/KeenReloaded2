@@ -52,6 +52,7 @@
             this.btnNewMap = new System.Windows.Forms.Button();
             this.mapMakerObjectPropertyListControl1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapMakerObjectPropertyListControl();
             this.mapObjectContainer1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapObjectContainer();
+            this.btnAdvancedTools = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -285,11 +286,22 @@
             this.mapObjectContainer1.Size = new System.Drawing.Size(617, 643);
             this.mapObjectContainer1.TabIndex = 16;
             // 
+            // btnAdvancedTools
+            // 
+            this.btnAdvancedTools.Location = new System.Drawing.Point(213, 231);
+            this.btnAdvancedTools.Name = "btnAdvancedTools";
+            this.btnAdvancedTools.Size = new System.Drawing.Size(188, 33);
+            this.btnAdvancedTools.TabIndex = 22;
+            this.btnAdvancedTools.Text = "Advanced Tools...";
+            this.btnAdvancedTools.UseVisualStyleBackColor = true;
+            this.btnAdvancedTools.Click += new System.EventHandler(this.BtnAdvancedTools_Click);
+            // 
             // MapMaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2178, 1474);
+            this.Controls.Add(this.btnAdvancedTools);
             this.Controls.Add(this.btnNewMap);
             this.Controls.Add(this.chkUseSmartPlacer);
             this.Controls.Add(this.btnTest);
@@ -353,5 +365,6 @@
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.CheckBox chkUseSmartPlacer;
         private System.Windows.Forms.Button btnNewMap;
+        private System.Windows.Forms.Button btnAdvancedTools;
     }
 }

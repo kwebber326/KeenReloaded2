@@ -1062,5 +1062,11 @@ namespace KeenReloaded2
         }
 
         #endregion
+
+        private void BtnAdvancedTools_Click(object sender, EventArgs e)
+        {
+            AdvancedToolsForm advancedToolsForm = new AdvancedToolsForm(_mapMakerObjects);
+            advancedToolsForm.ShowDialog();
+        }
     }
 }

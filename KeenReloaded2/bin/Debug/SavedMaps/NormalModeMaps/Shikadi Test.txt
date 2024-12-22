@@ -16,7 +16,7 @@ keen5_wall_black_edge_left|638|330|64|64|10
 keen5_wall_black_middle|638|266|64|64|10
 keen5_wall_black_middle|638|202|64|64|10
 keen5_wall_black_middle|134|330|64|64|10
+keen5_pipe_platform|252|124|346|80|10
 enemy_spawner1|546|266|92|94|18|[Shikadi]|1|20|100
 keen_stand_right|134|138|26|64|RIGHT
 neural_stunner_rocket_launcher1|160|138|55|26|50|500
-keen5_pipe_platform|252|124|346|80|10
