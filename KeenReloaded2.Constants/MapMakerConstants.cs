@@ -52,6 +52,8 @@ namespace KeenReloaded2.Constants
             public const string EVENT_POINTS_LIST_FINALIZED = "pointsListFinalized";
             public const string EVENT_SELECTED_INDEX_CHANGED = "selectedIndexChanged";
             public const string EVENT_LOCATION_CHANGED = "locationChanged";
+            //advanceds tools event names
+            public const string EVENT_ADVANCED_TOOLS_SELECTION_CHANGED = "[Advanced Tools]selectionChanged";
         }
     }
 }

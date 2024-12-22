@@ -51,6 +51,7 @@
             this.lstMapObjects.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lstMapObjects.Size = new System.Drawing.Size(397, 424);
             this.lstMapObjects.TabIndex = 1;
+            this.lstMapObjects.SelectedIndexChanged += new System.EventHandler(this.LstMapObjects_SelectedIndexChanged);
             // 
             // AdvancedToolsForm
             // 

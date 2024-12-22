@@ -78,6 +78,8 @@ namespace KeenReloaded2
             EventStore<IndexedPoint>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_LOCATION_CHANGED, SinglePointLocation_Changed);
             EventStore<PointListChangedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_POINTS_LIST_FINALIZED, PointList_Finalized);
             EventStore<int>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_SELECTED_INDEX_CHANGED, PathwayForm_SelectedIndex_Changed);
+            //Advanced Tools Events
+            EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_SELECTION_CHANGED, AdvancedTools_SelectionChanged);
         }
 
         private void InitializeGameModeList()
@@ -165,6 +167,46 @@ namespace KeenReloaded2
         #endregion
 
         #region helper methods 
+
+        private void SetHighlightStateForSelection(List<GameObjectMapping> selection, bool highlighted)
+        {
+            if (selection == null || !selection.Any())
+                return;
+
+            foreach (var selectedItem in selection)
+            {
+                if (highlighted)
+                {
+                    selectedItem.BorderStyle = BorderStyle.Fixed3D;
+                    selectedItem.BackColor = Color.Red;
+                }
+                else
+                {
+                    selectedItem.BorderStyle = BorderStyle.None;
+                    selectedItem.BackColor = Color.Transparent;
+                }
+            }
+        }
+
+        private void HighlightActivateables(List<IActivateable> activateables, Color color, bool addBorder = false)
+        {
+            foreach (var item in activateables)
+            {
+                var obj = _mapMakerObjects.FirstOrDefault(d => d.GameObject == item);
+                if (obj != null)
+                {
+                    obj.BackColor = color;
+                    if (addBorder)
+                    {
+                        obj.BorderStyle = BorderStyle.Fixed3D;
+                    }
+                    else
+                    {
+                        obj.BorderStyle = BorderStyle.None;
+                    }
+                }
+            }
+        }
 
         private bool UserWantsSmartPlacer()
         {
@@ -387,23 +429,17 @@ namespace KeenReloaded2
 
         #region event handlers
 
-        private void HighlightActivateables(List<IActivateable> activateables, Color color, bool addBorder = false)
+        private void AdvancedTools_SelectionChanged(object sender, ControlEventArgs<AdvancedToolsEventArgs> e)
         {
-            foreach (var item in activateables)
+            var changedData = e?.Data?.ChangeData?.ChangedData;
+            var objMetaData = e?.Data?.ChangeData?.ChangeMetaData;
+            if (changedData == null)
+                return;
+
+            if (changedData is List<GameObjectMapping> && bool.TryParse(objMetaData?.ToString(), out bool isSelected))
             {
-                var obj = _mapMakerObjects.FirstOrDefault(d => d.GameObject == item);
-                if (obj != null)
-                {
-                    obj.BackColor = color;
-                    if (addBorder)
-                    {
-                        obj.BorderStyle = BorderStyle.Fixed3D;
-                    }
-                    else
-                    {
-                        obj.BorderStyle = BorderStyle.None;
-                    }
-                }
+                List<GameObjectMapping> changedObjects = (List<GameObjectMapping>)changedData;
+                    SetHighlightStateForSelection(changedObjects, isSelected);
             }
         }
 
