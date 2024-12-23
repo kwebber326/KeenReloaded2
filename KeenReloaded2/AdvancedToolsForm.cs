@@ -33,6 +33,8 @@ namespace KeenReloaded2
 
         private void AdvancedToolsForm_Load(object sender, EventArgs e)
         {
+            lstMapObjects.DrawMode = DrawMode.OwnerDrawFixed;
+            lstMapObjects.DrawItem += new DrawItemEventHandler(listBox_DrawItem);
             PopulateListBoxWithCurrentItems();
         }
 
@@ -87,6 +89,31 @@ namespace KeenReloaded2
             _previousAdvancedToolsSelection = currentObjectsSelected;
         }
 
+        private void listBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0) return;
+
+            // Draw the background
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.LightBlue), e.Bounds);
+            }
+            else if (ItemSearchMatch(e.Index))
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.Yellow), e.Bounds);
+            }
+            else
+            {
+                e.Graphics.FillRectangle(new SolidBrush(e.BackColor), e.Bounds);
+            }
+
+            // Draw the text
+            e.Graphics.DrawString(lstMapObjects.Items[e.Index].ToString(), e.Font, new SolidBrush(e.ForeColor), e.Bounds);
+
+            // Draw the focus rectangle if the ListBox has focus
+            e.DrawFocusRectangle();
+        }
+
         private Dictionary<int, GameObjectMapping> BuildSelctionOfMappingObjects()
         {
             var dictionary = new Dictionary<int, GameObjectMapping>();
@@ -108,6 +135,26 @@ namespace KeenReloaded2
             }
 
             return dictionary;
+        }
+
+        private bool ItemSearchMatch(int itemIndex)
+        {
+            return !string.IsNullOrWhiteSpace(txtSearch.Text) &&
+                lstMapObjects.Items[itemIndex].ToString().ToLower().Contains(txtSearch.Text.ToLower());
+        }
+
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            lstMapObjects.BorderStyle = BorderStyle.Fixed3D;
+            lstMapObjects.BorderStyle = BorderStyle.None;
+            for (int i = 0; i < lstMapObjects.Items.Count; i++)
+            {
+                if (ItemSearchMatch(i))
+                {
+                    lstMapObjects.AutoScrollOffset = new Point(0, i * lstMapObjects.ItemHeight);
+                    return;
+                }
+            }
         }
     }
 }

@@ -30,6 +30,9 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.lstMapObjects = new System.Windows.Forms.ListBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -49,20 +52,41 @@
             this.lstMapObjects.Name = "lstMapObjects";
             this.lstMapObjects.ScrollAlwaysVisible = true;
             this.lstMapObjects.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lstMapObjects.Size = new System.Drawing.Size(397, 424);
+            this.lstMapObjects.Size = new System.Drawing.Size(616, 424);
             this.lstMapObjects.TabIndex = 1;
             this.lstMapObjects.SelectedIndexChanged += new System.EventHandler(this.LstMapObjects_SelectedIndexChanged);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(143, 10);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(240, 26);
+            this.txtSearch.TabIndex = 2;
+            this.txtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::KeenReloaded2.Properties.Resources.search_icon;
+            this.pictureBox1.Location = new System.Drawing.Point(389, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // AdvancedToolsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1014, 793);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lstMapObjects);
             this.Controls.Add(this.label1);
             this.Name = "AdvancedToolsForm";
             this.Text = "AdvancedToolsForm";
             this.Load += new System.EventHandler(this.AdvancedToolsForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -72,5 +96,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lstMapObjects;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
