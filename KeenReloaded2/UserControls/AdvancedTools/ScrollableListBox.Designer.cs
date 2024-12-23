@@ -1,6 +1,6 @@
-﻿namespace KeenReloaded2.UserControls.AdvancedToolsWindow
+﻿namespace KeenReloaded2.UserControls.AdvancedTools
 {
-    partial class ScrollableListView
+    partial class ScrollableListBox
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         }
 
         #endregion

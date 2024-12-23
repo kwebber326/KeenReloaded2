@@ -9,10 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace KeenReloaded2.UserControls.AdvancedToolsWindow
+namespace KeenReloaded2.UserControls.AdvancedTools
 {
-    public partial class ScrollableListView : UserControl
+    public partial class ScrollableListBox : ListBox
     {
+        public ScrollableListBox()
+        {
+            InitializeComponent();
+        }
+
         private const int WM_VSCROLL = 0x115;
 
         private enum ScrollBar : int { Horizontal = 0x0, Vertical = 0x1 }
@@ -43,8 +48,8 @@ namespace KeenReloaded2.UserControls.AdvancedToolsWindow
         {
             if (!this.IsDisposed)
             {
-                ScrollableListView.SetScrollPos((IntPtr)this.Handle, (int)bar, position, true);
-                ScrollableListView.PostMessage((IntPtr)this.Handle, ScrollableListView.WM_VSCROLL, 4 + 0x10000 * position, 0);
+                ScrollableListBox.SetScrollPos((IntPtr)this.Handle, (int)bar, position, true);
+                ScrollableListBox.PostMessage((IntPtr)this.Handle, ScrollableListBox.WM_VSCROLL, 4 + 0x10000 * position, 0);
             }
         }
     }

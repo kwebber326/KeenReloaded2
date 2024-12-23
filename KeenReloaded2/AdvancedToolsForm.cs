@@ -35,6 +35,7 @@ namespace KeenReloaded2
         {
             lstMapObjects.DrawMode = DrawMode.OwnerDrawFixed;
             lstMapObjects.DrawItem += new DrawItemEventHandler(listBox_DrawItem);
+            lstMapObjects.SelectedIndexChanged += LstMapObjects_SelectedIndexChanged;
             PopulateListBoxWithCurrentItems();
         }
 
@@ -151,7 +152,7 @@ namespace KeenReloaded2
             {
                 if (ItemSearchMatch(i))
                 {
-                    lstMapObjects.AutoScrollOffset = new Point(0, i * lstMapObjects.ItemHeight);
+                    lstMapObjects.SetScrollY(i);
                     return;
                 }
             }
