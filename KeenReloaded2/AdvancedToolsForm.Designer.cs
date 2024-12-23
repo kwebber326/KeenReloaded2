@@ -85,6 +85,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AdvancedToolsForm";
             this.Text = "AdvancedToolsForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdvancedToolsForm_FormClosing);
             this.Load += new System.EventHandler(this.AdvancedToolsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

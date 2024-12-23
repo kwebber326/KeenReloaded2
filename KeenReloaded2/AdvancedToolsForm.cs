@@ -157,5 +157,24 @@ namespace KeenReloaded2
                 }
             }
         }
+
+        private void AdvancedToolsForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.DialogResult == DialogResult.Cancel 
+                && (_previousAdvancedToolsSelection?.Any() ?? false))
+            {
+                var selection = _previousAdvancedToolsSelection.Values.ToList();
+                AdvancedToolsEventArgs eventData = new AdvancedToolsEventArgs()
+                {
+                    SelectedObjects = selection,
+                    ChangeData = new AdvancedToolsChangeData()
+                    {
+                        ChangedData = selection,
+                        ChangeMetaData = false
+                    }
+                };
+                EventStore<AdvancedToolsEventArgs>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_SELECTION_CHANGED, eventData);
+            }
+        }
     }
 }
