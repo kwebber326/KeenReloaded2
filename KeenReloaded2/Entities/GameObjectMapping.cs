@@ -17,7 +17,7 @@ namespace KeenReloaded2.Entities
 
         public override string ToString()
         {
-            return $"Type: {this.MapMakerObject?.ObjectType?.Name}, Location: ({ this.GameObject?.Location.X }, {this.GameObject?.Location.X})";
+            return $"Type: {this.MapMakerObject?.ObjectType?.Name}, Location: ({ this.GameObject?.Location.X },{ this.GameObject?.Location.Y })";
         }
     }
 }
