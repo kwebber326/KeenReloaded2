@@ -54,6 +54,7 @@ namespace KeenReloaded2.Constants
             public const string EVENT_LOCATION_CHANGED = "locationChanged";
             //advanceds tools event names
             public const string EVENT_ADVANCED_TOOLS_SELECTION_CHANGED = "[Advanced Tools]selectionChanged";
+            public const string EVENT_ADVANCED_TOOLS_SELECTED_ACTION_CHANGED = "[Advanced Tools]selectedActionChanged";
         }
     }
 }

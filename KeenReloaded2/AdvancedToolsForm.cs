@@ -1,4 +1,5 @@
 ﻿using KeenReloaded2.Constants;
+using KeenReloaded2.ControlEventArgs;
 using KeenReloaded2.ControlEventArgs.EventStoreData;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Entities.DataStructures;
@@ -37,6 +38,10 @@ namespace KeenReloaded2
             lstMapObjects.DrawItem += new DrawItemEventHandler(listBox_DrawItem);
             lstMapObjects.SelectedIndexChanged += LstMapObjects_SelectedIndexChanged;
             PopulateListBoxWithCurrentItems();
+
+            EventStore<AdvancedToolsActions>.Subscribe(
+                MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_SELECTED_ACTION_CHANGED,
+                SelectedAction_Changed);
         }
 
         private void PopulateListBoxWithCurrentItems()
@@ -48,6 +53,11 @@ namespace KeenReloaded2
             {
                 lstMapObjects.Items.Add(obj.ToString());
             }
+        }
+
+        private void SelectedAction_Changed(object sender, ControlEventArgs<AdvancedToolsActions> selectedAction)
+        {
+
         }
 
         private void LstMapObjects_SelectedIndexChanged(object sender, EventArgs e)

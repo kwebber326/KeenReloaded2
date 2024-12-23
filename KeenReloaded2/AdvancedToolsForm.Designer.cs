@@ -32,6 +32,7 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lstMapObjects = new KeenReloaded2.UserControls.AdvancedTools.ScrollableListBox();
+            this.advancedToolsActionRadioList1 = new KeenReloaded2.UserControls.AdvancedTools.AdvancedToolsActionRadioList();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,11 +75,20 @@
             this.lstMapObjects.Size = new System.Drawing.Size(714, 404);
             this.lstMapObjects.TabIndex = 4;
             // 
+            // advancedToolsActionRadioList1
+            // 
+            this.advancedToolsActionRadioList1.AutoScroll = true;
+            this.advancedToolsActionRadioList1.Location = new System.Drawing.Point(737, 54);
+            this.advancedToolsActionRadioList1.Name = "advancedToolsActionRadioList1";
+            this.advancedToolsActionRadioList1.Size = new System.Drawing.Size(212, 215);
+            this.advancedToolsActionRadioList1.TabIndex = 5;
+            // 
             // AdvancedToolsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1014, 793);
+            this.Controls.Add(this.advancedToolsActionRadioList1);
             this.Controls.Add(this.lstMapObjects);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtSearch);
@@ -99,5 +109,6 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.PictureBox pictureBox1;
         private UserControls.AdvancedTools.ScrollableListBox lstMapObjects;
+        private UserControls.AdvancedTools.AdvancedToolsActionRadioList advancedToolsActionRadioList1;
     }
 }

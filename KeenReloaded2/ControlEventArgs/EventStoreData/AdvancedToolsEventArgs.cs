@@ -19,8 +19,7 @@ namespace KeenReloaded2.ControlEventArgs.EventStoreData
         EXTEND,
         COPY,
         MOVE,
-        DELETE,
-        SELECTION_CHANGE
+        DELETE
     }
 
     public class AdvancedToolsChangeData
