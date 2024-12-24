@@ -179,7 +179,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public bool IsActive
         {
-            get { return this.State != SkyPestState.SQUASHED; }
+            get { return false; }
         }
 
         protected override CollisionObject GetTopMostLandingTile(List<CollisionObject> collisions)
