@@ -18,7 +18,7 @@ using KeenReloaded2.Framework.Extensions;
 
 namespace KeenReloaded2.Framework.GameEntities.Enemies
 {
-    public class GnosticeneAncient : DestructibleObject, IEnemy, IUpdatable, IGravityObject, ISprite, IStunnable, ICreateRemove, IZombieBountyEnemy
+    public class GnosticeneAncient : DestructibleObject, IEnemy, IUpdatable, IGravityObject, ISprite, ICreateRemove, IZombieBountyEnemy
     {
         private GnosticeneAncientState _moveState;
         private GnosticeneAncientState _previousState;

@@ -1,0 +1,17 @@
+1500|1500
+keen4_background_pyramid_brown2|0|0|1500|1500|keen4_background_pyramid_brown2.png|False|0
+keen4_pyramid_floor_middle|220|455|48|64|10
+keen4_pyramid_floor_middle|268|455|48|64|10
+keen4_pyramid_floor_middle|316|455|48|64|10
+keen4_pyramid_floor_middle|364|455|48|64|10
+keen4_pyramid_floor_middle|412|455|48|64|10
+keen4_pyramid_floor_middle|460|455|48|64|10
+keen4_pyramid_wall_edge_left|150|455|70|64|10
+keen4_pyramid_wall_edge_left|150|391|70|64|10
+keen4_pyramid_wall_edge_left|150|327|70|64|10
+keen4_pyramid_wall_edge_right|508|455|52|64|10
+keen4_pyramid_wall_edge_right|508|391|52|64|10
+keen4_pyramid_wall_edge_right|508|327|52|64|10
+enemy_spawner1|401|0|92|94|18|[GnosticeneAncient]|1|20|10000000
+keen_stand_right|220|391|26|64|RIGHT
+keen_dreams_boobus_bomb2|268|411|30|30|50|500
