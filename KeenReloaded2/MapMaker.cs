@@ -1101,7 +1101,7 @@ namespace KeenReloaded2
 
         private void BtnAdvancedTools_Click(object sender, EventArgs e)
         {
-            AdvancedToolsForm advancedToolsForm = new AdvancedToolsForm(_mapMakerObjects);
+           AdvancedToolsForm advancedToolsForm = new AdvancedToolsForm(_mapMakerObjects);
            var dialogResult = advancedToolsForm.ShowDialog();
         }
     }

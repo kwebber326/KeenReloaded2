@@ -133,9 +133,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\AdvancedTools\ActionControls\ActionCommandControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AdvancedTools\ActionControls\Entities\AdvancedToolsCommand.cs" />
     <Compile Include="UserControls\AdvancedTools\AdvancedToolsActionRadioList.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="UserControls\AdvancedTools\ActionControls\ExtendActionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AdvancedTools\ActionControls\ExtendActionControl.Designer.cs">
+      <DependentUpon>ExtendActionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AdvancedTools\ActionControls\IActionControl.cs" />
     <Compile Include="UserControls\AdvancedTools\ScrollableListBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -326,8 +337,14 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AdvancedTools\ActionControls\ActionCommandControl.resx">
+      <DependentUpon>ActionCommandControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AdvancedTools\AdvancedToolsActionRadioList.resx">
       <DependentUpon>AdvancedToolsActionRadioList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AdvancedTools\ActionControls\ExtendActionControl.resx">
+      <DependentUpon>ExtendActionControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\InventoryPanel\FlagInventoryBoard.resx">
       <DependentUpon>FlagInventoryBoard.cs</DependentUpon>

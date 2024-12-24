@@ -55,6 +55,10 @@ namespace KeenReloaded2.Constants
             //advanceds tools event names
             public const string EVENT_ADVANCED_TOOLS_SELECTION_CHANGED = "[Advanced Tools]selectionChanged";
             public const string EVENT_ADVANCED_TOOLS_SELECTED_ACTION_CHANGED = "[Advanced Tools]selectedActionChanged";
+            public const string EVENT_ADVANCED_TOOLS_ACTION_COMMIT = "[Advanced Tools]actionCommit";
+            public const string EVENT_ADVANCED_TOOLS_ACTION_PREVIEW = "[Advanced Tools]actionPreview";
+            public const string EVENT_ADVANCED_TOOLS_ACTION_UNDO = "[Advanced Tools]actionUndo";
+            public const string EVENT_ADVANCED_TOOLS_ACTION_CANCEL = "[Advanced Tools]actionCancel";
         }
     }
 }

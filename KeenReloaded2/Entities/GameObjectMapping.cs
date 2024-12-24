@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 namespace KeenReloaded2.Entities
 {
+    [Serializable]
     public class GameObjectMapping : PictureBox
     {
         public MapMakerObject MapMakerObject { get; set; }
