@@ -71,6 +71,14 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 if (!alertable.IsOnAlert)
                     alertable.Alert();
             }
+            else if (obj is ISquashable)
+            {
+                var squashable = (ISquashable)obj;
+                if (!squashable.IsSquashed)
+                {
+                    squashable.Squash();
+                }
+            }
         }
 
         protected override CollisionObject GetCeilingTile(List<CollisionObject> collisions)
@@ -324,6 +332,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         {
             var destructoObjectsToKill = collisions.OfType<DestructibleObject>();
             var stunnableObjects = collisions.OfType<IStunnable>();
+            var squashables = collisions.OfType<ISquashable>();
 
             if (destructoObjectsToKill.Any())
             {
@@ -339,6 +348,17 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             if (stunnableObjects.Any())
             {
                 foreach (var obj in stunnableObjects)
+                {
+                    var collideObj = obj as CollisionObject;
+                    if (collideObj != null && collideObj.HitBox.IntersectsWith(this.HitBox))
+                    {
+                        this.HandleCollision(collideObj);
+                    }
+                }
+            }
+            if (squashables.Any())
+            {
+                foreach (var obj in squashables)
                 {
                     var collideObj = obj as CollisionObject;
                     if (collideObj != null && collideObj.HitBox.IntersectsWith(this.HitBox))
