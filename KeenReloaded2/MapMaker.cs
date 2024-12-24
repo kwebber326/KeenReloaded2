@@ -80,6 +80,7 @@ namespace KeenReloaded2
             EventStore<int>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_SELECTED_INDEX_CHANGED, PathwayForm_SelectedIndex_Changed);
             //Advanced Tools Events
             EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_SELECTION_CHANGED, AdvancedTools_SelectionChanged);
+            EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_PREVIEW, AdvancedTools_ActionPreview);
         }
 
         private void InitializeGameModeList()
@@ -428,6 +429,21 @@ namespace KeenReloaded2
         #endregion
 
         #region event handlers
+        private void AdvancedTools_ActionPreview(object sender, ControlEventArgs<AdvancedToolsEventArgs> e)
+        {
+            List<GameObjectMapping> changedData = e?.Data?.ChangeData?.ChangedData as List<GameObjectMapping>;
+            if (changedData == null || !changedData.Any())
+                return;
+
+            foreach (var item in changedData)
+            {
+                item.BackColor = Color.Red;
+                item.BorderStyle = BorderStyle.Fixed3D;
+                _mapMakerObjects.Add(item);
+                pnlMapCanvas.Controls.Add(item);
+                RefreshZIndexPositioningForCollidingObjects(item);
+            }
+        }
 
         private void AdvancedTools_SelectionChanged(object sender, ControlEventArgs<AdvancedToolsEventArgs> e)
         {

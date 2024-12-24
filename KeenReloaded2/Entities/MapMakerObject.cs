@@ -12,6 +12,7 @@ namespace KeenReloaded2.Entities
     {
         protected readonly Type _objectType;
         protected readonly bool _isManualPlacement;
+        private readonly string _imageFilePath;
 
         public MapMakerObject(Type objectType, string imageFilePath, bool isManualPlacement, params MapMakerObjectProperty[] constructorParamaters)
         {
@@ -19,6 +20,7 @@ namespace KeenReloaded2.Entities
             _isManualPlacement = isManualPlacement;
             this.ImageControl = new PictureBox();
             this.ImageControl.SizeMode = PictureBoxSizeMode.AutoSize;
+            _imageFilePath = imageFilePath;
             this.ImageControl.Image = Image.FromFile(imageFilePath);
             this.ImageControl.ImageLocation = imageFilePath;
             this.ConstructorParameters = constructorParamaters ?? new MapMakerObjectProperty[0];
@@ -48,6 +50,11 @@ namespace KeenReloaded2.Entities
                 clonedProperties.Add(clone);
             }
             return clonedProperties.ToArray();
+        }
+
+        public MapMakerObject Clone()
+        {
+            return new MapMakerObject(this.ObjectType, _imageFilePath, _isManualPlacement, this.CloneParameterList());
         }
 
         public virtual object Construct()

@@ -212,6 +212,11 @@ namespace KeenReloaded2
                     }
                 };
                 EventStore<AdvancedToolsEventArgs>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_SELECTION_CHANGED, eventData);
+
+                foreach (var item in _actionToFormMapping.Values)
+                {
+                    item.Undo(null);
+                }
             }
         }
     }
