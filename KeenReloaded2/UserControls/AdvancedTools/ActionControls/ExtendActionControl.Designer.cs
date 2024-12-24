@@ -76,7 +76,7 @@
             this.actionCommandControl1.Location = new System.Drawing.Point(8, 73);
             this.actionCommandControl1.Name = "actionCommandControl1";
             this.actionCommandControl1.PreviewCommand = null;
-            this.actionCommandControl1.Size = new System.Drawing.Size(244, 71);
+            this.actionCommandControl1.Size = new System.Drawing.Size(274, 71);
             this.actionCommandControl1.TabIndex = 4;
             // 
             // ExtendActionControl

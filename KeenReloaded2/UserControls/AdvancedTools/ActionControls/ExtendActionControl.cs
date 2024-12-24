@@ -13,6 +13,7 @@ using KeenReloaded2.ControlEventArgs.EventStoreData;
 using KeenReloaded2.Constants;
 using KeenReloaded2.Entities;
 using KeenReloaded2.ControlEventArgs;
+using KeenReloaded2.Framework.Enums;
 
 namespace KeenReloaded2.UserControls.AdvancedTools
 {
@@ -30,6 +31,10 @@ namespace KeenReloaded2.UserControls.AdvancedTools
             EventStore<AdvancedToolsEventArgs>.Subscribe(
                 MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_SELECTION_CHANGED,
                 AdvancedForm_SelectionChanged);
+
+            var directions = Enum.GetNames(typeof(Direction));
+            cmbDirection.Items.AddRange(directions);
+            cmbDirection.SelectedIndex = 0;
         }
         private List<GameObjectMapping> _previousChanges;
         private List<GameObjectMapping> _currentChanges;
@@ -74,9 +79,16 @@ namespace KeenReloaded2.UserControls.AdvancedTools
 
         public bool ValidateControl()
         {
-            return cmbDirection.SelectedItem != null && 
+            bool isValid = cmbDirection.SelectedItem != null && 
+                (this.SelectedObjects?.Any() ?? false) &&
                 int.TryParse(txtLengths.Text, out int result) &&
-                result > 0;
+                result > 0 && result <= 50;
+            if (!isValid)
+            {
+                MessageBox.Show("Invalid settings: \n\nEnsure that at least one object is selected and the lengths is an integer > 0 and <= 50",
+                    "Invalid Settings", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return isValid;
         }
 
         private AdvancedToolsEventArgs BuildEventData(List<GameObjectMapping> eventData)

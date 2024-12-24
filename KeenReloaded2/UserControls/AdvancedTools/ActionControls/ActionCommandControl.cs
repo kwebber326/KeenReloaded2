@@ -36,7 +36,7 @@ namespace KeenReloaded2.UserControls.AdvancedTools
             // 
             this.btnPreview.Location = new System.Drawing.Point(3, 3);
             this.btnPreview.Name = "btnPreview";
-            this.btnPreview.Size = new System.Drawing.Size(75, 65);
+            this.btnPreview.Size = new System.Drawing.Size(82, 65);
             this.btnPreview.TabIndex = 0;
             this.btnPreview.Text = "Preview";
             this.btnPreview.UseVisualStyleBackColor = true;
@@ -44,9 +44,9 @@ namespace KeenReloaded2.UserControls.AdvancedTools
             // 
             // btnCommit
             // 
-            this.btnCommit.Location = new System.Drawing.Point(84, 3);
+            this.btnCommit.Location = new System.Drawing.Point(91, 3);
             this.btnCommit.Name = "btnCommit";
-            this.btnCommit.Size = new System.Drawing.Size(75, 65);
+            this.btnCommit.Size = new System.Drawing.Size(82, 65);
             this.btnCommit.TabIndex = 1;
             this.btnCommit.Text = "Commit";
             this.btnCommit.UseVisualStyleBackColor = true;
@@ -54,9 +54,9 @@ namespace KeenReloaded2.UserControls.AdvancedTools
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(165, 3);
+            this.btnCancel.Location = new System.Drawing.Point(179, 3);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 65);
+            this.btnCancel.Size = new System.Drawing.Size(82, 65);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -68,7 +68,7 @@ namespace KeenReloaded2.UserControls.AdvancedTools
             this.Controls.Add(this.btnCommit);
             this.Controls.Add(this.btnPreview);
             this.Name = "ActionCommandControl";
-            this.Size = new System.Drawing.Size(244, 71);
+            this.Size = new System.Drawing.Size(297, 71);
             this.Load += new System.EventHandler(this.ActionCommandControl_Load);
             this.ResumeLayout(false);
 
