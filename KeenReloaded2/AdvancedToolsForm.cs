@@ -3,6 +3,7 @@ using KeenReloaded2.ControlEventArgs;
 using KeenReloaded2.ControlEventArgs.EventStoreData;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Entities.DataStructures;
+using KeenReloaded2.UserControls.AdvancedTools;
 using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace KeenReloaded2
     {
         private OrderedList<GameObjectMapping> _gameObjects;
         private Dictionary<int, GameObjectMapping> _previousAdvancedToolsSelection = new Dictionary<int, GameObjectMapping>();
+        private Dictionary<AdvancedToolsActions, IActionControl> _actionToFormMapping = new Dictionary<AdvancedToolsActions, IActionControl>();
 
         public AdvancedToolsForm()
         {
@@ -38,10 +40,21 @@ namespace KeenReloaded2
             lstMapObjects.DrawItem += new DrawItemEventHandler(listBox_DrawItem);
             lstMapObjects.SelectedIndexChanged += LstMapObjects_SelectedIndexChanged;
             PopulateListBoxWithCurrentItems();
+            InitializeActionFormControls();
 
             EventStore<AdvancedToolsActions>.Subscribe(
                 MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_SELECTED_ACTION_CHANGED,
                 SelectedAction_Changed);
+        }
+
+        private void InitializeActionFormControls()
+        {
+            ExtendActionControl extendActionControl = new ExtendActionControl();
+            extendActionControl.Location = new Point(lstMapObjects.Location.X, lstMapObjects.Bottom + 2);
+            extendActionControl.Visible = false;
+            this.Controls.Add(extendActionControl);
+            _actionToFormMapping.Add(AdvancedToolsActions.EXTEND, extendActionControl);
+            //TODO: finish all four actions
         }
 
         private void PopulateListBoxWithCurrentItems()
@@ -57,7 +70,22 @@ namespace KeenReloaded2
 
         private void SelectedAction_Changed(object sender, ControlEventArgs<AdvancedToolsActions> selectedAction)
         {
-
+            foreach (var control in _actionToFormMapping.Values)
+            {
+                var ctrl = control as Control;
+                if (ctrl != null)
+                {
+                    ctrl.Visible = false;
+                }
+            }
+            if (_actionToFormMapping.TryGetValue(selectedAction.Data, out IActionControl actionControl))
+            {
+                var ctrl = actionControl as Control;
+                if (ctrl != null)
+                {
+                    ctrl.Visible = true;
+                }
+            }
         }
 
         private void LstMapObjects_SelectedIndexChanged(object sender, EventArgs e)

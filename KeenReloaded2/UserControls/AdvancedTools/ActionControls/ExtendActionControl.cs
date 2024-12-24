@@ -12,6 +12,7 @@ using KeenReloaded2.Utilities;
 using KeenReloaded2.ControlEventArgs.EventStoreData;
 using KeenReloaded2.Constants;
 using KeenReloaded2.Entities;
+using KeenReloaded2.ControlEventArgs;
 
 namespace KeenReloaded2.UserControls.AdvancedTools
 {
@@ -25,6 +26,10 @@ namespace KeenReloaded2.UserControls.AdvancedTools
             actionCommandControl1.CancelCommand = new AdvancedToolsCommand(CancelAction);
             actionCommandControl1.CommitCommand = new AdvancedToolsCommand(CommitAction,
                 (x) => ValidateControl());
+
+            EventStore<AdvancedToolsEventArgs>.Subscribe(
+                MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_SELECTION_CHANGED,
+                AdvancedForm_SelectionChanged);
         }
         private List<GameObjectMapping> _previousChanges;
         private List<GameObjectMapping> _currentChanges;
@@ -90,6 +95,11 @@ namespace KeenReloaded2.UserControls.AdvancedTools
         private void ExtendActionControl_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void AdvancedForm_SelectionChanged(object sender, ControlEventArgs<AdvancedToolsEventArgs> e)
+        {
+            this.SelectedObjects = e?.Data?.SelectedObjects;
         }
     }
 }
