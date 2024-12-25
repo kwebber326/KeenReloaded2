@@ -43,9 +43,15 @@ namespace KeenReloaded2.UserControls.AdvancedTools
 
         public void CancelAction(object parameter)
         {
-            EventStore<AdvancedToolsEventArgs>
-               .Publish(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_CANCEL,
-                BuildEventData(_previousChanges));
+            if (_previousChanges != null && _previousChanges.Any())
+            {
+                EventStore<AdvancedToolsEventArgs>
+                   .Publish(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_CANCEL,
+                    BuildEventData(_previousChanges));
+            }
+
+            _currentChanges = new List<GameObjectMapping>();
+            _previousChanges = new List<GameObjectMapping>();
         }
 
         public void CommitAction(object parameter)
@@ -53,6 +59,9 @@ namespace KeenReloaded2.UserControls.AdvancedTools
             EventStore<AdvancedToolsEventArgs>
                 .Publish(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_COMMIT,
                  BuildEventData(_currentChanges));
+
+            _previousChanges = new List<GameObjectMapping>();
+            _currentChanges = new List<GameObjectMapping>();
         }
 
         public void PreviewAction(object parameter)

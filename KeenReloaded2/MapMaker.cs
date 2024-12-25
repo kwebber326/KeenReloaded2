@@ -82,7 +82,7 @@ namespace KeenReloaded2
             EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_SELECTION_CHANGED, AdvancedTools_SelectionChanged);
             EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_PREVIEW, AdvancedTools_ActionPreview);
             EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_COMMIT, AdvancedTools_ActionCommit);
-            EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_UNDO, AdvancedTools_ActionUndo);
+            EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_UNDO, AdvancedTools_ActionCancel);
             EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_CANCEL, AdvancedTools_ActionCancel);
         }
 
@@ -484,14 +484,26 @@ namespace KeenReloaded2
             }
             _mapHasUnsavedChanges = true;
         }
-        private void AdvancedTools_ActionUndo(object sender, ControlEventArgs<AdvancedToolsEventArgs> e)
-        {
-
-        }
 
         private void AdvancedTools_ActionCancel(object sender, ControlEventArgs<AdvancedToolsEventArgs> e)
         {
+            List<GameObjectMapping> changedData = e?.Data?.ChangeData?.ChangedData as List<GameObjectMapping>;
+            if (changedData == null || !changedData.Any())
+                return;
+            var action = e.Data.ChangeData.Action;
 
+            if (action == AdvancedToolsActions.EXTEND ||
+              action == AdvancedToolsActions.COPY)
+            {
+                foreach (var item in changedData)
+                {
+                    item.BackColor = Color.Transparent;
+                    item.BorderStyle = BorderStyle.None;
+                    _mapMakerObjects.Remove(item);
+                    pnlMapCanvas.Controls.Remove(item);
+                    UnRegisterEventsForGameObjectMapping(item);
+                }
+            }
         }
 
         private void AdvancedTools_SelectionChanged(object sender, ControlEventArgs<AdvancedToolsEventArgs> e)

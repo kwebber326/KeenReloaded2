@@ -215,7 +215,7 @@ namespace KeenReloaded2
 
                 foreach (var item in _actionToFormMapping.Values)
                 {
-                    item.Undo(null);
+                    item.CancelAction(null);
                 }
             }
         }
