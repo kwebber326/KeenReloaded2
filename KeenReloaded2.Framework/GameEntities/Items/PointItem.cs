@@ -19,6 +19,20 @@ namespace KeenReloaded2.Framework.GameEntities.Items
         {
             _type = type;
             Initialize();
+            HandlePotentialInitialCollisions();
+        }
+
+        private void HandlePotentialInitialCollisions()
+        {
+            if (_collisionGrid != null)
+            {
+                var player = this.GetClosestPlayer();
+                if (player != null && player.CollidesWith(this))
+                {
+                    player.HandleItemCollection(this);
+                    SetAcquired();
+                }
+            }
         }
 
         public override CollisionType CollisionType => CollisionType.ITEM;
