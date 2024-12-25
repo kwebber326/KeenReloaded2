@@ -109,23 +109,16 @@ namespace KeenReloaded2.UserControls.AdvancedTools
             int x = extensionArea.X, y = extensionArea.Y;
             for (int i = 1; i <= lengths; i++)
             {
-                Point p = new Point(x + (xOffset * i), y + (yOffset * i));
-               
-                GameObjectMapping previousObject = null;
-                foreach (var obj in this.SelectedObjects)
+                List<GameObjectMapping> currentObjects = this.SelectedObjects;
+                List<GameObjectMapping> tmp = new List<GameObjectMapping>();
+                for (int j = 0; j < currentObjects.Count; j++)
                 {
                     GameObjectMapping mapping = new GameObjectMapping();
-                    if (previousObject != null)
-                    {
-                        int xDiff = obj.Location.X - previousObject.Location.X;
-                        int yDiff = obj.Location.Y - previousObject.Location.Y;
-                        Point p1 = new Point(p.X + xDiff, p.Y + yDiff);
-                        mapping.Location = p1;
-                    }
-                    else
-                    {
-                        mapping.Location = p;
-                    }
+                    var obj = currentObjects[j];
+                    int newX = obj.Location.X + (xOffset * i);
+                    int newY = obj.Location.Y + (yOffset * i);
+                    Point p1 = new Point(newX, newY);
+                    mapping.Location = p1;
 
                     mapping.MapMakerObject = obj.MapMakerObject.Clone();
                     var areaProperty = mapping.MapMakerObject.ConstructorParameters
@@ -140,8 +133,10 @@ namespace KeenReloaded2.UserControls.AdvancedTools
                     mapping.Image = mapping.GameObject.Image;
                     mapping.SizeMode = PictureBoxSizeMode.AutoSize;
                     _currentChanges.Add(mapping);
-                    previousObject = obj;
+                    tmp.Add(mapping);
                 }
+                currentObjects = tmp;
+                tmp = new List<GameObjectMapping>();
             }
         }
 
@@ -150,6 +145,9 @@ namespace KeenReloaded2.UserControls.AdvancedTools
             EventStore<AdvancedToolsEventArgs>
                 .Publish(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_UNDO,
                  BuildEventData(_previousChanges));
+
+            _previousChanges = new List<GameObjectMapping>();
+            _currentChanges = new List<GameObjectMapping>();
         }
 
         public bool ValidateControl()
@@ -178,10 +176,10 @@ namespace KeenReloaded2.UserControls.AdvancedTools
             if (this.SelectedObjects == null || !this.SelectedObjects.Any())
                 return new Rectangle();
 
-            int minLeft = this.SelectedObjects.Select(o => o.Left).Min();
-            int maxRight = this.SelectedObjects.Select(o => o.Right).Max();
-            int minTop = this.SelectedObjects.Select(o => o.Top).Min();
-            int maxBottom = this.SelectedObjects.Select(o => o.Bottom).Max();
+            int minLeft = this.SelectedObjects.Select(o => o.GameObject.Location.X).Min();
+            int maxRight = this.SelectedObjects.Select(o => o.GameObject.Location.X + o.Image.Width).Max();
+            int minTop = this.SelectedObjects.Select(o => o.GameObject.Location.Y).Min();
+            int maxBottom = this.SelectedObjects.Select(o => o.GameObject.Location.Y + o.GameObject.Image.Height).Max();
 
             int width = maxRight - minLeft;
             int height = maxBottom - minTop;

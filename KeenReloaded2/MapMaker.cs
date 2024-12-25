@@ -81,6 +81,9 @@ namespace KeenReloaded2
             //Advanced Tools Events
             EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_SELECTION_CHANGED, AdvancedTools_SelectionChanged);
             EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_PREVIEW, AdvancedTools_ActionPreview);
+            EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_COMMIT, AdvancedTools_ActionCommit);
+            EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_UNDO, AdvancedTools_ActionUndo);
+            EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_CANCEL, AdvancedTools_ActionCancel);
         }
 
         private void InitializeGameModeList()
@@ -434,15 +437,61 @@ namespace KeenReloaded2
             List<GameObjectMapping> changedData = e?.Data?.ChangeData?.ChangedData as List<GameObjectMapping>;
             if (changedData == null || !changedData.Any())
                 return;
+            var action = e.Data.ChangeData.Action;
 
-            foreach (var item in changedData)
+            if (action == AdvancedToolsActions.EXTEND || 
+                action == AdvancedToolsActions.COPY)
             {
-                item.BackColor = Color.Red;
-                item.BorderStyle = BorderStyle.Fixed3D;
-                _mapMakerObjects.Add(item);
-                pnlMapCanvas.Controls.Add(item);
-                RefreshZIndexPositioningForCollidingObjects(item);
+                foreach (var item in changedData)
+                {
+                    item.BackColor = Color.Red;
+                    item.BorderStyle = BorderStyle.Fixed3D;
+                    _mapMakerObjects.InsertAscending(item);
+                    pnlMapCanvas.Controls.Add(item);
+                    RefreshZIndexPositioningForCollidingObjects(item);
+                }
             }
+            else if (action == AdvancedToolsActions.DELETE)
+            {
+                foreach (var item in changedData)
+                {
+                    _mapMakerObjects.Remove(item);
+                    pnlMapCanvas.Controls.Remove(item);
+                    UnRegisterEventsForGameObjectMapping(item);
+                }
+            }
+            else if (action == AdvancedToolsActions.MOVE)
+            {
+               
+            }
+        }
+
+        private void AdvancedTools_ActionCommit(object sender, ControlEventArgs<AdvancedToolsEventArgs> e)
+        {
+            List<GameObjectMapping> changedData = e?.Data?.ChangeData?.ChangedData as List<GameObjectMapping>;
+            if (changedData == null || !changedData.Any())
+                return;
+            var action = e.Data.ChangeData.Action;
+            if (action == AdvancedToolsActions.EXTEND ||
+                action == AdvancedToolsActions.COPY)
+            {
+                foreach (var item in changedData)
+                {
+                    item.BackColor = Color.Transparent;
+                    item.BorderStyle = BorderStyle.None;
+                    RegisterEventsForGameObjectMapping(item);
+                }
+            }
+            _mapHasUnsavedChanges = true;
+        }
+        private void AdvancedTools_ActionUndo(object sender, ControlEventArgs<AdvancedToolsEventArgs> e)
+        {
+
+        }
+
+        private void AdvancedTools_ActionCancel(object sender, ControlEventArgs<AdvancedToolsEventArgs> e)
+        {
+
         }
 
         private void AdvancedTools_SelectionChanged(object sender, ControlEventArgs<AdvancedToolsEventArgs> e)
