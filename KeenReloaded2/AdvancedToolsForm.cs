@@ -103,7 +103,8 @@ namespace KeenReloaded2
         private void Action_Committed(object sender, ControlEventArgs<AdvancedToolsEventArgs> e)
         {
             var data = e.Data.ChangeData.ChangedData as List<GameObjectMapping>;
-            if (data != null)
+            var action = e.Data.ChangeData.Action;
+            if (data != null && (action == AdvancedToolsActions.EXTEND || action == AdvancedToolsActions.COPY))
             {
                 foreach (var item in data)
                 {
