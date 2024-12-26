@@ -4,6 +4,7 @@ using KeenReloaded2.ControlEventArgs.EventStoreData;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Entities.DataStructures;
 using KeenReloaded2.UserControls.AdvancedTools;
+using KeenReloaded2.UserControls.AdvancedTools.ActionControls;
 using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
@@ -45,6 +46,10 @@ namespace KeenReloaded2
             EventStore<AdvancedToolsActions>.Subscribe(
                 MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_SELECTED_ACTION_CHANGED,
                 SelectedAction_Changed);
+
+            EventStore<AdvancedToolsEventArgs>.Subscribe(
+                MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_COMMIT,
+                Action_Committed);
         }
 
         private void InitializeActionFormControls()
@@ -55,6 +60,11 @@ namespace KeenReloaded2
             this.Controls.Add(extendActionControl);
             _actionToFormMapping.Add(AdvancedToolsActions.EXTEND, extendActionControl);
             //TODO: finish all four actions
+            CopyActionControl copyActionControl = new CopyActionControl();
+            copyActionControl.Location = new Point(lstMapObjects.Location.X, lstMapObjects.Bottom + 2);
+            copyActionControl.Visible = false;
+            this.Controls.Add(copyActionControl);
+            _actionToFormMapping.Add(AdvancedToolsActions.COPY, copyActionControl);
         }
 
         private void PopulateListBoxWithCurrentItems()
@@ -83,7 +93,21 @@ namespace KeenReloaded2
                 var ctrl = actionControl as Control;
                 if (ctrl != null)
                 {
+                    var selection = BuildSelctionOfMappingObjects().Values.ToList();
+                    actionControl.UpdateSelection(selection);
                     ctrl.Visible = true;
+                }
+            }
+        }
+
+        private void Action_Committed(object sender, ControlEventArgs<AdvancedToolsEventArgs> e)
+        {
+            var data = e.Data.ChangeData.ChangedData as List<GameObjectMapping>;
+            if (data != null)
+            {
+                foreach (var item in data)
+                {
+                    lstMapObjects.Items.Add(item.ToString());
                 }
             }
         }

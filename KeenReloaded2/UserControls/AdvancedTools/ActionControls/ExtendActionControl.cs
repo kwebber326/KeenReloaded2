@@ -86,7 +86,7 @@ namespace KeenReloaded2.UserControls.AdvancedTools
             _currentChanges = new List<GameObjectMapping>();
             var direction = GetDirection();
             int lengths = int.Parse(txtLengths.Text);
-            Rectangle extensionArea = GetExtensionArea();
+            Rectangle extensionArea = AdvancedToolsCommonFunctions.GetExtensionArea(this.SelectedObjects);
             int xOffset = 0, yOffset = 0;
             switch (direction)
             {
@@ -180,22 +180,6 @@ namespace KeenReloaded2.UserControls.AdvancedTools
             return direction;
         }
 
-        private Rectangle GetExtensionArea()
-        {
-            if (this.SelectedObjects == null || !this.SelectedObjects.Any())
-                return new Rectangle();
-
-            int minLeft = this.SelectedObjects.Select(o => o.GameObject.Location.X).Min();
-            int maxRight = this.SelectedObjects.Select(o => o.GameObject.Location.X + o.Image.Width).Max();
-            int minTop = this.SelectedObjects.Select(o => o.GameObject.Location.Y).Min();
-            int maxBottom = this.SelectedObjects.Select(o => o.GameObject.Location.Y + o.GameObject.Image.Height).Max();
-
-            int width = maxRight - minLeft;
-            int height = maxBottom - minTop;
-
-            return new Rectangle(minLeft, minTop, width, height);
-        }
-
         private AdvancedToolsEventArgs BuildEventData(List<GameObjectMapping> eventData)
         {
             AdvancedToolsEventArgs e = new AdvancedToolsEventArgs();
@@ -217,6 +201,11 @@ namespace KeenReloaded2.UserControls.AdvancedTools
         private void AdvancedForm_SelectionChanged(object sender, ControlEventArgs<AdvancedToolsEventArgs> e)
         {
             this.SelectedObjects = e?.Data?.SelectedObjects;
+        }
+
+        public void UpdateSelection(object selection)
+        {
+            this.SelectedObjects = selection as List<GameObjectMapping>;
         }
     }
 }

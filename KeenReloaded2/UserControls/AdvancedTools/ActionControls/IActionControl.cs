@@ -16,6 +16,8 @@ namespace KeenReloaded2.UserControls.AdvancedTools
 
         void Undo(object parameter);
 
+        void UpdateSelection(object selection);
+
         bool ValidateControl();
     }
 }
