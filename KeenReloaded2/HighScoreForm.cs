@@ -1,4 +1,5 @@
 ﻿using KeenReloaded.Framework.Utilities;
+using KeenReloaded2.Constants;
 using KeenReloaded2.DialogWindows;
 using KeenReloaded2.Entities.ReferenceData;
 using KeenReloaded2.Entities.Statistics.HighScores;
@@ -85,8 +86,18 @@ namespace KeenReloaded2
                     var min = highScores.Min(h => h.Value);
                     if (highScores.Count > HIGH_SCORE_MAX_NUMBER_OF_ENTRIES)
                     {
-                        var firstMin = highScores.FirstOrDefault(h => h.Value?.ToString() == min?.ToString());
-                        highScores.Remove(firstMin);
+                        if (_gameMode != MainMenuConstants.OPTION_LABEL_NORMAL_MODE)
+                        {
+                            var firstMin = highScores.FirstOrDefault(h => h.Value?.ToString() == min?.ToString());
+                            highScores.Remove(firstMin);
+                        }
+                        else
+                        {
+                            var max = highScores.Max(h => h.Value);
+                            var maxItem = highScores.FirstOrDefault(h => h.Value?.ToString() == max?.ToString());
+                            highScores.Remove(maxItem);
+
+                        }
                     }
                    
                     //if the player achieved a high score, prompt the user to enter their name

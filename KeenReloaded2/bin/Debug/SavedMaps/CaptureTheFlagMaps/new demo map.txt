@@ -1,0 +1,5 @@
+1500|1500
+keen6_space_administration_control_background2|0|0|1500|1500|keen6_space_administration_control_background2.png|True|0
+keen6_bip_platform|88|288|98|32|18|[88,700,500,700,500,288,88,288]|5e365394-cc39-46b4-942b-8fdf2815dd91|True
+keen_stand_right|111|136|26|64|RIGHT
+keen5_volte_face1|108|34|62|48|25|[400,34,108,34]
