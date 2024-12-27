@@ -54,23 +54,30 @@ namespace KeenReloaded2
 
         private void InitializeActionFormControls()
         {
+            //extend
             ExtendActionControl extendActionControl = new ExtendActionControl();
             extendActionControl.Location = new Point(lstMapObjects.Location.X, lstMapObjects.Bottom + 2);
             extendActionControl.Visible = false;
             this.Controls.Add(extendActionControl);
             _actionToFormMapping.Add(AdvancedToolsActions.EXTEND, extendActionControl);
-            //TODO: finish all four actions
+            //copy
             CopyActionControl copyActionControl = new CopyActionControl();
             copyActionControl.Location = new Point(lstMapObjects.Location.X, lstMapObjects.Bottom + 2);
             copyActionControl.Visible = false;
             this.Controls.Add(copyActionControl);
             _actionToFormMapping.Add(AdvancedToolsActions.COPY, copyActionControl);
-
+            //move
             MoveActionControl moveActionControl = new MoveActionControl();
             moveActionControl.Location = new Point(lstMapObjects.Location.X, lstMapObjects.Bottom + 2);
             moveActionControl.Visible = false;
             this.Controls.Add(moveActionControl);
             _actionToFormMapping.Add(AdvancedToolsActions.MOVE, moveActionControl);
+            //delete
+            DeleteActionControl deleteActionControl = new DeleteActionControl();
+            deleteActionControl.Location = new Point(lstMapObjects.Location.X, lstMapObjects.Bottom + 2);
+            deleteActionControl.Visible = false;
+            this.Controls.Add(deleteActionControl);
+            _actionToFormMapping.Add(AdvancedToolsActions.DELETE, deleteActionControl);
         }
 
         private void PopulateListBoxWithCurrentItems()

@@ -142,6 +142,9 @@
     <Compile Include="UserControls\AdvancedTools\ActionControls\CopyActionControl.Designer.cs">
       <DependentUpon>CopyActionControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AdvancedTools\ActionControls\DeleteActionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\AdvancedTools\ActionControls\Entities\AdvancedToolsCommand.cs" />
     <Compile Include="UserControls\AdvancedTools\ActionControls\Entities\AdvancedToolsCommonFunctions.cs" />
     <Compile Include="UserControls\AdvancedTools\ActionControls\MoveActionControl.cs">
@@ -352,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AdvancedTools\ActionControls\CopyActionControl.resx">
       <DependentUpon>CopyActionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AdvancedTools\ActionControls\DeleteActionControl.resx">
+      <DependentUpon>DeleteActionControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AdvancedTools\ActionControls\MoveActionControl.resx">
       <DependentUpon>MoveActionControl.cs</DependentUpon>

@@ -460,10 +460,6 @@ namespace KeenReloaded2
                     UnRegisterEventsForGameObjectMapping(item);
                 }
             }
-            else if (action == AdvancedToolsActions.MOVE)
-            {
-               
-            }
         }
 
         private void AdvancedTools_ActionCommit(object sender, ControlEventArgs<AdvancedToolsEventArgs> e)
@@ -506,6 +502,18 @@ namespace KeenReloaded2
                     _mapMakerObjects.Remove(item);
                     pnlMapCanvas.Controls.Remove(item);
                     UnRegisterEventsForGameObjectMapping(item);
+                }
+            }
+            else if (action == AdvancedToolsActions.DELETE)
+            {
+                foreach (var item in changedData)
+                {
+                    item.BackColor = Color.Transparent;
+                    item.BorderStyle = BorderStyle.None;
+                    _mapMakerObjects.InsertAscending(item);
+                    pnlMapCanvas.Controls.Add(item);
+                    RefreshZIndexPositioningForCollidingObjects(item);
+                    RegisterEventsForGameObjectMapping(item);
                 }
             }
         }
