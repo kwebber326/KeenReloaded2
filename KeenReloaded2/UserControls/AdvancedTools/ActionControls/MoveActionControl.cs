@@ -90,6 +90,9 @@ namespace KeenReloaded2.UserControls.AdvancedTools.ActionControls
 
         private void MoveSelectionToSpecifiedLocation(Rectangle r1, Rectangle r2, bool isPreview)
         {
+            if (this.SelectedObjects == null)
+                return;
+
             _currentChanges = new List<GameObjectMapping>();
 
             int xDiff = r2.X - r1.X;

@@ -14,6 +14,8 @@ namespace KeenReloaded2.UserControls.AdvancedTools
         private Button btnCommit;
         private Button btnCancel;
 
+        private bool _previewMode = false;
+
         public ActionCommandControl()
         {
             InitializeComponent();
@@ -74,6 +76,20 @@ namespace KeenReloaded2.UserControls.AdvancedTools
 
         }
 
+        protected bool PreviewMode
+        {
+            get
+            {
+                return _previewMode;
+            }
+            set
+            {
+                _previewMode = value;
+                btnCancel.Enabled = value;
+                btnCommit.Enabled = value;
+            }
+        }
+
         private void ExecuteCommand(ICommand command)
         {
             if (command == null)
@@ -88,21 +104,24 @@ namespace KeenReloaded2.UserControls.AdvancedTools
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             ExecuteCommand(CancelCommand);
+            this.PreviewMode = false;
         }
 
         private void BtnCommit_Click(object sender, EventArgs e)
         {
             ExecuteCommand(CommitCommand);
+            this.PreviewMode = false;
         }
 
         private void BtnPreview_Click(object sender, EventArgs e)
         {
             ExecuteCommand(PreviewCommand);
+            this.PreviewMode = true;
         }
 
         private void ActionCommandControl_Load(object sender, EventArgs e)
         {
-
+            this.PreviewMode = false;
         }
     }
 }
