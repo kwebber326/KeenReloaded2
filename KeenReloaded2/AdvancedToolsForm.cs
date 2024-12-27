@@ -214,6 +214,29 @@ namespace KeenReloaded2
             return dictionary;
         }
 
+        private AdvancedToolsActions? GetSelectedAction()
+        {
+            var radioButtons = this.Controls.OfType<RadioButton>();
+            if (radioButtons.Any())
+            {
+                var selectedActionText = radioButtons.FirstOrDefault(f => f.Checked)?.Text;
+                if (string.IsNullOrEmpty(selectedActionText))
+                    return null;
+
+                try
+                {
+                    AdvancedToolsActions selectedAction = (AdvancedToolsActions)Enum.Parse(typeof(AdvancedToolsActions), selectedActionText);
+                    return selectedAction;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    return null; 
+                }
+            }
+            return null;
+        }
+
         private bool ItemSearchMatch(int itemIndex)
         {
             return !string.IsNullOrWhiteSpace(txtSearch.Text) &&
@@ -250,10 +273,10 @@ namespace KeenReloaded2
                     }
                 };
                 EventStore<AdvancedToolsEventArgs>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_SELECTION_CHANGED, eventData);
-
+                var selectedAction = GetSelectedAction();
                 foreach (var item in _actionToFormMapping.Values)
                 {
-                    item.CancelAction(null);
+                    item.CancelAction(selectedAction);
                 }
             }
         }

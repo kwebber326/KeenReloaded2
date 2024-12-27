@@ -31,6 +31,11 @@ namespace KeenReloaded2.UserControls.AdvancedTools.ActionControls
 
         public void CancelAction(object parameter)
         {
+            if (parameter != null && parameter is AdvancedToolsActions?
+               && ((AdvancedToolsActions?)parameter).Value != AdvancedToolsActions.DELETE)
+            {
+                return;
+            }
             if (_previousChanges != null && _previousChanges.Any())
             {
                 EventStore<AdvancedToolsEventArgs>
