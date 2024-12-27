@@ -65,6 +65,12 @@ namespace KeenReloaded2
             copyActionControl.Visible = false;
             this.Controls.Add(copyActionControl);
             _actionToFormMapping.Add(AdvancedToolsActions.COPY, copyActionControl);
+
+            MoveActionControl moveActionControl = new MoveActionControl();
+            moveActionControl.Location = new Point(lstMapObjects.Location.X, lstMapObjects.Bottom + 2);
+            moveActionControl.Visible = false;
+            this.Controls.Add(moveActionControl);
+            _actionToFormMapping.Add(AdvancedToolsActions.MOVE, moveActionControl);
         }
 
         private void PopulateListBoxWithCurrentItems()

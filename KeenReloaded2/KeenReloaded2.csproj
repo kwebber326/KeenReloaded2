@@ -144,6 +144,9 @@
     </Compile>
     <Compile Include="UserControls\AdvancedTools\ActionControls\Entities\AdvancedToolsCommand.cs" />
     <Compile Include="UserControls\AdvancedTools\ActionControls\Entities\AdvancedToolsCommonFunctions.cs" />
+    <Compile Include="UserControls\AdvancedTools\ActionControls\MoveActionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\AdvancedTools\AdvancedToolsActionRadioList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -349,6 +352,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AdvancedTools\ActionControls\CopyActionControl.resx">
       <DependentUpon>CopyActionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AdvancedTools\ActionControls\MoveActionControl.resx">
+      <DependentUpon>MoveActionControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AdvancedTools\AdvancedToolsActionRadioList.resx">
       <DependentUpon>AdvancedToolsActionRadioList.cs</DependentUpon>

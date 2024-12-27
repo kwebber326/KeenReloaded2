@@ -69,3 +69,4 @@ C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\obj\Debug\KeenReloaded2.
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\obj\Debug\KeenReloaded2.exe
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\obj\Debug\KeenReloaded2.pdb
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\obj\Debug\KeenReloaded2.UserControls.AdvancedTools.ActionControls.CopyActionControl.resources
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\obj\Debug\KeenReloaded2.UserControls.AdvancedTools.ActionControls.MoveActionControl.resources

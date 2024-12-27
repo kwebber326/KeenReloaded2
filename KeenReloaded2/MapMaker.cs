@@ -473,13 +473,17 @@ namespace KeenReloaded2
                 return;
             var action = e.Data.ChangeData.Action;
             if (action == AdvancedToolsActions.EXTEND ||
-                action == AdvancedToolsActions.COPY)
+                action == AdvancedToolsActions.COPY ||
+                action == AdvancedToolsActions.MOVE)
             {
                 foreach (var item in changedData)
                 {
                     item.BackColor = Color.Transparent;
                     item.BorderStyle = BorderStyle.None;
-                    RegisterEventsForGameObjectMapping(item);
+                    if (action != AdvancedToolsActions.MOVE)
+                    {
+                        RegisterEventsForGameObjectMapping(item);
+                    }
                 }
             }
             _mapHasUnsavedChanges = true;
@@ -1178,6 +1182,7 @@ namespace KeenReloaded2
 
         private void BtnAdvancedTools_Click(object sender, EventArgs e)
         {
+            this.ClearMapMakerSelection();
            AdvancedToolsForm advancedToolsForm = new AdvancedToolsForm(_mapMakerObjects);
            var dialogResult = advancedToolsForm.ShowDialog();
         }
