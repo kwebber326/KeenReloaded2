@@ -18,6 +18,8 @@ namespace KeenReloaded2.Constants
         public static class Sounds
         {
             public const string KEEN4_SHOOT = "ck4patch_keen_shoot.wav";
+            public const string KEEN_JUMP = "Keen_Jump.wav";
+            public const string KEEN_POINT_ACQUIRED = "Keen_point_acquire.wav";
         }
 
         public const string AREA_PROPERTY_NAME = "area";
