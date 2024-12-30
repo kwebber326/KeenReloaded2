@@ -59,6 +59,8 @@ namespace KeenReloaded2.Constants
             public const string EVENT_ADVANCED_TOOLS_ACTION_PREVIEW = "[Advanced Tools]actionPreview";
             public const string EVENT_ADVANCED_TOOLS_ACTION_UNDO = "[Advanced Tools]actionUndo";
             public const string EVENT_ADVANCED_TOOLS_ACTION_CANCEL = "[Advanced Tools]actionCancel";
+            //music and sounds
+            public const string EVENT_SOUND_PLAY = "playSound";
         }
     }
 }
