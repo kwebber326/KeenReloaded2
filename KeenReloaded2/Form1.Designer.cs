@@ -33,6 +33,7 @@ namespace KeenReloaded2
             this.pnlGameWindow = new System.Windows.Forms.Panel();
             this.pbGameImage = new System.Windows.Forms.PictureBox();
             this.inventoryPanel1 = new KeenReloaded2.UserControls.InventoryPanel.InventoryPanel();
+            this.soundPlayer1 = new KeenReloaded2.UserControls.MusicAndSound.SoundPlayer();
             this.pnlGameWindow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbGameImage)).BeginInit();
             this.SuspendLayout();
@@ -65,11 +66,20 @@ namespace KeenReloaded2
             this.inventoryPanel1.Size = new System.Drawing.Size(605, 1471);
             this.inventoryPanel1.TabIndex = 1;
             // 
+            // soundPlayer1
+            // 
+            this.soundPlayer1.Location = new System.Drawing.Point(366, 203);
+            this.soundPlayer1.Name = "soundPlayer1";
+            this.soundPlayer1.Size = new System.Drawing.Size(150, 150);
+            this.soundPlayer1.TabIndex = 3;
+            this.soundPlayer1.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2178, 1474);
+            this.Controls.Add(this.soundPlayer1);
             this.Controls.Add(this.pnlGameWindow);
             this.Controls.Add(this.inventoryPanel1);
             this.KeyPreview = true;
@@ -92,6 +102,7 @@ namespace KeenReloaded2
         private UserControls.InventoryPanel.InventoryPanel inventoryPanel1;
         private Panel pnlGameWindow;
         private PictureBox pbGameImage;
+        private UserControls.MusicAndSound.SoundPlayer soundPlayer1;
     }
 }
 

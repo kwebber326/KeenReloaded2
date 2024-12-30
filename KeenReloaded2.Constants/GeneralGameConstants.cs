@@ -15,6 +15,11 @@ namespace KeenReloaded2.Constants
             public const string EPISODE_6 = "Aliens Ate My Babysitter";
         }
 
+        public static class Sounds
+        {
+            public const string KEEN4_SHOOT = "ck4patch_keen_shoot.wav";
+        }
+
         public const string AREA_PROPERTY_NAME = "area";
         public const string SPACE_HASH_GRID_PROPERTY_NAME = "grid";
         public const string HITBOX_PROPERTY_NAME = "hitbox";

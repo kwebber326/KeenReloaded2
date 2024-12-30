@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonGameFunctions.cs" />
+    <Compile Include="ControlEventArgs.cs" />
+    <Compile Include="EventStore.cs" />
     <Compile Include="FileIOUtility.cs" />
     <Compile Include="InputValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -54,7 +54,6 @@
     </Compile>
     <Compile Include="ControlEventArgs\AreaControlEventArgs.cs" />
     <Compile Include="ControlEventArgs\CharacterSelectControlEventArgs.cs" />
-    <Compile Include="ControlEventArgs\ControlEventArgs.cs" />
     <Compile Include="ControlEventArgs\EventStoreData\ActivatorSelectionChangedEventArgs.cs" />
     <Compile Include="ControlEventArgs\EventStoreData\ActivatorSelectionCompletedEventArgs.cs" />
     <Compile Include="ControlEventArgs\EventStoreData\AdvancedToolsEventArgs.cs" />
@@ -316,7 +315,6 @@
     <Compile Include="UserControls\MusicAndSound\SoundPlayer.Designer.cs">
       <DependentUpon>SoundPlayer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utilities\EventStore.cs" />
     <Compile Include="Utilities\Extensions\RectangleExtensions.cs" />
     <Compile Include="Utilities\HighScoreFactory\CTFHighScoreUtility.cs" />
     <Compile Include="Utilities\HighScoreFactory\HighScoreFactory.cs" />

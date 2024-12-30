@@ -3,9 +3,6 @@ keen5_background_omegamatic_blue1|0|0|1500|1500|keen5_background_omegamatic_blue
 keen5_floor_black_floor_edge_left|110|588|72|64|10
 keen5_floor_black_middle|182|588|48|64|10
 keen5_floor_black_middle|230|588|48|64|10
-keen5_floor_black_middle|278|588|48|64|10
-keen5_floor_black_middle|326|588|48|64|10
-keen5_floor_black_middle|374|588|48|64|10
 keen5_floor_black_middle|422|588|48|64|10
 keen5_floor_black_middle|470|588|48|64|10
 keen5_floor_black_middle|518|588|48|64|10
@@ -22,6 +19,9 @@ keen5_wall_black_middle|121|424|64|64|10
 keen5_wall_black_edge_left|831|552|64|64|10
 keen5_wall_black_middle|831|488|64|64|10
 keen5_wall_black_middle|831|424|64|64|10
+keen5_floor_black_middle|278|588|48|64|10
+keen5_floor_black_middle|326|588|48|64|10
+keen5_floor_black_middle|374|588|48|64|10
 keen_stand_right|229|507|26|64|RIGHT
 keen6_orbatrix_look_right1|670|536|72|32|25
 neural_stunner1|276|520|30|22|50|100
