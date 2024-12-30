@@ -31,7 +31,9 @@
             this.pnlMenuOptions = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pbCharacter = new System.Windows.Forms.PictureBox();
+            this.chkSounds = new System.Windows.Forms.CheckBox();
             this.characterSelectControl1 = new KeenReloaded2.UserControls.MainMenuControls.CharacterSelectControl();
+            this.chkMusic = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbCharacter)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,6 +67,20 @@
             this.pbCharacter.TabIndex = 2;
             this.pbCharacter.TabStop = false;
             // 
+            // chkSounds
+            // 
+            this.chkSounds.AutoSize = true;
+            this.chkSounds.BackColor = System.Drawing.Color.Transparent;
+            this.chkSounds.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkSounds.ForeColor = System.Drawing.Color.YellowGreen;
+            this.chkSounds.Location = new System.Drawing.Point(12, 283);
+            this.chkSounds.Name = "chkSounds";
+            this.chkSounds.Size = new System.Drawing.Size(120, 29);
+            this.chkSounds.TabIndex = 4;
+            this.chkSounds.Text = "Sounds";
+            this.chkSounds.UseVisualStyleBackColor = false;
+            this.chkSounds.CheckedChanged += new System.EventHandler(this.ChkSounds_CheckedChanged);
+            // 
             // characterSelectControl1
             // 
             this.characterSelectControl1.BackColor = System.Drawing.Color.Transparent;
@@ -73,6 +89,20 @@
             this.characterSelectControl1.Size = new System.Drawing.Size(224, 233);
             this.characterSelectControl1.TabIndex = 3;
             // 
+            // chkMusic
+            // 
+            this.chkMusic.AutoSize = true;
+            this.chkMusic.BackColor = System.Drawing.Color.Transparent;
+            this.chkMusic.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkMusic.ForeColor = System.Drawing.Color.YellowGreen;
+            this.chkMusic.Location = new System.Drawing.Point(12, 318);
+            this.chkMusic.Name = "chkMusic";
+            this.chkMusic.Size = new System.Drawing.Size(102, 29);
+            this.chkMusic.TabIndex = 5;
+            this.chkMusic.Text = "Music";
+            this.chkMusic.UseVisualStyleBackColor = false;
+            this.chkMusic.CheckedChanged += new System.EventHandler(this.ChkMusic_CheckedChanged);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -80,6 +110,8 @@
             this.BackgroundImage = global::KeenReloaded2.Properties.Resources.keen4_living_tree_background2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1100, 772);
+            this.Controls.Add(this.chkMusic);
+            this.Controls.Add(this.chkSounds);
             this.Controls.Add(this.characterSelectControl1);
             this.Controls.Add(this.pbCharacter);
             this.Controls.Add(this.label1);
@@ -105,5 +137,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbCharacter;
         private UserControls.MainMenuControls.CharacterSelectControl characterSelectControl1;
+        private System.Windows.Forms.CheckBox chkSounds;
+        private System.Windows.Forms.CheckBox chkMusic;
     }
 }

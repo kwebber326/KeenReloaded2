@@ -42,5 +42,16 @@ namespace KeenReloaded2.Utilities
                 Listeners.Add(eventName, new List<EventHandler<ControlEventArgs.ControlEventArgs<T>>>() { callback });
             }
         }
+
+        public static void UnSubscribe(string eventName, EventHandler<ControlEventArgs.ControlEventArgs<T>> callback)
+        {
+            if (Listeners == null || callback?.Method == null)
+                return;
+
+            if (Listeners.TryGetValue(eventName, out List<EventHandler<ControlEventArgs.ControlEventArgs<T>>> callbackList))
+            {
+                callbackList.RemoveAll(c => c.Method.DeclaringType == callback.Method.DeclaringType);
+            }
+        }
     }
 }

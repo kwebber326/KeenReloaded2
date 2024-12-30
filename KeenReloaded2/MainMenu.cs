@@ -34,6 +34,12 @@ namespace KeenReloaded2
         }
 
         #region helper methods
+        private void InitializeAudioSettings()
+        {
+            AudioSettings settings = FileIOUtility.LoadAudioSettings();
+            chkSounds.Checked = settings.Sounds;
+            chkMusic.Checked = settings.Music;
+        }
 
         private void InitializeCharacterSelect()
         {
@@ -128,9 +134,29 @@ namespace KeenReloaded2
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
+        private void SaveAudioSettings()
+        {
+            AudioSettings settings = new AudioSettings()
+            {
+                Sounds = chkSounds.Checked,
+                Music = chkMusic.Checked
+            };
+            FileIOUtility.SaveAudioSettings(settings);
+        }
+
         #endregion
 
         #region events
+
+        private void ChkSounds_CheckedChanged(object sender, EventArgs e)
+        {
+            SaveAudioSettings();
+        }
+
+        private void ChkMusic_CheckedChanged(object sender, EventArgs e)
+        {
+            SaveAudioSettings();
+        }
 
         private void BtnRandomCharacter_Click(object sender, EventArgs e)
         {
@@ -141,6 +167,7 @@ namespace KeenReloaded2
         {
             ConstructMenu();
             InitializeCharacterSelect();
+            InitializeAudioSettings();
         }
 
         private void Option_MenuItemSelected(object sender, ControlEventArgs.MainMenuOptionEventArgs e)
@@ -201,8 +228,9 @@ namespace KeenReloaded2
                 FileIOUtility.SaveCharacterSelection(characterName);
         }
 
-        #endregion
 
+
+        #endregion
 
     }
 }

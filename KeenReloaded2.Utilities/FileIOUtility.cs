@@ -12,7 +12,9 @@ namespace KeenReloaded2.Utilities
     public static class FileIOUtility
     {
         public const string SAVED_CHARACTER_FILE_NAME = "SavedCharacter.txt";
+        public const string AUDIO_SETTINGS_FILE_NAME = "AudioSettings.txt";
         public const string HIGH_SCORE_FOLDER = "HighScores";
+        
         public static string LoadSavedCharacterSelection()
         {
             string characterName = null;
@@ -48,6 +50,59 @@ namespace KeenReloaded2.Utilities
                 Debug.WriteLine(ex);
             }
             return false;
+        }
+
+        public static bool SaveAudioSettings(AudioSettings settings)
+        {
+            try
+            {
+                if (settings == null)
+                    return false;
+
+                string path = System.Environment.CurrentDirectory + "/" + AUDIO_SETTINGS_FILE_NAME;
+
+                if (File.Exists(path))
+                    File.WriteAllText(path, string.Empty);
+
+                using (FileStream fs = File.OpenWrite(path))
+                using (StreamWriter writer = new StreamWriter(fs))
+                {
+                    writer.WriteLine($"Sounds|{settings.Sounds}");
+                    writer.WriteLine($"Music|{settings.Music}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            return false;
+        }
+
+        public static AudioSettings LoadAudioSettings()
+        {
+            AudioSettings settings = new AudioSettings();
+            try
+            {
+                string path = System.Environment.CurrentDirectory + "/" + AUDIO_SETTINGS_FILE_NAME;
+                if (!File.Exists(path))
+                    File.Create(path);
+
+                using (FileStream fs = File.OpenRead(path))
+                using (StreamReader reader = new StreamReader(fs))
+                {
+                    string line1 = reader.ReadLine();
+                    string line2 = reader.ReadLine();
+                    string soundsStr = line1?.Split(MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR[0])[1];
+                    string musicStr = line2?.Split(MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR[0])[1];
+                    settings.Sounds = bool.Parse(soundsStr);
+                    settings.Music = bool.Parse(musicStr);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            return settings;
         }
 
         public static bool SaveMap(string filePath, string fileData)

@@ -20,7 +20,11 @@ namespace KeenReloaded2.UserControls.MusicAndSound
         public SoundPlayer()
         {
             InitializeComponent();
-            EventStore<string>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
+            AudioSettings settings = FileIOUtility.LoadAudioSettings();
+            if (settings.Sounds)
+                EventStore<string>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
+            else
+                EventStore<string>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
         }
 
         public const string SOUNDS_FOLDER = "Sounds";
@@ -28,7 +32,7 @@ namespace KeenReloaded2.UserControls.MusicAndSound
 
         private void SoundPlayer_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         protected void Sound_Play(object sender, ControlEventArgs<string> eventArgs)
