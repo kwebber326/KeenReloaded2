@@ -48,8 +48,10 @@ namespace KeenReloaded2.UserControls.MusicAndSound
             Thread thread = new Thread(new ThreadStart(() =>
             {
                 string path = Path.Combine(SOUNDS_PATH, soundName);
-                System.Media.SoundPlayer player = new System.Media.SoundPlayer(path);
-                player.Play();
+                using (System.Media.SoundPlayer player = new System.Media.SoundPlayer(path))
+                {
+                    player.Play();
+                }
             }));
             thread.Start();
         }

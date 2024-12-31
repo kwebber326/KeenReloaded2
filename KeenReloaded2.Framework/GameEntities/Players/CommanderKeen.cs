@@ -936,6 +936,8 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             {
                 PointItem bonus = item as PointItem;
                 GivePoints(bonus.PointValue);
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.KEEN_POINT_ACQUIRED);
             }
             else if (item is KeyCard)
             {
