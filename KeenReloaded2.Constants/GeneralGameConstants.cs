@@ -33,6 +33,8 @@ namespace KeenReloaded2.Constants
             public const string KEEN_1UP = "keen4_1up.wav";
             public const string RPG_FIRE = "RPG_fire.wav";
             public const string RPG_EXPLOSION = "RPG_explosion.wav";
+            public const string SNAKE_GUN_FIRE = "snake_gun_fire.wav";
+            public const string SNAKE_GUN_CHAIN_EXPLOSION = "snake_gun_chain_explosion.wav";
             public const string SQUASH = "squash.wav";
             public const string KEEN_TOGGLE_SWITCH = "keen_toggle_switch.wav";
         }
