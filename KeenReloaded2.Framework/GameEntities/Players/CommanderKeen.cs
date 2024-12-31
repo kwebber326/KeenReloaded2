@@ -758,7 +758,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     //perform hang only if falling and colliding a wall keen is a higher y position than
                     if (obj.HitBox.Y > this.HitBox.Y)
                     {
-                        int xOffsetWallCollide = this.Direction == Direction.LEFT 
+                        int xOffsetWallCollide = this.Direction == Direction.LEFT
                             ? obj.HitBox.Right - this.HitBox.Width : obj.HitBox.Left + this.HitBox.Width;
                         Rectangle areaToCheck = new Rectangle(xOffsetWallCollide, obj.HitBox.Y - this.HitBox.Height, this.HitBox.Width, this.HitBox.Height);
                         var collisionWalls = obj.CheckCollision(areaToCheck).Where(c => c.CollisionType == CollisionType.BLOCK);
@@ -906,14 +906,18 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 {
                     CreateWeaponAndSetToCurrentWeapon(ammoAmmount, item);
                 }
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
-                    GeneralGameConstants.Sounds.KEEN_WEAPON_ACQUIRED);
+                if (!this.IsDead())
+                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                        GeneralGameConstants.Sounds.KEEN_WEAPON_ACQUIRED);
             }
             else if (item is Gem)
             {
                 var gem = item as Gem;
                 _gems.Add(gem);
                 OnKeenAcquiredItem(new ItemAcquiredEventArgs() { Item = gem });
+                if (!this.IsDead())
+                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                        GeneralGameConstants.Sounds.KEEN_GEM_ACQUIRED);
             }
             else if (item is Flag)
             {
@@ -925,8 +929,9 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             {
                 IDropCollector drop = item as IDropCollector;
                 this.Drops += drop.DropVal;
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
-                    GeneralGameConstants.Sounds.KEEN_LIFE_DROP_ACQUIRED);
+                if (!this.IsDead())
+                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                        GeneralGameConstants.Sounds.KEEN_LIFE_DROP_ACQUIRED);
                 if (_drops >= DROPS_TO_EXTRA_LIFE)
                 {
                     this.Drops = 0;
@@ -941,8 +946,9 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             {
                 PointItem bonus = item as PointItem;
                 GivePoints(bonus.PointValue);
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
-                    GeneralGameConstants.Sounds.KEEN_POINT_ACQUIRED);
+                if (!this.IsDead())
+                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                        GeneralGameConstants.Sounds.KEEN_POINT_ACQUIRED);
             }
             else if (item is KeyCard)
             {
@@ -1256,6 +1262,9 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         private void GiveExtraLife()
         {
             this.Lives++;
+            if (!this.IsDead())
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.KEEN_1UP);
         }
 
         private void Climb()
@@ -2134,7 +2143,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         {
             if (this.CurrentWeapon != null && _weapons.Any(w => w.Ammo > 0))
             {
-                
+
                 int index = _weapons.IndexOf(this.CurrentWeapon);
                 do
                 {
@@ -2491,11 +2500,11 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         {
             UpdateCollisionNodes(this.Direction);
             var collisionItems = this.CheckCollision(this.HitBox);
-            if (_hangTile != null && collisionItems.Any(c => c.CollisionType == CollisionType.BLOCK 
+            if (_hangTile != null && collisionItems.Any(c => c.CollisionType == CollisionType.BLOCK
                 && c.HitBox.Y != _hangTile.HitBox.Y))
             {
                 var climbCollisions = collisionItems.Where(c => c.CollisionType == CollisionType.BLOCK
-                    &&c.HitBox.Y != _hangTile.HitBox.Y).ToList();
+                    && c.HitBox.Y != _hangTile.HitBox.Y).ToList();
                 if (this.Direction == Direction.LEFT)
                 {
                     int maxX = climbCollisions.Select(c => c.HitBox.Right).Max();

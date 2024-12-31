@@ -29,6 +29,12 @@ namespace KeenReloaded2.Constants
             public const string KEY_GATE_OPEN = "key_gate_open.wav";
             public const string KEEN_DIE = "keen_die.wav";
             public const string LASER_TURRET_SHOT = "turret_shot.wav";
+            public const string KEEN_GEM_ACQUIRED = "Keen_gem_acquired.wav";
+            public const string KEEN_1UP = "keen4_1up.wav";
+            public const string RPG_FIRE = "RPG_fire.wav";
+            public const string RPG_EXPLOSION = "RPG_explosion.wav";
+            public const string SQUASH = "squash.wav";
+            public const string KEEN_TOGGLE_SWITCH = "keen_toggle_switch.wav";
         }
 
         public const string AREA_PROPERTY_NAME = "area";

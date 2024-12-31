@@ -10,6 +10,7 @@ using KeenReloaded.Framework;
 using KeenReloaded2.Framework.GameEventArgs;
 using System.Timers;
 using KeenReloaded2.Constants;
+using KeenReloaded2.Utilities;
 
 namespace KeenReloaded2.Framework.GameEntities.Constructs
 {
@@ -72,6 +73,8 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                 UpdateSprite();
                 UpdateToggleObjects();
                 DelayToggleAbility();
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.KEEN_TOGGLE_SWITCH);
             }
         }
 

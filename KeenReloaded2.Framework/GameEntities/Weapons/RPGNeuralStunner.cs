@@ -1,6 +1,8 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.GameEntities.Projectiles;
 using KeenReloaded2.Framework.GameEventArgs;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -58,6 +60,8 @@ namespace KeenReloaded2.Framework.GameEntities.Weapons
                     }
                 }
                 _currentRefireDelayTick = REFIRE_DELAY;
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.RPG_FIRE);
             }
         }
 
