@@ -6,6 +6,7 @@ using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.Projectiles;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -587,6 +588,9 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             fragment6.Remove += new EventHandler<ObjectEventArgs>(fragment_Remove);
 
             OnCreate(new ObjectEventArgs() { ObjectSprite = fragment6 });
+
+            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                GeneralGameConstants.Sounds.SHIKADI_MINE_EXPLODE);
         }
 
         void fragment_Remove(object sender, ObjectEventArgs e)

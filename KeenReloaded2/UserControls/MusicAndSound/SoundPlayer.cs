@@ -40,20 +40,19 @@ namespace KeenReloaded2.UserControls.MusicAndSound
             this.PlaySound(eventArgs.Data);
         }
 
-        public void PlaySound(string soundName)
+        public async void PlaySound(string soundName)
         {
             if (String.IsNullOrWhiteSpace(soundName))
                 return;
 
-            Thread thread = new Thread(new ThreadStart(() =>
+            await Task.Run(() => 
             {
                 string path = Path.Combine(SOUNDS_PATH, soundName);
                 using (System.Media.SoundPlayer player = new System.Media.SoundPlayer(path))
                 {
                     player.Play();
                 }
-            }));
-            thread.Start();
+            });
         }
     }
 }

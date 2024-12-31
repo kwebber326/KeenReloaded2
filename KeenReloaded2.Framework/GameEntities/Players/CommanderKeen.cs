@@ -904,7 +904,8 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 {
                     CreateWeaponAndSetToCurrentWeapon(ammoAmmount, item);
                 }
-
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.KEEN_WEAPON_ACQUIRED);
             }
             else if (item is Gem)
             {
@@ -1368,12 +1369,6 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         public void Jump()
         {
             //1. set movestate to jumping to update sprites
-            if (this.MoveState != MoveState.JUMPING)
-            {
-                EventStore<string>.Publish(
-                    MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
-                    GeneralGameConstants.Sounds.KEEN_JUMP);
-            }
             this.MoveState = Enums.MoveState.JUMPING;
             //2. check for collisions above
             Rectangle areaToCheck = new Rectangle(this.HitBox.Left, this.HitBox.Top - JUMP_VELOCITY, this.HitBox.Width, JUMP_VELOCITY);
