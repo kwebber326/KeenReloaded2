@@ -1,4 +1,5 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Hazards;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
@@ -640,6 +641,8 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 OnCreate(e);
                 _exploded = true;
                 OnRemove(new ObjectEventArgs() { ObjectSprite = this });
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.BOOBUS_BOMB_EXPLODE);
             }
         }
 

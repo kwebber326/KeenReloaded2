@@ -22,6 +22,11 @@ namespace KeenReloaded2.Constants
             public const string KEEN_POINT_ACQUIRED = "Keen_point_acquire.wav";
             public const string KEEN_WEAPON_ACQUIRED = "Keen_weapon_acquired.wav";
             public const string SHIKADI_MINE_EXPLODE = "shikadi_mine_explode.wav";
+            public const string POISON_SLUG_POOP = "slug_poop.wav";
+            public const string KEEN_LIFE_DROP_ACQUIRED = "Keen_life_drop_acquired.wav";
+            public const string RAIL_GUN_SHOT = "rail_gun_shot.wav";
+            public const string BOOBUS_BOMB_EXPLODE = "boobus_bomb_explode.wav";
+            public const string KEY_GATE_OPEN = "key_gate_open.wav";
         }
 
         public const string AREA_PROPERTY_NAME = "area";

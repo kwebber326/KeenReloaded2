@@ -923,6 +923,8 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             {
                 IDropCollector drop = item as IDropCollector;
                 this.Drops += drop.DropVal;
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.KEEN_LIFE_DROP_ACQUIRED);
                 if (_drops >= DROPS_TO_EXTRA_LIFE)
                 {
                     this.Drops = 0;
