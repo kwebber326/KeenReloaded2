@@ -27,6 +27,8 @@ namespace KeenReloaded2.Constants
             public const string RAIL_GUN_SHOT = "rail_gun_shot.wav";
             public const string BOOBUS_BOMB_EXPLODE = "boobus_bomb_explode.wav";
             public const string KEY_GATE_OPEN = "key_gate_open.wav";
+            public const string KEEN_DIE = "keen_die.wav";
+            public const string LASER_TURRET_SHOT = "turret_shot.wav";
         }
 
         public const string AREA_PROPERTY_NAME = "area";

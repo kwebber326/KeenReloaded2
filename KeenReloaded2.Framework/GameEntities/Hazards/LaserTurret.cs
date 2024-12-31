@@ -6,6 +6,7 @@ using KeenReloaded2.Framework.GameEntities.Projectiles;
 using KeenReloaded2.Framework.GameEntities.Tiles.Platforms;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -120,6 +121,8 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
                 ObjectSprite = projectile
             };
             OnCreate(e);
+            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                GeneralGameConstants.Sounds.LASER_TURRET_SHOT);
         }
 
         void trajectory_Remove(object sender, ObjectEventArgs e)

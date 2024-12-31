@@ -714,6 +714,8 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 {
                     _shield.Depleted -= _shield_Depleted;
                 }
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.KEEN_DIE);
             }
         }
 
