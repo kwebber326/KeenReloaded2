@@ -135,9 +135,7 @@ random_item_generator_closed|199|217|124|92|18|100
 enemy_spawner1|466|1171|92|94|18|[ShikadiMine]|1|20|100
 keen_stand_right|400|450|26|64|RIGHT
 keen5_key_card1|1332|254|24|28
-keen5_shockshund_look1|990|1080|48|32|25
-keen5_shockshund_look1|1095|1077|48|32|25
-keen5_shockshund_look1|1185|1089|48|32|25
+keen4_mine|456|607|46|46|LEFT|400|600|300|300|20
 keen6_bip_left1|331|502|16|16|25
 keen6_bip_ship_right|1109|848|62|32|25
 keen4_berkeloid_move_left4|691|1268|58|86|25

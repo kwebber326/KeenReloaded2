@@ -6,6 +6,7 @@ using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.Tiles;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -76,6 +77,8 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         {
             _exploded = true;
             _explosionState = ExplosionState.EXPLODING;
+            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                GeneralGameConstants.Sounds.KEEN4_MINE_EXPLODE);
         }
 
         protected void OnRemoved()
