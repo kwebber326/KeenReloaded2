@@ -485,6 +485,10 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         private const int STUN_TIME = 15;
         private int _stunTimeTick;
 
+        private bool _failedExitDoorAccess;
+        private const int FAILED_ACCESS_WAIT_TIME = 10;
+        private int _failedAccessSoundDelayTick;
+
         private const int VELOCITY = 15;
         private const int FALL_ACCELLERATION = 15;
         private const int INITIAL_FALL_VELOCITY = 0;
@@ -953,6 +957,8 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             else if (item is KeyCard)
             {
                 this.HasKeyCard = true;
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.KEEN_KEY_CARD_ACQUIRED);
             }
             else if (item is Shield)
             {
@@ -1870,6 +1876,11 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         {
             if (!this.IsDead())
             {
+                if (_failedExitDoorAccess && _failedAccessSoundDelayTick++ >= FAILED_ACCESS_WAIT_TIME)
+                {
+                    _failedExitDoorAccess = false;
+                    _failedAccessSoundDelayTick = 0;
+                }
                 if (this.HitBox.Top > _collisionGrid.Size.Height)
                 {
                     this.Die();
@@ -2238,6 +2249,15 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                         this.HitBox.Width, this.HitBox.Height);
                     this.UpdateCollisionNodes(this.Direction);
                     this.MoveState = Enums.MoveState.ENTERING_DOOR;
+                }
+                else if ((_currentDoor is ExitDoor) && !_hasKeyCard)
+                {
+                    if (!_failedExitDoorAccess)
+                    {
+                        EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                            GeneralGameConstants.Sounds.KEEN_ACCESS_DENIED);
+                        _failedExitDoorAccess = true;
+                    }
                 }
             }
             else if (CanKeenGrabPole())

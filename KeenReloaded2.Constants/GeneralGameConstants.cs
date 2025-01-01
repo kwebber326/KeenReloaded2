@@ -37,6 +37,9 @@ namespace KeenReloaded2.Constants
             public const string SNAKE_GUN_CHAIN_EXPLOSION = "snake_gun_chain_explosion.wav";
             public const string SQUASH = "squash.wav";
             public const string KEEN_TOGGLE_SWITCH = "keen_toggle_switch.wav";
+            public const string KEEN_KEY_CARD_ACQUIRED = "key_card_acquired.wav";
+            public const string KEEN5_EXIT_DOOR_OPEN = "keen5_exit_door_open.wav";
+            public const string KEEN_ACCESS_DENIED = "keen_access_denied.wav";
         }
 
         public const string AREA_PROPERTY_NAME = "area";

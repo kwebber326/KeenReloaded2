@@ -74,3 +74,14 @@ C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\obj\Debug\KeenReloaded2.
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\obj\Debug\Interop.MediaPlayer.dll
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\obj\Debug\KeenReloaded2.csproj.ResolveComReference.cache
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\obj\Debug\KeenReloaded2.UserControls.MusicAndSound.SoundPlayer.resources
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\bin\Debug\SharpDX.Direct3D11.dll
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\bin\Debug\SharpDX.dll
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\bin\Debug\SharpDX.DXGI.dll
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\bin\Debug\SharpDX.XAudio2.dll
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\bin\Debug\SharpDX.pdb
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\bin\Debug\SharpDX.Direct3D11.pdb
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\bin\Debug\SharpDX.Direct3D11.xml
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\bin\Debug\SharpDX.DXGI.pdb
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\bin\Debug\SharpDX.DXGI.xml
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\bin\Debug\SharpDX.XAudio2.pdb
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\bin\Debug\SharpDX.XAudio2.xml

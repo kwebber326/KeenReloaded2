@@ -2,6 +2,7 @@
 using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -44,6 +45,8 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         public void Open()
         {
             _isOpening = true;
+            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                GeneralGameConstants.Sounds.KEEN5_EXIT_DOOR_OPEN);
         }
 
         public void Update()
