@@ -127,6 +127,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     LightningBolt bolt = new LightningBolt(_collisionGrid, new Rectangle(this.HitBox.X + 32, this.HitBox.Bottom - 16, 48, 142), this.ZIndex - 1);
                     bolt.Removed += new EventHandler<ObjectEventArgs>(bolt_Removed);
                     OnBoltCreated(bolt);
+                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                        GeneralGameConstants.Sounds.THUNDER);
                 }
             }
         }
