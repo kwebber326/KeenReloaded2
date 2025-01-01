@@ -7,6 +7,7 @@ using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.Projectiles;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -523,6 +524,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             var argsKilled = new ObjectEventArgs() { ObjectSprite = this };
             OnRemove(argsKilled);
             OnKilled();
+            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                GeneralGameConstants.Sounds.SHELLEY_EXPLOSION);
         }
 
 

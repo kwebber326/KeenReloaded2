@@ -1,9 +1,11 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -16,7 +18,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
     public class StraightShotProjectile : CollisionObject, IProjectile, ISprite, IUpdatable, ICreateRemove
     {
         private Image _sprite;
-        private EnemyProjectileType _trajectoryType;
+        private EnemyProjectileType _projectileType;
         private Enums.Direction _direction;
         protected int _damage;
         protected int _velocity;
@@ -33,18 +35,19 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         private int _currentCompleteSprite;
         private int _currentSpriteDelay;
         private int UPDATE_SPRITE_DELAY = 1;
+        private string _impactSound;
 
         public StraightShotProjectile(SpaceHashGrid grid, Rectangle hitbox, Direction direction, EnemyProjectileType projectileType)
             : base(grid, hitbox)
         {
             this.Direction = direction;
-            _trajectoryType = projectileType;
+            _projectileType = projectileType;
             Initialize();
         }
 
         private void Initialize()
         {
-            InitializeTrajectories();
+            InitializeProjectile();
         }
 
         protected virtual void HandleCollision(CollisionObject obj)
@@ -134,12 +137,17 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         public virtual void Stop()
         {
             _shotComplete = true;
+            if (!string.IsNullOrEmpty(_impactSound))
+            {
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    _impactSound);
+            }
             UpdateSprite();
         }
 
-        protected virtual void InitializeTrajectories()
+        protected virtual void InitializeProjectile()
         {
-            switch (_trajectoryType)
+            switch (_projectileType)
             {
                 case EnemyProjectileType.KEEN4_SPRITE_SHOT:
                     UPDATE_SPRITE_DELAY = 0;
@@ -170,6 +178,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     _refireDelay = -1;
                     _spread = 0;
                     _blastRadius = 0;
+                    _impactSound = GeneralGameConstants.Sounds.LASER_TURRET_HIT;
                     _shotSprites = new Image[]
                     {
                         Properties.Resources.keen5_turret_laser1,
@@ -192,6 +201,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     _refireDelay = -1;
                     _spread = 3;
                     _blastRadius = 0;
+                    _impactSound = GeneralGameConstants.Sounds.LASER_TURRET_HIT;
                     _shotSprites = new Image[]
                     {
                         Properties.Resources.keen5_robo_red_shot1,

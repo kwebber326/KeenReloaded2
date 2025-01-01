@@ -8,6 +8,7 @@ using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.Projectiles;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -90,6 +91,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     _currentVerticalVelocity = DIRECTION_CHANGE_VELOCITY * -1;
                     _changingGravity = true;
                 }
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.SPINDRED_BOUNCE);
             }
             else
             {
@@ -147,6 +150,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     _currentVerticalVelocity = DIRECTION_CHANGE_VELOCITY;
                     _changingGravity = true;
                 }
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.SPINDRED_BOUNCE);
             }
             else
             {
