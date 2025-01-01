@@ -7,6 +7,7 @@ using KeenReloaded2.Framework.GameEntities.Items.WeaponsAmmo;
 using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -267,6 +268,8 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             if (this.State != RandomWeaponGeneratorState.DISPENSING_WEAPON)
             {
                 this.State = RandomWeaponGeneratorState.DISPENSING_WEAPON;
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.RANDOM_WEAPON_GENERATOR_DOOR_OPEN);
                 _currentSpriteChangeDelayTick = 0;
                 _currentSprite = 1;
             }
