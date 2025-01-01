@@ -6,6 +6,7 @@ using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -104,6 +105,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         public override void Die()
         {
             this.UpdateStunnedState();
+            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                GeneralGameConstants.Sounds.LITTLE_AMPTON_KILLED);
         }
 
         public void Update()

@@ -38,6 +38,9 @@ namespace KeenReloaded2
         private const int HIGH_SCORE_LENGTH = 8;
         private bool _levelCompleted;
 
+        private const int INITIAL_VIEW_RECT_UPDATES = 3;
+        private int _rectUpdates;
+
         public Form1()
         {
             InitializeComponent();
@@ -186,6 +189,12 @@ namespace KeenReloaded2
 
         private void _gameUpdateTimer_Tick(object sender, EventArgs e)
         {
+            if (_rectUpdates <= INITIAL_VIEW_RECT_UPDATES)
+            {
+                UpdateViewRectangle();
+                _rectUpdates++;
+            }
+
             if (!_paused && !_levelCompleted)
             {
                 pbGameImage.Image = _game.UpdateGame();
