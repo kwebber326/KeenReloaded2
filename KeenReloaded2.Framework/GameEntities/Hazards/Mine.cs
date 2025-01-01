@@ -77,8 +77,12 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         {
             _exploded = true;
             _explosionState = ExplosionState.EXPLODING;
+            int rand = this.GenerateRandomInteger(0, 1);
+            string sound = rand == 0
+                ? GeneralGameConstants.Sounds.KEEN4_MINE_EXPLODE
+                : GeneralGameConstants.Sounds.KEEN4_MINE_EXPLODE2;
             EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
-                GeneralGameConstants.Sounds.KEEN4_MINE_EXPLODE);
+                sound);
         }
 
         protected void OnRemoved()

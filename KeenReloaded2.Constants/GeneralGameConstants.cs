@@ -57,6 +57,7 @@ namespace KeenReloaded2.Constants
             public const string SHIKADI_MASTER_SHOCKWAVE = "Shikadi_Master_shockwave.wav";
             public const string WORMMOUTH_ATTACK = "wormmouth_attack.wav";
             public const string KEEN4_MINE_EXPLODE = "keen4_mine_explode.wav";
+            public const string KEEN4_MINE_EXPLODE2 = "keen4_mine_explode2.wav";
         }
 
         public const string AREA_PROPERTY_NAME = "area";
