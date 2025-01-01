@@ -179,6 +179,8 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     }
                 }
                 _collided = true;
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                 GeneralGameConstants.Sounds.BERKELOID_FIRE_HIT);
             }
             else
             {
@@ -197,6 +199,8 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         public void Stop()
         {
             _collided = true;
+            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                GeneralGameConstants.Sounds.BERKELOID_FIRE_HIT);
         }
 
         public MoveState MoveState

@@ -59,6 +59,9 @@ namespace KeenReloaded2.Constants
             public const string KEEN4_MINE_EXPLODE = "keen4_mine_explode.wav";
             public const string KEEN4_MINE_EXPLODE2 = "keen4_mine_explode2.wav";
             public const string THUNDER = "thunder.wav";
+            public const string BERKELOID_FIRE_HIT = "berkeloid_fire_hit.wav";
+            public const string GNOSTICENE_ANCIENT_ITEM_STEAL = "gnosticene_ancient_item_steal.wav";
+            public const string GNOSTICENE_ANCIENT_VANISH = "gnosticene_ancient_vanish.wav";
         }
 
         public const string AREA_PROPERTY_NAME = "area";
