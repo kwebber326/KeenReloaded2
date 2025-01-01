@@ -7,6 +7,7 @@ using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.Projectiles;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -210,6 +211,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             if (this.State != SparkyState.CHARGE_LOADING)
             {
                 this.State = SparkyState.CHARGE_LOADING;
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.SPARKY_CHARGE);
                 _currentChargeDelayTick = 0;
             }
 

@@ -47,6 +47,8 @@ namespace KeenReloaded2.Constants
             public const string LASER_TURRET_HIT = "laser_turret_hit.wav";
             public const string SHELLEY_EXPLOSION = "shelley_explode.wav";
             public const string SPINDRED_BOUNCE = "spindred_bounce.wav";
+            public const string SHIKADI_POLE_ELECTRICITY = "shikadi_pole_electricity.wav";
+            public const string SPARKY_CHARGE = "sparky_charge.wav";
         }
 
         public const string AREA_PROPERTY_NAME = "area";
