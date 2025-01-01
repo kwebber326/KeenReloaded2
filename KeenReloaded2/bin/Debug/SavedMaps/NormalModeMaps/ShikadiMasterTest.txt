@@ -22,9 +22,6 @@ keen5_wall_black_edge_left|0|1280|64|64|10
 keen5_wall_black_edge_left|0|1344|64|64|10
 keen5_wall_black_edge_left|0|1408|64|64|10
 keen5_wall_black_edge_left|0|0|64|64|10
-keen5_wall_black_edge_left|1408|704|64|64|10
-keen5_wall_black_edge_left|1408|640|64|64|10
-keen5_wall_black_edge_left|1408|576|64|64|10
 keen5_wall_black_edge_left|1408|512|64|64|10
 keen5_wall_black_edge_left|1408|448|64|64|10
 keen5_wall_black_edge_left|1408|384|64|64|10
@@ -104,5 +101,8 @@ keen5_wall_black_middle|128|1408|64|64|10
 keen5_wall_black_middle|64|1408|64|64|10
 keen5_wall_black_edge_left|0|1088|64|64|10
 keen5_wall_black_edge_left|0|1216|64|64|10
+keen5_wall_black_edge_left|1408|704|64|64|10
+keen5_wall_black_edge_left|1408|640|64|64|10
+keen5_wall_black_edge_left|1408|576|64|64|10
 keen_stand_right|192|1344|26|64|RIGHT
 keen5_shikadi_master_look1|398|412|94|80|25|66|66|1300|1300

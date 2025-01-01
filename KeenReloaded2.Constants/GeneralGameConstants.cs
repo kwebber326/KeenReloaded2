@@ -55,6 +55,7 @@ namespace KeenReloaded2.Constants
             public const string SHIKADI_MASTER_TELEPORT = "Shikadi_Master_Teleport.wav";
             public const string SHIKADI_MASTER_PROJECTILE = "Shikadi_Master_projectile.wav";
             public const string SHIKADI_MASTER_SHOCKWAVE = "Shikadi_Master_shockwave.wav";
+            public const string WORMMOUTH_ATTACK = "wormmouth_attack.wav";
         }
 
         public const string AREA_PROPERTY_NAME = "area";
