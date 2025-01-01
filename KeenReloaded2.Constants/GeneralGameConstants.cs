@@ -49,6 +49,8 @@ namespace KeenReloaded2.Constants
             public const string SPINDRED_BOUNCE = "spindred_bounce.wav";
             public const string SHIKADI_POLE_ELECTRICITY = "shikadi_pole_electricity.wav";
             public const string SPARKY_CHARGE = "sparky_charge.wav";
+            public const string SHOCKSHUND_SHOT = "shockshund_shot.wav";
+            public const string SHOCKSHUND_SHOT_HIT = "shockshund_shot_hit.wav";
         }
 
         public const string AREA_PROPERTY_NAME = "area";

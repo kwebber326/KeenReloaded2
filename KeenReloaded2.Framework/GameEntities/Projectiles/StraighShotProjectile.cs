@@ -222,6 +222,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     _refireDelay = -1;
                     _spread = 0;
                     _blastRadius = 0;
+                    _impactSound = GeneralGameConstants.Sounds.SHOCKSHUND_SHOT_HIT;
                     _shotSprites = new Image[]
                     {
                         Properties.Resources.keen5_shockshund_shot1,
