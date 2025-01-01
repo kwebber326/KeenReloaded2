@@ -1,10 +1,13 @@
 1500|1500
-keen_stand_right|124|280|26|64|RIGHT
+keen4_clear_blue_sky_background|0|0|1500|1500|keen4_clear_blue_sky_background.png|True|0
+keen4_cloud1|75|64|96|64|keen4_cloud1.png|True|1
+keen4_cloud1|790|284|96|64|keen4_cloud1.png|True|1
 keen4_cave_wall_bottom2|104|419|64|32|10
 keen4_cave_wall_bottom2|168|419|64|32|10
 keen4_cave_wall_bottom2|232|419|64|32|10
 mirage_hill4|210|113|324|256|15|[210,500,210,113]|200|60|100|100
 random_mirage_hill|500|521|324|256|15|[400,100,800,100,800,800,400,800]|20|10|100|100
+keen_stand_right|124|280|26|64|RIGHT
 keen5_arrow_right_on|454|43|28|26|keen5_arrow_right_on.png|True|100|[1_keen5_arrow_right_on.png,keen5_arrow_right_off.png]|200
 keen5_arrow_right_off|454|69|28|26|keen5_arrow_right_off.png|True|100|[keen5_arrow_right_off.png,keen5_arrow_right_on.png]|200
 keen5_arrow_down_on|798|63|26|28|keen5_arrow_down_on.png|True|100|[1_keen5_arrow_down_on.png,keen5_arrow_down_off.png]|200

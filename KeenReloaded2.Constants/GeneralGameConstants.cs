@@ -43,6 +43,7 @@ namespace KeenReloaded2.Constants
             public const string KEEN4_EXIT = "keen4_exit.wav";
             public const string BFG_EXPLOSION = "BFG_explosion.wav";
             public const string RANDOM_WEAPON_GENERATOR_DOOR_OPEN = "Random_weapon_generator_door_open.wav";
+            public const string DART_GUN_SHOT = "dart_gun_shot.wav";
         }
 
         public const string AREA_PROPERTY_NAME = "area";
