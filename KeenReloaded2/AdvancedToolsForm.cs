@@ -134,7 +134,7 @@ namespace KeenReloaded2
                 .Values.Where(k => !_previousAdvancedToolsSelection.ContainsKey(k.GetHashCode())).ToList();
             List<GameObjectMapping> deselected = _previousAdvancedToolsSelection
                 .Values.Where(o => !currentObjectsSelected.ContainsKey(o.GetHashCode())).ToList();
-               
+
             if (newlySelected.Any())
             {
                 AdvancedToolsEventArgs eventData = new AdvancedToolsEventArgs()
@@ -216,7 +216,7 @@ namespace KeenReloaded2
 
         private AdvancedToolsActions? GetSelectedAction()
         {
-            var radioButtons = this.Controls.OfType<RadioButton>();
+            var radioButtons = advancedToolsActionRadioList1.Controls.OfType<RadioButton>();
             if (radioButtons.Any())
             {
                 var selectedActionText = radioButtons.FirstOrDefault(f => f.Checked)?.Text;
@@ -231,7 +231,7 @@ namespace KeenReloaded2
                 catch (Exception ex)
                 {
                     System.Diagnostics.Debug.WriteLine(ex);
-                    return null; 
+                    return null;
                 }
             }
             return null;
@@ -259,7 +259,7 @@ namespace KeenReloaded2
 
         private void AdvancedToolsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (this.DialogResult == DialogResult.Cancel 
+            if (this.DialogResult == DialogResult.Cancel
                 && (_previousAdvancedToolsSelection?.Any() ?? false))
             {
                 var selection = _previousAdvancedToolsSelection.Values.ToList();
@@ -276,7 +276,8 @@ namespace KeenReloaded2
                 var selectedAction = GetSelectedAction();
                 foreach (var item in _actionToFormMapping.Values)
                 {
-                    item.CancelAction(selectedAction);
+                    if (selectedAction != AdvancedToolsActions.MOVE)
+                        item.CancelAction(selectedAction);
                 }
             }
         }

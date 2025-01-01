@@ -45,16 +45,21 @@ namespace KeenReloaded2.UserControls.AdvancedTools.ActionControls
             {
                 return;
             }
-            if (_previousChanges != null && _previousChanges.Any())
-            {
-                EventStore<AdvancedToolsEventArgs>
-                   .Publish(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_CANCEL,
-                    BuildEventData(_previousChanges));
-            }
 
             Rectangle r1 = AdvancedToolsCommonFunctions.GetExtensionArea(this.SelectedObjects);
             Rectangle r2 = new Rectangle(_originalLocation.X, _originalLocation.Y, r1.Width, r1.Height);
             MoveSelectionToSpecifiedLocation(r1, r2, false);
+
+            if (_previousChanges != null && _previousChanges.Any())
+            {
+                EventStore<AdvancedToolsEventArgs>
+                   .Publish(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_PREVIEW,
+                    BuildEventData(this.SelectedObjects));
+
+                EventStore<AdvancedToolsEventArgs>
+                   .Publish(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_COMMIT,
+                    BuildEventData(this.SelectedObjects));
+            }
 
             _currentChanges = new List<GameObjectMapping>();
             _previousChanges = new List<GameObjectMapping>();

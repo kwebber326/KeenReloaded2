@@ -129,8 +129,8 @@ namespace KeenReloaded2.UserControls.AdvancedTools
                 {
                     GameObjectMapping mapping = new GameObjectMapping();
                     var obj = currentObjects[j];
-                    int newX = obj.Location.X + (xOffset * i);
-                    int newY = obj.Location.Y + (yOffset * i);
+                    int newX = obj.GameObject.Location.X + (xOffset * i);
+                    int newY = obj.GameObject.Location.Y + (yOffset * i);
                     Point p1 = new Point(newX, newY);
                     mapping.Location = p1;
 

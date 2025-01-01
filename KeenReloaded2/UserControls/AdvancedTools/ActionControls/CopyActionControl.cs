@@ -86,7 +86,7 @@ namespace KeenReloaded2.UserControls.AdvancedTools.ActionControls
             foreach (var obj in this.SelectedObjects)
             {
                 GameObjectMapping mapping = new GameObjectMapping();
-                mapping.Location = new Point(obj.Location.X + xOffset, obj.Location.Y + yOffset);
+                mapping.Location = new Point(obj.GameObject.Location.X + xOffset, obj.GameObject.Location.Y + yOffset);
                 mapping.MapMakerObject = obj.MapMakerObject.Clone();
                 var areaProperty = mapping.MapMakerObject.ConstructorParameters
                     .FirstOrDefault(prop => prop.PropertyName == GeneralGameConstants.AREA_PROPERTY_NAME);

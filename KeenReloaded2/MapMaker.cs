@@ -440,15 +440,23 @@ namespace KeenReloaded2
             var action = e.Data.ChangeData.Action;
 
             if (action == AdvancedToolsActions.EXTEND || 
-                action == AdvancedToolsActions.COPY)
+                action == AdvancedToolsActions.COPY || 
+                action == AdvancedToolsActions.MOVE)
             {
                 foreach (var item in changedData)
                 {
                     item.BackColor = Color.Red;
                     item.BorderStyle = BorderStyle.Fixed3D;
-                    _mapMakerObjects.InsertAscending(item);
-                    pnlMapCanvas.Controls.Add(item);
-                    RefreshZIndexPositioningForCollidingObjects(item);
+                    if (action != AdvancedToolsActions.MOVE)
+                    {
+                        _mapMakerObjects.InsertAscending(item);
+                        pnlMapCanvas.Controls.Add(item);
+                        RefreshZIndexPositioningForCollidingObjects(item);
+                    }
+                    Rectangle offsetArea = new Rectangle(item.Location.X + pnlMapCanvas.AutoScrollPosition.X,
+                      item.Location.Y + pnlMapCanvas.AutoScrollPosition.Y,
+                      item.GameObject.Image.Width, item.GameObject.Image.Height);
+                    item.Location = offsetArea.Location;
                 }
             }
             else if (action == AdvancedToolsActions.DELETE)
@@ -458,6 +466,16 @@ namespace KeenReloaded2
                     _mapMakerObjects.Remove(item);
                     pnlMapCanvas.Controls.Remove(item);
                     UnRegisterEventsForGameObjectMapping(item);
+                }
+            }
+            else if (action == AdvancedToolsActions.MOVE)
+            {
+                foreach (var item in changedData)
+                {
+                    item.BackColor = Color.Red;
+                    item.BorderStyle = BorderStyle.Fixed3D;
+                    item.Location = new Point(item.Location.X + pnlMapCanvas.AutoScrollPosition.X,
+                        item.Location.Y + pnlMapCanvas.AutoScrollPosition.Y);
                 }
             }
         }
