@@ -242,6 +242,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 this.State = ShikadiMasterState.FIRING;
                 this.Direction = SetDirectionFromObjectHorizontal(_keen, true);
                 _currentFireTimeTick = 0;
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.SHIKADI_MASTER_PROJECTILE);
             }
 
             if (++_currentFireTimeTick == FIRE_TIME / 2)

@@ -53,6 +53,8 @@ namespace KeenReloaded2.Constants
             public const string SHOCKSHUND_SHOT_HIT = "shockshund_shot_hit.wav";
             public const string LITTLE_AMPTON_KILLED = "little_ampton_killed.wav";
             public const string SHIKADI_MASTER_TELEPORT = "Shikadi_Master_Teleport.wav";
+            public const string SHIKADI_MASTER_PROJECTILE = "Shikadi_Master_projectile.wav";
+            public const string SHIKADI_MASTER_SHOCKWAVE = "Shikadi_Master_shockwave.wav";
         }
 
         public const string AREA_PROPERTY_NAME = "area";
