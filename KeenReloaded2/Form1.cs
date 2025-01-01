@@ -189,7 +189,7 @@ namespace KeenReloaded2
 
         private void _gameUpdateTimer_Tick(object sender, EventArgs e)
         {
-            if (_rectUpdates <= INITIAL_VIEW_RECT_UPDATES)
+            if (_rectUpdates < INITIAL_VIEW_RECT_UPDATES)
             {
                 UpdateViewRectangle();
                 _rectUpdates++;
