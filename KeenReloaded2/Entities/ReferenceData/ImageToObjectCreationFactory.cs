@@ -620,6 +620,26 @@ namespace KeenReloaded2.Entities.ReferenceData
             };
             AddSimpleGameObject(backgroundReferenceData, keen4MirageTileFiles, secretPlatformKey, typeof(SecretPlatformTile), addedPropertiesForSecretPlatform, 15);
 
+            //keen 4 mirage glass platforms
+            #region keen 4 mirage glass platforms
+            for (int i = 1; i <=4; i++)
+            {
+                string key = $"keen4_mirage_platform{i}.png";
+                MapMakerObjectProperty[] addedPropertiesForMiragePlatform = new MapMakerObjectProperty[]
+                {
+                    new MapMakerObjectProperty()
+                    {
+                        PropertyName = "initialState",
+                        DataType = typeof(MiragePlatformState),
+                        PossibleValues = Enum.GetNames(typeof(MiragePlatformState))
+                        .ToArray(),
+                        Value = (MiragePlatformState)Enum.Parse(typeof(MiragePlatformState), $"PHASE{i}")
+                    }
+                };
+                AddSimpleGameObject(backgroundReferenceData, keen4MirageTileFiles, key, typeof(MiragePlatform), addedPropertiesForMiragePlatform);
+            }
+            #endregion
+
             #region wall to platform Tiles
             MapMakerObjectProperty leftDirection = new MapMakerObjectProperty()
             {

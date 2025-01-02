@@ -622,9 +622,6 @@
   <data name="keen5_shikadi_master_look2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_shikadi_master_look2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fg_keen4_seaweed2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_seaweed2_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="keen5_lone_star_blue_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_lone_star_blue_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -5062,9 +5059,6 @@
   <data name="baby_louie_shoot_right_standing" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\baby_louie_shoot_right_standing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fg_keen4_seaweed1_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_seaweed1_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="keen5_shockshund_right1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_shockshund_right1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -6024,5 +6018,29 @@
   </data>
   <data name="search_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\search_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_mirage_platform11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Tiles\Keen4\KEEN4_MIRAGE\keen4_mirage_platform1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_mirage_platform21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Tiles\Keen4\KEEN4_MIRAGE\keen4_mirage_platform2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_mirage_platform31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Tiles\Keen4\KEEN4_MIRAGE\keen4_mirage_platform3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_mirage_platform41" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Tiles\Keen4\KEEN4_MIRAGE\keen4_mirage_platform4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_mirage_platform12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Tiles\Keen4\KEEN4_MIRAGE\keen4_mirage_platform1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_mirage_platform22" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Tiles\Keen4\KEEN4_MIRAGE\keen4_mirage_platform2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_mirage_platform32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Tiles\Keen4\KEEN4_MIRAGE\keen4_mirage_platform3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_mirage_platform42" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Tiles\Keen4\KEEN4_MIRAGE\keen4_mirage_platform4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

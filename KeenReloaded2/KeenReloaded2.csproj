@@ -144,6 +144,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AdvancedTools\ActionControls\ActionCommandControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -464,11 +469,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -6326,6 +6326,18 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Tiles\Keen4\KEEN4_MIRAGE\keen4_mirage_platform1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Tiles\Keen4\KEEN4_MIRAGE\keen4_mirage_platform2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Tiles\Keen4\KEEN4_MIRAGE\keen4_mirage_platform3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Tiles\Keen4\KEEN4_MIRAGE\keen4_mirage_platform4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

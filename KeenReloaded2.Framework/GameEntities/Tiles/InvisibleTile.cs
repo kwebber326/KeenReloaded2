@@ -25,12 +25,12 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
             if ((_collidingNodes == null || !_collidingNodes.Any()) && _collisionGrid != null)
             {
                 _collidingNodes = _collisionGrid.GetCurrentHashes(this);
-                foreach (var node in _collidingNodes)
-                {
-                    node.Tiles.Add(this);
-                    node.NonEnemies.Add(this);
-                    node.Objects.Add(this);
-                }
+            }
+            foreach (var node in _collidingNodes)
+            {
+                node.Tiles.Add(this);
+                node.NonEnemies.Add(this);
+                node.Objects.Add(this);
             }
         }
 

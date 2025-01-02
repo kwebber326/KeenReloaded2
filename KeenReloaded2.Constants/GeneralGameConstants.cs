@@ -62,6 +62,7 @@ namespace KeenReloaded2.Constants
             public const string BERKELOID_FIRE_HIT = "berkeloid_fire_hit.wav";
             public const string GNOSTICENE_ANCIENT_ITEM_STEAL = "gnosticene_ancient_item_steal.wav";
             public const string GNOSTICENE_ANCIENT_VANISH = "gnosticene_ancient_vanish.wav";
+            public const string DOPEFISH_FART = "dopefish_fart.wav";
         }
 
         public const string AREA_PROPERTY_NAME = "area";

@@ -253,6 +253,7 @@
     <Compile Include="GameEntities\Tiles\Floors\MiddleFloorTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\MiddlePlatformTile.cs" />
     <Compile Include="GameEntities\Tiles\Floors\RightEdgeFloorTile.cs" />
+    <Compile Include="GameEntities\Tiles\Platforms\MiragePlatform.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\MovingPlatformTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\Platform.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\RightEdgePlatformTile.cs" />
@@ -428,18 +429,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_mirage_platform_single.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_mirage_platform1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_mirage_platform2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_mirage_platform3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_mirage_platform4.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_mirage_wall_bottom1.png" />
@@ -5750,6 +5739,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_secret_platform_large_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_platform1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_platform2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_platform3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_mirage_platform4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -430,6 +430,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             {
                 this.State = DopefishMoveState.FARTING;
                 _currentFartTime = 0;
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.DOPEFISH_FART);
             }
 
             if (_currentFartTime == FART_TIME * 3 / 4)
@@ -441,7 +443,10 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             {
                 _currentFartTime = 0;
                 _currentSpriteChangeDelayTick = SPRITE_CHANGE_DELAY;
-
+                if (_ateKeen)
+                {
+                    EventStore<bool>.Publish(MapMakerConstants.EventStoreEventNames.KEEN_DISAPPEAR_DEATH, true);
+                }
                 this.Chase();
             }
         }

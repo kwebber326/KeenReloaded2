@@ -52,6 +52,14 @@ namespace KeenReloaded2
             _gameMode = gameMode;
             _inMapMakerMode = inMapMakerMode;
             InitializeGameData(gameMode, data, false);
+            //unsubscribe cannot execute on form closing due to changing a callback collection during iteration
+            //Here, we will clean out any previous subscriptions before subscribing
+            EventStore<bool>.UnSubscribe(
+               MapMakerConstants.EventStoreEventNames.KEEN_DISAPPEAR_DEATH,
+               Keen_Disappear_Death);
+            EventStore<bool>.Subscribe(
+                MapMakerConstants.EventStoreEventNames.KEEN_DISAPPEAR_DEATH, 
+                Keen_Disappear_Death);
         }
 
         private void InitializeGameData(string gameMode, MapMakerData data, bool isReset)
@@ -113,6 +121,11 @@ namespace KeenReloaded2
             pnlGameWindow.AutoScroll = true;
             pnlGameWindow.MouseWheel += PnlGameWindow_MouseWheel;
             this.MouseWheel += PnlGameWindow_MouseWheel;
+        }
+
+        private void Keen_Disappear_Death(object sender, ControlEventArgs.ControlEventArgs<bool> e)
+        {
+            ProcessPlayerDeath();
         }
 
         private void _keen_KeenLevelCompleted(object sender, Framework.GameEventArgs.ObjectEventArgs e)
@@ -202,11 +215,7 @@ namespace KeenReloaded2
                 {
                     if (IsKeenOutOfVisibleRange())
                     {
-                        _gameUpdateTimer.Stop();
-                        if (_keen.Lives >= 0)
-                            ShowRestartDialogPrompt();
-                        else
-                            InitiateGameOverProtocol();
+                        ProcessPlayerDeath();
                     }
                     return;
                 }
@@ -242,6 +251,15 @@ namespace KeenReloaded2
                     pnlGameWindow.AutoScrollPosition = new Point(x, y);
                 }
             }
+        }
+
+        private void ProcessPlayerDeath()
+        {
+            _gameUpdateTimer.Stop();
+            if (_keen.Lives >= 0)
+                ShowRestartDialogPrompt();
+            else
+                InitiateGameOverProtocol();
         }
 
         private void InitiateGameOverProtocol()
