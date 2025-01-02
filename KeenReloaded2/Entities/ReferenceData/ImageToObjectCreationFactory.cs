@@ -636,7 +636,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                         Value = (MiragePlatformState)Enum.Parse(typeof(MiragePlatformState), $"PHASE{i}")
                     }
                 };
-                AddSimpleGameObject(backgroundReferenceData, keen4MirageTileFiles, key, typeof(MiragePlatform), addedPropertiesForMiragePlatform);
+                AddSimpleGameObject(backgroundReferenceData, keen4MirageTileFiles, key, typeof(MiragePlatform), addedPropertiesForMiragePlatform, 10);
             }
             #endregion
 

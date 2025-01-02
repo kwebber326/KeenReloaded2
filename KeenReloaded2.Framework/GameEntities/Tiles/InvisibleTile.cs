@@ -1,5 +1,6 @@
 ﻿using KeenReloaded.Framework;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.Interfaces;
 using System;
@@ -11,14 +12,19 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.GameEntities.Tiles
 {
-    public class InvisibleTile : CollisionObject
+    public class InvisibleTile : CollisionObject, IHangableTile
     {
-        public InvisibleTile(SpaceHashGrid grid, Rectangle hitbox) : base(grid, hitbox)
+        private readonly bool _hangable;
+
+        public InvisibleTile(SpaceHashGrid grid, Rectangle hitbox, bool hangable = false) : base(grid, hitbox)
         {
             this.HitBox = hitbox;
+            _hangable = hangable;
         }
 
         public override CollisionType CollisionType => CollisionType.BLOCK;
+
+        public bool Hangable => _hangable;
 
         public void AddTileToGrid()
         {

@@ -163,7 +163,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
         {
             if (_firstTime)
             {
-                this.StandingTile = new InvisibleTile(_collisionGrid, new Rectangle(this.HitBox.Location, this.HitBox.Size));
+                this.StandingTile = new InvisibleTile(_collisionGrid, new Rectangle(this.HitBox.Location, this.HitBox.Size), true);
                 _firstTime = false;
             }
             else

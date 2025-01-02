@@ -517,7 +517,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         private Pole _currentPole;
 
         private Image _sprite;
-        private CollisionObject _hangTile;
+        private IHangableTile _hangTile;
 
         private int _currentClimbSprite = 0;
         private const int CLIMB_DELAY_TICKS = 2;
@@ -779,7 +779,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
 
                         if (!collisionWalls.Any() && !bottomCollisions.Any() && !overheadCollisions.Any())
                         {
-                            this.Hang(obj as MaskedTile);
+                            this.Hang(obj as IHangableTile);
                         }
                     }
                 }
@@ -1784,7 +1784,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             }
         }
 
-        private void Hang(MaskedTile tile)
+        private void Hang(IHangableTile tile)
         {
             if (tile != null && tile.Hangable)
             {

@@ -173,6 +173,7 @@
     <Compile Include="GameEntities\Interfaces\IFireable.cs" />
     <Compile Include="GameEntities\Interfaces\IFlag.cs" />
     <Compile Include="GameEntities\Interfaces\IGravityObject.cs" />
+    <Compile Include="GameEntities\Interfaces\IHangableTile.cs" />
     <Compile Include="GameEntities\Interfaces\IHealthBar.cs" />
     <Compile Include="GameEntities\Interfaces\IMoveable.cs" />
     <Compile Include="GameEntities\Interfaces\ISprite.cs" />

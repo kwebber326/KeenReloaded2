@@ -13,7 +13,7 @@ using KeenReloaded2.Framework.Enums;
 
 namespace KeenReloaded2.Framework.GameEntities.Tiles
 {
-    public abstract class MaskedTile : CollisionObject, ISprite
+    public abstract class MaskedTile : CollisionObject, ISprite, IHangableTile
     {
         protected readonly int _zIndex;
         protected string _initialImageName;

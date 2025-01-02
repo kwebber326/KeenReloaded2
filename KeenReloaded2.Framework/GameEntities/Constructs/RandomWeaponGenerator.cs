@@ -569,6 +569,11 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                 OnToggled(this, new ToggleEventArgs() { IsActive = true });
                 _isActive = true;
             }
+            else if (!_isActive && _keen.Points < _cost)
+            {
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.KEEN_ACCESS_DENIED);
+            }
         }
 
         private void OnToggled(object sender, ToggleEventArgs e)
