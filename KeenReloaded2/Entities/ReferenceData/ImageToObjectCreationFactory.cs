@@ -640,6 +640,25 @@ namespace KeenReloaded2.Entities.ReferenceData
             }
             #endregion
 
+            //keen 6 final level platforms
+            #region keen 6 final
+            string keen6FinalTileDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_TILES, "keen6", Biomes.BIOME_KEEN6_FINAL);
+            string[] keen6FinalTileFiles = Directory.GetFiles(keen6FinalTileDirectory);
+            //claw tile
+            string clawTileKey = nameof(Properties.Resources.keen6_claw_platform);
+            MapMakerObjectProperty[] clawAdditionalProperties = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "addedLengths",
+                    DataType = typeof(int),
+                    DisplayName = "Arm Length:",
+                    Value = 0
+                }
+            };
+            AddSimpleGameObject(backgroundReferenceData, keen6FinalTileFiles, clawTileKey, typeof(Keen6ClawTile), clawAdditionalProperties, 10);
+            #endregion
+
             #region wall to platform Tiles
             MapMakerObjectProperty leftDirection = new MapMakerObjectProperty()
             {

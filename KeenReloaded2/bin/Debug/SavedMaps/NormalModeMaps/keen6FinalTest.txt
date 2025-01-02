@@ -1,0 +1,4 @@
+1500|1500
+keen6_dome_underground_background|0|0|1500|1500|keen6_dome_underground_background.png|False|0
+keen6_claw_platform|276|285|124|96|10|2
+keen_stand_right|317|155|26|64|RIGHT
