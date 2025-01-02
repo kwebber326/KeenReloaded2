@@ -48,6 +48,7 @@
     <Compile Include="GameEntities\Constructs\EnemySpawner.cs" />
     <Compile Include="GameEntities\Constructs\Hill.cs" />
     <Compile Include="GameEntities\Constructs\ImageDisplay.cs" />
+    <Compile Include="GameEntities\Constructs\Keen6EyeBallPole.cs" />
     <Compile Include="GameEntities\Constructs\RandomHill.cs" />
     <Compile Include="GameEntities\Constructs\RandomWeaponGenerator.cs" />
     <Compile Include="GameEntities\Enemies\BipPlatformOperator.cs" />

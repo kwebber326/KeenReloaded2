@@ -644,6 +644,7 @@ namespace KeenReloaded2.Entities.ReferenceData
             #region keen 6 final
             string keen6FinalTileDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_TILES, "keen6", Biomes.BIOME_KEEN6_FINAL);
             string[] keen6FinalTileFiles = Directory.GetFiles(keen6FinalTileDirectory);
+
             //claw tile
             string clawTileKey = nameof(Properties.Resources.keen6_claw_platform);
             MapMakerObjectProperty[] clawAdditionalProperties = new MapMakerObjectProperty[]
@@ -661,6 +662,13 @@ namespace KeenReloaded2.Entities.ReferenceData
             //eyeball tile
             string eyeBallKey = nameof(Properties.Resources.keen6_eyeball_platform);
             AddSimpleGameObject(backgroundReferenceData, keen6FinalTileFiles, eyeBallKey, typeof(Keen6EyeBallTile), null, 10);
+
+            //eyeball pole tile
+            string keen6FinalConstructDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_CONSTRUCTS, "keen6", Biomes.BIOME_KEEN6_FINAL);
+            string[] keen6FinalConstructFiles = Directory.GetFiles(keen6FinalConstructDirectory);
+            string eyeBallPoleKey = nameof(Properties.Resources.keen6_eyeball_pole);
+            AddSimpleGameObject(backgroundReferenceData, keen6FinalConstructFiles, eyeBallPoleKey, typeof(Keen6EyeBallPole), null, 10);
+            
             #endregion
 
             #region wall to platform Tiles
