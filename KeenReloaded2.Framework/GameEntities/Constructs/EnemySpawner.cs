@@ -217,6 +217,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             {
                 _animationTimeTick = 0;
                 _hitAnimation = false;
+                UpdateSprite();
             }
             switch (_state)
             {

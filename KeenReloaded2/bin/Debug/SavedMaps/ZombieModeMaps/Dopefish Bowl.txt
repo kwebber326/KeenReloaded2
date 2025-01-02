@@ -168,7 +168,7 @@ keen4_mirage_pole_middle|1147|661|12|32|15|keen4_mirage_pole_middle|MIDDLE|KEEN4
 keen4_mirage_pole_bottom|1147|693|12|28|15|keen4_mirage_pole_bottom|BOTTOM|KEEN4_MIRAGE
 random_item_generator_closed|443|533|124|92|18|500
 keen4_platform_stationary|1198|1019|104|32|18|[1198,700,1198,1200]|169f769e-fd49-4f95-a673-0b5c5ecded46|True
-enemy_spawner1|841|1100|92|94|18|[PoisonSlug,Bounder,Wormmouth]|5|100|100000000
+enemy_spawner1|841|1100|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth]|5|100|100000000
 keen_stand_right|200|1200|26|64|RIGHT
 keen4_dopefish_move_left1|591|785|172|128|25
 keen4_schoolfish_left1|435|879|26|16|25
