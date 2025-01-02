@@ -64,6 +64,16 @@ namespace KeenReloaded2.Constants
             public const string GNOSTICENE_ANCIENT_VANISH = "gnosticene_ancient_vanish.wav";
             public const string DOPEFISH_FART = "dopefish_fart.wav";
             public const string SLICESTAR_BOUNCE = "boobus_bomb_bounce.wav";
+            public const string BLOOGUARD_SLAM = "blooguard_slam.wav";
+            public const string FLECT_DEFLECTION = "flect_deflection.wav";
+            public const string CEILICK_TAUNT = "ceilick_taunt.wav";
+            public const string GIK_FLIP = "gik_flip.wav";
+            public const string FLAG_ACQUIRED = "flag_acquired.wav";
+            public const string FLAG_CAPTURED = "flag_captured.wav";
+            public const string SHIELD_ACQUIRED = "shield_acquired.wav";
+            public const string BIP_SHIP_DESTROYED = "bip_ship_destroyed.wav";
+            public const string BOBBA_JUMP = "bobba_jump.wav";
+            public const string BOBBA_SHOOT = "bobba_shoot.wav";
         }
 
         public const string AREA_PROPERTY_NAME = "area";

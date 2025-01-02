@@ -136,11 +136,13 @@ enemy_spawner1|466|1171|92|94|18|[ShikadiMine]|1|20|100
 keen_stand_right|400|450|26|64|RIGHT
 keen5_key_card1|1332|254|24|28
 keen4_mine|456|607|46|46|LEFT|400|600|300|300|20
+Shield|210|520|62|97
 keen6_bip_left1|331|502|16|16|25
 keen6_bip_ship_right|1109|848|62|32|25
 keen4_berkeloid_move_left4|691|1268|58|86|25
 edge_of_map_tile_debug|-30|333|32|32|25|BARRIER
 keen5_quantum_dynamo_sphere1|884|586|87|83|25|20|200|200|50
+keen6_bobba_land_right|167|1105|74|96|25
 gem_blue1|73|119|26|20|BLUE|50|False
 gem_green1|63|266|26|20|GREEN|50|False
 gem_red1|135|104|26|20|RED|50|False

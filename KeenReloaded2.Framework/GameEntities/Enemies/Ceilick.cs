@@ -9,6 +9,7 @@ using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.Projectiles;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -143,6 +144,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             {
                 this.State = CeilickState.TAUNTING;
                 _tauntCount = 0;
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.CEILICK_TAUNT);
             }
 
             this.UpdateSpriteByDelayBase(ref _currentTauntSpriteChangeDelayTick, ref _currentTauntSprite, TAUNT_SPRITE_CHANGE_DELAY, UpdateSprite);

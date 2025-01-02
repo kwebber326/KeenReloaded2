@@ -7,6 +7,7 @@ using KeenReloaded2.Framework.GameEntities;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Drawing;
 
@@ -140,6 +141,11 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 this.State = BloogState.SMASHING;
                 var smashDudVal = _random.Next(1, SMASH_DUD_CHANCE + 1);
                 _smashDud = smashDudVal == SMASH_DUD_CHANCE;
+                if (!_smashDud)
+                {
+                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                        GeneralGameConstants.Sounds.BLOOGUARD_SLAM);
+                }
             }
             var spriteSet = this.Direction == Enums.Direction.LEFT ? _smashLeftSprites : _smashRightSprites;
             if (_currentSmashSprite < spriteSet.Length - 1)

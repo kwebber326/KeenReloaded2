@@ -7,6 +7,7 @@ using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.Tiles.Platforms;
 using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Drawing;
 
@@ -276,6 +277,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                         keen.SetKeenPushState(ChangeHorizontalDirection(keen.Direction), false, this);
                     }
                 }
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.GIK_FLIP);
             }
 
             Rectangle areaToCheck = new Rectangle(

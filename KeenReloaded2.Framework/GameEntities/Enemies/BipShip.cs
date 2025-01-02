@@ -7,6 +7,7 @@ using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.Projectiles;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -191,6 +192,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 OnCreate(new ObjectEventArgs() { ObjectSprite = explosion });
 
                 _exploded = true;
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.BIP_SHIP_DESTROYED);
             }
         }
 
@@ -425,6 +428,9 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
             OnCreate(new ObjectEventArgs() { ObjectSprite = shot });
             _isFiring = false;
+
+            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                GeneralGameConstants.Sounds.KEEN4_SHOOT);
         }
 
         void object_Remove(object sender, ObjectEventArgs e)

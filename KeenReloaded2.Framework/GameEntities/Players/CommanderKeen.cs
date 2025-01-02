@@ -884,6 +884,8 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                         this.GiveFlagPoints(flag.CurrentPointValue);
                         OnItemLost(new ItemAcquiredEventArgs() { Item = flag });
                     }
+                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                        GeneralGameConstants.Sounds.FLAG_CAPTURED);
                 }
             }
         }
@@ -931,6 +933,8 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 var flag = item as Flag;
                 _flags.Add(flag);
                 OnKeenAcquiredItem(new ItemAcquiredEventArgs() { Item = flag });
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.FLAG_ACQUIRED);
             }
             else if (item is IDropCollector)
             {
@@ -968,6 +972,8 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 AcquireShield(item);
                 OnShieldAcquired(new ObjectEventArgs() { ObjectSprite = _shield });
                 _shield.Depleted += _shield_Depleted;
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.SHIELD_ACQUIRED);
             }
         }
 

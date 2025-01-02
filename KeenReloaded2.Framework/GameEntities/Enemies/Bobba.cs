@@ -8,6 +8,7 @@ using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.Projectiles;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -120,6 +121,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     _currentJumpCount++;
                 }
                 _currentVerticalVelocity = INITIAL_VERTICAL_VELOCITY_ON_JUMP * -1;
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.BOBBA_JUMP);
             }
 
             Rectangle areaToCheck = new Rectangle(
@@ -208,6 +211,9 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             fireBall.Remove += new EventHandler<ObjectEventArgs>(fireBall_Remove);
 
             OnCreate(new ObjectEventArgs() { ObjectSprite = fireBall });
+
+            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+             GeneralGameConstants.Sounds.BOBBA_SHOOT);
         }
 
         private void AccelerateVerticalMovement()

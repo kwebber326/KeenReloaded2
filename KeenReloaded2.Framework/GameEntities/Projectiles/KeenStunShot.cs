@@ -1,10 +1,12 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Hazards;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.Tiles;
 using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -51,6 +53,8 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 this.HitBox = new Rectangle(deflectingObject.HitBox.Right + 1, this.HitBox.Y,
                     this.HitBox.Width, this.HitBox.Height);
             }
+            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                GeneralGameConstants.Sounds.FLECT_DEFLECTION);
         }
 
         protected virtual void ChangeVerticalLocationFromDeflection(CollisionObject deflectingObject)
@@ -68,6 +72,8 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 this.HitBox = new Rectangle(this.HitBox.X, deflectingObject.HitBox.Bottom + 1,
                     this.HitBox.Width, this.HitBox.Height);
             }
+            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                GeneralGameConstants.Sounds.FLECT_DEFLECTION);
         }
 
         protected void HandleCollision(CollisionObject obj)
