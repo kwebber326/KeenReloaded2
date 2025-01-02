@@ -718,8 +718,11 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 {
                     _shield.Depleted -= _shield_Depleted;
                 }
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
-                    GeneralGameConstants.Sounds.KEEN_DIE);
+                if (!_disappearDeath)
+                {
+                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                        GeneralGameConstants.Sounds.KEEN_DIE);
+                }
             }
         }
 
@@ -3102,8 +3105,8 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             {
                 _shield.Deactivate();
             }
-            _disappearDeath = true;
             this.Die();
+            _disappearDeath = true;
         }
 
         public override string ToString()

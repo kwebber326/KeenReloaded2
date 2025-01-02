@@ -3,6 +3,7 @@ using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.Extensions;
 using KeenReloaded2.Framework.GameEntities.Players;
+using KeenReloaded2.Utilities;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -151,6 +152,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             {
                 direction = Enums.Direction.DOWN_LEFT;
             }
+            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                GeneralGameConstants.Sounds.SLICESTAR_BOUNCE);
             return direction;
         }
 
