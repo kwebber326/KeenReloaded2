@@ -336,6 +336,8 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     }
                 }
                 _collided = true;
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.BOOBUS_BOMB_BOUNCE);
                 bool switchDirection = tile != null && tile.HitBox.Top < this.HitBox.Bottom && tile.HitBox.Bottom > this.HitBox.Top;
                 _velocity = GetImpactVelocityHorizontal(_velocity, switchDirection);
                 SetHorizontalDirection();

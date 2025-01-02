@@ -1,4 +1,5 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -17,6 +18,7 @@ namespace KeenReloaded2.Framework.GameEntities.Weapons
             SPREAD = 10;
             REFIRE_DELAY = 10;
             SHOTS_PER_FIRE = 5;
+            _fire_sound = GeneralGameConstants.Sounds.THUNDER;
         }
     }
 }

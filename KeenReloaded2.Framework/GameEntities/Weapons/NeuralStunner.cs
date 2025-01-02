@@ -37,6 +37,7 @@ namespace KeenReloaded2.Framework.GameEntities.Weapons
         protected int SHOTS_PER_FIRE = 1;
         protected int DAMAGE = 1;
         protected bool IS_AUTO = false;
+        protected string _fire_sound = GeneralGameConstants.Sounds.KEEN4_SHOOT;
 
         public bool IsAuto
         {
@@ -92,7 +93,7 @@ namespace KeenReloaded2.Framework.GameEntities.Weapons
                 }
                 _currentRefireDelayTick = REFIRE_DELAY;
                 EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
-                    GeneralGameConstants.Sounds.KEEN4_SHOOT);
+                    _fire_sound);
             }
         }
 
