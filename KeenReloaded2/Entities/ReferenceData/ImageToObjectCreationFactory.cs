@@ -657,6 +657,10 @@ namespace KeenReloaded2.Entities.ReferenceData
                 }
             };
             AddSimpleGameObject(backgroundReferenceData, keen6FinalTileFiles, clawTileKey, typeof(Keen6ClawTile), clawAdditionalProperties, 10);
+
+            //eyeball tile
+            string eyeBallKey = nameof(Properties.Resources.keen6_eyeball_platform);
+            AddSimpleGameObject(backgroundReferenceData, keen6FinalTileFiles, eyeBallKey, typeof(Keen6EyeBallTile), null, 10);
             #endregion
 
             #region wall to platform Tiles

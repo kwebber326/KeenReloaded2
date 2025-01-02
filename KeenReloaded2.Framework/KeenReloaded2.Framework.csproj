@@ -249,6 +249,7 @@
     <Compile Include="GameEntities\Tiles\Platforms\Keen4SetPathPlatform.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\Keen5LargePipePlatform.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\Keen6ClawTile.cs" />
+    <Compile Include="GameEntities\Tiles\Platforms\Keen6EyeBallTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\Keen6SetPathPlatform.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\LeftEdgePlatformTile.cs" />
     <Compile Include="GameEntities\Tiles\MaskedTile.cs" />
