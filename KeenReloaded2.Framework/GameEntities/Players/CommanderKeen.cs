@@ -415,7 +415,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 .Where(c => (c.CollisionType == CollisionType.KEEN_ONLY_PLATFORM && c.HitBox.Top > this.HitBox.Bottom - 16)
                         || c.CollisionType == CollisionType.BLOCK || ((c.CollisionType == CollisionType.PLATFORM
                         || c.CollisionType == CollisionType.POLE_TILE) && c.HitBox.Top >= this.HitBox.Bottom)//PLATFORM CODE
-                        || (c.CollisionType == CollisionType.KEEN6_SWITCH && !((Keen6Switch)c).IsActive))//keen6 switch ode
+                        || (c.CollisionType == CollisionType.KEEN6_SWITCH && ((Keen6Switch)c).IsActive))//keen6 switch code
                 .ToList();
             if (!items.Any())
                 return -1;
@@ -1210,7 +1210,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
 
         protected override CollisionObject GetCeilingTile(List<CollisionObject> collisions)
         {
-            var debugTiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK && c.HitBox.Bottom < this.HitBox.Bottom - 2).ToList();
+            var debugTiles = collisions.Where(c => (c.CollisionType == CollisionType.BLOCK || (c.CollisionType == CollisionType.KEEN6_SWITCH && !((Keen6Switch)c).IsActive)) && c.HitBox.Bottom < this.HitBox.Bottom - 2).ToList();
             if (debugTiles.Any())
             {
                 int maxBottom = debugTiles.Select(c => c.HitBox.Bottom).Max();
@@ -1403,12 +1403,12 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             var collisionItems = this.CheckCollision(areaToCheck);
             //3. If any collision nodes, take the one with the lowest bottom y pos and set the position of keen equal to that bottom plus one
             var collisionWalls = collisionItems.Where(c => c.CollisionType == CollisionType.BLOCK);
-            var collisionKeen6Switches = collisionItems.OfType<Keen6Switch>();
-            if (collisionWalls.Any() || collisionKeen6Switches.Any(s => s.IsActive))
+            var collisionKeen6Switches = collisionItems.OfType<Keen6Switch>()?.Where(s => !s.IsActive) ?? new List<Keen6Switch>();
+            if (collisionWalls.Any() || collisionKeen6Switches.Any())
             {
                 //get lowest bottom position colliding with keen
                 int lowestBottomDebugTiles = collisionWalls.Any() ? collisionWalls.Select(c => c.HitBox.Bottom).Max() : -1;
-                int lowestBottomKeen6Switches = collisionKeen6Switches.Any() ? collisionKeen6Switches.Where(s => s.IsActive).Select(c => c.HitBox.Bottom).Max() : -1;
+                int lowestBottomKeen6Switches = collisionKeen6Switches.Any() ? collisionKeen6Switches.Select(c => c.HitBox.Bottom).Max() : -1;
 
                 int lowestBottom = lowestBottomDebugTiles > lowestBottomKeen6Switches ? lowestBottomDebugTiles : lowestBottomKeen6Switches;
 
@@ -1429,7 +1429,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 //toggle the keen 6 switch if hit
                 if (lowestBottom == lowestBottomKeen6Switches && collisionKeen6Switches.Any())
                 {
-                    var objSwitch = collisionKeen6Switches.FirstOrDefault(s => s.IsActive && s.HitBox.Bottom == lowestBottomKeen6Switches);
+                    var objSwitch = collisionKeen6Switches.FirstOrDefault(s => s.HitBox.Bottom == lowestBottomKeen6Switches);
                     if (objSwitch != null)
                     {
                         this.HandleCollision(objSwitch);
@@ -1490,7 +1490,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             || h.CollisionType == CollisionType.PLATFORM
             || h.CollisionType == CollisionType.KEEN_ONLY_PLATFORM
             || h.CollisionType == CollisionType.POLE_TILE
-            || h.CollisionType == CollisionType.KEEN6_SWITCH)
+            || (h.CollisionType == CollisionType.KEEN6_SWITCH && ((Keen6Switch)h).IsActive))
                 && h.HitBox.Top >= this.HitBox.Top);
 
             if (!landingTiles.Any())
@@ -1545,7 +1545,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     else if (item is Keen6Switch)
                     {
                         var keen6Switch = (Keen6Switch)item;
-                        if (!keen6Switch.IsActive && item.HitBox.Y == minY)
+                        if (keen6Switch.IsActive && item.HitBox.Y == minY)
                         {
                             this.HandleCollision(item);
                         }

@@ -6339,5 +6339,14 @@
   <ItemGroup>
     <None Include="bin\Debug\MapMakerObjects\Tiles\Keen4\KEEN4_MIRAGE\keen4_mirage_platform4.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_laser_field_toggle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Constructs\Keen6\keen6_Switch_Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Constructs\Keen6\keen6_Switch_On.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

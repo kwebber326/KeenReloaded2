@@ -526,9 +526,6 @@
   <data name="keen6_bip_ship_turn_right1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen6_bip_ship_turn_right1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="keen6_Switch_On" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\keen6_Switch_On.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="yorp_shoot_down_aerial" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\yorp_shoot_down_aerial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -1767,9 +1764,6 @@
   </data>
   <data name="keen4_gray_door" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_gray_door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="keen6_Switch_Off" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\keen6_Switch_Off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="keen_shoot_down_pole_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen_shoot_down_pole_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -6042,5 +6036,14 @@
   </data>
   <data name="keen4_mirage_platform42" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\MapMakerObjects\Tiles\Keen4\KEEN4_MIRAGE\keen4_mirage_platform4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_laser_field_toggle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen6_laser_field_toggle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_Switch_Off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Constructs\Keen6\keen6_Switch_Off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_Switch_On" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Constructs\Keen6\keen6_Switch_On.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

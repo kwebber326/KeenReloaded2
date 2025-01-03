@@ -10,6 +10,7 @@ using KeenReloaded2.Framework.GameEntities;
 using KeenReloaded2.Utilities;
 using KeenReloaded2.Framework.GameEntities.Tiles.Platforms;
 using KeenReloaded.Framework.Utilities;
+using KeenReloaded2.Framework.GameEntities.Constructs;
 
 namespace KeenReloaded.Framework
 {
@@ -498,7 +499,7 @@ namespace KeenReloaded.Framework
         protected virtual CollisionObject GetTopMostLandingTile(List<CollisionObject> collisions)
         {
             CollisionObject topMostTile = null;
-            var landingTiles = collisions.Where(h => (h.CollisionType == CollisionType.BLOCK || h.CollisionType == CollisionType.PLATFORM || h.CollisionType == CollisionType.POLE || h.CollisionType == CollisionType.POLE_TILE || h.CollisionType == CollisionType.KEEN6_SWITCH)
+            var landingTiles = collisions.Where(h => (h.CollisionType == CollisionType.BLOCK || h.CollisionType == CollisionType.PLATFORM || h.CollisionType == CollisionType.POLE || h.CollisionType == CollisionType.POLE_TILE || (h.CollisionType == CollisionType.KEEN6_SWITCH && !((Keen6Switch)h).IsActive))
                 && h.HitBox.Top >= this.HitBox.Top);
 
             if (!landingTiles.Any())

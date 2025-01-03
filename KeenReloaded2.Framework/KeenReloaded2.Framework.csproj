@@ -153,6 +153,7 @@
     <Compile Include="GameEntities\Hazards\Keen6Drill.cs" />
     <Compile Include="GameEntities\Hazards\Keen6ElectriRodcHazard.cs" />
     <Compile Include="GameEntities\Hazards\Keen6LaserField.cs" />
+    <Compile Include="GameEntities\Hazards\Keen6ToggleLaserField.cs" />
     <Compile Include="GameEntities\Hazards\LaserTurret.cs" />
     <Compile Include="GameEntities\Hazards\LightningBolt.cs" />
     <Compile Include="GameEntities\Hazards\Mine.cs" />
@@ -2152,12 +2153,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_industrial_pole_top.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_Switch_Off.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_Switch_On.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_Switch_pole.png" />
@@ -5755,6 +5750,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_mirage_platform4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_laser_field_toggle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_Switch_Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_Switch_On.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

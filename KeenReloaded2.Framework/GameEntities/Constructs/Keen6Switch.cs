@@ -4,6 +4,7 @@ using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEventArgs;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -22,8 +23,8 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         private bool _isActive;
         private readonly int _zIndex;
         private const int SWITCH_X_OFFSET = 10;
-        private const int SWITCH_Y_OFFSET_OFF = 10;
-        private const int SWITCH_Y_OFFSET_ON = 26;
+        private const int SWITCH_Y_OFFSET_OFF = 26;
+        private const int SWITCH_Y_OFFSET_ON = 10;
         private const int SWITCH_WIDTH = 32;
         private const int SWITCH_HEIGHT = 16;
 
@@ -115,6 +116,8 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             {
                 IsActive = _isActive
             };
+            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                GeneralGameConstants.Sounds.KEEN_TOGGLE_SWITCH);
         }
 
         protected void OnToggled(ToggleEventArgs e)
@@ -140,11 +143,11 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             {
                 if (obj.HitBox.Top > this.HitBox.Bottom)
                 {
-                    this.IsActive = false;
+                    this.IsActive = true;
                 }
                 else if (obj.HitBox.Bottom < this.HitBox.Top)
                 {
-                    this.IsActive = true;
+                    this.IsActive = false;
                 }
             }
         }

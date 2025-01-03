@@ -1,6 +1,7 @@
 ﻿using KeenReloaded.Framework;
 using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Framework.GameEntities.Hazards;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Tiles;
@@ -258,7 +259,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             CollisionObject topMostTile = null;
             var landingTiles = collisions.Where(h =>
             (h.CollisionType == CollisionType.BLOCK || h.CollisionType == CollisionType.PLATFORM
-            || h.CollisionType == CollisionType.POLE_TILE || h.CollisionType == CollisionType.KEEN6_SWITCH)
+            || h.CollisionType == CollisionType.POLE_TILE || (h.CollisionType == CollisionType.KEEN6_SWITCH && ((Keen6Switch)h).IsActive))
                 && h.HitBox.Top >= this.HitBox.Bottom
                 && h.HitBox.Left < this.HitBox.Right
                 && h.HitBox.Right > this.HitBox.Left);
