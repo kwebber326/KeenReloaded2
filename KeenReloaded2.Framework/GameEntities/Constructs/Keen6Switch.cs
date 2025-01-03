@@ -82,9 +82,14 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             }
             set
             {
-                _isActive = value;
-                UpdateSprite();
-                UpdateHitbox();
+                if (_isActive != value)
+                {
+                    _isActive = value;
+                    UpdateSprite();
+                    UpdateHitbox();
+                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                        GeneralGameConstants.Sounds.KEEN_TOGGLE_SWITCH);
+                }
             }
         }
 
@@ -116,8 +121,6 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             {
                 IsActive = _isActive
             };
-            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
-                GeneralGameConstants.Sounds.KEEN_TOGGLE_SWITCH);
         }
 
         protected void OnToggled(ToggleEventArgs e)
