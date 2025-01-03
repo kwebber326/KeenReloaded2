@@ -16,19 +16,19 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
 {
     public class Keen6LaserField : Hazard, IUpdatable
     {
-        private LaserFieldState _state;
-        private const int OFF_TIME = 20;
-        private int _currentOffTimeTick;
-        private const int STATE_CHANGE_DELAY = 6;
-        private int _currentStateChangeDelayTick;
+        protected LaserFieldState _state;
+        protected const int OFF_TIME = 20;
+        protected int _currentOffTimeTick;
+        protected const int STATE_CHANGE_DELAY = 6;
+        protected int _currentStateChangeDelayTick;
 
-        private const int SPRITE_CHANGE_DELAY = 1;
-        private int _currentSpriteChangeDelayTick;
-        private int _currentSprite;
-        private Image[] _laserSprites;
-        private Rectangle _area;
+        protected const int SPRITE_CHANGE_DELAY = 1;
+        protected int _currentSpriteChangeDelayTick;
+        protected int _currentSprite;
+        protected Image[] _laserSprites;
+        protected Rectangle _area;
 
-        private const int WIDTH = 32, UP_HEIGHT = 24, DOWN_HEIGHT = 32;
+        protected const int WIDTH = 32, UP_HEIGHT = 24, DOWN_HEIGHT = 32;
 
         public Keen6LaserField(Rectangle area, SpaceHashGrid grid, int zIndex, LaserFieldState initialState)
             : base(grid, area, Enums.HazardType.KEEN5_LASER_FIELD, zIndex)
@@ -79,7 +79,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             private set;
         }
 
-        LaserFieldState State
+        protected LaserFieldState State
         {
             get
             {
@@ -92,7 +92,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             }
         }
 
-        private void UpdateSprite()
+        protected void UpdateSprite()
         {
             Image middleImage = null;
             var imgTop = Properties.Resources.keen6_laser_field_top;
@@ -165,7 +165,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             _sprite = BitMapTool.DrawImagesOnCanvas(_area.Size, null, images, locations);
         }
 
-        public void Update()
+        public virtual void Update()
         {
             switch (_state)
             {
@@ -178,7 +178,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             }
         }
 
-        private void UpdateLaserPhase()
+        protected virtual void UpdateLaserPhase()
         {
             this.State = LaserFieldState.PHASE1;
             if (_currentStateChangeDelayTick++ == STATE_CHANGE_DELAY)
@@ -191,14 +191,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             TryKillKeen();
         }
 
-        private void UpdateHitboxWidth(int width)
-        {
-            if (width > WIDTH)
-                width = WIDTH;
-            this.HitBox = new Rectangle(UpTile.HitBox.X + ((WIDTH - width) / 2), this.HitBox.Y, width, this.HitBox.Height);
-        }
-
-        private void TryKillKeen()
+        protected void TryKillKeen()
         {
             var collisions = this.CheckCollision(this.HitBox);
             var keens = collisions.OfType<CommanderKeen>();
@@ -212,7 +205,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             }
         }
 
-        private void UpdateDoormantState()
+        protected virtual void UpdateDoormantState()
         {
             if (this.State != LaserFieldState.OFF)
             {

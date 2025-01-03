@@ -2550,6 +2550,52 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region Keen 6 Toggle Laser Field
+            string toggleLaserFieldObjectKey = nameof(Properties.Resources.keen6_laser_field_toggle);
+            MapMakerObjectProperty[] toggleLaserFieldProperties = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, laserField6Img.Width, laserField6Img.Height + 96),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "initiallyActive",
+                    DataType = typeof(bool),
+                    DisplayName = "Is Active:",
+                    Value = true
+                },
+               new MapMakerObjectProperty()
+                {
+                    PropertyName = GeneralGameConstants.ACTIVATION_ID_PROPERTY_NAME,
+                    DataType = typeof(Guid),
+                    Value = new Guid(),
+                    DisplayName ="Id: ",
+                    Hidden = true
+                },
+            };
+            MapMakerObject laserField6ToggleObj = new MapMakerObject(typeof(Keen6ToggleLaserField), laserField6File, false, toggleLaserFieldProperties);
+            backgroundReferenceData.Add(toggleLaserFieldObjectKey, laserField6ToggleObj);
+            #endregion
+
             #region Keen 6 Electric Rods tile
 
             string electricRodFile = keen6HazardFiles.FirstOrDefault(f => f.Contains("electric_rod"));
