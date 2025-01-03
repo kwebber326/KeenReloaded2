@@ -160,6 +160,9 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 case Biomes.BIOME_KEEN6_DOME:
                     _sprite = Properties.Resources.keen6_dome_floor_middle;
                     break;
+                case Biomes.BIOME_KEEN6_FINAL:
+                    _sprite = Properties.Resources.keen6_eyeball_platform;
+                    break;
             }
         }
 
