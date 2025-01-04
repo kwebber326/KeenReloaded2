@@ -104,9 +104,13 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public override void Die()
         {
+            if (this.State != LittleAmptonState.STUNNED)
+            {
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.LITTLE_AMPTON_KILLED);
+            }
             this.UpdateStunnedState();
-            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
-                GeneralGameConstants.Sounds.LITTLE_AMPTON_KILLED);
+
         }
 
         public void Update()

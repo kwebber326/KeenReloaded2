@@ -12,3 +12,5 @@ keen5_black_pole_bottom|402|395|12|28|15|keen5_black_pole_bottom|BOTTOM|KEEN5_BL
 enemy_spawner1|624|306|92|94|18|[LittleAmpton]|1|20|1000000
 keen_stand_right|137|307|26|64|RIGHT
 neural_stunner1|194|312|30|22|50|500
+keen_dreams_boobus_bomb2|263|325|30|30|50|50
+neural_stunner_rocket_launcher1|199|356|55|26|50|5
