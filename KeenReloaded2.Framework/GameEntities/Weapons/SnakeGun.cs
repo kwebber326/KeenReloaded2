@@ -21,6 +21,7 @@ namespace KeenReloaded2.Framework.GameEntities.Weapons
             BLAST_RADIUS = 64;
             DAMAGE = 3;
             PIERCE = 2;
+            IS_SPECIAL_WEAPON = true;
         }
 
         public override void Fire()

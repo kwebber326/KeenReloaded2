@@ -916,8 +916,18 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     CreateWeaponAndSetToCurrentWeapon(ammoAmmount, item);
                 }
                 if (!this.IsDead())
-                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
-                        GeneralGameConstants.Sounds.KEEN_WEAPON_ACQUIRED);
+                {
+                    if ((CurrentWeapon != null && CurrentWeapon.IsSpecialWeapon))
+                    {
+                        EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                            GeneralGameConstants.Sounds.MAJOR_ITEM_ACQUIRED);
+                    }
+                    else
+                    {
+                        EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                            GeneralGameConstants.Sounds.KEEN_WEAPON_ACQUIRED);
+                    }
+                }
             }
             else if (item is Gem)
             {
@@ -973,7 +983,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 OnShieldAcquired(new ObjectEventArgs() { ObjectSprite = _shield });
                 _shield.Depleted += _shield_Depleted;
                 EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
-                    GeneralGameConstants.Sounds.SHIELD_ACQUIRED);
+                    GeneralGameConstants.Sounds.MAJOR_ITEM_ACQUIRED);
             }
         }
 

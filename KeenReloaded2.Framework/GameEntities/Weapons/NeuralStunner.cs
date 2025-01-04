@@ -37,6 +37,7 @@ namespace KeenReloaded2.Framework.GameEntities.Weapons
         protected int SHOTS_PER_FIRE = 1;
         protected int DAMAGE = 1;
         protected bool IS_AUTO = false;
+        protected bool IS_SPECIAL_WEAPON = false;
         protected string _fire_sound = GeneralGameConstants.Sounds.KEEN4_SHOOT;
 
         public bool IsAuto
@@ -44,6 +45,14 @@ namespace KeenReloaded2.Framework.GameEntities.Weapons
             get
             {
                 return IS_AUTO;
+            }
+        }
+
+        public bool IsSpecialWeapon
+        {
+            get
+            {
+                return IS_SPECIAL_WEAPON;
             }
         }
 

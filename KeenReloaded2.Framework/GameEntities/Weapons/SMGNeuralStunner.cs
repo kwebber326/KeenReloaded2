@@ -1,4 +1,5 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -18,6 +19,7 @@ namespace KeenReloaded2.Framework.GameEntities.Weapons
             DAMAGE = 1;
             REFIRE_DELAY = 3;
             IS_AUTO = true;
+            _fire_sound = GeneralGameConstants.Sounds.SMG_ROUND;
         }
     }
 }
