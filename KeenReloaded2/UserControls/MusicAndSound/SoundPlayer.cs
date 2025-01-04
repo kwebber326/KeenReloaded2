@@ -72,6 +72,8 @@ namespace KeenReloaded2.UserControls.MusicAndSound
                     Thread.Sleep(5000);
                     sourceVoice.Stop();
                     sourceVoice.FlushSourceBuffers();
+                    //sourceVoice.DestroyVoice();
+                    //sourceVoice.Dispose();
                 }
                 catch (Exception ex)
                 {
