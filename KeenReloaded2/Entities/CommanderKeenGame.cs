@@ -19,6 +19,8 @@ using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.Factories;
 using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Entities.DataStructures;
+using KeenReloaded2.Framework.GameEntities.Backgrounds;
+using KeenReloaded.Framework.Utilities;
 
 namespace KeenReloaded2.Entities
 {
@@ -30,6 +32,7 @@ namespace KeenReloaded2.Entities
         private CommanderKeen _keen;
         private OrderedList<ISprite> _gameObjects;
         private List<IUpdatable> _updatableGameObjects = new List<IUpdatable>();
+        private Bitmap _backgroundImage;
 
         private Func<ISprite, ISprite, int> _compareFunction = (x1, x2) =>
         {
@@ -61,8 +64,13 @@ namespace KeenReloaded2.Entities
             if (map != null && map.MapData != null)
             {
                 _keen = map.MapData.Select(d => d.GameObject).OfType<CommanderKeen>().FirstOrDefault();
+                //populate non backgrounds
+                var backgroundType = typeof(Background).Name;
+                var nonBackGrounds = map.MapData.Where(c => c.GameObject.GetType().Name != backgroundType).Select(d => d.GameObject).ToList();
+                _gameObjects = OrderedList<ISprite>.FromEnumerable(nonBackGrounds, _compareFunction, true);
+                //combine all backgrounds into one image
+                FillBackGround(map, backgroundType);
 
-                _gameObjects = OrderedList<ISprite>.FromEnumerable(map.MapData.Select(d => d.GameObject), _compareFunction, true);
                 var updatables = _gameObjects.OfType<IUpdatable>();
                 if (updatables.Any())
                     _updatableGameObjects = updatables.ToList();
@@ -84,6 +92,24 @@ namespace KeenReloaded2.Entities
                 }
             }
             this.Map = map;
+        }
+
+        public Bitmap BackGroundImage
+        {
+            get
+            {
+                return _backgroundImage;
+            }
+        }
+
+        private void FillBackGround(MapMakerData map, string backgroundType)
+        {
+            var backgrounds = map.MapData.Where(c => c.GameObject.GetType().Name == backgroundType)
+                .Select(c => c.GameObject)
+                .OrderBy(c => c.ZIndex);
+            var backgroundImages = backgrounds.Select(i => i.Image).ToArray();
+            var backgroundLocations = backgrounds.Select(i => i.Location).ToArray();
+            _backgroundImage = BitMapTool.DrawImagesOnCanvas(map.MapSize, _backgroundImage, backgroundImages, backgroundLocations);
         }
 
         public MapMakerData Map

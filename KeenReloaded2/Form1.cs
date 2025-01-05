@@ -320,6 +320,10 @@ namespace KeenReloaded2
         private void Form1_Load(object sender, EventArgs e)
         {
             InitializeGameState();
+            pbBackgroundImage.SendToBack();
+            pbGameImage.Parent = pbBackgroundImage;
+            pbBackgroundImage.Image = _game.BackGroundImage;
+            pbGameImage.Location = new Point(0, 0);
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

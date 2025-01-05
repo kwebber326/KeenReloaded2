@@ -1,4 +1,5 @@
 3000|3000
+keen4_background_cave_blue2|0|0|3000|3000|keen4_background_cave_blue2.png|False|0
 keen6_industrial_wall_edge_right|0|0|52|64|10
 keen6_industrial_wall_edge_right|0|64|52|64|10
 keen6_industrial_wall_edge_right|0|128|52|64|10

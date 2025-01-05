@@ -34,12 +34,15 @@ namespace KeenReloaded2
             this.pbGameImage = new System.Windows.Forms.PictureBox();
             this.inventoryPanel1 = new KeenReloaded2.UserControls.InventoryPanel.InventoryPanel();
             this.soundPlayer1 = new KeenReloaded2.UserControls.MusicAndSound.SoundPlayer();
+            this.pbBackgroundImage = new System.Windows.Forms.PictureBox();
             this.pnlGameWindow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbGameImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBackgroundImage)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlGameWindow
             // 
+            this.pnlGameWindow.Controls.Add(this.pbBackgroundImage);
             this.pnlGameWindow.Controls.Add(this.pbGameImage);
             this.pnlGameWindow.Location = new System.Drawing.Point(614, 1);
             this.pnlGameWindow.Name = "pnlGameWindow";
@@ -48,6 +51,7 @@ namespace KeenReloaded2
             // 
             // pbGameImage
             // 
+            this.pbGameImage.BackColor = System.Drawing.Color.Transparent;
             this.pbGameImage.Location = new System.Drawing.Point(4, 4);
             this.pbGameImage.Name = "pbGameImage";
             this.pbGameImage.Size = new System.Drawing.Size(100, 50);
@@ -74,6 +78,16 @@ namespace KeenReloaded2
             this.soundPlayer1.TabIndex = 3;
             this.soundPlayer1.Visible = false;
             // 
+            // pbBackgroundImage
+            // 
+            this.pbBackgroundImage.BackColor = System.Drawing.Color.Transparent;
+            this.pbBackgroundImage.Location = new System.Drawing.Point(4, 4);
+            this.pbBackgroundImage.Name = "pbBackgroundImage";
+            this.pbBackgroundImage.Size = new System.Drawing.Size(100, 50);
+            this.pbBackgroundImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbBackgroundImage.TabIndex = 1;
+            this.pbBackgroundImage.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -94,6 +108,7 @@ namespace KeenReloaded2
             this.pnlGameWindow.ResumeLayout(false);
             this.pnlGameWindow.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbGameImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBackgroundImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -103,6 +118,7 @@ namespace KeenReloaded2
         private Panel pnlGameWindow;
         private PictureBox pbGameImage;
         private UserControls.MusicAndSound.SoundPlayer soundPlayer1;
+        private PictureBox pbBackgroundImage;
     }
 }
 
