@@ -1,3 +1,3 @@
-Sounds|False
-Music|False
-Song|toohot.wav
+Sounds|True
+Music|True
+Song|aliens.wav

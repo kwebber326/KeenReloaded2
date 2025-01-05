@@ -1079,12 +1079,10 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             else
             {
                 this.Points += points;
-                while (points >= _pointsToNextExtraLife)
+                while (this.Points >= _pointsToNextExtraLife)
                 {
-                    var difference = points - _pointsToNextExtraLife;
                     this.GiveExtraLife();
                     _pointsToNextExtraLife *= 2;
-                    points = (int)difference;
                 }
             }
         }
