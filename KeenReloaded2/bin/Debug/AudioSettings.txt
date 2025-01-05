@@ -1,2 +1,2 @@
 Sounds|True
-Music|False
+Music|True

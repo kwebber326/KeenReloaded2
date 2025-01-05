@@ -33,14 +33,15 @@ namespace KeenReloaded2.UserControls.MusicAndSound
             }
             else
                 EventStore<string>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
-
-
         }
 
-        public const string SOUNDS_FOLDER = "Sounds";
-        public readonly string SOUNDS_PATH = Path.Combine(Environment.CurrentDirectory, SOUNDS_FOLDER);
+        private const string SOUNDS_FOLDER = "Sounds";
+        private const string MUSIC_FOLDER = "Music";
+        private readonly string SOUNDS_PATH = Path.Combine(Environment.CurrentDirectory, SOUNDS_FOLDER);
+        private readonly string MUSIC_PATH = Path.Combine(Environment.CurrentDirectory, MUSIC_FOLDER);
         private XAudio2 _soundDevice = new XAudio2();
         private MasteringVoice _voice;
+
 
         private void SoundPlayer_Load(object sender, EventArgs e)
         {
