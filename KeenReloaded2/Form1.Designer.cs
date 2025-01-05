@@ -31,13 +31,13 @@ namespace KeenReloaded2
         private void InitializeComponent()
         {
             this.pnlGameWindow = new System.Windows.Forms.Panel();
+            this.pbBackgroundImage = new System.Windows.Forms.PictureBox();
             this.pbGameImage = new System.Windows.Forms.PictureBox();
             this.inventoryPanel1 = new KeenReloaded2.UserControls.InventoryPanel.InventoryPanel();
             this.soundPlayer1 = new KeenReloaded2.UserControls.MusicAndSound.SoundPlayer();
-            this.pbBackgroundImage = new System.Windows.Forms.PictureBox();
             this.pnlGameWindow.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbGameImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackgroundImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGameImage)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlGameWindow
@@ -48,6 +48,16 @@ namespace KeenReloaded2
             this.pnlGameWindow.Name = "pnlGameWindow";
             this.pnlGameWindow.Size = new System.Drawing.Size(1670, 1500);
             this.pnlGameWindow.TabIndex = 2;
+            // 
+            // pbBackgroundImage
+            // 
+            this.pbBackgroundImage.BackColor = System.Drawing.Color.Transparent;
+            this.pbBackgroundImage.Location = new System.Drawing.Point(4, 4);
+            this.pbBackgroundImage.Name = "pbBackgroundImage";
+            this.pbBackgroundImage.Size = new System.Drawing.Size(100, 50);
+            this.pbBackgroundImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbBackgroundImage.TabIndex = 1;
+            this.pbBackgroundImage.TabStop = false;
             // 
             // pbGameImage
             // 
@@ -78,27 +88,18 @@ namespace KeenReloaded2
             this.soundPlayer1.TabIndex = 3;
             this.soundPlayer1.Visible = false;
             // 
-            // pbBackgroundImage
-            // 
-            this.pbBackgroundImage.BackColor = System.Drawing.Color.Transparent;
-            this.pbBackgroundImage.Location = new System.Drawing.Point(4, 4);
-            this.pbBackgroundImage.Name = "pbBackgroundImage";
-            this.pbBackgroundImage.Size = new System.Drawing.Size(100, 50);
-            this.pbBackgroundImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbBackgroundImage.TabIndex = 1;
-            this.pbBackgroundImage.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2178, 1474);
+            this.ControlBox = false;
             this.Controls.Add(this.soundPlayer1);
             this.Controls.Add(this.pnlGameWindow);
             this.Controls.Add(this.inventoryPanel1);
+            this.Cursor = System.Windows.Forms.Cursors.No;
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Keen Reloaded";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -107,8 +108,8 @@ namespace KeenReloaded2
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.pnlGameWindow.ResumeLayout(false);
             this.pnlGameWindow.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbGameImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackgroundImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGameImage)).EndInit();
             this.ResumeLayout(false);
 
         }
