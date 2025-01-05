@@ -14,7 +14,8 @@ namespace KeenReloaded2.Utilities
         public const string SAVED_CHARACTER_FILE_NAME = "SavedCharacter.txt";
         public const string AUDIO_SETTINGS_FILE_NAME = "AudioSettings.txt";
         public const string HIGH_SCORE_FOLDER = "HighScores";
-        
+        public const string MUSIC_FOLDER = "Music";
+
         public static string LoadSavedCharacterSelection()
         {
             string characterName = null;
@@ -69,6 +70,7 @@ namespace KeenReloaded2.Utilities
                 {
                     writer.WriteLine($"Sounds|{settings.Sounds}");
                     writer.WriteLine($"Music|{settings.Music}");
+                    writer.WriteLine($"Song|{settings.SelectedSong}");
                 }
             }
             catch (Exception ex)
@@ -92,10 +94,13 @@ namespace KeenReloaded2.Utilities
                 {
                     string line1 = reader.ReadLine();
                     string line2 = reader.ReadLine();
+                    string line3 = reader.ReadLine();
                     string soundsStr = line1?.Split(MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR[0])[1];
                     string musicStr = line2?.Split(MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR[0])[1];
+                    string songStr = line3?.Split(MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR[0])[1];
                     settings.Sounds = bool.Parse(soundsStr);
                     settings.Music = bool.Parse(musicStr);
+                    settings.SelectedSong = songStr;
                 }
             }
             catch (Exception ex)
@@ -103,6 +108,25 @@ namespace KeenReloaded2.Utilities
                 Debug.WriteLine(ex);
             }
             return settings;
+        }
+
+        public static List<string> LoadWavFormatSongs()
+        {
+            try
+            {
+                List<string> songs = new List<string>();
+                string path = Path.Combine(Environment.CurrentDirectory, MUSIC_FOLDER);
+                string[] songFiles = Directory.GetFiles(path);
+                songs = songFiles
+                    .Where(s => s.ToLower().EndsWith(".wav"))
+                    .Select(s1 => s1.Substring(s1.LastIndexOf('\\') + 1)).ToList();
+                return songs;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return new List<string>();
+            }
         }
 
         public static bool SaveMap(string filePath, string fileData)

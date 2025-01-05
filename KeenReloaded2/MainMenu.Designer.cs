@@ -34,6 +34,7 @@
             this.chkSounds = new System.Windows.Forms.CheckBox();
             this.characterSelectControl1 = new KeenReloaded2.UserControls.MainMenuControls.CharacterSelectControl();
             this.chkMusic = new System.Windows.Forms.CheckBox();
+            this.musicSelectControl1 = new KeenReloaded2.UserControls.MainMenuControls.MusicSelectControl();
             ((System.ComponentModel.ISupportInitialize)(this.pbCharacter)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,6 +104,14 @@
             this.chkMusic.UseVisualStyleBackColor = false;
             this.chkMusic.CheckedChanged += new System.EventHandler(this.ChkMusic_CheckedChanged);
             // 
+            // musicSelectControl1
+            // 
+            this.musicSelectControl1.BackColor = System.Drawing.Color.Transparent;
+            this.musicSelectControl1.Location = new System.Drawing.Point(12, 353);
+            this.musicSelectControl1.Name = "musicSelectControl1";
+            this.musicSelectControl1.Size = new System.Drawing.Size(222, 223);
+            this.musicSelectControl1.TabIndex = 6;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -110,6 +119,7 @@
             this.BackgroundImage = global::KeenReloaded2.Properties.Resources.keen4_living_tree_background2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1100, 772);
+            this.Controls.Add(this.musicSelectControl1);
             this.Controls.Add(this.chkMusic);
             this.Controls.Add(this.chkSounds);
             this.Controls.Add(this.characterSelectControl1);
@@ -139,5 +149,6 @@
         private UserControls.MainMenuControls.CharacterSelectControl characterSelectControl1;
         private System.Windows.Forms.CheckBox chkSounds;
         private System.Windows.Forms.CheckBox chkMusic;
+        private UserControls.MainMenuControls.MusicSelectControl musicSelectControl1;
     }
 }

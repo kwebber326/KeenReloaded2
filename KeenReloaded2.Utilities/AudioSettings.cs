@@ -10,5 +10,6 @@ namespace KeenReloaded2.Utilities
     {
         public bool Sounds { get; set; }
         public bool Music { get; set; }
+        public string SelectedSong { get; set; }
     }
 }

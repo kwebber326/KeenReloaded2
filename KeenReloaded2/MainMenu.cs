@@ -1,4 +1,5 @@
 ﻿using KeenReloaded2.Constants;
+using KeenReloaded2.ControlEventArgs;
 using KeenReloaded2.UserControls;
 using KeenReloaded2.Utilities;
 using System;
@@ -20,6 +21,8 @@ namespace KeenReloaded2
         private const int CHARACTER_POINT_VERTICAL_OFFSET = 36;
         private MainMenuOption _selectedOption;
         private int _lastSelectedIndex = 0;
+        private bool _settingsInitialized;
+        private string _selectedSong = string.Empty;
         private List<MainMenuOption> _options = new List<MainMenuOption>()
         {
             new MainMenuOption(MainMenuConstants.OPTION_LABEL_NORMAL_MODE, () => OpenMapPlayerInGameMode(MainMenuConstants.OPTION_LABEL_NORMAL_MODE) , true),
@@ -31,6 +34,10 @@ namespace KeenReloaded2
         public MainMenu()
         {
             InitializeComponent();
+            EventStore<string>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_SELECTED_SONG_CHANGED,
+                SelectedSong_Changed);
+
+            musicSelectControl1.Visible = chkMusic.Checked;
         }
 
         #region helper methods
@@ -39,6 +46,9 @@ namespace KeenReloaded2
             AudioSettings settings = FileIOUtility.LoadAudioSettings();
             chkSounds.Checked = settings.Sounds;
             chkMusic.Checked = settings.Music;
+            _selectedSong = settings.SelectedSong;
+            _settingsInitialized = true;
+            musicSelectControl1.Visible = settings.Music;
         }
 
         private void InitializeCharacterSelect()
@@ -139,7 +149,8 @@ namespace KeenReloaded2
             AudioSettings settings = new AudioSettings()
             {
                 Sounds = chkSounds.Checked,
-                Music = chkMusic.Checked
+                Music = chkMusic.Checked,
+                SelectedSong = _selectedSong
             };
             FileIOUtility.SaveAudioSettings(settings);
         }
@@ -148,14 +159,26 @@ namespace KeenReloaded2
 
         #region events
 
+        private void SelectedSong_Changed(object sender, ControlEventArgs<string> e)
+        {
+            _selectedSong = e.Data;
+
+            SaveAudioSettings();
+        }
+
         private void ChkSounds_CheckedChanged(object sender, EventArgs e)
         {
-            SaveAudioSettings();
+            if (_settingsInitialized)
+                SaveAudioSettings();
         }
 
         private void ChkMusic_CheckedChanged(object sender, EventArgs e)
         {
-            SaveAudioSettings();
+            if (_settingsInitialized)
+            {
+                musicSelectControl1.Visible = chkMusic.Checked;
+                SaveAudioSettings();
+            }
         }
 
         private void BtnRandomCharacter_Click(object sender, EventArgs e)

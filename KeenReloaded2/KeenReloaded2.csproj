@@ -254,6 +254,12 @@
     <Compile Include="UserControls\MainMenuControls\MainMenuOption.Designer.cs">
       <DependentUpon>MainMenuOption.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MainMenuControls\MusicSelectControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MainMenuControls\MusicSelectControl.Designer.cs">
+      <DependentUpon>MusicSelectControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MapMakerUserControls\ActivatorListControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -424,6 +430,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MainMenuControls\MainMenuOption.resx">
       <DependentUpon>MainMenuOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MainMenuControls\MusicSelectControl.resx">
+      <DependentUpon>MusicSelectControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MapMakerUserControls\ActivatorListControl.resx">
       <DependentUpon>ActivatorListControl.cs</DependentUpon>
