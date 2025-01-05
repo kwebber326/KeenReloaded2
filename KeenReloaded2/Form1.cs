@@ -391,6 +391,7 @@ namespace KeenReloaded2
         private bool IsKeenOutOfVisibleRange()
         {
             return _keen.HitBox.X >= _game.Map.MapSize.Width || _keen.HitBox.Right <= 0
+                || _keen.HitBox.X >= (pnlGameWindow.Width + Math.Abs(pnlGameWindow.AutoScrollPosition.X))
                 || _keen.HitBox.Y >= (pnlGameWindow.Height + Math.Abs(pnlGameWindow.AutoScrollPosition.Y))
                 || _keen.HitBox.Y >= _game.Map.MapSize.Height;
         }
