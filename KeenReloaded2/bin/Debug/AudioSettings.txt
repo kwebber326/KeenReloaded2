@@ -1,2 +1,3 @@
-Sounds|True
-Music|True
+Sounds|False
+Music|False
+Song|toohot.wav

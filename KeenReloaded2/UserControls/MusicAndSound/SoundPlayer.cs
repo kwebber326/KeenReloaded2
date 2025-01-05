@@ -33,15 +33,22 @@ namespace KeenReloaded2.UserControls.MusicAndSound
             }
             else
                 EventStore<string>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
+
+            if (settings.Music)
+            {
+                _song = settings.SelectedSong;
+                this.PlayMusic(_song);
+            }
         }
 
         private const string SOUNDS_FOLDER = "Sounds";
         private const string MUSIC_FOLDER = "Music";
         private readonly string SOUNDS_PATH = Path.Combine(Environment.CurrentDirectory, SOUNDS_FOLDER);
         private readonly string MUSIC_PATH = Path.Combine(Environment.CurrentDirectory, MUSIC_FOLDER);
+        private readonly string _song;
         private XAudio2 _soundDevice = new XAudio2();
         private MasteringVoice _voice;
-
+        private System.Media.SoundPlayer _musicPlayer;
 
         private void SoundPlayer_Load(object sender, EventArgs e)
         {
@@ -51,6 +58,37 @@ namespace KeenReloaded2.UserControls.MusicAndSound
         protected void Sound_Play(object sender, ControlEventArgs<string> eventArgs)
         {
             this.PlaySound(eventArgs.Data);
+        }
+
+        public void PlayMusic(string songName)
+        {
+            if (String.IsNullOrWhiteSpace(songName))
+                return;
+
+            if (_musicPlayer == null)
+            {
+                string path = Path.Combine(MUSIC_PATH, songName);
+                _musicPlayer = new System.Media.SoundPlayer(path);
+                _musicPlayer.PlayLooping();
+            }
+        }
+
+        public void StopMusic(bool dispose = false)
+        {
+            if (_musicPlayer != null)
+            {
+                try
+                {
+                    _musicPlayer.Stop();
+                }
+                finally
+                {
+                    if (dispose)
+                    {
+                        _musicPlayer.Dispose();
+                    }
+                }
+            }
         }
 
         public void PlaySound(string soundName)
@@ -73,8 +111,6 @@ namespace KeenReloaded2.UserControls.MusicAndSound
                     Thread.Sleep(5000);
                     sourceVoice.Stop();
                     sourceVoice.FlushSourceBuffers();
-                    //sourceVoice.DestroyVoice();
-                    //sourceVoice.Dispose();
                 }
                 catch (Exception ex)
                 {
