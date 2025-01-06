@@ -24,15 +24,18 @@ namespace KeenReloaded2.UserControls.MainMenuControls
             List<string> songfiles = FileIOUtility.LoadWavFormatSongs()
                 .Select(s => s.Substring(0, s.LastIndexOf('.')))
                 .ToList();
-
-            foreach (var file in songfiles)
+            if (songfiles.Any())
             {
-                cmbSongs.Items.Add(file);
+                foreach (var file in songfiles)
+                {
+                    cmbSongs.Items.Add(file);
+                }
+
+                var settings = FileIOUtility.LoadAudioSettings();
+                string songName = GetSelectedSongFromSettings(settings);
+                int index = cmbSongs.Items.IndexOf(songName);
+                cmbSongs.SelectedIndex = index != -1 ? index : 0;
             }
-            var settings = FileIOUtility.LoadAudioSettings();
-            string songName = GetSelectedSongFromSettings(settings);
-            int index = cmbSongs.Items.IndexOf(songName);
-            cmbSongs.SelectedIndex = index != -1 ? index : 0;
         }
 
         private static string GetSelectedSongFromSettings(AudioSettings settings)
