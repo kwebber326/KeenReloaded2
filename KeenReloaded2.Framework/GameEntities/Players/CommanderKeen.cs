@@ -915,19 +915,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 {
                     CreateWeaponAndSetToCurrentWeapon(ammoAmmount, item);
                 }
-                if (!this.IsDead())
-                {
-                    if ((CurrentWeapon != null && CurrentWeapon.IsSpecialWeapon))
-                    {
-                        EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
-                            GeneralGameConstants.Sounds.MAJOR_ITEM_ACQUIRED);
-                    }
-                    else
-                    {
-                        EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
-                            GeneralGameConstants.Sounds.KEEN_WEAPON_ACQUIRED);
-                    }
-                }
+                GenerateWeaponAcquiredSound(weapon);
             }
             else if (item is Gem)
             {
@@ -984,6 +972,24 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 _shield.Depleted += _shield_Depleted;
                 EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
                     GeneralGameConstants.Sounds.MAJOR_ITEM_ACQUIRED);
+            }
+        }
+
+        private void GenerateWeaponAcquiredSound(NeuralStunner weapon)
+        {
+            if (!this.IsDead())
+            {
+                if ((weapon != null && weapon.IsSpecialWeapon)
+                    || (weapon == null && CurrentWeapon != null && CurrentWeapon.IsSpecialWeapon))
+                {
+                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                        GeneralGameConstants.Sounds.MAJOR_ITEM_ACQUIRED);
+                }
+                else
+                {
+                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                        GeneralGameConstants.Sounds.KEEN_WEAPON_ACQUIRED);
+                }
             }
         }
 
