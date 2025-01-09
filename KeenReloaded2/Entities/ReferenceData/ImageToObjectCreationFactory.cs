@@ -314,7 +314,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                     {
                         Image img = Image.FromFile(file);
                         string imageName = FileIOUtility.ExtractFileNameFromPath(file);
-                        Type type = typeof(Background);
+                        Type type = typeof(MimicBlock);
                         string imagePath = file;
 
                         var parameters = new List<MapMakerObjectProperty>()

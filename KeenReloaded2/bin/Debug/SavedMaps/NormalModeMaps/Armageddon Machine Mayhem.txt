@@ -300,7 +300,7 @@ keen5_spinning_fire_hazard1|1240|728|32|32|18
 keen5_spinning_fire_hazard1|1272|728|32|32|18
 keen5_pink_platform|1881|248|62|30|18|KEEN5_PINK|[1730,200,1770,400,1770,800,1881,800,1881,200]|82792271-dc8f-4fc9-9575-0ed4fa39b968|True
 keen5_key_card1|1721|37|24|28
-keen_stand_right|1052|1075|26|64|RIGHT
+keen_stand_right|1050|1100|26|64|RIGHT
 edge_of_map_tile_debug|0|0|32|32|25|BARRIER
 edge_of_map_tile_debug|32|0|32|32|25|BARRIER
 edge_of_map_tile_debug|64|0|32|32|25|BARRIER
@@ -510,7 +510,6 @@ keen5_vitalin1|926|1119|18|32|50
 keen5_vitalin1|926|1151|18|32|50
 keen5_vitalin1|962|1119|18|32|50
 keen5_vitalin1|962|1151|18|32|50
-keen5_keg_o_vitalin1|1569|68|64|50|50|KEEN5_KEG_O_VITALIN
 gem_blue1|1435|254|26|20|BLUE|50|False
 keen5_bag_o_sugar1|32|768|26|32|50|KEEN5_BAG_O_SUGAR
 keen5_bag_o_sugar1|58|768|26|32|50|KEEN5_BAG_O_SUGAR
@@ -528,16 +527,17 @@ keen5_vitalin1|83|1755|18|32|50
 keen5_vitalin1|83|1787|18|32|50
 keen5_vitalin1|83|1819|18|32|50
 keen5_vitalin1|83|1851|18|32|50
+keen5_keg_o_vitalin1|1569|75|64|50|50|KEEN5_KEG_O_VITALIN
 fg_keen5_wall_black_edge_left_1|1476|102|64|64|fg_keen5_wall_black_edge_left_1.png|True|100
 fg_keen5_wall_black_edge_left_1|1476|38|64|64|fg_keen5_wall_black_edge_left_1.png|True|100
 fg_keen5_wall_black_edge_left_1|1476|29|64|64|fg_keen5_wall_black_edge_left_1.png|True|100
 fg_keen5_wall_black_middle_1|1536|32|64|64|fg_keen5_wall_black_middle_1.png|True|100
-fg_keen5_wall_black_middle_1|1536|96|64|64|fg_keen5_wall_black_middle_1.png|True|100
 fg_keen5_wall_black_middle_1|1600|32|64|64|fg_keen5_wall_black_middle_1.png|True|100
 fg_keen5_wall_black_middle_1|1600|96|64|64|fg_keen5_wall_black_middle_1.png|True|100
 fg_keen5_wall_black_middle_1|1533|139|64|64|fg_keen5_wall_black_middle_1.png|True|100
 fg_keen5_wall_black_middle_1|1594|140|64|64|fg_keen5_wall_black_middle_1.png|True|100
 fg_keen5_wall_black_middle_1|1608|140|64|64|fg_keen5_wall_black_middle_1.png|True|100
+fg_keen5_wall_black_middle_1|1538|87|64|64|fg_keen5_wall_black_middle_1.png|True|100
 gem_placeholder_green_empty|1647|1233|26|22|50|GREEN|[0bcd8483-8093-4564-acc3-c70433eab4b9]
 gem_placeholder_blue_empty|811|282|26|22|50|BLUE|[0f468d35-53ec-4abc-977d-e978e80d401f]
 gem_placeholder_red_empty|1642|1420|26|22|50|RED|[ca8f1085-d8b9-40b6-8b9f-2db7d37e5297]

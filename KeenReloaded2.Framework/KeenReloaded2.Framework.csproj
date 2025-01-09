@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\DestructibleObjectExtensions.cs" />
+    <Compile Include="GameEntities\Backgrounds\MimicBlocks.cs" />
     <Compile Include="GameEntities\Constructs\BiomeChanger.cs" />
     <Compile Include="GameEntities\Constructs\EnemySpawner.cs" />
     <Compile Include="GameEntities\Constructs\Hill.cs" />
