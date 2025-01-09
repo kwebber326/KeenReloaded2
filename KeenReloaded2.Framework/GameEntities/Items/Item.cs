@@ -24,6 +24,7 @@ namespace KeenReloaded2.Framework.GameEntities.Items
         protected Rectangle _area;
         protected int _zIndex;
         protected string _imageName;
+        protected const int ACQUIRED_ZINDEX = 500;
 
         public Item(Rectangle area, string imageName, SpaceHashGrid grid, int zIndex)
             : base(grid, area)
@@ -155,6 +156,7 @@ namespace KeenReloaded2.Framework.GameEntities.Items
 
         public void SetAcquired()
         {
+            _zIndex = ACQUIRED_ZINDEX;
             this.IsAcquired = true;
         }
 

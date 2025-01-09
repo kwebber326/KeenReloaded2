@@ -138,7 +138,7 @@ namespace KeenReloaded2.Entities
             _updatableGameObjects.Remove(_keen);
             _gameObjects.Remove(_keen);
             DetachEventsForObject(_keen);
-            var nodes =  _keen.CollisionGrid.GetCurrentHashes(_keen);
+            var nodes = _keen.CollisionGrid.GetCurrentHashes(_keen);
             foreach (var node in nodes)
             {
                 node.Objects.Remove(_keen);
@@ -147,7 +147,7 @@ namespace KeenReloaded2.Entities
             //build new character and attach it to collision detection
             switch (characterName)
             {
-                case MainMenuConstants.Characters.ORACLE_ELDER:  
+                case MainMenuConstants.Characters.ORACLE_ELDER:
                     _keen = new OracleElder(_keen.CollisionGrid, _keen.HitBox, _keen.Direction, _keen.Lives, _keen.Points);
                     break;
                 case MainMenuConstants.Characters.COMMANDER_KEEN:
@@ -208,6 +208,11 @@ namespace KeenReloaded2.Entities
 
         public void RegisterItemEventsForObject(object obj)
         {
+            if (obj is Item)
+            {
+                var item = obj as Item;
+                item.Acquired += Item_Acquired;
+            }
             if (obj is NeuralStunner)
             {
                 var item = obj as NeuralStunner;
@@ -225,7 +230,23 @@ namespace KeenReloaded2.Entities
                     flag.FlagCaptured += Flag_FlagCaptured;
                 }
             }
+            
             RegisterZombieEnemy(obj);
+        }
+
+        private void Item_Acquired(object sender, EventArgs e)
+        {
+            Item item = sender as Item;
+
+            if (item == null)
+                return;
+
+            int itemIndex = _gameObjects.IndexOf(item);
+            if (itemIndex == -1)
+                return;
+
+            _gameObjects.Remove(item);
+            _gameObjects.InsertAscending(item);
         }
 
         private void ZombieEnemy_Killed(object sender, ObjectEventArgs e)
@@ -261,6 +282,11 @@ namespace KeenReloaded2.Entities
                     var flag = (IFlag)obj;
                     flag.FlagCaptured -= Flag_FlagCaptured;
                 }
+            }
+            if (obj is Item)
+            {
+                var item = obj as Item;
+                item.Acquired -= Item_Acquired;
             }
             UnRegisterZombieEnemy(obj);
         }
@@ -359,7 +385,7 @@ namespace KeenReloaded2.Entities
                 }
             }
 
-          
+
             //if (obj != null)
             //{
             //    bool isHill = obj is Hill;
