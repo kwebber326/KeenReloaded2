@@ -5590,72 +5590,6 @@
     <None Include="Resources\keen6_space_stars6.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\fg_keen4_cave_wall_bottom1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fg_keen4_cave_wall_bottom2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fg_keen4_cave_wall_bottom3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fg_keen4_cave_wall_bottom4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fg_keen4_cave_wall_bottom5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fg_keen4_cave_wall_bottom6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fg_keen4_cave_wall_bottom7.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fg_keen4_cave_wall_edge_left.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fg_keen4_cave_wall_middle.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fg_keen4_forest_wall_bottom1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fg_keen4_forest_wall_left_edge.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fg_keen4_forest_wall_middle.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fg_keen4_mirage_wall_bottom1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fg_keen4_mirage_wall_bottom2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fg_keen4_mirage_wall_bottom3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fg_keen4_mirage_wall_bottom4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fg_keen4_mirage_wall_left_edge.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fg_keen4_mirage_wall_middle.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fg_keen4_pyramid_wall_bottom1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fg_keen4_pyramid_wall_bottom2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fg_keen4_pyramid_wall_edge_left.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fg_keen4_pyramid_wall_middle.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\fg_keen4_seaweed1_1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -5759,6 +5693,72 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_Switch_On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_keen4_cave_wall_bottom1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_keen4_cave_wall_bottom2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_keen4_cave_wall_bottom3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_keen4_cave_wall_bottom4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_keen4_cave_wall_bottom5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_keen4_cave_wall_bottom6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_keen4_cave_wall_bottom7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_keen4_cave_wall_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_keen4_cave_wall_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_keen4_forest_wall_bottom1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_keen4_forest_wall_left_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_keen4_forest_wall_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_keen4_mirage_wall_bottom1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_keen4_mirage_wall_bottom2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_keen4_mirage_wall_bottom3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_keen4_mirage_wall_bottom4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_keen4_mirage_wall_left_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_keen4_mirage_wall_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_keen4_pyramid_wall_bottom1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_keen4_pyramid_wall_bottom2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_keen4_pyramid_wall_edge_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_keen4_pyramid_wall_middle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

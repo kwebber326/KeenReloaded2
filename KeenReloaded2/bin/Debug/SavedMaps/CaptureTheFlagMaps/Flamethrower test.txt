@@ -1,6 +1,0 @@
-3000|3000
-keen4_cave_floor_middle|107|182|48|64|10
-keen4_cave_floor_middle|155|182|48|64|10
-keen4_cave_floor_middle|203|182|48|64|10
-keen6_flame_thrower_off|201|162|26|48|18|ON_PHASE1
-keen_stand_right|130|116|26|64|RIGHT

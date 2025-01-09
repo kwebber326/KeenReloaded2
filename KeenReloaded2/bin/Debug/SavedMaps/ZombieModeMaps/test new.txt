@@ -1,2 +1,0 @@
-1500|1500
-keen_stand_right|172|218|26|64|RIGHT

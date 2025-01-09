@@ -169,10 +169,10 @@ namespace KeenReloaded2.UserControls.AdvancedTools
             bool isValid = cmbDirection.SelectedItem != null &&
                 (this.SelectedObjects?.Any() ?? false) &&
                 int.TryParse(txtLengths.Text, out int result) &&
-                result > 0 && result <= 50;
+                result > 0 && result <= 200;
             if (!isValid)
             {
-                MessageBox.Show("Invalid settings: \n\nEnsure that at least one object is selected and the lengths is an integer > 0 and <= 50",
+                MessageBox.Show("Invalid settings: \n\nEnsure that at least one object is selected and the lengths is an integer > 0 and <= 200",
                     "Invalid Settings", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return isValid;

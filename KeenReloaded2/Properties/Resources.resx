@@ -6046,4 +6046,139 @@
   <data name="keen6_Switch_On" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\MapMakerObjects\Constructs\Keen6\keen6_Switch_On.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fg_keen4_cave_wall_bottom11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_bottom1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_cave_wall_bottom21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_bottom2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_cave_wall_bottom31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_bottom3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_cave_wall_bottom41" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_bottom4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_cave_wall_bottom51" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_bottom5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_cave_wall_bottom61" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_bottom6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_cave_wall_bottom71" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_bottom7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_cave_wall_edge_left1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_edge_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_cave_wall_middle1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_cave_wall_middle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_forest_wall_bottom11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_forest_wall_bottom1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_forest_wall_left_edge1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_forest_wall_left_edge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_forest_wall_middle1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_forest_wall_middle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_mirage_wall_bottom11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_mirage_wall_bottom1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_mirage_wall_bottom21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_mirage_wall_bottom2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_mirage_wall_bottom31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_mirage_wall_bottom3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_mirage_wall_bottom41" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_mirage_wall_bottom4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_mirage_wall_left_edge1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_mirage_wall_left_edge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_mirage_wall_middle1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_mirage_wall_middle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_pyramid_wall_bottom11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_pyramid_wall_bottom1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_pyramid_wall_bottom21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_pyramid_wall_bottom2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_pyramid_wall_edge_left1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_pyramid_wall_edge_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen4_pyramid_wall_middle1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen4\fg_keen4_pyramid_wall_middle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen5_ceiling_green_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_ceiling_green_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen5_ceiling_red_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_ceiling_red_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen5_wall_black_bottom_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_wall_black_bottom_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen5_wall_black_edge_left_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_wall_black_edge_left_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen5_wall_black_middle_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_wall_black_middle_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen5_wall_green_edge_left_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_wall_green_edge_left_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen5_wall_green_middle_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_wall_green_middle_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen5_wall_red_edge_left_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_wall_red_edge_left_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen5_wall_red_middle_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen5\fg_keen5_wall_red_middle_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_dome_ceiling11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_dome_ceiling1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_dome_ceiling21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_dome_ceiling2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_dome_ceiling31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_dome_ceiling3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_dome_wall_edge_left1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_dome_wall_edge_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_dome_wall_middle11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_dome_wall_middle1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_dome_wall_middle21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_dome_wall_middle2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_forest_ceiling11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_forest_ceiling1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_forest_ceiling21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_forest_ceiling2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_forest_wall_edge_left1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_forest_wall_edge_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_forest_wall_middle11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_forest_wall_middle1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_forest_wall_middle21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_forest_wall_middle2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_industrial_ceiling1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_industrial_ceiling.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_industrial_wall_edge_left1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_industrial_wall_edge_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fg_keen6_industrial_wall_middle1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_industrial_wall_middle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

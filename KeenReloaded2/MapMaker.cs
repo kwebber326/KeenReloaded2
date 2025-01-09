@@ -109,7 +109,7 @@ namespace KeenReloaded2
 
         private void InitializeDimensionValues()
         {
-            for (int i = 500; i <= 5000; i += 100)
+            for (int i = 500; i <= 20000; i += 100)
             {
                 cmbWidth.Items.Add(i);
                 cmbHeight.Items.Add(i);
