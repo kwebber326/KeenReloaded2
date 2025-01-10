@@ -855,7 +855,8 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             else if (obj is GemPlaceHolder)
             {
                 var placeHolder = obj as GemPlaceHolder;
-                if ((this.MoveState == Enums.MoveState.STANDING || this.MoveState == Enums.MoveState.RUNNING)
+                if ((this.MoveState == Enums.MoveState.STANDING || this.MoveState == Enums.MoveState.RUNNING
+                    || this.MoveState == MoveState.FALLING)
                     && CanOpenGemGate(placeHolder))
                 {
                     Gem gemToRemove = _gems.FirstOrDefault(g => g.Color == placeHolder.Color);
@@ -1544,7 +1545,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 this.HitBox = new Rectangle(new Point(this.HitBox.Location.X, minY - this.HitBox.Height - 1), this.HitBox.Size);
                 //stop keen from falling
                 _fallVelocity = INITIAL_FALL_VELOCITY;
-                this.MoveState = Enums.MoveState.STANDING;//this.Stop(); //replacement
+                this.MoveState = Enums.MoveState.STANDING;
                 //update collision nodes
                 this.UpdateCollisionNodes(Enums.Direction.DOWN);
                 //handle collisions
@@ -1577,6 +1578,16 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                             if (obj != null && (obj.HitBox.Y < minY || minY == -1))
                                 i.Squash();
                         }
+                    }
+                }
+
+                //gem placeholders
+                var gemPlaceholders = collisionItems.OfType<GemPlaceHolder>();
+                if (gemPlaceholders.Any())
+                {
+                    foreach (var placeholder in gemPlaceholders)
+                    {
+                        this.HandleCollision(placeholder);
                     }
                 }
             }

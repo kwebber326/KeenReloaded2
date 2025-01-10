@@ -450,13 +450,16 @@ namespace KeenReloaded2
                     if (action != AdvancedToolsActions.MOVE)
                     {
                         _mapMakerObjects.InsertAscending(item);
-                        pnlMapCanvas.Controls.Add(item);
-                        RefreshZIndexPositioningForCollidingObjects(item);
+                        pnlMapCanvas.Controls.Add(item);                    
                     }
                     Rectangle offsetArea = new Rectangle(item.Location.X + pnlMapCanvas.AutoScrollPosition.X,
                       item.Location.Y + pnlMapCanvas.AutoScrollPosition.Y,
                       item.GameObject.Image.Width, item.GameObject.Image.Height);
                     item.Location = offsetArea.Location;
+                }
+                if (action != AdvancedToolsActions.MOVE)
+                {
+                    RefreshZIndexPositioning();
                 }
             }
             else if (action == AdvancedToolsActions.DELETE)

@@ -197,7 +197,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public void Jump()
         {
-            throw new NotImplementedException();
+            
         }
 
         Direction Direction
@@ -485,7 +485,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             this.Fall();
         }
 
-        protected void SetHorizontalDirectionFromKeenLocation(CommanderKeen keen, ref Direction direction)
+        protected override void SetHorizontalDirectionFromKeenLocation(CommanderKeen keen, ref Direction direction)
         {
 
             if (keen == null)
