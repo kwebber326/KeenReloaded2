@@ -3417,7 +3417,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                              PropertyName = "zIndex",
                              DisplayName = "Z Index: ",
                              DataType = typeof(int),
-                             Value = 5
+                             Value = 15
                          }
             };
 

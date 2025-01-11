@@ -38,10 +38,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Floors
             {
                 _deathCollisionRange = new InvisibleHazard(_collisionGrid, new Rectangle(
                     _area.X,
-                    _area.Y + _downwardCollisionOffset,
+                    _area.Y + _downwardCollisionOffset - 1,
                     _area.Width, HAZARD_COLLISION_HEIGHT));
-                this.HitBox = new Rectangle(_area.X, _area.Bottom - CEILING_COLLISION_HEIGHT, _area.Width,
-                    CEILING_COLLISION_HEIGHT);
             }
         }
 

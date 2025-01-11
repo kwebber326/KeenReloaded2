@@ -453,15 +453,12 @@ namespace KeenReloaded2
                     {
                         _mapMakerObjects.InsertAscending(item);
                         pnlMapCanvas.Controls.Add(item);
+                        item.BringToFront();
                     }
                     Rectangle offsetArea = new Rectangle(item.Location.X + pnlMapCanvas.AutoScrollPosition.X,
                       item.Location.Y + pnlMapCanvas.AutoScrollPosition.Y,
                       item.GameObject.Image.Width, item.GameObject.Image.Height);
                     item.Location = offsetArea.Location;
-                }
-                if (action != AdvancedToolsActions.MOVE)
-                {
-                    RefreshZIndexPositioning();
                 }
             }
             else if (action == AdvancedToolsActions.DELETE)
@@ -493,6 +490,10 @@ namespace KeenReloaded2
                     {
                         RegisterEventsForGameObjectMapping(item);
                     }
+                }
+                if (action != AdvancedToolsActions.MOVE)
+                {
+                    RefreshZIndexPositioning();
                 }
             }
             _mapHasUnsavedChanges = true;
@@ -1158,7 +1159,7 @@ namespace KeenReloaded2
             Form1 gameForm = new Form1(cmbGameMode.Text, mapData, true);
             gameForm.ShowDialog();
             dialogMapLoader.FileName = mapFile;
-           // DialogMapLoader_FileOk(this, null);
+            // DialogMapLoader_FileOk(this, null);
         }
 
         private void BtnNewMap_Click(object sender, EventArgs e)
