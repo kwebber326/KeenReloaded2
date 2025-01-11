@@ -205,7 +205,9 @@ namespace KeenReloaded2
                         GameObjectMapping obj = _gameObjects.FirstOrDefault(o => o.ToString() == data);
                         if (obj != null)
                         {
-                            dictionary.Add(obj.GetHashCode(), obj);
+                            var key = obj.GetHashCode();
+                            if (!dictionary.ContainsKey(key))
+                                dictionary.Add(obj.GetHashCode(), obj);
                         }
                     }
                 }
