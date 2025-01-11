@@ -26,8 +26,6 @@ namespace KeenReloaded2.Entities
 {
     public class CommanderKeenGame : IDisposable
     {
-        public event EventHandler<ObjectEventArgs> ObjectRemoved;
-        public event EventHandler<ObjectEventArgs> ObjectCreated;
         private Dictionary<string, bool> _keysPressed;
         private CommanderKeen _keen;
         private OrderedList<ISprite> _gameObjects;
