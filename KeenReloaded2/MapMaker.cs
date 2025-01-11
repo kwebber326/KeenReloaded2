@@ -326,7 +326,7 @@ namespace KeenReloaded2
                     var doors = _mapMakerObjects.Select(d => d.GameObject).OfType<Door>();
                     if (doors.Any())
                     {
-                        var maxDoorId = doors.Select(d => d.Id).Max(); 
+                        var maxDoorId = doors.Select(d => d.Id).Max();
                         property.Value = maxDoorId + 1;
                     }
                 }
@@ -355,6 +355,8 @@ namespace KeenReloaded2
             mapMakerObjectPropertyListControl1.SetProperties(null);
             ClearSelectedMapItem();
             RemoveCursorItem();
+            if (pnlMapCanvas.Controls.Contains(_smartPlacer))
+                RemoveSmartPlacerFromCanvas();
         }
 
         private bool ValidateMapObjects()
@@ -439,8 +441,8 @@ namespace KeenReloaded2
                 return;
             var action = e.Data.ChangeData.Action;
 
-            if (action == AdvancedToolsActions.EXTEND || 
-                action == AdvancedToolsActions.COPY || 
+            if (action == AdvancedToolsActions.EXTEND ||
+                action == AdvancedToolsActions.COPY ||
                 action == AdvancedToolsActions.MOVE)
             {
                 foreach (var item in changedData)
@@ -450,7 +452,7 @@ namespace KeenReloaded2
                     if (action != AdvancedToolsActions.MOVE)
                     {
                         _mapMakerObjects.InsertAscending(item);
-                        pnlMapCanvas.Controls.Add(item);                    
+                        pnlMapCanvas.Controls.Add(item);
                     }
                     Rectangle offsetArea = new Rectangle(item.Location.X + pnlMapCanvas.AutoScrollPosition.X,
                       item.Location.Y + pnlMapCanvas.AutoScrollPosition.Y,
@@ -549,7 +551,7 @@ namespace KeenReloaded2
             if (changedData is List<GameObjectMapping> && bool.TryParse(objMetaData?.ToString(), out bool isSelected))
             {
                 List<GameObjectMapping> changedObjects = (List<GameObjectMapping>)changedData;
-                    SetHighlightStateForSelection(changedObjects, isSelected);
+                SetHighlightStateForSelection(changedObjects, isSelected);
             }
         }
 
@@ -629,7 +631,7 @@ namespace KeenReloaded2
                 ctrl.BringToFront();
             }
         }
-        
+
         private Point GetOffsetPointForCanvas(Point point)
         {
             return new Point(point.X + pnlMapCanvas.AutoScrollPosition.X, point.Y + pnlMapCanvas.AutoScrollPosition.Y);
@@ -1081,12 +1083,12 @@ namespace KeenReloaded2
 
         private void CmbWidth_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+
         }
 
         private void CmbHeight_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void PnlMapCanvas_MouseEnter(object sender, EventArgs e)
@@ -1166,7 +1168,7 @@ namespace KeenReloaded2
             Form1 gameForm = new Form1(cmbGameMode.Text, mapData, true);
             gameForm.ShowDialog();
             dialogMapLoader.FileName = mapFile;
-            DialogMapLoader_FileOk(this, null);
+           // DialogMapLoader_FileOk(this, null);
         }
 
         private void BtnNewMap_Click(object sender, EventArgs e)
@@ -1212,8 +1214,8 @@ namespace KeenReloaded2
         private void BtnAdvancedTools_Click(object sender, EventArgs e)
         {
             this.ClearMapMakerSelection();
-           AdvancedToolsForm advancedToolsForm = new AdvancedToolsForm(_mapMakerObjects);
-           var dialogResult = advancedToolsForm.ShowDialog();
+            AdvancedToolsForm advancedToolsForm = new AdvancedToolsForm(_mapMakerObjects);
+            var dialogResult = advancedToolsForm.ShowDialog();
         }
     }
 }

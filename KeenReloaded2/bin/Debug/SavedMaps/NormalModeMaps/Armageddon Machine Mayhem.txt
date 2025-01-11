@@ -7,6 +7,7 @@ keen5_purple_background_pipes_horizontal|1802|547|128|64|keen5_purple_background
 keen5_pink_diamond_background_control_panel|1109|1067|64|64|keen5_pink_diamond_background_control_panel.png|True|1
 keen5_purple_background_fuse_box|768|1664|64|64|keen5_purple_background_fuse_box.png|True|1
 keen5_purple_background_vent|62|1538|64|64|keen5_purple_background_vent.png|True|1
+keen5_purple_background_cd|409|231|64|64|keen5_purple_background_cd.png|True|1
 edge_of_map_tile_debug|1968|896|32|32|5|BARRIER
 edge_of_map_tile_debug|1968|928|32|32|5|BARRIER
 edge_of_map_tile_debug|1968|224|32|32|5|BARRIER
