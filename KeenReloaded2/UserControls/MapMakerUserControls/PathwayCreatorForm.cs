@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing;
 using KeenReloaded2.ControlEventArgs.EventStoreData;
 using KeenReloaded2.Utilities;
 using KeenReloaded2.Constants;

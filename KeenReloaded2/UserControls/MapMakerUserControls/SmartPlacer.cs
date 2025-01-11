@@ -11,6 +11,7 @@ using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded.Framework;
 using KeenReloaded2.Entities;
+using KeenReloaded2.Framework.GameEntities.Backgrounds;
 
 namespace KeenReloaded2.UserControls.MapMakerUserControls
 {
@@ -28,6 +29,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
 
         public void DrawAdjacent(Size rectangleSize, List<GameObjectMapping> objects, GameObjectMapping gameObject, Direction direction)
         {
+
             if (gameObject != null && gameObject.Image != null)
             {
 
@@ -97,14 +99,29 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             if (gameObject != null && gameObject.Image != null && gameObjects != null && gameObjects.Any())
             {
                 var gameObjectRect = new Rectangle(gameObject.Location.X, gameObject.Location.Y, gameObject.Image.Width, gameObject.Image.Height);
-                var collisionObjects = gameObjects.Select(c => c.GameObject).OfType<CollisionObject>();
-                if (!collisionObjects.Any())
-                    return null;
-                var sameTypeObjects = collisionObjects.Where(g => 
-                    (g.CollisionType == CollisionType.BLOCK || g.CollisionType == CollisionType.PLATFORM));
-                if (!sameTypeObjects.Any())
-                    return null;
 
+                bool gameObjectIsBackground = gameObject.GameObject is Background;
+                if (gameObjectIsBackground)
+                {
+                    gameObjects = gameObjects.Where(c => c.GameObject is Background).ToList();
+                }
+                else
+                {
+                    gameObjects = gameObjects.Where(c => !(c.GameObject is Background)).ToList();
+                }
+
+                if (!gameObjectIsBackground)
+                {
+
+                    var collisionObjects = gameObjects.Select(c => c.GameObject).OfType<CollisionObject>();
+                    if (!collisionObjects.Any())
+                        return null;
+                    var sameTypeObjects =
+                        collisionObjects.Where(g =>
+                        (g.CollisionType == CollisionType.BLOCK || g.CollisionType == CollisionType.PLATFORM));
+                    if (!sameTypeObjects.Any())
+                        return null;
+                }
 
 
                 var objectsToTheLeft = gameObjects.Where(o =>

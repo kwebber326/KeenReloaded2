@@ -473,16 +473,6 @@ namespace KeenReloaded2
                     UnRegisterEventsForGameObjectMapping(item);
                 }
             }
-            else if (action == AdvancedToolsActions.MOVE)
-            {
-                foreach (var item in changedData)
-                {
-                    item.BackColor = Color.Red;
-                    item.BorderStyle = BorderStyle.Fixed3D;
-                    item.Location = new Point(item.Location.X + pnlMapCanvas.AutoScrollPosition.X,
-                        item.Location.Y + pnlMapCanvas.AutoScrollPosition.Y);
-                }
-            }
         }
 
         private void AdvancedTools_ActionCommit(object sender, ControlEventArgs<AdvancedToolsEventArgs> e)
