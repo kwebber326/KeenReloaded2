@@ -14583,6 +14583,16 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen6_industrial_platform_left_edge {
+            get {
+                object obj = ResourceManager.GetObject("keen6_industrial_platform_left_edge", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen6_industrial_platform_middle {
             get {
                 object obj = ResourceManager.GetObject("keen6_industrial_platform_middle", resourceCulture);
@@ -14596,6 +14606,16 @@ namespace KeenReloaded2.Framework.Properties {
         internal static System.Drawing.Bitmap keen6_industrial_platform_right {
             get {
                 object obj = ResourceManager.GetObject("keen6_industrial_platform_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_industrial_platform_right_edge {
+            get {
+                object obj = ResourceManager.GetObject("keen6_industrial_platform_right_edge", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -14703,6 +14723,16 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen6_industrial_single_platform {
+            get {
+                object obj = ResourceManager.GetObject("keen6_industrial_single_platform", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen6_industrial_wall_edge_left {
             get {
                 object obj = ResourceManager.GetObject("keen6_industrial_wall_edge_left", resourceCulture);
@@ -14736,6 +14766,16 @@ namespace KeenReloaded2.Framework.Properties {
         internal static System.Drawing.Bitmap keen6_industrial_wall_to_platform_left {
             get {
                 object obj = ResourceManager.GetObject("keen6_industrial_wall_to_platform_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_industrial_wall_to_platform_tile {
+            get {
+                object obj = ResourceManager.GetObject("keen6_industrial_wall_to_platform_tile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

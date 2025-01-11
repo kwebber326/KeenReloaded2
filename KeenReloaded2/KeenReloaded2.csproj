@@ -6384,5 +6384,20 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Tiles\Keen6\KEEN6_INDUSTRIAL\keen6_industrial_platform_left_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Tiles\Keen6\KEEN6_INDUSTRIAL\keen6_industrial_platform_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Tiles\Keen6\KEEN6_INDUSTRIAL\keen6_industrial_platform_right_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Tiles\Keen6\KEEN6_INDUSTRIAL\keen6_industrial_single_platform.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Tiles\Keen6\KEEN6_INDUSTRIAL\keen6_industrial_wall_to_platform_tile.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

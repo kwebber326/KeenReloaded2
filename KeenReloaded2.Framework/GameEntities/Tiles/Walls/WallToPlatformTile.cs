@@ -76,8 +76,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Walls
                     break;
                 case Biomes.BIOME_KEEN6_INDUSTRIAL:
                     _direction = Direction.LEFT;
-                    _sprite = Properties.Resources.keen6_industrial_wall_to_platform_left;
-                    _initialImageName = nameof(Properties.Resources.keen6_industrial_wall_to_platform_left);
+                    _sprite = Properties.Resources.keen6_industrial_wall_to_platform_tile;
+                    _initialImageName = nameof(Properties.Resources.keen6_industrial_wall_to_platform_tile);
                     break;
             }
 

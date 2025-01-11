@@ -168,7 +168,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                         nameof(Properties.Resources.keen5_platform_red_middle),
                         nameof(Properties.Resources.keen5_platform_green_middle),
                         nameof(Properties.Resources.keen6_industrial_platform_middle),
-                        nameof(Properties.Resources.keen6_dome_platform_middle),
+                        nameof(Properties.Resources.keen6_dome_platform_middle)
                     }
                 },
                 {
@@ -183,6 +183,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                         nameof(Properties.Resources.keen5_platform_green_edge_left),
                         nameof(Properties.Resources.keen6_industrial_platform_left),
                         nameof(Properties.Resources.keen6_dome_platform_edge_left),
+                        nameof(Properties.Resources.keen6_industrial_platform_left_edge),
                     }
                 },
                 {
@@ -197,6 +198,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                         nameof(Properties.Resources.keen5_platform_green_edge_right),
                         nameof(Properties.Resources.keen6_industrial_platform_right),
                         nameof(Properties.Resources.keen6_dome_platform_edge_right),
+                        nameof(Properties.Resources.keen6_industrial_platform_right_edge),
                     }
                 },
                 {
@@ -209,6 +211,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                         nameof(Properties.Resources.keen5_single_platform_red),
                         nameof(Properties.Resources.keen6_dome_platform_single),
                         nameof(Properties.Resources.keen6_industrial_single_masked_platform),
+                        nameof(Properties.Resources.keen6_industrial_single_platform)
                     }
                 },
             };
@@ -601,6 +604,9 @@ namespace KeenReloaded2.Entities.ReferenceData
             string keen6DomeTileDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_TILES, "keen6", Biomes.BIOME_KEEN6_DOME);
             string[] keen6DomeTileFiles = Directory.GetFiles(keen6DomeTileDirectory);
 
+            string keen6IndustrialDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_TILES, "keen6", Biomes.BIOME_KEEN6_INDUSTRIAL);
+            string[] keen6IndustrialTileFiles = Directory.GetFiles(keen6IndustrialDirectory);
+
             string searchText = "keen5_pipe_platform";
             AddSimpleGameObject(backgroundReferenceData, keen5BlackTileFiles, searchText, typeof(Keen5LargePipePlatform), new MapMakerObjectProperty[] { }, 10);
 
@@ -732,6 +738,14 @@ namespace KeenReloaded2.Entities.ReferenceData
                 Readonly = true
             };
 
+            MapMakerObjectProperty keen6IndustrialBiomeProperty = new MapMakerObjectProperty()
+            {
+                PropertyName = "biome",
+                DataType = typeof(string),
+                Value = Biomes.BIOME_KEEN6_INDUSTRIAL,
+                Readonly = true
+            };
+
             #region wall to platform
             //keen 5 black
             MapMakerObjectProperty[] keen5WallToPlatformLeftProps = new MapMakerObjectProperty[]
@@ -772,6 +786,14 @@ namespace KeenReloaded2.Entities.ReferenceData
                 leftDirection
             };
             AddSimpleGameObject(backgroundReferenceData, keen6DomeTileFiles, "keen6_dome_wall_to_platform", typeof(WallToPlatformTile), keen6DomeProperties, 10);
+
+            //keen 6 industrial
+            MapMakerObjectProperty[] keen6IndustrialProperties = new MapMakerObjectProperty[]
+            {
+                keen6IndustrialBiomeProperty,
+                leftDirection
+            };
+            AddSimpleGameObject(backgroundReferenceData, keen6IndustrialTileFiles, "keen6_industrial_wall_to_platform_tile", typeof(WallToPlatformTile), keen6IndustrialProperties, 10);
             #endregion
 
             #region floor to platform

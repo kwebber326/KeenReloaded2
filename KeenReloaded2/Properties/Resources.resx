@@ -6181,4 +6181,19 @@
   <data name="fg_keen6_industrial_wall_middle1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\MapMakerObjects\Foregrounds\Keen6\fg_keen6_industrial_wall_middle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen6_industrial_platform_left_edge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Tiles\Keen6\KEEN6_INDUSTRIAL\keen6_industrial_platform_left_edge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_industrial_platform_middle1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Tiles\Keen6\KEEN6_INDUSTRIAL\keen6_industrial_platform_middle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_industrial_platform_right_edge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Tiles\Keen6\KEEN6_INDUSTRIAL\keen6_industrial_platform_right_edge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_industrial_single_platform" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Tiles\Keen6\KEEN6_INDUSTRIAL\keen6_industrial_single_platform.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_industrial_wall_to_platform_tile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Tiles\Keen6\KEEN6_INDUSTRIAL\keen6_industrial_wall_to_platform_tile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

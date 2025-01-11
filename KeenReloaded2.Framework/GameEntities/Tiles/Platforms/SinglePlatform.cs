@@ -58,7 +58,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
                     _image = Properties.Resources.keen6_dome_platform_single;
                     break;
                 case Biomes.BIOME_KEEN6_INDUSTRIAL:
-                    _image = Properties.Resources.keen6_industrial_single_masked_platform;
+                    _image = Properties.Resources.keen6_industrial_single_platform;
                     break;
             }
         }

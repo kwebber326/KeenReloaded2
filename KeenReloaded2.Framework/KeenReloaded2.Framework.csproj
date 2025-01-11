@@ -809,9 +809,6 @@
     <None Include="Resources\keen6_industrial_platform_left.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen6_industrial_platform_middle.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen6_industrial_platform_right.png" />
   </ItemGroup>
   <ItemGroup>
@@ -5760,6 +5757,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fg_keen4_pyramid_wall_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_industrial_platform_left_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_industrial_platform_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_industrial_platform_right_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_industrial_single_platform.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_industrial_wall_to_platform_tile.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
