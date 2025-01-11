@@ -332,7 +332,7 @@ namespace KeenReloaded2
             _gameUpdateTimer.Tick -= _gameUpdateTimer_Tick;
             _gameUpdateTimer.Dispose();
             _game.Dispose();
-            soundPlayer1.StopMusic(true);
+            soundPlayer1.StopMusic();
         }
 
 

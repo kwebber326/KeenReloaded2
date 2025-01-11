@@ -49,6 +49,7 @@ namespace KeenReloaded2.UserControls.MusicAndSound
         private XAudio2 _soundDevice = new XAudio2();
         private MasteringVoice _voice;
         private System.Media.SoundPlayer _musicPlayer;
+        List<SourceVoice> _sounds = new List<SourceVoice>();
 
         private void SoundPlayer_Load(object sender, EventArgs e)
         {
@@ -75,19 +76,20 @@ namespace KeenReloaded2.UserControls.MusicAndSound
 
         public void StopMusic(bool dispose = false)
         {
-            if (_musicPlayer != null)
+            try
             {
-                try
+                if (_musicPlayer != null)
                 {
                     _musicPlayer.Stop();
                 }
-                finally
+            }
+            finally
+            {
+                EventStore<string>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
+                _soundDevice.StopEngine();
+                if (dispose)
                 {
-                    if (dispose)
-                    {
-                        _musicPlayer.Dispose();
-                        _soundDevice.StopEngine();
-                    }
+                    DisposeSoundDevices();
                 }
             }
         }
@@ -124,6 +126,11 @@ namespace KeenReloaded2.UserControls.MusicAndSound
         }
 
         ~SoundPlayer()
+        {
+            DisposeSoundDevices();
+        }
+
+        private void DisposeSoundDevices()
         {
             if (_voice != null && !_voice.IsDisposed)
                 _voice.Dispose(); ;
