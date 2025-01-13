@@ -155,6 +155,7 @@
     <Compile Include="GameEntities\Hazards\Keen6ElectriRodcHazard.cs" />
     <Compile Include="GameEntities\Hazards\Keen6LaserField.cs" />
     <Compile Include="GameEntities\Hazards\Keen6ToggleLaserField.cs" />
+    <Compile Include="GameEntities\Hazards\Keen6WaterHazard.cs" />
     <Compile Include="GameEntities\Hazards\LaserTurret.cs" />
     <Compile Include="GameEntities\Hazards\LightningBolt.cs" />
     <Compile Include="GameEntities\Hazards\Mine.cs" />
@@ -5802,6 +5803,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_water_hazard_right4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_water_hazard_depth.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

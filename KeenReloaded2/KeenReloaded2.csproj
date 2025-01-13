@@ -6429,5 +6429,8 @@
   <ItemGroup>
     <None Include="bin\Debug\MapMakerObjects\Hazards\Keen6\keen6_water_hazard.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_water_hazard_depth.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
