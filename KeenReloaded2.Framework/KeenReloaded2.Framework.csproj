@@ -5773,5 +5773,35 @@
   <ItemGroup>
     <None Include="Resources\keen6_industrial_wall_to_platform_tile.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_water_hazard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_water_hazard_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_water_hazard_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_water_hazard_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_water_hazard_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_water_hazard_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_water_hazard_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_water_hazard_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_water_hazard_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_water_hazard_right4.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
