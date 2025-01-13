@@ -1438,6 +1438,48 @@ namespace KeenReloaded2.Framework.SpriteSheet
             }
         }
         #endregion
+
+        #region Keen 6 Water Hazard
+        private static Image[] _keen6WaterHazardLeftImages;
+
+        public static Image[] Keen6WaterHazardLeftImages
+        {
+            get
+            {
+                if (_keen6WaterHazardLeftImages == null)
+                {
+                    _keen6WaterHazardLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen6_water_hazard_left1,
+                        Properties.Resources.keen6_water_hazard_left2,
+                        Properties.Resources.keen6_water_hazard_left3,
+                        Properties.Resources.keen6_water_hazard_left4,
+                    };
+                }
+                return _keen6WaterHazardLeftImages;
+            }
+        }
+
+        private static Image[] _keen6WaterHazardRightImages;
+        public static Image[] Keen6WaterHazardRightImages
+        {
+            get
+            {
+                if (_keen6WaterHazardRightImages == null)
+                {
+                    _keen6WaterHazardRightImages = new Image[]
+                    {
+                        Properties.Resources.keen6_water_hazard_right1,
+                        Properties.Resources.keen6_water_hazard_right2,
+                        Properties.Resources.keen6_water_hazard_right3,
+                        Properties.Resources.keen6_water_hazard_right4,
+                    };
+                }
+                return _keen6WaterHazardRightImages;
+            }
+        }
+
+        #endregion
         #endregion
 
         #region Enemies

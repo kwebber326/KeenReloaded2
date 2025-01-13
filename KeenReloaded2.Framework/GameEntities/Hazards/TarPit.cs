@@ -24,7 +24,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         private const int HITBOX_VERTICAL_OFFSET = 32;
         private const int SPRITE_CHANGE_DELAY = 1;
         private int _currentSpriteChangeDelayTick;
-        private Dictionary<int, int> _currentSpriteIndeces;
+        private Dictionary<int, int> _currentSpriteIndices;
         private Rectangle _area;
 
         public TarPit(Rectangle area, SpaceHashGrid grid, int zIndex, int lengths = 1, int depths = 0) 
@@ -76,7 +76,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         {
             _sprites = new List<LocatedImage>();
             _depthSprites = new List<LocatedImage>();
-            _currentSpriteIndeces = new Dictionary<int, int>();
+            _currentSpriteIndices = new Dictionary<int, int>();
             int currentX = this.HitBox.X;
             var images = SpriteSheet.SpriteSheet.Keen4TarPitImages;
             for (int i = 0; i < _lengths; i++)
@@ -87,7 +87,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
                 p.Image = images[randVal];
 
                 _sprites.Add(p);
-                _currentSpriteIndeces.Add(i, randVal);
+                _currentSpriteIndices.Add(i, randVal);
 
                 for (int j = 0; j < _depths; j++)
                 {
@@ -127,14 +127,14 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             if (_currentSpriteChangeDelayTick++ == SPRITE_CHANGE_DELAY)
             {
                 _currentSpriteChangeDelayTick = 0;
-                for (int i = 0; i < _currentSpriteIndeces.Count; i++)
+                for (int i = 0; i < _currentSpriteIndices.Count; i++)
                 {
-                    int spriteIndex = _currentSpriteIndeces[i];
+                    int spriteIndex = _currentSpriteIndices[i];
                     if (++spriteIndex >= SpriteSheet.SpriteSheet.Keen4TarPitImages.Length)
                     {
                         spriteIndex = 0;
                     }
-                    _currentSpriteIndeces[i] = spriteIndex;
+                    _currentSpriteIndices[i] = spriteIndex;
                     _sprites[i].Image = SpriteSheet.SpriteSheet.Keen4TarPitImages[spriteIndex];
                 }
                 this.DrawImage();

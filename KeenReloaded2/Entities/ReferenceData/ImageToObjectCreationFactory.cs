@@ -2875,6 +2875,28 @@ namespace KeenReloaded2.Entities.ReferenceData
             }
             #endregion
 
+            #region Keen 6 Water Hazard
+            string waterHazardImageKey = nameof(Properties.Resources.keen6_water_hazard);
+            MapMakerObjectProperty[] addedWaterHazardProperties = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "addedWidth",
+                    DataType = typeof(int),
+                    DisplayName = "Added Width:",
+                    Value = 0
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "addedDepth",
+                    DataType = typeof(int),
+                    DisplayName = "Added Depth:",
+                    Value = 0
+                }
+            };
+            AddSimpleGameObject(backgroundReferenceData, keen6HazardFiles, waterHazardImageKey, typeof(Keen6WaterHazard), addedWaterHazardProperties, 11);
+            #endregion
+
             #endregion
 
             #endregion
