@@ -213,8 +213,8 @@ keen4_rocket_propelled_platform1|164|180|32|32|18
 random_item_generator_closed|42|94|124|92|18|0
 enemy_spawner1|1248|35|92|94|18|[PoisonSlug,Lick]|5|20|10000000
 enemy_spawner1|832|35|92|94|18|[SkyPest]|3|200|10000000
-keen4_dart_gun_down|1398|963|30|24|18|DOWN|True|0
 keen4_platform_stationary|1076|400|104|32|18|[1076,100,1076,400]|441db13b-88ad-483c-8591-85e14a18ce7e|False
+keen4_dart_gun_down|1394|963|30|24|18|DOWN|True|0
 keen_stand_right|48|771|26|64|RIGHT
 edge_of_map_tile_debug|0|803|32|32|25|BARRIER
 edge_of_map_tile_debug|0|771|32|32|25|BARRIER

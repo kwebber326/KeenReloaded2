@@ -246,7 +246,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
                 fileList[i] = imgVal == 1 ? filePath1 : filePath2;
                 imgVal = _random.Next(1, 3);
             }
-            _image = BitMapTool.CombineBitmap(fileList, 1, Color.White);
+            _image = BitMapTool.CombineBitmap(fileList, 1, Color.Transparent);
             Redrawn?.Invoke(this, EventArgs.Empty);
         }
 
