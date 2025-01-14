@@ -16563,6 +16563,16 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen6_water_edge_right {
+            get {
+                object obj = ResourceManager.GetObject("keen6_water_edge_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen6_water_hazard {
             get {
                 object obj = ResourceManager.GetObject("keen6_water_hazard", resourceCulture);

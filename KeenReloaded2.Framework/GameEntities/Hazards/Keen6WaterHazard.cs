@@ -25,6 +25,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         private const int SPRITE_HEIGHT = 64;
         private readonly int DEPTH_HEIGHT = Properties.Resources.keen6_water_hazard_depth.Height;
         private const int HITBOX_VERTICAL_OFFSET = 32;
+        private const int HITBOX_HORIZONTAL_OFFSET = 16;
         private const int SPRITE_CHANGE_DELAY = 1;
         private int _currentSpriteChangeDelayTick;
         private List<LocatedImage> _sprites;
@@ -53,6 +54,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             var depthSprite = Properties.Resources.keen6_water_hazard_depth;
             _sprites.Add(new LocatedImage() { Image = _leftSprite, Location = new Point(this.HitBox.X, this.HitBox.Y) });
             int currentX = this.HitBox.X + _leftSprite.Width;
+            var totalWidth = (_leftSprite.Width + _rightSprite.Width) + (_middleSprite.Width * _addedWidth);
             for (int i = 0; i < _addedWidth; i++)
             {
                 LocatedImage p = new LocatedImage();
@@ -62,7 +64,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
                 _sprites.Add(p);
 
                 //depth logic
-                var totalWidth = (_leftSprite.Width + _rightSprite.Width) + (_middleSprite.Width * _addedWidth);
+                
                 for (int j = 0; j < _addedDepth; j++)
                 {
                     //left side
@@ -86,6 +88,23 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
                         Image = depthSprite
                     };
                     _depthSprites.Add(pRight);
+
+                    if (j == 0 || (j + 1) % (SPRITE_HEIGHT / DEPTH_HEIGHT) == 0)
+                    {
+                        LocatedImage leftWallImg = new LocatedImage()
+                        {
+                            Image = Properties.Resources.keen6_forest_wall_edge_right,
+                            Location = new Point(this.HitBox.X, yPos)
+                        };
+                        _sprites.Add(leftWallImg);
+
+                        LocatedImage rightWallImg = new LocatedImage()
+                        {
+                            Image = Properties.Resources.keen6_water_edge_right,
+                            Location = new Point(this.HitBox.X + totalWidth - RIGHT_DEPTH_X_OFFSET, yPos)
+                        };
+                        _sprites.Add(rightWallImg);
+                    }
                 }
                 currentX += _middleSprite.Width;
             }
@@ -97,9 +116,9 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             });
 
             this.HitBox = new Rectangle(
-                  this.HitBox.X + _leftSprite.Width//x
+                  this.HitBox.X + HITBOX_HORIZONTAL_OFFSET//x
                 , this.HitBox.Y + HITBOX_VERTICAL_OFFSET//y
-                , _middleSprite.Width * (_addedWidth + 1)//width
+                , totalWidth - HITBOX_HORIZONTAL_OFFSET //width
                 , this.HitBox.Height - HITBOX_VERTICAL_OFFSET + (_middleSprite.Height + (DEPTH_HEIGHT * _addedDepth)));//height
 
             this.DrawImage();

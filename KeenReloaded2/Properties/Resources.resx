@@ -6229,4 +6229,7 @@
   <data name="keen6_water_hazard_depth" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen6_water_hazard_depth.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen6_water_edge_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen6_water_edge_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
