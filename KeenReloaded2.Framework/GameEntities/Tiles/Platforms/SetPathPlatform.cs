@@ -297,9 +297,10 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             var _area = this.HitBox;
             string imageName = GetImageNameFromType();
             string pathArray = MapMakerConstants.MAP_MAKER_ARRAY_START;
-            foreach (var node in _pathwayPoints)
+            for (int i = 0; i < _pathwayPoints.Count; i++)
             {
-                string item = node.X + MapMakerConstants.MAP_MAKER_ELEMENT_SEPARATOR + node.Y + (node == _pathwayPoints.Last()
+                var node = _pathwayPoints[i];
+                string item = node.X + MapMakerConstants.MAP_MAKER_ELEMENT_SEPARATOR + node.Y + ((i == _pathwayPoints.Count - 1)
                     ? ""
                     : MapMakerConstants.MAP_MAKER_ELEMENT_SEPARATOR);
                 pathArray += item;

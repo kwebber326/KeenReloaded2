@@ -25,7 +25,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
         private int _currentSpriteChangeDelayTick = 0;
         private int _currentSpriteIndex = 0;
 
-        public Keen4SetPathPlatform(Rectangle area, SpaceHashGrid grid, int zIndex, List<Point> locations, Guid activationId, bool initiallyActive = false) 
+        public Keen4SetPathPlatform(Rectangle area, SpaceHashGrid grid, int zIndex, List<Point> locations, Guid activationId, bool initiallyActive = false)
             : base(area, grid, zIndex, PlatformType.KEEN4, locations, activationId, initiallyActive)
         {
         }
@@ -60,7 +60,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             {
                 _currentSpriteIndex = 0;
                 _image = _leftMovementImages[_currentSpriteIndex];
-               
+
             }
             else if (this.IsRightDirection(_direction))
             {
@@ -118,9 +118,10 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             var _area = this.HitBox;
             string imageName = nameof(Properties.Resources.keen4_platform_stationary);
             string pathArray = MapMakerConstants.MAP_MAKER_ARRAY_START;
-            foreach (var node in _pathwayPoints)
+            for (int i = 0; i < _pathwayPoints.Count; i++)
             {
-                string item = node.X + MapMakerConstants.MAP_MAKER_ELEMENT_SEPARATOR + node.Y + (node == _pathwayPoints.Last()
+                var node = _pathwayPoints[i];
+                string item = node.X + MapMakerConstants.MAP_MAKER_ELEMENT_SEPARATOR + node.Y + ((i == _pathwayPoints.Count - 1)
                     ? ""
                     : MapMakerConstants.MAP_MAKER_ELEMENT_SEPARATOR);
                 pathArray += item;
