@@ -3,6 +3,7 @@ using KeenReloaded.Framework.Utilities;
 using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.HelperObjects;
+using KeenReloaded2.Framework.GameEntities.Tiles;
 using KeenReloaded2.Framework.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -115,11 +116,23 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
                 Location = new Point(currentX, this.HitBox.Y)
             });
 
+            //initialize block collisions
+            if (_collisionGrid != null && _collidingNodes != null)
+            {
+                int totalHeight = SPRITE_HEIGHT + (DEPTH_HEIGHT * _addedDepth);
+                Rectangle areaLeft = new Rectangle(_area.X, _area.Y, HITBOX_HORIZONTAL_OFFSET, totalHeight);
+                InvisibleTile leftTile = new InvisibleTile(_collisionGrid, areaLeft, true);
+
+                int right = _sprites.Select(s => s.Right).Max();
+                Rectangle areaRight = new Rectangle(right - RIGHT_DEPTH_X_OFFSET, _area.Y, RIGHT_DEPTH_X_OFFSET, totalHeight);
+                InvisibleTile rightTile = new InvisibleTile(_collisionGrid, areaRight, true);
+            }
+
             this.HitBox = new Rectangle(
                   this.HitBox.X + HITBOX_HORIZONTAL_OFFSET//x
                 , this.HitBox.Y + HITBOX_VERTICAL_OFFSET//y
                 , totalWidth - HITBOX_HORIZONTAL_OFFSET //width
-                , this.HitBox.Height - HITBOX_VERTICAL_OFFSET + (_middleSprite.Height + (DEPTH_HEIGHT * _addedDepth)));//height
+                , this.HitBox.Height - HITBOX_VERTICAL_OFFSET + (DEPTH_HEIGHT * _addedDepth));//height
 
             this.DrawImage();
         }
