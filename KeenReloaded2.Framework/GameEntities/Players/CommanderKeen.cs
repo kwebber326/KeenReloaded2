@@ -766,7 +766,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     if (obj.HitBox.Y > this.HitBox.Y)
                     {
                         int xOffsetWallCollide = this.Direction == Direction.LEFT
-                            ? obj.HitBox.Right - this.HitBox.Width : obj.HitBox.Left + this.HitBox.Width;
+                            ? obj.HitBox.Right - this.HitBox.Width : obj.HitBox.Left + 1/*this.HitBox.Width*/;
                         Rectangle areaToCheck = new Rectangle(xOffsetWallCollide, obj.HitBox.Y - this.HitBox.Height, this.HitBox.Width, this.HitBox.Height);
                         var collisionWalls = obj.CheckCollision(areaToCheck).Where(c => c.CollisionType == CollisionType.BLOCK);
                         //we can't hang on a wall if there are floors below at a lower Y distance than keen's height 
