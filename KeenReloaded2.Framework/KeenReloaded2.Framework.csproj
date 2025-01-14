@@ -5810,5 +5810,8 @@
   <ItemGroup>
     <None Include="Resources\keen6_water_edge_right.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_purple_rock.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

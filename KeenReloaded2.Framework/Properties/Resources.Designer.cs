@@ -15273,6 +15273,16 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen6_purple_rock {
+            get {
+                object obj = ResourceManager.GetObject("keen6_purple_rock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen6_removable_platform_forest_left_edge {
             get {
                 object obj = ResourceManager.GetObject("keen6_removable_platform_forest_left_edge", resourceCulture);
