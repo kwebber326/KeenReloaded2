@@ -1036,7 +1036,6 @@ keen6_industrial_platform_middle|778|3560|32|38|10
 keen6_industrial_platform_middle|810|3560|32|38|10
 keen6_industrial_platform_middle|842|3560|32|38|10
 keen6_industrial_platform_middle|874|3560|32|38|10
-keen6_industrial_wall_to_platform_tile|156|3345|32|64|10|KEEN6_INDUSTRIAL|LEFT
 keen6_industrial_platform_middle|186|3371|32|38|10
 keen6_industrial_platform_middle|218|3371|32|38|10
 keen6_industrial_platform_middle|250|3371|32|38|10
@@ -1075,6 +1074,7 @@ keen6_industrial_floor_edge_left|529|2591|72|64|10
 keen6_industrial_floor_middle|601|2591|48|64|10
 keen6_industrial_floor_middle|649|2591|48|64|10
 keen6_industrial_floor_edge_right|697|2591|52|64|10
+keen6_industrial_wall_to_platform_tile|156|3344|32|64|10|KEEN6_INDUSTRIAL|LEFT
 keen6_Switch_pole|535|8617|20|20|keen6_Switch_pole.png|True|11
 keen6_Switch_pole|647|5805|20|20|keen6_Switch_pole.png|True|11
 keen6_laser_turret_right|158|8289|68|32|14|RIGHT|True|KEEN6|0
@@ -1153,10 +1153,8 @@ keen6_trick_platform|438|9384|98|32|18|KEEN6
 keen6_drop_platform|588|9480|98|32|18|KEEN6|200
 keen6_bip_platform|296|9365|98|32|18|[296,8700,296,9364]|6871bf38-d5cf-4c40-b57b-1987dbe2d0bb|True
 keen6_burn_hazard3|367|9131|32|32|18
-keen6_burn_hazard3|296|8983|32|32|18
 keen6_burn_hazard3|297|8820|32|32|18
 keen6_burn_hazard3|366|8845|32|32|18
-keen6_bip_platform|672|8468|98|32|18|[300,8000,672,8468]|14094a96-5e08-4dbd-862e-8f848e02fe1a|False
 keen6_drop_platform|468|7893|98|32|18|KEEN6|100
 keen6_burn_hazard3|471|7914|32|32|18
 keen6_burn_hazard3|503|7914|32|32|18
@@ -1196,7 +1194,6 @@ enemy_spawner1|196|3640|92|94|18|[BipShip]|1|20|1000000
 enemy_spawner1|812|3640|92|94|18|[BipShip]|1|20|100
 enemy_spawner1|196|3470|92|94|18|[BipShip]|1|20|1000000
 enemy_spawner1|812|3470|92|94|18|[BipShip]|1|20|100
-enemy_spawner1|200|3058|92|94|18|[Fleex]|3|60|1000000
 enemy_spawner1|812|3284|92|94|18|[NoSpike]|1|60|1000000
 keen6_laser_field_toggle|738|1009|32|1440|18|True|48a1629c-3805-4bf5-8acb-4d7bb702ca26
 keen6_bip_platform|488|4150|98|32|18|[488,3500,488,4150]|d8b0c56c-3959-46fb-820a-ae47dabcbff8|True
@@ -1204,6 +1201,9 @@ keen6_laser_field_bottom|652|2482|32|144|18|OFF
 keen6_laser_field_bottom|620|2482|32|144|18|OFF
 keen6_burn_hazard3|717|2851|32|32|18
 keen6_bip_platform|800|2370|98|32|18|[800,1300,800,2370]|431bad44-0d8e-4741-a031-d9d796f3e85f|True
+keen6_burn_hazard3|330|8983|32|32|18
+keen6_bip_platform|672|8532|98|32|18|[300,8000,672,8468]|14094a96-5e08-4dbd-862e-8f848e02fe1a|False
+enemy_spawner1|500|3200|92|94|18|[Fleex]|3|60|1000000
 blue_flag_destination|152|254|130|12|20|BLUE
 Blue Flag|490|477|51|64|20|BLUE|100000|5000|1
 keen_stand_right|42|9773|26|64|RIGHT

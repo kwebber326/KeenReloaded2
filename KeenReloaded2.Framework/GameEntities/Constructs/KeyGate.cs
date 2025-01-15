@@ -94,6 +94,8 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
         public override CollisionType CollisionType => CollisionType.BLOCK;
 
+        public override bool CanUpdate => true;
+
         public void Update()
         {
             if (!this.IsActive)

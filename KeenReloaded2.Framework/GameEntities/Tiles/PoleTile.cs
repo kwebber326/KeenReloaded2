@@ -29,6 +29,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
 
         public Point Location => this.HitBox.Location;
 
+        public bool CanUpdate => false;
+
         public Size ImageSize => _sprite.Size;
 
         public override CollisionType CollisionType => CollisionType.POLE_TILE;

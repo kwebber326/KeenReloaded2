@@ -13,5 +13,7 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
             : base(area, imageName, stretchImage, zIndex)
         {
         }
+
+        public override bool CanUpdate => true;
     }
 }

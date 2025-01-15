@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.GameEntities.Backgrounds
 {
-    public class AnimatedBackground : Background
+    public class AnimatedBackground : MimicBlock
     {
         private readonly string[] _images;
         private readonly Animation _animation;

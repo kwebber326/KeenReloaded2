@@ -73,7 +73,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             _imageName = _sprite?.Tag?.ToString();
         }
 
-
+        public bool CanUpdate => _doorType == DoorType.KEEN4_ORACLE || _doorType == DoorType.KEEN5_EXIT;
 
         public int Id { get; private set; }
 

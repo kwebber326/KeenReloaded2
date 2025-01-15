@@ -80,6 +80,8 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             get; private set;
         }
 
+        public bool CanUpdate => true;
+
         public Image WeaponSprite
         {
             get

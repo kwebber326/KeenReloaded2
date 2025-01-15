@@ -112,6 +112,8 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         public Point Location => this.HitBox.Location;
 
+        public bool CanUpdate => true;
+
         protected void OnCreate(ObjectEventArgs args)
         {
             if (Create != null)

@@ -374,6 +374,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         public Image Image => _sprite;
         public Point Location => this.HitBox.Location;
 
+        public bool CanUpdate => true;
+
         public override string ToString()
         {
             string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;

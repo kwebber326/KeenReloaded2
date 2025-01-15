@@ -451,6 +451,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public Point Location => this.HitBox.Location;
 
+        public bool CanUpdate => true;
+
         public void Update()
         {
             switch (_state)

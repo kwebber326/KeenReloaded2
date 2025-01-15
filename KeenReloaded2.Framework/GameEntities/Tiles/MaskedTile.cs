@@ -50,6 +50,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
 
         public virtual bool Hangable => true;
 
+        public virtual bool CanUpdate => false;
+
         public override Rectangle HitBox
         {
             get

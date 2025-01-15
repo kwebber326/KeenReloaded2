@@ -14,5 +14,7 @@ namespace KeenReloaded2.Framework.GameEntities.Interfaces
         Image Image { get; }
 
         Point Location { get; }
+
+        bool CanUpdate { get; }
     }
 }

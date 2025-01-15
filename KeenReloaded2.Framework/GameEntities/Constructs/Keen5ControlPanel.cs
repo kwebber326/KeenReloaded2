@@ -53,6 +53,8 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
         public Point Location => this.HitBox.Location;
 
+        public bool CanUpdate => true;
+
         public override CollisionType CollisionType => CollisionType.NONE;
 
         public void Update()

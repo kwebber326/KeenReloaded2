@@ -1709,6 +1709,8 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         {
             get { return _sprite; }
         }
+
+        public bool CanUpdate => true;
         #endregion
 
         public NeuralStunner CurrentWeapon

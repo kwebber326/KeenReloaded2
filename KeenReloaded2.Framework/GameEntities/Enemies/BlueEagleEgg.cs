@@ -164,6 +164,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public override CollisionType CollisionType => CollisionType.ENEMY;
 
+        public bool CanUpdate => true;
+
         public void Update()
         {
             var collisions = this.CheckCollision(this.HitBox);

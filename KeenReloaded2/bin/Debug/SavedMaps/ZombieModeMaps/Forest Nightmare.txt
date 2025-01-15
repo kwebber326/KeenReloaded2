@@ -117,10 +117,10 @@ keen4_forest_platform_right_edge|117|412|32|40|10
 keen4_forest_floor_middle|40|149|48|64|10
 keen4_forest_floor_middle|88|149|48|64|10
 keen4_forest_floor_edge_right|136|149|52|64|10
-key_gate1|108|32|26|160|10|d1dc61b7-540c-4e9b-adc2-4ac6089b8421
-key_gate1|1244|30|26|280|10|1c4fe2c5-0713-4dc4-8f2a-ee86a9e5a354
 keen4_forest_floor_middle|544|1440|48|64|10
 keen4_forest_floor_middle|592|1440|48|64|10
+key_gate1|108|32|26|160|12|d1dc61b7-540c-4e9b-adc2-4ac6089b8421
+key_gate1|1244|30|26|280|12|1c4fe2c5-0713-4dc4-8f2a-ee86a9e5a354
 keen4_platform_stationary|134|277|104|32|18|[1050,277,134,277]|3dc5d5fa-abbf-49e8-bcf9-4f0ee899b395|True
 keen4_rocket_propelled_platform1|59|596|32|32|18
 keen4_rocket_propelled_platform1|91|596|32|32|18

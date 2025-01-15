@@ -291,6 +291,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public override CollisionType CollisionType => CollisionType.ENEMY;
 
+        public bool CanUpdate => true;
+
         public override string ToString()
         {
             string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;

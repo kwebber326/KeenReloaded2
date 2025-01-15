@@ -401,6 +401,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public override CollisionType CollisionType => CollisionType.ENEMY;
 
+        public bool CanUpdate => true;
+
         public int ZIndex => _zIndex;
 
         public Image Image => _sprite;

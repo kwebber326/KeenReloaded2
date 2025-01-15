@@ -22,6 +22,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
 
         public CollisionObject AssociatedObject { get; set; }
 
+        public override bool CanUpdate => true;
+
         public void AssignKeen(CommanderKeen keen)
         {
             _keen = keen;

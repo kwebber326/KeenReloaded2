@@ -64,6 +64,8 @@ namespace KeenReloaded2.Framework.GameEntities.Items
             }
         }
 
+        public bool CanUpdate => true;
+
         public virtual bool CollectibleByPlayer
         {
             get

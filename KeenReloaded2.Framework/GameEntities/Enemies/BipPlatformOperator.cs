@@ -70,5 +70,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         public Image Image => _sprite;
 
         public Point Location => _location;
+
+        public bool CanUpdate => true;
     }
 }

@@ -112,6 +112,8 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
 
         public Image Image => _sprite;
 
+        public bool CanUpdate => true;
+
         public virtual Point Location => this.HitBox.Location;
 
         public override string ToString()

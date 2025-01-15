@@ -457,6 +457,8 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         public override CollisionType CollisionType => CollisionType.ENEMY_PROJECTILE;
 
+        public bool CanUpdate => true;
+
         public event EventHandler<ObjectEventArgs> Create;
 
         public event EventHandler<ObjectEventArgs> Remove;

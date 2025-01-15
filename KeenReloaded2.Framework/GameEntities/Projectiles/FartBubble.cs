@@ -101,6 +101,8 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         public Point Location => this.HitBox.Location;
 
+        public bool CanUpdate => true;
+
         public override CollisionType CollisionType => CollisionType.NONE;
 
         private Image _sprite;

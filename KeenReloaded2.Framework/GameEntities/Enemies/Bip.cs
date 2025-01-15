@@ -406,6 +406,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public Point Location => this.HitBox.Location;
 
+        public bool CanUpdate => true;
+
         public event EventHandler<ObjectEventArgs> Squashed;
         public event EventHandler<ObjectEventArgs> Killed;
 

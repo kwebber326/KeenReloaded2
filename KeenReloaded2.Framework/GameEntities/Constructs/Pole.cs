@@ -199,6 +199,8 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
         public Image Image => _image;
 
+        public bool CanUpdate => _poleType == PoleType.MANHOLE || _poleType == PoleType.MANHOLE_FLOOR;
+
         public event EventHandler<ObjectEventArgs> Create;
 
         public event EventHandler<ObjectEventArgs> Remove;
@@ -303,6 +305,8 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         }
 
         public PoleTile CollisionTile { get; set; }
+
+        public bool CanUpdate => _poleType == PoleType.MANHOLE || _poleType == PoleType.MANHOLE_FLOOR;
 
         public string ImageName
         {

@@ -27,6 +27,8 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
         public Point Location => _location;
 
+        public bool CanUpdate => true;
+
         public void UpdateImage(Image image)
         {
             _image = image;

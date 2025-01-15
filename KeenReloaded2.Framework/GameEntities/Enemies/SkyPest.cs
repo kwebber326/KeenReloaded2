@@ -19,7 +19,6 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         private Enums.Direction _direction;
         private SkyPestState _state;
         private CommanderKeen _keen;
-        private Random _random = new Random();
 
         private int _currentFlyingImage;
         private const int WAIT_STATE_CHANGE_DELAY = 15;
@@ -590,6 +589,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         public Image Image => _sprite;
 
         public Point Location => this.HitBox.Location;
+
+        public bool CanUpdate => true;
 
 
         public event EventHandler<ObjectEventArgs> Squashed;

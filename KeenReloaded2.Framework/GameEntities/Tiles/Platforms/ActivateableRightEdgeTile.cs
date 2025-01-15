@@ -38,6 +38,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             }
         }
 
+        public override bool CanUpdate => true;
 
         public Guid ActivationID => _activationId;
 

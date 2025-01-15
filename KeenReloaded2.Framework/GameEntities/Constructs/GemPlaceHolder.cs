@@ -100,6 +100,8 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
         public Point Location => _area.Location;
 
+        public bool CanUpdate => true;
+
         public override CollisionType CollisionType => CollisionType.GEM_PLACEHOLDER;
 
         public void Toggle()

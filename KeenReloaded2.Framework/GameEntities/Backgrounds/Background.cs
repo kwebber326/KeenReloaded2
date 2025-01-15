@@ -53,6 +53,8 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
 
         public Point Location => _area.Location;
 
+        public virtual bool CanUpdate => false;
+
         public virtual Image Draw()
         {
             if (_image == null)

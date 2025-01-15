@@ -96,6 +96,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             }
         }
 
+        public override bool CanUpdate => true;
+
         public override string ToString()
         {
             string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;

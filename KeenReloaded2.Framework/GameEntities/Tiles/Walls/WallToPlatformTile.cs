@@ -120,6 +120,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Walls
 
         public Point Location => this.HitBox.Location;
 
+        public bool CanUpdate => false;
+
         public override string ToString()
         {
             var _area = this.HitBox;

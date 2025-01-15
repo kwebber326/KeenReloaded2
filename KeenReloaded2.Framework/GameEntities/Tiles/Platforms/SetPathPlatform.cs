@@ -70,6 +70,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
 
         public Guid ActivationID => _activationId;
 
+        public override bool CanUpdate => true;
+
         protected override void UpdateKeenHorizontalPosition()
         {
             if (!_keen.IsDead())

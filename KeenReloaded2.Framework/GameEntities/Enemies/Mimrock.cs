@@ -518,6 +518,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public Point Location => this.HitBox.Location;
 
+        public bool CanUpdate => true;
+
         private void UpdateSprite()
         {
             switch (_moveState)

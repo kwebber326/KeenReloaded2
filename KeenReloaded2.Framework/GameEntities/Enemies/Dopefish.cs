@@ -127,6 +127,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 }
             }
         }
+        public bool CanUpdate => true;
 
         private void SetDirectionFromKeenLocation()
         {

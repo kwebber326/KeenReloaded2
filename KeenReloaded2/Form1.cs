@@ -58,12 +58,17 @@ namespace KeenReloaded2
                MapMakerConstants.EventStoreEventNames.KEEN_DISAPPEAR_DEATH,
                Keen_Disappear_Death);
             EventStore<bool>.Subscribe(
-                MapMakerConstants.EventStoreEventNames.KEEN_DISAPPEAR_DEATH, 
+                MapMakerConstants.EventStoreEventNames.KEEN_DISAPPEAR_DEATH,
                 Keen_Disappear_Death);
         }
 
         private void InitializeGameData(string gameMode, MapMakerData data, bool isReset)
         {
+            if (_game != null)
+            {
+                _game.Dispose();
+            }
+
             _game = new CommanderKeenGame(data);
             var gameObjects = data.MapData.Select(d => d.GameObject);
 
@@ -121,6 +126,11 @@ namespace KeenReloaded2
             pnlGameWindow.AutoScroll = true;
             pnlGameWindow.MouseWheel += PnlGameWindow_MouseWheel;
             this.MouseWheel += PnlGameWindow_MouseWheel;
+        }
+
+        private void _game_BackgroundChanged(object sender, EventArgs e)
+        {
+            pbBackgroundImage.Image = _game.BackGroundImage;
         }
 
         private void Keen_Disappear_Death(object sender, ControlEventArgs.ControlEventArgs<bool> e)
@@ -202,6 +212,7 @@ namespace KeenReloaded2
 
         private void _gameUpdateTimer_Tick(object sender, EventArgs e)
         {
+
             if (_rectUpdates < INITIAL_VIEW_RECT_UPDATES)
             {
                 UpdateViewRectangle();
@@ -211,6 +222,7 @@ namespace KeenReloaded2
             if (!_paused && !_levelCompleted)
             {
                 pbGameImage.Image = _game.UpdateGame();
+
                 if (_keen.IsDead())
                 {
                     if (IsKeenOutOfVisibleRange())
@@ -328,10 +340,10 @@ namespace KeenReloaded2
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            _gameUpdateTimer.Stop();
             _gameUpdateTimer.Tick -= _gameUpdateTimer_Tick;
-            _gameUpdateTimer.Dispose();
-            _game.Dispose();
+            _gameUpdateTimer.Stop();
+            if (_game != null && !_game.IsDisposed)
+                _game.Dispose();
             soundPlayer1.StopMusic();
         }
 

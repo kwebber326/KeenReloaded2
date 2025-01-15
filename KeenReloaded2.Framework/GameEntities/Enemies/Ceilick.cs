@@ -62,6 +62,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             this.State = CeilickState.WAITING;
         }
 
+        public bool CanUpdate => true;
+
         public override Rectangle HitBox
         {
             get

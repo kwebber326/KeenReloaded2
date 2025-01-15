@@ -383,6 +383,8 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         public Point Location => this.HitBox.Location;
 
+        public bool CanUpdate => throw new NotImplementedException();
+
         public event EventHandler<ObjectEventArgs> Create;
 
         public event EventHandler<ObjectEventArgs> Remove;

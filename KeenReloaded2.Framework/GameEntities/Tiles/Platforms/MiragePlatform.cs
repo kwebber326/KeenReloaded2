@@ -214,6 +214,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
 
         public Point Location => _area.Location;
 
+        public bool CanUpdate => true;
+
         public override CollisionType CollisionType => CollisionType.NONE;
 
         public event EventHandler<ObjectEventArgs> Create;

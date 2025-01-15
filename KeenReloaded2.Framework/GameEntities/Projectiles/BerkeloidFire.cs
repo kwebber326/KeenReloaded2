@@ -106,6 +106,14 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             get { return true; }
         }
 
+        public bool CanUpdate
+        {
+            get
+            {
+                return true;
+            }
+        }
+
 
         protected override CollisionObject GetRightMostLeftTile(List<CollisionObject> collisions)
         {

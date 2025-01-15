@@ -59,6 +59,8 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         public Point Location => _location;
 
+        public bool CanUpdate => true;
+
         public event EventHandler<ObjectEventArgs> Create;
 
         public event EventHandler<ObjectEventArgs> Remove;

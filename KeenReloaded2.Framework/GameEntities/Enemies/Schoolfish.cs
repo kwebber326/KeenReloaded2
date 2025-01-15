@@ -84,6 +84,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public Point Location => this.HitBox.Location;
 
+        public bool CanUpdate => true;
+
         protected override void SetVerticalDirectionFromKeenLocation(CommanderKeen keen, ref Direction direction)
         {
             if (keen == null)

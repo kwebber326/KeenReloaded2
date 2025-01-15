@@ -333,6 +333,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public Point Location => _area.Location;
 
+        public bool CanUpdate => true;
+
         public bool IsOnAlert => this.State == RoboRedState.ALERTED || this.State == RoboRedState.FIRING;
 
         public event EventHandler<ObjectEventArgs> Create;

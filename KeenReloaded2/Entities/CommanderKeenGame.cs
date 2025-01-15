@@ -21,6 +21,8 @@ using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Entities.DataStructures;
 using KeenReloaded2.Framework.GameEntities.Backgrounds;
 using KeenReloaded.Framework.Utilities;
+using KeenReloaded.Framework;
+using KeenReloaded2.Framework.GameEntities.Tiles;
 
 namespace KeenReloaded2.Entities
 {
@@ -29,8 +31,11 @@ namespace KeenReloaded2.Entities
         private Dictionary<string, bool> _keysPressed;
         private CommanderKeen _keen;
         private OrderedList<ISprite> _gameObjects;
+        private OrderedList<ISprite> _backgroundsAndTiles;
         private List<IUpdatable> _updatableGameObjects = new List<IUpdatable>();
+        private List<AnimatedBackground> _animatedBackgrounds = new List<AnimatedBackground>();
         private Bitmap _backgroundImage;
+        private bool _disposed;
 
         private Func<ISprite, ISprite, int> _compareFunction = (x1, x2) =>
         {
@@ -63,12 +68,16 @@ namespace KeenReloaded2.Entities
             {
                 _keen = map.MapData.Select(d => d.GameObject).OfType<CommanderKeen>().FirstOrDefault();
                 //populate non backgrounds
-                var backgroundType = typeof(Background).Name;
-                var nonBackGrounds = map.MapData.Where(c => c.GameObject.GetType().Name != backgroundType).Select(d => d.GameObject).ToList();
+                Func<GameObjectMapping, bool> backgroundTypeFunc = (c) => (!c.GameObject?.CanUpdate ?? false) && !(c.GameObject is MapEdgeTile);
+                var nonBackGrounds = map.MapData.Where(c => !backgroundTypeFunc(c) && !(c.GameObject is MapEdgeTile)).Select(d => d.GameObject).ToList();
                 _gameObjects = OrderedList<ISprite>.FromEnumerable(nonBackGrounds, _compareFunction, true);
                 //combine all backgrounds into one image
-                FillBackGround(map, backgroundType);
+                FillBackGround(map, backgroundTypeFunc);
 
+                //this will get all tiles in front of an animated background to be redrawn
+                SetStaticTilesThatWillNeedToBeRedrawn();
+
+                //get updatables
                 var updatables = _gameObjects.OfType<IUpdatable>();
                 if (updatables.Any())
                     _updatableGameObjects = updatables.ToList();
@@ -81,7 +90,7 @@ namespace KeenReloaded2.Entities
                 var enemySpawners = _gameObjects.OfType<EnemySpawner>();
                 if (enemySpawners.Any())
                 {
-                    var biomeTiles = _gameObjects.OfType<IBiomeTile>()?.ToList()
+                    var biomeTiles = _backgroundsAndTiles.OfType<IBiomeTile>()?.ToList()
                         ?? new List<IBiomeTile>();
                     foreach (var spawner in enemySpawners)
                     {
@@ -92,6 +101,35 @@ namespace KeenReloaded2.Entities
             this.Map = map;
         }
 
+        private void SetStaticTilesThatWillNeedToBeRedrawn()
+        {
+            _animatedBackgrounds = _gameObjects.OfType<AnimatedBackground>()?.ToList() ??
+           new List<AnimatedBackground>();
+
+            if (_animatedBackgrounds.Any())
+            {
+                List<ISprite> tilesToBeRedrawn = new List<ISprite>();
+                var tiles = _backgroundsAndTiles.Where(c => !(c is Background)).ToList();
+                foreach (var bg in _animatedBackgrounds)
+                {
+                    Rectangle collisionRectBG = new Rectangle(bg.Location, bg.Image.Size);
+                    var collidingTiles = tiles.Where(t =>
+                    {
+                        Rectangle tileCollisionRect = new Rectangle(t.Location, t.Image.Size);
+                        bool collides = tileCollisionRect.IntersectsWith(collisionRectBG);
+                        return collides;
+                    });
+                    foreach (var tile in collidingTiles)
+                    {
+                        if (!_gameObjects.Contains(tile))
+                        {
+                            _gameObjects.InsertAscending(tile);
+                        }
+                    }
+                }
+            }
+        }
+
         public Bitmap BackGroundImage
         {
             get
@@ -100,11 +138,22 @@ namespace KeenReloaded2.Entities
             }
         }
 
-        private void FillBackGround(MapMakerData map, string backgroundType)
+        public bool IsDisposed
         {
-            var backgrounds = map.MapData.Where(c => c.GameObject.GetType().Name == backgroundType)
+            get
+            {
+                return _disposed;
+            }
+        }
+
+        private void FillBackGround(MapMakerData map, Func<GameObjectMapping, bool> backgroundTypeFunc)
+        {
+            var backgrounds = map.MapData.Where(c => backgroundTypeFunc(c))
                 .Select(c => c.GameObject)
                 .OrderBy(c => c.ZIndex);
+            //set relevant background collections
+            _backgroundsAndTiles = OrderedList<ISprite>.FromEnumerable(backgrounds, _compareFunction, true);
+
             var backgroundImages = backgrounds.Select(i => i.Image).ToArray();
             var backgroundLocations = backgrounds.Select(i => i.Location).ToArray();
             _backgroundImage = BitMapTool.DrawImagesOnCanvas(map.MapSize, _backgroundImage, backgroundImages, backgroundLocations);
@@ -199,7 +248,7 @@ namespace KeenReloaded2.Entities
                         Debug.WriteLine(ex.Message);
                     }
                 }
-                return DrawMapImage();
+                return DrawMapImage(_gameObjects);
             }
             return null;
         }
@@ -228,7 +277,7 @@ namespace KeenReloaded2.Entities
                     flag.FlagCaptured += Flag_FlagCaptured;
                 }
             }
-            
+
             RegisterZombieEnemy(obj);
         }
 
@@ -307,8 +356,11 @@ namespace KeenReloaded2.Entities
             }
         }
 
-        public Bitmap DrawMapImage()
+        public Bitmap DrawMapImage<T>(IEnumerable<T> collection)  where T : ISprite
         {
+            if (collection == null)
+                return null;
+
             int mapWidth = this.Map.MapSize.Width;
             int mapHeight = this.Map.MapSize.Height;
 
@@ -319,7 +371,7 @@ namespace KeenReloaded2.Entities
                 {
                     g.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceOver;
 
-                    foreach (var item in _gameObjects)
+                    foreach (var item in collection)
                     {
                         if (item?.Image == null)
                             continue;
@@ -333,12 +385,13 @@ namespace KeenReloaded2.Entities
             catch (Exception ex)
             {
                 Debug.WriteLine($"{ex.Message}\n{ex}");
-                return mapCanvas;
+                mapCanvas.Dispose();
             }
             finally
             {
                 GC.Collect();
             }
+            return null;
         }
 
         private void Flag_FlagCaptured(object sender, FlagCapturedEventArgs e)
@@ -406,7 +459,12 @@ namespace KeenReloaded2.Entities
                 {
                     this.DetachEventsForObject(obj);
                 }
+                if (_backgroundImage != null)
+                {
+                    _backgroundImage = null;
+                }
             }
+            _disposed = true;
         }
     }
 }

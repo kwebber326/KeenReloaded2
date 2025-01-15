@@ -35,7 +35,6 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         private const int WAIT_TIME_BEFORE_ROTATE = 15;
         private int _currentRotateWaitTimeTick;
 
-        private Random _random = new Random();
         private Image[] _rotateSprites = new Image[]
         {
             Properties.Resources.keen5_spirogrip_rotate1,
@@ -476,6 +475,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         public Image Image => _sprite;
 
         public Point Location => this.HitBox.Location;
+
+        public bool CanUpdate => true;
 
         public override string ToString()
         {

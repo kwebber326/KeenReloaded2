@@ -53,6 +53,8 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
 
         public bool DeadlyTouch => false;
 
+        public bool CanUpdate => true;
+
         public override CollisionType CollisionType => CollisionType.DESTRUCTIBLE_BLOCK;
 
         public int ZIndex => _zIndex;
@@ -354,6 +356,8 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
         public Image Image => _image;
 
         public Point Location => _location;
+
+        public bool CanUpdate => true;
 
         public event EventHandler<ObjectEventArgs> Create;
         public event EventHandler<ObjectEventArgs> Remove;

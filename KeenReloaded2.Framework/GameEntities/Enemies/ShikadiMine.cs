@@ -618,6 +618,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public Point Location => this.HitBox.Location;
 
+        public bool CanUpdate => true;
+
         public event EventHandler<ObjectEventArgs> Create;
 
         public event EventHandler<ObjectEventArgs> Remove;
@@ -691,6 +693,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         public Image Image => _sprite;
 
         public Point Location => _area.Location;
+
+        public bool CanUpdate => true;
 
         public Size Size => _area.Size;
 

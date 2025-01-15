@@ -306,6 +306,8 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         public Point Location => this.HitBox.Location;
 
+        public bool CanUpdate => true;
+
         public override CollisionType CollisionType => CollisionType.ENEMY_PROJECTILE;
 
         private Direction _direction;

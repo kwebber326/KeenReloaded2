@@ -414,6 +414,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         private CommanderKeen _keen;
         private Enums.Direction _direction;
 
+        public bool CanUpdate => true;
+
         protected void OnCreate(ObjectEventArgs args)
         {
             if (Create != null)

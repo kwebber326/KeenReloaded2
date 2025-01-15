@@ -101,6 +101,8 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
         public Point Location => _switchArea.Location;
 
+        public bool CanUpdate => true;
+
         public event EventHandler<ToggleEventArgs> Toggled;
 
         public void Toggle()
