@@ -2,3 +2,5 @@
 keen4_cave_floor_middle|223|281|48|64|10
 keen4_gray_door|219|212|60|92|15|KEEN4_GRAY|1|
 keen_stand_right|237|221|26|64|RIGHT
+keen6_industrial_single_block|235|112|36|36|25
+keen6_industrial_single_block|284|256|36|36|25

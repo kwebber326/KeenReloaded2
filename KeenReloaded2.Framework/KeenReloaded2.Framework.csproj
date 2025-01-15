@@ -236,6 +236,7 @@
     <Compile Include="GameEntities\Tiles\Ceilings\CeilingTile.cs" />
     <Compile Include="GameEntities\Tiles\DestructibleCollisionTile.cs" />
     <Compile Include="GameEntities\Tiles\Floors\FloorToPlatformTile.cs" />
+    <Compile Include="GameEntities\Tiles\Floors\Keen6SingleBlock.cs" />
     <Compile Include="GameEntities\Tiles\Floors\Keen6SlimeHazardEdgeFloorLeft.cs" />
     <Compile Include="GameEntities\Tiles\Floors\Keen6SlimeHazardEdgeFloorRight.cs" />
     <Compile Include="GameEntities\Tiles\Floors\Keen6SLimeHazardMiddleFloor.cs" />
@@ -5812,6 +5813,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_purple_rock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_industrial_single_block.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

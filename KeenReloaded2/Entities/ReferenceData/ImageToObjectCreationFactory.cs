@@ -674,6 +674,10 @@ namespace KeenReloaded2.Entities.ReferenceData
             string[] keen6FinalConstructFiles = Directory.GetFiles(keen6FinalConstructDirectory);
             string eyeBallPoleKey = nameof(Properties.Resources.keen6_eyeball_pole);
             AddSimpleGameObject(backgroundReferenceData, keen6FinalConstructFiles, eyeBallPoleKey, typeof(Keen6EyeBallPole), null, 10);
+
+            //keen6 industrial gray block platform
+            string grayBlockKey = nameof(Properties.Resources.keen6_industrial_single_block);
+            AddSimpleGameObject(backgroundReferenceData, keen6IndustrialTileFiles, grayBlockKey, typeof(Keen6SingleBlock));
             
             #endregion
 
