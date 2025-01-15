@@ -15593,6 +15593,16 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen6_iron_spike {
+            get {
+                object obj = ResourceManager.GetObject("keen6_iron_spike", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen6_laser_field_bottom {
             get {
                 object obj = ResourceManager.GetObject("keen6_laser_field_bottom", resourceCulture);

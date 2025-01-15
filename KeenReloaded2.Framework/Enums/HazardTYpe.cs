@@ -34,6 +34,7 @@ namespace KeenReloaded2.Framework.Enums
         KEEN6_ELECTRIC_RODS,
         KEEN6_CONVEYER_BELT,
         KEEN6_WATER_HAZARD,
-        INVISIBLE
+        INVISIBLE,
+        KEEN6_IRON_SPIKE
     }
 }

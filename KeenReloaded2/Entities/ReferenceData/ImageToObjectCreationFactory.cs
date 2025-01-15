@@ -2901,6 +2901,11 @@ namespace KeenReloaded2.Entities.ReferenceData
             AddSimpleGameObject(backgroundReferenceData, keen6HazardFiles, waterHazardImageKey, typeof(Keen6WaterHazard), addedWaterHazardProperties, 11);
             #endregion
 
+            #region Keen 6 Iron Spike
+            string ironSpikeImageKey = nameof(Properties.Resources.keen6_iron_spike);
+            AddSimpleGameObject(backgroundReferenceData, keen6HazardFiles, ironSpikeImageKey, typeof(Keen6IronSpike), null, 11);
+            #endregion
+
             #endregion
 
             #endregion

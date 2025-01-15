@@ -81,6 +81,10 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
                     _sprite = Properties.Resources.keen6_electric_rods1;
                     _imageName = nameof(Properties.Resources.keen6_electric_rods1);
                     break;
+                case HazardType.KEEN6_IRON_SPIKE:
+                    _sprite = Properties.Resources.keen6_iron_spike;
+                    _imageName = nameof(Properties.Resources.keen6_iron_spike);
+                    break;
             }
         }
 

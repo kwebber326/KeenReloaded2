@@ -6465,5 +6465,8 @@
   <ItemGroup>
     <None Include="bin\Debug\MapMakerObjects\Miscellaneous\flipping_platform_still.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Hazards\Keen6\keen6_iron_spike.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

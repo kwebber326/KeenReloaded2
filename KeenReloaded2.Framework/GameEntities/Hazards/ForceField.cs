@@ -327,6 +327,8 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             if (!_animationTimer.Enabled)
             {
                 _animationTimer.Start();
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.FORCE_FIELD_DESTROYED);
             }
         }
 

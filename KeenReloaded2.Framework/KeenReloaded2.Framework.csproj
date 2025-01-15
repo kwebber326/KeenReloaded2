@@ -153,6 +153,7 @@
     <Compile Include="GameEntities\Hazards\Keen6BurnHarzard.cs" />
     <Compile Include="GameEntities\Hazards\Keen6Drill.cs" />
     <Compile Include="GameEntities\Hazards\Keen6ElectriRodcHazard.cs" />
+    <Compile Include="GameEntities\Hazards\Keen6IronSpike.cs" />
     <Compile Include="GameEntities\Hazards\Keen6LaserField.cs" />
     <Compile Include="GameEntities\Hazards\Keen6ToggleLaserField.cs" />
     <Compile Include="GameEntities\Hazards\Keen6WaterHazard.cs" />
@@ -5829,6 +5830,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\flipping_platform_still.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_iron_spike.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6247,4 +6247,7 @@
   <data name="flipping_platform_still1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\MapMakerObjects\Miscellaneous\flipping_platform_still.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen6_iron_spike" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\MapMakerObjects\Hazards\Keen6\keen6_iron_spike.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
