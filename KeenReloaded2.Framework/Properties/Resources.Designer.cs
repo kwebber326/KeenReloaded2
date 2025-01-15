@@ -1903,6 +1903,46 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap flipping_platform_flip_135 {
+            get {
+                object obj = ResourceManager.GetObject("flipping_platform_flip_135", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap flipping_platform_flip_45 {
+            get {
+                object obj = ResourceManager.GetObject("flipping_platform_flip_45", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap flipping_platform_flip_90 {
+            get {
+                object obj = ResourceManager.GetObject("flipping_platform_flip_90", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap flipping_platform_still {
+            get {
+                object obj = ResourceManager.GetObject("flipping_platform_still", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gem_acquired {
             get {
                 object obj = ResourceManager.GetObject("gem_acquired", resourceCulture);

@@ -249,6 +249,7 @@
     <Compile Include="GameEntities\Tiles\Platforms\ActivateableRightEdgeTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\BottomOutPlatform.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\DropPlatform.cs" />
+    <Compile Include="GameEntities\Tiles\Platforms\FlippingPlatform.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\HorizontalTrickPlatform.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\InvisiblePlatformTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\Keen4SetPathPlatform.cs" />
@@ -5816,6 +5817,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_industrial_single_block.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flipping_platform_flip_45.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flipping_platform_flip_90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flipping_platform_flip_135.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flipping_platform_still.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

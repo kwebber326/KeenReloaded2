@@ -4298,6 +4298,7 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             AddSimpleGameObject(backgroundReferenceData, miscallaneousImageFiles, "enemy_spawner", typeof(EnemySpawner), enemySpawnerPropertiesExtra, 18);
 
+            //hills
             MapMakerObjectProperty[] hillPropertiesExtra = new MapMakerObjectProperty[]
             {
                 new MapMakerObjectProperty()
@@ -4342,6 +4343,7 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             string mapEdgeTileFile = miscallaneousImageFiles.FirstOrDefault(f => f.Contains("edge_of_map"));
 
+            //map edge tiles
             MapMakerObjectProperty[] mapEdgeTileExtraProperties = new MapMakerObjectProperty[]
             {
                 new MapMakerObjectProperty()
@@ -4354,7 +4356,25 @@ namespace KeenReloaded2.Entities.ReferenceData
             };
 
             AddSimpleGameObject(backgroundReferenceData, miscallaneousImageFiles, "edge_of_map", typeof(MapEdgeTile), mapEdgeTileExtraProperties);
-
+            //flipping platforms
+            var possibleFlipStates = Enum.GetValues(typeof(FlippingPlatformState)).OfType<FlippingPlatformState>();
+            foreach (var state in possibleFlipStates)
+            {
+                MapMakerObjectProperty[] flippingPlatformAddedProperties = new MapMakerObjectProperty[]
+                {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName ="initialState",
+                    DataType = typeof(FlippingPlatformState),
+                    PossibleValues = Enum.GetNames(typeof(FlippingPlatformState)),
+                    Readonly = true,
+                    DisplayName = "Initial State:",
+                    Value = state
+                }
+                };
+                string flippingPlatformKey = FlippingPlatform.GetImageKeyByState(state);
+                AddSimpleGameObject(backgroundReferenceData, miscallaneousImageFiles, flippingPlatformKey, typeof(FlippingPlatform), flippingPlatformAddedProperties, 12);
+            }
             #endregion
 
             return backgroundReferenceData;
