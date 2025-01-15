@@ -28,14 +28,12 @@ namespace KeenReloaded2
         private CommanderKeenGame _game;
         private bool _paused;
         private CommanderKeen _keen;
-        private readonly string _selectedCharacter;
         private int _currentVisionOffset;
         private int _maxVisionY;
         private int _maxVisionX;
         private const int VIEW_RADIUS = 400;
         private const int MAX_VISION_OFFSET = 10;
         private const int VISION_OFFSET_COEFFICIENT = 10;
-        private const int HIGH_SCORE_LENGTH = 8;
         private bool _levelCompleted;
 
         private const int INITIAL_VIEW_RECT_UPDATES = 3;
