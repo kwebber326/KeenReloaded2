@@ -962,9 +962,6 @@ keen6_forest_wall_middle1|1000|9869|64|64|10
 keen6_forest_wall_middle2|1036|9869|64|64|10
 keen6_forest_wall_middle2|1000|9933|64|64|10
 keen6_forest_wall_middle2|1036|9933|64|64|10
-keen6_forest_floor_middle|984|9805|48|64|10
-keen6_forest_floor_middle|1032|9805|48|64|10
-keen6_forest_floor_edge_right|1048|9805|52|64|10
 keen6_industrial_floor_edge_left|426|8618|72|64|10
 keen6_industrial_floor_middle|498|8618|48|64|10
 keen6_industrial_floor_middle|546|8618|48|64|10
@@ -1075,8 +1072,12 @@ keen6_industrial_floor_middle|601|2591|48|64|10
 keen6_industrial_floor_middle|649|2591|48|64|10
 keen6_industrial_floor_edge_right|697|2591|52|64|10
 keen6_industrial_wall_to_platform_tile|156|3344|32|64|10|KEEN6_INDUSTRIAL|LEFT
+keen6_dome_floor_middle|1051|9806|48|64|10
 keen6_Switch_pole|535|8617|20|20|keen6_Switch_pole.png|True|11
 keen6_Switch_pole|647|5805|20|20|keen6_Switch_pole.png|True|11
+keen6_iron_spike|984|9805|32|64
+keen6_iron_spike|1016|9805|32|64
+keen6_iron_spike|1048|9805|32|64
 keen6_laser_turret_right|158|8289|68|32|14|RIGHT|True|KEEN6|0
 keen6_laser_turret_left|866|8096|54|32|14|LEFT|True|KEEN6|0
 keen6_laser_turret_right|159|7667|68|32|14|RIGHT|True|KEEN6|0
@@ -1206,7 +1207,7 @@ keen6_bip_platform|672|8532|98|32|18|[300,8000,672,8468]|14094a96-5e08-4dbd-862e
 enemy_spawner1|500|3200|92|94|18|[Fleex]|3|60|1000000
 blue_flag_destination|152|254|130|12|20|BLUE
 Blue Flag|490|477|51|64|20|BLUE|100000|5000|1
-keen_stand_right|42|9773|26|64|RIGHT
+keen_stand_right|42|9767|26|64|RIGHT
 keen6_gix_right3|620|922|48|30|25
 keen6_gix_right3|319|910|48|30|25
 keen6_ceilick_tongue_waiting|508|754|10|10|25

@@ -3,11 +3,14 @@ using KeenReloaded.Framework.Utilities;
 using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities;
+using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 
 namespace KeenReloaded2.Framework.GameEntities.Enemies
 {
@@ -54,7 +57,41 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
            this.Direction = GetRandomDiagonalDirection();
         }
 
-       
+        protected override CollisionObject GetTopMostLandingTile(List<CollisionObject> collisions)
+        {
+            CollisionObject topMostTile = null;
+            var landingTiles = collisions.Where(h => (h.CollisionType == CollisionType.BLOCK 
+            || h.CollisionType == CollisionType.PLATFORM 
+            || h.CollisionType == CollisionType.POLE_TILE 
+            || (h.CollisionType == CollisionType.KEEN6_SWITCH && ((Keen6Switch)h).IsActive && this.IsDownDirection(this.Direction)))
+            && h.HitBox.Top > this.HitBox.Top && h.HitBox.Left < this.HitBox.Right && h.HitBox.Right > this.HitBox.Left);
+
+            if (!landingTiles.Any())
+                return null;
+
+            int minY = landingTiles.Select(c => c.HitBox.Top).Min();
+            topMostTile = landingTiles.FirstOrDefault(t => t.HitBox.Top == minY);
+
+            return topMostTile;
+        }
+
+        protected override CollisionObject GetTopMostLandingTile(int currentFallVelocity)
+        {
+            CollisionObject topMostTile;
+            Rectangle areaTocheck = new Rectangle(this.HitBox.X, this.HitBox.Bottom, this.HitBox.Width, currentFallVelocity);
+            var items = this.CheckCollision(areaTocheck, true);
+
+            var landingTiles = items.Where(h =>  h.HitBox.Top > this.HitBox.Top 
+                && h.HitBox.Left < this.HitBox.Right && h.HitBox.Right > this.HitBox.Left);
+
+            if (!landingTiles.Any())
+                return null;
+
+            int minY = landingTiles.Select(c => c.HitBox.Top).Min();
+            topMostTile = landingTiles.FirstOrDefault(t => t.HitBox.Top == minY);
+
+            return topMostTile;
+        }
 
         public void Update()
         {
@@ -119,6 +156,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             {
                 newYPos = isUpDirection ? this.HitBox.Y - xDistFromCollision : this.HitBox.Y + xDistFromCollision;
                 bounceHorizontal = true;
+                bounceVertical = false;
             }
 
             //check for keen collisions
