@@ -466,6 +466,7 @@ keen6_industrial_wall_edge_right|764|7063|52|64|9
 keen6_industrial_platform_middle|906|3724|32|38|9
 keen6_industrial_platform_middle|906|3560|32|38|9
 keen6_industrial_platform_middle|890|3371|32|38|9
+keen6_dome_floor_middle|981|9805|48|64|9
 keen6_forest_floor_edge_left|0|9805|72|64|10
 keen6_forest_wall_middle1|0|9869|64|64|10
 keen6_forest_wall_middle2|0|9933|64|64|10
@@ -1072,7 +1073,8 @@ keen6_industrial_floor_middle|601|2591|48|64|10
 keen6_industrial_floor_middle|649|2591|48|64|10
 keen6_industrial_floor_edge_right|697|2591|52|64|10
 keen6_industrial_wall_to_platform_tile|156|3344|32|64|10|KEEN6_INDUSTRIAL|LEFT
-keen6_dome_floor_middle|1051|9806|48|64|10
+keen6_dome_floor_middle|1051|9805|48|64|10
+keen6_dome_floor_middle|1015|9805|48|64|10
 keen6_Switch_pole|535|8617|20|20|keen6_Switch_pole.png|True|11
 keen6_Switch_pole|647|5805|20|20|keen6_Switch_pole.png|True|11
 keen6_iron_spike|984|9805|32|64
@@ -1205,6 +1207,7 @@ keen6_bip_platform|800|2370|98|32|18|[800,1300,800,2370]|431bad44-0d8e-4741-a031
 keen6_burn_hazard3|330|8983|32|32|18
 keen6_bip_platform|672|8532|98|32|18|[300,8000,672,8468]|14094a96-5e08-4dbd-862e-8f848e02fe1a|False
 enemy_spawner1|500|3200|92|94|18|[Fleex]|3|60|1000000
+keen5_arrow_left_on|442|5785|28|26|keen5_arrow_left_on.png|True|18|[1_keen5_arrow_left_on.png,keen5_arrow_left_off.png]|200
 blue_flag_destination|152|254|130|12|20|BLUE
 Blue Flag|490|477|51|64|20|BLUE|100000|5000|1
 keen_stand_right|42|9767|26|64|RIGHT
@@ -1225,7 +1228,6 @@ neural_stunner_shotgun|514|3568|53|22|50|50
 fg_keen6_industrial_lights|424|241|94|64|fg_keen6_industrial_lights.png|True|100
 fg_keen6_industrial_lights|580|241|94|64|fg_keen6_industrial_lights.png|True|100
 fg_keen6_industrial_lights|580|241|94|64|fg_keen6_industrial_lights.png|True|100
-keen5_arrow_left_on|442|5785|28|26|keen5_arrow_left_on.png|True|100|[1_keen5_arrow_left_on.png,keen5_arrow_left_off.png]|200
 keen6_Switch_Off|505|8453|90|96|15|[14094a96-5e08-4dbd-862e-8f848e02fe1a]|False
 keen6_Switch_Off|617|5651|90|96|15|[45172368-d822-4596-abe0-05f8794d91fc]|False
 keen6_Switch_On|563|2794|90|96|15|[48a1629c-3805-4bf5-8acb-4d7bb702ca26]|True

@@ -88,8 +88,8 @@ namespace KeenReloaded2
                     {
                         if (_gameMode != MainMenuConstants.OPTION_LABEL_NORMAL_MODE)
                         {
-                            var firstMin = highScores.FirstOrDefault(h => h.Value?.ToString() == min?.ToString());
-                            highScores.Remove(firstMin);
+                            var lastMin = highScores.LastOrDefault(h => h.Value?.ToString() == min?.ToString());
+                            highScores.Remove(lastMin);
                         }
                         else
                         {
