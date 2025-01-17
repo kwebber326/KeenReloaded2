@@ -175,6 +175,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             {
                 direction = Enums.Direction.UP_RIGHT;
             }
+            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                GeneralGameConstants.Sounds.SLICESTAR_BOUNCE);
             return direction;
         }
 

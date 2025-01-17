@@ -32,7 +32,7 @@ keen5_wall_black_edge_left|211|556|64|64|10
 keen5_wall_black_edge_left|211|492|64|64|10
 keen5_wall_black_edge_left|211|428|64|64|10
 keen5_wall_black_edge_left|211|364|64|64|10
-enemy_spawner1|403|718|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth,SkyPest,Mimrock,GnosticeneAncient,Sparky,LittleAmpton,DiagonalSlicestar,Shikadi,Shockshund,ShikadiMine,KorathInhabitant,Shelley,Bloog,Blooglet,Blooguard,Babobba,Fleex,NoSpike,BipShip,Bip]|30|20|100000000
+enemy_spawner1|403|718|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth,SkyPest,Mimrock,GnosticeneAncient,Sparky,LittleAmpton,DiagonalSlicestar,Shikadi,Shockshund,ShikadiMine,KorathInhabitant,Shelley,Bloog,Blooglet,Blooguard,Babobba,Fleex,NoSpike,BipShip,Bip]|100|2|100000000
 keen_stand_right|374|158|26|64|RIGHT
 keen5_quantum_dynamo_sphere1|429|489|87|83|25|20|100|200|100000000
 BFG1|465|213|61|24|50|50000
