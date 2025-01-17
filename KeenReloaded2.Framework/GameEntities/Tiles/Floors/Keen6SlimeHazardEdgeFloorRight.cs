@@ -43,6 +43,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Floors
             }
         }
 
+        public override bool CanUpdate => true;
         public void Update()
         {
             this.UpdateSpriteByDelayBase(

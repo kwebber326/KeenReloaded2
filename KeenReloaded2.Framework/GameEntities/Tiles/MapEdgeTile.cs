@@ -1,5 +1,7 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded.Framework.Utilities;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.GameEntities.HelperObjects;
 using KeenReloaded2.Framework.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -17,8 +19,42 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
         public MapEdgeTile(Rectangle area, SpaceHashGrid grid, int zIndex, MapEdgeBehavior behavior)
             : base(area, grid, area, null, zIndex)
         {
-            _image = Properties.Resources.edge_of_map_tile_debug;
+            DrawImage(area);
             _behavior = behavior;
+        }
+
+        private void DrawImage(Rectangle area)
+        {
+            var imgToDraw = Properties.Resources.edge_of_map_tile_debug;
+            Size edgeOfMapTileDimensions = new Size(imgToDraw.Width, imgToDraw.Height);
+
+            int rows = area.Height >= imgToDraw.Height ? area.Height / imgToDraw.Height : 1;
+            if (area.Height % imgToDraw.Height != 0)
+                rows++;
+
+            int columns = area.Width >= imgToDraw.Width ? area.Width / imgToDraw.Width : 1;
+            if (area.Width % imgToDraw.Width != 0)
+                columns++;
+
+            List<Image> images = new List<Image>();
+            List<Point> imagePoints = new List<Point>();
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    int x = j * imgToDraw.Width;
+                    int y = i * imgToDraw.Height;
+                    var locatedImg = new LocatedImage()
+                    {
+                        Image = imgToDraw,
+                        Location = new Point(x, y)
+                    };
+                    images.Add(locatedImg.Image);
+                    imagePoints.Add(locatedImg.Location);
+                }
+            }
+
+            _image = BitMapTool.DrawImagesOnCanvas(area.Size, null, images.ToArray(), imagePoints.ToArray());
         }
 
         public MapEdgeBehavior Behavior
