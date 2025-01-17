@@ -37,6 +37,8 @@ namespace KeenReloaded2.Entities
         private Bitmap _backgroundImage;
         private bool _disposed;
 
+        public event EventHandler BackgroundImageRedrawn;
+
         private Func<ISprite, ISprite, int> _compareFunction = (x1, x2) =>
         {
             if (x1.ZIndex == x2.ZIndex)
@@ -82,7 +84,12 @@ namespace KeenReloaded2.Entities
                 if (updatables.Any())
                     _updatableGameObjects = updatables.ToList();
 
+                //initialize events
                 foreach (var obj in _gameObjects)
+                {
+                    this.RegisterItemEventsForObject(obj);
+                }
+                foreach (var obj in _backgroundsAndTiles)
                 {
                     this.RegisterItemEventsForObject(obj);
                 }
@@ -278,7 +285,26 @@ namespace KeenReloaded2.Entities
                 }
             }
 
+            if (obj is IBiomeTile)
+            {
+                var item = obj as IBiomeTile;
+                item.BiomeChanged += Item_BiomeChanged;
+            }
+
             RegisterZombieEnemy(obj);
+        }
+
+        private void Item_BiomeChanged(object sender, ObjectEventArgs e)
+        {
+            var img = e?.ObjectSprite?.Image;
+            if (img == null)
+                return;
+
+            Image[] images = new Image[] { img };
+            Point[] locations = new Point[] { e.ObjectSprite.Location };
+
+            _backgroundImage = BitMapTool.DrawImagesOnCanvas(_backgroundImage.Size, _backgroundImage, images, locations);
+            BackgroundImageRedrawn?.Invoke(this, EventArgs.Empty);
         }
 
         private void Item_Acquired(object sender, EventArgs e)
@@ -334,6 +360,12 @@ namespace KeenReloaded2.Entities
             {
                 var item = obj as Item;
                 item.Acquired -= Item_Acquired;
+            }
+
+            if (obj is IBiomeTile)
+            {
+                var item = obj as IBiomeTile;
+                item.BiomeChanged -= Item_BiomeChanged;
             }
             UnRegisterZombieEnemy(obj);
         }

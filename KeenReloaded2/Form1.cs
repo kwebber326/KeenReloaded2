@@ -64,10 +64,12 @@ namespace KeenReloaded2
         {
             if (_game != null)
             {
+                _game.BackgroundImageRedrawn -= _game_BackgroundImageRedrawn;
                 _game.Dispose();
             }
 
             _game = new CommanderKeenGame(data);
+            _game.BackgroundImageRedrawn += _game_BackgroundImageRedrawn;
             var gameObjects = data.MapData.Select(d => d.GameObject);
 
             int lives = _keen?.Lives ?? 0;
@@ -177,6 +179,11 @@ namespace KeenReloaded2
             _gameUpdateTimer.Tick -= _gameUpdateTimer_Tick;
             pnlGameWindow.MouseWheel -= PnlGameWindow_MouseWheel;
             this.MouseWheel -= PnlGameWindow_MouseWheel;
+        }
+
+        private void _game_BackgroundImageRedrawn(object sender, EventArgs e)
+        {
+            pbBackgroundImage.Image = _game.BackGroundImage;
         }
 
         private void _keen_KeenDied(object sender, Framework.GameEventArgs.ObjectEventArgs e)

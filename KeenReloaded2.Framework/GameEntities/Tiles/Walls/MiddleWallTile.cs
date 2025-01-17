@@ -1,6 +1,7 @@
 ﻿using KeenReloaded.Framework;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.ReferenceDataClasses;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
         }
 
         public override CollisionType CollisionType => CollisionType.BLOCK;
+
+        public event EventHandler<ObjectEventArgs> BiomeChanged;
 
         public string Biome => _biome;
 

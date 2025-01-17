@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using KeenReloaded.Framework;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.ReferenceDataClasses;
 
 namespace KeenReloaded2.Framework.GameEntities.Tiles
@@ -26,10 +27,17 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
 
         public string Biome => _biome;
 
+        public event EventHandler<ObjectEventArgs> BiomeChanged;
+
         public void ChangeBiome(string biome)
         {
             _biome = biome;
             this.SetImageFromBiome();
+            ObjectEventArgs e = new ObjectEventArgs()
+            {
+                ObjectSprite = this
+            };
+            BiomeChanged?.Invoke(this, e);
         }
 
         protected virtual void SetImageFromBiome()

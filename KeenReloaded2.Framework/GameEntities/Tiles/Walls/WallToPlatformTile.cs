@@ -3,6 +3,7 @@ using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Tiles.Platforms;
+using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.ReferenceDataClasses;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Walls
         private InvisiblePlatformTile _platformTile;
         private string _initialImageName;
         private readonly string _separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
+
+        public event EventHandler<ObjectEventArgs> BiomeChanged;
 
         private int VERTICAL_OFFSET = 32, EDGE_HORIZONTAL_OFFSET_LEFT = 0, EDGE_HORIZONTAL_OFFSET_RIGHT = 0, WALL_WIDTH_RIGHT = 6, WALL_WIDTH_LEFT = 4, WALL_HEIGHT = 64;
         private readonly int _zIndex;
@@ -110,6 +113,12 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Walls
         {
             _biome = newBiome;
             Initialize();
+
+            ObjectEventArgs e = new ObjectEventArgs()
+            {
+                ObjectSprite = this
+            };
+            BiomeChanged?.Invoke(this, e);
         }
 
         public override CollisionType CollisionType => CollisionType.NONE;

@@ -3,6 +3,7 @@ using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Tiles.Platforms;
+using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.ReferenceDataClasses;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Floors
         private string _initialImageName;
 
         private const int PLATFORM_VERTICAL_OFFSET = 32, FLOOR_VERTICAL_OFFSET = 16, EDGE_HORIZONTAL_OFFSET_LEFT = 0, EDGE_HORIZONTAL_OFFSET_RIGHT = 0, FLOOR_WIDTH = 12;
+
+        public event EventHandler<ObjectEventArgs> BiomeChanged;
 
         public FloorToPlatformTile(Rectangle area, SpaceHashGrid grid, int zIndex, string biome)
             : base(grid, area)
@@ -78,6 +81,11 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Floors
         {
             _biome = newBiome;
             Initialize();
+            ObjectEventArgs e = new ObjectEventArgs()
+            {
+                ObjectSprite = this
+            };
+            BiomeChanged?.Invoke(this, e);
         }
 
         public string Biome => _biome;

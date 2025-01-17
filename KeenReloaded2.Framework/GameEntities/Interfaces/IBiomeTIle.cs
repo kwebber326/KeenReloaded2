@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KeenReloaded2.Framework.GameEventArgs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,5 +13,6 @@ namespace KeenReloaded2.Framework.GameEntities.Interfaces
 
         void ChangeBiome(string biome);
 
+        event EventHandler<ObjectEventArgs> BiomeChanged;
     }
 }

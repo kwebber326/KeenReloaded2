@@ -48,6 +48,8 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
         public PoleSprite ManholeFloor { get; private set; }
 
+        public event EventHandler<ObjectEventArgs> BiomeChanged;
+
         private void Initialize()
         {
             this.Sprites = new List<ISprite>();
@@ -306,6 +308,8 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
         public PoleTile CollisionTile { get; set; }
 
+        public event EventHandler<ObjectEventArgs> BiomeChanged;
+
         public bool CanUpdate => _poleType == PoleType.MANHOLE || _poleType == PoleType.MANHOLE_FLOOR;
 
         public string ImageName
@@ -319,6 +323,11 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         private void Initialize(PoleType poleType, string biomeType)
         {
             SetSprite(poleType, biomeType);
+            ObjectEventArgs e = new ObjectEventArgs()
+            {
+                ObjectSprite = this
+            };
+            BiomeChanged?.Invoke(this, e);
         }
 
         private void SetSprite(PoleType poleType, string biomeType)
