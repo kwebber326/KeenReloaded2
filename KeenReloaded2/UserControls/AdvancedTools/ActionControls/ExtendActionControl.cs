@@ -137,6 +137,16 @@ namespace KeenReloaded2.UserControls.AdvancedTools
                     mapping.MapMakerObject = obj.MapMakerObject.Clone();
                     var areaProperty = mapping.MapMakerObject.ConstructorParameters
                         .FirstOrDefault(prop => prop.PropertyName == GeneralGameConstants.AREA_PROPERTY_NAME);
+
+                    var activationIdProperty = mapping.MapMakerObject.ConstructorParameters
+                        .FirstOrDefault(prop => prop.PropertyName == GeneralGameConstants.ACTIVATION_ID_PROPERTY_NAME);
+
+                    if (activationIdProperty != null)
+                    {
+                        Guid guidValue = Guid.NewGuid();
+                        activationIdProperty.Value = guidValue;
+                    }
+
                     if (areaProperty != null)
                     {
                         Rectangle propertyRect = (Rectangle)areaProperty.Value;
