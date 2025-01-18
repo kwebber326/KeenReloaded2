@@ -9,6 +9,7 @@ using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.ReferenceDataClasses;
+using KeenReloaded2.Utilities;
 
 namespace KeenReloaded2.Framework.GameEntities.Tiles
 {
@@ -19,6 +20,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
         public CeilingTile(Rectangle area, SpaceHashGrid grid, Rectangle hitbox, string imageFile, int zIndex, string biome) : base(area, grid, hitbox, imageFile, zIndex)
         {
             _biome = biome;
+            this.SetImageFromBiome();
             _upwardCollisionOffset = 8;
             this.AdjustHitboxBasedOnOffsets();
         }
@@ -78,10 +80,12 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
             }
             if (images != null)
             {
-                int max = images.Length;
+                int max = images.Length - 1;
                 int rand = this.GenerateRandomInteger(0, max);
                 _image = images[rand];
             }
+            if (_image != null)
+                _image = CommonGameFunctions.DrawImage(_area, _image);
         }
     }
 }

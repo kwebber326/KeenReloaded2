@@ -1,6 +1,7 @@
 ﻿using KeenReloaded.Framework;
 using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -66,6 +67,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             _image = _isActive 
                 ? Properties.Resources.keen4_removable_platform 
                 : Properties.Resources.keen4_removable_platform_inactive;
+            if (_image != null)
+                _image = CommonGameFunctions.DrawImage(_area, _image);
         }
 
         protected virtual void RemoveSelfFromCollisionGrid()

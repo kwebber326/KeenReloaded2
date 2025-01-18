@@ -3,6 +3,7 @@ using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.ReferenceDataClasses;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -19,6 +20,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
         public LeftEdgeWallTile(Rectangle area, SpaceHashGrid grid, Rectangle hitbox, string imageFile, int zIndex, string biome) : base(area, grid, hitbox, imageFile, zIndex)
         {
             _biome = biome;
+            this.SetImageFromBiome();
         }
 
         public override CollisionType CollisionType => CollisionType.BLOCK;
@@ -62,6 +64,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
                     _image = Properties.Resources.keen6_industrial_wall_edge_left;
                     break;
             }
+            if (_image != null)
+                _image = CommonGameFunctions.DrawImage(_area, _image);
         }
 
         public void ChangeBiome(string biome)

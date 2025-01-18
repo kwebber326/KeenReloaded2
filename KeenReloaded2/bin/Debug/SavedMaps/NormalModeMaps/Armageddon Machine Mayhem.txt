@@ -545,6 +545,7 @@ fg_keen5_wall_black_middle_1|1533|139|64|64|fg_keen5_wall_black_middle_1.png|Tru
 fg_keen5_wall_black_middle_1|1594|140|64|64|fg_keen5_wall_black_middle_1.png|True|100
 fg_keen5_wall_black_middle_1|1608|140|64|64|fg_keen5_wall_black_middle_1.png|True|100
 fg_keen5_wall_black_middle_1|1538|87|64|64|fg_keen5_wall_black_middle_1.png|True|100
+fg_keen5_wall_black_edge_left_1|1476|0|218|64|fg_keen5_wall_black_edge_left_1.png|False|100
 gem_placeholder_green_empty|1647|1233|26|22|50|GREEN|[0bcd8483-8093-4564-acc3-c70433eab4b9]
 gem_placeholder_blue_empty|811|282|26|22|50|BLUE|[0f468d35-53ec-4abc-977d-e978e80d401f]
 gem_placeholder_red_empty|1642|1420|26|22|50|RED|[ca8f1085-d8b9-40b6-8b9f-2db7d37e5297]

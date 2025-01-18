@@ -3,6 +3,7 @@ using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.ReferenceDataClasses;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -73,6 +74,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
                     _image = Properties.Resources.keen6_industrial_platform_left_edge;
                     break;
             }
+            if (_image != null)
+                _image = CommonGameFunctions.DrawImage(_area, _image);
         }
     }
 }

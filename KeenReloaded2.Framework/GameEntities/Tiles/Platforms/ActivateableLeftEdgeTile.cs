@@ -94,6 +94,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
                         : Properties.Resources.keen6_removable_platform_forest_left_edge;
                     break;
             }
+            if (_image != null)
+                _image = CommonGameFunctions.DrawImage(_area, _image);
         }
 
         public override bool CanUpdate => true;

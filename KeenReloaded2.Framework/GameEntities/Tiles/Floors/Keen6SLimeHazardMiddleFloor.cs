@@ -9,6 +9,7 @@ using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.GameEntities.Hazards;
 using KeenReloaded2.Framework.Interfaces;
 using KeenReloaded2.Framework.ReferenceDataClasses;
+using KeenReloaded2.Utilities;
 
 namespace KeenReloaded2.Framework.GameEntities.Tiles.Floors
 {
@@ -58,6 +59,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Floors
             if (_currentSpriteIndex >= _sprites.Length)
                 _currentSpriteIndex = 0;
             _image = _sprites[_currentSpriteIndex];
+            if (_image != null)
+                _image = CommonGameFunctions.DrawImage(_area, _image);
         }
         private string GetImageNameFromCurrentSpriteIndex()
         {

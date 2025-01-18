@@ -55,6 +55,10 @@
       <Project>{2E1F0654-B7C5-4D8F-9688-A9335D048254}</Project>
       <Name>KeenReloaded2.Constants</Name>
     </ProjectReference>
+    <ProjectReference Include="..\KeenReloaded2.Drawing\KeenReloaded2.Graphics.csproj">
+      <Project>{8CE4860D-ECE9-456C-AE3E-0E816F950328}</Project>
+      <Name>KeenReloaded2.Graphics</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
