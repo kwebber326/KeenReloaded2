@@ -348,7 +348,10 @@ namespace KeenReloaded2
             _gameUpdateTimer.Tick -= _gameUpdateTimer_Tick;
             _gameUpdateTimer.Stop();
             if (_game != null && !_game.IsDisposed)
+            {
+                _game.BackgroundImageRedrawn -= _game_BackgroundImageRedrawn;
                 _game.Dispose();
+            }
             soundPlayer1.StopMusic();
         }
 

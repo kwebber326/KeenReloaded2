@@ -467,20 +467,11 @@ namespace KeenReloaded2.Entities
                     RegisterZombieEnemy(obj);
                 }
             }
-
-
-            //if (obj != null)
-            //{
-            //    bool isHill = obj is Hill;
-            //    if (!isHill || !this.Map.Objects.Contains(obj))
-            //        this.Map.Objects.Add(obj);
-            //}
         }
 
         public void Dispose()
         {
             Dispose(true);
-            GC.SuppressFinalize(this);
         }
 
         protected virtual void Dispose(bool disposing)

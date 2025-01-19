@@ -282,6 +282,14 @@ namespace KeenReloaded2
                         item.CancelAction(selectedAction);
                 }
             }
+
+            EventStore<AdvancedToolsActions>.UnSubscribe(
+               MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_SELECTED_ACTION_CHANGED,
+               SelectedAction_Changed);
+
+            EventStore<AdvancedToolsEventArgs>.UnSubscribe(
+               MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_COMMIT,
+               Action_Committed);
         }
     }
 }

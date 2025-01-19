@@ -103,7 +103,14 @@ keen4_removable_platform|622|458|32|62|10|KEEN4_GREEN|True|63e9f667-f14e-4da4-bf
 keen4_removable_platform|654|458|32|62|10|KEEN4_GREEN|True|f076ca7a-6804-4f96-bd23-1429d6953079
 keen4_removable_platform|686|458|32|62|10|KEEN4_GREEN|True|9c3eff46-689c-4b61-9e05-d6da1fc62e3e
 keen4_removable_platform|718|458|32|62|10|KEEN4_GREEN|True|f19efd60-cdea-4cb3-bbe1-056c5f54ce17
-keen4_removable_platform|750|458|32|62|10|KEEN4_GREEN|True|86e58a83-9251-4dcf-ae69-938b37a34fe0
+keen6_industrial_wall_edge_right|186|458|52|64|10
+keen6_industrial_wall_edge_right|186|394|52|64|10
+keen6_industrial_wall_edge_right|186|330|52|64|10
+keen6_industrial_wall_edge_right|790|458|52|64|10
+keen6_industrial_wall_edge_right|790|394|52|64|10
+keen6_industrial_wall_edge_right|790|330|52|64|10
+keen4_removable_platform|750|458|40|62|10|KEEN4_GREEN|True|86e58a83-9251-4dcf-ae69-938b37a34fe0
+keen6_industrial_ceiling|186|298|654|32|10
 flipping_platform_still|1555|360|64|26|12
 flipping_platform_flip_45|1685|244|50|56|12
 flipping_platform_still|1112|775|64|26|12

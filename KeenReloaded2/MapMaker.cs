@@ -70,6 +70,11 @@ namespace KeenReloaded2
             _cursorUpdateTimer.Interval = 10;
             _cursorUpdateTimer.Tick += _cursorUpdateTimer_Tick;
 
+            SubscribeToEventStoreEvents();
+        }
+
+        private void SubscribeToEventStoreEvents()
+        {
             EventStore<ActivatorSelectionChangedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ACTIVATOR_SELECTION_CHANGED, ActivatorSelection_Changed);
             EventStore<ActivatorSelectionCompletedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ACTIVATOR_SELECTION_COMPLETE, ActivatorSelection_Complete);
             EventStore<DoorSelectionChangedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_DOOR_SELECTION_CHANGED, DoorSelection_Changed);
@@ -84,6 +89,24 @@ namespace KeenReloaded2
             EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_COMMIT, AdvancedTools_ActionCommit);
             EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_UNDO, AdvancedTools_ActionCancel);
             EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_CANCEL, AdvancedTools_ActionCancel);
+        }
+
+        private void UnsubscribeToEventStoreEvents()
+        {
+            EventStore<ActivatorSelectionChangedEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_ACTIVATOR_SELECTION_CHANGED, ActivatorSelection_Changed);
+            EventStore<ActivatorSelectionCompletedEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_ACTIVATOR_SELECTION_COMPLETE, ActivatorSelection_Complete);
+            EventStore<DoorSelectionChangedEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_DOOR_SELECTION_CHANGED, DoorSelection_Changed);
+            EventStore<DoorSelectionChangedEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_DOOR_SELECTION_COMPLETE, DoorSelection_Complete);
+            EventStore<PointListChangedEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_POINTS_LIST_CHANGED, PointList_Changed);
+            EventStore<IndexedPoint>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_LOCATION_CHANGED, SinglePointLocation_Changed);
+            EventStore<PointListChangedEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_POINTS_LIST_FINALIZED, PointList_Finalized);
+            EventStore<int>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_SELECTED_INDEX_CHANGED, PathwayForm_SelectedIndex_Changed);
+            //Advanced Tools Events
+            EventStore<AdvancedToolsEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_SELECTION_CHANGED, AdvancedTools_SelectionChanged);
+            EventStore<AdvancedToolsEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_PREVIEW, AdvancedTools_ActionPreview);
+            EventStore<AdvancedToolsEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_COMMIT, AdvancedTools_ActionCommit);
+            EventStore<AdvancedToolsEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_UNDO, AdvancedTools_ActionCancel);
+            EventStore<AdvancedToolsEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_CANCEL, AdvancedTools_ActionCancel);
         }
 
         private void InitializeGameModeList()
@@ -1156,9 +1179,11 @@ namespace KeenReloaded2
             string directory = MapUtility.GetSavedMapsPath(cmbGameMode.Text);
             string mapFile = Path.Combine(directory, txtMapName.Text + ".txt");
             var mapData = MapUtility.LoadMapData(mapFile);
-            Form1 gameForm = new Form1(cmbGameMode.Text, mapData, true);
-            gameForm.ShowDialog();
-            dialogMapLoader.FileName = mapFile;
+            using (Form1 gameForm = new Form1(cmbGameMode.Text, mapData, true))
+            {
+                gameForm.ShowDialog();
+                dialogMapLoader.FileName = mapFile;
+            }
             // DialogMapLoader_FileOk(this, null);
         }
 
@@ -1197,6 +1222,10 @@ namespace KeenReloaded2
            && MessageBox.Show("This map has unsaved changes. Closing the map maker will cause you to lose these changes. Continue?", "Unsaved Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
             {
                 e.Cancel = true;
+            }
+            else
+            {
+                this.UnsubscribeToEventStoreEvents();
             }
         }
 
