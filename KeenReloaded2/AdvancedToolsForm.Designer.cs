@@ -33,6 +33,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lstMapObjects = new KeenReloaded2.UserControls.AdvancedTools.ScrollableListBox();
             this.advancedToolsActionRadioList1 = new KeenReloaded2.UserControls.AdvancedTools.AdvancedToolsActionRadioList();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbSortCriteria = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,11 +85,32 @@
             this.advancedToolsActionRadioList1.Size = new System.Drawing.Size(212, 215);
             this.advancedToolsActionRadioList1.TabIndex = 5;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(459, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 20);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Sort By:";
+            // 
+            // cmbSortCriteria
+            // 
+            this.cmbSortCriteria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSortCriteria.FormattingEnabled = true;
+            this.cmbSortCriteria.Location = new System.Drawing.Point(530, 10);
+            this.cmbSortCriteria.Name = "cmbSortCriteria";
+            this.cmbSortCriteria.Size = new System.Drawing.Size(149, 28);
+            this.cmbSortCriteria.TabIndex = 7;
+            this.cmbSortCriteria.SelectedIndexChanged += new System.EventHandler(this.CmbSortCriteria_SelectedIndexChanged);
+            // 
             // AdvancedToolsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1014, 793);
+            this.Controls.Add(this.cmbSortCriteria);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.advancedToolsActionRadioList1);
             this.Controls.Add(this.lstMapObjects);
             this.Controls.Add(this.pictureBox1);
@@ -110,5 +133,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private UserControls.AdvancedTools.ScrollableListBox lstMapObjects;
         private UserControls.AdvancedTools.AdvancedToolsActionRadioList advancedToolsActionRadioList1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbSortCriteria;
     }
 }

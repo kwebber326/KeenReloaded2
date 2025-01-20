@@ -23,6 +23,7 @@ namespace KeenReloaded2
         private OrderedList<GameObjectMapping> _gameObjects;
         private Dictionary<int, GameObjectMapping> _previousAdvancedToolsSelection = new Dictionary<int, GameObjectMapping>();
         private Dictionary<AdvancedToolsActions, IActionControl> _actionToFormMapping = new Dictionary<AdvancedToolsActions, IActionControl>();
+        private List<string> _originalList;
 
         public AdvancedToolsForm()
         {
@@ -85,6 +86,8 @@ namespace KeenReloaded2
             lstMapObjects.Items.Clear();
             if (_gameObjects == null)
                 return;
+
+            _originalList = _gameObjects.Select(g => g.ToString()).ToList();
             foreach (var obj in _gameObjects)
             {
                 lstMapObjects.Items.Add(obj.ToString());
@@ -290,6 +293,11 @@ namespace KeenReloaded2
             EventStore<AdvancedToolsEventArgs>.UnSubscribe(
                MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_COMMIT,
                Action_Committed);
+        }
+
+        private void CmbSortCriteria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

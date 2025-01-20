@@ -44,6 +44,10 @@ namespace KeenReloaded2.Utilities
             if (area.Width % imgToDraw.Width != 0)
                 columns++;
 
+            //if there are no new rows or columns to draw, just return the image back
+            if (rows == 1 && columns == 1)
+                return img;
+
             List<Image> images = new List<Image>();
             List<Point> imagePoints = new List<Point>();
             for (int i = 0; i < rows; i++)
@@ -59,7 +63,7 @@ namespace KeenReloaded2.Utilities
                     imagePoints.Add(location);
                 }
             }
-
+            
             return BitMapTool.DrawImagesOnCanvas(area.Size, null, images.ToArray(), imagePoints.ToArray());
         }
     }

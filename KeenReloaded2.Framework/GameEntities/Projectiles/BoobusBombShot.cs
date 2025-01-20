@@ -2,6 +2,7 @@
 using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Constructs;
+using KeenReloaded2.Framework.GameEntities.Enemies;
 using KeenReloaded2.Framework.GameEntities.Hazards;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Tiles;
@@ -457,12 +458,21 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 else
                 {
                     enemyToMoveTo = enemies.FirstOrDefault(e => e.IsActive) as CollisionObject;
-                    if (enemyToMoveTo != null && enemyToMoveTo is IAlertable)
+                    if (enemyToMoveTo != null)
                     {
-                        var alertable = (IAlertable)enemyToMoveTo;
-                        if (!alertable.IsOnAlert)
-                            alertable.Alert();
+                        if (enemyToMoveTo is IAlertable)
+                        {
+                            var alertable = (IAlertable)enemyToMoveTo;
+                            if (!alertable.IsOnAlert)
+                                alertable.Alert();
+                        }
+                        if (enemyToMoveTo is Orbatrix)
+                        {
+                            var orbatrix = (Orbatrix)enemyToMoveTo;
+                            orbatrix.HandleHit(this);
+                        }
                     }
+
                 }
                 if (enemyToMoveTo != null)
                 {

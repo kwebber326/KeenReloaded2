@@ -20,9 +20,9 @@ keen6_dome_underground_wall_background_blue|171|953|800|5400|keen6_dome_undergro
 keen6_gray_wall_background1|169|754|800|200|keen6_gray_wall_background1.png|False|0
 keen6_yellow_sign|517|273|64|32|keen6_yellow_sign.png|True|1
 keen6_gray_wall_background_portrait|551|818|192|64|keen6_gray_wall_background_portrait.png|True|1
-bg_keen6_caution_sign1|760|773|62|62|bg_keen6_caution_sign1.png|True|1|[keen6_caution_sign1.png,keen6_caution_sign2.png]|200
 keen6_green_sign|557|493|64|32|keen6_green_sign.png|True|1
 keen6_gray_wall_background5|148|116|140|140|keen6_gray_wall_background5.png|False|1
+bg_keen6_caution_sign1|760|773|62|62|bg_keen6_caution_sign1.png|True|1|[keen6_caution_sign1.png,keen6_caution_sign2.png]|500
 keen6_industrial_floor_middle|892|690|48|64|9
 keen6_industrial_floor_middle|875|948|48|64|9
 keen6_industrial_floor_middle|891|3126|48|64|9
@@ -256,12 +256,15 @@ keen6_industrial_platform_middle|156|2560|32|38|10
 keen5_single_platform_blue|606|3803|32|36|10
 keen6_industrial_platform_middle|156|2724|26|38|10
 keen6_industrial_wall_edge_left|920|400|64|5970|10
+keen6_industrial_single_platform|542|3339|32|38|10
+keen6_industrial_single_platform|498|3616|32|38|10
+keen6_industrial_single_platform|649|3462|32|38|10
 keen6_iron_spike|984|6318|32|64
 keen6_iron_spike|1016|6318|32|64
 keen6_iron_spike|1048|6318|32|64
 keen6_laser_turret_right|156|4645|68|32|14|RIGHT|True|KEEN6|0
-keen6_laser_turret_right|159|5267|68|32|14|RIGHT|True|KEEN6|0
-keen6_laser_turret_right|158|5989|68|32|14|RIGHT|True|KEEN6|0
+keen6_laser_turret_right|148|5363|68|32|14|RIGHT|True|KEEN6|0
+keen6_laser_turret_left|866|5984|54|32|14|LEFT|True|KEEN6|15
 keen6_industrial_pole_manhole|268|690|96|76|15|keen6_industrial_pole_manhole|MANHOLE|KEEN6_INDUSTRIAL
 keen6_industrial_pole_top|310|658|12|32|15|keen6_industrial_pole_top|TOP|KEEN6_INDUSTRIAL
 keen6_industrial_pole_middle|309|766|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
@@ -309,8 +312,8 @@ keen6_Switch_pole|593|1770|20|20|keen6_Switch_pole.png|True|15
 keen6_Switch_pole|593|1790|20|20|keen6_Switch_pole.png|True|15
 keen6_Switch_pole|593|1690|20|20|keen6_Switch_pole.png|True|15
 keen6_door|794|596|124|126|15|KEEN6|5|4
-keen6_door|798|1076|124|126|15|KEEN6|6|3
-keen6_bip_platform|288|6207|98|32|17|[288,5605,288,6207]|fd9cb2cb-569f-4ec1-aefb-54dbf7439d4e|True
+keen6_door|798|1126|124|126|15|KEEN6|6|3
+keen6_bip_platform|288|6300|98|32|17|[288,5605,288,6300]|fd9cb2cb-569f-4ec1-aefb-54dbf7439d4e|True
 keen6_slime_hazard_middle1|684|948|64|62|18|0
 keen6_slime_hazard_left1|652|948|32|62|18|0
 keen6_slime_hazard_right1|748|948|32|62|18|0
@@ -356,12 +359,9 @@ keen6_conveyer_belt_whole|375|4100|254|96|18|LEFT|2
 keen6_conveyer_belt_whole|422|4264|254|96|18|RIGHT|2
 keen6_smasher_off|373|4534|32|32|18|OFF
 keen6_smasher_off|624|4534|32|32|18|OFF
-enemy_spawner1|828|4516|92|94|18|[Blooguard]|1|500|10000000
 keen6_trick_platform|709|5324|98|32|18|KEEN6
 keen6_drop_platform|468|5593|98|32|18|KEEN6|100
 keen6_conveyer_belt_whole|566|5577|254|96|18|LEFT|1
-keen6_burn_hazard3|297|5700|32|32|18
-keen6_burn_hazard3|366|5725|32|32|18
 keen6_burn_hazard3|331|5863|32|32|18
 keen6_burn_hazard3|367|6011|32|32|18
 enemy_spawner1|195|2640|92|94|18|[BipShip]|1|20|1000000
@@ -370,9 +370,12 @@ enemy_spawner1|196|2470|92|94|18|[BipShip]|1|20|1000000
 enemy_spawner1|812|2470|92|94|18|[BipShip]|1|20|100
 random_item_generator_closed|317|3050|124|92|18|0
 keen6_bip_platform|488|3050|98|32|18|[488,2300,488,3050]|d8b0c56c-3959-46fb-820a-ae47dabcbff8|True
+keen6_burn_hazard3|366|5728|32|32|18
+keen6_burn_hazard3|290|5700|32|32|18
+enemy_spawner1|828|4516|92|94|18|[Blooguard]|1|300|10000000
 blue_flag_destination|152|254|130|12|20|BLUE
 Blue Flag|490|477|51|64|20|BLUE|100000|5000|1
-keen_stand_right|39|6259|26|64|RIGHT
+keen_stand_right|72|6254|26|64|RIGHT
 keen6_gix_right3|620|922|48|30|25
 keen6_gix_right3|319|910|48|30|25
 keen6_ceilick_tongue_waiting|508|754|10|10|25
