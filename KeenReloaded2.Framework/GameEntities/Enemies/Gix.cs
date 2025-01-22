@@ -205,6 +205,10 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             }
 
             this.KillCollidingPlayers(areaToCheckForKeen);
+            if (_keen != null && !_keen.IsDead() && IsKeenStandingOnCap())
+            {
+                _keen.Die();
+            }
             var spriteSet = _direction == Enums.Direction.LEFT ? _slideLeftSprites : _slideRightSprites;
             this.UpdateHitboxBasedOnStunnedImage(spriteSet, ref _currentSlideSprite, ref _currentSlideSpriteChangeDelayTick, SLIDE_SPRITE_CHANGE_DELAY, UpdateSprite);
         }

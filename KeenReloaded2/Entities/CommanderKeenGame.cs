@@ -485,6 +485,7 @@ namespace KeenReloaded2.Entities
                 if (_backgroundImage != null)
                 {
                     _backgroundImage = null;
+                    GC.Collect();
                 }
             }
             _disposed = true;

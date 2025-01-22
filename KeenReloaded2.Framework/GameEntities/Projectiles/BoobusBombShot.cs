@@ -295,7 +295,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             CollisionObject tile = this.Direction == Enums.Direction.LEFT ? GetRightMostLeftTile(collisions) : GetLeftMostRightTile(collisions);
             CollisionObject groundTile = _fallVelocity > 0 ? GetTopMostLandingTile(collisions) : null;
             CollisionObject ceilingTile = GetCeilingTile(collisions);
-    
+
             if (cancellableProjectiles.Any())
             {
                 var projectileCollision = this.GetClosestCollision(cancellableProjectiles);
@@ -458,21 +458,12 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 else
                 {
                     enemyToMoveTo = enemies.FirstOrDefault(e => e.IsActive) as CollisionObject;
-                    if (enemyToMoveTo != null)
+                    if (enemyToMoveTo != null && enemyToMoveTo is IAlertable)
                     {
-                        if (enemyToMoveTo is IAlertable)
-                        {
-                            var alertable = (IAlertable)enemyToMoveTo;
-                            if (!alertable.IsOnAlert)
-                                alertable.Alert();
-                        }
-                        if (enemyToMoveTo is Orbatrix)
-                        {
-                            var orbatrix = (Orbatrix)enemyToMoveTo;
-                            orbatrix.HandleHit(this);
-                        }
+                        var alertable = (IAlertable)enemyToMoveTo;
+                        if (!alertable.IsOnAlert)
+                            alertable.Alert();
                     }
-
                 }
                 if (enemyToMoveTo != null)
                 {
@@ -522,6 +513,12 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     else if (enemyToMoveTo is DestructibleObject)
                     {
                         ((DestructibleObject)enemyToMoveTo).TakeDamage(this.Damage);
+                    }
+
+                    if (enemyToMoveTo is Orbatrix)
+                    {
+                        var orbatrix = (Orbatrix)enemyToMoveTo;
+                        orbatrix.HandleHit(this);
                     }
                 }
             }
@@ -611,6 +608,11 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     else if (enemyToMoveTo is DestructibleObject)
                     {
                         ((DestructibleObject)enemyToMoveTo).TakeDamage(this.Damage);
+                    }
+                    if (enemyToMoveTo is Orbatrix)
+                    {
+                        var orbatrix = (Orbatrix)enemyToMoveTo;
+                        orbatrix.HandleHit(this);
                     }
                 }
             }

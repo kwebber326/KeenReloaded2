@@ -71,7 +71,6 @@ keen4_secret_platform_large_icon|835|351|14|2|15|SHOW3
 keen4_secret_platform_large_icon|1000|282|14|2|15|SHOW3
 keen4_secret_platform_large_icon|1153|300|14|2|15|SHOW3
 mirage_hill4|598|930|324|256|15|[]|200|20|100|100
-random_item_generator_closed|44|262|124|92|18|1000
 keen4_dart_gun_down|1376|32|30|24|18|DOWN|True|0
 keen4_dart_gun_down|1408|32|30|24|18|DOWN|True|20
 keen4_platform_stationary|652|1100|104|32|18|[652,200,652,1100]|bb39233a-1218-40c6-bfc6-9281bbc39f1c|True
@@ -80,6 +79,7 @@ enemy_spawner1|32|413|92|94|18|[Lick]|5|20|10000000
 enemy_spawner1|1380|382|92|94|18|[Lick]|5|20|10000000
 enemy_spawner1|1288|382|92|94|18|[SkyPest]|1|500|10000000
 enemy_spawner1|124|413|92|94|18|[SkyPest]|1|500|10000000
+random_item_generator_closed|44|254|124|92|18|100
 keen_stand_right|694|1117|26|64|RIGHT
 edge_of_map_tile_debug|-12|1469|32|32|25|BARRIER
 edge_of_map_tile_debug|0|1437|32|32|25|BARRIER
@@ -224,10 +224,12 @@ keen4_blue_eagle_egg|1283|300|38|44|25
 keen4_blue_eagle_egg|465|303|38|44|25
 keen4_blue_eagle_egg|369|303|38|44|25
 keen4_blue_eagle_egg|270|303|38|44|25
-neural_stunner1|615|1108|30|22|50|5
-neural_stunner1|769|1106|30|22|50|5
-keen4_icecream_cone1|1371|286|20|32|50|KEEN4_ICECREAM_CONE
-keen4_icecream_cone1|1391|286|20|32|50|KEEN4_ICECREAM_CONE
-keen4_icecream_cone1|1411|286|20|32|50|KEEN4_ICECREAM_CONE
-keen4_icecream_cone1|1351|286|20|32|50|KEEN4_ICECREAM_CONE
+keen4_lifewater_flask1|1448|286|22|32|50|KEEN4_LIFEWATER_FLASK
+keen4_drop1|1335|287|20|32|50
+keen4_drop1|1355|287|20|32|50
+keen4_drop1|1375|287|20|32|50
+keen4_drop1|1395|287|20|32|50
+keen4_drop1|1415|287|20|32|50
+neural_stunner1|615|1108|30|22|50|10
+neural_stunner1|769|1106|30|22|50|10
 keen4_switch2_on|180|317|32|32|15|KEEN4_2|[c67c1c8c-058c-4a37-b452-c234c58037e5,f52f2c98-ce2a-4703-b1fe-8ce04abb8ce2,248403be-508b-4034-9938-82fc2aada8f6,416e8daa-cfb6-41ce-ad7c-944ff1197efc,2920b6b0-0104-467c-94fe-223a8de35270,f561af6f-9c63-4b76-b925-5d2202723923,465591b3-5385-4408-acba-8378aa9535f3,b48fc3a1-9f63-4535-b9f2-e1e8d690c54f,92ef7533-57b5-45a6-bb83-a50cfc21881c,4fa86f7f-0200-47fe-908e-370545805bf2,f3b35fd9-7d96-4af9-9f1a-09e5ed5ec67d,e1741b4d-878a-4979-a5ba-707054d44332,c30b7f10-3821-4ed7-a561-b1658fb3521e,618ae2b8-2eda-4b47-9e3f-328e61f533ae,18b03237-8fd5-454f-933c-20bb63e830d5,18968e73-3a26-44b2-850d-930d68271dc3,beec9413-f30e-44ee-8541-3c354f5cc693,9336944d-7173-493d-9373-a97529479571,13f9901f-c1a2-4af3-8abb-b0329ae95c64,dec81452-a36a-426d-933a-28c15dea63ca,23f96d6b-f398-408f-8e7b-415a00438c96,150b4122-5ef1-4eaf-84ea-8fa147ecf193,7a3703d1-9cb4-4df9-8cf0-e7b3dc710742]|True

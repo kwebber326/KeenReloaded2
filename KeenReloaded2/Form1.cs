@@ -166,9 +166,12 @@ namespace KeenReloaded2
         private void ResetGame()
         {
             DetachEvents();
+            pbGameImage.Image = null;
+            pbBackgroundImage = null;
             var mapMakerData = MapUtility.LoadMapData(_game.Map.MapPath);
             InitializeGameData(_gameMode, mapMakerData, true);
             InitializeGameState();
+            
         }
 
         private void DetachEvents()
