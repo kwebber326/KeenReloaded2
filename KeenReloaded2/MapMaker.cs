@@ -855,7 +855,8 @@ namespace KeenReloaded2
                     }
                     break;
                 case Keys.Space:
-                    ClearFocus();
+                    if (!txtMapName.Focused)
+                        ClearFocus();
                     if (_cursorItem != null && UserWantsSmartPlacer())
                     {
                         _useSmartPlacer = true;
