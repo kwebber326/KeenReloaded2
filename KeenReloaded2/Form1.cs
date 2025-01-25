@@ -130,6 +130,10 @@ namespace KeenReloaded2
 
         private void _game_BackgroundChanged(object sender, EventArgs e)
         {
+            if (pbBackgroundImage == null)
+            {
+                pbBackgroundImage = new PictureBox();
+            }
             pbBackgroundImage.Image = _game.BackGroundImage;
         }
 
@@ -167,7 +171,7 @@ namespace KeenReloaded2
         {
             DetachEvents();
             pbGameImage.Image = null;
-            pbBackgroundImage.Image = null;
+            pbBackgroundImage = null;
             var mapMakerData = MapUtility.LoadMapData(_game.Map.MapPath);
             InitializeGameData(_gameMode, mapMakerData, true);
             InitializeGameState();
@@ -186,6 +190,9 @@ namespace KeenReloaded2
 
         private void _game_BackgroundImageRedrawn(object sender, EventArgs e)
         {
+            if (pbBackgroundImage == null)
+                pbBackgroundImage = new PictureBox();
+
             pbBackgroundImage.Image = _game.BackGroundImage;
         }
 
