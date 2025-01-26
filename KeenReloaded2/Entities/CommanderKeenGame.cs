@@ -305,6 +305,24 @@ namespace KeenReloaded2.Entities
             Point[] locations = new Point[] { e.ObjectSprite.Location };
 
             _backgroundImage = BitMapTool.DrawImagesOnCanvas(_backgroundImage.Size, _backgroundImage, images, locations);
+            var backgroundsToRedraw = _backgroundsAndTiles.Where(b =>
+            {
+                if (b.ZIndex < e.ObjectSprite.ZIndex)
+                    return false;
+                if (b.Image == null)
+                    return false;
+
+                Rectangle r1 = new Rectangle(b.Location, b.Image.Size);
+                Rectangle r2 = new Rectangle(e.ObjectSprite.Location, e.ObjectSprite.Image.Size);
+                return r1.IntersectsWith(r2);
+
+            }).ToArray();
+            if (backgroundsToRedraw.Any())
+            {
+                var redrawLocations = backgroundsToRedraw.Select(b => b.Location).ToArray();
+                var redrawImages = backgroundsToRedraw.Select(b => b.Image).ToArray();
+                _backgroundImage = BitMapTool.DrawImagesOnCanvas(_backgroundImage.Size, _backgroundImage, redrawImages, redrawLocations);
+            }
             BackgroundImageRedrawn?.Invoke(this, EventArgs.Empty);
         }
 

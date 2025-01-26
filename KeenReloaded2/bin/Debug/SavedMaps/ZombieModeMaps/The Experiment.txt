@@ -157,8 +157,8 @@ random_item_generator_closed|657|35|124|92|18|0
 enemy_spawner1|1376|163|92|94|18|[LittleAmpton]|3|20|10000000
 enemy_spawner1|888|302|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth,GnosticeneAncient,Sparky,LittleAmpton,Shikadi,ShikadiMine,KorathInhabitant,Shelley,Bloog,Blooglet,Blooguard,Babobba,Fleex]|1|20|100
 enemy_spawner1|500|302|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth,GnosticeneAncient,Sparky,LittleAmpton,Shikadi,ShikadiMine,KorathInhabitant,Shelley,Bloog,Blooglet,Blooguard,Babobba,Fleex]|1|20|100
-enemy_spawner1|37|1109|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth,GnosticeneAncient,Sparky,LittleAmpton,Shikadi,ShikadiMine,KorathInhabitant,Shelley,Bloog,Blooglet,Blooguard,Babobba,Fleex]|1|20|100
-enemy_spawner1|1370|1109|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth,GnosticeneAncient,Sparky,LittleAmpton,Shikadi,ShikadiMine,KorathInhabitant,Shelley,Bloog,Blooglet,Blooguard,Babobba,Fleex]|1|20|100
+enemy_spawner1|37|1109|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth,GnosticeneAncient,Sparky,LittleAmpton,Shikadi,ShikadiMine,KorathInhabitant,Shelley,Bloog,Blooglet,Blooguard,Babobba,Fleex]|3|20|100
+enemy_spawner1|1370|1109|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth,GnosticeneAncient,Sparky,LittleAmpton,Shikadi,ShikadiMine,KorathInhabitant,Shelley,Bloog,Blooglet,Blooguard,Babobba,Fleex]|3|20|100
 keen_stand_right|688|1392|26|64|RIGHT
 edge_of_map_tile_debug|-16|0|32|1500|25|BARRIER
 edge_of_map_tile_debug|1484|0|32|1500|25|BARRIER
