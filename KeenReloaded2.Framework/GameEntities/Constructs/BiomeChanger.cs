@@ -168,12 +168,9 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             int randVal = _random.Next(0, biomeCount);
             string tileType = constants[randVal].GetRawConstantValue()?.ToString();
 
-            //block projectile should begin at a point on the sphere that is indicative of its intended trajectory
-            int xPos = randHorizontalVelocity < 0 ? this.HitBox.X - 48 : this.HitBox.Right + 48;
-            double yPosOffset = ((double)this.HitBox.Height / 2 / (double)randVerticalVelocity);
-            int yOffsetVal = (int)((this.HitBox.Height / 2) * yPosOffset);
-            int yPos = this.HitBox.Y + (this.HitBox.Height / 2) + yOffsetVal;
-            xPos = randVerticalVelocity < 0 ? xPos + Math.Abs(yOffsetVal) : xPos - Math.Abs(yOffsetVal);
+            //block projectile should begin at the center of the biome changer
+            int xPos = this.HitBox.X + 16;
+            int yPos = this.HitBox.Y + 10;
 
             //instantiate projectile
             BiomeProjectile biomeChangerProjectile = new BiomeProjectile(_collisionGrid, new Rectangle(xPos, yPos, 48, 64), randVerticalVelocity, randHorizontalVelocity, tileType);
