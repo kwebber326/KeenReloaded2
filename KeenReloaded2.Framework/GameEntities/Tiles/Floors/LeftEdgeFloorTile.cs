@@ -34,6 +34,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
         public void ChangeBiome(string biome)
         {
             _biome = biome;
+            this.SetImageFromBiome();
             ObjectEventArgs e = new ObjectEventArgs()
             {
                 ObjectSprite = this

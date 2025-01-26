@@ -93,6 +93,11 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             }
         }
 
+        public override void ChangeBiome(string biome)
+        {
+            
+        }
+
         public override bool CanUpdate => true;
 
         public override string ToString()

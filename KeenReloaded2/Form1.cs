@@ -133,6 +133,11 @@ namespace KeenReloaded2
             if (pbBackgroundImage == null)
             {
                 pbBackgroundImage = new PictureBox();
+                pnlGameWindow.Controls.Remove(pbBackgroundImage);
+                pnlGameWindow.Controls.Remove(pbGameImage);
+                pnlGameWindow.Controls.Add(pbBackgroundImage);
+                pnlGameWindow.Controls.Add(pbGameImage);
+                pbGameImage.BringToFront();
             }
             pbBackgroundImage.Image = _game.BackGroundImage;
         }

@@ -164,6 +164,7 @@ namespace KeenReloaded2.Entities
             var backgroundImages = backgrounds.Select(i => i.Image).ToArray();
             var backgroundLocations = backgrounds.Select(i => i.Location).ToArray();
             _backgroundImage = BitMapTool.DrawImagesOnCanvas(map.MapSize, _backgroundImage, backgroundImages, backgroundLocations);
+            BackgroundImageRedrawn?.Invoke(this, EventArgs.Empty);
         }
 
         public MapMakerData Map

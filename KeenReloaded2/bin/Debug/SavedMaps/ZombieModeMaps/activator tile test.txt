@@ -1,0 +1,8 @@
+1500|1500
+keen5_removable_platform_left_edge_filled_black|319|193|42|62|9|KEEN5_BLACK|True|3dc10979-4779-499e-b795-25d62e763c70
+keen5_removable_platform_right_edge_filled_black|873|193|38|64|9|KEEN5_BLACK|True|5dfddb14-7bd4-44a9-b650-de2cb51a7c11
+keen5_pipe_platform|361|409|346|80|10
+keen4_removable_platform|361|193|512|62|10|KEEN4_GREEN|True|96b5101e-1dab-4bca-85d9-5c5956a71a36
+keen_stand_right|373|326|26|64|RIGHT
+keen5_quantum_dynamo_sphere1|500|282|87|83|25|10|10|200|50
+keen5_switch1_on|440|380|32|32|15|KEEN5_1|[3dc10979-4779-499e-b795-25d62e763c70,5dfddb14-7bd4-44a9-b650-de2cb51a7c11,96b5101e-1dab-4bca-85d9-5c5956a71a36]|True

@@ -69,7 +69,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
 
         public event EventHandler<ObjectEventArgs> BiomeChanged;
 
-        public void ChangeBiome(string biome)
+        public virtual void ChangeBiome(string biome)
         {
             _biome = biome;
             SetImageFromBiome();
