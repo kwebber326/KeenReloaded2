@@ -69,6 +69,7 @@ namespace KeenReloaded2
             }
 
             _game = new CommanderKeenGame(data);
+            pbBackgroundImage.Image = _game.BackGroundImage;
             _game.BackgroundImageRedrawn += _game_BackgroundImageRedrawn;
             var gameObjects = data.MapData.Select(d => d.GameObject);
 
@@ -128,20 +129,6 @@ namespace KeenReloaded2
             this.MouseWheel += PnlGameWindow_MouseWheel;
         }
 
-        private void _game_BackgroundChanged(object sender, EventArgs e)
-        {
-            if (pbBackgroundImage == null)
-            {
-                pbBackgroundImage = new PictureBox();
-                pnlGameWindow.Controls.Remove(pbBackgroundImage);
-                pnlGameWindow.Controls.Remove(pbGameImage);
-                pnlGameWindow.Controls.Add(pbBackgroundImage);
-                pnlGameWindow.Controls.Add(pbGameImage);
-                pbGameImage.BringToFront();
-            }
-            pbBackgroundImage.Image = _game.BackGroundImage;
-        }
-
         private void Keen_Disappear_Death(object sender, ControlEventArgs.ControlEventArgs<bool> e)
         {
             ProcessPlayerDeath();
@@ -176,7 +163,6 @@ namespace KeenReloaded2
         {
             DetachEvents();
             pbGameImage.Image = null;
-            pbBackgroundImage = null;
             var mapMakerData = MapUtility.LoadMapData(_game.Map.MapPath);
             InitializeGameData(_gameMode, mapMakerData, true);
             InitializeGameState();
@@ -195,9 +181,6 @@ namespace KeenReloaded2
 
         private void _game_BackgroundImageRedrawn(object sender, EventArgs e)
         {
-            if (pbBackgroundImage == null)
-                pbBackgroundImage = new PictureBox();
-
             pbBackgroundImage.Image = _game.BackGroundImage;
         }
 

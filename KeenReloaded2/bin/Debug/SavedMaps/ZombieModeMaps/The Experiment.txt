@@ -163,7 +163,7 @@ keen5_spinning_fire_hazard1|120|1025|32|32|18
 keen5_spinning_fire_hazard1|152|1025|32|32|18
 keen5_spinning_fire_hazard1|184|1025|32|32|18
 random_item_generator_closed|657|35|124|92|18|500
-keen_stand_right|688|1392|26|64|RIGHT
+keen_stand_right|690|1401|26|64|RIGHT
 edge_of_map_tile_debug|-16|0|32|1500|25|BARRIER
 edge_of_map_tile_debug|1484|0|32|1500|25|BARRIER
 edge_of_map_tile_debug|15|-16|1470|32|25|BARRIER
