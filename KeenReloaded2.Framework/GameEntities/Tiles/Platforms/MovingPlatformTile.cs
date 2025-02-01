@@ -95,10 +95,22 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             Point previous = this.HitBox.Location;
             this.HitBox = new Rectangle(p, this.HitBox.Size);
             UpdateCollisionNodesByMoveDirection(previous);
-            if (_keen != null && !_keen.IsDead() && _keen.MoveState != Enums.MoveState.ON_POLE)
+
+            var collisions = _keen != null ? _keen.CheckCollision(_keen.HitBox, true) : new List<CollisionObject>();
+            bool collisionsPresent = collisions.Any();
+
+            if (_keen != null && !_keen.IsDead() && _keen.MoveState != Enums.MoveState.ON_POLE && !collisionsPresent)
             {
                 Point newPos = new Point(_keen.HitBox.X + (this.HitBox.X - previous.X), this.HitBox.Top - _keen.HitBox.Height - 1);
                 _keen.MoveKeenToPosition(newPos, this);
+            }
+            else if (_keen != null && previous.Y > p.Y)//if we are moving up check tile collisions
+            {
+                var ceilingTile = GetCeilingTile(collisions);
+                if (ceilingTile != null)
+                {
+                    _keen.MoveKeenToPosition(new Point(_keen.HitBox.X, ceilingTile.HitBox.Bottom + 1), ceilingTile);
+                }
             }
         }
 
