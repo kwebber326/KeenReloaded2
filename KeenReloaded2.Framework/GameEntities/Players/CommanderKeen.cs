@@ -457,6 +457,15 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             return platforms;
         }
 
+        private bool IsPlatformBeneathKeen(out CollisionObject platformObject)
+        {
+            Rectangle areaToCheck = new Rectangle(this.HitBox.Location.X, this.HitBox.Bottom + 1, this.HitBox.Width, 1);
+            var collisionObjectsBelow = this.CheckCollision(areaToCheck);
+            platformObject = collisionObjectsBelow.FirstOrDefault(t => (t.CollisionType == CollisionType.PLATFORM || t.CollisionType == CollisionType.KEEN_ONLY_PLATFORM) && t.HitBox.Top <= this.HitBox.Bottom + 1);//PLATFORM CODE
+            bool platforms = platformObject != null;
+            return platforms;
+        }
+
         #endregion
 
         #region private fields
@@ -2447,6 +2456,10 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 {
                     var lowestTile = debugTilesAboveKeen.OrderByDescending(t => t.HitBox.Bottom).FirstOrDefault();
                     int newY = lowestTile.HitBox.Bottom + 1;
+                    if (IsPlatformBeneathKeen(out CollisionObject platformTile))
+                    {
+                        newY = platformTile.HitBox.Bottom - this.HitBox.Height + 1;
+                    }
                     this.HitBox = new Rectangle(this.HitBox.X, newY, this.HitBox.Width, this.HitBox.Height);
                     this.UpdateCollisionNodes(Direction.DOWN);
 
