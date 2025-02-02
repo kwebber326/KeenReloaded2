@@ -118,6 +118,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             else if (_currentTeleportDelayTick == TELEPORT_DELAY)
             {
                 CreateShockWaves();
+                var previousLocation = new Rectangle(this.HitBox.X, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
                 TeleportToRandomLocationWithinBounds();
                 bool collides = this.CheckCollision(this.HitBox, true).Any();
                 while (collides && _currentTeleportRetries < MAX_TELEPORT_RETRIES)
@@ -126,6 +127,11 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     collides = this.CheckCollision(this.HitBox, true).Any();
                     _currentTeleportRetries++;
                 }
+                if (collides)
+                {
+                    this.HitBox = new Rectangle(previousLocation.Location, previousLocation.Size);
+                }
+                _currentTeleportRetries = 0;
                 _previousState = ShikadiMasterState.TELEPORTING;
                 this.Fall();
             }
@@ -133,8 +139,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         private void TeleportToRandomLocationWithinBounds()
         {
-            int newXPos = this.GenerateRandomInteger(_teleportBounds.X, _teleportBounds.Right + 1);
-            int newYPos = this.GenerateRandomInteger(_teleportBounds.Y, _teleportBounds.Bottom + 1);
+            int newXPos = this.GenerateRandomInteger(_teleportBounds.X, _teleportBounds.Right);
+            int newYPos = this.GenerateRandomInteger(_teleportBounds.Y, _teleportBounds.Bottom);
             this.HitBox = new Rectangle(newXPos, newYPos, this.HitBox.Width, this.HitBox.Height);
         }
 
