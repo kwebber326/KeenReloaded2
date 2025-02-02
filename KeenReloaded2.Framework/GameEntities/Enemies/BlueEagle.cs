@@ -412,7 +412,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public bool IsActive
         {
-            get { return true; }
+            get { return this.State != BirdMoveState.STUNNED; }
         }
 
         public void Stun()

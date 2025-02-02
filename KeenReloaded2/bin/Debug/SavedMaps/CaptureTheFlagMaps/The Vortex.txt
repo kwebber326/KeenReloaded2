@@ -117,14 +117,14 @@ keen6_industrial_wall_middle|0|0|1500|64|10
 keen6_industrial_wall_middle|0|64|64|1436|10
 keen6_industrial_wall_middle|64|1436|1436|64|10
 keen6_industrial_wall_middle|1436|64|64|1436|10
-keen6_industrial_floor_middle|624|572|48|64|10
-keen6_industrial_floor_edge_left|552|572|72|64|10
-keen6_industrial_floor_middle|768|572|48|64|10
-keen6_industrial_floor_edge_right|816|572|52|64|10
-keen6_industrial_floor_middle|624|842|48|64|10
-keen6_industrial_floor_edge_left|552|842|72|64|10
-keen6_industrial_floor_middle|768|842|48|64|10
-keen6_industrial_floor_edge_right|816|842|52|64|10
+keen6_industrial_floor_middle|632|572|48|64|10
+keen6_industrial_floor_edge_left|560|572|72|64|10
+keen6_industrial_floor_middle|776|572|48|64|10
+keen6_industrial_floor_edge_right|824|572|52|64|10
+keen6_industrial_floor_middle|632|842|48|64|10
+keen6_industrial_floor_edge_left|560|842|72|64|10
+keen6_industrial_floor_middle|776|842|48|64|10
+keen6_industrial_floor_edge_right|824|842|52|64|10
 keen6_industrial_wall_middle|192|64|64|64|10
 keen6_industrial_wall_middle|192|128|64|64|10
 keen6_industrial_wall_middle|320|320|64|64|10
@@ -161,12 +161,38 @@ keen6_industrial_platform_middle|1308|734|32|38|10
 keen6_industrial_platform_middle|1340|734|32|38|10
 keen6_industrial_platform_middle|1372|734|32|38|10
 keen6_industrial_platform_right_edge|1404|734|32|38|10
-keen6_industrial_pole_manhole|672|572|96|76|15|keen6_industrial_pole_manhole|MANHOLE|KEEN6_INDUSTRIAL
-keen6_industrial_pole_top|714|540|12|32|15|keen6_industrial_pole_top|TOP|KEEN6_INDUSTRIAL
-keen6_industrial_pole_middle|714|647|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
-keen6_industrial_pole_bottom - Copy|714|679|12|28|15|keen6_industrial_pole_bottom - Copy|BOTTOM|KEEN6_INDUSTRIAL
-keen6_industrial_pole_top|714|810|12|32|15|keen6_industrial_pole_top|TOP|KEEN6_INDUSTRIAL
-keen6_industrial_pole_manhole|672|842|96|76|15|keen6_industrial_pole_manhole|MANHOLE|KEEN6_INDUSTRIAL
-keen6_industrial_pole_bottom - Copy|714|918|12|28|15|keen6_industrial_pole_bottom - Copy|BOTTOM|KEEN6_INDUSTRIAL
-keen5_pink_platform|381|200|62|30|18|KEEN5_PINK|[500,200,500,400,234,600,234,1200,300,1300,500,1300,500,1100,234,600,234,200]|adf28b91-6fc9-493e-98ae-6715b7e51677|True
-keen_stand_right|713|730|26|64|RIGHT
+keen6_industrial_pole_manhole|680|572|96|76|15|keen6_industrial_pole_manhole|MANHOLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_top|722|540|12|32|15|keen6_industrial_pole_top|TOP|KEEN6_INDUSTRIAL
+keen6_industrial_pole_top|722|810|12|32|15|keen6_industrial_pole_top|TOP|KEEN6_INDUSTRIAL
+keen6_industrial_pole_manhole|680|842|96|76|15|keen6_industrial_pole_manhole|MANHOLE|KEEN6_INDUSTRIAL
+keen6_industrial_pole_bottom - Copy|722|918|12|28|15|keen6_industrial_pole_bottom - Copy|BOTTOM|KEEN6_INDUSTRIAL
+keen6_industrial_pole_bottom - Copy|722|647|12|28|15|keen6_industrial_pole_bottom - Copy|BOTTOM|KEEN6_INDUSTRIAL
+Black Flag|717|1351|51|64|15|10
+keen5_pink_platform|1049|200|62|30|18|KEEN5_PINK|[954,200,954,450,1200,600,1200,1200,1154,1300,954,1300,954,1100,1200,600,1200,200]|f129d801-99ad-428a-81b9-1780f0e66896|True
+keen5_pink_platform|381|200|62|30|18|KEEN5_PINK|[500,200,500,450,234,600,234,1200,300,1300,500,1300,500,1100,234,600,234,200]|adf28b91-6fc9-493e-98ae-6715b7e51677|True
+keen6_bip_platform|77|187|98|32|18|[77,450,500,450,700,350,800,350,1000,450,1324,450,1324,187,1324,450,1000,450,800,350,700,350,500,450,77,450,77,187]|5f74b696-44d0-4bde-90e9-97903bc62201|True
+enemy_spawner1|279|1343|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth,SkyPest,Mimrock,GnosticeneAncient,Sparky,LittleAmpton,DiagonalSlicestar,Shikadi,Shockshund,ShikadiMine,KorathInhabitant,Shelley,Bloog,Blooglet,Blooguard,Babobba,Fleex,NoSpike,BipShip]|2|20|10000000
+enemy_spawner1|1130|1343|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth,SkyPest,Mimrock,GnosticeneAncient,Sparky,LittleAmpton,DiagonalSlicestar,Shikadi,Shockshund,ShikadiMine,KorathInhabitant,Shelley,Bloog,Blooglet,Blooguard,Babobba,Fleex,NoSpike,BipShip]|2|20|10000000
+keen_stand_right|721|730|26|64|RIGHT
+blue_flag_destination|77|731|130|12|20|BLUE
+yellow_flag_destination|675|216|130|12|20|YELLOW
+red_flag_destination|1287|731|130|12|20|RED
+green_flag_destination|676|1238|130|12|20|GREEN
+Red Flag|106|82|51|64|20|RED|1000|1000|0
+Yellow Flag|94|1329|51|64|20|YELLOW|1000|1000|0
+Blue Flag|1349|1337|51|64|20|BLUE|1000|1000|0
+Green Flag|1348|100|51|64|20|GREEN|1000|1000|0
+keen5_quantum_dynamo_sphere1|1099|700|87|83|25|20|100|200|50
+keen5_quantum_dynamo_sphere1|285|700|87|83|25|20|100|200|50
+keen5_quantum_dynamo_sphere1|684|1079|87|83|25|20|100|200|50
+keen5_quantum_dynamo_sphere1|684|285|87|83|25|20|100|200|50
+keen6_blorb1|525|225|62|60|25
+keen6_blorb1|299|713|62|60|25
+keen6_blorb1|525|1210|62|60|25
+keen6_blorb1|900|1216|62|60|25
+keen6_blorb1|900|215|62|60|25
+keen6_blorb1|1112|713|62|60|25
+neural_stunner_shotgun|318|1206|53|22|50|100
+neural_stunner1|1134|1200|30|22|50|30
+keen_dreams_boobus_bomb2|1133|270|30|30|50|15
+neural_stunner_smg_1|323|273|46|22|50|50

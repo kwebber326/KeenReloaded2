@@ -1,4 +1,5 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Framework.GameEntities.Hazards;
@@ -19,7 +20,7 @@ namespace KeenReloaded2.Framework.GameEntities.Items
         #region constants
         private const int POINT_DEGRADATION_DELAY = 15;
         private const int FALL_VELOCITY = 50;
-        private readonly CommanderKeen _keen;
+        private CommanderKeen _keen;
         #endregion
 
         #region fields
@@ -32,15 +33,14 @@ namespace KeenReloaded2.Framework.GameEntities.Items
         private Rectangle _enemyLocation;
         #endregion
 
-        public EnemyFlag(Rectangle area, SpaceHashGrid grid, Rectangle hitbox, string imageName, int zIndex, CommanderKeen keen, int pointsDegradedPerSecond) 
-            : base(area, imageName, grid, zIndex)
+        public EnemyFlag(Rectangle area, SpaceHashGrid grid, int zIndex, int pointsDegradedPerSecond)
+            : base(area, null, grid, zIndex)
         {
             _pointsDegradedPerSecond = pointsDegradedPerSecond;
-            _origin = new Point(hitbox.X, hitbox.Y);
+            _origin = new Point(area.X, area.Y);
             _collectable = false;
-            _keen = keen;
-            if (_keen == null)
-                throw new ArgumentNullException("keen cannot be null");
+            if (_collisionGrid != null && _collidingNodes != null)
+                _keen = this.GetClosestPlayer();
 
             InitializeSprite();
         }
@@ -110,6 +110,7 @@ namespace KeenReloaded2.Framework.GameEntities.Items
         public override void Update()
         {
             base.Update();
+            _keen = this.GetClosestPlayer();
             if (_isCaptured)
             {
                 this.UpdatePositionFromCapturingEnemy();
@@ -178,7 +179,7 @@ namespace KeenReloaded2.Framework.GameEntities.Items
             var enemies = collisionItems.OfType<IEnemy>();
             if (enemies.Any())
             {
-                enemy = enemies.FirstOrDefault(e => e.IsActive && !(e is EnemySpawner) && ((e is DestructibleObject) || (e is IExplodable) || (e is ISquashable)));
+                enemy = enemies.FirstOrDefault(e => e.IsActive && !(e is EnemySpawner) && ((e is DestructibleObject) || (e is IExplodable) || (e is ISquashable) || (e is IStunnable)));
             }
 
             UpdateLocationFromEnemy(enemy);
@@ -216,10 +217,17 @@ namespace KeenReloaded2.Framework.GameEntities.Items
 
         private void InitializeSprite()
         {
-            var colorImages = SpriteSheet.SpriteSheet.CTFColors;
             this.SpriteList = new Image[] { Properties.Resources.Black_Flag };
             this.AcquiredSpriteList = new Image[] { Properties.Resources.Flag_Acquired };
             _sprite = this.SpriteList[0];
+            _imageName = nameof(Properties.Resources.Black_Flag).Replace("_", " ");
+        }
+
+        public override string ToString()
+        {
+            string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
+           
+            return $"{_imageName}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{_zIndex}{separator}{_pointsDegradedPerSecond}";
         }
     }
 }

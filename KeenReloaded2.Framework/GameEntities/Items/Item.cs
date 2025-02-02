@@ -33,8 +33,18 @@ namespace KeenReloaded2.Framework.GameEntities.Items
             _zIndex = zIndex;
             _imageName = imageName;
             string resourcesDirectory = FileIOUtility.GetResourcePathForMainProject();
-            string imagePath = Path.Combine(resourcesDirectory, imageName + ".png");
-            _sprite = Image.FromFile(imagePath);
+            if (imageName != null)
+            {
+                try
+                {
+                    string imagePath = Path.Combine(resourcesDirectory, imageName + ".png");
+                    _sprite = Image.FromFile(imagePath);
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                }
+            }
             _itemRemoveSpriteChangeDelay = this.AcquiredSpriteList != null && this.AcquiredSpriteList.Length > 0 ? ITEM_REMOVE_DELAY / this.AcquiredSpriteList.Length : 0;
         }
 

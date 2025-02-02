@@ -628,7 +628,7 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             //keen 4 mirage glass platforms
             #region keen 4 mirage glass platforms
-            for (int i = 1; i <=4; i++)
+            for (int i = 1; i <= 4; i++)
             {
                 string key = $"keen4_mirage_platform{i}.png";
                 MapMakerObjectProperty[] addedPropertiesForMiragePlatform = new MapMakerObjectProperty[]
@@ -678,7 +678,7 @@ namespace KeenReloaded2.Entities.ReferenceData
             //keen6 industrial gray block platform
             string grayBlockKey = nameof(Properties.Resources.keen6_industrial_single_block);
             AddSimpleGameObject(backgroundReferenceData, keen6IndustrialTileFiles, grayBlockKey, typeof(Keen6SingleBlock));
-            
+
             #endregion
 
             #region wall to platform Tiles
@@ -3037,9 +3037,26 @@ namespace KeenReloaded2.Entities.ReferenceData
                           DisplayName ="Point Loss Per Second: "
                         },
                     };
-
-                    MapMakerObject flagObj = new MapMakerObject(typeof(Flag), file, false, ctfProperties);
-                    backgroundReferenceData.Add(key, flagObj);
+                    bool isBlackFlag = key.ToLower().Contains("black");
+                    if (isBlackFlag)
+                    {
+                        var blackFlagProperties = new MapMakerObjectProperty[]
+                        {
+                             new MapMakerObjectProperty()
+                            {
+                              PropertyName = "pointsDegradedPerSecond",
+                              DataType = typeof(int),
+                              Value = 10,
+                              DisplayName ="Point Loss Per Second: "
+                            }
+                        };
+                        AddSimpleGameObject(backgroundReferenceData, ctfFiles, key, typeof(EnemyFlag), blackFlagProperties, 15);
+                    }
+                    else
+                    {
+                        MapMakerObject flagObj = new MapMakerObject(typeof(Flag), file, false, ctfProperties);
+                        backgroundReferenceData.Add(key, flagObj);
+                    }
                 }
                 else
                 {
@@ -3190,10 +3207,10 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             AddSimpleGameObject(backgroundReferenceData, keen5ConstructFiles, "dynamo_sphere", typeof(BiomeChanger), biomeChangerAdditionalProperties);
 
-    #endregion
+            #endregion
 
-    #region Doors
-    var doorFiles = allFiles.Where(f => f.Contains("door") || f.Contains("chute"));
+            #region Doors
+            var doorFiles = allFiles.Where(f => f.Contains("door") || f.Contains("chute"));
             foreach (var file in doorFiles)
             {
                 bool isExitDoor = file.Contains("exit");
