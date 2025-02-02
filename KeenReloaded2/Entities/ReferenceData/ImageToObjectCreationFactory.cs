@@ -2157,7 +2157,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                       DataType = typeof(bool),
                       Hidden = index != 7,
                       DisplayName = "Has Burner: ",
-                      Value = true
+                      Value = index != 7
                   },
                   new MapMakerObjectProperty()
                   {

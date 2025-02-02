@@ -96,8 +96,9 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             this.HitBox = new Rectangle(p, this.HitBox.Size);
             UpdateCollisionNodesByMoveDirection(previous);
 
-            var collisions = _keen != null ? _keen.CheckCollision(_keen.HitBox, true) : new List<CollisionObject>();
-            bool collisionsPresent = collisions.Any();
+            var collisions = _keen != null ? _keen.CheckCollision(_keen.HitBox, true)
+                : new List<CollisionObject>();
+            bool collisionsPresent = collisions.Any(c => c.CollisionType == CollisionType.BLOCK);
 
             if (_keen != null && !_keen.IsDead() && _keen.MoveState != Enums.MoveState.ON_POLE && !collisionsPresent)
             {
