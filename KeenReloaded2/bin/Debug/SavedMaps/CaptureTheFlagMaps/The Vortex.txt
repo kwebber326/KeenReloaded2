@@ -175,7 +175,7 @@ keen5_pink_platform|381|200|62|30|18|KEEN5_PINK|[500,200,500,450,234,600,234,120
 keen6_bip_platform|77|187|98|32|18|[77,450,500,450,700,350,800,350,1000,450,1324,450,1324,187,1324,450,1000,450,800,350,700,350,500,450,77,450,77,187]|5f74b696-44d0-4bde-90e9-97903bc62201|True
 enemy_spawner1|279|1343|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth,SkyPest,Mimrock,GnosticeneAncient,Sparky,LittleAmpton,DiagonalSlicestar,Shikadi,Shockshund,ShikadiMine,KorathInhabitant,Shelley,Bloog,Blooglet,Blooguard,Babobba,Fleex,NoSpike,BipShip]|2|20|10000000
 enemy_spawner1|1130|1343|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth,SkyPest,Mimrock,GnosticeneAncient,Sparky,LittleAmpton,DiagonalSlicestar,Shikadi,Shockshund,ShikadiMine,KorathInhabitant,Shelley,Bloog,Blooglet,Blooguard,Babobba,Fleex,NoSpike,BipShip]|2|20|10000000
-keen4_platform_stationary|363|1298|104|32|18|[1100,1298,363,1298]|e14e46ee-f0a9-40b2-b0dc-3a94cbf902ed|True
+keen4_platform_stationary|363|1298|104|32|18|[1100,1298,320,1298]|e14e46ee-f0a9-40b2-b0dc-3a94cbf902ed|True
 keen_stand_right|721|730|26|64|RIGHT
 blue_flag_destination|77|731|130|12|20|BLUE
 yellow_flag_destination|675|216|130|12|20|YELLOW

@@ -100,7 +100,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
                 : new List<CollisionObject>();
             bool collisionsPresent = collisions.Any(c => c.CollisionType == CollisionType.BLOCK);
 
-            if (_keen != null && !_keen.IsDead() && _keen.MoveState != Enums.MoveState.ON_POLE && !collisionsPresent)
+            if (_keen != null && !_keen.IsDead() && _keen.MoveState != Enums.MoveState.ON_POLE && _keen.MoveState != MoveState.HANGING && !collisionsPresent)
             {
                 Point newPos = new Point(_keen.HitBox.X + (this.HitBox.X - previous.X), this.HitBox.Top - _keen.HitBox.Height - 1);
                 _keen.MoveKeenToPosition(newPos, this);
