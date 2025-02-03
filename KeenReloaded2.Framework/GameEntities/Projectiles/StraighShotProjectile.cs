@@ -352,12 +352,8 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 itemsToCheck.AddRange(debugTiles);
                 foreach (var keen in keens)
                 {
-                    if (keen is CollisionObject)
-                    {
-                        var item = keen as CollisionObject;
-                        if (item != null)
-                            itemsToCheck.Add(item);
-                    }
+                    if (keen != null)
+                        itemsToCheck.Add(keen);
                 }
                 if (itemsToCheck.Any())
                 {
