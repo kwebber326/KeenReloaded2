@@ -41,9 +41,10 @@
             // pnlMenuOptions
             // 
             this.pnlMenuOptions.BackColor = System.Drawing.Color.Transparent;
-            this.pnlMenuOptions.Location = new System.Drawing.Point(387, 74);
+            this.pnlMenuOptions.Location = new System.Drawing.Point(516, 92);
+            this.pnlMenuOptions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlMenuOptions.Name = "pnlMenuOptions";
-            this.pnlMenuOptions.Size = new System.Drawing.Size(691, 666);
+            this.pnlMenuOptions.Size = new System.Drawing.Size(921, 832);
             this.pnlMenuOptions.TabIndex = 0;
             // 
             // label1
@@ -52,7 +53,8 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.YellowGreen;
-            this.label1.Location = new System.Drawing.Point(365, 9);
+            this.label1.Location = new System.Drawing.Point(487, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(357, 48);
             this.label1.TabIndex = 1;
@@ -61,7 +63,8 @@
             // pbCharacter
             // 
             this.pbCharacter.BackColor = System.Drawing.Color.Transparent;
-            this.pbCharacter.Location = new System.Drawing.Point(264, 74);
+            this.pbCharacter.Location = new System.Drawing.Point(352, 92);
+            this.pbCharacter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbCharacter.Name = "pbCharacter";
             this.pbCharacter.Size = new System.Drawing.Size(100, 50);
             this.pbCharacter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -74,7 +77,8 @@
             this.chkSounds.BackColor = System.Drawing.Color.Transparent;
             this.chkSounds.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkSounds.ForeColor = System.Drawing.Color.YellowGreen;
-            this.chkSounds.Location = new System.Drawing.Point(12, 283);
+            this.chkSounds.Location = new System.Drawing.Point(16, 354);
+            this.chkSounds.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkSounds.Name = "chkSounds";
             this.chkSounds.Size = new System.Drawing.Size(120, 29);
             this.chkSounds.TabIndex = 4;
@@ -85,9 +89,10 @@
             // characterSelectControl1
             // 
             this.characterSelectControl1.BackColor = System.Drawing.Color.Transparent;
-            this.characterSelectControl1.Location = new System.Drawing.Point(-2, 74);
+            this.characterSelectControl1.Location = new System.Drawing.Point(-3, 92);
+            this.characterSelectControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.characterSelectControl1.Name = "characterSelectControl1";
-            this.characterSelectControl1.Size = new System.Drawing.Size(224, 233);
+            this.characterSelectControl1.Size = new System.Drawing.Size(299, 291);
             this.characterSelectControl1.TabIndex = 3;
             // 
             // chkMusic
@@ -96,7 +101,8 @@
             this.chkMusic.BackColor = System.Drawing.Color.Transparent;
             this.chkMusic.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkMusic.ForeColor = System.Drawing.Color.YellowGreen;
-            this.chkMusic.Location = new System.Drawing.Point(12, 318);
+            this.chkMusic.Location = new System.Drawing.Point(16, 398);
+            this.chkMusic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkMusic.Name = "chkMusic";
             this.chkMusic.Size = new System.Drawing.Size(102, 29);
             this.chkMusic.TabIndex = 5;
@@ -107,18 +113,19 @@
             // musicSelectControl1
             // 
             this.musicSelectControl1.BackColor = System.Drawing.Color.Transparent;
-            this.musicSelectControl1.Location = new System.Drawing.Point(12, 353);
+            this.musicSelectControl1.Location = new System.Drawing.Point(16, 441);
+            this.musicSelectControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.musicSelectControl1.Name = "musicSelectControl1";
-            this.musicSelectControl1.Size = new System.Drawing.Size(222, 223);
+            this.musicSelectControl1.Size = new System.Drawing.Size(339, 279);
             this.musicSelectControl1.TabIndex = 6;
             // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::KeenReloaded2.Properties.Resources.keen4_living_tree_background2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1100, 772);
+            this.ClientSize = new System.Drawing.Size(1467, 965);
             this.Controls.Add(this.musicSelectControl1);
             this.Controls.Add(this.chkMusic);
             this.Controls.Add(this.chkSounds);
@@ -128,6 +135,7 @@
             this.Controls.Add(this.pnlMenuOptions);
             this.DoubleBuffered = true;
             this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainMenu";
