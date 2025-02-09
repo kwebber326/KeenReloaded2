@@ -155,7 +155,7 @@ namespace KeenReloaded2
             if (keenObject != null)
             {
                 _game.Map.MapData.Remove(keenObject);
-                _game.UpdateGame();
+                _game.UpdateGame(GetViewRectangle());
             }
         }
 
@@ -224,7 +224,8 @@ namespace KeenReloaded2
 
             if (!_paused && !_levelCompleted)
             {
-                pbGameImage.Image = _game.UpdateGame();
+                var rectangle = GetViewRectangle();
+                pbGameImage.Image = _game.UpdateGame(rectangle);
 
                 if (_keen.IsDead())
                 {
@@ -434,6 +435,16 @@ namespace KeenReloaded2
 
                 pnlGameWindow.AutoScrollPosition = new Point(x, y);
             }
+        }
+
+        private Rectangle GetViewRectangle()
+        {
+            int x = pnlGameWindow.DisplayRectangle.X * -1;
+            int y = pnlGameWindow.DisplayRectangle.Y * -1;
+            int width = pnlGameWindow.Width;
+            int height = pnlGameWindow.Height;
+
+            return new Rectangle(x, y, width, height);
         }
     }
 }

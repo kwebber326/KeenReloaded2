@@ -235,7 +235,7 @@ namespace KeenReloaded2.Entities
             RegisterItemEventsForObject(_keen);
         }
 
-        public Bitmap UpdateGame()
+        public Bitmap UpdateGame(Rectangle viewRectangle)
         {
             if (this.Map != null && _updatableGameObjects != null)
             {
@@ -256,7 +256,7 @@ namespace KeenReloaded2.Entities
                         Debug.WriteLine(ex.Message);
                     }
                 }
-                return DrawMapImage(_gameObjects);
+                return DrawMapImage(_gameObjects, viewRectangle);
             }
             return null;
         }
@@ -389,7 +389,7 @@ namespace KeenReloaded2.Entities
             }
         }
 
-        public Bitmap DrawMapImage<T>(IEnumerable<T> collection)  where T : ISprite
+        public Bitmap DrawMapImage<T>(IEnumerable<T> collection, Rectangle viewRect) where T : ISprite
         {
             if (collection == null)
                 return null;
@@ -408,9 +408,11 @@ namespace KeenReloaded2.Entities
                     {
                         if (item?.Image == null)
                             continue;
-
                         var bitmap = ((Bitmap)item.Image);
-                        g.DrawImage(bitmap, new Rectangle(item.Location, bitmap.Size));
+                        var drawRect = new Rectangle(item.Location, bitmap.Size);
+                        //only render what the user would be able to see
+                        if (viewRect.IntersectsWith(drawRect))
+                            g.DrawImage(bitmap, drawRect);
                     }
                 }
                 return mapCanvas;

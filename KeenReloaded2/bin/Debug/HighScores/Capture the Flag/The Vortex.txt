@@ -1,3 +1,4 @@
+Kenny|22390
 Kenny|8160
 Kenny|7320
 Kenny|4990
@@ -5,4 +6,3 @@ Kenny|4240
 Kenny|3170
 Kenny|970
 Kenny|950
-w|0

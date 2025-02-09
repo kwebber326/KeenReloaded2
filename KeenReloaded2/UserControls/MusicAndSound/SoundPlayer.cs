@@ -81,6 +81,7 @@ namespace KeenReloaded2.UserControls.MusicAndSound
                 if (_musicPlayer != null)
                 {
                     _musicPlayer.Stop();
+                    _musicPlayer.Dispose();
                 }
             }
             finally
