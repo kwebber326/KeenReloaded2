@@ -74,6 +74,11 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
         {
             _biome = biome;
             this.SetImageFromBiome();
+            ObjectEventArgs e = new ObjectEventArgs()
+            {
+                ObjectSprite = this
+            };
+            BiomeChanged?.Invoke(this, e);
         }
     }
 }
