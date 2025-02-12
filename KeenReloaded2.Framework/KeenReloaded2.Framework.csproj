@@ -5834,5 +5834,14 @@
   <ItemGroup>
     <None Include="Resources\keen6_iron_spike.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\king_slug.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_large_cloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_small_cloud.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

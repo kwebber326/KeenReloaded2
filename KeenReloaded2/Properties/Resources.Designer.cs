@@ -6223,6 +6223,16 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen4_large_cloud {
+            get {
+                object obj = ResourceManager.GetObject("keen4_large_cloud", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen4_lick_left_fall {
             get {
                 object obj = ResourceManager.GetObject("keen4_lick_left_fall", resourceCulture);
@@ -7976,6 +7986,16 @@ namespace KeenReloaded2.Properties {
         internal static System.Drawing.Bitmap keen4_slug_stunned2_4 {
             get {
                 object obj = ResourceManager.GetObject("keen4_slug_stunned2_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_small_cloud {
+            get {
+                object obj = ResourceManager.GetObject("keen4_small_cloud", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -16826,6 +16846,16 @@ namespace KeenReloaded2.Properties {
         internal static System.Drawing.Bitmap KeyInventoryTemplate1 {
             get {
                 object obj = ResourceManager.GetObject("KeyInventoryTemplate1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap king_slug {
+            get {
+                object obj = ResourceManager.GetObject("king_slug", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

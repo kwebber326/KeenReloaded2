@@ -1219,6 +1219,9 @@
   <data name="keen4_jawbreaker2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_jawbreaker2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen4_large_cloud" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_large_cloud.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keen4_lick_left_fall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_lick_left_fall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -1683,6 +1686,9 @@
   </data>
   <data name="keen4_slug_stunned2_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_slug_stunned2_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_small_cloud" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_small_cloud.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="keen4_spear_stab_down1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_spear_stab_down1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -4884,6 +4890,9 @@
   </data>
   <data name="key_gate4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\key_gate4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="king_slug" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\king_slug.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mirage_hill1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mirage_hill1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

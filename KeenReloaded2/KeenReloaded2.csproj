@@ -6468,5 +6468,14 @@
   <ItemGroup>
     <None Include="bin\Debug\MapMakerObjects\Hazards\Keen6\keen6_iron_spike.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen4\king_slug.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen4\keen4_large_cloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen4\keen4_small_cloud.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
