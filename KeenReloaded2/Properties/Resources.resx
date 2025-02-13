@@ -6250,6 +6250,39 @@
   <data name="keen6_iron_spike" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\MapMakerObjects\Hazards\Keen6\keen6_iron_spike.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen4_glass_dome_bottom_left_blue_door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_glass_dome_bottom_left_blue_door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_glass_dome_bottom_left_no_door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_glass_dome_bottom_left_no_door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_glass_dome_bottom_left_yellow_door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_glass_dome_bottom_left_yellow_door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_glass_dome_bottom_right_no_door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_glass_dome_bottom_right_no_door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_glass_dome_bottom_right_with_door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_glass_dome_bottom_right_with_door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_glass_dome_extra_bottom_width" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_glass_dome_extra_bottom_width.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_glass_dome_extra_top_width" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_glass_dome_extra_top_width.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_glass_dome_middle_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_glass_dome_middle_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_glass_dome_middle_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_glass_dome_middle_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_glass_dome_top_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_glass_dome_top_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_glass_dome_top_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_glass_dome_top_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keen4_large_cloud" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\MapMakerObjects\Backgrounds\Keen4\keen4_large_cloud.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

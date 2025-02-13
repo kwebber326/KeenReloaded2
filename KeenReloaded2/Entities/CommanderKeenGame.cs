@@ -71,7 +71,7 @@ namespace KeenReloaded2.Entities
                 _keen = map.MapData.Select(d => d.GameObject).OfType<CommanderKeen>().FirstOrDefault();
                 //populate non backgrounds
                 Func<GameObjectMapping, bool> backgroundTypeFunc = (c) => (!c.GameObject?.CanUpdate ?? false) && !(c.GameObject is MapEdgeTile);
-                var nonBackGrounds = map.MapData.Where(c => !backgroundTypeFunc(c) && !(c.GameObject is MapEdgeTile)).Select(d => d.GameObject).ToList();
+                var nonBackGrounds = map.MapData.Where(c => !backgroundTypeFunc(c)).Select(d => d.GameObject).ToList();
                 _gameObjects = OrderedList<ISprite>.FromEnumerable(nonBackGrounds, _compareFunction, true);
                 //combine all backgrounds into one image
                 FillBackGround(map, backgroundTypeFunc);

@@ -5823,6 +5823,116 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen4_glass_dome_bottom_left_blue_door {
+            get {
+                object obj = ResourceManager.GetObject("keen4_glass_dome_bottom_left_blue_door", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_glass_dome_bottom_left_no_door {
+            get {
+                object obj = ResourceManager.GetObject("keen4_glass_dome_bottom_left_no_door", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_glass_dome_bottom_left_yellow_door {
+            get {
+                object obj = ResourceManager.GetObject("keen4_glass_dome_bottom_left_yellow_door", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_glass_dome_bottom_right_no_door {
+            get {
+                object obj = ResourceManager.GetObject("keen4_glass_dome_bottom_right_no_door", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_glass_dome_bottom_right_with_door {
+            get {
+                object obj = ResourceManager.GetObject("keen4_glass_dome_bottom_right_with_door", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_glass_dome_extra_bottom_width {
+            get {
+                object obj = ResourceManager.GetObject("keen4_glass_dome_extra_bottom_width", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_glass_dome_extra_top_width {
+            get {
+                object obj = ResourceManager.GetObject("keen4_glass_dome_extra_top_width", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_glass_dome_middle_left {
+            get {
+                object obj = ResourceManager.GetObject("keen4_glass_dome_middle_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_glass_dome_middle_right {
+            get {
+                object obj = ResourceManager.GetObject("keen4_glass_dome_middle_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_glass_dome_top_left {
+            get {
+                object obj = ResourceManager.GetObject("keen4_glass_dome_top_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_glass_dome_top_right {
+            get {
+                object obj = ResourceManager.GetObject("keen4_glass_dome_top_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen4_gnosticene_ancient_dust1 {
             get {
                 object obj = ResourceManager.GetObject("keen4_gnosticene_ancient_dust1", resourceCulture);

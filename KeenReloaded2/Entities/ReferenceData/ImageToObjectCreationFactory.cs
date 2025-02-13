@@ -3784,6 +3784,44 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #endregion
 
+            #region glass dome
+            string glassDomeKey = nameof(Properties.Resources.keen4_glass_dome_top_left);
+            MapMakerObjectProperty[] extraGlassDomeProperties = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "extraWidths",
+                    DisplayName = "Extra Widths:",
+                    DataType = typeof(int),
+                    Value = 0
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "extraHeights",
+                    DisplayName = "Extra Heights:",
+                    DataType = typeof(int),
+                    Value = 0
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "leftSide",
+                    DisplayName = "Left Side Archway:",
+                    DataType = typeof(Keen4GlassDomeLeftArchwayType),
+                    PossibleValues = Enum.GetNames(typeof(Keen4GlassDomeLeftArchwayType)).ToArray(),
+                    Value = Keen4GlassDomeLeftArchwayType.NONE
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "rightSide",
+                    DisplayName = "Right Side Archway:",
+                    DataType = typeof(Keen4GlassDomeRightArchwayType),
+                    PossibleValues = Enum.GetNames(typeof(Keen4GlassDomeRightArchwayType)).ToArray(),
+                    Value = Keen4GlassDomeRightArchwayType.NONE
+                },
+            };
+            AddSimpleGameObject(backgroundReferenceData, keen4ConstructFiles, glassDomeKey, typeof(Keen4GlassDome), extraGlassDomeProperties, 50);
+            #endregion
+
             #endregion
 
             #region Interactive Tiles

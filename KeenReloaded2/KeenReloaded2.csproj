@@ -6477,5 +6477,38 @@
   <ItemGroup>
     <None Include="bin\Debug\MapMakerObjects\Backgrounds\Keen4\keen4_small_cloud.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_glass_dome_bottom_left_blue_door.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_glass_dome_bottom_left_no_door.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_glass_dome_bottom_left_yellow_door.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_glass_dome_bottom_right_no_door.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_glass_dome_bottom_right_with_door.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_glass_dome_extra_bottom_width.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_glass_dome_extra_top_width.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_glass_dome_middle_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_glass_dome_middle_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_glass_dome_top_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_glass_dome_top_right.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
