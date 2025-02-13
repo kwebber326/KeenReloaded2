@@ -23,7 +23,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Floors
         private InvisiblePlatformTile _platformTile;
         private string _initialImageName;
 
-        private const int PLATFORM_VERTICAL_OFFSET = 32, FLOOR_VERTICAL_OFFSET = 16, EDGE_HORIZONTAL_OFFSET_LEFT = 0, EDGE_HORIZONTAL_OFFSET_RIGHT = 0, FLOOR_WIDTH = 12;
+        private const int PLATFORM_VERTICAL_OFFSET = 32, FLOOR_VERTICAL_OFFSET = 32, EDGE_HORIZONTAL_OFFSET_LEFT = 0, EDGE_HORIZONTAL_OFFSET_RIGHT = 0, FLOOR_WIDTH = 12;
 
         public event EventHandler<ObjectEventArgs> BiomeChanged;
 
