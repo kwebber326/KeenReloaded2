@@ -457,9 +457,14 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     _shortJump = IsKeenClose();
                     if (IsKeenInRange())
                     {
-                        this.Fire();
+                        Rectangle areaToCheck = new Rectangle(this.HitBox.X - 10, this.HitBox.Y, this.HitBox.Width + 20, this.HitBox.Height);
+                        var collisions = this.CheckCollision(areaToCheck, true);
+                        if (!this.AreCollisionBlockingProgressTowardsPlayer(collisions, _keen, _direction))
+                            this.Fire();
+                        else
+                            this.Jump();
                     }
-                    else 
+                    else
                     {
                         this.Jump();
                     }

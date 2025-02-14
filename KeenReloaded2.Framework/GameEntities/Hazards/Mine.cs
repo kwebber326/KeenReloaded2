@@ -174,7 +174,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             var collisionWalls = collisionItems.OfType<MaskedTile>();
             var collisionKeens = collisionItems.OfType<CommanderKeen>();
 
-            if (collisionWalls.Any())
+            if (collisionWalls.Any(c => c.CollisionType == CollisionType.BLOCK))
             {
                 ChangeDirection();
             }

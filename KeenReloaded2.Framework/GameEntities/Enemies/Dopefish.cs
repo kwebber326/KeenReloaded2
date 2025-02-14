@@ -231,47 +231,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             if (this.HitBox.IntersectsWith(_keen.HitBox))
                 return false;
 
-            if (collisions.Any())
-            {
-                if (IsLeftDirection())
-                {
-                    var leftImpedingBlocks = collisions.Any(b => b.HitBox.Right > _keen.HitBox.Right
-                        && b.HitBox.Right < this.HitBox.Left
-                        && b.HitBox.Top < this.HitBox.Bottom
-                        && b.HitBox.Bottom > this.HitBox.Top);
-                    if (leftImpedingBlocks)
-                        return true;
-                }
-                else
-                {
-                    var rightImpedingBlocks = collisions.Any(b => b.HitBox.Left < _keen.HitBox.Left
-                       && b.HitBox.Left > this.HitBox.Left
-                       && b.HitBox.Top < this.HitBox.Bottom
-                       && b.HitBox.Bottom > this.HitBox.Top);
-                    if (rightImpedingBlocks)
-                        return true;
-                }
-
-                if (IsUpDirection())
-                {
-                    var upImpedingBlocks = collisions.Any(b => b.HitBox.Bottom > _keen.HitBox.Bottom
-                        && b.HitBox.Bottom < this.HitBox.Top
-                        && b.HitBox.Right > this.HitBox.Left
-                        && b.HitBox.Left < this.HitBox.Right);
-                    if (upImpedingBlocks)
-                        return true;
-                }
-                else
-                {
-                    var downImpedingBlocks = collisions.Any(b => b.HitBox.Top < _keen.HitBox.Top
-                        && b.HitBox.Top > this.HitBox.Bottom
-                        && b.HitBox.Right > this.HitBox.Left
-                        && b.HitBox.Left < this.HitBox.Right);
-                    if (downImpedingBlocks)
-                        return true;
-                }
-            }
-            return false;
+            return this.AreCollisionBlockingProgressTowardsPlayer(collisions, _keen, _direction);
         }
 
         public void Move()

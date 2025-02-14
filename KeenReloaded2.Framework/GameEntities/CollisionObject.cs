@@ -32,6 +32,51 @@ namespace KeenReloaded.Framework
             AddObjectToBuckets();
         }
 
+        protected virtual bool AreCollisionBlockingProgressTowardsPlayer(List<CollisionObject> collisions, CommanderKeen keen, Direction direction)
+        {
+            if (collisions.Any())
+            {
+                if (this.IsLeftDirection(direction))
+                {
+                    var leftImpedingBlocks = collisions.Any(b => b.HitBox.Right > keen.HitBox.Right
+                        && b.HitBox.Right < this.HitBox.Left
+                        && b.HitBox.Top < this.HitBox.Bottom
+                        && b.HitBox.Bottom > this.HitBox.Top);
+                    if (leftImpedingBlocks)
+                        return true;
+                }
+                else
+                {
+                    var rightImpedingBlocks = collisions.Any(b => b.HitBox.Left < keen.HitBox.Left
+                       && b.HitBox.Left > this.HitBox.Left
+                       && b.HitBox.Top < this.HitBox.Bottom
+                       && b.HitBox.Bottom > this.HitBox.Top);
+                    if (rightImpedingBlocks)
+                        return true;
+                }
+
+                if (IsUpDirection(direction))
+                {
+                    var upImpedingBlocks = collisions.Any(b => b.HitBox.Bottom > keen.HitBox.Bottom
+                        && b.HitBox.Bottom < this.HitBox.Top
+                        && b.HitBox.Right > this.HitBox.Left
+                        && b.HitBox.Left < this.HitBox.Right);
+                    if (upImpedingBlocks)
+                        return true;
+                }
+                else
+                {
+                    var downImpedingBlocks = collisions.Any(b => b.HitBox.Top < keen.HitBox.Top
+                        && b.HitBox.Top > this.HitBox.Bottom
+                        && b.HitBox.Right > this.HitBox.Left
+                        && b.HitBox.Left < this.HitBox.Right);
+                    if (downImpedingBlocks)
+                        return true;
+                }
+            }
+            return false;
+        }
+
         private void AddObjectToBuckets()
         {
             foreach (SpaceHashGridNode node in _collidingNodes)
