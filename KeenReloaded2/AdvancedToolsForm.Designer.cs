@@ -31,10 +31,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lstMapObjects = new KeenReloaded2.UserControls.AdvancedTools.ScrollableListBox();
-            this.advancedToolsActionRadioList1 = new KeenReloaded2.UserControls.AdvancedTools.AdvancedToolsActionRadioList();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbSortCriteria = new System.Windows.Forms.ComboBox();
+            this.advancedToolsActionRadioList1 = new KeenReloaded2.UserControls.AdvancedTools.AdvancedToolsActionRadioList();
+            this.lstMapObjects = new KeenReloaded2.UserControls.AdvancedTools.ScrollableListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,6 +65,33 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(426, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 20);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Sort By:";
+            // 
+            // cmbSortCriteria
+            // 
+            this.cmbSortCriteria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSortCriteria.FormattingEnabled = true;
+            this.cmbSortCriteria.Location = new System.Drawing.Point(497, 10);
+            this.cmbSortCriteria.Name = "cmbSortCriteria";
+            this.cmbSortCriteria.Size = new System.Drawing.Size(280, 28);
+            this.cmbSortCriteria.TabIndex = 7;
+            this.cmbSortCriteria.SelectedIndexChanged += new System.EventHandler(this.CmbSortCriteria_SelectedIndexChanged);
+            // 
+            // advancedToolsActionRadioList1
+            // 
+            this.advancedToolsActionRadioList1.AutoScroll = true;
+            this.advancedToolsActionRadioList1.Location = new System.Drawing.Point(737, 54);
+            this.advancedToolsActionRadioList1.Name = "advancedToolsActionRadioList1";
+            this.advancedToolsActionRadioList1.Size = new System.Drawing.Size(212, 215);
+            this.advancedToolsActionRadioList1.TabIndex = 5;
+            // 
             // lstMapObjects
             // 
             this.lstMapObjects.FormattingEnabled = true;
@@ -76,33 +103,6 @@
             this.lstMapObjects.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lstMapObjects.Size = new System.Drawing.Size(714, 404);
             this.lstMapObjects.TabIndex = 4;
-            // 
-            // advancedToolsActionRadioList1
-            // 
-            this.advancedToolsActionRadioList1.AutoScroll = true;
-            this.advancedToolsActionRadioList1.Location = new System.Drawing.Point(737, 54);
-            this.advancedToolsActionRadioList1.Name = "advancedToolsActionRadioList1";
-            this.advancedToolsActionRadioList1.Size = new System.Drawing.Size(212, 215);
-            this.advancedToolsActionRadioList1.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(459, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 20);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Sort By:";
-            // 
-            // cmbSortCriteria
-            // 
-            this.cmbSortCriteria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSortCriteria.FormattingEnabled = true;
-            this.cmbSortCriteria.Location = new System.Drawing.Point(530, 10);
-            this.cmbSortCriteria.Name = "cmbSortCriteria";
-            this.cmbSortCriteria.Size = new System.Drawing.Size(149, 28);
-            this.cmbSortCriteria.TabIndex = 7;
-            this.cmbSortCriteria.SelectedIndexChanged += new System.EventHandler(this.CmbSortCriteria_SelectedIndexChanged);
             // 
             // AdvancedToolsForm
             // 

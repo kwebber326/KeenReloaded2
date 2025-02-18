@@ -42,6 +42,7 @@ namespace KeenReloaded2
             lstMapObjects.DrawItem += new DrawItemEventHandler(listBox_DrawItem);
             lstMapObjects.SelectedIndexChanged += LstMapObjects_SelectedIndexChanged;
             PopulateListBoxWithCurrentItems();
+            PopulateComboBoxForSortCriteria();
             InitializeActionFormControls();
 
             EventStore<AdvancedToolsActions>.Subscribe(
@@ -109,7 +110,7 @@ namespace KeenReloaded2
                 var ctrl = actionControl as Control;
                 if (ctrl != null)
                 {
-                    var selection = BuildSelctionOfMappingObjects().Values.ToList();
+                    var selection = BuildSelectionOfMappingObjects().Values.ToList();
                     actionControl.UpdateSelection(selection);
                     ctrl.Visible = true;
                 }
@@ -131,7 +132,7 @@ namespace KeenReloaded2
 
         private void LstMapObjects_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var currentObjectsSelected = BuildSelctionOfMappingObjects();
+            var currentObjectsSelected = BuildSelectionOfMappingObjects();
 
             List<GameObjectMapping> newlySelected = currentObjectsSelected
                 .Values.Where(k => !_previousAdvancedToolsSelection.ContainsKey(k.GetHashCode())).ToList();
@@ -194,7 +195,7 @@ namespace KeenReloaded2
             e.DrawFocusRectangle();
         }
 
-        private Dictionary<int, GameObjectMapping> BuildSelctionOfMappingObjects()
+        private Dictionary<int, GameObjectMapping> BuildSelectionOfMappingObjects()
         {
             var dictionary = new Dictionary<int, GameObjectMapping>();
 
@@ -297,7 +298,113 @@ namespace KeenReloaded2
 
         private void CmbSortCriteria_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbSortCriteria.SelectedItem == null)
+                return;
 
+            string selectedOption = cmbSortCriteria.SelectedItem.ToString();
+            AdvancedToolsSortCriteria sortCriteria = FromDisplayText(selectedOption);
+            SortObjectListByCriteria(sortCriteria);
         }
+
+        private void SortObjectListByCriteria(AdvancedToolsSortCriteria criteria)
+        {
+            //clear selection
+            var selection = BuildSelectionOfMappingObjects().Values.ToList();
+            AdvancedToolsEventArgs eventData = new AdvancedToolsEventArgs()
+            {
+                SelectedObjects = selection,
+                ChangeData = new AdvancedToolsChangeData()
+                {
+                    ChangedData = selection,
+                    ChangeMetaData = false
+                }
+            };
+            EventStore<AdvancedToolsEventArgs>.Publish(
+                MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_SELECTION_CHANGED, eventData);
+
+            selection.Clear();
+            eventData.ChangeData.ChangeMetaData = true;
+            EventStore<AdvancedToolsEventArgs>.Publish(
+              MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_SELECTION_CHANGED, eventData);
+
+            //sort the list
+            lstMapObjects.Items.Clear();
+            if (_gameObjects == null)
+                return;
+
+            var sortedObjects = _gameObjects.ToList();
+            switch (criteria)
+            {
+                case AdvancedToolsSortCriteria.NONE:
+                default:
+                    break;
+                case AdvancedToolsSortCriteria.TYPE_ASCENDING:
+                    sortedObjects = sortedObjects.OrderBy(s => s.GameObject.GetType().Name).ToList();
+                    break;
+                case AdvancedToolsSortCriteria.TYPE_DESCENDING:
+                    sortedObjects = sortedObjects.OrderByDescending(s => s.GameObject.GetType().Name).ToList();
+                    break;
+                case AdvancedToolsSortCriteria.LOCATION_LEFT_TO_RIGHT:
+                    sortedObjects = sortedObjects
+                        .OrderBy(s => s.GameObject.Location.X)
+                        .ThenBy(s1 => s1.GameObject.Location.Y).ToList();
+                    break;
+                case AdvancedToolsSortCriteria.LOCATION_TOP_TO_BOTTOM:
+                    sortedObjects = sortedObjects
+                        .OrderBy(s => s.GameObject.Location.Y)
+                        .ThenBy(s1 => s1.GameObject.Location.X).ToList();
+                    break;
+            }
+
+            foreach (var obj in sortedObjects)
+            {
+                lstMapObjects.Items.Add(obj.ToString());
+            }
+        }
+
+        private void PopulateComboBoxForSortCriteria()
+        {
+            //populate the object list with a newly sorted list
+            var values = Enum.GetValues(typeof(AdvancedToolsSortCriteria)).OfType<AdvancedToolsSortCriteria>();
+            cmbSortCriteria.Items.Clear();
+            foreach (var value in values)
+            {
+                string displayText = ToDisplayText(value);
+                cmbSortCriteria.Items.Add(displayText);
+            }
+            cmbSortCriteria.SelectedIndex = 0;
+        }
+
+        private AdvancedToolsSortCriteria FromDisplayText(string displayText)
+        {
+            string value = displayText.ToUpper().Replace(" ", "_");
+            AdvancedToolsSortCriteria result = (AdvancedToolsSortCriteria)Enum.Parse(typeof(AdvancedToolsSortCriteria), value);
+            return result;
+        }
+
+        private string ToDisplayText(AdvancedToolsSortCriteria sortCriteria)
+        {
+            string lowerCaseWord = sortCriteria.ToString().ToLower().Replace("_", " ");
+            string[] words = lowerCaseWord.Split(' ');
+            List<string> finalWords = new List<string>();
+            foreach (var word in words)
+            {
+                string firstLetter = word.Substring(0, 1).ToUpper();
+                string restOfWord = word.Substring(1);
+                string finalWord = firstLetter + restOfWord;
+                finalWords.Add(finalWord);
+            }
+            string result = string.Join(" ", finalWords);
+            return result;
+        }
+    }
+
+    enum AdvancedToolsSortCriteria
+    {
+        NONE,
+        TYPE_ASCENDING,
+        TYPE_DESCENDING,
+        LOCATION_TOP_TO_BOTTOM,
+        LOCATION_LEFT_TO_RIGHT
     }
 }
