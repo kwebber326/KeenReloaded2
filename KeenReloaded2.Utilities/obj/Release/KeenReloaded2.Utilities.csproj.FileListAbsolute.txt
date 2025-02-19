@@ -1,0 +1,11 @@
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\bin\Release\KeenReloaded2.Utilities.dll
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\bin\Release\KeenReloaded2.Utilities.pdb
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\bin\Release\KeenReloaded2.Constants.dll
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\bin\Release\KeenReloaded2.Drawing.dll
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\bin\Release\KeenReloaded2.Constants.pdb
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\bin\Release\KeenReloaded2.Drawing.pdb
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\obj\Release\KeenReloaded2.Utilities.csprojAssemblyReference.cache
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\obj\Release\KeenReloaded2.Utilities.csproj.CoreCompileInputs.cache
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\obj\Release\KeenReloaded2.Utilities.csproj.CopyComplete
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\obj\Release\KeenReloaded2.Utilities.dll
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\obj\Release\KeenReloaded2.Utilities.pdb
