@@ -441,6 +441,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         private void UpdateSprite()
         {
+            Rectangle previousHitbox = new Rectangle(this.HitBox.X, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
             switch (_state)
             {
                 case BirdMoveState.WAITING:
@@ -465,7 +466,9 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     _sprite = _flyImages[_currentFlyingImage];
                     break;
             }
-            this.HitBox = new Rectangle(this.HitBox.Location, _sprite.Size);
+            int xDifference = _sprite.Width - previousHitbox.Width;
+            int yDifference = _sprite.Height - previousHitbox.Height;
+            this.HitBox = new Rectangle(new Point(this.HitBox.X - xDifference, this.HitBox.Y - yDifference), _sprite.Size);
         }
 
         public Direction VerticalDirection { get; set; }

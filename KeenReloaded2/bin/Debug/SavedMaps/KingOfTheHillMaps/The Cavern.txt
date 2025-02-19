@@ -43,9 +43,6 @@ keen4_mirage_floor_middle|0|1936|3000|64|10
 keen4_mirage_wall_left_edge|1565|1194|64|300|10
 keen4_mirage_wall_right_edge|2020|1194|52|300|10
 keen4_mirage_wall_bottom1|1629|1194|394|32|10
-keen4_mirage_wall_to_platform_left|1660|1313|32|64|10|KEEN4_MIRAGE|LEFT
-keen4_mirage_platform_middle|1692|1329|32|48|10
-keen4_mirage_platform_right_edge|1724|1329|32|48|10
 keen4_mirage_platform_middle|1988|1456|32|48|10
 keen4_mirage_platform_middle|1956|1456|32|48|10
 keen4_mirage_platform_middle|1924|1456|32|48|10
@@ -121,7 +118,7 @@ keen4_mirage_wall_left_edge|1685|1889|64|80|10
 keen4_mirage_wall_middle|1748|1888|160|80|10
 keen4_mirage_wall_right_edge|1901|1889|52|80|10
 keen4_mirage_wall_right_edge|2278|400|52|64|10
-random_mirage_hill|2636|552|324|256|14|[2600,900,2650,64,2400,1700,1712,1232,64,1010,64,1748,1024,1750]|1000|20|100|200
+random_mirage_hill|2636|552|324|256|14|[2600,900,2650,64,2400,1700,1700,1232,64,1010,64,1748,1024,1750]|1000|20|100|200
 keen4_mirage_pole_bottom|994|1287|12|28|15|keen4_mirage_pole_bottom|BOTTOM|KEEN4_MIRAGE
 keen4_mirage_pole_middle|994|1255|12|32|15|keen4_mirage_pole_middle|MIDDLE|KEEN4_MIRAGE
 keen4_mirage_pole_middle|994|1223|12|32|15|keen4_mirage_pole_middle|MIDDLE|KEEN4_MIRAGE
@@ -188,7 +185,6 @@ enemy_spawner1|1974|1868|92|94|18|[Wormmouth]|2|50|10000000
 keen4_tar1|2313|403|64|64|18|3|0
 keen_stand_right|48|689|26|64|RIGHT
 king_slug|89|1577|252|384|king_slug.png|True|20
-keen4_glass_dome_top_left|2315|1690|128|176|20|12|3|BLUE|ARCHWAY
 keen4_mine|1682|1405|46|46|RIGHT|1682|1405|256|60|20
 keen4_mine|20|71|46|46|RIGHT|20|71|800|46|20
 keen4_mirage_wall_bottom1|2342|464|64|32|20
@@ -211,6 +207,7 @@ keen4_thundercloud_dormant|125|53|128|48|25|True
 keen4_thundercloud_dormant|377|45|128|48|25|True
 keen4_thundercloud_dormant|555|51|128|48|25|True
 keen4_sprite_look_right|916|49|46|46|25
+keen4_glass_dome_top_left|2315|1690|128|176|30|12|3|BLUE|ARCHWAY
 keen4_glass_dome_top_left|2700|60|128|300|50|4|3|YELLOW|NONE
 keen4_jawbreaker1|1371|425|30|30|50|KEEN4_JAWBREAKER
 keen4_jawbreaker1|1562|341|30|30|50|KEEN4_JAWBREAKER
