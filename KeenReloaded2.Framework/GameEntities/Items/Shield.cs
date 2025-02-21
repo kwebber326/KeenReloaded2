@@ -1,4 +1,5 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEventArgs;
@@ -158,6 +159,12 @@ namespace KeenReloaded2.Framework.GameEntities.Items
                 _currentShieldWarningDelayTick = 0;
                 _isRed = !_isRed;
             }
+        }
+
+        public override string ToString()
+        {
+            string separater = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
+            return base.ToString() + separater + _zIndex.ToString() + separater + _duration.ToString();
         }
     }
 }

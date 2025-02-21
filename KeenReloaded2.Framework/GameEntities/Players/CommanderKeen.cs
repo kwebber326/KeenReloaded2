@@ -2222,6 +2222,15 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                         this.HitBox = new Rectangle(door.HitBox.X + ((door.HitBox.Width / 2) - (this.HitBox.Width / 2)),
                             door.HitBox.Bottom - this.HitBox.Height - 1, this.HitBox.Width, this.HitBox.Height);
                         _currentDoorWalkState = 0;
+                        var tileCollisions = this.CheckCollision(this.HitBox, true);
+                        if (tileCollisions.Any())
+                        {
+                            var topTile = this.GetTopMostLandingTile(tileCollisions);
+                            if (topTile != null)
+                            {
+                                this.HitBox = new Rectangle(this.HitBox.X, topTile.HitBox.Y - this.HitBox.Height - 1, this.HitBox.Width, this.HitBox.Height);
+                            }
+                        }
                         this.UpdateCollisionNodes(Direction.DOWN_LEFT);
                         this.UpdateCollisionNodes(Direction.UP_RIGHT);
                         _fallVelocity = 0;

@@ -348,7 +348,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         {
             get
             {
-                return this.MoveState != MoveState.STUNNED;
+                return true;
             }
         }
 
