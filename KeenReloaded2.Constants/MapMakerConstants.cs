@@ -64,6 +64,7 @@ namespace KeenReloaded2.Constants
             public const string EVENT_SOUND_PLAY = "playSound";
             //keen events
             public const string KEEN_DISAPPEAR_DEATH = "keenDisappearDeath";
+            public const string KEEN_LEVEL_COMPLETE = "levelComplete";
         }
     }
 }

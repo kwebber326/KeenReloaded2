@@ -142,6 +142,8 @@ namespace KeenReloaded2
                 _levelCompleted = true;
                 EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
                     GeneralGameConstants.Sounds.KEEN4_EXIT);
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.KEEN_LEVEL_COMPLETE,
+                    string.Empty);
                 RemoveKeenFromGame();
                 KeenReloadedMessageWindow window = new KeenReloadedMessageWindow("Level Completed!");
                 window.ShowDialog();

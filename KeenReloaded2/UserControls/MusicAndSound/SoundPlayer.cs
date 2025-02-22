@@ -39,6 +39,9 @@ namespace KeenReloaded2.UserControls.MusicAndSound
                 _song = settings.SelectedSong;
                 this.PlayMusic(_song);
             }
+
+            EventStore<string>.Subscribe(MapMakerConstants.EventStoreEventNames.KEEN_LEVEL_COMPLETE,
+                    Level_Complete);
         }
 
         private const string SOUNDS_FOLDER = "Sounds";
@@ -54,6 +57,11 @@ namespace KeenReloaded2.UserControls.MusicAndSound
         private void SoundPlayer_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void Level_Complete(object sender, ControlEventArgs<string> e)
+        {
+            _musicPlayer?.Stop();
         }
 
         protected void Sound_Play(object sender, ControlEventArgs<string> eventArgs)
@@ -87,6 +95,8 @@ namespace KeenReloaded2.UserControls.MusicAndSound
             finally
             {
                 EventStore<string>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
+                EventStore<string>.Subscribe(MapMakerConstants.EventStoreEventNames.KEEN_LEVEL_COMPLETE,
+                   Level_Complete);
                 _soundDevice.StopEngine();
                 if (dispose)
                 {
