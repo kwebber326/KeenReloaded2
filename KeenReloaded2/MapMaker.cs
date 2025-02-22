@@ -781,28 +781,41 @@ namespace KeenReloaded2
         }
         private void MapObjectContainer1_ObjectClicked(object sender, ControlEventArgs.MapMakerObjectEventArgs e)
         {
-            ClearFocus();
-            ClearSelectedMapItem();
-            if (e.MapMakerObject == null)
+            try
             {
-                mapMakerObjectPropertyListControl1.SetProperties(null);
-                return;
-            }
+                ClearFocus();
+                ClearSelectedMapItem();
+                if (e.MapMakerObject == null)
+                {
+                    mapMakerObjectPropertyListControl1.SetProperties(null);
+                    return;
+                }
 
-            if (e.MapMakerObject.IsManualPlacement)
-            {
-                mapMakerObjectPropertyListControl1.SetProperties(e.MapMakerObject);
+                if (e.MapMakerObject.IsManualPlacement)
+                {
+                    mapMakerObjectPropertyListControl1.SetProperties(e.MapMakerObject);
+                }
+                else
+                {
+                    RemoveCursorItem();
+                    GameObjectMapping mapping = GenerateMappingObjectFromMapMakerData(e.MapMakerObject);
+                    _cursorItem = mapping;
+                    mapMakerObjectPropertyListControl1.SetProperties(null);
+                    this.Controls.Add(_cursorItem);
+                    _cursorItem.BringToFront();
+                    _cursorUpdateTimer.Start();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                RemoveCursorItem();
-                GameObjectMapping mapping = GenerateMappingObjectFromMapMakerData(e.MapMakerObject);
-                _cursorItem = mapping;
-                mapMakerObjectPropertyListControl1.SetProperties(null);
-                this.Controls.Add(_cursorItem);
-                _cursorItem.BringToFront();
-                _cursorUpdateTimer.Start();
+                GenerateObjectConstructionErrorMessage();
             }
+        }
+
+        private static void GenerateObjectConstructionErrorMessage()
+        {
+            string expectedDirectory = FileIOUtility.GetResourcePathForMainProject();
+            MessageBox.Show($"Unable to construct container object. Ensure the associated image is present in the following directory:\n{expectedDirectory}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void BtnDefaultDimensions_Click(object sender, EventArgs e)
@@ -1045,40 +1058,47 @@ namespace KeenReloaded2
 
         private void PnlMapCanvas_Click(object sender, EventArgs e)
         {
-            if (_cursorItem != null)
+            try
             {
-                int xOffset = pnlMapCanvas.Location.X;
-                int yOffset = pnlMapCanvas.Location.Y;
+                if (_cursorItem != null)
+                {
+                    int xOffset = pnlMapCanvas.Location.X;
+                    int yOffset = pnlMapCanvas.Location.Y;
 
-                Rectangle area = _useSmartPlacer
-                    ? new Rectangle(_smartPlacer.Location.X, _smartPlacer.Location.Y, _smartPlacer.Width, _smartPlacer.Height)
-                    : new Rectangle(Cursor.Position.X - xOffset, Cursor.Position.Y - yOffset, _cursorItem.Width, _cursorItem.Height);
+                    Rectangle area = _useSmartPlacer
+                        ? new Rectangle(_smartPlacer.Location.X, _smartPlacer.Location.Y, _smartPlacer.Width, _smartPlacer.Height)
+                        : new Rectangle(Cursor.Position.X - xOffset, Cursor.Position.Y - yOffset, _cursorItem.Width, _cursorItem.Height);
 
-                _useSmartPlacer = false;
-                SetNewAreaForMappingObject(area, _cursorItem);
+                    _useSmartPlacer = false;
+                    SetNewAreaForMappingObject(area, _cursorItem);
 
-                pnlMapCanvas.Controls.Add(_cursorItem);
-                _mapMakerObjects.InsertAscending(_cursorItem);
-                this.Controls.Remove(_cursorItem);
+                    pnlMapCanvas.Controls.Add(_cursorItem);
+                    _mapMakerObjects.InsertAscending(_cursorItem);
+                    this.Controls.Remove(_cursorItem);
 
-                Rectangle offsetArea = new Rectangle(area.X - pnlMapCanvas.AutoScrollPosition.X,
-                    area.Y - pnlMapCanvas.AutoScrollPosition.Y,
-                    area.Width, area.Height);
-                SetNewAreaForMappingObject(offsetArea, _cursorItem, true);
-                RegisterEventsForGameObjectMapping(_cursorItem);
+                    Rectangle offsetArea = new Rectangle(area.X - pnlMapCanvas.AutoScrollPosition.X,
+                        area.Y - pnlMapCanvas.AutoScrollPosition.Y,
+                        area.Width, area.Height);
+                    SetNewAreaForMappingObject(offsetArea, _cursorItem, true);
+                    RegisterEventsForGameObjectMapping(_cursorItem);
 
-                ClearSelectedMapItem();
-                _selectedGameObjectMapping = _cursorItem;
-                _selectedGameObjectMapping.BorderStyle = BorderStyle.Fixed3D;
-                mapMakerObjectPropertyListControl1.SetProperties(_selectedGameObjectMapping.MapMakerObject, true);
+                    ClearSelectedMapItem();
+                    _selectedGameObjectMapping = _cursorItem;
+                    _selectedGameObjectMapping.BorderStyle = BorderStyle.Fixed3D;
+                    mapMakerObjectPropertyListControl1.SetProperties(_selectedGameObjectMapping.MapMakerObject, true);
 
-                var tmp = _cursorItem;
-                _cursorItem = null;
-                RefreshZIndexPositioningForCollidingObjects(tmp);
+                    var tmp = _cursorItem;
+                    _cursorItem = null;
+                    RefreshZIndexPositioningForCollidingObjects(tmp);
 
-                RemoveSmartPlacerFromCanvas();
+                    RemoveSmartPlacerFromCanvas();
 
-                _mapHasUnsavedChanges = true;
+                    _mapHasUnsavedChanges = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                GenerateObjectConstructionErrorMessage();
             }
         }
 

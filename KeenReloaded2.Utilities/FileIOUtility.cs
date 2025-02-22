@@ -244,7 +244,8 @@ namespace KeenReloaded2.Utilities
 
         public static string GetResourcePathForMainProject()
         {
-            string directory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+            string directory = Directory.GetParent(System.Environment.CurrentDirectory).Parent.FullName;
+           
             directory = Path.Combine(directory, "Resources");
             return directory;
         }

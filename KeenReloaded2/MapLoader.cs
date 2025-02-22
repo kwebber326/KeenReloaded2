@@ -38,10 +38,17 @@ namespace KeenReloaded2
 
         private void OpenFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-            var mapData = MapUtility.LoadMapData(openFileDialog1.FileName);
-            Form1 game = new Form1(_gameMode, mapData, false);
-            game.ShowDialog();
-            this.Close();
+            try
+            {
+                var mapData = MapUtility.LoadMapData(openFileDialog1.FileName);
+                Form1 game = new Form1(_gameMode, mapData, false);
+                game.ShowDialog();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error Loading Map {ex}");
+            }
         }
     }
 }
