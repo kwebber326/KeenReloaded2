@@ -1399,6 +1399,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     _currentShotDelay = _currentWeapon != null ? _currentWeapon.RefireDelay : 0;
                     if (_currentWeapon != null && _currentWeapon.Ammo > 0)
                     {
+                        _isUsingPogo = false;
                         _currentWeapon.Fire();
                         if (_currentWeapon.Ammo <= 0)
                             SetBackupWeapon();
@@ -1597,6 +1598,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 else
                 {
                     _jumpReady = true;
+                    _jumpFromPole = false;
                     this.Jump();
                 }
                 //update collision nodes
@@ -1979,7 +1981,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                         this.Fall();
                     }
                     else if (!isNothingBeneath && this.MoveState == Enums.MoveState.FALLING)
-                    {                     
+                    {
                         this.MoveState = Enums.MoveState.STANDING;
                         if (_isUsingPogo)
                         {
@@ -2014,7 +2016,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                                 this.MoveState = Enums.MoveState.STANDING;
                             }
                         }
-                        if (IsKeyPressed(KEY_ALT) && !_isUsingPogo && _isPogoButtonReleased)
+                        if (IsKeyPressed(KEY_ALT) && !_isUsingPogo && _isPogoButtonReleased && _currentJumpHeight == 0)
                         {
                             _isUsingPogo = true;
                             _isPogoButtonReleased = false;
@@ -2114,7 +2116,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                             }
                             else if (toggleSwitch != null && !(toggleSwitch is GemPlaceHolder))
                             {
-                                if (!_togglingSwitch)
+                                if (!_togglingSwitch && !_isUsingPogo)
                                 {
                                     _togglingSwitch = true;
                                     toggleSwitch.Toggle();
@@ -2352,6 +2354,9 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 return;
 
             if (_isLookingDown)
+                return;
+
+            if (_isUsingPogo)
                 return;
 
             if (this.MoveState != Enums.MoveState.ENTERING_DOOR && _currentDoor != null
@@ -2794,7 +2799,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         private bool CanKeenGrabPole(bool updateDelay = true)
         {
             bool canGrabPole = false;
-            if (_isLookingDown)
+            if (_isLookingDown || _isUsingPogo)
                 return false;
             if (_currentPoleHangDelayTick == POLE_HANG_DELAY || this.MoveState == Enums.MoveState.ON_POLE || !updateDelay)
             {
