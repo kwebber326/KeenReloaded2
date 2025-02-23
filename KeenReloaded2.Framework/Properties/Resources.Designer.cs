@@ -18633,6 +18633,46 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap yorp_pogo_left1 {
+            get {
+                object obj = ResourceManager.GetObject("yorp_pogo_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap yorp_pogo_left2 {
+            get {
+                object obj = ResourceManager.GetObject("yorp_pogo_left2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap yorp_pogo_right1 {
+            get {
+                object obj = ResourceManager.GetObject("yorp_pogo_right1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap yorp_pogo_right2 {
+            get {
+                object obj = ResourceManager.GetObject("yorp_pogo_right2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap yorp_pole_climb_left1 {
             get {
                 object obj = ResourceManager.GetObject("yorp_pole_climb_left1", resourceCulture);
