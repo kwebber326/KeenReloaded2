@@ -25,6 +25,24 @@ namespace KeenReloaded2.Framework.GameEntities.AltCharacters
 
         private void Initialize()
         {
+            _keenPogoRightSprites = new Image[]
+            {
+                Properties.Resources.baby_louie_pogo_right1,
+                Properties.Resources.baby_louie_pogo_right2,
+            };
+
+            _keenPogoRight1 = _keenPogoRightSprites[0];
+            _keenPogoRight2 = _keenPogoRightSprites[1];
+
+            _keenPogoLeftSprites = new Image[]
+            {
+                Properties.Resources.baby_louie_pogo_left1,
+                Properties.Resources.baby_louie_pogo_left2,
+            };
+
+            _keenPogoLeft1 = _keenPogoLeftSprites[0];
+            _keenPogoLeft2 = _keenPogoLeftSprites[1];
+
             _keenRunRightSprites = new Image[]
             {
                 Properties.Resources.baby_louie_run_right1,
