@@ -5925,5 +5925,17 @@
   <ItemGroup>
     <None Include="Resources\yorp_pogo_left2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_pogo_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_pogo_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_pogo_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baby_louie_pogo_right2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

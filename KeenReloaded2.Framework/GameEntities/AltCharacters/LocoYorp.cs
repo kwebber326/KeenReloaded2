@@ -25,10 +25,10 @@ namespace KeenReloaded2.Framework.GameEntities.AltCharacters
         private void Initialize()
         {
             _keenPogoRightSprites = new Image[]
-           {
+            {
                 Properties.Resources.yorp_pogo_right1,
                 Properties.Resources.yorp_pogo_right2,
-           };
+            };
 
             _keenPogoRight1 = _keenPogoRightSprites[0];
             _keenPogoRight2 = _keenPogoRightSprites[1];
