@@ -5877,5 +5877,17 @@
   <ItemGroup>
     <None Include="Resources\keen4_glass_dome_top_right.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_pogo_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_pogo_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_pogo_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_pogo_right1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

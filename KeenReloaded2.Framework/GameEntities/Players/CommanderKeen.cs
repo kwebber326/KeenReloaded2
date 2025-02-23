@@ -63,6 +63,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             _keysPressed.Add(KEY_ENTER, false);
             _keysPressed.Add(KEY_SHIFT, false);
             _keysPressed.Add(KEY_SHIELD, false);
+            _keysPressed.Add(KEY_ALT, false);
             this.Health = 1;
             _moveState = Enums.MoveState.STANDING;
             InitializeDirection(direction);
@@ -250,7 +251,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 _hangTile = null;
             }
             _currentClimbDelayTicks = 0;
-            _climbReady = false;
+
             //fall
             this.Fall();
         }
@@ -306,11 +307,11 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                             }
                             else if (this.MoveState == Enums.MoveState.FALLING)
                             {
-                                _sprite = _keenFallRight;
+                                _sprite = _isUsingPogo ? _keenPogoRight1 : _keenFallRight;
                             }
                             else if (this.MoveState == Enums.MoveState.JUMPING)
                             {
-                                _sprite = _keenJumpRight1;
+                                _sprite = _isUsingPogo ? _keenPogoRight2 : _keenJumpRight1;
                             }
                             else if (this.MoveState == Enums.MoveState.HANGING)
                             {
@@ -343,11 +344,11 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                             }
                             else if (this.MoveState == Enums.MoveState.FALLING)
                             {
-                                _sprite = _keenFallLeft;
+                                _sprite = _isUsingPogo ? _keenPogoLeft1 : _keenFallLeft;
                             }
                             else if (this.MoveState == Enums.MoveState.JUMPING)
                             {
-                                _sprite = _keenJumpLeft1;
+                                _sprite = _isUsingPogo ? _keenPogoLeft2 : _keenJumpLeft1;
                             }
                             else if (this.MoveState == Enums.MoveState.HANGING)
                             {
@@ -488,6 +489,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         private const string KEY_ENTER = "Return";
         private const string KEY_SHIFT = "ShiftKey";
         private const string KEY_SHIELD = "S";
+        private const string KEY_ALT = "Menu";
 
         private const int WEAPON_ROTATE_DELAY = 2;
         private int _currentWeaponRotateDelayTick = WEAPON_ROTATE_DELAY;
@@ -509,6 +511,8 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         private const int JUMP_VELOCITY = 30;
         private const int MAX_JUMP_HEIGHT = 200;
         private const int MAX_POLE_JUMP_HEIGHT = 50;
+        private const int MAX_POGO_HEIGHT = 300;
+        private const int MIN_POGO_HEIGHT = 60;
         private const int POLE_CLIMB_SPEED = 3;
         private const int POLE_SHIMMY_SPEED = 7;
         private const int POLE_HANG_DELAY = 2;
@@ -533,7 +537,8 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         private int _currentClimbDelayTicks = 0;
         private const int START_CLIMB_TICKS = 2;
         private int _currentStartClimbDelayTick = 0;
-        private bool _climbReady = false;
+        private bool _isUsingPogo = false;
+        private bool _isPogoButtonReleased = true;
 
         private bool _isLookingUp = false;
         private bool _isLookingDown = false;
@@ -545,6 +550,18 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         private HashSet<CollisionObject> _rightPushingObjects = new HashSet<CollisionObject>();
 
         private int _currentRunImage = 0;
+        protected Image[] _keenPogoRightSprites = new Image[]
+        {
+            Properties.Resources.keen_pogo_right1,
+            Properties.Resources.keen_pogo_right2
+        };
+
+        protected Image[] _keenPogoLeftSprites = new Image[]
+       {
+            Properties.Resources.keen_pogo_left1,
+            Properties.Resources.keen_pogo_left2
+       };
+
         protected Image[] _keenRunRightSprites = new Image[]
         {
             Properties.Resources.keen_run_right1,
@@ -645,6 +662,11 @@ namespace KeenReloaded2.Framework.GameEntities.Players
 
         protected Image _keenDead1 = Properties.Resources.keen_dead1;
         protected Image _keenDead2 = Properties.Resources.keen_dead2;
+
+        protected Image _keenPogoRight1 = Properties.Resources.keen_pogo_right1;
+        protected Image _keenPogoRight2 = Properties.Resources.keen_pogo_right2;
+        protected Image _keenPogoLeft1 = Properties.Resources.keen_pogo_left1;
+        protected Image _keenPogoLeft2 = Properties.Resources.keen_pogo_left2;
 
         #endregion
 
@@ -789,7 +811,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                             new Rectangle(obj.HitBox.Right + 32, obj.HitBox.Y - 32, 32, 64);
                         var overheadCollisions = this.CheckCollision(overheadArea, true).Where(c => c.CollisionType == CollisionType.BLOCK);
 
-                        if (!collisionWalls.Any() && !bottomCollisions.Any() && !overheadCollisions.Any())
+                        if (!_isUsingPogo && !collisionWalls.Any() && !bottomCollisions.Any() && !overheadCollisions.Any())
                         {
                             this.Hang(obj as IHangableTile);
                         }
@@ -1330,7 +1352,6 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 {
                     _currentClimbSprite = 0;
                     this.MoveState = Enums.MoveState.STANDING;
-                    _climbReady = false;
                 }
                 else
                 {
@@ -1463,6 +1484,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             else
             {
                 int maxJumpHeight = _jumpFromPole ? MAX_POLE_JUMP_HEIGHT : MAX_JUMP_HEIGHT;
+                maxJumpHeight = SetJumpHeightIfUsingPogo(maxJumpHeight);
                 //increment jump height by jump velocity if we haven't reached max jump height.
                 //Else, set jump height to zero and set keen to a falling state
                 if (_currentJumpHeight < maxJumpHeight)
@@ -1482,6 +1504,20 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     this.HandleCollision(item);
                 }
             }
+        }
+
+        private int SetJumpHeightIfUsingPogo(int maxJumpHeight)
+        {
+            if (_isUsingPogo && !_jumpFromPole)
+            {
+                maxJumpHeight = IsKeyPressed(KEY_CTRL) ? MAX_POGO_HEIGHT : MIN_POGO_HEIGHT;
+            }
+            else if (_isUsingPogo && _jumpFromPole)
+            {
+                maxJumpHeight = MIN_POGO_HEIGHT;
+            }
+
+            return maxJumpHeight;
         }
 
         public bool CanJump
@@ -1554,7 +1590,15 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 this.HitBox = new Rectangle(new Point(this.HitBox.Location.X, minY - this.HitBox.Height - 1), this.HitBox.Size);
                 //stop keen from falling
                 _fallVelocity = INITIAL_FALL_VELOCITY;
-                this.MoveState = Enums.MoveState.STANDING;
+                if (!_isUsingPogo)
+                {
+                    this.MoveState = Enums.MoveState.STANDING;
+                }
+                else
+                {
+                    _jumpReady = true;
+                    this.Jump();
+                }
                 //update collision nodes
                 this.UpdateCollisionNodes(Enums.Direction.DOWN);
                 //handle collisions
@@ -1935,8 +1979,13 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                         this.Fall();
                     }
                     else if (!isNothingBeneath && this.MoveState == Enums.MoveState.FALLING)
-                    {
+                    {                     
                         this.MoveState = Enums.MoveState.STANDING;
+                        if (_isUsingPogo)
+                        {
+                            _jumpReady = true;
+                            this.TryJump();
+                        }
                     }
 
                     if (this.MoveState == Enums.MoveState.HANGING)
@@ -1964,6 +2013,25 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                             {
                                 this.MoveState = Enums.MoveState.STANDING;
                             }
+                        }
+                        if (IsKeyPressed(KEY_ALT) && !_isUsingPogo && _isPogoButtonReleased)
+                        {
+                            _isUsingPogo = true;
+                            _isPogoButtonReleased = false;
+                            TryJump();
+                        }
+                        else if (!IsKeyPressed(KEY_ALT) && _isUsingPogo && !_isPogoButtonReleased)
+                        {
+                            _isPogoButtonReleased = true;
+                        }
+                        else if (IsKeyPressed(KEY_ALT) && _isUsingPogo && _isPogoButtonReleased)
+                        {
+                            _isUsingPogo = false;
+                            _isPogoButtonReleased = false;
+                        }
+                        else if (!IsKeyPressed(KEY_ALT) && !_isUsingPogo && !_isPogoButtonReleased)
+                        {
+                            _isPogoButtonReleased = true;
                         }
                     }
                     else if (_stunTimeTick++ == STUN_TIME)
@@ -2765,6 +2833,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         private void TryJump()
         {
             int maxJumpHeight = _jumpFromPole ? MAX_POLE_JUMP_HEIGHT : MAX_JUMP_HEIGHT;
+            maxJumpHeight = SetJumpHeightIfUsingPogo(maxJumpHeight);
             if (_jumpFromPole && this.MoveState != Enums.MoveState.JUMPING)
                 _currentJumpHeight = 0;
             if (this.CanJump && _currentJumpHeight < maxJumpHeight)
