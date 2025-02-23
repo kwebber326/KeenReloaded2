@@ -5410,6 +5410,18 @@
   <data name="princess_indi_look_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\princess_indi_look_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="princess_indi_pogo_left1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\princess_indi_pogo_left1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="princess_indi_pogo_left2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\princess_indi_pogo_left2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="princess_indi_pogo_right1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\princess_indi_pogo_right1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="princess_indi_pogo_right2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\princess_indi_pogo_right2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="princess_indi_pole_left1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\princess_indi_pole_left1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
