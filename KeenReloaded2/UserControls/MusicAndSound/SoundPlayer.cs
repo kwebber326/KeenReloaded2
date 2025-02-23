@@ -95,7 +95,7 @@ namespace KeenReloaded2.UserControls.MusicAndSound
             finally
             {
                 EventStore<string>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
-                EventStore<string>.Subscribe(MapMakerConstants.EventStoreEventNames.KEEN_LEVEL_COMPLETE,
+                EventStore<string>.UnSubscribe(MapMakerConstants.EventStoreEventNames.KEEN_LEVEL_COMPLETE,
                    Level_Complete);
                 _soundDevice.StopEngine();
                 if (dispose)
