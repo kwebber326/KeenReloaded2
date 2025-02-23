@@ -1597,6 +1597,8 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 }
                 else
                 {
+                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                            GeneralGameConstants.Sounds.KEEN_POGO);
                     _jumpReady = true;
                     _jumpFromPole = false;
                     this.Jump();
@@ -2021,6 +2023,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                             _isUsingPogo = true;
                             _isPogoButtonReleased = false;
                             TryJump();
+                           
                         }
                         else if (!IsKeyPressed(KEY_ALT) && _isUsingPogo && !_isPogoButtonReleased)
                         {
@@ -2838,7 +2841,8 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         private void TryJump()
         {
             int maxJumpHeight = _jumpFromPole ? MAX_POLE_JUMP_HEIGHT : MAX_JUMP_HEIGHT;
-            maxJumpHeight = SetJumpHeightIfUsingPogo(maxJumpHeight);
+            maxJumpHeight = SetJumpHeightIfUsingPogo(maxJumpHeight);         
+
             if (_jumpFromPole && this.MoveState != Enums.MoveState.JUMPING)
                 _currentJumpHeight = 0;
             if (this.CanJump && _currentJumpHeight < maxJumpHeight)
