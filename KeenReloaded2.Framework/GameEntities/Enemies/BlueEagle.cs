@@ -281,7 +281,23 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 UpdateSprite();
             }
 
-            var collisions = this.CheckCollision(new Rectangle(this.HitBox.X, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height - 1), true);
+            var collisions = this.CheckCollision(new Rectangle(this.HitBox.X, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height), true);
+          
+            CollisionObject tile = GetTopMostLandingTile(FLY_VELOCITY);
+            if (tile != null)
+            {
+                this.HitBox = new Rectangle(this.HitBox.X, tile.HitBox.Top - this.HitBox.Height - 1, this.HitBox.Width, this.HitBox.Height);
+            }
+
+            if (this.HitBox.Top >= _keen.HitBox.Top)
+            {
+                MoveUp();
+            }
+            else if (this.HitBox.Bottom <= _keen.HitBox.Top + 5)
+            {
+                MoveDown();
+            }
+
             CollisionObject rightTile = GetLeftMostRightTile(collisions);
             if (this.HorizontalDirection == Direction.RIGHT)
             {
@@ -300,20 +316,6 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 }
             }
 
-            CollisionObject tile = GetTopMostLandingTile(FLY_VELOCITY);
-            if (tile != null)
-            {
-                this.HitBox = new Rectangle(this.HitBox.X, tile.HitBox.Top - this.HitBox.Height - 1, this.HitBox.Width, this.HitBox.Height);
-            }
-
-            if (this.HitBox.Top >= _keen.HitBox.Top)
-            {
-                MoveUp();
-            }
-            else if (this.HitBox.Bottom <= _keen.HitBox.Top + 5)
-            {
-                MoveDown();
-            }
 
             if (this.HitBox.Left > _keen.HitBox.Left)
             {
@@ -339,6 +341,18 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             {
                 this.HitBox = new Rectangle(this.HitBox.X, this.HitBox.Y + yOffset, this.HitBox.Width, this.HitBox.Height);
             }
+        }
+
+        protected override CollisionObject GetCeilingTile(List<CollisionObject> collisions)
+        {
+            var tiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK && c.HitBox.Bottom - 2 <= this.HitBox.Top).ToList();
+            if (tiles.Any())
+            {
+                int maxBottom = tiles.Select(c => c.HitBox.Bottom).Max();
+                CollisionObject obj = collisions.FirstOrDefault(c => c.HitBox.Bottom == maxBottom);
+                return obj;
+            }
+            return null;
         }
 
         private void MoveUp()

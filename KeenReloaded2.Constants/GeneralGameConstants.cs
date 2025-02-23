@@ -76,6 +76,8 @@ namespace KeenReloaded2.Constants
             public const string BOBBA_SHOOT = "bobba_shoot.wav";
             public const string SMG_ROUND = "SMG_round.wav";
             public const string FORCE_FIELD_DESTROYED = "force_field_destroyed.wav";
+            public const string KEEN_POGO = "pogo.wav";
+            public const string MIMROCK_LAND = "mimrock_land.wav";
         }
 
         public const string AREA_PROPERTY_NAME = "area";

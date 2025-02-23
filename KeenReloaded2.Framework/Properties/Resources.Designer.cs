@@ -173,6 +173,46 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap baby_louie_pogo_left1 {
+            get {
+                object obj = ResourceManager.GetObject("baby_louie_pogo_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baby_louie_pogo_left2 {
+            get {
+                object obj = ResourceManager.GetObject("baby_louie_pogo_left2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baby_louie_pogo_right1 {
+            get {
+                object obj = ResourceManager.GetObject("baby_louie_pogo_right1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baby_louie_pogo_right2 {
+            get {
+                object obj = ResourceManager.GetObject("baby_louie_pogo_right2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap baby_louie_pole_left1 {
             get {
                 object obj = ResourceManager.GetObject("baby_louie_pole_left1", resourceCulture);
@@ -856,6 +896,46 @@ namespace KeenReloaded2.Framework.Properties {
         internal static System.Drawing.Bitmap council_page_look_up {
             get {
                 object obj = ResourceManager.GetObject("council_page_look_up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap council_page_pogo_left1 {
+            get {
+                object obj = ResourceManager.GetObject("council_page_pogo_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap council_page_pogo_left2 {
+            get {
+                object obj = ResourceManager.GetObject("council_page_pogo_left2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap council_page_pogo_right1 {
+            get {
+                object obj = ResourceManager.GetObject("council_page_pogo_right1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap council_page_pogo_right2 {
+            get {
+                object obj = ResourceManager.GetObject("council_page_pogo_right2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2633,6 +2713,46 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen_dreams_pogo_left1 {
+            get {
+                object obj = ResourceManager.GetObject("keen_dreams_pogo_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_dreams_pogo_left2 {
+            get {
+                object obj = ResourceManager.GetObject("keen_dreams_pogo_left2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_dreams_pogo_right1 {
+            get {
+                object obj = ResourceManager.GetObject("keen_dreams_pogo_right1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_dreams_pogo_right2 {
+            get {
+                object obj = ResourceManager.GetObject("keen_dreams_pogo_right2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen_dreams_pole_left1 {
             get {
                 object obj = ResourceManager.GetObject("keen_dreams_pole_left1", resourceCulture);
@@ -3896,6 +4016,46 @@ namespace KeenReloaded2.Framework.Properties {
         internal static System.Drawing.Bitmap keen_look_up1 {
             get {
                 object obj = ResourceManager.GetObject("keen_look_up1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_pogo_left1 {
+            get {
+                object obj = ResourceManager.GetObject("keen_pogo_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_pogo_left2 {
+            get {
+                object obj = ResourceManager.GetObject("keen_pogo_left2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_pogo_right1 {
+            get {
+                object obj = ResourceManager.GetObject("keen_pogo_right1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_pogo_right2 {
+            get {
+                object obj = ResourceManager.GetObject("keen_pogo_right2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -16243,6 +16403,46 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mm_pogo_left1 {
+            get {
+                object obj = ResourceManager.GetObject("mm_pogo_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mm_pogo_left2 {
+            get {
+                object obj = ResourceManager.GetObject("mm_pogo_left2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mm_pogo_right1 {
+            get {
+                object obj = ResourceManager.GetObject("mm_pogo_right1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mm_pogo_right2 {
+            get {
+                object obj = ResourceManager.GetObject("mm_pogo_right2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mm_pole_left1 {
             get {
                 object obj = ResourceManager.GetObject("mm_pole_left1", resourceCulture);
@@ -17053,6 +17253,46 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_pogo_left1 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_pogo_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_pogo_left2 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_pogo_left2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_pogo_right1 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_pogo_right1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap oracle_elder_pogo_right2 {
+            get {
+                object obj = ResourceManager.GetObject("oracle_elder_pogo_right2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap oracle_elder_pole_left1 {
             get {
                 object obj = ResourceManager.GetObject("oracle_elder_pole_left1", resourceCulture);
@@ -17666,6 +17906,46 @@ namespace KeenReloaded2.Framework.Properties {
         internal static System.Drawing.Bitmap princess_indi_look_up {
             get {
                 object obj = ResourceManager.GetObject("princess_indi_look_up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap princess_indi_pogo_left1 {
+            get {
+                object obj = ResourceManager.GetObject("princess_indi_pogo_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap princess_indi_pogo_left2 {
+            get {
+                object obj = ResourceManager.GetObject("princess_indi_pogo_left2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap princess_indi_pogo_right1 {
+            get {
+                object obj = ResourceManager.GetObject("princess_indi_pogo_right1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap princess_indi_pogo_right2 {
+            get {
+                object obj = ResourceManager.GetObject("princess_indi_pogo_right2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -18506,6 +18786,46 @@ namespace KeenReloaded2.Framework.Properties {
         internal static System.Drawing.Bitmap yorp_look_up {
             get {
                 object obj = ResourceManager.GetObject("yorp_look_up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap yorp_pogo_left1 {
+            get {
+                object obj = ResourceManager.GetObject("yorp_pogo_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap yorp_pogo_left2 {
+            get {
+                object obj = ResourceManager.GetObject("yorp_pogo_left2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap yorp_pogo_right1 {
+            get {
+                object obj = ResourceManager.GetObject("yorp_pogo_right1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap yorp_pogo_right2 {
+            get {
+                object obj = ResourceManager.GetObject("yorp_pogo_right2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
