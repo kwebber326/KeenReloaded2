@@ -5961,5 +5961,17 @@
   <ItemGroup>
     <None Include="Resources\council_page_pogo_right2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_dreams_pogo_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_dreams_pogo_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_dreams_pogo_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_dreams_pogo_right2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
