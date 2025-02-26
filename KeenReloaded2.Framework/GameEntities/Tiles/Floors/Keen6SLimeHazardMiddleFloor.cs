@@ -35,11 +35,11 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Floors
         {
             _sprites = SpriteSheet.SpriteSheet.Keen6SlimeHazardMiddleImages;
             this.UpdateSprite();
-            if (_collisionGrid != null)
+            if (_collisionGrid != null && _collidingNodes != null)
             {
                 _deathCollisionRange = new InvisibleHazard(_collisionGrid, new Rectangle(
                     _area.X,
-                    _area.Y + _downwardCollisionOffset - 1,
+                    _area.Y + _downwardCollisionOffset - 2,
                     _area.Width, HAZARD_COLLISION_HEIGHT));
             }
         }

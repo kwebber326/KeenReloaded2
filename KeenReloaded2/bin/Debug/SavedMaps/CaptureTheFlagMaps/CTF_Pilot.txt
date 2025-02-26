@@ -247,7 +247,6 @@ keen5_laser_turret_up|1065|425|32|64|14|UP|True|KEEN5|0
 keen5_laser_turret_right|1244|84|64|32|14|RIGHT|True|KEEN5|12
 keen5_laser_turret_right|1244|226|64|32|14|RIGHT|True|KEEN5|22
 keen5_laser_turret_right|1244|312|64|32|14|RIGHT|True|KEEN5|0
-chute|144|0|64|64|15|CHUTE|1|
 chute|581|1304|64|64|15|CHUTE|3|
 keen5_door|304|1373|92|94|15|KEEN5_REGULAR|2|3
 keen5_green_pole_bottom|1339|750|12|28|15|keen5_green_pole_bottom|BOTTOM|KEEN5_GREEN
@@ -304,12 +303,23 @@ keen5_green_pole_bottom|1068|681|12|28|15|keen5_green_pole_bottom|BOTTOM|KEEN5_G
 keen5_green_pole_bottom|1164|681|12|28|15|keen5_green_pole_bottom|BOTTOM|KEEN5_GREEN
 keen5_green_pole_top|582|425|12|32|15|keen5_green_pole_top|TOP|KEEN5_GREEN
 keen5_door|1156|391|92|94|15|KEEN5_REGULAR|4|1
+chute|144|32|64|64|15|CHUTE|1|
 keen5_orange_platform|755|1209|78|36|18|KEEN5_ORANGE|[755,1400,755,1000]|145fc6bb-14cf-4443-bdf3-08dfd26ed847|True
 keen5_orange_platform|887|1000|78|36|18|KEEN5_ORANGE|[620,1000,1300,1000]|13be668b-a5cc-44fb-90ed-f40fba9ca272|True
 keen5_laser_field_up|877|293|32|200|18|PHASE3
 keen5_laser_field_up|959|293|32|200|18|OFF
 keen5_spinning_fire_hazard1|918|308|32|32|18
 keen5_spinning_fire_hazard1|1021|298|32|32|18
+keen5_spinning_fire_hazard1|898|759|32|32|18
+keen5_spinning_fire_hazard1|994|759|32|32|18
+keen5_spinning_fire_hazard1|962|793|32|32|18
+keen5_spinning_fire_hazard1|930|793|32|32|18
+keen5_spinning_fire_hazard1|771|714|32|32|18
+keen5_spinning_fire_hazard1|677|714|32|32|18
+keen5_spinning_fire_hazard1|876|714|32|32|18
+keen5_spinning_fire_hazard1|1057|714|32|32|18
+keen5_spinning_fire_hazard1|1155|714|32|32|18
+keen5_spinning_fire_hazard1|572|714|32|32|18
 red_flag_destination|112|116|130|12|20|RED
 Red Flag|1360|80|51|64|20|RED|10000|5000|10
 keen_stand_right|75|40|26|64|RIGHT

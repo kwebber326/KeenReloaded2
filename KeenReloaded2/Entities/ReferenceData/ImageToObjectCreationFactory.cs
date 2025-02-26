@@ -2683,7 +2683,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                       PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
                       DisplayName = "Area: ",
                       DataType = typeof(Rectangle),
-                      Value = new Rectangle(0, 0, slimeTileLeftImg.Width, slimeTileLeftImg.Height + 96),
+                      Value = new Rectangle(0, 0, slimeTileLeftImg.Width, slimeTileLeftImg.Height),
                   },
                   new MapMakerObjectProperty()
                   {
@@ -2729,7 +2729,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                       PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
                       DisplayName = "Area: ",
                       DataType = typeof(Rectangle),
-                      Value = new Rectangle(0, 0, slimeTileRightImg.Width, slimeTileRightImg.Height + 96),
+                      Value = new Rectangle(0, 0, slimeTileRightImg.Width, slimeTileRightImg.Height),
                   },
                   new MapMakerObjectProperty()
                   {
@@ -2776,7 +2776,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                       PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
                       DisplayName = "Area: ",
                       DataType = typeof(Rectangle),
-                      Value = new Rectangle(0, 0, slimeTileMiddleImg.Width, slimeTileMiddleImg.Height + 96),
+                      Value = new Rectangle(0, 0, slimeTileMiddleImg.Width, slimeTileMiddleImg.Height),
                   },
                   new MapMakerObjectProperty()
                   {
