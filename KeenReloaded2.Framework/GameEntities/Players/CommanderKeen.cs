@@ -1640,6 +1640,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 if (!_isUsingPogo)
                 {
                     this.MoveState = Enums.MoveState.STANDING;
+                    AdjustForCeilingCollisionsAtCurrentPosition();
                 }
                 else
                 {
@@ -1663,6 +1664,21 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 foreach (var item in collisionItems)
                 {
                     this.HandleCollision(item);
+                }
+            }
+        }
+
+        private void AdjustForCeilingCollisionsAtCurrentPosition()
+        {
+            var headCollisions = this.CheckCollision(this.HitBox, true);
+            if (headCollisions.Any(c => c.CollisionType == CollisionType.BLOCK))
+            {
+                headCollisions = headCollisions.Where(c => c.CollisionType == CollisionType.BLOCK)
+                    .ToList();
+                var headTile = this.GetCeilingTile(headCollisions);
+                if (headTile != null)
+                {
+                    this.HitBox = new Rectangle(this.HitBox.X, headTile.HitBox.Bottom + 1, this.HitBox.Width, this.HitBox.Height);
                 }
             }
         }

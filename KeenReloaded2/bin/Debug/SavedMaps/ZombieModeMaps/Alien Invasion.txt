@@ -171,7 +171,7 @@ flipping_platform_flip_45|845|1293|64|56|12
 keen6_Switch_pole|326|2843|20|130|keen6_Switch_pole.png|False|15
 keen6_Switch_pole|1907|1148|20|72|keen6_Switch_pole.png|False|15
 keen6_bip_platform|124|2849|98|32|18|[1800,2849,1600,1300,1800,1300,1800,2849,124,2849]|d35f6296-d557-4dca-b0f8-25ec156d0570|False
-keen_stand_right|1819|1114|26|64|RIGHT
+keen_stand_right|65|2849|26|64|RIGHT
 edge_of_map_tile_debug|-16|-16|32|3016|25|BARRIER
 edge_of_map_tile_debug|16|-16|1968|32|25|BARRIER
 keen6_Switch_Off|296|2748|90|96|15|[d35f6296-d557-4dca-b0f8-25ec156d0570]|False
