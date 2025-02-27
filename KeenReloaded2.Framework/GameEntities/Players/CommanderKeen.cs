@@ -1591,18 +1591,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 this.HitBox = new Rectangle(new Point(this.HitBox.Location.X, minY - this.HitBox.Height - 1), this.HitBox.Size);
                 //stop keen from falling
                 _fallVelocity = INITIAL_FALL_VELOCITY;
-                if (!_isUsingPogo)
-                {
-                    this.MoveState = Enums.MoveState.STANDING;
-                }
-                else
-                {
-                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
-                            GeneralGameConstants.Sounds.KEEN_POGO);
-                    _jumpReady = true;
-                    _jumpFromPole = false;
-                    this.Jump();
-                }
+               
                 //update collision nodes
                 this.UpdateCollisionNodes(Enums.Direction.DOWN);
                 //handle collisions
@@ -1646,6 +1635,19 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     {
                         this.HandleCollision(placeholder);
                     }
+                }
+
+                if (!_isUsingPogo)
+                {
+                    this.MoveState = Enums.MoveState.STANDING;
+                }
+                else
+                {
+                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                            GeneralGameConstants.Sounds.KEEN_POGO);
+                    _jumpReady = true;
+                    _jumpFromPole = false;
+                    this.Jump();
                 }
             }
             else
