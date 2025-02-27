@@ -49,7 +49,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
         private void Initialize()
         {
             _originalLocation = new Point(this.HitBox.X, this.HitBox.Y);
-            _originalSize = new Size(this.HitBox.Width, this.HitBox.Height);
+            _originalSize = new Size(Properties.Resources.flipping_platform_still.Width, this.HitBox.Height);
+            _area.Width = Properties.Resources.flipping_platform_still.Width;
             if (_collisionGrid != null && _collidingNodes != null)
             {
                 this.HitBox = new Rectangle(this.HitBox.X, this.HitBox.Y + STANDING_OFFSET_Y, this.HitBox.Width, this.HitBox.Height - STANDING_OFFSET_Y);
