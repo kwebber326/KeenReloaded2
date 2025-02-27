@@ -1132,9 +1132,6 @@
     <Folder Include="GameEntities\Items\ExtraLives\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen_1up.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen4_drop_acquired1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -5972,6 +5969,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen_dreams_pogo_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_1up.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

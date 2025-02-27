@@ -5381,9 +5381,6 @@
     <None Include="Resources\inventory_yellow_gem.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen_1up.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\key_card_acquired.png" />
   </ItemGroup>
   <ItemGroup>
@@ -6533,6 +6530,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\princess_indi_pogo_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_1up.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
