@@ -42,7 +42,7 @@
             this.flagInventoryBoard1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.flagInventoryBoard1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.flagInventoryBoard1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.flagInventoryBoard1.Location = new System.Drawing.Point(297, 1042);
+            this.flagInventoryBoard1.Location = new System.Drawing.Point(297, 919);
             this.flagInventoryBoard1.Name = "flagInventoryBoard1";
             this.flagInventoryBoard1.Size = new System.Drawing.Size(305, 320);
             this.flagInventoryBoard1.TabIndex = 6;
@@ -60,7 +60,7 @@
             // lifeDropInventoryControl1
             // 
             this.lifeDropInventoryControl1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lifeDropInventoryControl1.Location = new System.Drawing.Point(-4, 1118);
+            this.lifeDropInventoryControl1.Location = new System.Drawing.Point(-4, 992);
             this.lifeDropInventoryControl1.Name = "lifeDropInventoryControl1";
             this.lifeDropInventoryControl1.Size = new System.Drawing.Size(362, 107);
             this.lifeDropInventoryControl1.TabIndex = 4;
@@ -68,7 +68,7 @@
             // keyCardInventoryControl1
             // 
             this.keyCardInventoryControl1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.keyCardInventoryControl1.Location = new System.Drawing.Point(2, 1087);
+            this.keyCardInventoryControl1.Location = new System.Drawing.Point(2, 962);
             this.keyCardInventoryControl1.Name = "keyCardInventoryControl1";
             this.keyCardInventoryControl1.Size = new System.Drawing.Size(434, 78);
             this.keyCardInventoryControl1.TabIndex = 3;
@@ -76,7 +76,7 @@
             // keyContainerControl1
             // 
             this.keyContainerControl1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.keyContainerControl1.Location = new System.Drawing.Point(0, 1042);
+            this.keyContainerControl1.Location = new System.Drawing.Point(0, 919);
             this.keyContainerControl1.Name = "keyContainerControl1";
             this.keyContainerControl1.Size = new System.Drawing.Size(233, 46);
             this.keyContainerControl1.TabIndex = 2;
