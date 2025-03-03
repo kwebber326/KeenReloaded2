@@ -58,6 +58,8 @@ namespace KeenReloaded2
             EventStore<bool>.Subscribe(
                 MapMakerConstants.EventStoreEventNames.KEEN_DISAPPEAR_DEATH,
                 Keen_Disappear_Death);
+            pnlGameWindow.VerticalScroll.Maximum = 280;
+            pnlGameWindow.HorizontalScroll.Maximum = 800;
         }
 
         private void InitializeGameData(string gameMode, MapMakerData data, bool isReset)
