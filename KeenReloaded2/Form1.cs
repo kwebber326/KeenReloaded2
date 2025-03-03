@@ -129,6 +129,28 @@ namespace KeenReloaded2
             pnlGameWindow.AutoScroll = true;
             pnlGameWindow.MouseWheel += PnlGameWindow_MouseWheel;
             this.MouseWheel += PnlGameWindow_MouseWheel;
+            InitializeTimer();
+        }
+
+        private void InitializeTimer()
+        {
+            if (_gameMode == MainMenuConstants.OPTION_LABEL_NORMAL_MODE)
+            {
+                lblStopwatch.Visible = true;
+                SetTimerLabel();
+            }
+            else
+            {
+                lblStopwatch.Visible = false;
+            }
+        }
+
+        private void SetTimerLabel()
+        {
+            var timerStr = _levelCompletionTimer.Elapsed.ToString();
+            string mapName = _game?.Map?.MapName ?? string.Empty;
+            string displayText = $"{mapName} - {timerStr}";
+            lblStopwatch.Text = displayText;
         }
 
         private void Keen_Disappear_Death(object sender, ControlEventArgs.ControlEventArgs<bool> e)
@@ -170,7 +192,7 @@ namespace KeenReloaded2
             var mapMakerData = MapUtility.LoadMapData(_game.Map.MapPath);
             InitializeGameData(_gameMode, mapMakerData, true);
             InitializeGameState();
-            
+
         }
 
         private void DetachEvents()
@@ -229,6 +251,9 @@ namespace KeenReloaded2
             if (!_paused && !_levelCompleted)
             {
                 var rectangle = GetViewRectangle();
+                if (_gameMode == MainMenuConstants.OPTION_LABEL_NORMAL_MODE)
+                    SetTimerLabel();
+
                 pbGameImage.Image = _game.UpdateGame(rectangle);
 
                 if (_keen.IsDead())

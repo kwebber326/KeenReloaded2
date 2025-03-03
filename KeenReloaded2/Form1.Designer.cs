@@ -33,6 +33,7 @@ namespace KeenReloaded2
             this.pnlGameWindow = new System.Windows.Forms.Panel();
             this.pbBackgroundImage = new System.Windows.Forms.PictureBox();
             this.pbGameImage = new System.Windows.Forms.PictureBox();
+            this.lblStopwatch = new System.Windows.Forms.Label();
             this.soundPlayer1 = new KeenReloaded2.UserControls.MusicAndSound.SoundPlayer();
             this.inventoryPanel1 = new KeenReloaded2.UserControls.InventoryPanel.InventoryPanel();
             this.pnlGameWindow.SuspendLayout();
@@ -42,7 +43,7 @@ namespace KeenReloaded2
             // 
             // pnlGameWindow
             // 
-            this.pnlGameWindow.BackColor = System.Drawing.Color.Transparent;
+            this.pnlGameWindow.BackColor = System.Drawing.Color.White;
             this.pnlGameWindow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlGameWindow.Controls.Add(this.pbBackgroundImage);
             this.pnlGameWindow.Controls.Add(this.pbGameImage);
@@ -71,6 +72,19 @@ namespace KeenReloaded2
             this.pbGameImage.TabIndex = 0;
             this.pbGameImage.TabStop = false;
             // 
+            // lblStopwatch
+            // 
+            this.lblStopwatch.AutoSize = true;
+            this.lblStopwatch.BackColor = System.Drawing.Color.Transparent;
+            this.lblStopwatch.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStopwatch.ForeColor = System.Drawing.Color.YellowGreen;
+            this.lblStopwatch.Location = new System.Drawing.Point(614, 1216);
+            this.lblStopwatch.MaximumSize = new System.Drawing.Size(1400, 0);
+            this.lblStopwatch.Name = "lblStopwatch";
+            this.lblStopwatch.Size = new System.Drawing.Size(357, 48);
+            this.lblStopwatch.TabIndex = 4;
+            this.lblStopwatch.Text = "Keen Reloaded";
+            // 
             // soundPlayer1
             // 
             this.soundPlayer1.Location = new System.Drawing.Point(366, 203);
@@ -97,6 +111,7 @@ namespace KeenReloaded2
             this.BackColor = System.Drawing.SystemColors.GrayText;
             this.ClientSize = new System.Drawing.Size(2178, 1474);
             this.ControlBox = false;
+            this.Controls.Add(this.lblStopwatch);
             this.Controls.Add(this.soundPlayer1);
             this.Controls.Add(this.pnlGameWindow);
             this.Controls.Add(this.inventoryPanel1);
@@ -114,6 +129,7 @@ namespace KeenReloaded2
             ((System.ComponentModel.ISupportInitialize)(this.pbBackgroundImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGameImage)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -123,6 +139,7 @@ namespace KeenReloaded2
         private PictureBox pbGameImage;
         private UserControls.MusicAndSound.SoundPlayer soundPlayer1;
         private PictureBox pbBackgroundImage;
+        private Label lblStopwatch;
     }
 }
 
