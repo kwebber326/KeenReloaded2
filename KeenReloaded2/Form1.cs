@@ -164,6 +164,7 @@ namespace KeenReloaded2
             if (!_levelCompleted)
             {
                 _levelCompleted = true;
+                _levelCompletionTimer.Stop();
                 EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
                     GeneralGameConstants.Sounds.KEEN4_EXIT);
                 EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.KEEN_LEVEL_COMPLETE,
