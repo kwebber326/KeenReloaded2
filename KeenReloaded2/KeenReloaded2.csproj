@@ -1961,27 +1961,6 @@
     <None Include="Resources\keen4_dart_up2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen4_fire_left1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_fire_left2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_fire_left3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_fire_left4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_fire_right1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_fire_right2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen4_fire_right3.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen4_mine.png" />
   </ItemGroup>
   <ItemGroup>
@@ -6533,6 +6512,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen_1up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_fire_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_fire_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_fire_left3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_fire_left4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_fire_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_fire_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_fire_right3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
