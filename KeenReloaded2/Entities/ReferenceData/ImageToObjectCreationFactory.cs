@@ -147,6 +147,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                     {
                         nameof(Properties.Resources.keen4_forest_floor_edge_right),
                         nameof(Properties.Resources.keen4_cave_air_floor_edge_right),
+                        nameof(Properties.Resources.keen4_cave_floor_edge_right),
                         nameof(Properties.Resources.keen4_mirage_floor_edge_right),
                         nameof(Properties.Resources.keen4_pyramid_floor_edge_right),
                         nameof(Properties.Resources.keen5_floor_black_floor_edge_right),

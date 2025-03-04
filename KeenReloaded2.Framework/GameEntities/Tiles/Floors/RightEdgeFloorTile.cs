@@ -48,7 +48,14 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
             switch (_biome)
             {
                 case Biomes.BIOME_KEEN4_CAVE:
-                    _image = Properties.Resources.keen4_cave_floor_edge_right;
+                    if (_initialImageName?.Contains("air") ?? false)
+                    {
+                        _image = Properties.Resources.keen4_cave_air_floor_edge_right;
+                    }
+                    else
+                    {
+                        _image = Properties.Resources.keen4_cave_floor_edge_right;
+                    }
                     break;
                 case Biomes.BIOME_KEEN4_FOREST:
                     _image = Properties.Resources.keen4_forest_floor_edge_right;
