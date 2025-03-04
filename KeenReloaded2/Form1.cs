@@ -31,7 +31,7 @@ namespace KeenReloaded2
         private int _currentVisionOffset;
         private int _maxVisionY;
         private int _maxVisionX;
-        private const int VIEW_RADIUS = 400;
+        private const int VIEW_RADIUS = 440;
         private const int MAX_VISION_OFFSET = 10;
         private const int VISION_OFFSET_COEFFICIENT = 10;
         private bool _levelCompleted;
