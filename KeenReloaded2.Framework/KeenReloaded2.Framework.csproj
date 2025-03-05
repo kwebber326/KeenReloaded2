@@ -5973,5 +5973,8 @@
   <ItemGroup>
     <None Include="Resources\keen6_removable_platform_right_edge_filled_dome.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fg_king_slug.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

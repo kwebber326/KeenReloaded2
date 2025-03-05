@@ -35,7 +35,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
         public Point Location => _area.Location;
 
-        public bool CanUpdate => false;
+        public bool CanUpdate => true;
 
         public override CollisionType CollisionType => CollisionType.CTF_DESTINATION;
 

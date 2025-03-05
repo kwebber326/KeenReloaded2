@@ -1953,6 +1953,16 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fg_king_slug {
+            get {
+                object obj = ResourceManager.GetObject("fg_king_slug", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fire_sprites_left {
             get {
                 object obj = ResourceManager.GetObject("fire_sprites_left", resourceCulture);
