@@ -16283,6 +16283,26 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen6_removable_platform_forest_left_edge_filled1 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_removable_platform_forest_left_edge_filled1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_removable_platform_forest_left_edge1 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_removable_platform_forest_left_edge1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen6_removable_platform_forest_right_edge {
             get {
                 object obj = ResourceManager.GetObject("keen6_removable_platform_forest_right_edge", resourceCulture);
@@ -16303,9 +16323,39 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen6_removable_platform_forest_right_edge_filled1 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_removable_platform_forest_right_edge_filled1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_removable_platform_forest_right_edge1 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_removable_platform_forest_right_edge1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen6_removable_platform_left_edge_dome {
             get {
                 object obj = ResourceManager.GetObject("keen6_removable_platform_left_edge_dome", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_removable_platform_left_edge_dome1 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_removable_platform_left_edge_dome1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -16323,6 +16373,16 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen6_removable_platform_left_edge_filled_dome1 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_removable_platform_left_edge_filled_dome1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen6_removable_platform_right_edge_dome {
             get {
                 object obj = ResourceManager.GetObject("keen6_removable_platform_right_edge_dome", resourceCulture);
@@ -16333,9 +16393,29 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen6_removable_platform_right_edge_dome1 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_removable_platform_right_edge_dome1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen6_removable_platform_right_edge_filled_dome {
             get {
                 object obj = ResourceManager.GetObject("keen6_removable_platform_right_edge_filled_dome", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_removable_platform_right_edge_filled_dome1 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_removable_platform_right_edge_filled_dome1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

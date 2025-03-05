@@ -832,30 +832,6 @@
     <None Include="Resources\keen6_industrial_wall_to_platform_left.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen6_removable_platform_forest_left_edge.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_removable_platform_forest_left_edge_filled.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_removable_platform_forest_right_edge.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_removable_platform_forest_right_edge_filled.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_removable_platform_left_edge_dome.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_removable_platform_left_edge_filled_dome.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_removable_platform_right_edge_dome.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen6_removable_platform_right_edge_filled_dome.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\gem_blue1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -5972,6 +5948,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_fire_right3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_removable_platform_forest_left_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_removable_platform_forest_left_edge_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_removable_platform_forest_right_edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_removable_platform_forest_right_edge_filled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_removable_platform_left_edge_dome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_removable_platform_left_edge_filled_dome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_removable_platform_right_edge_dome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_removable_platform_right_edge_filled_dome.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
