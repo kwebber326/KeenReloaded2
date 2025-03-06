@@ -3382,9 +3382,6 @@
     <None Include="Resources\keen4_removable_platform_inactive.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen4_cave_pole_manhole.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen4_forest_pole_manhole.png" />
   </ItemGroup>
   <ItemGroup>
@@ -5975,6 +5972,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fg_king_slug.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_cave_pole_manhole.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
