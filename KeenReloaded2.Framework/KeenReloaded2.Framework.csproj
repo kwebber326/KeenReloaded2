@@ -5976,5 +5976,29 @@
   <ItemGroup>
     <None Include="Resources\keen4_cave_pole_manhole.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_sign1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_sign2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_sign3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_sign4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_sign5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_sign6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_sign7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_sign8.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

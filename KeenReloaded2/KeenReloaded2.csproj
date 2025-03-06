@@ -6558,5 +6558,29 @@
   <ItemGroup>
     <None Include="bin\Debug\MapMakerObjects\Interactive Tiles\Keen6\keen6_removable_platform_right_edge_filled_dome.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_sign1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_sign2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_sign3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_sign4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_sign5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_sign6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_sign7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_sign8.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
