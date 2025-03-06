@@ -249,12 +249,12 @@ keen4_fire_right1|697|1367|31|42|18|RIGHT
 keen4_fire_left1|966|1366|32|42|18|LEFT
 keen4_fire_right1|997|1366|31|42|18|RIGHT
 keen4_bottom_out_platform|1389|1831|104|32|18|KEEN4|100
-keen4_drop_platform|1170|1727|104|32|18|KEEN4|200
-keen4_drop_platform|1000|1727|104|32|18|KEEN4|200
-keen4_drop_platform|831|1727|104|32|18|KEEN4|200
 enemy_spawner1|50|1310|92|94|18|[PoisonSlug]|3|20|100000
 enemy_spawner1|552|925|92|94|18|[SkyPest]|3|500|1000000
 enemy_spawner1|2840|580|92|94|18|[PoisonSlug]|1|200|10000000
+keen4_drop_platform|1200|1727|104|32|18|KEEN4|200
+keen4_drop_platform|1030|1727|104|32|18|KEEN4|200
+keen4_drop_platform|860|1727|104|32|18|KEEN4|200
 keen4_mine|18|97|46|46|RIGHT|18|97|150|46|20
 keen4_mine|2237|1278|46|46|RIGHT|2237|1278|800|46|20
 blue_flag_destination|83|1010|130|12|20|BLUE
@@ -263,9 +263,9 @@ keen4_mine|1901|1610|46|46|LEFT|1301|1610|600|46|20
 keen4_mine|1572|1726|46|46|RIGHT|1301|1726|600|46|20
 keen4_mine|1376|1474|46|46|DOWN|1376|1474|46|400|20
 Blue Flag|1201|47|51|64|20|BLUE|30000|10000|0
-Red Flag|2126|1488|51|64|20|RED|20000|5000|0
 keen_stand_right|33|698|26|64|RIGHT
 red_flag_destination|94|760|130|12|20|RED
+Red Flag|2126|1488|51|64|20|RED|30000|5000|0
 keen4_mad_mushroom_right1|1966|181|58|62|25
 keen4_mad_mushroom_right1|2524|625|58|62|25
 keen4_blue_eagle_egg|2744|619|38|44|25
