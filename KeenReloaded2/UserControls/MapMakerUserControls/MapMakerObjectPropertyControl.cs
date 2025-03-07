@@ -26,6 +26,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         private AreaControl _areaValue = new AreaControl();
         private ActivatorListControl _activatorControl = new ActivatorListControl();
         private DestinationDoorActivatorControl _doorControl = new DestinationDoorActivatorControl();
+        private DestinationDoorActivatorControl _transporterControl = new DestinationDoorActivatorControl();
         private PointSelectorUserControl _pointSelectorControl = new PointSelectorUserControl();
         private ListBox _lstBoxValues = new ListBox() { SelectionMode = SelectionMode.MultiSimple, Height = 64 };
 
@@ -33,19 +34,21 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         private bool _selectedControlAdded = false;
         private List<IActivateable> _totalActivateables = new List<IActivateable>();
         private List<Door> _doors = new List<Door>();
+        private List<EnemyTransporter> _transporters = new List<EnemyTransporter>();
 
         public MapMakerObjectPropertyControl()
         {
             InitializeComponent();
         }
 
-        public MapMakerObjectPropertyControl(MapMakerObjectProperty mapMakerObjectProperty, MapMakerObject mapMakerObject, List<IActivateable> totalActivateables, List<Door> doors)
+        public MapMakerObjectPropertyControl(MapMakerObjectProperty mapMakerObjectProperty, MapMakerObject mapMakerObject, List<IActivateable> totalActivateables, List<Door> doors, List<EnemyTransporter> transporters)
         {
             InitializeComponent();
             _mapMakerObjectProperty = mapMakerObjectProperty;
             _mapMakerObject = mapMakerObject;
             _totalActivateables = totalActivateables;
             _doors = doors;
+            _transporters = transporters;
         }
 
         public object Value
@@ -74,6 +77,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             _areaValue.AreaChanged += _areaValue_AreaChanged;
             _activatorControl.EditItemsClicked += _activatorControl_EditItemsClicked;
             _doorControl.DoorSelect += _doorControl_DoorSelect;
+            _transporterControl.DoorSelect += _transporterControl_DoorSelect;
             _pointSelectorControl.EditItemsClicked += _pointSelectorControl_EditItemsClicked;
             _lstBoxValues.SelectedIndexChanged += _lstBoxValues_SelectedIndexChanged; ;
             UpdateControl(_mapMakerObjectProperty);
@@ -133,6 +137,33 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                 if (doorForm.ShowDialog() == DialogResult.OK)
                 {
                     _mapMakerObjectProperty.Value = doorForm.SelectedDoor?.Id;
+                }
+            }
+        }
+
+        private void _transporterControl_DoorSelect(object sender, EventArgs e)
+        {
+            var nodeIdProperty = _mapMakerObject.ConstructorParameters.FirstOrDefault(d => d.PropertyName == GeneralGameConstants.NODE_ID_PROPERTY_NAME);
+            if (nodeIdProperty != null)
+            {
+                int nodeId = (int)nodeIdProperty.Value;
+                bool duplicateNodeIds = _transporters.GroupBy(g => g.Id).Any(g1 => g1.Count() > 1);
+                if (duplicateNodeIds)
+                {
+                    MessageBox.Show("There are duplicate Door numbers. Make sure each door number is unique before proceeding.", "Duplicate Door IDs", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                var otherNodes = _transporters.Where(d => d.Id != nodeId).ToList();
+                var thisNode = _transporters.FirstOrDefault(d => d.Id == nodeId);
+                if (thisNode == null)
+                {
+                    MessageBox.Show("No Door found with this ID.", "Door not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                EditDestinationNodeForm doorForm = new EditDestinationNodeForm(otherNodes, thisNode);
+                if (doorForm.ShowDialog() == DialogResult.OK)
+                {
+                    _mapMakerObjectProperty.Value = doorForm.SelectedNode?.Id;
                 }
             }
         }
@@ -225,6 +256,10 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             else if (_mapMakerObjectProperty.IsDoorSelectionProperty)
             {
                 _selectedControl = _doorControl;
+            }
+            else if (_mapMakerObjectProperty.IsNodeSelectionProperty)
+            {
+                _selectedControl = _transporterControl;
             }
             else if (_mapMakerObjectProperty.DataType == typeof(List<Point>))
             {

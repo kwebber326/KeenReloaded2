@@ -32,6 +32,48 @@ namespace KeenReloaded.Framework
             AddObjectToBuckets();
         }
 
+        public virtual void MoveToPosition(Point p)
+        {
+            var oldPosition = new Point(this.HitBox.X, this.HitBox.Y);
+            this.HitBox = new Rectangle(p.X, p.Y, this.HitBox.Width, this.HitBox.Height);
+            this.UpdateCollisionNodes(Direction.DOWN_LEFT);
+            this.UpdateCollisionNodes(Direction.UP_RIGHT);
+            var collisions = this.CheckCollision(this.HitBox, true);
+            var landingTile = this.GetTopMostLandingTile(collisions);
+            if (landingTile != null)
+            {
+                this.HitBox = new Rectangle(this.HitBox.X, landingTile.HitBox.Top - this.HitBox.Height - 1, this.HitBox.Width, this.HitBox.Height);
+            }
+            else
+            {
+                var ceilingTile = this.GetCeilingTile(collisions);
+                if (ceilingTile != null)
+                {
+                    this.HitBox = new Rectangle(this.HitBox.X, ceilingTile.HitBox.Bottom + 1, this.HitBox.Width, this.HitBox.Height);
+                }
+            }
+
+            var leftTile = this.GetRightMostLeftTile(collisions);
+            if (leftTile != null)
+            {
+                this.HitBox = new Rectangle(leftTile.HitBox.Right + 1, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
+            }
+            else
+            {
+                var rightTile = this.GetLeftMostRightTile(collisions);
+                if (rightTile != null)
+                {
+                    this.HitBox = new Rectangle(rightTile.HitBox.Left - this.HitBox.Width - 1, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
+                }
+            }
+
+            this.UpdateCollisionNodes(Direction.DOWN_LEFT);
+            this.UpdateCollisionNodes(Direction.UP_RIGHT);
+            collisions = this.CheckCollision(this.HitBox, true);
+            if (collisions.Any())
+                this.HitBox = new Rectangle(oldPosition.X, oldPosition.Y, this.HitBox.Width, this.HitBox.Height);
+        }
+
         protected virtual bool AreCollisionBlockingProgressTowardsPlayer(List<CollisionObject> collisions, CommanderKeen keen, Direction direction)
         {
             if (collisions.Any())

@@ -35,6 +35,47 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             this.State = RoboRedState.FALLING;
         }
 
+        public override void MoveToPosition(Point p)
+        {
+            var oldPosition = new Point(this.Area.X, this.Area.Y);
+            this.Area = new Rectangle(p.X, p.Y, this.Area.Width, this.Area.Height);
+            this.UpdateCollisionNodes(Direction.DOWN_LEFT);
+            this.UpdateCollisionNodes(Direction.UP_RIGHT);
+            var collisions = this.CheckCollision(this.Area, true);
+            var landingTile = this.GetTopMostLandingTile(collisions);
+            if (landingTile != null)
+            {
+                this.Area = new Rectangle(this.Area.X, landingTile.HitBox.Top - this.Area.Height - 1, this.Area.Width, this.Area.Height);
+            }
+            else
+            {
+                var ceilingTile = this.GetCeilingTile(collisions);
+                if (ceilingTile != null)
+                {
+                    this.Area = new Rectangle(this.Area.X, ceilingTile.HitBox.Bottom + 1, this.Area.Width, this.Area.Height);
+                }
+            }
+
+            var leftTile = this.GetRightMostLeftTile(collisions);
+            if (leftTile != null)
+            {
+                this.Area = new Rectangle(leftTile.HitBox.Right + 1, this.Area.Y, this.Area.Width, this.Area.Height);
+            }
+            else
+            {
+                var rightTile = this.GetLeftMostRightTile(collisions);
+                if (rightTile != null)
+                {
+                    this.Area = new Rectangle(rightTile.HitBox.Left - this.Area.Width - 1, this.Area.Y, this.Area.Width, this.Area.Height);
+                }
+            }
+            this.UpdateCollisionNodes(Direction.DOWN_LEFT);
+            this.UpdateCollisionNodes(Direction.UP_RIGHT);
+            collisions = this.CheckCollision(this.Area, true);
+            if (collisions.Any())
+                this.Area = new Rectangle(oldPosition.X, oldPosition.Y, this.Area.Width, this.Area.Height);
+        }
+
         protected override void BasicFall(int fallVelocity)
         {
             if (this.State != RoboRedState.FALLING)

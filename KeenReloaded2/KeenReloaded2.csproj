@@ -305,6 +305,12 @@
     <Compile Include="UserControls\MapMakerUserControls\EditDestinationDoorForm.Designer.cs">
       <DependentUpon>EditDestinationDoorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MapMakerUserControls\EditDestinationNodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\MapMakerUserControls\EditDestinationNodeForm.Designer.cs">
+      <DependentUpon>EditDestinationNodeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MapMakerUserControls\MapMakerObjectPropertyControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -6581,6 +6587,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\exit_sign8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_transporter.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

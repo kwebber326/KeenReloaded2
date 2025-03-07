@@ -43,25 +43,28 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
 
         private void EditDestinationDoorForm_Load(object sender, EventArgs e)
         {
-            foreach (var door in _doors)
+            if (_doors != null)
             {
-                lstDoors.Items.Add(door.Id);
-            }
-            if (_doorInQuestion?.DestinationDoorId != null)
-            {
-                int destinationId = _doorInQuestion.DestinationDoorId.Value;
-                int? selectedItem = null;
-                foreach (var item in lstDoors.Items)
+                foreach (var door in _doors)
                 {
-                    int? val = (int?)item;
-                    if (val == destinationId)
-                    {
-                        selectedItem = val;
-                    }
+                    lstDoors.Items.Add(door.Id);
                 }
-                if (selectedItem != null)
+                if (_doorInQuestion?.DestinationDoorId != null)
                 {
-                    lstDoors.SelectedItem = selectedItem;
+                    int destinationId = _doorInQuestion.DestinationDoorId.Value;
+                    int? selectedItem = null;
+                    foreach (var item in lstDoors.Items)
+                    {
+                        int? val = (int?)item;
+                        if (val == destinationId)
+                        {
+                            selectedItem = val;
+                        }
+                    }
+                    if (selectedItem != null)
+                    {
+                        lstDoors.SelectedItem = selectedItem;
+                    }
                 }
             }
         }
@@ -80,6 +83,9 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         {
             get
             {
+                if (_doors == null)
+                    return null;
+
                 if (lstDoors.SelectedIndex == -1)
                     return null;
 

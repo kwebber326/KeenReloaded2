@@ -47,6 +47,7 @@
     <Compile Include="GameEntities\Backgrounds\MimicBlocks.cs" />
     <Compile Include="GameEntities\Constructs\BiomeChanger.cs" />
     <Compile Include="GameEntities\Constructs\EnemySpawner.cs" />
+    <Compile Include="GameEntities\Constructs\EnemyTransporter.cs" />
     <Compile Include="GameEntities\Constructs\Hill.cs" />
     <Compile Include="GameEntities\Constructs\ImageDisplay.cs" />
     <Compile Include="GameEntities\Constructs\Keen4GlassDome.cs" />
@@ -5999,6 +6000,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\exit_sign8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_transporter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_transporter_electricity1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_transporter_electricity2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_transporter_electricity3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_transporter_electricity4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

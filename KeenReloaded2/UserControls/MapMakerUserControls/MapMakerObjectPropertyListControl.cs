@@ -60,6 +60,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             var gameObjects = _gameObjectMappings?.Select(g => g.GameObject).ToList();
             var activateables = gameObjects.OfType<IActivateable>()?.ToList() ?? new List<IActivateable>();
             var doors = gameObjects.OfType<Door>()?.ToList() ?? new List<Door>();
+            var transporters = gameObjects.OfType<EnemyTransporter>()?.ToList() ?? new List<EnemyTransporter>();
             int x = 0, y = 0;
             for (int i = 0; i < mapMakerObject.ConstructorParameters.Length; i++)
             {
@@ -67,7 +68,7 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
                 if (!property.Hidden)
                 {
                    
-                    MapMakerObjectPropertyControl control = new MapMakerObjectPropertyControl(property, mapMakerObject, activateables, doors);
+                    MapMakerObjectPropertyControl control = new MapMakerObjectPropertyControl(property, mapMakerObject, activateables, doors, transporters);
                     control.Location = new Point(x, y);
                     pnlControls.Controls.Add(control);
                     control.BringToFront();

@@ -1480,6 +1480,27 @@ namespace KeenReloaded2.Framework.SpriteSheet
         }
 
         #endregion
+
+        #region Keen 6 Transport Electricity
+        private static Image[] _keen6TransportElectricitySprites;
+        public static Image[] Keen6TransportElectricitySprites
+        {
+            get
+            {
+                if (_keen6TransportElectricitySprites == null)
+                {
+                    _keen6TransportElectricitySprites = new Image[]
+                    {
+                        Properties.Resources.keen6_transporter_electricity1,
+                        Properties.Resources.keen6_transporter_electricity2,
+                        Properties.Resources.keen6_transporter_electricity3,
+                        Properties.Resources.keen6_transporter_electricity4,
+                    };
+                }
+                return _keen6TransportElectricitySprites;
+            }
+        }
+        #endregion
         #endregion
 
         #region Enemies

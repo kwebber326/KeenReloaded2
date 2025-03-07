@@ -263,7 +263,7 @@ gem_green1|1157|578|26|20|GREEN|50|False
 keen4_lifewater_flask1|2267|331|22|32|50|KEEN4_LIFEWATER_FLASK
 neural_stunner1|2916|1641|30|22|50|5
 keen4_switch1_off|1155|622|32|32|15|KEEN4_1|[99410206-6e6a-439c-ba01-c49c38b86a76]|False
-keen4_switch1_off|3930|1216|32|32|15|KEEN4_1|[79463d67-e035-4b0b-b107-0e9814a36d27,6257317c-22e5-44d2-adef-b3a271ff0b85,b16f088c-6806-4bb1-bb4e-34206b1b033c]|False
+keen4_switch1_off|3930|1216|32|32|15|KEEN4_1|[6257317c-22e5-44d2-adef-b3a271ff0b85,b16f088c-6806-4bb1-bb4e-34206b1b033c,79463d67-e035-4b0b-b107-0e9814a36d27]|False
 gem_placeholder_blue_empty|3771|148|26|22|50|BLUE|[507cd88a-d97f-4caa-b624-1aef71e7b9ca]
 gem_placeholder_green_empty|3798|148|26|22|50|GREEN|[0a8ca193-c2a1-47b6-b7a2-c20ee56b75aa]
 gem_placeholder_red_empty|3825|148|26|22|50|RED|[8c4643c0-a9ac-4cd0-8fe4-bd3119fa6fa2]

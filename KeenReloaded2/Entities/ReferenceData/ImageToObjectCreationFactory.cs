@@ -4436,6 +4436,35 @@ namespace KeenReloaded2.Entities.ReferenceData
                 string flippingPlatformKey = FlippingPlatform.GetImageKeyByState(state);
                 AddSimpleGameObject(backgroundReferenceData, miscallaneousImageFiles, flippingPlatformKey, typeof(FlippingPlatform), flippingPlatformAddedProperties, 12);
             }
+
+            //enemy transporters
+            string transporterKey = nameof(Properties.Resources.keen6_transporter);
+            MapMakerObjectProperty[] additionalNodeProperties = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                      {
+                          PropertyName = GeneralGameConstants.NODE_ID_PROPERTY_NAME,
+                          DataType = typeof(int),
+                          Value = 1,
+                          DisplayName ="Id: "
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = GeneralGameConstants.DESTINATION_NODE_ID_PROPERTY_NAME,
+                          DisplayName = "Select Destination: ",
+                          DataType = typeof(int?),
+                          Value = null,
+                          IsNodeSelectionProperty = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "transportationDelay",
+                          DisplayName = "Transportation Delay: ",
+                          DataType = typeof(int),
+                          Value = 10
+                      },
+            };
+            AddSimpleGameObject(backgroundReferenceData, miscallaneousImageFiles, transporterKey, typeof(EnemyTransporter), additionalNodeProperties, 15);
             #endregion
 
             return backgroundReferenceData;

@@ -28,6 +28,8 @@ namespace KeenReloaded2.Entities
 
         public bool IsDoorSelectionProperty { get; set; }
 
+        public bool IsNodeSelectionProperty { get; set; }
+
         public bool IsMultiSelect { get; set; }
     }
 }

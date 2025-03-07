@@ -56,6 +56,7 @@ namespace KeenReloaded2.Utilities
             {
                 List<IActivateable> activateables = new List<IActivateable>();
                 Dictionary<int, Door> doorNetwork = new Dictionary<int, Door>();
+                Dictionary<int, EnemyTransporter> transporterNetwork = new Dictionary<int, EnemyTransporter>();
                 if (string.IsNullOrWhiteSpace(mapFile))
                     throw new ArgumentException("Invalid map name");
 
@@ -75,7 +76,7 @@ namespace KeenReloaded2.Utilities
                 var dataLines = mapDataLines.Skip(1);
                 foreach (string line in dataLines)
                 {
-                    GameObjectMapping mapping = BuildMapDataObjectFromRawString(line, grid, activateables, doorNetwork);
+                    GameObjectMapping mapping = BuildMapDataObjectFromRawString(line, grid, activateables, doorNetwork, transporterNetwork);
                     mapData.Add(mapping);
                 }
                 mapMakerData.MapData = mapData;
@@ -89,6 +90,18 @@ namespace KeenReloaded2.Utilities
                             doorNetwork.TryGetValue(door.DestinationDoorId.Value, out Door destinationDoor))
                         {
                             door.DestinationDoor = destinationDoor;
+                        }
+                    }
+                }
+                var transporters = mapData.Select(m => m.GameObject).OfType<EnemyTransporter>();
+                if (transporters.Any())
+                {
+                    foreach (var transporter in transporters)
+                    {
+                        if (transporter.DestinationNodeId.HasValue &&
+                            transporterNetwork.TryGetValue(transporter.DestinationNodeId.Value, out EnemyTransporter destinationTransporter))
+                        {
+                            transporter.DestinationNode = destinationTransporter;
                         }
                     }
                 }
@@ -122,7 +135,7 @@ namespace KeenReloaded2.Utilities
             return size;
         }
 
-        private static GameObjectMapping BuildMapDataObjectFromRawString(string data, SpaceHashGrid grid, List<IActivateable> activateables, Dictionary<int, Door> doorNetwork)
+        private static GameObjectMapping BuildMapDataObjectFromRawString(string data, SpaceHashGrid grid, List<IActivateable> activateables, Dictionary<int, Door> doorNetwork, Dictionary<int, EnemyTransporter> transporterNetwork)
         {
             string[] properties = data.Split(MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR[0]);
             if (properties.Length < 5)
@@ -238,6 +251,14 @@ namespace KeenReloaded2.Utilities
                 if (!doorNetwork.ContainsKey(door.Id))
                 {
                     doorNetwork.Add(door.Id, door);
+                }
+            }
+            else if (mapping.GameObject is EnemyTransporter)
+            {
+                var transporter = (EnemyTransporter)mapping.GameObject;
+                if (!transporterNetwork.ContainsKey(transporter.Id))
+                {
+                    transporterNetwork.Add(transporter.Id, transporter);
                 }
             }
 

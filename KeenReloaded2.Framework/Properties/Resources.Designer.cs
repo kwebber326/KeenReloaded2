@@ -16053,6 +16053,56 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen6_transporter {
+            get {
+                object obj = ResourceManager.GetObject("keen6_transporter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_transporter_electricity1 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_transporter_electricity1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_transporter_electricity2 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_transporter_electricity2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_transporter_electricity3 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_transporter_electricity3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_transporter_electricity4 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_transporter_electricity4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen6_viva_acquired1 {
             get {
                 object obj = ResourceManager.GetObject("keen6_viva_acquired1", resourceCulture);

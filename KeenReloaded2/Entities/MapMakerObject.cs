@@ -45,6 +45,7 @@ namespace KeenReloaded2.Entities
                     Readonly = parameter.Readonly,
                     IsIgnoredInMapData = parameter.IsIgnoredInMapData,
                     IsDoorSelectionProperty = parameter.IsDoorSelectionProperty,
+                    IsNodeSelectionProperty = parameter.IsNodeSelectionProperty,
                     IsMultiSelect = parameter.IsMultiSelect
                 };
                 clonedProperties.Add(clone);

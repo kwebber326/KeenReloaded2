@@ -88,5 +88,7 @@ namespace KeenReloaded2.Constants
         public const string ACTIVATION_ID_PROPERTY_NAME = "activationId";
         public const string DOOR_ID_PROPERTY_NAME = "doorId";
         public const string DESTINATION_DOOR_ID_PROPERTY_NAME = "destinationDoorId";
+        public const string NODE_ID_PROPERTY_NAME = "nodeId";
+        public const string DESTINATION_NODE_ID_PROPERTY_NAME = "destinationNodeId";
     }
 }

@@ -79,6 +79,9 @@ namespace KeenReloaded2
             EventStore<ActivatorSelectionCompletedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ACTIVATOR_SELECTION_COMPLETE, ActivatorSelection_Complete);
             EventStore<DoorSelectionChangedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_DOOR_SELECTION_CHANGED, DoorSelection_Changed);
             EventStore<DoorSelectionChangedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_DOOR_SELECTION_COMPLETE, DoorSelection_Complete);
+            EventStore<DoorSelectionChangedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_NODE_SELECTION_CHANGED, NodeSelection_Changed);
+            EventStore<DoorSelectionChangedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_NODE_SELECTION_COMPLETE, NodeSelection_Complete);
+
             EventStore<PointListChangedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_POINTS_LIST_CHANGED, PointList_Changed);
             EventStore<IndexedPoint>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_LOCATION_CHANGED, SinglePointLocation_Changed);
             EventStore<PointListChangedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_POINTS_LIST_FINALIZED, PointList_Finalized);
@@ -97,6 +100,9 @@ namespace KeenReloaded2
             EventStore<ActivatorSelectionCompletedEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_ACTIVATOR_SELECTION_COMPLETE, ActivatorSelection_Complete);
             EventStore<DoorSelectionChangedEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_DOOR_SELECTION_CHANGED, DoorSelection_Changed);
             EventStore<DoorSelectionChangedEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_DOOR_SELECTION_COMPLETE, DoorSelection_Complete);
+            EventStore<DoorSelectionChangedEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_NODE_SELECTION_CHANGED, NodeSelection_Changed);
+            EventStore<DoorSelectionChangedEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_NODE_SELECTION_COMPLETE, NodeSelection_Complete);
+
             EventStore<PointListChangedEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_POINTS_LIST_CHANGED, PointList_Changed);
             EventStore<IndexedPoint>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_LOCATION_CHANGED, SinglePointLocation_Changed);
             EventStore<PointListChangedEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_POINTS_LIST_FINALIZED, PointList_Finalized);
@@ -354,6 +360,19 @@ namespace KeenReloaded2
                     }
                 }
             }
+            else if (obj.ObjectType == typeof(EnemyTransporter))
+            {
+                var property = obj.ConstructorParameters.FirstOrDefault(p => p.PropertyName == GeneralGameConstants.NODE_ID_PROPERTY_NAME);
+                if (property != null)
+                {
+                    var transporters = _mapMakerObjects.Select(d => d.GameObject).OfType<EnemyTransporter>();
+                    if (transporters.Any())
+                    {
+                        var maxNodeId = transporters.Select(d => d.Id).Max();
+                        property.Value = maxNodeId + 1;
+                    }
+                }
+            }
             ISprite placeableObject = (ISprite)obj.Construct();
             GameObjectMapping mapping = new GameObjectMapping()
             {
@@ -582,6 +601,23 @@ namespace KeenReloaded2
             HighlightActivateables(e.Data.Activateables, Color.Transparent);
         }
 
+        private void NodeSelection_Changed(object sender, ControlEventArgs<DoorSelectionChangedEventArgs> e)
+        {
+            var newNode = e?.Data?.NewDoor;
+            var nodes = _mapMakerObjects.Where(m => m.GameObject is EnemyTransporter);
+            ClearDoorSelection(nodes);
+            if (newNode != null)
+            {
+                var matchingDoor = nodes.FirstOrDefault(d => d.GameObject == newNode);
+                if (matchingDoor != null)
+                {
+                    matchingDoor.BorderStyle = BorderStyle.Fixed3D;
+                    matchingDoor.BackColor = Color.Red;
+                    pnlMapCanvas.ScrollControlIntoView(matchingDoor);
+                }
+            }
+        }
+
         private void DoorSelection_Changed(object sender, ControlEventArgs.ControlEventArgs<DoorSelectionChangedEventArgs> e)
         {
             var newDoor = e?.Data?.NewDoor;
@@ -666,6 +702,12 @@ namespace KeenReloaded2
                 }
             }
             _pathWayPoints.Clear();
+        }
+
+        private void NodeSelection_Complete(object sender, ControlEventArgs<DoorSelectionChangedEventArgs> e)
+        {
+            var nodes = _mapMakerObjects.Where(m => m.GameObject is EnemyTransporter);
+            ClearDoorSelection(nodes);
         }
 
         private void DoorSelection_Complete(object sender, ControlEventArgs<DoorSelectionChangedEventArgs> e)
