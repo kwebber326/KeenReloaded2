@@ -339,12 +339,12 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             _random = new Random();
             int randomBiomePick = _random.Next(0, _nearestTiles.Count);
 
-            IBiomeTile pickedTile = _nearestTiles[randomBiomePick];
+            IBiomeTile pickedTile = _nearestTiles.Any() ? _nearestTiles[randomBiomePick] : null;
 
             if (pickedTile != null)
             {
                 string episodeMapping = _biomeMapping[pickedTile.Biome];
-                var episodeEnemies = _enemyTypeList.Where(e => 
+                var episodeEnemies = _enemyTypeList.Where(e =>
                 {
                     if (_enemyMapping.TryGetValue(e, out string mapping))
                         return mapping == episodeMapping;
@@ -354,19 +354,28 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                 {
                     episodeEnemies = _enemyTypeList;
                 }
-                _random = new Random();
-                int randomEnemyPick = _random.Next(0, episodeEnemies.Count);
-                string pickedEnemy = episodeEnemies[randomEnemyPick];
-                if (pickedEnemy != null)
+                PickRandomEnemyAndSpawn(episodeEnemies);
+            }
+            else if (_enemyTypeList.Any())
+            {
+                PickRandomEnemyAndSpawn(_enemyTypeList);
+            }
+        }
+
+        private void PickRandomEnemyAndSpawn(List<string> episodeEnemies)
+        {
+            _random = new Random();
+            int randomEnemyPick = _random.Next(0, episodeEnemies.Count);
+            string pickedEnemy = episodeEnemies[randomEnemyPick];
+            if (pickedEnemy != null)
+            {
+                ISprite spriteObj = GenerateEnemySpawn(pickedEnemy);
+                var enemy = spriteObj as IEnemy;
+                if (enemy != null)
                 {
-                    ISprite spriteObj = GenerateEnemySpawn(pickedEnemy);
-                    var enemy = spriteObj as IEnemy;
-                    if (enemy != null)
-                    {
-                        _enemies.Add(enemy);
-                    }
-                    OnCreate(new ObjectEventArgs() { ObjectSprite = spriteObj });
+                    _enemies.Add(enemy);
                 }
+                OnCreate(new ObjectEventArgs() { ObjectSprite = spriteObj });
             }
         }
 

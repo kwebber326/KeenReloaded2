@@ -36,8 +36,7 @@ namespace KeenReloaded.Framework
         {
             var oldPosition = new Point(this.HitBox.X, this.HitBox.Y);
             this.HitBox = new Rectangle(p.X, p.Y, this.HitBox.Width, this.HitBox.Height);
-            this.UpdateCollisionNodes(Direction.DOWN_LEFT);
-            this.UpdateCollisionNodes(Direction.UP_RIGHT);
+
             var collisions = this.CheckCollision(this.HitBox, true);
             var landingTile = this.GetTopMostLandingTile(collisions);
             if (landingTile != null)
@@ -67,8 +66,6 @@ namespace KeenReloaded.Framework
                 }
             }
 
-            this.UpdateCollisionNodes(Direction.DOWN_LEFT);
-            this.UpdateCollisionNodes(Direction.UP_RIGHT);
             collisions = this.CheckCollision(this.HitBox, true);
             if (collisions.Any())
                 this.HitBox = new Rectangle(oldPosition.X, oldPosition.Y, this.HitBox.Width, this.HitBox.Height);

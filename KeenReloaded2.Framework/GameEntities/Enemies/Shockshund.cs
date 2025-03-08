@@ -438,6 +438,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             {
                 this.BasicFall(BASIC_FALL_VELOCITY);
                 this.UpdateCollisionNodes(Enums.Direction.DOWN);
+                UpdateSprite();
                 return;
             }
 

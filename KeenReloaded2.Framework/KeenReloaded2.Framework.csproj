@@ -6016,5 +6016,11 @@
   <ItemGroup>
     <None Include="Resources\keen6_transporter_electricity4.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_danger_sign1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_danger_sign2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

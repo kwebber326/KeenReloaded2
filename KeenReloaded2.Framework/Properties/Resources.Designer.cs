@@ -8763,6 +8763,26 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen5_danger_sign1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_danger_sign1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_danger_sign2 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_danger_sign2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen5_distant_galaxy {
             get {
                 object obj = ResourceManager.GetObject("keen5_distant_galaxy", resourceCulture);
