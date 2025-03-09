@@ -2002,6 +2002,39 @@
   <data name="keen5_door" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen5_elevator_rail_corner_bottom_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_elevator_rail_corner_bottom_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_elevator_rail_corner_bottom_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_elevator_rail_corner_bottom_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_elevator_rail_corner_top_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_elevator_rail_corner_top_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_elevator_rail_corner_top_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_elevator_rail_corner_top_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_elevator_rail_dead_end_bottom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_elevator_rail_dead_end_bottom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_elevator_rail_dead_end_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_elevator_rail_dead_end_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_elevator_rail_dead_end_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_elevator_rail_dead_end_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_elevator_rail_dead_end_top" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_elevator_rail_dead_end_top.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_elevator_rail_horizontal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_elevator_rail_horizontal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_elevator_rail_intersection" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_elevator_rail_intersection.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_elevator_rail_vertical" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_elevator_rail_vertical.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keen5_exit_door_closed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_exit_door_closed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

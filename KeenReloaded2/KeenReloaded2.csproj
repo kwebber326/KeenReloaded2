@@ -6591,5 +6591,38 @@
   <ItemGroup>
     <None Include="Resources\keen6_transporter.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_elevator_rail_corner_bottom_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_elevator_rail_corner_bottom_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_elevator_rail_corner_top_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_elevator_rail_corner_top_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_elevator_rail_dead_end_bottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_elevator_rail_dead_end_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_elevator_rail_dead_end_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_elevator_rail_dead_end_top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_elevator_rail_horizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_elevator_rail_intersection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_elevator_rail_vertical.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -100,7 +100,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         public int Spread
         {
-            get { return 5; }
+            get { return 3; }
         }
 
         public int BlastRadius

@@ -2131,7 +2131,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                         {
                             var door = GetFirstOrCollidingDoor();
                             var toggleSwitch = GetFirstCollidingSwitch();
-                            if (door != null && toggleSwitch == null)
+                            if (door != null && !(toggleSwitch is ToggleSwitch))
                             {
                                 TryEnterDoor(door);
                             }

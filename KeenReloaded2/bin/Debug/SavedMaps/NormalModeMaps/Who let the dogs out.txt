@@ -10,7 +10,6 @@ keen5_ship_fuel_exhaust|2840|3208|160|192|keen5_ship_fuel_exhaust.png|True|0
 keen5_yellow_diamond_background|2840|432|66|600|keen5_yellow_diamond_background.png|False|0
 keen5_purple_background_plain1|93|494|2732|700|keen5_purple_background_plain1.png|False|0
 keen5_purple_background_plain1|2823|1093|128|128|keen5_purple_background_plain1.png|False|0
-keen5_moon|2840|3541|32|32|keen5_moon.png|True|0
 keen5_lone_star_blue_small|126|3534|32|32|keen5_lone_star_blue_small.png|True|0
 keen5_lone_star_blue|2|3525|32|32|keen5_lone_star_blue.png|True|0
 keen5_purple_robo_red1|1887|620|64|64|keen5_purple_robo_red1.png|True|0|[keen5_purple_robo_red1.png,keen5_purple_robo_red2.png]|200
@@ -35,6 +34,7 @@ keen5_background_omegamatic_blue1|304|3205|256|280|keen5_background_omegamatic_b
 keen5_background_omegamatic_blue_cd|489|3355|64|64|keen5_background_omegamatic_blue_cd.png|True|0
 keen5_background_omegamatic_blue_large_vent|2625|3224|64|64|keen5_background_omegamatic_blue_large_vent.png|True|0
 keen5_background_omegamatic_blue_maze|2625|3413|64|64|keen5_background_omegamatic_blue_maze.png|True|0
+keen5_moon|2800|3541|32|32|keen5_moon.png|True|0
 keen5_purple_background_contraption|1637|550|128|128|keen5_purple_background_contraption.png|True|1
 keen5_cyan_gray_background_computer|221|275|64|64|keen5_cyan_gray_background_computer.png|True|1
 keen5_glass_container_background|285|275|64|64|keen5_glass_container_background.png|True|1
@@ -267,7 +267,6 @@ keen5_black_pole_manhole|596|2900|96|76|15|keen5_black_pole_manhole|MANHOLE|KEEN
 keen5_black_pole_top|638|2871|12|32|15|keen5_black_pole_top|TOP|KEEN5_BLACK
 keen5_black_pole_middle|638|2975|12|32|15|keen5_black_pole_middle|MIDDLE|KEEN5_BLACK
 keen5_black_pole_middle|638|3007|12|32|15|keen5_black_pole_middle|MIDDLE|KEEN5_BLACK
-keen5_black_pole_bottom|638|3039|12|28|15|keen5_black_pole_bottom|BOTTOM|KEEN5_BLACK
 keen5_black_pole_middle|935|2619|12|32|15|keen5_black_pole_middle|MIDDLE|KEEN5_BLACK
 keen5_black_pole_top|935|2587|12|32|15|keen5_black_pole_top|TOP|KEEN5_BLACK
 keen5_black_pole_middle|935|2651|12|32|15|keen5_black_pole_middle|MIDDLE|KEEN5_BLACK
@@ -334,6 +333,8 @@ keen5_door|2408|2516|92|94|15|KEEN5_REGULAR|9|10
 keen5_exit_door_closed|359|3363|124|114|15
 keen5_door|2516|3381|92|94|15|KEEN5_REGULAR|12|11
 keen5_door|2620|1293|92|94|15|KEEN5_REGULAR|11|12
+keen5_black_pole_middle|638|3039|12|32|15|keen5_black_pole_middle|MIDDLE|KEEN5_BLACK
+keen5_black_pole_bottom|638|3070|12|28|15|keen5_black_pole_bottom|BOTTOM|KEEN5_BLACK
 keen5_pink_platform|2842|421|62|30|18|KEEN5_PINK|[2842,950,2842,421]|9987ecdc-3207-4fd3-992b-7a4adc91a889|False
 enemy_spawner1|110|99|92|94|18|[Shockshund]|4|20|1000000
 keen5_spinning_fire_hazard1|751|189|32|32|18
@@ -373,7 +374,7 @@ enemy_spawner1|1709|1263|92|94|18|[Shockshund]|5|10|5
 keen5_orange_platform|2626|2180|78|36|18|KEEN5_ORANGE|[2550,1800,2700,1800,2700,1700,2550,1560,2700,1560,2626,2180]|ae55fb52-2be5-4bdb-a81d-31a16b219bf8|True
 keen5_orange_platform|2522|3566|78|36|18|KEEN5_ORANGE|[2522,3700,350,3700,350,3566,350,3700,2522,3700,2522,3566]|f307e871-844c-44f9-9c63-a7d0a6e851e0|False
 keen5_key_card1|2860|686|24|28
-keen_stand_right|154|360|26|64|RIGHT
+keen_stand_right|130|366|26|64|RIGHT
 keen5_volte_face1|1526|123|62|48|25|[2100,123,2100,260,1526,260,1526,123]
 keen5_volte_face1|2124|725|62|48|25|[2260,650,2374,725,2498,800,2602,725,2498,650,2374,725,2260,800,2154,725]
 keen5_spindred1|2372|535|46|48|25
@@ -461,5 +462,9 @@ gem_placeholder_green_empty|2323|3094|26|22|50|GREEN|[46f71e10-3bd8-4447-8d03-d5
 gem_placeholder_yellow_empty|2589|1861|26|22|50|YELLOW|[6dbbdfbb-1790-40c4-8e31-a2953658f876,52383e20-31bc-4a9b-9b75-445ad10ba3d9]
 gem_placeholder_yellow_empty|2707|1761|26|22|50|YELLOW|[6dbbdfbb-1790-40c4-8e31-a2953658f876,52383e20-31bc-4a9b-9b75-445ad10ba3d9]
 gem_placeholder_yellow_empty|2620|1613|26|22|50|YELLOW|[6dbbdfbb-1790-40c4-8e31-a2953658f876,52383e20-31bc-4a9b-9b75-445ad10ba3d9]
-gem_placeholder_yellow_empty|2596|1416|26|22|50|YELLOW|[6dbbdfbb-1790-40c4-8e31-a2953658f876,52383e20-31bc-4a9b-9b75-445ad10ba3d9]
-gem_placeholder_yellow_empty|2707|1415|26|22|50|YELLOW|[6dbbdfbb-1790-40c4-8e31-a2953658f876,52383e20-31bc-4a9b-9b75-445ad10ba3d9]
+gem_placeholder_yellow_empty|2596|1372|26|22|50|YELLOW|[6dbbdfbb-1790-40c4-8e31-a2953658f876,52383e20-31bc-4a9b-9b75-445ad10ba3d9]
+gem_placeholder_yellow_empty|2622|1372|26|22|50|YELLOW|[6dbbdfbb-1790-40c4-8e31-a2953658f876,52383e20-31bc-4a9b-9b75-445ad10ba3d9]
+gem_placeholder_yellow_empty|2648|1372|26|22|50|YELLOW|[6dbbdfbb-1790-40c4-8e31-a2953658f876,52383e20-31bc-4a9b-9b75-445ad10ba3d9]
+gem_placeholder_yellow_empty|2674|1372|26|22|50|YELLOW|[6dbbdfbb-1790-40c4-8e31-a2953658f876,52383e20-31bc-4a9b-9b75-445ad10ba3d9]
+gem_placeholder_yellow_empty|2700|1372|26|22|50|YELLOW|[6dbbdfbb-1790-40c4-8e31-a2953658f876,52383e20-31bc-4a9b-9b75-445ad10ba3d9]
+gem_placeholder_yellow_empty|2681|1496|26|22|50|YELLOW|[6dbbdfbb-1790-40c4-8e31-a2953658f876,52383e20-31bc-4a9b-9b75-445ad10ba3d9]

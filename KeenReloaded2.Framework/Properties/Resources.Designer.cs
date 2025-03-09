@@ -8803,6 +8803,116 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen5_elevator_rail_corner_bottom_left {
+            get {
+                object obj = ResourceManager.GetObject("keen5_elevator_rail_corner_bottom_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_elevator_rail_corner_bottom_right {
+            get {
+                object obj = ResourceManager.GetObject("keen5_elevator_rail_corner_bottom_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_elevator_rail_corner_top_left {
+            get {
+                object obj = ResourceManager.GetObject("keen5_elevator_rail_corner_top_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_elevator_rail_corner_top_right {
+            get {
+                object obj = ResourceManager.GetObject("keen5_elevator_rail_corner_top_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_elevator_rail_dead_end_bottom {
+            get {
+                object obj = ResourceManager.GetObject("keen5_elevator_rail_dead_end_bottom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_elevator_rail_dead_end_left {
+            get {
+                object obj = ResourceManager.GetObject("keen5_elevator_rail_dead_end_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_elevator_rail_dead_end_right {
+            get {
+                object obj = ResourceManager.GetObject("keen5_elevator_rail_dead_end_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_elevator_rail_dead_end_top {
+            get {
+                object obj = ResourceManager.GetObject("keen5_elevator_rail_dead_end_top", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_elevator_rail_horizontal {
+            get {
+                object obj = ResourceManager.GetObject("keen5_elevator_rail_horizontal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_elevator_rail_intersection {
+            get {
+                object obj = ResourceManager.GetObject("keen5_elevator_rail_intersection", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_elevator_rail_vertical {
+            get {
+                object obj = ResourceManager.GetObject("keen5_elevator_rail_vertical", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen5_exit_door_closed {
             get {
                 object obj = ResourceManager.GetObject("keen5_exit_door_closed", resourceCulture);
