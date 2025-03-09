@@ -428,6 +428,7 @@ keen5_marshmallow1|381|3218|24|24|50|KEEN5_MARSHMALLOW
 keen5_marshmallow1|431|3218|24|24|50|KEEN5_MARSHMALLOW
 keen5_chocolate_milk1|406|3256|24|32|50|KEEN5_CHOCOLATE_MILK
 neural_stunner_railgun1|820|1302|52|22|50|1
+keen5_exit_sign1|618|3432|60|34|keen5_exit_sign1.png|True|100|[keen5_exit_sign1.png,keen5_exit_sign2.png,keen5_exit_sign3.png,keen5_exit_sign4.png,keen5_exit_sign5.png,keen5_exit_sign6.png,keen5_exit_sign7.png,keen5_exit_sign8.png]|200
 keen5_switch2_off|2790|368|32|32|15|KEEN5_2|[9987ecdc-3207-4fd3-992b-7a4adc91a889]|False
 keen5_switch2_on|2853|144|32|32|15|KEEN5_2|[069c1340-d02f-488f-93cc-0da057fd7ffc,7ef3398c-3a0d-4bcc-9216-a16d369c5905,06ae9ec3-2725-4355-9cfa-c68c75d2c0c2]|True
 keen5_switch2_off|1605|677|32|32|15|KEEN5_2|[504a9945-29a3-49c5-a760-296df518ad4e]|False
