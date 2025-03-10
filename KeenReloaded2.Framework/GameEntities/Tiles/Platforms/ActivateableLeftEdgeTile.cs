@@ -84,14 +84,14 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
                     break;
                 case Biomes.BIOME_KEEN6_DOME:
                     _image = _isActive
-                        ? Properties.Resources.keen6_removable_platform_right_edge_filled_dome
-                        : Properties.Resources.keen6_removable_platform_right_edge_dome;
+                        ? Properties.Resources.keen6_removable_platform_left_edge_filled_dome
+                        : Properties.Resources.keen6_removable_platform_left_edge_dome;
                     break;
                 case Biomes.BIOME_KEEN6_FOREST:
                 case Biomes.BIOME_KEEN6_INDUSTRIAL:
                     _image = _isActive
-                        ? Properties.Resources.keen6_removable_platform_forest_right_edge_filled
-                        : Properties.Resources.keen6_removable_platform_forest_right_edge;
+                        ? Properties.Resources.keen6_removable_platform_forest_left_edge_filled
+                        : Properties.Resources.keen6_removable_platform_forest_left_edge;
                     break;
             }
             if (_image != null)
