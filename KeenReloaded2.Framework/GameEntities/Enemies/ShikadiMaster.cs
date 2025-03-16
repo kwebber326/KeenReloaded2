@@ -224,6 +224,11 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 _previousState = ShikadiMasterState.FALLING;
                 this.Look();
             }
+            else if (isOutsideTeleportBounds())
+            {
+                _previousState = ShikadiMasterState.FALLING;
+                this.Teleport();
+            }
         }
 
         public bool DeadlyTouch
@@ -261,6 +266,11 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 _previousState = ShikadiMasterState.FIRING;
                 this.Look();
             }
+        }
+
+        private bool isOutsideTeleportBounds()
+        {
+            return !_teleportBounds.IntersectsWith(this.HitBox);
         }
 
         private void CreateShockWaves()
