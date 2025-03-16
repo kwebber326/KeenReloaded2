@@ -356,8 +356,11 @@ namespace KeenReloaded2.Entities.ReferenceData
                          }
                     }.ToArray();
 
-                        MapMakerObject obj = new MapMakerObject(type, imagePath, false, parameters);
-                        backgroundReferenceData.Add(imageName, obj);
+                        if (!backgroundReferenceData.ContainsKey(imageName))
+                        {
+                            MapMakerObject obj = new MapMakerObject(type, imagePath, false, parameters);
+                            backgroundReferenceData.Add(imageName, obj);
+                        }
                     }
                     catch (Exception ex)
                     {

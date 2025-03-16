@@ -194,3 +194,5 @@ fg_keen4_seaweed1_1|736|577|22|62|fg_keen4_seaweed1_1.png|True|100|[fg_keen4_sea
 fg_keen4_seaweed1_1|1014|572|22|62|fg_keen4_seaweed1_1.png|True|100|[fg_keen4_seaweed1_1.png,fg_keen4_seaweed2_1.png]|200
 fg_keen4_seaweed1_1|931|572|22|62|fg_keen4_seaweed1_1.png|True|100|[fg_keen4_seaweed1_1.png,fg_keen4_seaweed2_1.png]|200
 fg_keen4_seaweed1_1|841|574|22|62|fg_keen4_seaweed1_1.png|True|100|[fg_keen4_seaweed1_1.png,fg_keen4_seaweed2_1.png]|200
+fg_keen4_seaweed_2_1|594|578|32|64|fg_keen4_seaweed_2_1.png|True|100|[fg_keen4_seaweed_2_1.png,fg_keen4_seaweed_2_2.png,fg_keen4_seaweed_2_3.png,fg_keen4_seaweed_2_4.png]|200
+fg_keen4_seaweed_2_1|788|578|32|64|fg_keen4_seaweed_2_1.png|True|100|[fg_keen4_seaweed_2_1.png,fg_keen4_seaweed_2_2.png,fg_keen4_seaweed_2_3.png,fg_keen4_seaweed_2_4.png]|200
