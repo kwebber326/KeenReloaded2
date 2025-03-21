@@ -2118,7 +2118,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                         if (_isLookingDown && IsPlatformBeneathKeen(out CollisionObject platform))
                         {
                             StopLookDown();
-                            this.HitBox = new Rectangle(this.HitBox.X, platform.HitBox.Bottom - (this.HitBox.Height / 2), this.HitBox.Width, this.HitBox.Height);
+                            this.HitBox = new Rectangle(this.HitBox.X, platform.HitBox.Bottom - (this.HitBox.Height - 2), this.HitBox.Width, this.HitBox.Height);
                             UpdateCollisionNodes(Enums.Direction.DOWN);
                             UpdateSprite();
                             this.Fall();
