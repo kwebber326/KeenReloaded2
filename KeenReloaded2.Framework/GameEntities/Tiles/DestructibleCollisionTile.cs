@@ -1,5 +1,6 @@
 ﻿using KeenReloaded.Framework;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.GameEntities.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,13 +10,61 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.GameEntities.Tiles
 {
-    public class DestructibleCollisionTile : MaskedTile
+    public class DestructibleCollisionTile : DestructibleObject
     {
-        public DestructibleCollisionTile(SpaceHashGrid grid, Rectangle hitbox, string imageFile, int zIndex) 
-            : base(hitbox, grid, hitbox, imageFile, zIndex)
+        protected CollisionType _collisionType = CollisionType.BLOCK;
+        protected int _forceThreshold = 1000;
+        protected int _damageThreshold = 500;
+        protected bool _isDead;
+        protected readonly bool _canBeDestroyedByPogo;
+
+        public DestructibleCollisionTile(SpaceHashGrid grid, Rectangle hitbox, bool canBeDestroyedByPogo)
+            : base(grid, hitbox)
         {
+            this.Health = 1;
+            _canBeDestroyedByPogo = canBeDestroyedByPogo;
         }
 
-        public override CollisionType CollisionType => CollisionType.DESTRUCTIBLE_BLOCK | CollisionType.BLOCK;
+        public bool CanBeDestroyedByPogo
+        {
+            get
+            {
+                return _canBeDestroyedByPogo;
+            }
+        }
+
+        public override CollisionType CollisionType => _collisionType;
+
+        public override void TakeDamage(int damage)
+        {
+            if (damage >= _damageThreshold)
+            {
+                this.Die();
+            }
+        }
+
+        public override void TakeDamage(IProjectile projectile)
+        {
+            if (projectile == null)
+                return;
+
+            int force = projectile.Velocity * projectile.Pierce;
+            int damage = projectile.Damage;
+            if (force >= _forceThreshold || damage >= _damageThreshold)
+            {
+                this.Die();
+            }
+        }
+
+        public override void Die()
+        {
+            _collisionType = CollisionType.NONE;
+            _isDead = true;
+        }
+
+        public override bool IsDead()
+        {
+            return _isDead;
+        }
     }
 }

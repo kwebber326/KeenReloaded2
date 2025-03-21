@@ -3845,6 +3845,9 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             foreach (var file in allInteractiveTileFiles)
             {
+                if (!file.Contains("removable"))
+                    continue;
+
                 bool isLeftEdgeTile = file.Contains("left_edge");
                 bool isRightEdgeTile = file.Contains("right_edge");
                 bool isMiddleTile = !isLeftEdgeTile && !isRightEdgeTile;
@@ -3934,6 +3937,11 @@ namespace KeenReloaded2.Entities.ReferenceData
                     backgroundReferenceData.Add(interactiveTileKey, interactiveTileObj);
                 }
             }
+
+            //keen5 generator wall
+            var keen5GeneratorWallKey = nameof(Properties.Resources.keen5_red_generator_wall);
+            AddSimpleGameObject(backgroundReferenceData, keen5InteractiveTileFiles, keen5GeneratorWallKey,
+                typeof(Keen5GeneratorWall), null, 15);
 
             #endregion
 

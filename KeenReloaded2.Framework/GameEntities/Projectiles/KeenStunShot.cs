@@ -83,7 +83,17 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
             if (obj.CollisionType == CollisionType.BLOCK && !(obj is ForceFieldBarrier))
             {
-                StopAtCollisionObject(obj);
+                if (!(obj is DestructibleCollisionTile))
+                    StopAtCollisionObject(obj);
+                else
+                {
+                    var destructoTile = (DestructibleCollisionTile)obj;
+                    destructoTile.TakeDamage(this);
+                    if (--_pierce < 0 || !destructoTile.IsDead())
+                    {
+                        StopAtCollisionObject(obj);
+                    }
+                }
             }
             else if (obj is IEnemy && !(obj is ForceField))
             {
@@ -119,7 +129,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                             return;
                         }
                     }
-                
+
                     if (!_hitObjects.Contains(enemy))
                     {
                         enemy.HandleHit(this);

@@ -8783,6 +8783,36 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen5_destructible_glass_tile_destroyed {
+            get {
+                object obj = ResourceManager.GetObject("keen5_destructible_glass_tile_destroyed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_destructible_glass_tile1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_destructible_glass_tile1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_destructible_glass_tile2 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_destructible_glass_tile2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen5_distant_galaxy {
             get {
                 object obj = ResourceManager.GetObject("keen5_distant_galaxy", resourceCulture);
@@ -9966,6 +9996,16 @@ namespace KeenReloaded2.Framework.Properties {
         internal static System.Drawing.Bitmap keen5_red_floor_to_platform_left {
             get {
                 object obj = ResourceManager.GetObject("keen5_red_floor_to_platform_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_generator_wall {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_generator_wall", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

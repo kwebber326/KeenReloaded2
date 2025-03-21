@@ -51,6 +51,7 @@
     <Compile Include="GameEntities\Constructs\Hill.cs" />
     <Compile Include="GameEntities\Constructs\ImageDisplay.cs" />
     <Compile Include="GameEntities\Constructs\Keen4GlassDome.cs" />
+    <Compile Include="GameEntities\Constructs\Keen5GeneratorWall.cs" />
     <Compile Include="GameEntities\Constructs\Keen6EyeBallPole.cs" />
     <Compile Include="GameEntities\Constructs\RandomHill.cs" />
     <Compile Include="GameEntities\Constructs\RandomWeaponGenerator.cs" />
@@ -245,6 +246,7 @@
     <Compile Include="GameEntities\Tiles\Floors\Keen6SLimeHazardMiddleFloor.cs" />
     <Compile Include="GameEntities\Tiles\Floors\LeftEdgeFloorTile.cs" />
     <Compile Include="GameEntities\Tiles\HealthBarTile.cs" />
+    <Compile Include="GameEntities\Tiles\InteractiveTiles\Keen5GeneratorGlass.cs" />
     <Compile Include="GameEntities\Tiles\InvisibleTile.cs" />
     <Compile Include="GameEntities\Tiles\MapEdgeTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\ActivateableLeftEdgeTile.cs" />
@@ -6054,6 +6056,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen5_elevator_rail_vertical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_destructible_glass_tile_destroyed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_destructible_glass_tile1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_destructible_glass_tile2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_generator_wall.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

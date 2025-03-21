@@ -1,0 +1,11 @@
+1500|1500
+keen5_background_omegamatic_blue1|0|0|1500|1500|keen5_background_omegamatic_blue1.png|True|0
+keen5_pipe_platform|90|400|346|80|10
+keen5_single_platform_blue|127|306|32|36|10
+keen5_single_platform_blue|129|167|32|36|10
+keen5_wall_red_edge_right|262|272|52|128|10
+keen5_wall_red_middle|386|272|64|128|10
+keen5_red_generator_wall|268|208|128|64|15
+keen_stand_right|205|323|26|64|RIGHT
+neural_stunner_railgun1|123|248|52|22|50|5
+BFG1|111|109|61|24|50|5

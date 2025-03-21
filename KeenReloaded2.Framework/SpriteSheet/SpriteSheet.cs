@@ -1206,6 +1206,27 @@ namespace KeenReloaded2.Framework.SpriteSheet
 
         #endregion
 
+        #region keen 5 generator glass
+        private static Image[] _keen5GlassGeneratorSprites;
+
+        public static Image[] Keen5GlassGeneratorSprites
+        {
+            get
+            {
+                if (_keen5GlassGeneratorSprites == null)
+                {
+                    _keen5GlassGeneratorSprites = new Image[]
+                    {
+                        Properties.Resources.keen5_destructible_glass_tile1,
+                        Properties.Resources.keen5_destructible_glass_tile2
+                    };
+                }
+
+                return _keen5GlassGeneratorSprites;
+            }
+        }
+        #endregion
+
         #region Keen 6 Burn Hazard
 
         private static Image[] _keen6BurnHazardImages;
@@ -1501,6 +1522,8 @@ namespace KeenReloaded2.Framework.SpriteSheet
             }
         }
         #endregion
+
+
         #endregion
 
         #region Enemies

@@ -6624,5 +6624,8 @@
   <ItemGroup>
     <None Include="Resources\keen5_elevator_rail_vertical.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_generator_wall.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

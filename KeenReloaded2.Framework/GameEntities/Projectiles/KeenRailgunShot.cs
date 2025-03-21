@@ -90,7 +90,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         {
             foreach (var collision in collisions)
             {
-                if (collision.CollisionType == CollisionType.BLOCK)
+                if (collision.CollisionType == CollisionType.BLOCK && !(collision is DestructibleCollisionTile))
                 {
                     switch (direction)
                     {

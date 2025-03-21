@@ -1,3 +1,3 @@
 Sounds|True
-Music|True
-Song|omegamatic_beginning.wav
+Music|False
+Song|snoopin.wav

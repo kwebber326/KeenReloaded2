@@ -791,6 +791,14 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                         this.OnKeenLevelCompleted(new ObjectEventArgs() { ObjectSprite = this });
                     }
                 }
+                else if (obj is DestructibleCollisionTile)
+                {
+                    var destructoTile = (DestructibleCollisionTile)obj;
+                    if (destructoTile.CanBeDestroyedByPogo && _isUsingPogo)
+                    {
+                        destructoTile.Die();
+                    }
+                }
                 if (this.MoveState == Enums.MoveState.FALLING)
                 {
                     //perform hang only if falling and colliding a wall keen is a higher y position than
@@ -920,6 +928,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                         GeneralGameConstants.Sounds.FLAG_CAPTURED);
                 }
             }
+           
         }
 
         private bool CanOpenGemGate(GemPlaceHolder p)
@@ -1591,7 +1600,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 this.HitBox = new Rectangle(new Point(this.HitBox.Location.X, minY - this.HitBox.Height - 1), this.HitBox.Size);
                 //stop keen from falling
                 _fallVelocity = INITIAL_FALL_VELOCITY;
-               
+
                 //update collision nodes
                 this.UpdateCollisionNodes(Enums.Direction.DOWN);
                 //handle collisions
@@ -1637,12 +1646,31 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     }
                 }
 
+                //tiles destructible By pogo
+                var destructiblePogoTiles = collisionItems.OfType<DestructibleCollisionTile>();
+                bool hitNonPogoDestructibleTile = false;
+                if (destructiblePogoTiles.Any())
+                {
+                    foreach (var tile in destructiblePogoTiles)
+                    {
+                        if (!tile.CanBeDestroyedByPogo)
+                        {
+                            hitNonPogoDestructibleTile = true;
+                        }
+                        this.HandleCollision(tile);
+                    }
+                }
+                else
+                {
+                    hitNonPogoDestructibleTile = true;
+                }
+
                 if (!_isUsingPogo)
                 {
                     this.MoveState = Enums.MoveState.STANDING;
                     AdjustForCeilingCollisionsAtCurrentPosition();
                 }
-                else
+                else if ((destructiblePogoTiles.Any() && hitNonPogoDestructibleTile) || !destructiblePogoTiles.Any())
                 {
                     EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
                             GeneralGameConstants.Sounds.KEEN_POGO);
@@ -2041,7 +2069,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                             _isUsingPogo = true;
                             _isPogoButtonReleased = false;
                             TryJump();
-                           
+
                         }
                         else if (!IsKeyPressed(KEY_ALT) && _isUsingPogo && !_isPogoButtonReleased)
                         {
@@ -2859,7 +2887,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         private void TryJump()
         {
             int maxJumpHeight = _jumpFromPole ? MAX_POLE_JUMP_HEIGHT : MAX_JUMP_HEIGHT;
-            maxJumpHeight = SetJumpHeightIfUsingPogo(maxJumpHeight);         
+            maxJumpHeight = SetJumpHeightIfUsingPogo(maxJumpHeight);
 
             if (_jumpFromPole && this.MoveState != Enums.MoveState.JUMPING)
                 _currentJumpHeight = 0;
