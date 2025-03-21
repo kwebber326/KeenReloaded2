@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\TileDestroyedEventType.cs" />
     <Compile Include="Extensions\DestructibleObjectExtensions.cs" />
     <Compile Include="GameEntities\Backgrounds\MimicBlocks.cs" />
     <Compile Include="GameEntities\Constructs\BiomeChanger.cs" />
@@ -208,6 +209,7 @@
     <Compile Include="GameEntities\Items\WeaponsAmmo\ShotgunNeuralStunnerAmmo.cs" />
     <Compile Include="GameEntities\Items\WeaponsAmmo\SMGNeuralStunnerAmmo.cs" />
     <Compile Include="GameEntities\Items\WeaponsAmmo\SnakeGunAmmo.cs" />
+    <Compile Include="GameEntities\LevelCompleteObjectives.cs" />
     <Compile Include="GameEntities\Players\CommanderKeen.cs" />
     <Compile Include="GameEntities\Projectiles\BabobbaFireBall.cs" />
     <Compile Include="GameEntities\Projectiles\BerkeloidFire.cs" />

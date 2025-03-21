@@ -6,7 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using KeenReloaded.Framework;
 using KeenReloaded2.Constants;
+using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.Interfaces;
 using KeenReloaded2.Utilities;
 
@@ -23,10 +25,13 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
         public const int IMAGE_WIDTH = 32;
         public const int IMAGE_HEIGHT = 20;
 
+        private CommanderKeen _keen;
+
         public Keen5GeneratorGlass(SpaceHashGrid grid, Rectangle hitbox, int zIndex) : base(grid, hitbox, true)
         {
             _zIndex = zIndex;
             _sprite = _glassSprites.FirstOrDefault();
+            LevelCompleteObjectives.TryAddTileObjective(this);
         }
 
         public int ZIndex => _zIndex;
@@ -37,6 +42,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 
         public bool CanUpdate => true;
 
+        public override TileDestroyedEventType EventType => TileDestroyedEventType.LEVEL_EXIT;
+
         public void Update()
         {
             if (!_isDead)
@@ -45,10 +52,18 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
             }
             else if (_firstDeathEvaluation)
             {
-                _firstDeathEvaluation = false;
-                _sprite = Properties.Resources.keen5_destructible_glass_tile_destroyed;
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
-                    GeneralGameConstants.Sounds.GLASS_BREAK);
+                _keen = GetClosestAlivePlayer();
+                if (_keen != null)
+                {
+                    _firstDeathEvaluation = false;
+                    _sprite = Properties.Resources.keen5_destructible_glass_tile_destroyed;
+                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                        GeneralGameConstants.Sounds.GLASS_BREAK);
+                    if (LevelCompleteObjectives.AreAllTileObjectivesComplete())
+                    {
+                        _keen.PassLevel();
+                    }
+                }
             }
         }
 
@@ -60,6 +75,16 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
                 _currentSpriteIndex = 0;
 
             _sprite = _glassSprites[_currentSpriteIndex];
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Keen5GeneratorGlass && base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

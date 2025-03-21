@@ -190,6 +190,7 @@ namespace KeenReloaded2
         {
             DetachEvents();
             pbGameImage.Image = null;
+            LevelCompleteObjectives.ClearAll();
             var mapMakerData = MapUtility.LoadMapData(_game.Map.MapPath);
             InitializeGameData(_gameMode, mapMakerData, true);
             InitializeGameState();
@@ -382,6 +383,7 @@ namespace KeenReloaded2
                 _game.Dispose();
             }
             soundPlayer1.StopMusic();
+            LevelCompleteObjectives.ClearAll();
         }
 
 

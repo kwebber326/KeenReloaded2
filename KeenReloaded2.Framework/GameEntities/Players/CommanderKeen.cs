@@ -3246,6 +3246,11 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             }
         }
 
+        public void PassLevel()
+        {
+            this.OnKeenLevelCompleted(new ObjectEventArgs() { ObjectSprite = this });
+        }
+
         protected void OnKeenDied(ObjectEventArgs e)
         {
             if (this.KeenDied != null)

@@ -35,6 +35,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
 
         public override CollisionType CollisionType => _collisionType;
 
+        public virtual TileDestroyedEventType EventType => TileDestroyedEventType.NONE;
+
         public override void TakeDamage(int damage)
         {
             if (damage >= _damageThreshold)
@@ -65,6 +67,21 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
         public override bool IsDead()
         {
             return _isDead;
+        }
+
+        public override bool Equals(object obj)
+        {
+            DestructibleCollisionTile t1 = obj as DestructibleCollisionTile;
+            if (t1 == null)
+                return false;
+
+            bool hitBoxEqual = t1.HitBox.Equals(this.HitBox);
+            return hitBoxEqual;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }
