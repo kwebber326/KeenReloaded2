@@ -449,7 +449,8 @@ namespace KeenReloaded2
                 || _keen.HitBox.X >= (pnlGameWindow.Width + Math.Abs(pnlGameWindow.AutoScrollPosition.X))
                 || _keen.HitBox.Right <= (Math.Abs(pnlGameWindow.AutoScrollPosition.X) - 32)
                 || _keen.HitBox.Y >= (pnlGameWindow.Height + Math.Abs(pnlGameWindow.AutoScrollPosition.Y))
-                || _keen.HitBox.Y >= _game.Map.MapSize.Height;
+                || _keen.HitBox.Y >= _game.Map.MapSize.Height
+                || _keen.HitBox.Y < -_keen.HitBox.Height;
         }
 
         private void UpdateViewRectangle()
