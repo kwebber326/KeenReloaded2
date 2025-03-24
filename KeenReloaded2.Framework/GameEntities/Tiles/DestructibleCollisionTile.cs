@@ -35,7 +35,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles
 
         public override CollisionType CollisionType => _collisionType;
 
-        public virtual TileDestroyedEventType EventType => TileDestroyedEventType.NONE;
+        public virtual ObjectiveCompleteEvent EventType => ObjectiveCompleteEvent.NONE;
 
         public override void TakeDamage(int damage)
         {

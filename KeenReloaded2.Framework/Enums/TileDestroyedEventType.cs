@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.Enums
 {
-    public enum TileDestroyedEventType
+    public enum ObjectiveCompleteEvent
     {
         NONE,
         LEVEL_EXIT,

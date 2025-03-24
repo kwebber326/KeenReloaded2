@@ -14,7 +14,7 @@ using KeenReloaded2.Utilities;
 
 namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 {
-    public class Keen5GeneratorGlass : DestructibleCollisionTile, IUpdatable, ISprite
+    public class Keen5GeneratorGlass : DestructibleCollisionTile, IUpdatable, ISprite, ILevelObjective
     {
         private readonly int _zIndex;
         private Image _sprite;
@@ -42,7 +42,9 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 
         public bool CanUpdate => true;
 
-        public override TileDestroyedEventType EventType => TileDestroyedEventType.LEVEL_EXIT;
+        public override ObjectiveCompleteEvent EventType => ObjectiveCompleteEvent.LEVEL_EXIT;
+
+        public bool ObjectiveComplete => this.IsDead();
 
         public void Update()
         {

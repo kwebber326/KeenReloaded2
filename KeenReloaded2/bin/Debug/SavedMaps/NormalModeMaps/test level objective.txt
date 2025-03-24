@@ -1,0 +1,4 @@
+1500|1500
+keen5_background_omegamatic_blue1|0|0|1500|1500|keen5_background_omegamatic_blue1.png|True|0
+keen5_red_generator_wall|204|200|128|64|15
+keen_stand_right|270|90|26|64|RIGHT

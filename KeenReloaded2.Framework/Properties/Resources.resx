@@ -1030,6 +1030,24 @@
   <data name="keen4_cave_wall_middle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_cave_wall_middle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen4_council_member_left1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_council_member_left1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_council_member_left2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_council_member_left2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_council_member_ponder_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_council_member_ponder_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_council_member_ponder_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_council_member_ponder_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_council_member_right1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_council_member_right1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_council_member_right2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_council_member_right2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keen4_dart_down1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_dart_down1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

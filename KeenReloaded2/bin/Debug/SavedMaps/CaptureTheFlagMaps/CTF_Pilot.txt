@@ -237,6 +237,7 @@ keen4_removable_platform|314|101|32|62|10|KEEN4_GREEN|True|8dfab2e1-863d-45f8-90
 keen4_removable_platform|346|101|32|62|10|KEEN4_GREEN|True|a1658855-3eb3-4ff9-b13d-4df981578b30
 keen4_removable_platform|378|101|32|62|10|KEEN4_GREEN|True|95e7c2a2-4345-470e-be78-84e2c187dea5
 keen5_platform_green_edge_left|1404|1086|32|34|10
+keen5_pipe_platform|52|1157|346|80|10
 keen5_spinning_burn_platform5|1204|700|28|58|keen5_spinning_burn_platform5|14|True|4
 keen5_spinning_burn_platform6|1109|700|28|47|keen5_spinning_burn_platform6|14|True|5
 keen5_spinning_burn_platform8|1012|684|28|48|keen5_spinning_burn_platform8|14|True|7
