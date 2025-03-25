@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Enums\TileDestroyedEventType.cs" />
     <Compile Include="Extensions\DestructibleObjectExtensions.cs" />
+    <Compile Include="GameEntities\AltCharacters\CouncilMember.cs" />
     <Compile Include="GameEntities\Backgrounds\MimicBlocks.cs" />
     <Compile Include="GameEntities\Constructs\BiomeChanger.cs" />
     <Compile Include="GameEntities\Constructs\EnemySpawner.cs" />

@@ -1,6 +1,7 @@
 ﻿using KeenReloaded.Framework;
 using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.GameEntities.AltCharacters;
 using KeenReloaded2.Framework.GameEntities.Backgrounds;
 using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Framework.GameEntities.Enemies;
@@ -3942,6 +3943,11 @@ namespace KeenReloaded2.Entities.ReferenceData
             var keen5GeneratorWallKey = nameof(Properties.Resources.keen5_red_generator_wall);
             AddSimpleGameObject(backgroundReferenceData, keen5InteractiveTileFiles, keen5GeneratorWallKey,
                 typeof(Keen5GeneratorWall), null, 15);
+
+            //council member
+            var councilMemberKey = nameof(Properties.Resources.keen4_council_member_ponder_right);
+            AddSimpleGameObject(backgroundReferenceData, keen4InteractiveTileFiles, councilMemberKey,
+                typeof(CouncilMember), null, 15);
 
             #endregion
 

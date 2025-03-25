@@ -928,6 +928,11 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                         GeneralGameConstants.Sounds.FLAG_CAPTURED);
                 }
             }
+            else if (obj.CollisionType == CollisionType.EXIT)
+            {
+                //raise keen passed level event
+                this.OnKeenLevelCompleted(new ObjectEventArgs() { ObjectSprite = this });
+            }
            
         }
 

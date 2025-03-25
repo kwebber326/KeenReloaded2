@@ -3379,5 +3379,43 @@ namespace KeenReloaded2.Framework.SpriteSheet
             }
         }
         #endregion
+
+        #region Miscellaneous
+        private static Image[] _keen4CouncilMemberWalkLeftImages;
+
+        public static Image[] Keen4CouncilMemberWalkLeftImages
+        {
+            get
+            {
+                if (_keen4CouncilMemberWalkLeftImages == null)
+                {
+                    _keen4CouncilMemberWalkLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen4_council_member_left1,
+                        Properties.Resources.keen4_council_member_left2,
+                    };
+                }
+                return _keen4CouncilMemberWalkLeftImages;
+            }
+        }
+
+        private static Image[] _keen4CouncilMemberWalkRightImages;
+
+        public static Image[] Keen4CouncilMemberWalkRightImages
+        {
+            get
+            {
+                if (_keen4CouncilMemberWalkRightImages == null)
+                {
+                    _keen4CouncilMemberWalkRightImages = new Image[]
+                    {
+                        Properties.Resources.keen4_council_member_right1,
+                        Properties.Resources.keen4_council_member_right2,
+                    };
+                }
+                return _keen4CouncilMemberWalkRightImages;
+            }
+        }
+        #endregion
     }
 }

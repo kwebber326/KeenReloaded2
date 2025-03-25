@@ -6627,5 +6627,23 @@
   <ItemGroup>
     <None Include="Resources\keen5_red_generator_wall.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_council_member_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_council_member_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_council_member_ponder_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_council_member_ponder_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_council_member_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_council_member_right2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
