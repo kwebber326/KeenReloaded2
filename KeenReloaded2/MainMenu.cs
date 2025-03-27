@@ -159,6 +159,12 @@ namespace KeenReloaded2
 
         #region events
 
+        private void ChkPartialUpdate_CheckedChanged(object sender, EventArgs e)
+        {
+            bool usePartialAlgo = chkPartialUpdate.Checked;
+            FileIOUtility.SavePartialAlgoSettings(usePartialAlgo);
+        }
+
         private void SelectedSong_Changed(object sender, ControlEventArgs<string> e)
         {
             _selectedSong = e.Data;
@@ -253,7 +259,24 @@ namespace KeenReloaded2
 
 
 
+
         #endregion
 
+        private void ToolTipPartialAlgo_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void ChkPartialUpdate_MouseHover(object sender, EventArgs e)
+        {
+            Point showPosition = new Point(Cursor.Position.X + 32, Cursor.Position.Y + 32);
+            toolTipPartialAlgo.Show("Check this to use partial updating of game memory to improve performance for large maps with a lot of objects. \nNote: the game will always limit rendering to objects within visible range.\nHowever, when this is checked, game objects will only update their state and play sounds when within a certain radius of the player to enhance the game play experience.\nThis algorithm is not recommended for maps requiring updates from objects from far away."
+                , this, showPosition);
+        }
+
+        private void ChkPartialUpdate_MouseLeave(object sender, EventArgs e)
+        {
+            toolTipPartialAlgo.Hide(this);
+        }
     }
 }

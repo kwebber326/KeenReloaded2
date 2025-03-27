@@ -23,6 +23,7 @@ using KeenReloaded2.Framework.GameEntities.Backgrounds;
 using KeenReloaded.Framework.Utilities;
 using KeenReloaded.Framework;
 using KeenReloaded2.Framework.GameEntities.Tiles;
+using KeenReloaded2.Utilities;
 
 namespace KeenReloaded2.Entities
 {
@@ -106,6 +107,7 @@ namespace KeenReloaded2.Entities
                 }
             }
             this.Map = map;
+            _usePartialAlgo = FileIOUtility.LoadUsePartialAlgoSettings();
         }
 
         private void SetStaticTilesThatWillNeedToBeRedrawn()
@@ -173,6 +175,8 @@ namespace KeenReloaded2.Entities
             private set;
         }
 
+        private readonly bool _usePartialAlgo;
+
         public void SetKeyPressed(string key, bool isPressed)
         {
             if (_keen != null)
@@ -237,6 +241,12 @@ namespace KeenReloaded2.Entities
 
         public Bitmap UpdateGame(Rectangle viewRectangle)
         {
+            int viewRectangleExpansionWidthAmount = viewRectangle.Width * 2;
+            int viewRectangleExpansionHeightAmount = viewRectangle.Height * 2;
+            Rectangle updateRectangle = new Rectangle(viewRectangle.X - viewRectangleExpansionWidthAmount,
+                viewRectangle.Y - viewRectangleExpansionHeightAmount,
+                viewRectangleExpansionWidthAmount * 2 + viewRectangle.Width,
+                viewRectangleExpansionHeightAmount * 2 + viewRectangle.Height);
             if (this.Map != null && _updatableGameObjects != null)
             {
                 int length = _updatableGameObjects.Count;
@@ -247,7 +257,24 @@ namespace KeenReloaded2.Entities
                         if (i < _updatableGameObjects.Count)
                         {
                             var obj = _updatableGameObjects[i];
-                            obj.Update();
+                            if (_usePartialAlgo)
+                            {
+                                ISprite spriteObj = obj as ISprite;
+                                if (spriteObj != null && spriteObj.Image != null)
+                                {
+                                    Rectangle hitbox = new Rectangle(spriteObj.Location, spriteObj.Image.Size);
+                                    if (updateRectangle.IntersectsWith(hitbox))
+                                        obj.Update();
+                                }
+                                else
+                                {
+                                    obj.Update();
+                                }
+                            }
+                            else
+                            {
+                                obj.Update();
+                            }
                         }
                     }
 

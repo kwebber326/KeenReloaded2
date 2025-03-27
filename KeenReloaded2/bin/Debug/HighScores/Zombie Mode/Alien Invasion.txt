@@ -5,4 +5,4 @@ Kenny|117400
 K dub|100000
 Kenny|77900
 Kenny|35000
-Kenny|17000
+Kenny|30000

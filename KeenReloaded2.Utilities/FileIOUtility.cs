@@ -13,6 +13,7 @@ namespace KeenReloaded2.Utilities
     {
         public const string SAVED_CHARACTER_FILE_NAME = "SavedCharacter.txt";
         public const string AUDIO_SETTINGS_FILE_NAME = "AudioSettings.txt";
+        public const string PARTIAL_ALGO_SETTINGS_FILE_NAME = "PartialAlgoSettings.txt";
         public const string HIGH_SCORE_FOLDER = "HighScores";
         public const string MUSIC_FOLDER = "Music";
 
@@ -72,6 +73,7 @@ namespace KeenReloaded2.Utilities
                     writer.WriteLine($"Music|{settings.Music}");
                     writer.WriteLine($"Song|{settings.SelectedSong}");
                 }
+                return true;
             }
             catch (Exception ex)
             {
@@ -101,6 +103,52 @@ namespace KeenReloaded2.Utilities
                     settings.Sounds = bool.Parse(soundsStr);
                     settings.Music = bool.Parse(musicStr);
                     settings.SelectedSong = songStr;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            return settings;
+        }
+
+        public static bool SavePartialAlgoSettings(bool usePartialAlgo)
+        {
+            try
+            {
+                string path = System.Environment.CurrentDirectory + "/" + PARTIAL_ALGO_SETTINGS_FILE_NAME;
+
+                if (File.Exists(path))
+                    File.WriteAllText(path, string.Empty);
+
+                using (FileStream fs = File.OpenWrite(path))
+                using (StreamWriter writer = new StreamWriter(fs))
+                {
+                    writer.WriteLine(usePartialAlgo.ToString());
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            return false;
+        }
+
+        public static bool LoadUsePartialAlgoSettings()
+        {
+            bool settings = false;
+            try
+            {
+                string path = System.Environment.CurrentDirectory + "/" + PARTIAL_ALGO_SETTINGS_FILE_NAME;
+                if (!File.Exists(path))
+                    File.Create(path);
+
+                using (FileStream fs = File.OpenRead(path))
+                using (StreamReader reader = new StreamReader(fs))
+                {
+                    string line = reader.ReadLine();
+                    settings = Convert.ToBoolean(line);
                 }
             }
             catch (Exception ex)
