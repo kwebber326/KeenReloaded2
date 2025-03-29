@@ -105,7 +105,7 @@
             this.chkPartialUpdate.BackColor = System.Drawing.Color.Transparent;
             this.chkPartialUpdate.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkPartialUpdate.ForeColor = System.Drawing.Color.YellowGreen;
-            this.chkPartialUpdate.Location = new System.Drawing.Point(12, 353);
+            this.chkPartialUpdate.Location = new System.Drawing.Point(12, 585);
             this.chkPartialUpdate.Name = "chkPartialUpdate";
             this.chkPartialUpdate.Size = new System.Drawing.Size(304, 29);
             this.chkPartialUpdate.TabIndex = 5;
