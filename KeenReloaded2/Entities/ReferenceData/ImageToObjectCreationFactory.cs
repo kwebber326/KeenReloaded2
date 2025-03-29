@@ -3220,6 +3220,7 @@ namespace KeenReloaded2.Entities.ReferenceData
             {
                 bool isExitDoor = file.Contains("exit");
                 bool isChute = file.Contains("chute");
+                bool isOracle = file.Contains("oracle");
                 string doorImageName = FileIOUtility.ExtractFileNameFromPath(file);
                 Image doorImg = Image.FromFile(file);
 
@@ -3307,7 +3308,9 @@ namespace KeenReloaded2.Entities.ReferenceData
                     if (isChute)
                         doorProperties.LastOrDefault().Hidden = true;
 
-                    MapMakerObject doorObj = new MapMakerObject(typeof(Door), file, false, doorProperties);
+                    Type doorType = isOracle ? typeof(Keen4OracleDoor) : typeof(Door);
+
+                    MapMakerObject doorObj = new MapMakerObject(doorType, file, false, doorProperties);
                     if (!backgroundReferenceData.ContainsKey(doorImageName))
                         backgroundReferenceData.Add(doorImageName, doorObj);
                 }

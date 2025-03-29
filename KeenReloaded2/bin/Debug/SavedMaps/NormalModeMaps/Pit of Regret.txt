@@ -1,0 +1,15 @@
+3000|5000
+keen4_mud_background|0|361|3000|4639|keen4_mud_background.png|False|-1
+keen4_cliff_background_top_green|0|234|3000|127|keen4_cliff_background_top_green.png|False|-1
+keen4_clear_blue_sky_background|0|0|3000|234|keen4_clear_blue_sky_background.png|False|-1
+keen4_cloud1|52|35|96|64|keen4_cloud1.png|True|0
+keen4_cloud1|719|48|96|64|keen4_cloud1.png|True|0
+keen4_cloud1|2156|107|96|64|keen4_cloud1.png|True|0
+keen4_large_cloud|1187|52|192|92|keen4_large_cloud.png|True|0
+keen4_forest_platform_middle|0|302|3000|38|10
+keen4_gray_door|62|209|60|92|15|KEEN4_GRAY|1|2
+keen4_oracle_door2|348|144|126|160|15|KEEN4_ORACLE|2|1
+keen_stand_right|180|64|26|64|RIGHT
+edge_of_map_tile_debug|-16|-16|32|5016|25|BARRIER
+edge_of_map_tile_debug|-16|-16|3016|32|25|BARRIER
+edge_of_map_tile_debug|2984|-16|32|5016|25|BARRIER

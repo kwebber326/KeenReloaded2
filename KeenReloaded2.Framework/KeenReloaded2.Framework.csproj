@@ -53,6 +53,7 @@
     <Compile Include="GameEntities\Constructs\Hill.cs" />
     <Compile Include="GameEntities\Constructs\ImageDisplay.cs" />
     <Compile Include="GameEntities\Constructs\Keen4GlassDome.cs" />
+    <Compile Include="GameEntities\Constructs\Keen4OracleDoor.cs" />
     <Compile Include="GameEntities\Constructs\Keen5GeneratorWall.cs" />
     <Compile Include="GameEntities\Constructs\Keen6EyeBallPole.cs" />
     <Compile Include="GameEntities\Constructs\RandomHill.cs" />

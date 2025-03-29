@@ -2414,7 +2414,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 return;
 
             if (this.MoveState != Enums.MoveState.ENTERING_DOOR && _currentDoor != null
-                && Math.Abs(this.HitBox.Bottom - _currentDoor.HitBox.Bottom) <= 3)
+                && Math.Abs(this.HitBox.Bottom - _currentDoor.HitBox.Bottom) <= 16)
             {
                 if (_currentDoor.DestinationDoor != null || (_hasKeyCard && _currentDoor is ExitDoor))
                 {
