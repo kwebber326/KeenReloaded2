@@ -42,7 +42,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             {
                 this.HitBox = new Rectangle(this.HitBox.X + VERTICAL_OFFSET_FOR_DEATH_COLLISION, this.HitBox.Y + VERTICAL_OFFSET_FOR_DEATH_COLLISION,
                     this.HitBox.Width - (HORIZONTAL_OFFSET_FOR_DEATH_COLLISION * 2), this.HitBox.Height - VERTICAL_OFFSET_FOR_DEATH_COLLISION);
-                LandingTile = new InvisibleTile(_collisionGrid, new Rectangle(this.HitBox.X, this.HitBox.Y, this.HitBox.Width, VERTICAL_OFFSET_FOR_DEATH_COLLISION));
+                LandingTile = new InvisibleTile(_collisionGrid, new Rectangle(this.HitBox.X, this.HitBox.Y - VERTICAL_OFFSET_FOR_DEATH_COLLISION, this.HitBox.Width, VERTICAL_OFFSET_FOR_DEATH_COLLISION));
             }
         }
 

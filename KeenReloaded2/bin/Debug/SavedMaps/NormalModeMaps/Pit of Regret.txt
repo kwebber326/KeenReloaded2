@@ -298,7 +298,7 @@ keen4_platform_stationary|2712|902|104|32|18|[2712,4900,2712,902]|10a07e0d-84d4-
 keen4_platform_stationary|1719|2217|104|32|18|[400,2217,1719,2217]|4b4fcc30-6954-454e-b893-534f5893f76b|False
 keen4_mine|1108|4726|46|46|RIGHT|1108|4726|100|46|20
 keen4_mine|85|3055|46|46|RIGHT|85|3055|400|46|20
-keen_stand_right|32|236|26|64|RIGHT
+keen_stand_right|32|251|26|64|RIGHT
 edge_of_map_tile_debug|-16|-16|32|5016|25|BARRIER
 edge_of_map_tile_debug|-16|-16|3016|32|25|BARRIER
 edge_of_map_tile_debug|2984|-16|32|5016|25|BARRIER
@@ -393,7 +393,7 @@ fg_keen4_forest_wall_middle|2658|429|232|72|fg_keen4_forest_wall_middle.png|Fals
 fg_keen4_forest_wall_middle|2655|499|128|64|fg_keen4_forest_wall_middle.png|False|100
 fg_keen4_forest_wall_middle|1645|1736|192|370|fg_keen4_forest_wall_middle.png|False|100
 keen4_switch1_off|714|3601|32|32|15|KEEN4_1|[a98cf350-dad6-4bea-b5fc-0e7b2daa895c]|False
-keen4_switch1_off|1662|1661|32|32|15|KEEN4_1|[4b4fcc30-6954-454e-b893-534f5893f76b]|False
+keen4_switch1_off|1659|1660|32|32|15|KEEN4_1|[4b4fcc30-6954-454e-b893-534f5893f76b]|False
 gem_placeholder_red_empty|476|4408|26|22|50|RED|[038ff0cb-eb56-48a1-8504-68307ffd47c5]
 gem_placeholder_blue_empty|242|2550|26|22|50|BLUE|[ba526cca-2bc4-44c3-897d-c1088b9dded7]
 gem_placeholder_green_empty|2819|4941|26|22|50|GREEN|[0d74ce57-0137-477f-a5c2-6ae5d8110263]

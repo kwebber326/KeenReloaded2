@@ -435,7 +435,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 return true;
             }
             var tile = GetTopMostLandingTile(collisionObjectsBelow);
-            if (tile != null && tile is MapEdgeTile)
+            if (tile != null && (tile is MapEdgeTile || tile is Hazard))
             {
                 HandleCollision(tile);
             }
@@ -1565,6 +1565,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             || h.CollisionType == CollisionType.PLATFORM
             || h.CollisionType == CollisionType.KEEN_ONLY_PLATFORM
             || h.CollisionType == CollisionType.POLE_TILE
+            || h.CollisionType == CollisionType.HAZARD
             || (h.CollisionType == CollisionType.KEEN6_SWITCH && ((Keen6Switch)h).IsActive))
                 && h.HitBox.Top >= this.HitBox.Top);
 

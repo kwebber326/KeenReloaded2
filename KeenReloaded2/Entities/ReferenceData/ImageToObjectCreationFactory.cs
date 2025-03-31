@@ -353,7 +353,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                              PropertyName = "zIndex",
                              DisplayName = "Z Index: ",
                              DataType = typeof(int),
-                             Value = 100
+                             Value = 201
                          }
                     }.ToArray();
 
