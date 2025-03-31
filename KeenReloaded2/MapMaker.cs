@@ -347,7 +347,7 @@ namespace KeenReloaded2
                     property.Value = Guid.NewGuid();
                 }
             }
-            else if (obj.ObjectType == typeof(Door))
+            else if (obj.ObjectType == typeof(Door) || obj.ObjectType == typeof(Keen4OracleDoor))
             {
                 var property = obj.ConstructorParameters.FirstOrDefault(p => p.PropertyName == GeneralGameConstants.DOOR_ID_PROPERTY_NAME);
                 if (property != null)
