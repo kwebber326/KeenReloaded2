@@ -51,6 +51,12 @@ namespace KeenReloaded2
             musicSelectControl1.Visible = settings.Music;
         }
 
+        private void InitializePartialAlgoSettings()
+        {
+            bool usePartialAlgo = FileIOUtility.LoadUsePartialAlgoSettings();
+            chkPartialUpdate.Checked = usePartialAlgo;
+        }
+
         private void InitializeCharacterSelect()
         {
             pbCharacter.Image = characterSelectControl1.SelectedImage;
@@ -197,6 +203,7 @@ namespace KeenReloaded2
             ConstructMenu();
             InitializeCharacterSelect();
             InitializeAudioSettings();
+            InitializePartialAlgoSettings();
         }
 
         private void Option_MenuItemSelected(object sender, ControlEventArgs.MainMenuOptionEventArgs e)
