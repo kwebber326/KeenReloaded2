@@ -2164,7 +2164,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                         else if (this.CanLookUp)
                         {
                             var door = GetFirstOrCollidingDoor();
-                            var toggleSwitch = GetFirstCollidingSwitch();
+                            var toggleSwitch = GetClosestCollidingSwitch();
                             if (door != null && !(toggleSwitch is ToggleSwitch))
                             {
                                 TryEnterDoor(door);
@@ -2454,11 +2454,12 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             return doors.FirstOrDefault();
         }
 
-        private IActivator GetFirstCollidingSwitch()
+        private IActivator GetClosestCollidingSwitch()
         {
             var items = this.CheckCollision(this.HitBox);
-            var switches = items.OfType<IActivator>();
-            return switches.FirstOrDefault();
+            var switches = items.Where(d => d.CollisionType == CollisionType.TOGGLE_SWITCH).ToList();
+            var closestSwitch = this.GetClosestCollision(switches);
+            return closestSwitch as IActivator;
         }
 
         private void TryShoot()
