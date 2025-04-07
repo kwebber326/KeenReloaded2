@@ -129,6 +129,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             }
             var collisionItems = this.CheckCollision(areaToCheck);
             var keens = collisionItems.OfType<CommanderKeen>();
+            var explodables = collisionItems.OfType<IExplodable>();
             var walls = collisionItems.Where(c => c.CollisionType == CollisionType.BLOCK);
 
             if (walls.Any())
@@ -140,6 +141,16 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             {
                 KillKeens(keens, areaToCheck);
                 AdvancePositionByDirection();
+                if (explodables.Any())
+                {
+                    foreach (var explodable in explodables)
+                    {
+                        if (explodable.ExplodesFromProjectileCollision)
+                        {
+                            explodable.Explode();
+                        }
+                    }
+                }
             }
         }
 

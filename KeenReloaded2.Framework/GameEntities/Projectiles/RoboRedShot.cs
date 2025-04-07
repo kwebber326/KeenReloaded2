@@ -129,9 +129,9 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             var collisions = this.CheckCollision(areaToCheck);
             var keens = collisions.OfType<CommanderKeen>();
             var explodables = collisions.OfType<IExplodable>();
-            
+
             bool keensToKill = keens.Any();
-            bool explodablesToKill = explodables.Any(e => e.ExplodesFromProjectileCollision);
+            bool explodablesToKill = explodables.Any();
 
             var horizontalTile = _isLeftDirection ? this.GetRightMostLeftTile(collisions) : this.GetLeftMostRightTile(collisions);
             var verticalTile = _isUpDirection ? this.GetCeilingTile(collisions) : this.GetTopMostLandingTile(collisions);
@@ -188,7 +188,8 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         {
             foreach (var explodable in explodables)
             {
-                explodable.Explode();
+                if (explodable.ExplodesFromProjectileCollision)
+                    explodable.Explode();
             }
         }
 

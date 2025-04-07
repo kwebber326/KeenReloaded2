@@ -4,9 +4,11 @@ keen5_pipe_platform|176|625|346|80|10
 keen5_pipe_platform|522|625|346|80|10
 keen5_pipe_platform|868|625|346|80|10
 keen5_pipe_platform|472|329|346|80|10
-keen4_dart_gun_left|868|620|26|32|18|LEFT|True|0
+keen5_wall_black_middle|369|728|64|64|10
+keen5_laser_turret_down|386|58|32|66|14|DOWN|True|KEEN5|0
 keen_stand_right|615|215|26|64|RIGHT
-keen5_robo_red_right|178|466|126|128|25
-keen5_shelley_left2|421|564|28|30|25
-keen5_shelley_left2|550|555|28|30|25
-keen5_shelley_left2|673|573|28|30|25
+keen5_shelley_left2|306|560|28|30|25
+keen5_shelley_left2|536|560|28|30|25
+keen5_shelley_left2|659|553|28|30|25
+keen5_shockshund_look1|793|559|48|32|25
+keen5_shikadi_mine|385|562|68|52|25
