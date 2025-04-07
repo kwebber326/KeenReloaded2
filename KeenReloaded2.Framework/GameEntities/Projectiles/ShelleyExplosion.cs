@@ -114,6 +114,8 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         public bool CanUpdate => true;
 
+        public bool ExplodesFromProjectileCollision => false;
+
         protected void OnCreate(ObjectEventArgs args)
         {
             if (Create != null)

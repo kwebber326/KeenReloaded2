@@ -450,6 +450,8 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 
         public override CollisionType CollisionType => CollisionType.EXPLOSION;
 
+        public bool ExplodesFromProjectileCollision => false;
+
         protected virtual void UpdateSprite()
         {
             if (++_currentImage >= _explosionImages.Length)

@@ -128,7 +128,10 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             Rectangle areaToCheck = new Rectangle(xCheck, yCheck, this.HitBox.Width + this.Velocity, this.HitBox.Height + this.Spread);
             var collisions = this.CheckCollision(areaToCheck);
             var keens = collisions.OfType<CommanderKeen>();
+            var explodables = collisions.OfType<IExplodable>();
+            
             bool keensToKill = keens.Any();
+            bool explodablesToKill = explodables.Any(e => e.ExplodesFromProjectileCollision);
 
             var horizontalTile = _isLeftDirection ? this.GetRightMostLeftTile(collisions) : this.GetLeftMostRightTile(collisions);
             var verticalTile = _isUpDirection ? this.GetCeilingTile(collisions) : this.GetTopMostLandingTile(collisions);
@@ -140,7 +143,10 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 if (keensToKill)
                 {
                     KillKeensIfColliding(keens);
-                    //HandleHorizontalKeenCollisions(keens, xPos);
+                }
+                if (explodablesToKill)
+                {
+                    ExplodeApplicableExplosiveObjects(explodables);
                 }
                 this.Stop();
                 return;
@@ -157,6 +163,10 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     //HandleVerticalKeenCollisions(keens, yPos);
                     KillKeensIfColliding(keens);
                 }
+                if (explodablesToKill)
+                {
+                    ExplodeApplicableExplosiveObjects(explodables);
+                }
                 this.Stop();
                 return;
             }
@@ -167,6 +177,18 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 {
                     HandleOpenKeenCollision(areaToCheck, keens);
                 }
+                if (explodablesToKill)
+                {
+                    ExplodeApplicableExplosiveObjects(explodables);
+                }
+            }
+        }
+
+        private static void ExplodeApplicableExplosiveObjects(IEnumerable<IExplodable> explodables)
+        {
+            foreach (var explodable in explodables)
+            {
+                explodable.Explode();
             }
         }
 
@@ -188,42 +210,6 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 if (keen.HitBox.IntersectsWith(areaToCheck))
                 {
                     keen.Die();
-                }
-            }
-        }
-
-        private void HandleVerticalKeenCollisions(IEnumerable<CommanderKeen> keens, int yPos)
-        {
-            foreach (var keen in keens)
-            {
-                if (_isUpDirection)
-                {
-                    if (keen.HitBox.Bottom >= yPos)
-                    {
-                        HandleCollision(keen);
-                    }
-                }
-                else if (keen.HitBox.Bottom <= yPos + this.HitBox.Height)
-                {
-                    HandleCollision(keen);
-                }
-            }
-        }
-
-        private void HandleHorizontalKeenCollisions(IEnumerable<CommanderKeen> keens, int xPos)
-        {
-            foreach (var keen in keens)
-            {
-                if (_isLeftDirection)
-                {
-                    if (keen.HitBox.Right >= xPos)
-                    {
-                        HandleCollision(keen);
-                    }
-                }
-                else if (keen.HitBox.Left <= xPos)
-                {
-                    HandleCollision(keen);
                 }
             }
         }

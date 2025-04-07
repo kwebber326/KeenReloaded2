@@ -259,6 +259,8 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
 
         public ExplosionState ExplosionState => _explosionState;
 
+        public bool ExplodesFromProjectileCollision => false;
+
         public override string ToString()
         {
             string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;

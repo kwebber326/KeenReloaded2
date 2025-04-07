@@ -1,0 +1,12 @@
+1500|1500
+keen5_background_omegamatic_blue1|0|0|1500|1500|keen5_background_omegamatic_blue1.png|True|-1
+keen5_pipe_platform|176|625|346|80|10
+keen5_pipe_platform|522|625|346|80|10
+keen5_pipe_platform|868|625|346|80|10
+keen5_pipe_platform|472|329|346|80|10
+keen4_dart_gun_left|868|620|26|32|18|LEFT|True|0
+keen_stand_right|615|215|26|64|RIGHT
+keen5_robo_red_right|178|466|126|128|25
+keen5_shelley_left2|421|564|28|30|25
+keen5_shelley_left2|550|555|28|30|25
+keen5_shelley_left2|673|573|28|30|25

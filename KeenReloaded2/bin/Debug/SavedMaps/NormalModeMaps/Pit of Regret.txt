@@ -93,7 +93,6 @@ keen4_forest_floor_middle|2547|3829|48|64|10
 keen4_forest_floor_edge_left|2475|3829|72|64|10
 keen4_forest_platform_single|2306|3821|32|40|10
 keen4_forest_platform_single|2088|3821|32|40|10
-keen4_forest_platform_single|1910|3819|32|40|10
 keen4_forest_platform_single|1731|3983|32|40|10
 keen4_forest_floor_middle|0|3963|1275|64|10
 keen4_forest_floor_edge_right|1274|3963|52|64|10
@@ -117,6 +116,20 @@ keen4_cave_wall_edge_right|1274|4027|52|64|10
 keen4_cave_floor_edge_right|1800|4060|52|64|10
 king_slug|1432|3692|252|384|king_slug.png|True|10
 keen4_forest_platform_single|34|4573|32|40|10
+keen4_forest_wall_left_edge|2475|3893|64|64|10
+keen4_forest_wall_bottom1|2475|3957|64|32|10
+keen4_forest_wall_bottom1|2411|3957|64|32|10
+keen4_forest_wall_bottom1|2347|3957|64|32|10
+keen4_forest_wall_bottom1|2283|3957|64|32|10
+keen4_forest_wall_bottom1|2219|3957|64|32|10
+keen4_forest_wall_bottom1|2155|3957|64|32|10
+keen4_forest_wall_bottom1|2091|3957|64|32|10
+keen4_forest_wall_right_edge|1976|3893|52|64|10
+keen4_forest_wall_bottom1|1976|3957|128|32|10
+keen4_forest_floor_edge_right|1976|3829|52|64|10
+keen4_forest_floor_edge_left|1904|3829|72|64|10
+keen4_forest_wall_middle|1904|3893|72|64|10
+keen4_forest_wall_bottom1|1904|3957|72|32|10
 keen4_secret_door_background|56|2442|108|128|keen4_secret_door_background.png|True|11
 keen4_secret_door_background|658|2442|108|128|keen4_secret_door_background.png|True|11
 keen4_forest_platform_single|1528|3980|32|40|11
@@ -206,6 +219,9 @@ pole_bottom|346|2717|12|28|15|pole_bottom|BOTTOM|KEEN4_GREEN
 keen4_gray_door|2510|3764|60|92|15|KEEN4_GRAY|7|2
 keen4_oracle_door2|2675|4803|126|160|15|KEEN4_ORACLE|10|9
 keen4_oracle_door2|2423|4484|126|160|15|KEEN4_ORACLE|9|10
+keen5_arrow_up_off|1686|2132|26|28|keen5_arrow_up_off.png|True|15|[keen5_arrow_up_off.png,keen5_arrow_up_on.png]|200
+keen5_arrow_left_off|2526|3692|28|26|keen5_arrow_left_off.png|True|15|[keen5_arrow_left_off.png,keen5_arrow_left_on.png]|200
+keen5_arrow_up_on|2526|3718|26|28|keen5_arrow_up_on.png|True|15|[1_keen5_arrow_up_on.png,keen5_arrow_up_off.png]|200
 keen4_council_member_ponder_right|2795|242|38|76|16
 keen4_spear_wait_down|2703|792|20|10|18|DOWN
 keen4_spear_wait_down|2817|792|20|10|18|DOWN
@@ -293,6 +309,7 @@ keen4_platform_stationary|1260|4615|104|32|18|[2250,4615,1260,4615]|786a4eef-676
 enemy_spawner1|2729|638|92|94|18|[Lick]|3|20|20
 keen5_arrow_up_on|2705|4695|26|28|keen5_arrow_up_on.png|True|18|[1_keen5_arrow_up_on.png,keen5_arrow_up_off.png]|200
 keen5_arrow_up_on|2743|4695|26|28|keen5_arrow_up_on.png|True|18|[1_keen5_arrow_up_on.png,keen5_arrow_up_off.png]|200
+keen4_tar1|2028|3893|64|64|18|7|0
 keen4_platform_stationary|2712|902|104|32|19|[2712,4900,2712,902]|10a07e0d-84d4-4ed0-b280-938c646b4f84|True
 keen4_mine|1108|4726|46|46|RIGHT|1108|4726|100|46|20
 keen4_mine|85|3055|46|46|RIGHT|85|3055|400|46|20

@@ -79,14 +79,9 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     StopAtCollisionObject(obj);
                 }
             }
-            else if (obj is Shelley)
+            else if (obj is IExplodable)
             {
-                var shelley = (Shelley)obj;
-                shelley.Explode();
-                if (--_pierce < 0)
-                {
-                    StopAtCollisionObject(obj);
-                }
+                ExplodeObjectIfApplicable(obj);
             }
             else if (obj is KeenStunShot && !(obj is IExplodable))
             {

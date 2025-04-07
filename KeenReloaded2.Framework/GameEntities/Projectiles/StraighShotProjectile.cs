@@ -1,6 +1,7 @@
 ﻿using KeenReloaded.Framework;
 using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.GameEntities.Enemies;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEventArgs;
@@ -60,6 +61,23 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             {
                 var keen = (CommanderKeen)obj;
                 keen.Die();
+                if (--_pierce < 0)
+                {
+                    StopAtCollisionObject(obj);
+                }
+            }
+            else if (obj is IExplodable)
+            {
+                ExplodeObjectIfApplicable(obj);
+            }
+        }
+
+        protected void ExplodeObjectIfApplicable(CollisionObject obj)
+        {
+            var explodable = (IExplodable)obj;
+            if (explodable.ExplodesFromProjectileCollision)
+            {
+                explodable.Explode();
                 if (--_pierce < 0)
                 {
                     StopAtCollisionObject(obj);
@@ -350,11 +368,14 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 var keens = collisionObjects.OfType<CommanderKeen>().ToList();
                 var itemsToCheck = new List<CollisionObject>();
                 itemsToCheck.AddRange(debugTiles);
+                var explodables = collisionObjects.OfType<Shelley>().ToList();
+               
                 foreach (var keen in keens)
                 {
                     if (keen != null)
                         itemsToCheck.Add(keen);
                 }
+                itemsToCheck.AddRange(explodables);
                 if (itemsToCheck.Any())
                 {
                     HandleCollisionByDirection(collisionObjects);

@@ -556,6 +556,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public bool CanUpdate => true;
 
+        public bool ExplodesFromProjectileCollision => true;
+
         public override string ToString()
         {
             string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;

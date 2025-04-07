@@ -12,5 +12,7 @@ namespace KeenReloaded2.Framework.GameEntities.Interfaces
         void Explode();
 
         ExplosionState ExplosionState { get; }
+
+        bool ExplodesFromProjectileCollision { get; }
     }
 }
