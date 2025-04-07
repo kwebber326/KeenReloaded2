@@ -674,7 +674,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             get { return _state; }
         }
 
-        public bool ExplodesFromProjectileCollision => true;
+        public bool ExplodesFromProjectileCollision => false;
 
         public event EventHandler<ObjectEventArgs> Create;
 

@@ -68,6 +68,10 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             }
             else if (obj is IExplodable)
             {
+                if (--_pierce < 0)
+                {
+                    StopAtCollisionObject(obj);
+                }
                 ExplodeObjectIfApplicable(obj);
             }
         }
@@ -78,10 +82,6 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             if (explodable.ExplodesFromProjectileCollision)
             {
                 explodable.Explode();
-                if (--_pierce < 0)
-                {
-                    StopAtCollisionObject(obj);
-                }
             }
         }
 

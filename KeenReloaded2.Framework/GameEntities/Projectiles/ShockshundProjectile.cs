@@ -79,10 +79,6 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     StopAtCollisionObject(obj);
                 }
             }
-            else if (obj is IExplodable)
-            {
-                ExplodeObjectIfApplicable(obj);
-            }
             else if (obj is KeenStunShot && !(obj is IExplodable))
             {
                 if (--_pierce < 0)
@@ -100,6 +96,10 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 if (boobusBomb != null)
                 {
                     boobusBomb.ForceExplosion();
+                }
+                else
+                {
+                    ExplodeObjectIfApplicable(obj);
                 }
             }
         }
