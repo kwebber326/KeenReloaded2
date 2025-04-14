@@ -8,6 +8,7 @@ using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.Interfaces;
 using System;
 using System.Drawing;
+using System.Linq;
 
 namespace KeenReloaded2.Framework.GameEntities.Enemies
 {
@@ -78,6 +79,18 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             this.Direction = this.GetRandomHorizontalDirection();
 
             this.State = FleexState.FALLING;
+            if (_collidingNodes != null && _collisionGrid != null)
+            {
+                var tileCollisions = this.CheckCollision(this.HitBox, true);
+                var tile = tileCollisions.Where(t => t.HitBox.Top < this.HitBox.Bottom)
+                    .OrderBy(t1 => t1.HitBox.Top).FirstOrDefault();
+                if (tile != null)
+                {
+                    this.HitBox = new Rectangle(this.HitBox.X, tile.HitBox.Top - this.HitBox.Height - 1,
+                        this.HitBox.Width, this.HitBox.Height);
+                }
+                this.State = FleexState.CHASING;
+            }
         }
 
 
