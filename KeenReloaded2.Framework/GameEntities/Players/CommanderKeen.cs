@@ -909,6 +909,13 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 Keen6Switch keen6Switch = (Keen6Switch)obj;
 
                 keen6Switch.OnCollide(this);
+
+                var collisionItems = this.CheckCollision(this.HitBox, true);
+                var landingTile = this.GetTopMostLandingTile(collisionItems);
+                if (landingTile != null)
+                {
+                    this.HitBox = new Rectangle(this.HitBox.X, landingTile.HitBox.Top - this.HitBox.Height - 1, this.HitBox.Width, this.HitBox.Height);
+                }
             }
             else if (obj is CTFDestination)
             {
@@ -933,7 +940,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 //raise keen passed level event
                 this.OnKeenLevelCompleted(new ObjectEventArgs() { ObjectSprite = this });
             }
-           
+
         }
 
         private bool CanOpenGemGate(GemPlaceHolder p)
