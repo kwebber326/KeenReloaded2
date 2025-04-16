@@ -18913,6 +18913,16 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap point_based_mirage_hill {
+            get {
+                object obj = ResourceManager.GetObject("point_based_mirage_hill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pole_bottom {
             get {
                 object obj = ResourceManager.GetObject("pole_bottom", resourceCulture);

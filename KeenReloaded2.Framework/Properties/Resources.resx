@@ -5539,6 +5539,9 @@
   <data name="oracle_elder_wall_hang_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\oracle_elder_wall_hang_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="point_based_mirage_hill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\point_based_mirage_hill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="pole_bottom" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pole_bottom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

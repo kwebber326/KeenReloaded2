@@ -6645,5 +6645,8 @@
   <ItemGroup>
     <None Include="Resources\keen4_council_member_right2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\Miscellaneous\point_based_mirage_hill.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

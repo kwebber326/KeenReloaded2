@@ -4419,8 +4419,48 @@ namespace KeenReloaded2.Entities.ReferenceData
                 }
             };
 
+            MapMakerObjectProperty[] pointHillPropertiesExtra = new MapMakerObjectProperty[]
+          {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "points",
+                    DataType = typeof(List<Point>),
+                    DisplayName = "Locations: ",
+                    Value = new List<Point>()
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "spawnDelaySeconds",
+                    DataType = typeof(int),
+                    DisplayName = "Spawn Delay: ",
+                    Value = 20
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "pointsPerSecond",
+                    DataType = typeof(int),
+                    DisplayName = "Points Per Second: ",
+                    Value = 100
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "additionPointsPerMonster",
+                    DataType = typeof(int),
+                    DisplayName = "Monster Bonus: ",
+                    Value = 100
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "pointLimitPerLocation",
+                    DataType = typeof(int),
+                    DisplayName = "Point Limit Per Location: ",
+                    Value = 10000
+                },
+          };
+
             AddSimpleGameObject(backgroundReferenceData, miscallaneousImageFiles, "mirage_hill4", typeof(Hill), hillPropertiesExtra, 15);
             AddSimpleGameObject(backgroundReferenceData, miscallaneousImageFiles, "random_mirage", typeof(RandomHill), hillPropertiesExtra, 15);
+            AddSimpleGameObject(backgroundReferenceData, miscallaneousImageFiles, "point_based_mirage_hill", typeof(PointBasedHill), pointHillPropertiesExtra, 15);
 
             string mapEdgeTileFile = miscallaneousImageFiles.FirstOrDefault(f => f.Contains("edge_of_map"));
 

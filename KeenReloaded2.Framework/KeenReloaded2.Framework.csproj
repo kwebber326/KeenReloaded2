@@ -56,6 +56,7 @@
     <Compile Include="GameEntities\Constructs\Keen4OracleDoor.cs" />
     <Compile Include="GameEntities\Constructs\Keen5GeneratorWall.cs" />
     <Compile Include="GameEntities\Constructs\Keen6EyeBallPole.cs" />
+    <Compile Include="GameEntities\Constructs\PointBasedHill.cs" />
     <Compile Include="GameEntities\Constructs\RandomHill.cs" />
     <Compile Include="GameEntities\Constructs\RandomWeaponGenerator.cs" />
     <Compile Include="GameEntities\Enemies\BipPlatformOperator.cs" />
@@ -6091,6 +6092,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_council_member_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\point_based_mirage_hill.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

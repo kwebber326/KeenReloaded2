@@ -85,8 +85,8 @@ keen6_industrial_single_block|719|2123|36|36|15
 keen6_industrial_single_block|755|2123|36|36|15
 keen6_industrial_single_block|863|2123|36|36|15
 keen6_industrial_single_block|791|2123|36|36|15
-chute|1801|2767|64|64|15|CHUTE|4|
 keen6_door|1792|2074|124|126|15|KEEN6|3|4
+chute|1803|2828|64|64|15|CHUTE|4|
 keen6_slime_hazard_middle2|551|2178|1024|62|17|2
 keen6_bip_platform|1859|907|98|32|18|[1859,300,500,300,1859,300,1859,907]|12b55d6c-aa09-476a-b068-35f0394edf00|False
 keen6_drop_platform|332|693|98|32|18|KEEN6|400
@@ -164,11 +164,12 @@ neural_stunner1|367|583|30|22|50|50
 keen_dreams_boobus_bomb2|973|1527|30|30|50|5
 keen_dreams_boobus_bomb2|943|1527|30|30|50|5
 keen_dreams_boobus_bomb2|913|1527|30|30|50|5
-neural_stunner_railgun1|1808|2832|52|22|50|5
 keen6_viva_queen2|1272|93|30|30|50|KEEN6_VIVA_QUEEN
+gem_yellow1|1823|2915|26|20|YELLOW|50|False
+neural_stunner_railgun1|1808|2892|52|22|50|5
 bean_with_bacon_megarocket|8|1116|452|174|bean_with_bacon_megarocket.png|True|201
 fg_keen6_purple_rock|628|1229|96|56|fg_keen6_purple_rock.png|True|201
 keen6_Switch_Off|1624|770|90|96|15|[12b55d6c-aa09-476a-b068-35f0394edf00]|False
 keen6_Switch_On|1823|1556|90|96|15|[fc7200b9-0e95-4d9a-8c66-240957703237]|True
-keen6_Switch_On|1791|2868|90|96|15|[824b54a9-5731-4c08-ae3e-2ed433e06aa7]|True
 gem_placeholder_red_empty|1557|1259|26|22|50|RED|[8c52eaa2-0369-4def-81ee-7fe1c7c7aba9]
+gem_placeholder_yellow_empty|1822|2939|26|22|50|YELLOW|[824b54a9-5731-4c08-ae3e-2ed433e06aa7]

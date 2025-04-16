@@ -51,7 +51,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             _sprite = Properties.Resources.mirage_hill4;
         }
 
-        private void Initialize()
+        protected virtual void Initialize()
         {
             this.HillState = HillState.INACTIVE;
             _initialized = true;
@@ -109,7 +109,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
         public bool CanUpdate => true;
 
-        public void Update()
+        public virtual void Update()
         {
             if (!_initialized)
                 Initialize();
@@ -167,7 +167,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             }
         }
 
-        private void ResetSequence()
+        protected void ResetSequence()
         {
             _fading = false;
             _currentHoldTimeTick = 0;
@@ -176,18 +176,18 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             this.HillState = HillState.INACTIVE;
         }
 
-        private void EvaluateScoreOnDelay()
+        protected virtual void EvaluateScoreOnDelay()
         {
             if (_currentPointEvaluationDelayTick++ == POINT_EVALUATION_DELAY)
             {
                 _currentPointEvaluationDelayTick = 0;
-                EvaluatePointsScored();
+                EvaluatePointsScored(out int points);
             }
         }
 
-        private void EvaluatePointsScored()
+        protected virtual void EvaluatePointsScored(out int totalPointsScored)
         {
-            int totalPointsScored = 0;
+            totalPointsScored = 0;
             var players = CurrentPlayerList.Players;
             foreach (var player in players)
             {
@@ -229,7 +229,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             this.HitBox = new Rectangle(_points[_currentPoint], this.HitBox.Size);
         }
 
-        private void UpdateStrength()
+        protected void UpdateStrength()
         {
             int currentStrength = (int)this.HillState;
             if (!_fading)
