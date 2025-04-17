@@ -199,9 +199,15 @@ keen6_pizza_slice1|204|2902|32|32|50|KEEN6_PIZZA_SLICE
 keen6_pizza_slice1|172|2902|32|32|50|KEEN6_PIZZA_SLICE
 neural_stunner_smg_1|76|2127|46|22|50|60
 gem_blue1|1440|2531|26|20|BLUE|50|False
+keen6_viva_queen2|65|2869|30|30|50|KEEN6_VIVA_QUEEN
+keen6_viva_queen2|65|2899|30|30|50|KEEN6_VIVA_QUEEN
 exit_sign1|1859|2251|64|64|exit_sign1.png|True|100|[exit_sign1.png,exit_sign2.png,exit_sign3.png,exit_sign4.png,exit_sign5.png,exit_sign6.png,exit_sign7.png,exit_sign8.png]|300
+keen6_tree_top_eye1|1251|987|80|62|keen6_tree_top_eye1.png|True|100|[keen6_tree_top_eye1.png,keen6_tree_top_eye2.png,keen6_tree_top_eye3.png]|400
 bean_with_bacon_megarocket|8|1116|452|174|bean_with_bacon_megarocket.png|True|201
 fg_keen6_purple_rock|628|1229|96|56|fg_keen6_purple_rock.png|True|201
+keen6_tree_base|1227|1176|128|128|keen6_tree_base.png|True|201
+keen6_tree_height_extension2|1227|1112|128|64|keen6_tree_height_extension2.png|True|201
+keen6_tree_height_extension1|1227|1048|128|64|keen6_tree_height_extension1.png|True|201
 keen6_Switch_Off|1624|770|90|96|15|[12b55d6c-aa09-476a-b068-35f0394edf00]|False
 keen6_Switch_On|1823|1556|90|96|15|[fc7200b9-0e95-4d9a-8c66-240957703237]|True
 gem_placeholder_red_empty|1557|1259|26|22|50|RED|[8c52eaa2-0369-4def-81ee-7fe1c7c7aba9]

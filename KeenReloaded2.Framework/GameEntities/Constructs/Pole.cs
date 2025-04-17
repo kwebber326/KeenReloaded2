@@ -26,7 +26,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         private PoleType _poleType;
         private CollisionType _collisionType = CollisionType.POLE;
         private string _biomeType;
-        private Image _image;
+        protected Image _image;
         private Rectangle _area;
         private bool _updated;
         private const int MANHOLE_POLE_X_OFFSET = 40;

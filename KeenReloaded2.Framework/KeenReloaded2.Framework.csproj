@@ -56,6 +56,8 @@
     <Compile Include="GameEntities\Constructs\Keen4OracleDoor.cs" />
     <Compile Include="GameEntities\Constructs\Keen5GeneratorWall.cs" />
     <Compile Include="GameEntities\Constructs\Keen6EyeBallPole.cs" />
+    <Compile Include="GameEntities\Constructs\Keen6Tree\Keen6TreeBranch.cs" />
+    <Compile Include="GameEntities\Constructs\Keen6Tree\Keen6TreeVine.cs" />
     <Compile Include="GameEntities\Constructs\PointBasedHill.cs" />
     <Compile Include="GameEntities\Constructs\RandomHill.cs" />
     <Compile Include="GameEntities\Constructs\RandomWeaponGenerator.cs" />
@@ -6095,6 +6097,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\point_based_mirage_hill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_base.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_height_extension1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_height_extension2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_left_branch1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_left_branch2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_right_branch1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_right_branch2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_top_eye1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_top_eye2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_top_eye3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_top_no_eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_vine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_vine_bottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_stump.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

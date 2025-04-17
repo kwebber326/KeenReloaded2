@@ -6424,4 +6424,46 @@
   <data name="point_based_mirage_hill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\MapMakerObjects\Miscellaneous\point_based_mirage_hill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen6_tree_base" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen6_tree_base.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_tree_height_extension1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen6_tree_height_extension1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_tree_height_extension2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen6_tree_height_extension2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_tree_left_branch1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen6_tree_left_branch1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_tree_left_branch2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen6_tree_left_branch2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_tree_right_branch1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen6_tree_right_branch1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_tree_right_branch2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen6_tree_right_branch2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_tree_stump" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen6_tree_stump.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_tree_top_eye1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen6_tree_top_eye1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_tree_top_eye2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen6_tree_top_eye2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_tree_top_eye3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen6_tree_top_eye3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_tree_top_no_eye" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen6_tree_top_no_eye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_tree_vine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen6_tree_vine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_tree_vine_bottom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen6_tree_vine_bottom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

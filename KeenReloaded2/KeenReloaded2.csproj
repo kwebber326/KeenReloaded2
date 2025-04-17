@@ -6648,5 +6648,47 @@
   <ItemGroup>
     <None Include="bin\Debug\MapMakerObjects\Miscellaneous\point_based_mirage_hill.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_base.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_height_extension1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_height_extension2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_left_branch1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_left_branch2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_right_branch1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_right_branch2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_top_eye1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_top_eye2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_top_eye3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_top_no_eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_vine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_vine_bottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_tree_stump.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

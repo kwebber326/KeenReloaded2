@@ -4,6 +4,7 @@ using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.AltCharacters;
 using KeenReloaded2.Framework.GameEntities.Backgrounds;
 using KeenReloaded2.Framework.GameEntities.Constructs;
+using KeenReloaded2.Framework.GameEntities.Constructs.Keen6Tree;
 using KeenReloaded2.Framework.GameEntities.Enemies;
 using KeenReloaded2.Framework.GameEntities.Hazards;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
@@ -497,7 +498,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                              PropertyName = "zIndex",
                              DisplayName = "Z Index: ",
                              DataType = typeof(int),
-                             Value = 100
+                             Value = 201
                          },
                          new MapMakerObjectProperty()
                          {
@@ -612,6 +613,10 @@ namespace KeenReloaded2.Entities.ReferenceData
             string keen6IndustrialDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_TILES, "keen6", Biomes.BIOME_KEEN6_INDUSTRIAL);
             string[] keen6IndustrialTileFiles = Directory.GetFiles(keen6IndustrialDirectory);
 
+
+            string keen6ForestTileDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_TILES, "keen6", Biomes.BIOME_KEEN6_FOREST);
+            string[] keen6ForestTileFiles = Directory.GetFiles(keen6ForestTileDirectory);
+
             string searchText = "keen5_pipe_platform";
             AddSimpleGameObject(backgroundReferenceData, keen5BlackTileFiles, searchText, typeof(Keen5LargePipePlatform), new MapMakerObjectProperty[] { }, 10);
 
@@ -679,6 +684,122 @@ namespace KeenReloaded2.Entities.ReferenceData
             string[] keen6FinalConstructFiles = Directory.GetFiles(keen6FinalConstructDirectory);
             string eyeBallPoleKey = nameof(Properties.Resources.keen6_eyeball_pole);
             AddSimpleGameObject(backgroundReferenceData, keen6FinalConstructFiles, eyeBallPoleKey, typeof(Keen6EyeBallPole), null, 10);
+
+            //Forest constructs
+            //tree vine
+            string treeVineKey = nameof(Properties.Resources.keen6_tree_vine_bottom);
+            MapMakerObjectProperty[] additionVineProperties = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "vineLength",
+                    DisplayName = "Vine Length:",
+                    DataType = typeof(int),
+                    Value = 0
+                }
+            };
+            AddSimpleGameObject(backgroundReferenceData, keen6FinalConstructFiles, treeVineKey, typeof(Keen6TreeVine), additionVineProperties, 10);
+
+            //left first tree branch
+            string leftDefaultBranchKey = nameof(Properties.Resources.keen6_tree_left_branch1);
+            MapMakerObjectProperty[] additionalDefaultLeftBranchProperties = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "branchDirection",
+                    DisplayName = "Branch Direction",
+                    Hidden = true,
+                    DataType = typeof(Direction),
+                    PossibleValues = Enum.GetNames(typeof(Direction))
+                        .Where(e => e == "LEFT" || e == "RIGHT").ToArray(),
+                    Value = Direction.LEFT
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "useFirstImage",
+                    DisplayName = "Use First Image",
+                    Hidden = true,
+                    DataType = typeof(bool),
+                    Value = true
+                },
+            };
+            AddSimpleGameObject(backgroundReferenceData, keen6ForestTileFiles, leftDefaultBranchKey, typeof(Keen6TreeBranch), additionalDefaultLeftBranchProperties, 202);
+
+            //left second tree branch
+            string leftNonDefaultBranchKey = nameof(Properties.Resources.keen6_tree_left_branch2);
+            MapMakerObjectProperty[] additionalNonDefaultLeftBranchProperties = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "branchDirection",
+                    DisplayName = "Branch Direction",
+                    Hidden = true,
+                    DataType = typeof(Direction),
+                    PossibleValues = Enum.GetNames(typeof(Direction))
+                        .Where(e => e == "LEFT" || e == "RIGHT").ToArray(),
+                    Value = Direction.LEFT
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "useFirstImage",
+                    DisplayName = "Use First Image",
+                    Hidden = true,
+                    DataType = typeof(bool),
+                    Value = false
+                },
+            };
+            AddSimpleGameObject(backgroundReferenceData, keen6ForestTileFiles, leftNonDefaultBranchKey, typeof(Keen6TreeBranch), additionalNonDefaultLeftBranchProperties, 202);
+
+            //right first tree branch
+            string rightDefaultBranchKey = nameof(Properties.Resources.keen6_tree_right_branch1);
+            MapMakerObjectProperty[] additionalDefaultRightBranchProperties = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "branchDirection",
+                    DisplayName = "Branch Direction",
+                    Hidden = true,
+                    DataType = typeof(Direction),
+                    PossibleValues = Enum.GetNames(typeof(Direction))
+                        .Where(e => e == "LEFT" || e == "RIGHT").ToArray(),
+                    Value = Direction.RIGHT
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "useFirstImage",
+                    DisplayName = "Use First Image",
+                    Hidden = true,
+                    DataType = typeof(bool),
+                    Value = true
+                },
+            };
+            AddSimpleGameObject(backgroundReferenceData, keen6ForestTileFiles, rightDefaultBranchKey, typeof(Keen6TreeBranch), additionalDefaultRightBranchProperties, 202);
+
+
+            //right second tree branch
+            string rightNonDefaultBranchKey = nameof(Properties.Resources.keen6_tree_right_branch2);
+            MapMakerObjectProperty[] additionalNonDefaultRightBranchProperties = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "branchDirection",
+                    DisplayName = "Branch Direction",
+                    Hidden = true,
+                    DataType = typeof(Direction),
+                    PossibleValues = Enum.GetNames(typeof(Direction))
+                        .Where(e => e == "LEFT" || e == "RIGHT").ToArray(),
+                    Value = Direction.RIGHT
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "useFirstImage",
+                    DisplayName = "Use First Image",
+                    Hidden = true,
+                    DataType = typeof(bool),
+                    Value = false
+                },
+            };
+            AddSimpleGameObject(backgroundReferenceData, keen6ForestTileFiles, rightNonDefaultBranchKey, typeof(Keen6TreeBranch), additionalNonDefaultRightBranchProperties, 202);
 
             //keen6 industrial gray block platform
             string grayBlockKey = nameof(Properties.Resources.keen6_industrial_single_block);

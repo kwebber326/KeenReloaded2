@@ -16333,6 +16333,146 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen6_tree_base {
+            get {
+                object obj = ResourceManager.GetObject("keen6_tree_base", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_tree_height_extension1 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_tree_height_extension1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_tree_height_extension2 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_tree_height_extension2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_tree_left_branch1 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_tree_left_branch1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_tree_left_branch2 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_tree_left_branch2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_tree_right_branch1 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_tree_right_branch1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_tree_right_branch2 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_tree_right_branch2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_tree_stump {
+            get {
+                object obj = ResourceManager.GetObject("keen6_tree_stump", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_tree_top_eye1 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_tree_top_eye1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_tree_top_eye2 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_tree_top_eye2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_tree_top_eye3 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_tree_top_eye3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_tree_top_no_eye {
+            get {
+                object obj = ResourceManager.GetObject("keen6_tree_top_no_eye", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_tree_vine {
+            get {
+                object obj = ResourceManager.GetObject("keen6_tree_vine", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_tree_vine_bottom {
+            get {
+                object obj = ResourceManager.GetObject("keen6_tree_vine_bottom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen6_viva_acquired1 {
             get {
                 object obj = ResourceManager.GetObject("keen6_viva_acquired1", resourceCulture);
