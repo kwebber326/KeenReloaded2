@@ -523,6 +523,15 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 _currentLookSprite = 0;
             }
 
+            if (this.IsNothingBeneath())
+            {
+                this.BasicFall(BASIC_FALL_VELOCITY);
+                this.UpdateCollisionNodes(Direction.DOWN);
+                _currentLookSprite++;
+                this.UpdateSprite();
+                return;
+            }
+
             if (_currentLookTimeTick++ == LOOK_TIME)
             {
                 this.Walk();
