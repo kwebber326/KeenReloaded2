@@ -47,6 +47,21 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             this.Explode();
         }
 
+        protected override CollisionObject GetTopMostLandingTile(List<CollisionObject> collisions)
+        {
+            CollisionObject topMostTile = null;
+            var landingTiles = collisions.Where(h => (h.CollisionType == CollisionType.BLOCK)
+                && h.HitBox.Top >= this.HitBox.Bottom);
+
+            if (!landingTiles.Any())
+                return null;
+
+            int minY = landingTiles.Select(c => c.HitBox.Top).Min();
+            topMostTile = landingTiles.FirstOrDefault(t => t.HitBox.Top == minY);
+
+            return topMostTile;
+        }
+
         private void SetInitialHitbox()
         {
             switch (_direction)
@@ -128,7 +143,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         {
             var collisions = this.CheckCollision(this.HitBox);
             _upTile = (!this.IsVerticalDirection(_direction) && _currentExplosionNum > 1) ? null : this.GetCeilingTileForSubsequentExplosions(collisions);
-            _downTile = (!this.IsVerticalDirection(_direction) && _currentExplosionNum > 1) ? null : this.GetTopMostLandingTile(collisions);
+            _downTile = (!this.IsVerticalDirection(_direction) && _currentExplosionNum > 1) ? null : this.GetTopMostLandingTileForSubsequentExplosions(collisions);
             _leftTile = (!this.IsHorizontalDirection(_direction) && _currentExplosionNum > 1) ? null : this.GetRightMostLeftTileSubsequentExplosions(collisions);
             _rightTile = (!this.IsHorizontalDirection(_direction) && _currentExplosionNum > 1) ? null : this.GetLeftMostRightTileSubsequentExplosions(collisions);
             switch (_direction)
@@ -288,13 +303,9 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             var debugTiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK && !(c is DestructibleObject));
             if (collisions.Any() && debugTiles.Any())
             {
-                var leftTiles = debugTiles.Where(c => c.HitBox.Right <= this.HitBox.Right && c.HitBox.Right >= this.HitBox.Left && c.HitBox.Top < this.HitBox.Bottom && c.HitBox.Bottom > this.HitBox.Top).ToList();
-                if (leftTiles.Any())
-                {
-                    int maxX = leftTiles.Select(t => t.HitBox.Right).Max();
-                    CollisionObject obj = leftTiles.FirstOrDefault(x => x.HitBox.Right == maxX);
-                    return obj;
-                }
+                int maxX = debugTiles.Select(t => t.HitBox.Right).Max();
+                CollisionObject obj = debugTiles.FirstOrDefault(x => x.HitBox.Right == maxX);
+                return obj;
             }
             return null;
         }
@@ -304,25 +315,34 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             var debugTiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK && !(c is DestructibleObject));
             if (collisions.Any() && debugTiles.Any())
             {
-                var rightTiles = debugTiles.Where(c => c.HitBox.Right >= this.HitBox.Right && c.HitBox.Left <= this.HitBox.Right && c.HitBox.Top < this.HitBox.Bottom && c.HitBox.Bottom > this.HitBox.Top).ToList();
-                if (rightTiles.Any())
-                {
-                    int minX = rightTiles.Select(t => t.HitBox.Left).Min();
-                    CollisionObject obj = rightTiles.FirstOrDefault(x => x.HitBox.Left == minX);
-                    return obj;
-                }
+                int minX = debugTiles.Select(t => t.HitBox.Left).Min();
+                CollisionObject obj = debugTiles.FirstOrDefault(x => x.HitBox.Left == minX);
+                return obj;
             }
             return null;
         }
 
         private CollisionObject GetCeilingTileForSubsequentExplosions(List<CollisionObject> collisions)
         {
-            var debugTiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK 
-                && !(c is DestructibleObject) && c.HitBox.Bottom <= this.HitBox.Top).ToList();
+            var debugTiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK
+                && !(c is DestructibleObject)).ToList();
             if (debugTiles.Any())
             {
                 int maxBottom = debugTiles.Select(c => c.HitBox.Bottom).Max();
                 CollisionObject obj = collisions.FirstOrDefault(c => c.HitBox.Bottom == maxBottom);
+                return obj;
+            }
+            return null;
+        }
+
+        private CollisionObject GetTopMostLandingTileForSubsequentExplosions(List<CollisionObject> collisions)
+        {
+            var debugTiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK
+                && !(c is DestructibleObject)).ToList();
+            if (debugTiles.Any())
+            {
+                int maxTop = debugTiles.Select(c => c.HitBox.Top).Max();
+                CollisionObject obj = collisions.FirstOrDefault(c => c.HitBox.Top == maxTop);
                 return obj;
             }
             return null;
