@@ -6699,5 +6699,62 @@
   <ItemGroup>
     <None Include="Resources\keen4_exit_sign_wood2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_flag_waving1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_flag_waving2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_flag_waving3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_flag_waving4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_flipping_flag1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_flipping_flag2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_flipping_flag3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_flipping_flag4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_flipping_flag5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_landing_flag1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_landing_flag2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_flag_hand_closed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_flag_hand_opened.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_flag_base1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_flag_base2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_flag1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_flag2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_flag3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_flag4.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

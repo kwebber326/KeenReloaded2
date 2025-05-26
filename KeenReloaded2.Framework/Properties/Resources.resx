@@ -2083,6 +2083,24 @@
   <data name="keen5_exit_door_open3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_exit_door_open3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen5_flag1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_flag1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_flag2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_flag2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_flag3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_flag3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_flag4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_flag4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_flag_base1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_flag_base1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_flag_base2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_flag_base2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keen5_floor_black_floor_edge_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_floor_black_floor_edge_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -3733,6 +3751,12 @@
   <data name="keen6_eyeball_pole" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen6_eyeball_pole.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen6_flag_hand_closed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen6_flag_hand_closed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen6_flag_hand_opened" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen6_flag_hand_opened.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keen6_flame_thrower_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen6_flame_thrower_off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -4867,6 +4891,33 @@
   <data name="keen_fall_right1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen_fall_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen_flag_waving1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen_flag_waving1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen_flag_waving2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen_flag_waving2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen_flag_waving3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen_flag_waving3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen_flag_waving4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen_flag_waving4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen_flipping_flag1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen_flipping_flag1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen_flipping_flag2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen_flipping_flag2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen_flipping_flag3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen_flipping_flag3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen_flipping_flag4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen_flipping_flag4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen_flipping_flag5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen_flipping_flag5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keen_hang_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen_hang_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -4902,6 +4953,12 @@
   </data>
   <data name="keen_jump_right21" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen_jump_right2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen_landing_flag1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen_landing_flag1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen_landing_flag2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen_landing_flag2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="keen_look_down1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen_look_down1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

@@ -4003,6 +4003,96 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen_flag_waving1 {
+            get {
+                object obj = ResourceManager.GetObject("keen_flag_waving1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_flag_waving2 {
+            get {
+                object obj = ResourceManager.GetObject("keen_flag_waving2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_flag_waving3 {
+            get {
+                object obj = ResourceManager.GetObject("keen_flag_waving3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_flag_waving4 {
+            get {
+                object obj = ResourceManager.GetObject("keen_flag_waving4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_flipping_flag1 {
+            get {
+                object obj = ResourceManager.GetObject("keen_flipping_flag1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_flipping_flag2 {
+            get {
+                object obj = ResourceManager.GetObject("keen_flipping_flag2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_flipping_flag3 {
+            get {
+                object obj = ResourceManager.GetObject("keen_flipping_flag3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_flipping_flag4 {
+            get {
+                object obj = ResourceManager.GetObject("keen_flipping_flag4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_flipping_flag5 {
+            get {
+                object obj = ResourceManager.GetObject("keen_flipping_flag5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen_hang_left {
             get {
                 object obj = ResourceManager.GetObject("keen_hang_left", resourceCulture);
@@ -4076,6 +4166,26 @@ namespace KeenReloaded2.Properties {
         internal static System.Drawing.Bitmap keen_jump_right2 {
             get {
                 object obj = ResourceManager.GetObject("keen_jump_right2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_landing_flag1 {
+            get {
+                object obj = ResourceManager.GetObject("keen_landing_flag1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_landing_flag2 {
+            get {
+                object obj = ResourceManager.GetObject("keen_landing_flag2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -9356,6 +9466,66 @@ namespace KeenReloaded2.Properties {
         internal static System.Drawing.Bitmap keen5_exit_door_open3 {
             get {
                 object obj = ResourceManager.GetObject("keen5_exit_door_open3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_flag_base1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_flag_base1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_flag_base2 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_flag_base2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_flag1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_flag1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_flag2 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_flag2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_flag3 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_flag3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_flag4 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_flag4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -15136,6 +15306,26 @@ namespace KeenReloaded2.Properties {
         internal static System.Drawing.Bitmap keen6_eyeball_pole {
             get {
                 object obj = ResourceManager.GetObject("keen6_eyeball_pole", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_flag_hand_closed {
+            get {
+                object obj = ResourceManager.GetObject("keen6_flag_hand_closed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_flag_hand_opened {
+            get {
+                object obj = ResourceManager.GetObject("keen6_flag_hand_opened", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
