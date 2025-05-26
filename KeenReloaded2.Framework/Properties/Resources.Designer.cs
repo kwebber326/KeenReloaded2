@@ -5913,9 +5913,39 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen4_exit_sign_cave {
+            get {
+                object obj = ResourceManager.GetObject("keen4_exit_sign_cave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen4_exit_sign_wall {
             get {
                 object obj = ResourceManager.GetObject("keen4_exit_sign_wall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_exit_sign_wood {
+            get {
+                object obj = ResourceManager.GetObject("keen4_exit_sign_wood", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen4_exit_sign_wood2 {
+            get {
+                object obj = ResourceManager.GetObject("keen4_exit_sign_wood2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

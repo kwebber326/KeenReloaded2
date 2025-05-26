@@ -6140,5 +6140,14 @@
   <ItemGroup>
     <None Include="Resources\keen6_tree_stump.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_exit_sign_cave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_exit_sign_wood.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_exit_sign_wood2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

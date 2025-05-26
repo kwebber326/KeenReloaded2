@@ -6466,4 +6466,13 @@
   <data name="keen6_tree_vine_bottom" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen6_tree_vine_bottom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen4_exit_sign_cave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_exit_sign_cave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_exit_sign_wood" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_exit_sign_wood.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_exit_sign_wood2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_exit_sign_wood2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
