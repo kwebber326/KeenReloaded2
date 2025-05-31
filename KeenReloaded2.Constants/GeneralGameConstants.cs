@@ -79,6 +79,7 @@ namespace KeenReloaded2.Constants
             public const string KEEN_POGO = "pogo.wav";
             public const string MIMROCK_LAND = "mimrock_land.wav";
             public const string GLASS_BREAK = "glass_break.wav";
+            public const string CHECKPOINT = "checkpoint_flag.wav";
         }
 
         public const string AREA_PROPERTY_NAME = "area";

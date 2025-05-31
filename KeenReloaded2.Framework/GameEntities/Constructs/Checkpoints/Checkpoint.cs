@@ -1,7 +1,9 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -44,6 +46,8 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs.Checkpoints
             {
                 _checkPointHit = true;
                 CheckPointHit?.Invoke(this, EventArgs.Empty);
+                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    GeneralGameConstants.Sounds.CHECKPOINT);
             }
         }
     }
