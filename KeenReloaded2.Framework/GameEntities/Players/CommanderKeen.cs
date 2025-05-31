@@ -2007,25 +2007,28 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             }
         }
 
-        public void ResetKeenAfterDeath(int lives, int drops, long points, List<NeuralStunner> weaponSet, Shield shield)
+        public void ResetKeenAfterDeath(int lives, int drops, long points, List<NeuralStunner> weaponSet, Shield shield, bool resetKeyInventory = true)
         {
             this.Lives = lives;
             this.Points = points;
             this.Drops = drops;
             _disappearDeath = false;
             SetNextExtraLifePointGoal();
-            this.HasKeyCard = false;
+            this.HasKeyCard = !resetKeyInventory;
             _currentShieldToggleDelay = MAX_SHIELD_TOGGLE_DELAY;
             _shield = shield;
             if (shield != null)
                 this.HandleItemCollection(shield);
 
             InitializeWeapons(weaponSet);
-            while (_gems.Any())
+            if (resetKeyInventory)
             {
-                var gemToRemove = _gems.FirstOrDefault();
-                _gems.Remove(gemToRemove);
-                OnItemLost(new ItemAcquiredEventArgs() { Item = gemToRemove });
+                while (_gems.Any())
+                {
+                    var gemToRemove = _gems.FirstOrDefault();
+                    _gems.Remove(gemToRemove);
+                    OnItemLost(new ItemAcquiredEventArgs() { Item = gemToRemove });
+                }
             }
         }
 

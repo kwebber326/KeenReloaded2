@@ -3955,6 +3955,9 @@ namespace KeenReloaded2.Entities.ReferenceData
             #region checkpoints
             AddSimpleGameObject(backgroundReferenceData, keen4ConstructFiles, nameof(Properties.Resources.keen4_flag_base_yellow),
                 typeof(Keen4YellowCheckPoint), null, 10);
+
+            AddSimpleGameObject(backgroundReferenceData, keen4ConstructFiles, nameof(Properties.Resources.keen4_flag_base_red1),
+                typeof(Keen4RedCheckPoint), null, 10);
             #endregion
 
             #endregion

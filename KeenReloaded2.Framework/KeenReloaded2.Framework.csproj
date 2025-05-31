@@ -51,6 +51,7 @@
     <Compile Include="GameEntities\Constructs\Checkpoints\Checkpoint.cs" />
     <Compile Include="GameEntities\Constructs\Checkpoints\CheckPointFlag.cs" />
     <Compile Include="GameEntities\Constructs\Checkpoints\FlippingCheckpointFlag.cs" />
+    <Compile Include="GameEntities\Constructs\Checkpoints\Keen4RedCheckPoint.cs" />
     <Compile Include="GameEntities\Constructs\Checkpoints\Keen4YellowCheckPoint.cs" />
     <Compile Include="GameEntities\Constructs\Checkpoints\SpinningCheckpointFlag.cs" />
     <Compile Include="GameEntities\Constructs\EnemySpawner.cs" />

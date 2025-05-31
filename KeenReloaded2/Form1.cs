@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using KeenReloaded2.DialogWindows;
 using KeenReloaded2.Entities.Statistics.HighScores;
 using System.Diagnostics;
+using KeenReloaded2.Framework.GameEntities.Weapons;
 
 namespace KeenReloaded2
 {
@@ -110,15 +111,18 @@ namespace KeenReloaded2
 
         private void ResetKeenState(int lives, int drops, long points, List<Framework.GameEntities.Weapons.NeuralStunner> weapons, Framework.GameEntities.Items.Shield shield)
         {
-            if (_gameMode != MainMenuConstants.OPTION_LABEL_NORMAL_MODE)
+            if (_gameMode != MainMenuConstants.OPTION_LABEL_NORMAL_MODE || LevelCompleteObjectives.LastHitCheckPoint != null)
             {
-                _keen.ResetKeenAfterDeath(lives, drops, points, weapons, shield);
+                _keen.ResetKeenAfterDeath(lives, drops, points, weapons, shield, LevelCompleteObjectives.LastHitCheckPoint == null);
             }
             else
             {
                 _keen.ResetKeenAfterDeath(lives, drops, 0);
             }
-            inventoryPanel1.Reset();
+            if (LevelCompleteObjectives.LastHitCheckPoint == null)
+                inventoryPanel1.Reset(false, false);
+            else
+                inventoryPanel1.Reset(true, true);
         }
 
         private void InitializeGameState()
@@ -208,7 +212,7 @@ namespace KeenReloaded2
                 int lives = _keen?.Lives ?? 0;
                 int drops = _keen?.Drops ?? 0;
                 long points = _keen?.Points ?? 0;
-                var weapons = _gameMode != MainMenuConstants.OPTION_LABEL_NORMAL_MODE ? _keen.Weapons : null;
+                var weapons = LevelCompleteObjectives.KeenInventoryProfile?.Weapons ?? new List<NeuralStunner>();
                 var shield = inventoryPanel1.Shield;
                 _gameUpdateTimer.Start();
                 _keen.Revive();

@@ -69,14 +69,18 @@ namespace KeenReloaded2.UserControls.InventoryPanel
             }
         }
 
-        public void Reset()
+        public void Reset(bool keepKeys, bool keepKeyCard)
         {
             ResetShieldCount();
             if (this.ShowFlagInventory)
                 ResetFlagInventory();
 
-            keyCardInventoryControl1.RemoveKeyCard();
-            keyContainerControl1.ResetInventory();
+            if (!keepKeyCard)
+                keyCardInventoryControl1.RemoveKeyCard();
+
+            if (!keepKeys)
+                keyContainerControl1.ResetInventory();
+
             weaponInventoryControl1.SetWeaponInventory(_keen);
         }
 

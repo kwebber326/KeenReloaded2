@@ -333,7 +333,7 @@ namespace KeenReloaded2.Entities
         {
             Checkpoint checkpoint = sender as Checkpoint;
             if (checkpoint != null)
-                LevelCompleteObjectives.UpdateLastHitCheckPoint(checkpoint);
+                LevelCompleteObjectives.UpdateLastHitCheckPoint(checkpoint, _keen);
         }
 
         private void Item_BiomeChanged(object sender, ObjectEventArgs e)
