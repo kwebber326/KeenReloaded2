@@ -26,9 +26,12 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs.Checkpoints
             Properties.Resources.keen5_flag4,
         };
 
+        private readonly int _initialBottom;
+
         public SpinningCheckpointFlag(SpaceHashGrid grid, Rectangle hitbox, int zIndex) : base(grid, hitbox, zIndex, CheckPointFlagState.WAVING)
         {
             WAVE_ANIMATION_DELAY = 4;
+            _initialBottom = hitbox.Bottom;
         }
 
         protected override Image[] FlippingSprites => _flippingSprites;
@@ -39,7 +42,6 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs.Checkpoints
 
         protected override void UpdateWavingState()
         {
-            _sprite = this.WavingSprites[_waveSpriteIndex];
             if (++_waveAnimationDelayCount >= WAVE_ANIMATION_DELAY)
             {
                 _waveAnimationDelayCount = 0;
@@ -47,18 +49,22 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs.Checkpoints
                 {
                     _waveSpriteIndex = 0;
                 }
+                _sprite = this.WavingSprites[_waveSpriteIndex];
                 int previousIndex = _waveSpriteIndex == 0 ? this._wavingSprites.Length - 1 : _waveSpriteIndex - 1;
                 var previousImage = _wavingSprites[previousIndex];
-                var currentImage = _wavingSprites[_waveSpriteIndex];
 
                 int previousWidth = previousImage.Width;
-                int widthDiff = currentImage.Width - previousWidth;
+                int widthDiff = _sprite.Width - previousWidth;
 
-                int previousHeight = previousImage.Height;
-                int heightDiff = previousHeight - currentImage.Height;
+                this.HitBox = new Rectangle(this.HitBox.X + widthDiff, this.HitBox.Y,
+                    _sprite.Width, _sprite.Height);
 
-                this.HitBox = new Rectangle(this.HitBox.X + widthDiff, this.HitBox.Y + heightDiff, 
-                    this.HitBox.Width, this.HitBox.Height);
+                if (this.HitBox.Bottom != _initialBottom)
+                {
+                    int bottomDiff = this.HitBox.Bottom - _initialBottom;
+                    this.HitBox = new Rectangle(this.HitBox.X, this.HitBox.Y - bottomDiff,
+                        this.HitBox.Width, this.HitBox.Height);
+                }
             }
         }
     }
