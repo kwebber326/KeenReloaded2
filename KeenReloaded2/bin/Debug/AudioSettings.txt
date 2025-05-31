@@ -1,3 +1,3 @@
 Sounds|True
-Music|True
+Music|False
 Song|diamond.wav

@@ -48,6 +48,11 @@
     <Compile Include="GameEntities\AltCharacters\CouncilMember.cs" />
     <Compile Include="GameEntities\Backgrounds\MimicBlocks.cs" />
     <Compile Include="GameEntities\Constructs\BiomeChanger.cs" />
+    <Compile Include="GameEntities\Constructs\Checkpoints\Checkpoint.cs" />
+    <Compile Include="GameEntities\Constructs\Checkpoints\CheckPointFlag.cs" />
+    <Compile Include="GameEntities\Constructs\Checkpoints\FlippingCheckpointFlag.cs" />
+    <Compile Include="GameEntities\Constructs\Checkpoints\Keen4YellowCheckPoint.cs" />
+    <Compile Include="GameEntities\Constructs\Checkpoints\SpinningCheckpointFlag.cs" />
     <Compile Include="GameEntities\Constructs\EnemySpawner.cs" />
     <Compile Include="GameEntities\Constructs\EnemyTransporter.cs" />
     <Compile Include="GameEntities\Constructs\Hill.cs" />
@@ -6205,6 +6210,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen5_flag4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_flag_base_red1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_flag_base_red2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_flag_base_red3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_flag_base_red4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_flag_base_yellow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

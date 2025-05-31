@@ -1,0 +1,11 @@
+1500|1500
+keen4_background_cave_blue1|0|0|1500|1500|keen4_background_cave_blue1.png|False|0
+keen4_cave_floor_middle|354|437|512|64|10
+keen4_cave_air_floor_edge_left|282|437|72|64|10
+keen4_cave_floor_edge_right|866|437|52|64|10
+keen4_flag_base_yellow|539|433|32|32|10
+keen4_cave_platform_left_edge|268|278|30|38|10
+keen4_cave_platform_right_edge|298|278|30|38|10
+keen_stand_right|300|200|26|64|RIGHT
+keen4_slug_move_right2|804|394|32|48|25
+neural_stunner_railgun1|420|382|52|22|50|5

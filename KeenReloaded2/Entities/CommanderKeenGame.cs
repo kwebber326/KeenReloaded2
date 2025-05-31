@@ -24,6 +24,7 @@ using KeenReloaded.Framework.Utilities;
 using KeenReloaded.Framework;
 using KeenReloaded2.Framework.GameEntities.Tiles;
 using KeenReloaded2.Utilities;
+using KeenReloaded2.Framework.GameEntities.Constructs.Checkpoints;
 
 namespace KeenReloaded2.Entities
 {
@@ -67,6 +68,7 @@ namespace KeenReloaded2.Entities
             _keysPressed.Add("Return", false);
             _keysPressed.Add("ShiftKey", false);
             _keysPressed.Add("Menu", false);
+            LevelCompleteObjectives.ClearCheckPointMarker();
             if (map != null && map.MapData != null)
             {
                 _keen = map.MapData.Select(d => d.GameObject).OfType<CommanderKeen>().FirstOrDefault();
@@ -311,6 +313,11 @@ namespace KeenReloaded2.Entities
                     var flag = (IFlag)obj;
                     flag.FlagCaptured += Flag_FlagCaptured;
                 }
+                else if (obj is Checkpoint)
+                {
+                    var checkpoint = item as Checkpoint;
+                    checkpoint.CheckPointHit += Checkpoint_CheckPointHit;
+                }
             }
 
             if (obj is IBiomeTile)
@@ -320,6 +327,13 @@ namespace KeenReloaded2.Entities
             }
 
             RegisterZombieEnemy(obj);
+        }
+
+        private void Checkpoint_CheckPointHit(object sender, EventArgs e)
+        {
+            Checkpoint checkpoint = sender as Checkpoint;
+            if (checkpoint != null)
+                LevelCompleteObjectives.UpdateLastHitCheckPoint(checkpoint);
         }
 
         private void Item_BiomeChanged(object sender, ObjectEventArgs e)
@@ -382,6 +396,11 @@ namespace KeenReloaded2.Entities
                 {
                     var flag = (IFlag)obj;
                     flag.FlagCaptured -= Flag_FlagCaptured;
+                }
+                else if (obj is Checkpoint)
+                {
+                    var checkpoint = item as Checkpoint;
+                    checkpoint.CheckPointHit -= Checkpoint_CheckPointHit;
                 }
             }
             if (obj is Item)

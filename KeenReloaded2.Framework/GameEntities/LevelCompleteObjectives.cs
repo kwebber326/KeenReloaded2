@@ -1,4 +1,5 @@
-﻿using KeenReloaded2.Framework.GameEntities.Interfaces;
+﻿using KeenReloaded2.Framework.GameEntities.Constructs.Checkpoints;
+using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Tiles;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,18 @@ namespace KeenReloaded2.Framework.GameEntities
         public static void ClearAll()
         {
             _levelObjectives.Clear();
+        }
+
+        public static Checkpoint LastHitCheckPoint { get; private set; }
+
+        public static void UpdateLastHitCheckPoint(Checkpoint checkpoint)
+        {
+            LastHitCheckPoint = checkpoint;
+        }
+
+        public static void ClearCheckPointMarker()
+        {
+            LastHitCheckPoint = null;
         }
     }
 }

@@ -77,6 +77,7 @@ namespace KeenReloaded2.UserControls.InventoryPanel
 
             keyCardInventoryControl1.RemoveKeyCard();
             keyContainerControl1.ResetInventory();
+            weaponInventoryControl1.SetWeaponInventory(_keen);
         }
 
         private void ResetShieldCount()

@@ -3,6 +3,7 @@ using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Animations;
 using KeenReloaded2.Framework.GameEntities.Constructs;
+using KeenReloaded2.Framework.GameEntities.Constructs.Checkpoints;
 using KeenReloaded2.Framework.GameEntities.Enemies;
 using KeenReloaded2.Framework.GameEntities.Hazards;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
@@ -857,6 +858,12 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                         }
                     }
                 }
+            }
+            else if (obj.CollisionType == CollisionType.CHECKPOINT)
+            {
+                var checkpoint = (Checkpoint)obj;
+
+                checkpoint.MarkAsHit();
             }
             else if (obj is Item)
             {
@@ -1971,6 +1978,12 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     }
                 }
             }
+        }
+
+        public void Revive()
+        {
+            this.Health = 1;
+            this.MoveState = MoveState.STANDING;
         }
 
         public void ResetKeenAfterDeath(int lives, int drops, long points)

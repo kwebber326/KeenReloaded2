@@ -91,15 +91,7 @@ namespace KeenReloaded2
 
             if (isReset)
             {
-                if (_gameMode != MainMenuConstants.OPTION_LABEL_NORMAL_MODE)
-                {
-                    _keen.ResetKeenAfterDeath(lives, drops, points, weapons, shield);
-                }
-                else
-                {
-                    _keen.ResetKeenAfterDeath(lives, drops, 0);
-                }
-                inventoryPanel1.Reset();
+                ResetKeenState(lives, drops, points, weapons, shield);
             }
 
             CurrentPlayerList.Players.Clear();
@@ -114,6 +106,19 @@ namespace KeenReloaded2
             {
                 _levelCompletionTimer.Start();
             }
+        }
+
+        private void ResetKeenState(int lives, int drops, long points, List<Framework.GameEntities.Weapons.NeuralStunner> weapons, Framework.GameEntities.Items.Shield shield)
+        {
+            if (_gameMode != MainMenuConstants.OPTION_LABEL_NORMAL_MODE)
+            {
+                _keen.ResetKeenAfterDeath(lives, drops, points, weapons, shield);
+            }
+            else
+            {
+                _keen.ResetKeenAfterDeath(lives, drops, 0);
+            }
+            inventoryPanel1.Reset();
         }
 
         private void InitializeGameState()
@@ -188,13 +193,34 @@ namespace KeenReloaded2
 
         private void ResetGame()
         {
-            DetachEvents();
-            pbGameImage.Image = null;
-            LevelCompleteObjectives.ClearAll();
-            var mapMakerData = MapUtility.LoadMapData(_game.Map.MapPath);
-            InitializeGameData(_gameMode, mapMakerData, true);
-            InitializeGameState();
+            if (LevelCompleteObjectives.LastHitCheckPoint == null)
+            {
+                DetachEvents();
+                pbGameImage.Image = null;
+                LevelCompleteObjectives.ClearAll();
+                var mapMakerData = MapUtility.LoadMapData(_game.Map.MapPath);
+                InitializeGameData(_gameMode, mapMakerData, true);
+                InitializeGameState();
+            }
+            else
+            {
+                //reset player state
+                int lives = _keen?.Lives ?? 0;
+                int drops = _keen?.Drops ?? 0;
+                long points = _keen?.Points ?? 0;
+                var weapons = _gameMode != MainMenuConstants.OPTION_LABEL_NORMAL_MODE ? _keen.Weapons : null;
+                var shield = inventoryPanel1.Shield;
+                _gameUpdateTimer.Start();
+                _keen.Revive();
+                ResetKeenState(lives, drops, points, weapons, shield);
+                var checkpoint = LevelCompleteObjectives.LastHitCheckPoint;
+                //update player position
+                int heightDiff = checkpoint.HitBox.Height - _keen.HitBox.Height;
+                Point restartLocation = new Point(checkpoint.Location.X, checkpoint.Location.Y + heightDiff);
+                _keen.MoveToPosition(restartLocation);
 
+                this.UpdateViewRectangle();
+            }
         }
 
         private void DetachEvents()

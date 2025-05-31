@@ -4,6 +4,7 @@ using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.AltCharacters;
 using KeenReloaded2.Framework.GameEntities.Backgrounds;
 using KeenReloaded2.Framework.GameEntities.Constructs;
+using KeenReloaded2.Framework.GameEntities.Constructs.Checkpoints;
 using KeenReloaded2.Framework.GameEntities.Constructs.Keen6Tree;
 using KeenReloaded2.Framework.GameEntities.Enemies;
 using KeenReloaded2.Framework.GameEntities.Hazards;
@@ -3949,6 +3950,11 @@ namespace KeenReloaded2.Entities.ReferenceData
                 },
             };
             AddSimpleGameObject(backgroundReferenceData, keen4ConstructFiles, glassDomeKey, typeof(Keen4GlassDome), extraGlassDomeProperties, 50);
+            #endregion
+
+            #region checkpoints
+            AddSimpleGameObject(backgroundReferenceData, keen4ConstructFiles, nameof(Properties.Resources.keen4_flag_base_yellow),
+                typeof(Keen4YellowCheckPoint), null, 10);
             #endregion
 
             #endregion

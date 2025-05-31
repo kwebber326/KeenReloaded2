@@ -30,6 +30,7 @@ namespace KeenReloaded2.Framework.Enums
         CTF_DESTINATION,
         CONVEYOR_BELT,
         TOGGLE_SWITCH,
-        KEEN_ONLY_PLATFORM
+        KEEN_ONLY_PLATFORM,
+        CHECKPOINT
     }
 }
