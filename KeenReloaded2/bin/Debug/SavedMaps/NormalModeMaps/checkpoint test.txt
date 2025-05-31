@@ -13,6 +13,8 @@ key_gate1|559|758|26|80|10|d1728ab3-8e2d-425b-989c-66224e493ad5
 key_gate1|557|501|26|80|10|29f5fe9c-597d-410f-898f-89247cb525cd
 key_gate1|557|581|26|80|10|1de104ef-6fb3-49c9-a706-c1f173e507e3
 key_gate1|557|661|26|80|10|56d6cae8-478f-4140-9770-f86b3b897ee1
+keen6_flag_hand_opened|141|89|32|32|10
+keen5_flag_base1|594|148|96|62|10
 keen5_exit_door_closed|754|726|124|114|15
 keen_stand_right|300|200|26|64|RIGHT
 keen5_key_card1|650|320|24|28

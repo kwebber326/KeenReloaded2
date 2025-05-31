@@ -3958,6 +3958,12 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             AddSimpleGameObject(backgroundReferenceData, keen4ConstructFiles, nameof(Properties.Resources.keen4_flag_base_red1),
                 typeof(Keen4RedCheckPoint), null, 10);
+
+            AddSimpleGameObject(backgroundReferenceData, keen6ConstructFiles, nameof(Properties.Resources.keen6_flag_hand_opened),
+                typeof(Keen6CheckPoint), null, 10);
+
+            AddSimpleGameObject(backgroundReferenceData, keen5ConstructFiles, nameof(Properties.Resources.keen5_flag_base1),
+                typeof(Keen5CheckPoint), null, 10);
             #endregion
 
             #endregion
