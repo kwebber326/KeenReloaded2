@@ -199,32 +199,51 @@ namespace KeenReloaded2
         {
             if (LevelCompleteObjectives.LastHitCheckPoint == null)
             {
-                DetachEvents();
-                pbGameImage.Image = null;
-                LevelCompleteObjectives.ClearAll();
-                var mapMakerData = MapUtility.LoadMapData(_game.Map.MapPath);
-                InitializeGameData(_gameMode, mapMakerData, true);
-                InitializeGameState();
+                RestartLevelFromBeginning();
             }
             else
             {
-                //reset player state
-                int lives = _keen?.Lives ?? 0;
-                int drops = _keen?.Drops ?? 0;
-                long points = _keen?.Points ?? 0;
-                var weapons = LevelCompleteObjectives.KeenInventoryProfile?.Weapons ?? new List<NeuralStunner>();
-                var shield = inventoryPanel1.Shield;
-                _gameUpdateTimer.Start();
-                _keen.Revive();
-                ResetKeenState(lives, drops, points, weapons, shield);
-                var checkpoint = LevelCompleteObjectives.LastHitCheckPoint;
-                //update player position
-                int heightDiff = checkpoint.HitBox.Height - _keen.HitBox.Height;
-                Point restartLocation = new Point(checkpoint.Location.X, checkpoint.Location.Y + heightDiff);
-                _keen.MoveToPosition(restartLocation);
-
-                this.UpdateViewRectangle();
+                KeenReloadedYesNoDialogWindow yesNoDialogWindow = new KeenReloadedYesNoDialogWindow("Continue from last checkpoint?", true);
+                var dialogResult = yesNoDialogWindow.ShowDialog();
+                if (dialogResult == DialogResult.Yes)
+                {
+                    RestartFromLastCheckpoint();
+                }
+                else
+                {
+                    RestartLevelFromBeginning();
+                }
             }
+        }
+
+        private void RestartFromLastCheckpoint()
+        {
+            //reset player state
+            int lives = _keen?.Lives ?? 0;
+            int drops = _keen?.Drops ?? 0;
+            long points = _keen?.Points ?? 0;
+            var weapons = LevelCompleteObjectives.KeenInventoryProfile?.Weapons ?? new List<NeuralStunner>();
+            var shield = inventoryPanel1.Shield;
+            _gameUpdateTimer.Start();
+            _keen.Revive();
+            ResetKeenState(lives, drops, points, weapons, shield);
+            var checkpoint = LevelCompleteObjectives.LastHitCheckPoint;
+            //update player position
+            int heightDiff = checkpoint.HitBox.Height - _keen.HitBox.Height;
+            Point restartLocation = new Point(checkpoint.Location.X, checkpoint.Location.Y + heightDiff);
+            _keen.MoveToPosition(restartLocation);
+
+            this.UpdateViewRectangle();
+        }
+
+        private void RestartLevelFromBeginning()
+        {
+            DetachEvents();
+            pbGameImage.Image = null;
+            LevelCompleteObjectives.ClearAll();
+            var mapMakerData = MapUtility.LoadMapData(_game.Map.MapPath);
+            InitializeGameData(_gameMode, mapMakerData, true);
+            InitializeGameState();
         }
 
         private void DetachEvents()

@@ -2,6 +2,7 @@
 using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 
 
@@ -59,6 +60,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
 
         public override void Update()
         {
+            _keen = this.GetClosestAlivePlayer();
             bool keenStandingOnPlatform = KeenIsStandingOnThis();
             if (keenStandingOnPlatform && _currentFallDistance < _fallDistanceLimit)
             {
@@ -111,10 +113,15 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
                     _currentFallDistance = 0;
                 }
             }
-            if (this.CollidesWith(_keen) && !KeenIsStandingOnThis() && _currentVerticalVelocity <= (MAX_GRAVITY_SPEED / 2) * -1)
+            if (this.CollidesWithPlayer(collisions) && !KeenIsStandingOnThis() && _currentVerticalVelocity <= (MAX_GRAVITY_SPEED / 2) * -1)
             {
                 UpdateKeenVerticalPosition();
             }
+        }
+
+        private bool CollidesWithPlayer(List<CollisionObject> collisions)
+        {
+            return collisions?.Contains(_keen) ?? false;
         }
 
         protected override string GetImageNameFromType()

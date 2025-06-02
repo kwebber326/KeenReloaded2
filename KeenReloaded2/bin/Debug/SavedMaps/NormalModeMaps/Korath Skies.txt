@@ -179,6 +179,10 @@ keen5_pipe_platform|3311|1999|346|80|10
 keen5_single_platform_blue|3757|2254|32|36|10
 keen5_single_platform_blue|3757|1992|32|36|10
 keen5_pipe_platform|2792|1995|346|80|10
+keen5_flag_base1|469|1189|96|62|10
+keen5_flag_base1|931|3495|96|62|10
+keen5_flag_base1|2074|3399|96|62|10
+keen5_flag_base1|3248|466|96|62|10
 keen5_floor_black_middle|2859|3708|1016|64|11
 enemy_spawner1|2807|1445|92|94|12|[Shikadi]|2|20|100000
 keen5_laser_turret_right|156|882|64|32|14|RIGHT|True|KEEN5|0

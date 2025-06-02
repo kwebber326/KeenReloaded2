@@ -71,6 +71,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
 
         public override void Update()
         {
+            _keen = this.GetClosestAlivePlayer();
             bool keenStandingOnPlatform = KeenIsStandingOnThis();
             if (keenStandingOnPlatform || _bottomedOut)
             {

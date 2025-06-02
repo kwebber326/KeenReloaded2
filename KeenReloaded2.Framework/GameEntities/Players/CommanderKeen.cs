@@ -2014,7 +2014,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             this.Drops = drops;
             _disappearDeath = false;
             SetNextExtraLifePointGoal();
-            this.HasKeyCard = !resetKeyInventory;
+    
             _currentShieldToggleDelay = MAX_SHIELD_TOGGLE_DELAY;
             _shield = shield;
             if (shield != null)
