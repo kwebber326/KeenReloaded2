@@ -320,9 +320,11 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         private bool NothingBelow()
         {
-            Rectangle areaToCheck = new Rectangle(this.HitBox.X, this.HitBox.Y + FALL_VELOCITY, this.HitBox.Width, this.HitBox.Height);
+            int width = this.IsLayingDown ? STAND_WIDTH : this.HitBox.Width;
+            Rectangle areaToCheck = new Rectangle(this.HitBox.X, this.HitBox.Y + FALL_VELOCITY, width, this.HitBox.Height);
             var collisionItems = this.CheckCollision(areaToCheck);
 
+            
             var tilesBelow = collisionItems.Where(c => c.CollisionType == CollisionType.BLOCK);
             var platformsBelow = collisionItems.Where(c => c.CollisionType == CollisionType.PLATFORM);
             bool somethingBelow = (tilesBelow.Any() || platformsBelow.Any());

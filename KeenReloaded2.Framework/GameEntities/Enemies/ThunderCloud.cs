@@ -162,7 +162,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     var collisionKeens = this.CheckCollision(_strikeRange);
                     var keens = collisionKeens.OfType<CommanderKeen>();
                     var collisionItems = this.CheckCollision(areaToCheck);
-                    var walls = collisionItems.OfType<MaskedTile>();
+                    var walls = collisionItems.Where(c => c.CollisionType == CollisionType.BLOCK);
                     if (walls.Any() || IsKeenEscaping(_keen))
                     {
                         ChangeDirection();
@@ -182,7 +182,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     var collisionKeens = this.CheckCollision(_strikeRange);
                     var keens = collisionKeens.OfType<CommanderKeen>();
                     var collisionItems = this.CheckCollision(areaToCheck);
-                    var walls = collisionItems.OfType<MaskedTile>();
+                    var walls = collisionItems.Where(c => c.CollisionType == CollisionType.BLOCK);
                     if (walls.Any())
                     {
                         ChangeDirection();
