@@ -1,0 +1,8 @@
+4000|3000
+keen5_pipe_platform|199|422|346|80|10
+keen4_cave_wall_edge_left|487|376|64|64|10
+keen4_flag_base_red1|417|415|32|32|10
+keen5_spinning_fire_hazard1|512|331|32|32|18
+keen_stand_right|235|336|26|64|RIGHT
+Shield|330|303|62|97|20|30
+Shield|331|91|62|97|20|30

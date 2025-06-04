@@ -90,15 +90,17 @@ namespace KeenReloaded2
                 _keen = keen;
             }
 
-            if (isReset)
-            {
-                ResetKeenState(lives, drops, points, weapons, shield);
-            }
-
             CurrentPlayerList.Players.Clear();
             CurrentPlayerList.Players.Add(_keen);
 
             inventoryPanel1.Keen = _keen;
+
+            if (isReset)
+            {
+                ResetKeenState(lives, drops, points, weapons, shield);
+                if (_keen.Shield != null)
+                    _game.RegisterItemEventsForObject(_keen.Shield);
+            }
             inventoryPanel1.ShowFlagInventory = gameMode == MainMenuConstants.OPTION_LABEL_CTF_MODE;
             _maxVisionY = _game.Map.MapSize.Height - VIEW_RADIUS;
             _maxVisionX = _game.Map.MapSize.Width - VIEW_RADIUS;

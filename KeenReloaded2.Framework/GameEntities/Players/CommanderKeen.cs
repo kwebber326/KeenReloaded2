@@ -1062,6 +1062,9 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         private void AcquireShield(Item item)
         {
             var shield = (Shield)item;
+            if (shield == _shield)
+                return;
+
             if (this.HasShield)
             {
                 _shield.AddShieldToCurrent(shield);
@@ -1889,6 +1892,14 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             }
         }
 
+        public Shield Shield
+        {
+            get
+            {
+                return _shield;
+            }
+        }
+
         public List<Gem> Gems
         {
             get
@@ -2016,9 +2027,16 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             SetNextExtraLifePointGoal();
     
             _currentShieldToggleDelay = MAX_SHIELD_TOGGLE_DELAY;
-            _shield = shield;
+
             if (shield != null)
-                this.HandleItemCollection(shield);
+            {
+                var shieldImg = Properties.Resources.Shield;
+                var newShield = new Shield(new Rectangle(this.HitBox.X, this.HitBox.Y, shieldImg.Width, shieldImg.Height),
+                    _collisionGrid, nameof(Properties.Resources.Shield), 99999, shield.Duration);
+                _shield = null;
+                
+                this.HandleItemCollection(newShield);
+            }
 
             InitializeWeapons(weaponSet);
             if (resetKeyInventory)

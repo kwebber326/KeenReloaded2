@@ -55,6 +55,7 @@ namespace KeenReloaded2.Framework.GameEntities.Items
                 }
             }
         }
+
         public int Duration
         {
             get
