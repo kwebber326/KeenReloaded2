@@ -229,6 +229,10 @@ namespace KeenReloaded2
             _gameUpdateTimer.Start();
             _keen.Revive();
             ResetKeenState(lives, drops, points, weapons, shield);
+            if (_keen.Shield != null)
+            {
+                _game.RegisterItemEventsForObject(_keen.Shield);
+            }
             var checkpoint = LevelCompleteObjectives.LastHitCheckPoint;
             //update player position
             int heightDiff = checkpoint.HitBox.Height - _keen.HitBox.Height;
