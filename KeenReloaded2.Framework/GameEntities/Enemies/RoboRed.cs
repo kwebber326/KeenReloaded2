@@ -314,7 +314,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 };
                 OnCreate(args2);
 
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     GeneralGameConstants.Sounds.LASER_TURRET_SHOT);
             }
 

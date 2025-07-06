@@ -59,7 +59,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
                 {
                     _firstDeathEvaluation = false;
                     _sprite = Properties.Resources.keen5_destructible_glass_tile_destroyed;
-                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    this.PublishSoundPlayEvent(
                         GeneralGameConstants.Sounds.GLASS_BREAK);
                     if (LevelCompleteObjectives.AreAllTileObjectivesComplete())
                     {

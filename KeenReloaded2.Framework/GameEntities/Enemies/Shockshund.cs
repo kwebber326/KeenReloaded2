@@ -200,7 +200,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 this.State = ShockshundState.SHOOTING;
                 _currentFireSpriteChangeDelayTick = 0;
                 _currentShootSprite = 0;
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     GeneralGameConstants.Sounds.SHOCKSHUND_SHOT);
                 FireShot();
             }

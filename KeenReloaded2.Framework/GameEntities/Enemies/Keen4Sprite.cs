@@ -245,7 +245,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     ObjectSprite = shot
                 };
                 OnCreate(args);
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     GeneralGameConstants.Sounds.KEEN4_SHOOT);
             }
         }

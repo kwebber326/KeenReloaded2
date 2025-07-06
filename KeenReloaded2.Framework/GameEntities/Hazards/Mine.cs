@@ -81,7 +81,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
             string sound = rand == 0
                 ? GeneralGameConstants.Sounds.KEEN4_MINE_EXPLODE
                 : GeneralGameConstants.Sounds.KEEN4_MINE_EXPLODE2;
-            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+            this.PublishSoundPlayEvent(
                 sound);
         }
 

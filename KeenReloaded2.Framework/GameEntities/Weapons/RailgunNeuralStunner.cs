@@ -60,8 +60,8 @@ namespace KeenReloaded2.Framework.GameEntities.Weapons
                     }
                 }
                 _currentRefireDelayTick = REFIRE_DELAY;
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
-                    GeneralGameConstants.Sounds.RAIL_GUN_SHOT);
+                EventStore<SoundPlayEventArgs>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                   new SoundPlayEventArgs() { Sound = GeneralGameConstants.Sounds.RAIL_GUN_SHOT });
             }
         }
     }

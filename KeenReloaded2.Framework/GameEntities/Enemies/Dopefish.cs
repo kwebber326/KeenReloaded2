@@ -391,7 +391,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             {
                 this.State = DopefishMoveState.FARTING;
                 _currentFartTime = 0;
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     GeneralGameConstants.Sounds.DOPEFISH_FART);
             }
 

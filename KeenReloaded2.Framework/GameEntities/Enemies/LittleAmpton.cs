@@ -106,7 +106,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         {
             if (this.State != LittleAmptonState.STUNNED)
             {
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     GeneralGameConstants.Sounds.LITTLE_AMPTON_KILLED);
             }
             this.UpdateStunnedState();

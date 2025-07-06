@@ -1,3 +1,4 @@
+Kenny 2 dubs|495700
 Kenny|457600
 Kenny|253000
 Kenny|238100
@@ -5,4 +6,3 @@ Kenny|216600
 Kenny|195400
 Kenny|99000
 kenny|60100
-Kenny|45900

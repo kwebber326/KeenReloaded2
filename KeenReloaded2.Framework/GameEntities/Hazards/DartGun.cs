@@ -103,7 +103,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
                 ObjectSprite = dart
             };
             OnCreate(e);
-            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+            this.PublishSoundPlayEvent(
                 GeneralGameConstants.Sounds.DART_GUN_SHOT);
         }
 

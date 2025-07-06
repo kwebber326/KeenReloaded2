@@ -164,7 +164,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                         {
                             _keen.Stun();
                         }
-                        EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                        this.PublishSoundPlayEvent(
                             GeneralGameConstants.Sounds.BLOOGUARD_SLAM);
                     }
                 }

@@ -16,6 +16,8 @@ using SharpDX;
 using SharpDX.Multimedia;
 using SharpDX.XAudio2;
 using SharpDX.IO;
+using KeenReloaded2.Framework.GameEventArgs;
+using KeenReloaded2.Framework.GameEntities.Players;
 
 namespace KeenReloaded2.UserControls.MusicAndSound
 {
@@ -27,12 +29,12 @@ namespace KeenReloaded2.UserControls.MusicAndSound
             AudioSettings settings = FileIOUtility.LoadAudioSettings();
             if (settings.Sounds)
             {
-                EventStore<string>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
+                EventStore<SoundPlayEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
                 _soundDevice.StartEngine();
                 _voice = new MasteringVoice(_soundDevice);
             }
             else
-                EventStore<string>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
+                EventStore<SoundPlayEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
 
             if (settings.Music)
             {
@@ -54,6 +56,8 @@ namespace KeenReloaded2.UserControls.MusicAndSound
         private System.Media.SoundPlayer _musicPlayer;
         List<SourceVoice> _sounds = new List<SourceVoice>();
 
+        public CommanderKeen Keen { get; set; }
+
         private void SoundPlayer_Load(object sender, EventArgs e)
         {
 
@@ -64,8 +68,11 @@ namespace KeenReloaded2.UserControls.MusicAndSound
             _musicPlayer?.Stop();
         }
 
-        protected void Sound_Play(object sender, ControlEventArgs<string> eventArgs)
+        protected void Sound_Play(object sender, ControlEventArgs<SoundPlayEventArgs> eventArgs)
         {
+            if (eventArgs.Data == null)
+                return;
+
             this.PlaySound(eventArgs.Data);
         }
 
@@ -94,7 +101,7 @@ namespace KeenReloaded2.UserControls.MusicAndSound
             }
             finally
             {
-                EventStore<string>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
+                EventStore<SoundPlayEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
                 EventStore<string>.UnSubscribe(MapMakerConstants.EventStoreEventNames.KEEN_LEVEL_COMPLETE,
                    Level_Complete);
                 _soundDevice.StopEngine();
@@ -105,8 +112,9 @@ namespace KeenReloaded2.UserControls.MusicAndSound
             }
         }
 
-        public void PlaySound(string soundName)
+        public void PlaySound(SoundPlayEventArgs data)
         {
+            string soundName = data?.Sound;
             if (String.IsNullOrWhiteSpace(soundName))
                 return;
 
@@ -121,6 +129,8 @@ namespace KeenReloaded2.UserControls.MusicAndSound
                     SourceVoice sourceVoice = new SourceVoice(_soundDevice, soundStream.Format, true);
 
                     sourceVoice.SubmitSourceBuffer(buffer, soundStream.DecodedPacketsInfo);
+                    float volumePercentage = this.GetVolumePercentage(data);
+                    sourceVoice.SetVolume(volumePercentage);
                     sourceVoice.Start();
                     Thread.Sleep(5000);
                     sourceVoice.Stop();
@@ -134,6 +144,30 @@ namespace KeenReloaded2.UserControls.MusicAndSound
 
             Thread thread = new Thread(ts);
             thread.Start();
+        }
+
+        private float GetVolumePercentage(SoundPlayEventArgs data)
+        {
+            if (data?.SenderPosition == null || this.Keen == null)
+                return 1;
+
+            Point objectPos = data.SenderPosition.Value;
+            Point playerPos = this.Keen.HitBox.Location;
+
+            var distance = CommonGameFunctions.GetEuclideanDistance(objectPos, playerPos);
+
+            if (distance <= GeneralGameConstants.VIEW_RADIUS)
+                return 1;
+
+            if (distance > GeneralGameConstants.AUDIBLE_RADIUS)
+                return 0;
+
+            float viewRadiusAudibleRadiusDiff = GeneralGameConstants.AUDIBLE_RADIUS - GeneralGameConstants.VIEW_RADIUS;
+
+            float objectDistanceFromViewRadius = (float)distance - GeneralGameConstants.VIEW_RADIUS;
+
+            float pct = (viewRadiusAudibleRadiusDiff - objectDistanceFromViewRadius) / viewRadiusAudibleRadiusDiff;
+            return pct;
         }
 
         ~SoundPlayer()

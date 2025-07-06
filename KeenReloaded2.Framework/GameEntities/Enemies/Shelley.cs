@@ -524,7 +524,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             var argsKilled = new ObjectEventArgs() { ObjectSprite = this };
             OnRemove(argsKilled);
             OnKilled();
-            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+            this.PublishSoundPlayEvent(
                 GeneralGameConstants.Sounds.SHELLEY_EXPLOSION);
         }
 

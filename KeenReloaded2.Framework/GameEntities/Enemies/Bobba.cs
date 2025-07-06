@@ -121,7 +121,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     _currentJumpCount++;
                 }
                 _currentVerticalVelocity = INITIAL_VERTICAL_VELOCITY_ON_JUMP * -1;
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     GeneralGameConstants.Sounds.BOBBA_JUMP);
             }
 
@@ -212,7 +212,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
             OnCreate(new ObjectEventArgs() { ObjectSprite = fireBall });
 
-            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+            this.PublishSoundPlayEvent(
              GeneralGameConstants.Sounds.BOBBA_SHOOT);
         }
 
