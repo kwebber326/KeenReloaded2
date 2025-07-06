@@ -187,7 +187,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     }
                 }
                 _collided = true;
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                  GeneralGameConstants.Sounds.BERKELOID_FIRE_HIT);
             }
             else
@@ -207,7 +207,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         public void Stop()
         {
             _collided = true;
-            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+            this.PublishSoundPlayEvent(
                 GeneralGameConstants.Sounds.BERKELOID_FIRE_HIT);
         }
 

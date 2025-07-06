@@ -259,6 +259,7 @@ keen6_industrial_wall_edge_left|920|400|64|5970|10
 keen6_industrial_single_platform|542|3339|32|38|10
 keen6_industrial_single_platform|498|3616|32|38|10
 keen6_industrial_single_platform|649|3462|32|38|10
+keen6_industrial_single_platform|695|4664|32|38|10
 keen6_iron_spike|984|6318|32|64
 keen6_iron_spike|1016|6318|32|64
 keen6_iron_spike|1048|6318|32|64

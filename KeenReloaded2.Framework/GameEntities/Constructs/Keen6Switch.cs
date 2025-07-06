@@ -87,7 +87,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                     _isActive = value;
                     UpdateSprite();
                     UpdateHitbox();
-                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    this.PublishSoundPlayEvent(
                         GeneralGameConstants.Sounds.KEEN_TOGGLE_SWITCH);
                 }
             }

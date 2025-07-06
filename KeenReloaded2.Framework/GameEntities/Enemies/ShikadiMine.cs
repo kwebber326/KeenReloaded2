@@ -589,7 +589,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
             OnCreate(new ObjectEventArgs() { ObjectSprite = fragment6 });
 
-            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+            this.PublishSoundPlayEvent(
                 GeneralGameConstants.Sounds.SHIKADI_MINE_EXPLODE);
         }
 

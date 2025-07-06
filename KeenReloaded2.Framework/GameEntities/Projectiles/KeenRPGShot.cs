@@ -112,7 +112,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 ObjectSprite = explosion
             };
             OnCreate(e);
-            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+            this.PublishSoundPlayEvent(
                 GeneralGameConstants.Sounds.RPG_EXPLOSION);
         }
 

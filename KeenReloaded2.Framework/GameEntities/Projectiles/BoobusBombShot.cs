@@ -654,7 +654,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 OnCreate(e);
                 _exploded = true;
                 OnRemove(new ObjectEventArgs() { ObjectSprite = this });
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     GeneralGameConstants.Sounds.BOOBUS_BOMB_EXPLODE);
             }
         }

@@ -80,6 +80,7 @@ namespace KeenReloaded2.Constants
             public const string MIMROCK_LAND = "mimrock_land.wav";
             public const string GLASS_BREAK = "glass_break.wav";
             public const string CHECKPOINT = "checkpoint_flag.wav";
+            public const string TELEPORT = "teleporter.wav";
         }
 
         public const string AREA_PROPERTY_NAME = "area";
@@ -92,5 +93,8 @@ namespace KeenReloaded2.Constants
         public const string DESTINATION_DOOR_ID_PROPERTY_NAME = "destinationDoorId";
         public const string NODE_ID_PROPERTY_NAME = "nodeId";
         public const string DESTINATION_NODE_ID_PROPERTY_NAME = "destinationNodeId";
+
+        public const int VIEW_RADIUS = 440;
+        public const int AUDIBLE_RADIUS = 1000;
     }
 }

@@ -382,7 +382,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         public void Squash()
         {
             this.UpdateSquashedState();
-            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+            this.PublishSoundPlayEvent(
                 GeneralGameConstants.Sounds.SQUASH);
         }
 

@@ -141,7 +141,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 OnCreate(new ObjectEventArgs() { ObjectSprite = shockwave2 });
             }
 
-            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+            this.PublishSoundPlayEvent(
                GeneralGameConstants.Sounds.SHIKADI_MASTER_SHOCKWAVE);
         }
 

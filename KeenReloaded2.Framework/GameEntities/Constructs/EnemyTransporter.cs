@@ -118,6 +118,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
                     {
                         collision.MoveToPosition(transportArea.Location);
                     }
+                    this.PublishSoundPlayEvent(GeneralGameConstants.Sounds.TELEPORT);
                 }
             }
             else if (++_transportationDelayTick >= _transportationAnimationDelay)

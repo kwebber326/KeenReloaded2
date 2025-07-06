@@ -11,6 +11,8 @@ using KeenReloaded2.Utilities;
 using KeenReloaded2.Framework.GameEntities.Tiles.Platforms;
 using KeenReloaded.Framework.Utilities;
 using KeenReloaded2.Framework.GameEntities.Constructs;
+using KeenReloaded2.Framework.GameEventArgs;
+using KeenReloaded2.Constants;
 
 namespace KeenReloaded.Framework
 {
@@ -214,6 +216,17 @@ namespace KeenReloaded.Framework
                     CommonGameFunctions.GetEuclideanDistance(this.HitBox.Location, o.HitBox.Location))
                 .FirstOrDefault();
             return closest;
+        }
+
+        public void PublishSoundPlayEvent(string soundName)
+        {
+            SoundPlayEventArgs soundPlayEventArgs = new SoundPlayEventArgs()
+            {
+                SenderPosition = this.HitBox.Location,
+                Sound = soundName
+            };
+            EventStore<SoundPlayEventArgs>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                soundPlayEventArgs);
         }
 
         protected virtual List<CommanderKeen> GetCollidingPlayers()

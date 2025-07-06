@@ -368,7 +368,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     shock.Remove += new EventHandler<ObjectEventArgs>(shock_Remove);
 
                     OnCreate(new ObjectEventArgs() { ObjectSprite = shock });
-                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    this.PublishSoundPlayEvent(
                         GeneralGameConstants.Sounds.SHIKADI_POLE_ELECTRICITY);
                     this.IgnorePoleLogicTemporarily();
                 }

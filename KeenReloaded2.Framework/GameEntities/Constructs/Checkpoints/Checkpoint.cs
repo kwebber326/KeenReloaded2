@@ -46,8 +46,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs.Checkpoints
             {
                 _checkPointHit = true;
                 CheckPointHit?.Invoke(this, EventArgs.Empty);
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
-                    GeneralGameConstants.Sounds.CHECKPOINT);
+                this.PublishSoundPlayEvent(GeneralGameConstants.Sounds.CHECKPOINT);
             }
         }
     }

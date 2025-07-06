@@ -211,7 +211,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             if (this.State != SparkyState.CHARGE_LOADING)
             {
                 this.State = SparkyState.CHARGE_LOADING;
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     GeneralGameConstants.Sounds.SPARKY_CHARGE);
                 _currentChargeDelayTick = 0;
             }

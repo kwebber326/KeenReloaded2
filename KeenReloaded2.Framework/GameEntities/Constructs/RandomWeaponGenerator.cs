@@ -270,7 +270,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             if (this.State != RandomWeaponGeneratorState.DISPENSING_WEAPON)
             {
                 this.State = RandomWeaponGeneratorState.DISPENSING_WEAPON;
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     GeneralGameConstants.Sounds.RANDOM_WEAPON_GENERATOR_DOOR_OPEN);
                 _currentSpriteChangeDelayTick = 0;
                 _currentSprite = 1;
@@ -573,7 +573,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             }
             else if (!_isActive && _keen.Points < _cost)
             {
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     GeneralGameConstants.Sounds.KEEN_ACCESS_DENIED);
             }
         }
