@@ -53,7 +53,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 this.HitBox = new Rectangle(deflectingObject.HitBox.Right + 1, this.HitBox.Y,
                     this.HitBox.Width, this.HitBox.Height);
             }
-            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+            this.PublishSoundPlayEvent(
                 GeneralGameConstants.Sounds.FLECT_DEFLECTION);
         }
 
@@ -72,7 +72,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 this.HitBox = new Rectangle(this.HitBox.X, deflectingObject.HitBox.Bottom + 1,
                     this.HitBox.Width, this.HitBox.Height);
             }
-            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+            this.PublishSoundPlayEvent(
                 GeneralGameConstants.Sounds.FLECT_DEFLECTION);
         }
 

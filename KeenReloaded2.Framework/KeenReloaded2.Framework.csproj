@@ -310,6 +310,7 @@
     <Compile Include="GameEntities\Interfaces\ICreateRemove.cs" />
     <Compile Include="GameEntities\Interfaces\IDropCollector.cs" />
     <Compile Include="GameEntities\Interfaces\IUpdatable.cs" />
+    <Compile Include="GameEventArgs\SoundPlayEventArgs.cs" />
     <Compile Include="GameEventArgs\ToggleEventArgs.cs" />
     <Compile Include="GameEventArgs\WeaponEventArgs.cs" />
     <Compile Include="GameEntities\AltCharacters\KChirps.cs" />

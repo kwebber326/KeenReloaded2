@@ -146,7 +146,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             {
                 this.State = CeilickState.TAUNTING;
                 _tauntCount = 0;
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     GeneralGameConstants.Sounds.CEILICK_TAUNT);
             }
 

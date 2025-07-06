@@ -121,7 +121,7 @@ namespace KeenReloaded2.Framework.GameEntities.Hazards
                 ObjectSprite = projectile
             };
             OnCreate(e);
-            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+            this.PublishSoundPlayEvent(
                 GeneralGameConstants.Sounds.LASER_TURRET_SHOT);
         }
 

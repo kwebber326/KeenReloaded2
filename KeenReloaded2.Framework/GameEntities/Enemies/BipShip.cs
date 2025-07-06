@@ -192,7 +192,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 OnCreate(new ObjectEventArgs() { ObjectSprite = explosion });
 
                 _exploded = true;
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     GeneralGameConstants.Sounds.BIP_SHIP_DESTROYED);
             }
         }
@@ -429,7 +429,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             OnCreate(new ObjectEventArgs() { ObjectSprite = shot });
             _isFiring = false;
 
-            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+            this.PublishSoundPlayEvent(
                 GeneralGameConstants.Sounds.KEEN4_SHOOT);
         }
 

@@ -328,7 +328,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     }
                     else
                     {
-                        EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                        this.PublishSoundPlayEvent(
                             GeneralGameConstants.Sounds.MIMROCK_LAND);
                         _isBouncing = true;
                         _currentJumpVelocity = BOUNCE_HEIGHT;

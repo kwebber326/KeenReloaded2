@@ -91,7 +91,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     _currentVerticalVelocity = DIRECTION_CHANGE_VELOCITY * -1;
                     _changingGravity = true;
                 }
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     GeneralGameConstants.Sounds.SPINDRED_BOUNCE);
             }
             else
@@ -150,7 +150,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     _currentVerticalVelocity = DIRECTION_CHANGE_VELOCITY;
                     _changingGravity = true;
                 }
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     GeneralGameConstants.Sounds.SPINDRED_BOUNCE);
             }
             else

@@ -97,7 +97,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             if (this.State != WormmoutMoveState.ATTACKING)
             {
                 this.State = WormmoutMoveState.ATTACKING;
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     GeneralGameConstants.Sounds.WORMMOUTH_ATTACK);
             }
 

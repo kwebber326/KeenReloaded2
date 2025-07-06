@@ -157,7 +157,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             _shotComplete = true;
             if (!string.IsNullOrEmpty(_impactSound))
             {
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     _impactSound);
             }
             UpdateSprite();

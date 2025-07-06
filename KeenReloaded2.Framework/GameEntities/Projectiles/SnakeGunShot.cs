@@ -89,7 +89,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     nodes.Objects.Remove(this);
                     nodes.NonEnemies.Remove(this);
                 }
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     GeneralGameConstants.Sounds.SNAKE_GUN_CHAIN_EXPLOSION);
             }
         }

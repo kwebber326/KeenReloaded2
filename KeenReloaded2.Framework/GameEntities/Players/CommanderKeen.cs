@@ -752,7 +752,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 }
                 if (!_disappearDeath)
                 {
-                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    this.PublishSoundPlayEvent(
                         GeneralGameConstants.Sounds.KEEN_DIE);
                 }
             }
@@ -938,7 +938,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                         this.GiveFlagPoints(flag.CurrentPointValue);
                         OnItemLost(new ItemAcquiredEventArgs() { Item = flag });
                     }
-                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    this.PublishSoundPlayEvent(
                         GeneralGameConstants.Sounds.FLAG_CAPTURED);
                 }
             }
@@ -983,7 +983,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 _gems.Add(gem);
                 OnKeenAcquiredItem(new ItemAcquiredEventArgs() { Item = gem });
                 if (!this.IsDead())
-                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    this.PublishSoundPlayEvent(
                         GeneralGameConstants.Sounds.KEEN_GEM_ACQUIRED);
             }
             else if (item is Flag)
@@ -991,7 +991,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 var flag = item as Flag;
                 _flags.Add(flag);
                 OnKeenAcquiredItem(new ItemAcquiredEventArgs() { Item = flag });
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     GeneralGameConstants.Sounds.FLAG_ACQUIRED);
             }
             else if (item is IDropCollector)
@@ -999,7 +999,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 IDropCollector drop = item as IDropCollector;
                 this.Drops += drop.DropVal;
                 if (!this.IsDead())
-                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    this.PublishSoundPlayEvent(
                         GeneralGameConstants.Sounds.KEEN_LIFE_DROP_ACQUIRED);
                 if (_drops >= DROPS_TO_EXTRA_LIFE)
                 {
@@ -1016,13 +1016,13 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 PointItem bonus = item as PointItem;
                 GivePoints(bonus.PointValue);
                 if (!this.IsDead())
-                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    this.PublishSoundPlayEvent(
                         GeneralGameConstants.Sounds.KEEN_POINT_ACQUIRED);
             }
             else if (item is KeyCard)
             {
                 this.HasKeyCard = true;
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     GeneralGameConstants.Sounds.KEEN_KEY_CARD_ACQUIRED);
             }
             else if (item is Shield)
@@ -1030,7 +1030,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 AcquireShield(item);
                 OnShieldAcquired(new ObjectEventArgs() { ObjectSprite = _shield });
                 _shield.Depleted += _shield_Depleted;
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     GeneralGameConstants.Sounds.MAJOR_ITEM_ACQUIRED);
             }
         }
@@ -1042,12 +1042,12 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 if ((weapon != null && weapon.IsSpecialWeapon)
                     || (weapon == null && CurrentWeapon != null && CurrentWeapon.IsSpecialWeapon))
                 {
-                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    this.PublishSoundPlayEvent(
                         GeneralGameConstants.Sounds.MAJOR_ITEM_ACQUIRED);
                 }
                 else
                 {
-                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    this.PublishSoundPlayEvent(
                         GeneralGameConstants.Sounds.KEEN_WEAPON_ACQUIRED);
                 }
             }
@@ -1355,7 +1355,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         {
             this.Lives++;
             if (!this.IsDead())
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     GeneralGameConstants.Sounds.KEEN_1UP);
         }
 
@@ -1695,7 +1695,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 }
                 else if ((destructiblePogoTiles.Any() && hitNonPogoDestructibleTile) || !destructiblePogoTiles.Any())
                 {
-                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    this.PublishSoundPlayEvent(
                             GeneralGameConstants.Sounds.KEEN_POGO);
                     _jumpReady = true;
                     _jumpFromPole = false;
@@ -2469,7 +2469,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 {
                     if (!_failedExitDoorAccess)
                     {
-                        EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                        this.PublishSoundPlayEvent(
                             GeneralGameConstants.Sounds.KEEN_ACCESS_DENIED);
                         _failedExitDoorAccess = true;
                     }

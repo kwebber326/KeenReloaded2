@@ -17,6 +17,7 @@ using KeenReloaded2.DialogWindows;
 using KeenReloaded2.Entities.Statistics.HighScores;
 using System.Diagnostics;
 using KeenReloaded2.Framework.GameEntities.Weapons;
+using KeenReloaded2.Framework.GameEventArgs;
 
 namespace KeenReloaded2
 {
@@ -32,7 +33,7 @@ namespace KeenReloaded2
         private int _currentVisionOffset;
         private int _maxVisionY;
         private int _maxVisionX;
-        private const int VIEW_RADIUS = 440;
+        private const int VIEW_RADIUS = GeneralGameConstants.VIEW_RADIUS;
         private const int MAX_VISION_OFFSET = 10;
         private const int VISION_OFFSET_COEFFICIENT = 10;
         private bool _levelCompleted;
@@ -89,6 +90,7 @@ namespace KeenReloaded2
                 _game.ChangeKeenSkin(characterName, out CommanderKeen keen);
                 _keen = keen;
             }
+            soundPlayer1.Keen = _keen;
 
             CurrentPlayerList.Players.Clear();
             CurrentPlayerList.Players.Add(_keen);
@@ -176,8 +178,8 @@ namespace KeenReloaded2
             {
                 _levelCompleted = true;
                 _levelCompletionTimer.Stop();
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
-                    GeneralGameConstants.Sounds.KEEN4_EXIT);
+                EventStore<SoundPlayEventArgs>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                   new SoundPlayEventArgs() { Sound = GeneralGameConstants.Sounds.KEEN4_EXIT });
                 EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.KEEN_LEVEL_COMPLETE,
                     string.Empty);
                 RemoveKeenFromGame();

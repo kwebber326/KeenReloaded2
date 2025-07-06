@@ -82,6 +82,8 @@ key_gate1|2240|1307|26|460|10|79bce624-d144-4a08-9377-da0e643a1be6
 keen6_industrial_single_platform|1418|1365|32|38|10
 keen6_industrial_floor_edge_left|2739|636|72|64|10
 keen6_dome_floor_middle|0|2502|500|64|10
+keen6_flag_hand_opened|1124|2455|32|32|10
+keen6_flag_hand_opened|1613|1175|32|32|10
 keen6_iron_spike|1979|3930|32|64
 keen6_iron_spike|2011|3930|32|64
 keen6_iron_spike|2043|3930|32|64

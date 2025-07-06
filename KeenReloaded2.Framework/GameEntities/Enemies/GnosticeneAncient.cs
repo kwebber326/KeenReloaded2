@@ -246,7 +246,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             {
                 this.MoveState = GnosticeneAncientState.VANISHING;
                 _justStoleItems = false;
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     GeneralGameConstants.Sounds.GNOSTICENE_ANCIENT_VANISH);
             }
             this.UpdateSprite();
@@ -577,7 +577,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     ObjectSprite = destroyer
                 };
                 OnCreate(args);
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                  GeneralGameConstants.Sounds.GNOSTICENE_ANCIENT_ITEM_STEAL);
             }
         }

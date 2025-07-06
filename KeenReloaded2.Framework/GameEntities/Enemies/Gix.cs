@@ -281,7 +281,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                         keen.SetKeenPushState(ChangeHorizontalDirection(keen.Direction), false, this);
                     }
                 }
-                EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                this.PublishSoundPlayEvent(
                     GeneralGameConstants.Sounds.GIK_FLIP);
             }
 

@@ -413,7 +413,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 if (poopValue == 0)
                 {
                     this.State = SlugMoveState.POOPING;
-                    EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    this.PublishSoundPlayEvent(
                         GeneralGameConstants.Sounds.POISON_SLUG_POOP);
                     return true;
                 }

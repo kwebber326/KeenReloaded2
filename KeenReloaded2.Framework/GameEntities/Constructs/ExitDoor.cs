@@ -45,7 +45,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         public void Open()
         {
             _isOpening = true;
-            EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+            this.PublishSoundPlayEvent(
                 GeneralGameConstants.Sounds.KEEN5_EXIT_DOOR_OPEN);
         }
 
