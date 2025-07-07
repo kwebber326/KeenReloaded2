@@ -208,6 +208,7 @@ keen5_arrow_down_off|3702|1282|26|28|keen5_arrow_down_off.png|True|18|[keen5_arr
 keen5_arrow_up_off|3703|1497|26|28|keen5_arrow_up_off.png|True|18|[keen5_arrow_up_off.png,keen5_arrow_up_on.png]|200
 keen5_force_field_bottom|2003|110|32|244|18|300
 enemy_spawner1|2981|722|92|94|18|[DiagonalSlicestar,ShikadiMine]|6|5|0
+keen5_spinning_fire_hazard1|2175|759|32|32|18
 keen_stand_right|1400|1530|26|64|RIGHT
 keen5_robo_red_right|1066|1244|126|128|25
 keen5_spirogrip_rotate5|2528|199|32|62|25

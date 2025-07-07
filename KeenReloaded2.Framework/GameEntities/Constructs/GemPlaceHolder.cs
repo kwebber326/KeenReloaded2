@@ -148,6 +148,8 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
             {
                 Toggled(this, e);
             }
+            this.PublishSoundPlayEvent(
+               GeneralGameConstants.Sounds.KEY_GATE_OPEN);
         }
 
         public event EventHandler<ToggleEventArgs> Toggled;

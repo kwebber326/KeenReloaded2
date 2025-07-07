@@ -201,8 +201,6 @@ pole_middle|1758|1845|12|32|15|pole_middle|MIDDLE|KEEN4_GREEN
 pole_bottom|1758|1877|12|28|15|pole_bottom|BOTTOM|KEEN4_GREEN
 keen4_gray_door|70|1869|60|92|15|KEEN4_GRAY|1|2
 keen4_gray_door|1853|431|60|92|15|KEEN4_GRAY|2|1
-keen4_secret_platform_large_icon|187|363|14|2|15|SHOW3
-keen4_secret_platform_large_icon|106|197|14|2|15|SHOW3
 keen4_secret_platform_large_icon|1529|241|14|2|15|SHOW3
 keen6_transporter|690|1539|96|128|15|2||10
 keen6_transporter|816|155|96|128|15|1|2|50
@@ -222,8 +220,6 @@ enemy_spawner1|816|61|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth,SkyPest,Gnosti
 random_item_generator_closed|398|1869|124|92|18|1000
 keen_stand_right|115|1440|26|64|RIGHT
 keen4_mine|1242|435|46|46|RIGHT|1242|435|580|46|20
-keen4_doughnut1|93|60|30|30|50|KEEN4_DOUGHNUT
-keen4_doughnut1|93|90|30|30|50|KEEN4_DOUGHNUT
 neural_stunner_smg_1|1516|89|46|22|50|60
 neural_stunner1|181|1436|30|22|50|5
 neural_stunner1|211|1414|30|22|50|5
