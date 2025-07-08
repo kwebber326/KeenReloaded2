@@ -69,6 +69,11 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             Initialize();
         }
 
+        public void ResetState()
+        {
+            _ateKeen = false;
+        }
+
         private void Initialize()
         {
             UpdateSprite();
@@ -91,7 +96,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 }
                 else
                 {
-                    _forwardVision = new Rectangle(this.HitBox.Right, this.HitBox.Y, _visionSize.Width, _visionSize.Height);
+                    _forwardVision = new Rectangle(this.HitBox.X, this.HitBox.Y, this.HitBox.Width + _visionSize.Width, _visionSize.Height);
                 }
             }
             else
@@ -106,7 +111,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 }
                 else
                 {
-                    _forwardVision = new Rectangle(this.HitBox.Left - _visionSize.Width, this.HitBox.Y, _visionSize.Width, _visionSize.Height);
+                    _forwardVision = new Rectangle(this.HitBox.Left - _visionSize.Width, this.HitBox.Y, _visionSize.Width + this.HitBox.Width, _visionSize.Height);
                 }
             }
         }

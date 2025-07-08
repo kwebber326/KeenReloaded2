@@ -67,6 +67,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             _keysPressed.Add(KEY_ALT, false);
             this.Health = 1;
             _moveState = Enums.MoveState.STANDING;
+            _disappearDeath = false;
             InitializeDirection(direction);
             UpdateSprite();
             InitializeWeapons();

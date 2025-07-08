@@ -25,6 +25,7 @@ using KeenReloaded.Framework;
 using KeenReloaded2.Framework.GameEntities.Tiles;
 using KeenReloaded2.Utilities;
 using KeenReloaded2.Framework.GameEntities.Constructs.Checkpoints;
+using KeenReloaded2.Framework.GameEntities.Enemies;
 
 namespace KeenReloaded2.Entities
 {
@@ -191,6 +192,27 @@ namespace KeenReloaded2.Entities
                 return _keen.IsKeyPressed(key);
 
             return false;
+        }
+
+        public void ResetGameStateAfterCheckpoint()
+        {
+            if (!_gameObjects.Contains(_keen))
+                _gameObjects.Add(_keen);
+
+            if (!_updatableGameObjects.Contains(_keen))
+                _updatableGameObjects.Add(_keen);
+
+            //if there are any dopefish, we need to reset them to
+            //their beginning state so they can attack the player
+            //upon respawn
+            var dopeFish = _updatableGameObjects.OfType<Dopefish>();
+            if (dopeFish.Any())
+            {
+                foreach (var fish in dopeFish)
+                {
+                    fish.ResetState();
+                }
+            }
         }
 
         public void ChangeKeenSkin(string characterName, out CommanderKeen keen)

@@ -126,7 +126,11 @@ namespace KeenReloaded2
             if (LevelCompleteObjectives.LastHitCheckPoint == null)
                 inventoryPanel1.Reset(false, false);
             else
+            {
                 inventoryPanel1.Reset(true, true);
+
+                _game.ResetGameStateAfterCheckpoint();
+            }
         }
 
         private void InitializeGameState()

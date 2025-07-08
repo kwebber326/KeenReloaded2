@@ -1,0 +1,8 @@
+1500|1500
+keen4_background_cave_blue2|0|0|1500|1500|keen4_background_cave_blue2.png|False|0
+keen4_cave_platform_middle|558|483|256|36|10
+keen4_cave_platform_left_edge|528|483|30|38|10
+keen4_cave_platform_right_edge|814|483|30|38|10
+keen4_flag_base_yellow|781|462|32|32|10
+keen_stand_right|568|423|26|64|RIGHT
+keen4_dopefish_move_left1|122|323|172|128|25

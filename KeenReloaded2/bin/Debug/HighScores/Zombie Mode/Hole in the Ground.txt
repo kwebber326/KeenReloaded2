@@ -2,7 +2,7 @@ Kenny|151700
 K dub|148600
 Kenny|138900
 Kenny|119500
+Kenny|101800
 Kenny|100900
 Kenny|95500
-Kenny|65000
-Kenny|37300
+Kenny|76100
