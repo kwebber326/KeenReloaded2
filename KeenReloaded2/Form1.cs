@@ -244,6 +244,7 @@ namespace KeenReloaded2
             int heightDiff = checkpoint.HitBox.Height - _keen.HitBox.Height;
             Point restartLocation = new Point(checkpoint.Location.X, checkpoint.Location.Y + heightDiff);
             _keen.MoveToPosition(restartLocation);
+            
 
             this.UpdateViewRectangle();
         }
