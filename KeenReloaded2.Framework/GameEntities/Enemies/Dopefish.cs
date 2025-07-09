@@ -255,7 +255,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             }
             int xOffset = GetXOffsetForCollisionDetection(velocity), yOffset = GetYOffsetForCollisionDetection(velocity);
 
-            Rectangle areaToCheck = new Rectangle(this.HitBox.X + xOffset, this.HitBox.Y + yOffset, this.HitBox.Width + yOffset, this.HitBox.Height + velocity);
+            Rectangle areaToCheck = new Rectangle(this.HitBox.X + xOffset, this.HitBox.Y + yOffset, this.HitBox.Width, this.HitBox.Height + velocity);
             var collisions = this.CheckCollision(areaToCheck, true);
 
             bool isUpDirection = IsUpDirection();
@@ -314,8 +314,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     newLocation = new Rectangle(newLocation.X, newLocation.Y + velocity, newLocation.Width, newLocation.Height);
                 }
             }
-
             this.HitBox = newLocation;
+            
             UpdateSpriteByDelay();
         }
 

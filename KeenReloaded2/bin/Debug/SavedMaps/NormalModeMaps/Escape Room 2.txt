@@ -44,7 +44,6 @@ keen4_torch_background1|1418|1294|32|32|keen4_torch_background1.png|True|1|[keen
 keen5_arrow_left_off|1574|1157|28|26|keen5_arrow_left_off.png|True|1|[keen5_arrow_left_off.png,keen5_arrow_left_on.png]|200
 keen4_torch_background1|1377|1032|32|32|keen4_torch_background1.png|True|1|[keen4_torch_background1.png,keen4_torch_background2.png,keen4_torch_background3.png,keen4_torch_background4.png]|200
 keen4_torch_background1|1346|1197|32|32|keen4_torch_background1.png|True|1|[keen4_torch_background1.png,keen4_torch_background2.png,keen4_torch_background3.png,keen4_torch_background4.png]|200
-keen4_glass_dome_top_left|1849|2450|128|176|5|0|6|YELLOW|ARCHWAY
 keen4_forest_floor_middle|760|2538|452|64|9
 keen4_cave_floor_middle|1914|1736|48|64|9
 keen4_cave_floor_middle|1462|2363|512|64|10
@@ -141,7 +140,6 @@ keen4_cave_platform_left_edge|2626|2724|30|38|10
 keen4_cave_platform_right_edge|2656|2724|30|38|10
 keen4_removable_platform|2675|1738|32|758|10|KEEN4_GREEN|False|18283470-1c74-4566-8e6b-e78c0ab5d945
 keen4_cave_floor_middle|2803|1968|134|64|10
-keen4_flag_base_red1|2374|2856|32|32|10
 keen4_flag_base_red1|413|2713|32|32|10
 keen4_cave_floor_middle|631|855|1948|64|10
 keen4_cave_wall_bottom2|631|0|1948|32|10
@@ -193,6 +191,7 @@ keen4_forest_floor_edge_right|2059|2933|52|64|10
 keen4_flag_base_red1|937|2932|32|32|10
 keen4_flag_base_red1|828|1328|32|32|11
 keen4_forest_wall_right_edge|737|2345|52|650|11
+keen4_flag_base_red1|2374|2856|32|32|11
 keen4_tar1|2008|2427|64|64|15|9|0
 keen4_gray_door|1744|2293|60|92|15|KEEN4_GRAY|3|
 keen4_blue_door|2200|2193|60|92|15|KEEN4_BLUE|1|3
@@ -398,16 +397,16 @@ keen4_sprite_look_right|2629|2450|46|46|25
 keen4_dopefish_move_left1|679|279|172|128|25
 keen4_dopefish_move_left1|673|510|172|128|25
 keen4_dopefish_move_left1|941|279|172|128|25
-keen4_dopefish_move_left1|935|510|172|128|25
 keen4_dopefish_move_left1|1199|279|172|128|25
-keen4_dopefish_move_left1|1193|510|172|128|25
 keen4_dopefish_move_left1|1457|279|172|128|25
-keen4_dopefish_move_left1|1451|510|172|128|25
 keen4_dopefish_move_left1|930|60|172|128|25
 keen4_dopefish_move_left1|1205|69|172|128|25
 keen4_dopefish_move_left1|1459|63|172|128|25
 keen4_sprite_look_right|1473|2605|46|46|25
 keen4_sprite_look_right|1643|2605|46|46|25
+keen4_dopefish_move_left1|935|522|172|128|25
+keen4_dopefish_move_left1|1193|522|172|128|25
+keen4_dopefish_move_left1|1451|522|172|128|25
 gem_red1|851|2194|26|20|RED|50|False
 gem_green1|2214|2247|26|20|GREEN|50|False
 gem_yellow1|2375|2244|26|20|YELLOW|50|False
@@ -419,6 +418,7 @@ keen4_lifewater_flask1|835|1319|22|32|50|KEEN4_LIFEWATER_FLASK
 neural_stunner_railgun1|1506|650|52|22|50|500
 gem_red1|2458|770|26|20|RED|50|False
 gem_yellow1|1251|2456|26|20|YELLOW|50|False
+keen4_glass_dome_top_left|1849|2450|128|176|50|0|6|YELLOW|ARCHWAY
 fg_keen4_cave_wall_middle|800|2026|640|128|fg_keen4_cave_wall_middle.png|False|201
 fg_keen4_forest_wall_middle|973|2342|240|256|fg_keen4_forest_wall_middle.png|False|201
 fg_keen4_forest_wall_middle|1024|2199|416|230|fg_keen4_forest_wall_middle.png|False|201
