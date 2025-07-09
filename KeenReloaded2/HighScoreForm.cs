@@ -104,7 +104,10 @@ namespace KeenReloaded2
                     if (highScores.Contains(_newHighScore))
                     {
                         //use prompt to get their name and write the new list to the scores
-                        KeenReloadedTextInputDialog highScoreUserNameDialog = new KeenReloadedTextInputDialog("You've achieved a high score!\n Enter your name here:");
+                        string text = _gameMode == MainMenuConstants.OPTION_LABEL_NORMAL_MODE
+                            ? "You've achieved a fast time!\nEnter your name here:"
+                            : "You've achieved a high score!\n Enter your name here:";
+                        KeenReloadedTextInputDialog highScoreUserNameDialog = new KeenReloadedTextInputDialog(text);
                         highScoreUserNameDialog.ShowDialog();
                         _newHighScore.PlayerName = highScoreUserNameDialog.UserNameText;
                         _highScoreUtility.WriteHighScores(highScores, _mapName);
