@@ -1,4 +1,8 @@
 Kenny|64800
+Kenny|40500
 Kenny|35400
 Kenny|23500
+Kenny|10100
 Kenny|3000
+Kenny|100
+Kenny|0

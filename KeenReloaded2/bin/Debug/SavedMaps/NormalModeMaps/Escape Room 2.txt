@@ -117,7 +117,6 @@ keen4_cave_platform_left_edge|145|2736|30|38|10
 keen4_cave_platform_middle|175|2736|256|36|10
 keen4_cave_platform_right_edge|429|2736|30|38|10
 keen4_removable_platform|0|1833|260|62|10|KEEN4_GREEN|False|f03829b0-550a-4b9f-b1ff-08b97e950c71
-keen4_removable_platform|268|780|32|240|10|KEEN4_GREEN|False|3a86abfc-232c-47c1-94fd-036aa7c1d6e2
 keen4_cave_wall_edge_right|1974|2523|52|400|10
 keen4_cave_wall_edge_right|2574|0|52|2400|10
 keen4_cave_floor_middle|2417|1336|48|64|10
@@ -189,6 +188,9 @@ keen4_forest_platform_single|2127|741|32|40|10
 keen4_forest_floor_middle|759|2933|1300|64|10
 keen4_forest_floor_edge_right|2059|2933|52|64|10
 keen4_flag_base_red1|937|2932|32|32|10
+keen4_removable_platform|268|780|32|240|10|KEEN4_GREEN|True|3a86abfc-232c-47c1-94fd-036aa7c1d6e2
+keen4_forest_wall_bottom2|1648|2556|200|32|10
+keen4_forest_wall_bottom2|1213|2570|306|32|10
 keen4_flag_base_red1|828|1328|32|32|11
 keen4_forest_wall_right_edge|737|2345|52|650|11
 keen4_flag_base_red1|2374|2856|32|32|11
@@ -309,6 +311,8 @@ chute|1693|2428|64|64|15|CHUTE|62|
 keen4_gray_door|1580|2573|60|92|15|KEEN4_GRAY|61|62
 keen4_blue_door|1894|2557|60|92|15|KEEN4_BLUE|59|60
 keen4_oracle_door2|687|719|126|160|15|KEEN4_ORACLE|45|
+chute|1018|2805|64|64|15|CHUTE|64|
+keen4_gray_door|1216|2478|60|92|15|KEEN4_GRAY|63|64
 keen4_cave_wall_edge_right|2574|2400|52|128|16
 keen_4_spikes|1912|2324|63|70
 keen4_platform_stationary|1897|2257|104|32|18|[1897,2200,1897,2360]|d5155af3-6ec0-4c2d-99ea-a2eeb1a71419|True
@@ -344,11 +348,12 @@ keen4_rocket_propelled_platform1|1552|2556|32|32|18
 keen4_rocket_propelled_platform1|1584|2556|32|32|18
 keen4_rocket_propelled_platform1|1616|2556|32|32|18
 keen4_platform_stationary|1500|2510|104|32|18|[1292,2510,1700,2510]|97145cfd-d929-466e-a284-c2a7a33c13d7|True
+keen4_fire_left1|1688|2512|32|42|18|LEFT
+keen4_fire_right1|1720|2512|31|42|18|RIGHT
 keen4_mine|1546|2060|46|46|LEFT|1546|2060|46|46|20
 keen4_mine|1500|2060|46|46|LEFT|1500|2060|46|46|20
 keen_stand_right|1495|2281|26|64|RIGHT
 keen4_dopefish_move_left1|45|308|172|128|25
-keen4_dopefish_move_left1|356|829|172|128|25
 keen4_dopefish_move_left1|40|1121|172|128|25
 keen4_dopefish_move_left1|391|1421|172|128|25
 keen4_sprite_look_right|2629|518|46|46|25
@@ -407,6 +412,9 @@ keen4_sprite_look_right|1643|2605|46|46|25
 keen4_dopefish_move_left1|935|522|172|128|25
 keen4_dopefish_move_left1|1193|522|172|128|25
 keen4_dopefish_move_left1|1451|522|172|128|25
+edge_of_map_tile_debug|-31|-31|640|32|25|BARRIER
+edge_of_map_tile_debug|-31|-31|32|3031|25|BARRIER
+keen4_dopefish_move_left1|64|829|172|128|25
 gem_red1|851|2194|26|20|RED|50|False
 gem_green1|2214|2247|26|20|GREEN|50|False
 gem_yellow1|2375|2244|26|20|YELLOW|50|False
@@ -417,8 +425,8 @@ gem_green1|2774|230|26|20|GREEN|50|False
 keen4_lifewater_flask1|835|1319|22|32|50|KEEN4_LIFEWATER_FLASK
 neural_stunner_railgun1|1506|650|52|22|50|500
 gem_red1|2458|770|26|20|RED|50|False
-gem_yellow1|1251|2456|26|20|YELLOW|50|False
 keen4_glass_dome_top_left|1849|2450|128|176|50|0|6|YELLOW|ARCHWAY
+gem_yellow1|1232|2456|26|20|YELLOW|50|False
 fg_keen4_cave_wall_middle|800|2026|640|128|fg_keen4_cave_wall_middle.png|False|201
 fg_keen4_forest_wall_middle|973|2342|240|256|fg_keen4_forest_wall_middle.png|False|201
 fg_keen4_forest_wall_middle|1024|2199|416|230|fg_keen4_forest_wall_middle.png|False|201
@@ -454,7 +462,6 @@ keen4_switch1_on|318|2703|32|32|15|KEEN4_1|[b8c49db6-a392-4a6c-9b8c-0f0730947c9f
 keen4_switch1_on|350|2703|32|32|15|KEEN4_1|[ba6443cd-d75e-49bb-b462-f0a50d728641]|True
 keen4_switch2_on|2055|2143|32|32|15|KEEN4_2|[be338455-b68f-4e71-a66c-6d34f89a8b00]|True
 keen4_switch1_off|190|2703|32|32|15|KEEN4_1|[bc59b15d-7cc6-434c-a287-b6fe0eb15640,f03829b0-550a-4b9f-b1ff-08b97e950c71]|False
-keen4_switch1_off|254|2703|32|32|15|KEEN4_1|[3a86abfc-232c-47c1-94fd-036aa7c1d6e2]|False
 keen4_switch2_off|2646|2693|32|32|15|KEEN4_2|[18283470-1c74-4566-8e6b-e78c0ab5d945]|False
 keen4_switch1_on|1969|681|32|32|15|KEEN4_1|[f6341767-7f5e-46cb-b444-c029c7a2173e]|True
 keen4_switch1_on|2033|681|32|32|15|KEEN4_1|[c94df4c0-f31a-4839-a7d1-cc1a06937ea7]|True
@@ -473,6 +480,7 @@ keen4_switch1_on|2033|809|32|32|15|KEEN4_1|[94e691a1-6a38-4e33-9448-6f9b21f6f4ad
 keen4_switch1_on|2097|809|32|32|15|KEEN4_1|[fdc9d894-7361-46a4-b3eb-b79dc4e6b2c7]|True
 keen4_switch1_on|2161|809|32|32|15|KEEN4_1|[f6785c83-bd41-4915-9082-df17c9ea7955]|True
 keen4_switch1_on|2097|681|32|32|15|KEEN4_1|[b7abfa03-3c4f-44a2-b63f-0fb49126b30e]|True
+keen4_switch1_on|254|2703|32|32|15|KEEN4_1|[3a86abfc-232c-47c1-94fd-036aa7c1d6e2]|True
 gem_placeholder_red_empty|1457|2368|26|22|50|RED|[f6bff1da-0661-4959-a6e7-c8954ec9fc61]
 gem_placeholder_blue_empty|1927|2166|26|22|50|BLUE|[288d7021-7032-489a-8cd1-5fa532eb8933]
 gem_placeholder_green_empty|970|1965|26|22|50|GREEN|[5e8666ea-f578-4d55-89f3-2edcce65f173]

@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Timers;
+using KeenReloaded2.Framework.Extensions;
 
 namespace KeenReloaded2.Framework.GameEntities.Enemies
 {
@@ -73,6 +74,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public void Update()
         {
+            this.KillIfOutSideBoundsOfMap(_collisionGrid);
             if (!this.IsDead())
             {
                 this.Move();
