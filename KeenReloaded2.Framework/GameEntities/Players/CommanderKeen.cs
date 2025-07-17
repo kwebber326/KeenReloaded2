@@ -272,7 +272,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 {
                     _sprite = _keenLookDownSprites[_currentLookDownSprite];
                 }
-                else if (_togglingSwitch)
+                else if (_togglingSwitch && !_isFiring)
                 {
                     _sprite = _keenEnterDoor1;
                 }
@@ -2402,6 +2402,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                         this.UpdateCollisionNodes(Direction.UP_RIGHT);
                         _fallVelocity = 0;
                         this.MoveState = Enums.MoveState.STANDING;
+                        UpdateWeaponFireDirectionAndLocation();
                         if (IsNothingBeneathKeen())
                         {
                             this.Fall();
@@ -2533,7 +2534,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     break;
                 case Enums.MoveState.RUNNING:
                 case Enums.MoveState.STANDING:
-                    if (_isLookingUp)
+                    if (IsKeyPressed(KEY_UP))
                     {
                         _sprite = _keenShootUp;
                     }
