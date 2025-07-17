@@ -27,8 +27,6 @@ keen5_outer_space_window_right_side|270|1311|16|116|keen5_outer_space_window_rig
 keen5_wall_black_bottom|16|1193|400|32|10
 keen5_wall_black_edge_right|16|1225|52|400|10
 keen5_floor_black_middle|44|1561|370|64|10
-keen5_wall_black_edge_left|341|1220|64|256|10
-keen4_removable_platform|374|1472|32|128|10|KEEN4_GREEN|True|2f113f86-7582-4259-a1ed-5bcd769b3751
 keen5_wall_black_edge_right|16|1029|52|164|10
 keen5_floor_black_floor_edge_left|16|965|72|64|10
 keen5_floor_black_middle|88|965|276|64|10
@@ -43,6 +41,11 @@ keen4_removable_platform|1112|783|256|62|10|KEEN4_GREEN|True|8f592c89-c47c-430d-
 keen4_removable_platform|600|1483|256|62|10|KEEN4_GREEN|True|da8167d5-7e3f-45fe-9d1c-40514b5d3353
 keen4_removable_platform|856|1483|256|62|10|KEEN4_GREEN|True|4a888344-bcd9-4d77-aac6-3b830bf0a338
 keen4_removable_platform|1112|1483|256|62|10|KEEN4_GREEN|True|de9be908-e60f-4eef-ae93-3a634dd003e5
+keen5_wall_black_edge_left|341|1220|64|286|10
+keen5_black_floor_to_platform_left|414|1561|64|64|10|KEEN5_BLACK
+keen5_platform_blue_middle|478|1589|64|34|10
+keen5_platform_blue_edge_right|542|1589|32|34|10
+keen4_removable_platform|374|1502|32|98|11|KEEN4_GREEN|True|2f113f86-7582-4259-a1ed-5bcd769b3751
 flipping_platform_still|806|1250|64|26|12
 flipping_platform_still|1121|1250|64|26|12
 keen5_door|219|1496|92|94|15|KEEN5_REGULAR|1|2
@@ -89,9 +92,12 @@ keen5_black_pole_middle|1290|1367|12|32|15|keen5_black_pole_middle|MIDDLE|KEEN5_
 keen5_black_pole_middle|690|1399|12|32|15|keen5_black_pole_middle|MIDDLE|KEEN5_BLACK
 keen5_black_pole_middle|990|1399|12|32|15|keen5_black_pole_middle|MIDDLE|KEEN5_BLACK
 keen5_black_pole_middle|1290|1399|12|32|15|keen5_black_pole_middle|MIDDLE|KEEN5_BLACK
-keen5_black_pole_bottom|690|1431|12|28|15|keen5_black_pole_bottom|BOTTOM|KEEN5_BLACK
-keen5_black_pole_bottom|990|1431|12|28|15|keen5_black_pole_bottom|BOTTOM|KEEN5_BLACK
-keen5_black_pole_bottom|1290|1431|12|28|15|keen5_black_pole_bottom|BOTTOM|KEEN5_BLACK
+keen5_black_pole_middle|690|1431|12|32|15|keen5_black_pole_middle|MIDDLE|KEEN5_BLACK
+keen5_black_pole_bottom|690|1459|12|28|15|keen5_black_pole_bottom|BOTTOM|KEEN5_BLACK
+keen5_black_pole_middle|990|1431|12|32|15|keen5_black_pole_middle|MIDDLE|KEEN5_BLACK
+keen5_black_pole_middle|1290|1431|12|32|15|keen5_black_pole_middle|MIDDLE|KEEN5_BLACK
+keen5_black_pole_bottom|990|1462|12|28|15|keen5_black_pole_bottom|BOTTOM|KEEN5_BLACK
+keen5_black_pole_bottom|1290|1463|12|28|15|keen5_black_pole_bottom|BOTTOM|KEEN5_BLACK
 random_item_generator_closed|79|1501|124|92|18|1000
 keen5_orange_platform|459|1650|78|36|18|KEEN5_ORANGE|[459,650,1459,650,1459,1650,459,1650]|e494ef98-c365-4cf9-bcb7-60f193d7c979|True
 keen5_orange_platform|459|650|78|36|18|KEEN5_ORANGE|[1459,650,1459,1650,459,1650,459,650]|d6454015-97f3-401e-8565-fb13aa1fb4b2|True

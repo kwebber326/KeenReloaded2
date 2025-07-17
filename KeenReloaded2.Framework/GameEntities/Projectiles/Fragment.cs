@@ -184,7 +184,26 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             }
         }
 
+        protected override bool IsOutOfBounds(Direction direction, int offset = 0)
+        {
+            if (_collisionGrid == null)
+                return true;
 
+            int rightBound = _collisionGrid.Size.Width;
+            int leftBound = 0;
+
+            int upperBound = 0;
+            int lowerBound = _collisionGrid.Size.Height;
+
+            int x = this.HitBox.X;
+            int y = this.HitBox.Y;
+            int width = this.HitBox.Width + 1;
+            int height = this.HitBox.Height + 1;
+            bool outOfBounds = x < leftBound - width || x > rightBound + width
+                               || y < upperBound - height || y > lowerBound + height;
+
+            return outOfBounds;
+        }
         private void GetVerticalImpact()
         {
             if (Math.Abs(_currentVerticalVelocity) <= MIN_HORIZONTAL_VELOCITY && _currentHorizontalVelocity == 0)
