@@ -2,8 +2,8 @@ Kw|186400
 Kenny|151700
 K dub|148600
 Kenny|138900
+K dog|131600
 Kenny|119500
 Kenny|101800
 Kenny|100900
-Kenny|95500
-e|93200
+|93200

@@ -217,7 +217,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     }
                     break;
                 case Enums.Direction.UP:
-                    if (obj.HitBox.Right > this.HitBox.Left && obj.HitBox.Left < this.HitBox.Right && obj.HitBox.Bottom <= this.HitBox.Top)
+                    if (obj.HitBox.Right > this.HitBox.Left && obj.HitBox.Left < this.HitBox.Right)
                     {
                         this.HitBox = new Rectangle(this.HitBox.X, obj.HitBox.Bottom + 1, this.HitBox.Width, this.HitBox.Height);
                     }
