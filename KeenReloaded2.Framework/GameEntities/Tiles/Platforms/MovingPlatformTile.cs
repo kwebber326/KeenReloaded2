@@ -14,6 +14,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
     public class MovingPlatformTile : MaskedTile
     {
         protected CommanderKeen _keen;
+        protected int _moveVelocity = 5;
         public MovingPlatformTile(SpaceHashGrid grid, Rectangle hitbox, string imageFile, int zIndex)
             : base(hitbox, grid, hitbox, imageFile, zIndex)
         {
@@ -103,7 +104,17 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
             if (_keen != null && !_keen.IsDead() && _keen.MoveState != Enums.MoveState.ON_POLE && _keen.MoveState != MoveState.HANGING && !collisionsPresent)
             {
                 Point newPos = new Point(_keen.HitBox.X + (this.HitBox.X - previous.X), this.HitBox.Top - _keen.HitBox.Height - 1);
-                _keen.MoveKeenToPosition(newPos, this);
+                if (previous.Y < p.Y)
+                {
+                    if (!_keen.MoveKeenToPosition(newPos, this))
+                    {
+                        this.UnassignKeen();
+                    }
+                }
+                else
+                {
+                    _keen.MoveKeenToPosition(newPos, this);
+                }
             }
             else if (_keen != null && previous.Y > p.Y)//if we are moving up check tile collisions
             {

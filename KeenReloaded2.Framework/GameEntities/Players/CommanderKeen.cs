@@ -1157,10 +1157,10 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             }
         }
 
-        public void MoveKeenToPosition(Point p, CollisionObject collidingObject)
+        public bool MoveKeenToPosition(Point p, CollisionObject collidingObject)
         {
             if (this.MoveState == MoveState.ENTERING_DOOR)
-                return;
+                return false;
 
             Rectangle areaToCheck = new Rectangle(p, this.HitBox.Size);
             Point previousDir = this.HitBox.Location;
@@ -1200,6 +1200,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     this.HandleCollision(collision);
                 }
             }
+            return !collisions.Any();
         }
 
         public void GetMovedVertically(CollisionObject obj)

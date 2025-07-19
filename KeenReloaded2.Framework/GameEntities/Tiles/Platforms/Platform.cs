@@ -16,7 +16,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
     {
         protected PlatformType _type;
 
-        protected int _moveVelocity = 5;
+ 
         protected int _acceleration = 10;
         protected Direction _direction;
         protected int MAX_GRAVITY_SPEED = 50;
