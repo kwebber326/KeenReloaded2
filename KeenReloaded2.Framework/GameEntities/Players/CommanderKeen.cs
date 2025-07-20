@@ -1647,16 +1647,19 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     }
                 }
                 //squash things that can be squashed
-                var squashables = collisionItems.OfType<ISquashable>();
-                if (squashables.Any())
+                if (_isUsingPogo)
                 {
-                    foreach (ISquashable i in squashables)
+                    var squashables = collisionItems.OfType<ISquashable>();
+                    if (squashables.Any())
                     {
-                        if (i.CanSquash)
+                        foreach (ISquashable i in squashables)
                         {
-                            CollisionObject obj = i as CollisionObject;
-                            if (obj != null && (obj.HitBox.Y < minY || minY == -1))
-                                i.Squash();
+                            if (i.CanSquash)
+                            {
+                                CollisionObject obj = i as CollisionObject;
+                                if (obj != null && (obj.HitBox.Y < minY || minY == -1))
+                                    i.Squash();
+                            }
                         }
                     }
                 }

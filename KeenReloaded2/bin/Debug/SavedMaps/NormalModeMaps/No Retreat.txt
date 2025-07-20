@@ -130,6 +130,10 @@ keen6_industrial_wall_to_platform_tile|72|1095|32|64|10|KEEN6_INDUSTRIAL|LEFT
 keen6_industrial_platform_middle|102|1121|784|38|10
 keen5_ceiling_red|378|1222|128|32|10
 keen5_wall_red_edge_right|506|1158|52|96|10
+keen5_ceiling_red|178|1222|128|32|10
+keen5_wall_red_edge_right|306|1158|52|96|10
+keen5_ceiling_red|578|1222|128|32|10
+keen5_wall_red_edge_right|706|1158|52|96|10
 flipping_platform_still|1637|606|64|26|12
 flipping_platform_flip_135|1636|378|64|56|12
 flipping_platform_still|1759|290|64|26|12
@@ -193,6 +197,8 @@ chute|3681|1216|64|64|15|CHUTE|4|
 chute|105|1014|64|64|15|CHUTE|5|
 keen5_red_generator_wall|378|1158|128|64|15
 keen5_door|3592|195|92|94|15|KEEN5_REGULAR|6|5
+keen5_red_generator_wall|178|1158|128|64|15
+keen5_red_generator_wall|578|1158|128|64|15
 keen6_laser_field_bottom|842|798|32|182|18|OFF
 keen6_electric_rods1|697|876|128|96|18
 enemy_spawner1|101|878|92|94|18|[Bloog,Blooglet,Blooguard,Babobba,Fleex,NoSpike,BipShip]|5|20|10000000
@@ -216,8 +222,8 @@ keen5_arrow_up_off|3703|1497|26|28|keen5_arrow_up_off.png|True|18|[keen5_arrow_u
 keen5_force_field_bottom|2003|110|32|244|18|300
 enemy_spawner1|2981|722|92|94|18|[DiagonalSlicestar,ShikadiMine]|6|5|0
 keen5_spinning_fire_hazard1|2175|759|32|32|18
-keen_stand_right|1400|1530|26|64|RIGHT
 Shield|2998|458|62|97|20|30
+keen_stand_right|1343|1557|26|64|RIGHT
 keen5_robo_red_right|1066|1244|126|128|25
 keen5_spirogrip_rotate5|2528|199|32|62|25
 keen5_spindred1|2680|456|46|48|25

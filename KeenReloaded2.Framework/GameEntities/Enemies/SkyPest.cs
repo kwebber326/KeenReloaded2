@@ -27,8 +27,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         private const int FLY_DISTANCE = 10;
         private int _currentFlyDistance;
-        private const int FLY_VELOCITY_HORIZONTAL = 20;
-        private const int FLY_VELOCITY_VERTICAL = 20;
+        private const int FLY_VELOCITY_HORIZONTAL = 15;
+        private const int FLY_VELOCITY_VERTICAL = 15;
         private const int WAIT_STATES = 8;
         private const int WAIT_CYCLES = 2;
         private int _currentWaitCycle = 1;
