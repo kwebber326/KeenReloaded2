@@ -3690,7 +3690,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                     DataType = typeof(Guid),
                     Value = new Guid(),
                     DisplayName ="Id: ",
-                    Hidden = true
+                    Readonly = true
                 },
                 new MapMakerObjectProperty()
                 {

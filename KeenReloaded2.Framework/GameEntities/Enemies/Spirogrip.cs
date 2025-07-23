@@ -326,6 +326,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             {
                 this.HitBox = new Rectangle(_originalPos, this.HitBox.Size);
                 this.State = SpiroGripState.ATTACKING;
+                this.ResetRandomVariable();
             }
 
             int xOffset = 0, yOffset = 0;

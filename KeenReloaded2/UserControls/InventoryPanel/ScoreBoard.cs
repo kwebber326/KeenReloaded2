@@ -46,7 +46,8 @@ namespace KeenReloaded2.UserControls.InventoryPanel
         public void UpdateScoreBoard()
         {
             Image backgroundImage = Properties.Resources.scoreboard_blank;
-            Size imageSize = pbScoreBoard.Size;
+
+            Size imageSize = pbScoreBoard.Size.Width == 0 ? backgroundImage.Size : pbScoreBoard.Size;
             ImageWithLocation[] data = GetLEDImagesFromKeen();
             Image[] images = data.Select(d => d.Image).ToArray();
             Point[] locations = data.Select(d => d.Location).ToArray();
