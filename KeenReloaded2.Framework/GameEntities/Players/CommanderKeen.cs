@@ -1200,6 +1200,11 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     this.HandleCollision(collision);
                 }
             }
+            else 
+            {
+                var closestCollision = this.GetClosestCollision(collisions);
+                this.HandleCollision(closestCollision);
+            }
             return !collisions.Any();
         }
 
