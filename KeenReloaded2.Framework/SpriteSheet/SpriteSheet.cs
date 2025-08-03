@@ -1153,6 +1153,30 @@ namespace KeenReloaded2.Framework.SpriteSheet
         }
         #endregion
 
+        #region Keen 4 Water Hazard
+        private static Image[] _keen4WaterHazardSprites;
+
+        public static Image[] Keen4WaterHazardSprites
+        {
+            get
+            {
+                if (_keen4WaterHazardSprites == null)
+                {
+                    _keen4WaterHazardSprites = new Image[]
+                    {
+                        Properties.Resources.keen4_water1,
+                        Properties.Resources.keen4_water2,
+                        Properties.Resources.keen4_water3,
+                        Properties.Resources.keen4_water4,
+                        Properties.Resources.keen4_water5,
+                    };
+                }
+
+                return _keen4WaterHazardSprites;
+            }
+        }
+        #endregion
+
         #region Keen 5 Spinning Fire
         private static Image[] _keen5SpinningFireImages;
         public static Image[] Keen5SpinningFireImages

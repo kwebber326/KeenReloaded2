@@ -2127,6 +2127,57 @@ namespace KeenReloaded2.Entities.ReferenceData
             backgroundReferenceData.Add(tarPoolKey, tarPoolObj);
             #endregion
 
+            #region Water Hazard
+
+            string keen4WaterHazardFile = keen4HazardFiles.FirstOrDefault(f => f.Contains("keen4_water"));
+            string keen4WaterHazardKey = FileIOUtility.ExtractFileNameFromPath(keen4WaterHazardFile);
+            Image keen4WaterHazardImg = Image.FromFile(keen4WaterHazardFile);
+
+            MapMakerObjectProperty[] keen4WaterHazardProperties = new MapMakerObjectProperty[]
+            {
+                 new MapMakerObjectProperty()
+                  {
+                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                      DisplayName = "Area: ",
+                      DataType = typeof(Rectangle),
+                      Value = new Rectangle(0, 0, keen4WaterHazardImg.Width, keen4WaterHazardImg.Height),
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                       DataType = typeof(SpaceHashGrid),
+                       Value = null,
+                       Hidden = true,
+                       IsIgnoredInMapData = true
+                  },
+                  new MapMakerObjectProperty()
+                  {
+                      PropertyName = "zIndex",
+                      DataType = typeof(int),
+                      Value = 18,
+                      DisplayName ="Z Index: "
+                  },
+                   new MapMakerObjectProperty()
+                  {
+                      PropertyName = "lengths",
+                      DataType = typeof(int),
+                      Value = 1,
+                      DisplayName ="Length: "
+                  },
+                   new MapMakerObjectProperty()
+                  {
+                      PropertyName = "depths",
+                      DataType = typeof(int),
+                      Value = 0,
+                      DisplayName ="Depth: "
+                  },
+            };
+
+            MapMakerObject keen4WaterHazardObj = new MapMakerObject(typeof(Keen4WaterHazard), keen4WaterHazardFile, false, keen4WaterHazardProperties);
+            backgroundReferenceData.Add(keen4WaterHazardKey, keen4WaterHazardObj);
+
+            #endregion
+
             #endregion
 
             #region keen 5

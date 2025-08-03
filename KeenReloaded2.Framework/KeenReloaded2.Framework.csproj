@@ -163,6 +163,7 @@
     <Compile Include="GameEntities\Hazards\ForceField.cs" />
     <Compile Include="GameEntities\Hazards\Hazard.cs" />
     <Compile Include="GameEntities\Hazards\InvisibleHazard.cs" />
+    <Compile Include="GameEntities\Hazards\Keen4WaterHazard.cs" />
     <Compile Include="GameEntities\Hazards\Keen5LaserField.cs" />
     <Compile Include="GameEntities\Hazards\Keen5PlatformBurner.cs" />
     <Compile Include="GameEntities\Hazards\Keen5SpinningBurnPlatform.cs" />
@@ -178,6 +179,7 @@
     <Compile Include="GameEntities\Hazards\LightningBolt.cs" />
     <Compile Include="GameEntities\Hazards\Mine.cs" />
     <Compile Include="GameEntities\Hazards\PoisonSlugPoop.cs" />
+    <Compile Include="GameEntities\Hazards\ResizableLiquidHazard.cs" />
     <Compile Include="GameEntities\Hazards\RocketPropelledPlatform.cs" />
     <Compile Include="GameEntities\Hazards\Smasher.cs" />
     <Compile Include="GameEntities\Hazards\Spear.cs" />
@@ -6229,6 +6231,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_flag_base_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_water_deep.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_water1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_water2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_water3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_water4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_water5.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

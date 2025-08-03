@@ -35,6 +35,7 @@ namespace KeenReloaded2.Framework.Enums
         KEEN6_CONVEYER_BELT,
         KEEN6_WATER_HAZARD,
         INVISIBLE,
-        KEEN6_IRON_SPIKE
+        KEEN6_IRON_SPIKE,
+        KEEN4_WATER_HAZARD
     }
 }

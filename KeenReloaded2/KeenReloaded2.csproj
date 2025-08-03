@@ -6771,5 +6771,23 @@
   <ItemGroup>
     <None Include="Resources\keen4_flag_base_yellow.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_water_deep.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_water1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_water2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_water3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_water4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_water5.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6547,4 +6547,22 @@
   <data name="keen4_flag_base_yellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_flag_base_yellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen4_water1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_water1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_water2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_water2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_water3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_water3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_water4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_water4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_water5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_water5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen4_water_deep" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen4_water_deep.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

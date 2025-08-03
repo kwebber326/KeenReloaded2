@@ -149,8 +149,7 @@ keen5_floor_red_middle|2485|1210|48|64|10
 keen5_floor_red_middle|2444|1210|48|64|10
 keen5_floor_red_middle|2677|1210|161|64|10
 keen4_removable_platform|679|2405|180|62|10|KEEN4_GREEN|False|deb225d5-61fc-4878-bc9d-795ec004612e
-keen5_wall_red_edge_right|1342|3003|52|250|10
-keen4_removable_platform|1350|3252|32|90|10|KEEN4_GREEN|True|ddd6dfd5-c117-466e-beeb-44cf118fb02a
+keen4_removable_platform|1350|3000|32|342|10|KEEN4_GREEN|True|ddd6dfd5-c117-466e-beeb-44cf118fb02a
 keen5_ceiling_red|121|738|2684|32|11
 keen5_wall_red_edge_left|2838|1102|64|3500|11
 keen5_wall_red_edge_left|1394|4348|64|224|11
