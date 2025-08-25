@@ -107,7 +107,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         private void EndShot()
         {
             this.UpdateCollisionNodes(this.Direction);
-            CleanUpCollisionNodes();
+            this.DetachFromCollisionGrid();
             OnObjectComplete();
         }
 

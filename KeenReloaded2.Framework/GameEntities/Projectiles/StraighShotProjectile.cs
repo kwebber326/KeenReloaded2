@@ -66,7 +66,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                     StopAtCollisionObject(obj);
                 }
             }
-            else if (obj is IExplodable)
+            else if (obj is IExplodable && ((IExplodable)obj).ExplodesFromProjectileCollision)
             {
                 if (--_pierce < 0)
                 {
@@ -392,7 +392,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             else
             {
                 this.UpdateCollisionNodes(this.Direction);
-                CleanUpCollisionNodes();
+                this.DetachFromCollisionGrid();
                 OnObjectComplete();
             }
         }
@@ -420,7 +420,7 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
                 else
                 {
                     _sprite = null;
-                    CleanUpCollisionNodes();
+                    this.DetachFromCollisionGrid();
                     OnObjectComplete();
                 }
 
@@ -432,16 +432,6 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             }
         }
 
-        protected void CleanUpCollisionNodes()
-        {
-            if (_collidingNodes != null)
-            {
-                foreach (var node in _collidingNodes)
-                {
-                    node.Objects.Remove(this);
-                }
-            }
-        }
 
         protected void OnObjectComplete()
         {

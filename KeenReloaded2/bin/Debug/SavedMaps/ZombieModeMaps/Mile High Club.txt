@@ -114,9 +114,9 @@ keen5_spinning_fire_hazard1|267|931|32|32|18
 keen5_spinning_fire_hazard1|299|931|32|32|18
 keen5_spinning_fire_hazard1|331|931|32|32|18
 keen5_spinning_fire_hazard1|363|931|32|32|18
-enemy_spawner1|631|41|92|94|18|[Sparky,LittleAmpton,Shikadi,Shockshund,KorathInhabitant,Shelley]|3|20|100000000
-enemy_spawner1|931|41|92|94|18|[Sparky,LittleAmpton,Shikadi,Shockshund,KorathInhabitant,Shelley]|3|20|100000000
-enemy_spawner1|1231|41|92|94|18|[Sparky,LittleAmpton,Shikadi,Shockshund,KorathInhabitant,Shelley]|3|20|100000000
+enemy_spawner1|631|41|92|94|18|[Sparky,LittleAmpton,Shikadi,Shockshund,ShikadiMine,KorathInhabitant,Shelley]|3|20|100000000
+enemy_spawner1|931|41|92|94|18|[Sparky,LittleAmpton,Shikadi,Shockshund,ShikadiMine,KorathInhabitant,Shelley]|3|20|100000000
+enemy_spawner1|1231|41|92|94|18|[Sparky,LittleAmpton,Shikadi,Shockshund,ShikadiMine,KorathInhabitant,Shelley]|3|20|100000000
 keen_stand_right|81|1509|26|64|RIGHT
 neural_stunner1|225|1534|30|22|50|5
 neural_stunner1|255|1534|30|22|50|5
