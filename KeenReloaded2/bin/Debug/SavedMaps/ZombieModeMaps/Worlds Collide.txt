@@ -119,4 +119,4 @@ keen5_switch2_on|1048|1420|32|32|15|KEEN5_2|[c7237a24-1cc1-47b8-a163-c93dc340eec
 keen6_Switch_On|2055|1334|90|96|15|[f48e618a-adff-4b27-81c5-3011517381e3]|True
 keen5_switch1_off|1684|1425|32|32|15|KEEN5_1|[53a41dfb-7788-4984-bb17-bdedbc9bec5d]|False
 keen5_switch2_on|1840|500|32|32|15|KEEN5_2|[f48e618a-adff-4b27-81c5-3011517381e3]|True
-keen4_switch2_off|587|1433|32|32|15|KEEN4_2|[03b2167c-c688-48fc-97d3-79eb0168f57f]|False
+keen4_switch2_off|450|1132|32|32|15|KEEN4_2|[03b2167c-c688-48fc-97d3-79eb0168f57f]|False

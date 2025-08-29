@@ -2082,6 +2082,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 SetWeaponByKey();
                 CheckForSwitchWeaponButtonPress();
                 CheckForShieldToggle();
+                CheckForShieldOnPole();
                 if (this.MoveState != Enums.MoveState.CLIMBING && this.MoveState != Enums.MoveState.ENTERING_DOOR)
                 {
                     bool isNothingBeneath = IsNothingBeneathKeen();
@@ -2227,7 +2228,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                             }
                             else if (toggleSwitch != null && !(toggleSwitch is GemPlaceHolder))
                             {
-                                if (!_togglingSwitch && !_isUsingPogo)
+                                if (!_togglingSwitch && !_isUsingPogo && !IsShieldActive())
                                 {
                                     _togglingSwitch = true;
                                     toggleSwitch.Toggle();
@@ -2297,6 +2298,14 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             else
             {
                 ContinueDeathSequence();
+            }
+        }
+
+        private void CheckForShieldOnPole()
+        {
+            if (this.MoveState == MoveState.ON_POLE  && IsShieldActive())
+            {
+                this.Fall();
             }
         }
 
@@ -2912,7 +2921,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         private bool CanKeenGrabPole(bool updateDelay = true)
         {
             bool canGrabPole = false;
-            if (_isLookingDown || _isUsingPogo)
+            if (_isLookingDown || _isUsingPogo || IsShieldActive())
                 return false;
             if (_currentPoleHangDelayTick == POLE_HANG_DELAY || this.MoveState == Enums.MoveState.ON_POLE || !updateDelay)
             {
