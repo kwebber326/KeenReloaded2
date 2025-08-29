@@ -86,7 +86,7 @@ namespace KeenReloaded2
                     var min = highScores.Min(h => h.Value);
                     if (highScores.Count > HIGH_SCORE_MAX_NUMBER_OF_ENTRIES)
                     {
-                        if (_gameMode != MainMenuConstants.OPTION_LABEL_NORMAL_MODE && (long)_newHighScore.Value > 0)
+                        if (IsValidHighScore(_newHighScore))
                         {
                             var lastMin = highScores.LastOrDefault(h => h.Value?.ToString() == min?.ToString());
                             highScores.Remove(lastMin);
@@ -101,7 +101,7 @@ namespace KeenReloaded2
                     }
                    
                     //if the player achieved a high score, prompt the user to enter their name
-                    if (highScores.Contains(_newHighScore))
+                    if (IsValidHighScore(_newHighScore) && highScores.Contains(_newHighScore))
                     {
                         //use prompt to get their name and write the new list to the scores
                         string text = _gameMode == MainMenuConstants.OPTION_LABEL_NORMAL_MODE
@@ -111,6 +111,10 @@ namespace KeenReloaded2
                         highScoreUserNameDialog.ShowDialog();
                         _newHighScore.PlayerName = highScoreUserNameDialog.UserNameText;
                         _highScoreUtility.WriteHighScores(highScores, _mapName);
+                    }
+                    else
+                    {
+                        highScores.Remove(_newHighScore);
                     }
                     //TODO: write player stats
                 }
@@ -131,6 +135,11 @@ namespace KeenReloaded2
                 System.Diagnostics.Debug.WriteLine(ex);
                 MessageBox.Show("Error retrieving high scores");
             }
+        }
+
+        private bool IsValidHighScore(IHighScore score)
+        {
+            return _gameMode == MainMenuConstants.OPTION_LABEL_NORMAL_MODE || (long)score.Value > 0;
         }
 
         private void WriteHighScoresOnBoard(List<IHighScore> scores)
