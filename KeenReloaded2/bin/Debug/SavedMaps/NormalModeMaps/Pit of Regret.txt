@@ -420,7 +420,7 @@ keen4_icecream_cone1|2693|637|20|32|50|KEEN4_ICECREAM_CONE
 keen4_icecream_cone1|2693|669|20|32|50|KEEN4_ICECREAM_CONE
 fg_keen4_forest_wall_middle|2658|429|232|72|fg_keen4_forest_wall_middle.png|False|100
 fg_keen4_forest_wall_middle|2655|499|128|64|fg_keen4_forest_wall_middle.png|False|100
-fg_keen4_forest_wall_middle|1645|1736|192|370|fg_keen4_forest_wall_middle.png|False|100
+fg_keen4_forest_wall_middle|1645|1736|192|370|fg_keen4_forest_wall_middle.png|False|201
 keen4_switch1_off|714|3601|32|32|15|KEEN4_1|[a98cf350-dad6-4bea-b5fc-0e7b2daa895c]|False
 keen4_switch1_off|1659|1660|32|32|15|KEEN4_1|[4b4fcc30-6954-454e-b893-534f5893f76b]|False
 keen4_switch2_off|1015|4398|32|32|15|KEEN4_2|[786a4eef-676c-4e02-8638-5f141b6547d1]|False

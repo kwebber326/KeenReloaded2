@@ -774,6 +774,11 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             }
         }
 
+        private bool IsShieldActive()
+        {
+            return this.HasShield && this.Shield.IsActive;
+        }
+
         protected override void HandleCollision(CollisionObject obj)
         {
             //base.HandleCollision(obj);
@@ -821,7 +826,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                             new Rectangle(obj.HitBox.Right + 32, obj.HitBox.Y - 32, 32, 64);
                         var overheadCollisions = this.CheckCollision(overheadArea, true).Where(c => c.CollisionType == CollisionType.BLOCK);
 
-                        if (!_isUsingPogo && !collisionWalls.Any() && !bottomCollisions.Any() && !overheadCollisions.Any())
+                        if (!_isUsingPogo && !IsShieldActive() && !collisionWalls.Any() && !bottomCollisions.Any() && !overheadCollisions.Any())
                         {
                             this.Hang(obj as IHangableTile);
                         }
@@ -1652,7 +1657,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     }
                 }
                 //squash things that can be squashed
-                if (_isUsingPogo)
+                if (_isUsingPogo && !IsShieldActive())
                 {
                     var squashables = collisionItems.OfType<ISquashable>();
                     if (squashables.Any())

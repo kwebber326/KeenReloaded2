@@ -16,7 +16,7 @@ namespace KeenReloaded2.Framework.GameEntities.Items
     public class Shield : Item, IUpdatable
     {
         private int _duration;
-        public bool _isActive;
+        private bool _isActive;
 
         private const int SHIELD_DEPLETION_DELAY = 14;
         private int _currentShieldDepletionDelayTick;

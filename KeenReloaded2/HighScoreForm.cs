@@ -86,7 +86,7 @@ namespace KeenReloaded2
                     var min = highScores.Min(h => h.Value);
                     if (highScores.Count > HIGH_SCORE_MAX_NUMBER_OF_ENTRIES)
                     {
-                        if (_gameMode != MainMenuConstants.OPTION_LABEL_NORMAL_MODE)
+                        if (_gameMode != MainMenuConstants.OPTION_LABEL_NORMAL_MODE && (long)_newHighScore.Value > 0)
                         {
                             var lastMin = highScores.LastOrDefault(h => h.Value?.ToString() == min?.ToString());
                             highScores.Remove(lastMin);

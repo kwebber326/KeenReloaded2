@@ -344,15 +344,10 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 }
             }
 
-            MoveKeen(areaToCheck);
-
-            //if (_state == BounderState.STUNNED)
-            //{
-            //    AdjustSpriteLocationForStunnedState();
-            //}
+            MoveKeen();
         }
 
-        private void MoveKeen(Rectangle areaToCheck)
+        private void MoveKeen()
         {
             if (_keen == null)
                 _keen = this.GetClosestPlayer();
@@ -362,13 +357,6 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 _keen.GetMovedHorizontally(this, this.Direction, Math.Abs(_horizontalVelocity));
             }
         }
-
-        private void StandKeenOnHead()
-        {
-            int velocity = _state == BounderState.LOOK_BOUNCING ? 0 : _horizontalVelocity;
-            _keen.MoveKeenToPosition(new Point(_keen.HitBox.X + velocity, this.HitBox.Top - _keen.HitBox.Height - 1), this);
-        }
-
 
         private void MoveByVelocity(int xPos)
         {
