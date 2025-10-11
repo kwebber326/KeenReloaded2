@@ -124,7 +124,6 @@ keen6_slime_hazard_middle1|289|2179|64|62|18|0
 keen6_slime_hazard_right1|351|2178|32|62|18|0
 keen6_slime_hazard_left2|521|2178|32|62|18|2
 keen6_slime_hazard_right2|1574|2178|32|62|18|2
-keen6_laser_field_bottom|1614|1790|32|420|18|OFF
 keen6_laser_field_bottom|1678|1790|32|420|18|OFF
 keen6_burn_hazard3|1488|2101|32|32|18
 keen6_flame_thrower_off|700|2081|26|48|18|OFF
@@ -137,6 +136,7 @@ enemy_spawner1|1032|2259|92|94|18|[Bloog,Blooglet,Blooguard,Babobba,Fleex]|5|30|
 keen6_burn_hazard3|1272|32|32|32|18
 random_item_generator_closed|435|2870|124|92|18|10000
 random_item_generator_closed|1398|2870|124|92|18|10000
+keen6_laser_field_bottom|1614|1790|32|420|18|OFF
 keen_stand_right|503|1198|26|64|RIGHT
 edge_of_map_tile_debug|0|0|16|3000|25|BARRIER
 edge_of_map_tile_debug|1984|0|16|3000|25|BARRIER

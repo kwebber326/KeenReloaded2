@@ -14,6 +14,7 @@ using KeenReloaded2.Constants;
 using KeenReloaded2.ControlEventArgs;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Framework.GameEntities.Tiles;
 
 namespace KeenReloaded2.UserControls.AdvancedTools.ActionControls
 {
@@ -126,8 +127,9 @@ namespace KeenReloaded2.UserControls.AdvancedTools.ActionControls
         public bool ValidateControl()
         {
             bool isValid = this.SelectedObjects != null && this.SelectedObjects.Any()
-                 && int.TryParse(txtX.Text, out int x) && x >= 0
-                 && int.TryParse(txtY.Text, out int y) && y >= 0;
+                 && ((int.TryParse(txtX.Text, out int x) && x >= 0 
+                 && int.TryParse(txtY.Text, out int y) && y >= 0) 
+                    || this.SelectedObjects.All(o => o.MapMakerObject.ObjectType == typeof(MapEdgeTile)));
             if (!isValid)
             {
                 MessageBox.Show("At least one object must be selected and X and Y coordinates must be non-negative integers.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

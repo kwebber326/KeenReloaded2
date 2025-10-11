@@ -66,6 +66,7 @@ flipping_platform_still|1255|1265|64|26|12
 keen6_tree_right_branch1|2713|986|188|128|12|RIGHT|True
 flipping_platform_still|1500|1134|64|26|12
 flipping_platform_still|1700|1000|64|26|12
+flipping_platform_still|1696|1324|64|26|12
 keen6_Switch_pole|2085|1431|20|20|keen6_Switch_pole.png|True|15
 keen6_transporter|1370|32|96|128|15|4||10
 keen6_transporter|1115|1337|96|128|15|2|1|10
