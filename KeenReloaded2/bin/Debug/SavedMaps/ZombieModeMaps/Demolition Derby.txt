@@ -43,6 +43,8 @@ flipping_platform_still|1552|532|64|26|12
 flipping_platform_still|581|645|64|26|12
 keen6_conveyer_belt_whole|18|1897|254|96|14|LEFT|27
 random_item_generator_closed|820|1832|124|92|15|2000
+chute|902|929|64|64|15|CHUTE|1|
+keen6_door|860|1300|124|126|15|KEEN6|2|1
 keen6_slime_hazard_middle1|611|699|64|62|18|1
 keen6_slime_hazard_middle1|547|699|64|62|18|1
 keen6_slime_hazard_left1|515|699|32|62|18|1
@@ -68,8 +70,10 @@ keen6_burn_hazard3|1952|1878|32|32|18
 keen5_force_field_bottom|1384|761|32|500|18|100
 keen5_force_field_bottom|470|761|32|500|18|100
 enemy_spawner1|1800|1837|92|94|18|[Blooglet]|10|20|1000000000
-enemy_spawner1|577|814|92|94|18|[Blooguard]|3|80|100000000
-enemy_spawner1|1207|814|92|94|18|[Blooguard]|3|80|100000000
+enemy_spawner1|677|814|92|94|18|[Blooguard]|3|80|100000000
+enemy_spawner1|1107|814|92|94|18|[Blooguard]|3|80|100000000
+keen6_drop_platform|869|1440|98|32|18|KEEN6|500
+keen6_bottom_out_platform|868|1577|98|32|18|KEEN6|100
 keen_stand_right|259|622|26|64|RIGHT
 keen6_industrial_single_block|715|682|36|36|25
 keen6_industrial_single_block|1651|685|36|36|25
@@ -85,4 +89,4 @@ edge_of_map_tile_debug|-16|1999|2016|32|25|BARRIER
 neural_stunner_rocket_launcher1|385|659|55|26|50|10
 snake_gun1|1136|587|57|20|50|5
 BFG1|905|865|61|24|50|10
-keen6_Switch_On|158|1833|90|96|15|[52cadbb1-b0a5-4f36-ade2-841eed97bc36]|True
+keen6_Switch_On|158|1833|90|96|15|[52cadbb1-b0a5-4f36-ade2-841eed97bc36,27f6ea56-a223-4d15-81be-cfb9eb895eb4]|True
