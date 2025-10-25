@@ -42,6 +42,10 @@ flipping_platform_still|1358|532|64|26|12
 flipping_platform_still|1552|532|64|26|12
 flipping_platform_still|581|645|64|26|12
 keen6_conveyer_belt_whole|18|1897|254|96|14|LEFT|27
+keen6_laser_turret_down|890|0|32|64|14|DOWN|True|KEEN6|0
+keen6_laser_turret_down|1270|0|32|64|14|DOWN|True|KEEN6|0
+keen6_laser_turret_down|1460|0|32|64|14|DOWN|True|KEEN6|0
+keen6_laser_turret_down|1080|0|32|64|14|DOWN|True|KEEN6|0
 random_item_generator_closed|820|1832|124|92|15|2000
 chute|902|929|64|64|15|CHUTE|1|
 keen6_door|860|1300|124|126|15|KEEN6|2|1
@@ -89,4 +93,11 @@ edge_of_map_tile_debug|-16|1999|2016|32|25|BARRIER
 neural_stunner_rocket_launcher1|385|659|55|26|50|10
 snake_gun1|1136|587|57|20|50|5
 BFG1|905|865|61|24|50|10
-keen6_Switch_On|158|1833|90|96|15|[52cadbb1-b0a5-4f36-ade2-841eed97bc36,27f6ea56-a223-4d15-81be-cfb9eb895eb4]|True
+keen6_pizza_slice1|890|64|32|32|50|KEEN6_PIZZA_SLICE
+keen6_pizza_slice1|1080|64|32|32|50|KEEN6_PIZZA_SLICE
+keen6_pizza_slice1|1270|64|32|32|50|KEEN6_PIZZA_SLICE
+keen6_pizza_slice1|1460|64|32|32|50|KEEN6_PIZZA_SLICE
+keen6_viva_flying1|990|26|26|18|50|False
+keen6_viva_flying1|1176|26|26|18|50|False
+keen6_viva_flying1|1374|26|26|18|50|False
+keen6_Switch_On|158|1833|90|96|15|[52cadbb1-b0a5-4f36-ade2-841eed97bc36]|True
