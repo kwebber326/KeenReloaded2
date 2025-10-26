@@ -294,6 +294,23 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             }
         }
 
+        protected override bool IsOnEdge(Direction directionToCheck, int edgeOffset = 0)
+        {
+            if (directionToCheck == Direction.LEFT)
+            {
+                Rectangle areaToCheck = new Rectangle(this.HitBox.Left - this.HitBox.Width + edgeOffset, this.HitBox.Bottom, this.HitBox.Width, 2);
+                var tiles = this.CheckCollision(areaToCheck, true);
+                return !tiles.Any();
+            }
+            else if (directionToCheck == Direction.RIGHT)
+            {
+                Rectangle areaToCheck = new Rectangle(this.HitBox.Right - edgeOffset, this.HitBox.Bottom, this.HitBox.Width, 2);
+                var tiles = this.CheckCollision(areaToCheck, true);
+                return !tiles.Any();
+            }
+            return false;
+        }
+
         private void CheckForJumpRight()
         {
             if (_keen.HitBox.Bottom < this.HitBox.Top)
