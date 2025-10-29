@@ -507,6 +507,8 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         private const int INITIAL_FALL_VELOCITY = 0;
         private const int MAX_FALL_VELOCITY = 45;
         private const int SHOT_DELAY = 125;
+        private const int DEATH_SEQUENCE_AVAILABILITY_DELAY = 8;
+        private int _deathSequenceDelayTick = 0;
 
         private int _fallVelocity = INITIAL_FALL_VELOCITY;
 
@@ -735,6 +737,10 @@ namespace KeenReloaded2.Framework.GameEntities.Players
 
         public override void Die()
         {
+            if (_deathSequenceDelayTick > 0)
+                return;
+
+            _deathSequenceDelayTick = DEATH_SEQUENCE_AVAILABILITY_DELAY;
             if (!(_shield != null && _shield.IsActive) || this.HitBox.Top > _collisionGrid.Size.Height || _disappearDeath)
             {
                 if (!this.IsDead())
@@ -1082,6 +1088,12 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 _shield = shield;
                 _shield.Deactivate();
             }
+        }
+
+        private void DecrementDeathSequenceDelayIfNeeded()
+        {
+            if (_deathSequenceDelayTick > 0)
+                _deathSequenceDelayTick--;
         }
 
         private void CreateWeaponAndSetToCurrentWeapon(int ammoAmmount, Item AmmoType)
@@ -2008,6 +2020,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
 
         public void Revive()
         {
+            _deathSequenceDelayTick = 0;
             this.Health = 1;
             this.MoveState = MoveState.STANDING;
         }
@@ -2018,6 +2031,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             this.Points = points;
             this.Drops = drops;
             _disappearDeath = false;
+            _deathSequenceDelayTick = 0;
 
             OnItemLost(new ItemAcquiredEventArgs() { Item = _shield });
             _shield = null;
@@ -2039,6 +2053,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             this.Points = points;
             this.Drops = drops;
             _disappearDeath = false;
+            _deathSequenceDelayTick = 0;
             SetNextExtraLifePointGoal();
     
             _currentShieldToggleDelay = MAX_SHIELD_TOGGLE_DELAY;
@@ -2067,6 +2082,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
 
         public void Update()
         {
+            DecrementDeathSequenceDelayIfNeeded();
             if (!this.IsDead())
             {
                 if (_failedExitDoorAccess && _failedAccessSoundDelayTick++ >= FAILED_ACCESS_WAIT_TIME)

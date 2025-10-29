@@ -157,7 +157,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             if (_currentStunTimeTick++ == STUN_TIME)
             {
                 _currentStunTimeTick = 0;
-                this.Fly();
+                this.Walk();
             }
             else
             {
@@ -232,7 +232,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 return;
             }
 
-            if (_currentWalkTime++ == WALK_TIME)
+            if (_keen.HitBox.Bottom < this.HitBox.Top)
             {
                 this.Fly();
                 return;
@@ -287,13 +287,18 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             if (tile != null)
             {
                 this.HitBox = new Rectangle(this.HitBox.X, tile.HitBox.Top - this.HitBox.Height - 1, this.HitBox.Width, this.HitBox.Height);
+                if (!this.IsOnEdge(_horizontalDirection) && _keen.HitBox.Bottom >= this.HitBox.Bottom)
+                {
+                    this.Walk();
+                    return;
+                }
             }
 
             if (this.HitBox.Top >= _keen.HitBox.Top)
             {
                 MoveUp();
             }
-            else if (this.HitBox.Bottom <= _keen.HitBox.Top + 5)
+            else if (this.HitBox.Bottom <= _keen.HitBox.Bottom)
             {
                 MoveDown();
             }
@@ -336,6 +341,10 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             if (tile != null)
             {
                 this.HitBox = new Rectangle(this.HitBox.X, tile.HitBox.Top - this.HitBox.Height - 1, this.HitBox.Width, this.HitBox.Height);
+                if (this.State == BirdMoveState.FLYING && !this.IsOnEdge(_horizontalDirection))
+                {
+                    this.Walk();
+                }
             }
             else
             {
@@ -345,7 +354,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         protected override CollisionObject GetCeilingTile(List<CollisionObject> collisions)
         {
-            var tiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK && c.HitBox.Bottom - 2 <= this.HitBox.Top).ToList();
+            var tiles = collisions.Where(c => c.HitBox.Bottom - 2 <= this.HitBox.Top).ToList();
             if (tiles.Any())
             {
                 int maxBottom = tiles.Select(c => c.HitBox.Bottom).Max();
