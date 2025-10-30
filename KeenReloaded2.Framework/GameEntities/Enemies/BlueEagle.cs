@@ -62,9 +62,9 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         private const int WAIT_TIME = 30;
         private int _currentWaitTimeTick;
 
-        private const int WALK_TIME = 50;
         private readonly int _zIndex;
-        private int _currentWalkTime = 0;
+        private Size _walkHitBoxSize = new Size();
+        private Size _flyHitBoxSize = new Size();
 
         public BlueEagle(Rectangle area, SpaceHashGrid grid,  int zIndex)
             : base(grid, area)
@@ -77,6 +77,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         {
             SetDirectionFromKeenLocation();
             this.VerticalDirection = Direction.UP;
+            _walkHitBoxSize = _walkLeftImages[0].Size;
         }
 
         private void SetDirectionFromKeenLocation()
@@ -258,6 +259,23 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             KillKeenIfColliding();
         }
 
+        protected override CollisionObject GetTopMostLandingTile(int currentFallVelocity)
+        {
+            CollisionObject topMostTile;
+            Rectangle areaTocheck = new Rectangle(this.HitBox.X, this.HitBox.Bottom, this.HitBox.Width, currentFallVelocity);
+            var items = this.CheckCollision(areaTocheck, true);
+
+            var landingTiles = items.Where(h => h.HitBox.Top >= this.HitBox.Bottom - 2);
+
+            if (!landingTiles.Any())
+                return null;
+
+            int minY = landingTiles.Select(c => c.HitBox.Top).Min();
+            topMostTile = landingTiles.FirstOrDefault(t => t.HitBox.Top == minY);
+
+            return topMostTile;
+        }
+
         private void Fly()
         {
             if (_keen == null)
@@ -269,7 +287,6 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 _spriteChangeDelayTick = 0;
                 SetDirectionFromKeenLocation();
             }
-            _currentWalkTime = 0;
 
             if (_spriteChangeDelayTick++ == SPRITE_CHANGE_DELAY)
             {
@@ -286,12 +303,13 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             CollisionObject tile = GetTopMostLandingTile(FLY_VELOCITY);
             if (tile != null)
             {
-                this.HitBox = new Rectangle(this.HitBox.X, tile.HitBox.Top - this.HitBox.Height - 1, this.HitBox.Width, this.HitBox.Height);
+                this.HitBox = new Rectangle(this.HitBox.X, tile.HitBox.Top - this.HitBox.Height - 1, _walkHitBoxSize.Width, _flyHitBoxSize.Height);
                 if (!this.IsOnEdge(_horizontalDirection) && _keen.HitBox.Bottom >= this.HitBox.Bottom)
                 {
                     this.Walk();
                     return;
                 }
+                this.HitBox = new Rectangle(this.HitBox.X, tile.HitBox.Top - this.HitBox.Height - 1, _flyHitBoxSize.Width, _flyHitBoxSize.Height);
             }
 
             if (this.HitBox.Top >= _keen.HitBox.Top)
@@ -477,6 +495,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                         _currentWalkSprite = 0;
                     }
                     _sprite = spriteSet[_currentWalkSprite];
+                    _walkHitBoxSize = new Size(_sprite.Width, _sprite.Height);
                     break;
                 case BirdMoveState.STUNNED:
                     _sprite = Properties.Resources.keen4_blue_eagle_stunned;
@@ -487,6 +506,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                         _currentFlyingImage = 0;
                     }
                     _sprite = _flyImages[_currentFlyingImage];
+                    _flyHitBoxSize = new Size(_sprite.Width, _sprite.Height);
                     break;
             }
             int xDifference = _sprite.Width - previousHitbox.Width;
