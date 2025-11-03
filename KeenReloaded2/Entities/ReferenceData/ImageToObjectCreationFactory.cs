@@ -2793,7 +2793,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                     DataType = typeof(Guid),
                     Value = new Guid(),
                     DisplayName ="Id: ",
-                    Hidden = true
+                    Readonly = true
                 },
             };
             MapMakerObject laserField6ToggleObj = new MapMakerObject(typeof(Keen6ToggleLaserField), laserField6File, false, toggleLaserFieldProperties);
