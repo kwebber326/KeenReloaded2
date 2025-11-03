@@ -1,6 +1,5 @@
 C:\Users\kjw2\source\repos\KeenReloaded2\KeenReloaded2.Constants\bin\Debug\KeenReloaded2.Constants.dll
 C:\Users\kjw2\source\repos\KeenReloaded2\KeenReloaded2.Constants\bin\Debug\KeenReloaded2.Constants.pdb
-C:\Users\kjw2\source\repos\KeenReloaded2\KeenReloaded2.Constants\obj\Debug\KeenReloaded2.Constants.csprojAssemblyReference.cache
 C:\Users\kjw2\source\repos\KeenReloaded2\KeenReloaded2.Constants\obj\Debug\KeenReloaded2.Constants.csproj.CoreCompileInputs.cache
 C:\Users\kjw2\source\repos\KeenReloaded2\KeenReloaded2.Constants\obj\Debug\KeenReloaded2.Constants.dll
 C:\Users\kjw2\source\repos\KeenReloaded2\KeenReloaded2.Constants\obj\Debug\KeenReloaded2.Constants.pdb
@@ -10,3 +9,4 @@ C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Constants\obj\Debug\Keen
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Constants\obj\Debug\KeenReloaded2.Constants.dll
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Constants\obj\Debug\KeenReloaded2.Constants.pdb
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Constants\obj\Debug\KeenReloaded2.Constants.csproj.AssemblyReference.cache
+C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2.Constants\obj\Debug\KeenReloaded2.Constants.csproj.AssemblyReference.cache

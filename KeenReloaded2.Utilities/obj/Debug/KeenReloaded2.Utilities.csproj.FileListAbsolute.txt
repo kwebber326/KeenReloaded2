@@ -9,3 +9,14 @@ C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\obj\Debug\Keen
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\bin\Debug\KeenReloaded2.Drawing.dll
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\bin\Debug\KeenReloaded2.Drawing.pdb
 C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2.Utilities\obj\Debug\KeenReloaded2.Utilities.csproj.AssemblyReference.cache
+C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2.Utilities\bin\Debug\KeenReloaded2.Utilities.dll
+C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2.Utilities\bin\Debug\KeenReloaded2.Utilities.pdb
+C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2.Utilities\bin\Debug\KeenReloaded2.Constants.dll
+C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2.Utilities\bin\Debug\KeenReloaded2.Drawing.dll
+C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2.Utilities\bin\Debug\KeenReloaded2.Constants.pdb
+C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2.Utilities\bin\Debug\KeenReloaded2.Drawing.pdb
+C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2.Utilities\obj\Debug\KeenReloaded2.Utilities.csproj.AssemblyReference.cache
+C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2.Utilities\obj\Debug\KeenReloaded2.Utilities.csproj.CoreCompileInputs.cache
+C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2.Utilities\obj\Debug\KeenRelo.37CB8684.Up2Date
+C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2.Utilities\obj\Debug\KeenReloaded2.Utilities.dll
+C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2.Utilities\obj\Debug\KeenReloaded2.Utilities.pdb
