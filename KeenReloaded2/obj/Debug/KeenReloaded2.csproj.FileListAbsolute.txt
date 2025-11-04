@@ -102,7 +102,6 @@ C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2\bin\Debug\SharpDX.DXGI.xm
 C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2\bin\Debug\SharpDX.XAudio2.pdb
 C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2\bin\Debug\SharpDX.XAudio2.xml
 C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2\obj\Debug\KeenReloaded2.csproj.AssemblyReference.cache
-C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2\obj\Debug\KeenReloaded2.exe.config
 C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2\obj\Debug\Interop.MediaPlayer.dll
 C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2\obj\Debug\KeenReloaded2.csproj.ResolveComReference.cache
 C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2\obj\Debug\KeenReloaded2.AdvancedToolsForm.resources

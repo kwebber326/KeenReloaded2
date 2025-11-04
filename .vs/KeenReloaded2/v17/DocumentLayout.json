@@ -7,7 +7,11 @@
       "RelativeMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|solutionrelative:keenreloaded2\\mapmaker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|c:\\users\\kjw2\\source\\repos\\keenreloaded2\\keenreloaded2\\mapmaker.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|c:\\users\\kjw2\\source\\repos\\keenreloaded2\\keenreloaded2\\usercontrols\\mapmakerusercontrols\\mapobjectcontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|solutionrelative:keenreloaded2\\usercontrols\\mapmakerusercontrols\\mapobjectcontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\keenreloaded2\\mapmaker.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|solutionrelative:keenreloaded2\\mapmaker.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -18,15 +22,27 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "MapObjectContainer.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\UserControls\\MapMakerUserControls\\MapObjectContainer.cs",
+              "RelativeDocumentMoniker": "KeenReloaded2\\UserControls\\MapMakerUserControls\\MapObjectContainer.cs",
+              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\UserControls\\MapMakerUserControls\\MapObjectContainer.cs [Design]",
+              "RelativeToolTip": "KeenReloaded2\\UserControls\\MapMakerUserControls\\MapObjectContainer.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T19:36:22.518Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MapMaker.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\kjw2\\Source\\Repos\\KeenReloaded2\\KeenReloaded2\\MapMaker.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\MapMaker.Designer.cs",
               "RelativeDocumentMoniker": "KeenReloaded2\\MapMaker.Designer.cs",
-              "ToolTip": "C:\\Users\\kjw2\\Source\\Repos\\KeenReloaded2\\KeenReloaded2\\MapMaker.Designer.cs",
+              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\MapMaker.Designer.cs",
               "RelativeToolTip": "KeenReloaded2\\MapMaker.Designer.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

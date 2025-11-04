@@ -50,9 +50,9 @@
             this.btnTest = new System.Windows.Forms.Button();
             this.chkUseSmartPlacer = new System.Windows.Forms.CheckBox();
             this.btnNewMap = new System.Windows.Forms.Button();
+            this.btnAdvancedTools = new System.Windows.Forms.Button();
             this.mapMakerObjectPropertyListControl1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapMakerObjectPropertyListControl();
             this.mapObjectContainer1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapObjectContainer();
-            this.btnAdvancedTools = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -69,7 +69,7 @@
             // txtMapName
             // 
             this.txtMapName.Location = new System.Drawing.Point(109, 7);
-            this.txtMapName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMapName.Margin = new System.Windows.Forms.Padding(2);
             this.txtMapName.Name = "txtMapName";
             this.txtMapName.Size = new System.Drawing.Size(160, 20);
             this.txtMapName.TabIndex = 1;
@@ -82,9 +82,9 @@
             this.pnlMapCanvas.AutoScroll = true;
             this.pnlMapCanvas.BackColor = System.Drawing.Color.White;
             this.pnlMapCanvas.Location = new System.Drawing.Point(417, 8);
-            this.pnlMapCanvas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlMapCanvas.Margin = new System.Windows.Forms.Padding(2);
             this.pnlMapCanvas.Name = "pnlMapCanvas";
-            this.pnlMapCanvas.Size = new System.Drawing.Size(641, 800);
+            this.pnlMapCanvas.Size = new System.Drawing.Size(556, 800);
             this.pnlMapCanvas.TabIndex = 2;
             this.pnlMapCanvas.Click += new System.EventHandler(this.PnlMapCanvas_Click);
             this.pnlMapCanvas.MouseEnter += new System.EventHandler(this.PnlMapCanvas_MouseEnter);
@@ -107,7 +107,7 @@
             this.cmbGameMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGameMode.FormattingEnabled = true;
             this.cmbGameMode.Location = new System.Drawing.Point(109, 28);
-            this.cmbGameMode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbGameMode.Margin = new System.Windows.Forms.Padding(2);
             this.cmbGameMode.Name = "cmbGameMode";
             this.cmbGameMode.Size = new System.Drawing.Size(160, 21);
             this.cmbGameMode.TabIndex = 5;
@@ -117,7 +117,7 @@
             this.cmbEpisode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEpisode.FormattingEnabled = true;
             this.cmbEpisode.Location = new System.Drawing.Point(109, 50);
-            this.cmbEpisode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbEpisode.Margin = new System.Windows.Forms.Padding(2);
             this.cmbEpisode.Name = "cmbEpisode";
             this.cmbEpisode.Size = new System.Drawing.Size(160, 21);
             this.cmbEpisode.TabIndex = 7;
@@ -149,7 +149,7 @@
             this.cmbWidth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbWidth.FormattingEnabled = true;
             this.cmbWidth.Location = new System.Drawing.Point(280, 25);
-            this.cmbWidth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbWidth.Margin = new System.Windows.Forms.Padding(2);
             this.cmbWidth.Name = "cmbWidth";
             this.cmbWidth.Size = new System.Drawing.Size(52, 21);
             this.cmbWidth.TabIndex = 9;
@@ -169,7 +169,7 @@
             this.cmbHeight.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbHeight.FormattingEnabled = true;
             this.cmbHeight.Location = new System.Drawing.Point(349, 25);
-            this.cmbHeight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbHeight.Margin = new System.Windows.Forms.Padding(2);
             this.cmbHeight.Name = "cmbHeight";
             this.cmbHeight.Size = new System.Drawing.Size(52, 21);
             this.cmbHeight.TabIndex = 11;
@@ -190,7 +190,7 @@
             this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Location = new System.Drawing.Point(109, 94);
-            this.cmbCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(160, 21);
             this.cmbCategory.TabIndex = 12;
@@ -199,7 +199,7 @@
             // btnDefaultDimensions
             // 
             this.btnDefaultDimensions.Location = new System.Drawing.Point(305, 47);
-            this.btnDefaultDimensions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDefaultDimensions.Margin = new System.Windows.Forms.Padding(2);
             this.btnDefaultDimensions.Name = "btnDefaultDimensions";
             this.btnDefaultDimensions.Size = new System.Drawing.Size(94, 20);
             this.btnDefaultDimensions.TabIndex = 13;
@@ -212,7 +212,7 @@
             this.cmbBiome.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBiome.FormattingEnabled = true;
             this.cmbBiome.Location = new System.Drawing.Point(109, 72);
-            this.cmbBiome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbBiome.Margin = new System.Windows.Forms.Padding(2);
             this.cmbBiome.Name = "cmbBiome";
             this.cmbBiome.Size = new System.Drawing.Size(160, 21);
             this.cmbBiome.TabIndex = 15;
@@ -231,7 +231,7 @@
             // btnLoad
             // 
             this.btnLoad.Location = new System.Drawing.Point(305, 72);
-            this.btnLoad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLoad.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(94, 23);
             this.btnLoad.TabIndex = 18;
@@ -242,7 +242,7 @@
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(305, 94);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(95, 21);
             this.btnSave.TabIndex = 19;
@@ -258,7 +258,7 @@
             // btnTest
             // 
             this.btnTest.Location = new System.Drawing.Point(305, 125);
-            this.btnTest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTest.Margin = new System.Windows.Forms.Padding(2);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(95, 21);
             this.btnTest.TabIndex = 20;
@@ -272,7 +272,7 @@
             this.chkUseSmartPlacer.Checked = true;
             this.chkUseSmartPlacer.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkUseSmartPlacer.Location = new System.Drawing.Point(11, 128);
-            this.chkUseSmartPlacer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkUseSmartPlacer.Margin = new System.Windows.Forms.Padding(2);
             this.chkUseSmartPlacer.Name = "chkUseSmartPlacer";
             this.chkUseSmartPlacer.Size = new System.Drawing.Size(108, 17);
             this.chkUseSmartPlacer.TabIndex = 21;
@@ -283,7 +283,7 @@
             // btnNewMap
             // 
             this.btnNewMap.Location = new System.Drawing.Point(305, 150);
-            this.btnNewMap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNewMap.Margin = new System.Windows.Forms.Padding(2);
             this.btnNewMap.Name = "btnNewMap";
             this.btnNewMap.Size = new System.Drawing.Size(95, 21);
             this.btnNewMap.TabIndex = 21;
@@ -291,29 +291,10 @@
             this.btnNewMap.UseVisualStyleBackColor = true;
             this.btnNewMap.Click += new System.EventHandler(this.BtnNewMap_Click);
             // 
-            // mapMakerObjectPropertyListControl1
-            // 
-            this.mapMakerObjectPropertyListControl1.AutoScroll = true;
-            this.mapMakerObjectPropertyListControl1.Location = new System.Drawing.Point(3, 617);
-            this.mapMakerObjectPropertyListControl1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
-            this.mapMakerObjectPropertyListControl1.Name = "mapMakerObjectPropertyListControl1";
-            this.mapMakerObjectPropertyListControl1.Size = new System.Drawing.Size(397, 316);
-            this.mapMakerObjectPropertyListControl1.TabIndex = 17;
-            // 
-            // mapObjectContainer1
-            // 
-            this.mapObjectContainer1.AutoScroll = true;
-            this.mapObjectContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.mapObjectContainer1.Location = new System.Drawing.Point(1, 195);
-            this.mapObjectContainer1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
-            this.mapObjectContainer1.Name = "mapObjectContainer1";
-            this.mapObjectContainer1.Size = new System.Drawing.Size(413, 419);
-            this.mapObjectContainer1.TabIndex = 16;
-            // 
             // btnAdvancedTools
             // 
             this.btnAdvancedTools.Location = new System.Drawing.Point(142, 150);
-            this.btnAdvancedTools.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdvancedTools.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdvancedTools.Name = "btnAdvancedTools";
             this.btnAdvancedTools.Size = new System.Drawing.Size(125, 21);
             this.btnAdvancedTools.TabIndex = 22;
@@ -321,11 +302,31 @@
             this.btnAdvancedTools.UseVisualStyleBackColor = true;
             this.btnAdvancedTools.Click += new System.EventHandler(this.BtnAdvancedTools_Click);
             // 
+            // mapMakerObjectPropertyListControl1
+            // 
+            this.mapMakerObjectPropertyListControl1.AutoScroll = true;
+            this.mapMakerObjectPropertyListControl1.Location = new System.Drawing.Point(2, 507);
+            this.mapMakerObjectPropertyListControl1.Margin = new System.Windows.Forms.Padding(1);
+            this.mapMakerObjectPropertyListControl1.Name = "mapMakerObjectPropertyListControl1";
+            this.mapMakerObjectPropertyListControl1.Size = new System.Drawing.Size(397, 318);
+            this.mapMakerObjectPropertyListControl1.TabIndex = 17;
+            // 
+            // mapObjectContainer1
+            // 
+            this.mapObjectContainer1.AutoScroll = true;
+            this.mapObjectContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.mapObjectContainer1.Location = new System.Drawing.Point(1, 195);
+            this.mapObjectContainer1.Margin = new System.Windows.Forms.Padding(1);
+            this.mapObjectContainer1.Name = "mapObjectContainer1";
+            this.mapObjectContainer1.Size = new System.Drawing.Size(413, 274);
+            this.mapObjectContainer1.TabIndex = 16;
+            // 
             // MapMaker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1069, 573);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1069, 723);
             this.Controls.Add(this.btnAdvancedTools);
             this.Controls.Add(this.btnNewMap);
             this.Controls.Add(this.chkUseSmartPlacer);
@@ -351,7 +352,7 @@
             this.Controls.Add(this.txtMapName);
             this.Controls.Add(this.label1);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MapMaker";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Map Maker";

@@ -35,30 +35,34 @@
             // lblHelpText
             // 
             this.lblHelpText.AutoSize = true;
-            this.lblHelpText.Location = new System.Drawing.Point(3, 0);
+            this.lblHelpText.Location = new System.Drawing.Point(2, 0);
+            this.lblHelpText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHelpText.Name = "lblHelpText";
-            this.lblHelpText.Size = new System.Drawing.Size(319, 20);
+            this.lblHelpText.Size = new System.Drawing.Size(216, 13);
             this.lblHelpText.TabIndex = 0;
             this.lblHelpText.Text = "Press the \"Escape\" button to clear selection";
             this.lblHelpText.Visible = false;
             // 
             // pnlImages
             // 
-            this.pnlImages.Location = new System.Drawing.Point(4, 24);
+            this.pnlImages.AutoSize = true;
+            this.pnlImages.Location = new System.Drawing.Point(3, 16);
+            this.pnlImages.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlImages.Name = "pnlImages";
-            this.pnlImages.Size = new System.Drawing.Size(610, 616);
+            this.pnlImages.Size = new System.Drawing.Size(407, 400);
             this.pnlImages.TabIndex = 1;
             // 
             // MapObjectContainer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Controls.Add(this.pnlImages);
             this.Controls.Add(this.lblHelpText);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MapObjectContainer";
-            this.Size = new System.Drawing.Size(617, 643);
+            this.Size = new System.Drawing.Size(411, 418);
             this.Load += new System.EventHandler(this.MapObjectContainer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
