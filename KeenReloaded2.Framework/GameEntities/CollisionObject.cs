@@ -635,13 +635,13 @@ namespace KeenReloaded.Framework
             {
                 Rectangle areaToCheck = new Rectangle(this.HitBox.Left - this.HitBox.Width + edgeOffset, this.HitBox.Bottom, this.HitBox.Width, 2);
                 var tiles = this.CheckCollision(areaToCheck, true);
-                return !tiles.Any(t => t.HitBox.Top >= this.HitBox.Bottom && t.HitBox.Left < this.HitBox.Right && t.HitBox.Right > this.HitBox.Left);
+                return !tiles.Any(t => t.HitBox.Top >= this.HitBox.Bottom && t.HitBox.Left < this.HitBox.Right);
             }
             else if (directionToCheck == Direction.RIGHT)
             {
                 Rectangle areaToCheck = new Rectangle(this.HitBox.Right - edgeOffset, this.HitBox.Bottom, this.HitBox.Width, 2);
                 var tiles = this.CheckCollision(areaToCheck, true);
-                return !tiles.Any(t => t.HitBox.Top >= this.HitBox.Bottom && t.HitBox.Left < this.HitBox.Right && t.HitBox.Right > this.HitBox.Left);
+                return !tiles.Any(t => t.HitBox.Top >= this.HitBox.Bottom && t.HitBox.Right > this.HitBox.Left);
             }
             return false;
         }

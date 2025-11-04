@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|c:\\users\\kjw2\\source\\repos\\keenreloaded2\\keenreloaded2\\mapmaker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|solutionrelative:keenreloaded2\\mapmaker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}|KeenReloaded2.Framework\\KeenReloaded2.Framework.csproj|c:\\users\\kjw2\\source\\repos\\keenreloaded2\\keenreloaded2.framework\\gameentities\\collisionobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}|KeenReloaded2.Framework\\KeenReloaded2.Framework.csproj|solutionrelative:keenreloaded2.framework\\gameentities\\collisionobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|c:\\users\\kjw2\\source\\repos\\keenreloaded2\\keenreloaded2\\usercontrols\\mapmakerusercontrols\\mapobjectcontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|solutionrelative:keenreloaded2\\usercontrols\\mapmakerusercontrols\\mapobjectcontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\keenreloaded2\\mapmaker.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|solutionrelative:keenreloaded2\\mapmaker.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}|KeenReloaded2.Framework\\KeenReloaded2.Framework.csproj|c:\\users\\kjw2\\source\\repos\\keenreloaded2\\keenreloaded2.framework\\gameentities\\enemies\\gix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}|KeenReloaded2.Framework\\KeenReloaded2.Framework.csproj|solutionrelative:keenreloaded2.framework\\gameentities\\enemies\\gix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,44 +18,35 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MapObjectContainer.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\UserControls\\MapMakerUserControls\\MapObjectContainer.cs",
-              "RelativeDocumentMoniker": "KeenReloaded2\\UserControls\\MapMakerUserControls\\MapObjectContainer.cs",
-              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\UserControls\\MapMakerUserControls\\MapObjectContainer.cs [Design]",
-              "RelativeToolTip": "KeenReloaded2\\UserControls\\MapMakerUserControls\\MapObjectContainer.cs [Design]",
+              "Title": "Gix.cs",
+              "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2.Framework\\GameEntities\\Enemies\\Gix.cs",
+              "RelativeDocumentMoniker": "KeenReloaded2.Framework\\GameEntities\\Enemies\\Gix.cs",
+              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2.Framework\\GameEntities\\Enemies\\Gix.cs",
+              "RelativeToolTip": "KeenReloaded2.Framework\\GameEntities\\Enemies\\Gix.cs",
+              "ViewState": "AgIAAIIBAAAAAAAAAAAUwJABAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-04T19:36:22.518Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MapMaker.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\MapMaker.Designer.cs",
-              "RelativeDocumentMoniker": "KeenReloaded2\\MapMaker.Designer.cs",
-              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\MapMaker.Designer.cs",
-              "RelativeToolTip": "KeenReloaded2\\MapMaker.Designer.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T23:35:51.624Z",
+              "WhenOpened": "2025-11-04T20:01:53.447Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MapMaker.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\MapMaker.cs",
-              "RelativeDocumentMoniker": "KeenReloaded2\\MapMaker.cs",
-              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\MapMaker.cs [Design]",
-              "RelativeToolTip": "KeenReloaded2\\MapMaker.cs [Design]",
+              "Title": "CollisionObject.cs",
+              "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2.Framework\\GameEntities\\CollisionObject.cs",
+              "RelativeDocumentMoniker": "KeenReloaded2.Framework\\GameEntities\\CollisionObject.cs",
+              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2.Framework\\GameEntities\\CollisionObject.cs*",
+              "RelativeToolTip": "KeenReloaded2.Framework\\GameEntities\\CollisionObject.cs*",
+              "ViewState": "AgIAAHECAAAAAAAAAADwv30CAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T23:32:12.793Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-04T20:04:08.96Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             }
           ]
         }

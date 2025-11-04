@@ -84,7 +84,7 @@
             this.pnlMapCanvas.Location = new System.Drawing.Point(417, 8);
             this.pnlMapCanvas.Margin = new System.Windows.Forms.Padding(2);
             this.pnlMapCanvas.Name = "pnlMapCanvas";
-            this.pnlMapCanvas.Size = new System.Drawing.Size(556, 800);
+            this.pnlMapCanvas.Size = new System.Drawing.Size(539, 800);
             this.pnlMapCanvas.TabIndex = 2;
             this.pnlMapCanvas.Click += new System.EventHandler(this.PnlMapCanvas_Click);
             this.pnlMapCanvas.MouseEnter += new System.EventHandler(this.PnlMapCanvas_MouseEnter);
