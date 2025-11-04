@@ -133,6 +133,8 @@ keen6_dome_wall_edge_right|1794|1564|52|800|10
 keen6_dome_ceiling1|1793|2363|52|32|10
 keen6_dome_floor_middle|1819|1983|600|64|10
 keen6_dome_floor_middle|2514|1983|88|64|10
+keen6_dome_wall_edge_right|2359|1773|52|264|10
+keen6_dome_floor_edge_right|2359|1709|52|64|10
 keen4_pyramid_floor_middle|2657|3905|1280|64|11
 keen4_pyramid_wall_edge_left|3907|2533|32|1420|11
 flipping_platform_still|1264|3746|64|26|12
@@ -142,6 +144,7 @@ flipping_platform_still|1072|3746|64|26|12
 flipping_platform_still|1328|3746|64|26|12
 flipping_platform_still|1392|3746|64|26|12
 flipping_platform_still|1456|3746|64|26|12
+flipping_platform_still|2258|1737|64|26|12
 keen5_spinning_burn_platform7|337|2789|28|32|keen5_spinning_burn_platform7|14|False|6
 keen5_spinning_burn_platform7|393|2789|28|32|keen5_spinning_burn_platform7|14|False|6
 keen5_spinning_burn_platform7|421|2789|28|32|keen5_spinning_burn_platform7|14|False|6
@@ -299,6 +302,8 @@ keen6_dome_pole_middle - Copy|2460|2312|12|32|15|keen6_dome_pole_middle - Copy|M
 keen6_dome_pole_bottom - Copy|2460|2344|12|28|15|keen6_dome_pole_bottom - Copy|BOTTOM|KEEN6_DOME
 keen6_Switch_pole|2008|2261|20|232|keen6_Switch_pole.png|False|15
 keen6_door|610|3835|124|126|15|KEEN6|17|35
+keen6_transporter|2512|1895|96|128|15|12||10
+keen6_transporter|2420|1570|96|128|15|11||10
 keen5_pink_platform|205|2239|62|30|18|KEEN5_PINK|[206,2140,106,2140,106,2242,206,2242,306,2242,306,2346,205,2346]|92af10f1-2423-4b5d-9af9-841c5febe2a8|True
 keen5_spinning_fire_hazard1|405|2588|32|32|18
 keen5_spinning_fire_hazard1|405|2620|32|32|18
@@ -335,6 +340,16 @@ keen5_pink_platform|1065|759|62|30|18|KEEN5_PINK|[1270,759,1270,910,1270,759,145
 keen6_drill1|1954|2457|26|38|18
 keen6_drill1|2060|2456|26|38|18
 keen6_laser_field_toggle|2156|2046|32|460|18|True|13aa7431-74b7-4220-a20d-1b1d1f3afcea
+keen6_dome_spikes|1848|1982|56|54
+keen6_dome_spikes|1904|1982|56|54
+keen6_dome_spikes|1960|1982|56|54
+keen6_dome_spikes|2016|1982|56|54
+keen6_dome_spikes|2072|1982|56|54
+keen6_dome_spikes|2128|1982|56|54
+keen6_dome_spikes|2184|1982|56|54
+keen6_dome_spikes|2240|1982|56|54
+keen6_dome_spikes|2296|1982|56|54
+keen6_conveyer_belt_whole|1960|1715|254|96|18|LEFT|0
 keen_stand_right|39|372|26|64|RIGHT
 Red Flag|379|1537|51|64|20|RED|10000|5000|10
 Blue Flag|214|1210|51|64|20|BLUE|10000|5000|10
@@ -404,6 +419,7 @@ gem_blue1|1086|1057|26|20|BLUE|50|False
 keen5_sugar_stoopies_cereal1|1524|558|30|22|50|KEEN5_SUGAR_STOOPIES_CEREAL
 keen5_sugar_stoopies_cereal1|1524|580|30|22|50|KEEN5_SUGAR_STOOPIES_CEREAL
 keen6_viva_flying1|1729|1688|26|18|50|False
+keen6_pudding1|1853|2063|28|32|50|KEEN6_PUDDING
 fg_keen5_wall_black_middle_1|479|449|3521|64|fg_keen5_wall_black_middle_1.png|False|201
 fg_keen5_wall_black_middle_1|479|513|522|2817|fg_keen5_wall_black_middle_1.png|False|201
 bean_with_bacon_megarocket|51|303|452|174|bean_with_bacon_megarocket.png|True|201
