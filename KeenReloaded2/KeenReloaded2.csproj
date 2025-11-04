@@ -470,6 +470,9 @@
     <EmbeddedResource Include="UserControls\MapMakerUserControls\EditDestinationDoorForm.resx">
       <DependentUpon>EditDestinationDoorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MapMakerUserControls\EditDestinationNodeForm.resx">
+      <DependentUpon>EditDestinationNodeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MapMakerUserControls\MapMakerObjectPropertyControl.resx">
       <DependentUpon>MapMakerObjectPropertyControl.cs</DependentUpon>
     </EmbeddedResource>

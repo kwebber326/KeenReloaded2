@@ -31,6 +31,13 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         private void BtnDone_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+            PublishNodeSelectionCompleteEvent();
+
+            this.Close();
+        }
+
+        private void PublishNodeSelectionCompleteEvent()
+        {
             DoorSelectionChangedEventArgs selectionCompleteArgs = new DoorSelectionChangedEventArgs()
             {
                 NewDoor = this.SelectedNode
@@ -38,8 +45,6 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             EventStore<DoorSelectionChangedEventArgs>.Publish(
                 MapMakerConstants.EventStoreEventNames.EVENT_NODE_SELECTION_COMPLETE,
                 selectionCompleteArgs);
-
-            this.Close();
         }
 
         private void EditDestinationDoorForm_Load(object sender, EventArgs e)
@@ -99,6 +104,11 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
         private void BtnClear_Click(object sender, EventArgs e)
         {
             lstDoors.SelectedIndex = -1;
+        }
+
+        private void EditDestinationNodeForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            PublishNodeSelectionCompleteEvent();
         }
     }
 }

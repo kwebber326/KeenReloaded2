@@ -3,11 +3,47 @@
   "WorkspaceRootPath": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}|KeenReloaded2.Framework\\KeenReloaded2.Framework.csproj|c:\\users\\kjw2\\source\\repos\\keenreloaded2\\keenreloaded2.framework\\gameentities\\collisionobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|c:\\users\\kjw2\\source\\repos\\keenreloaded2\\keenreloaded2\\mapmaker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|solutionrelative:keenreloaded2\\mapmaker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\keenreloaded2\\usercontrols\\mapmakerusercontrols\\editdestinationnodeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|solutionrelative:keenreloaded2\\usercontrols\\mapmakerusercontrols\\editdestinationnodeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\keenreloaded2\\usercontrols\\mapmakerusercontrols\\editdestinationdoorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|solutionrelative:keenreloaded2\\usercontrols\\mapmakerusercontrols\\editdestinationdoorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\keenreloaded2\\usercontrols\\mapmakerusercontrols\\editdestinationnodeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|solutionrelative:keenreloaded2\\usercontrols\\mapmakerusercontrols\\editdestinationnodeform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\keenreloaded2\\usercontrols\\mapmakerusercontrols\\mapmakerobjectpropertylistcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|solutionrelative:keenreloaded2\\usercontrols\\mapmakerusercontrols\\mapmakerobjectpropertylistcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\keenreloaded2\\usercontrols\\mapmakerusercontrols\\mapmakerobjectpropertycontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|solutionrelative:keenreloaded2\\usercontrols\\mapmakerusercontrols\\mapmakerobjectpropertycontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}|KeenReloaded2.Framework\\KeenReloaded2.Framework.csproj|C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\keenreloaded2.framework\\gameentities\\constructs\\enemytransporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}|KeenReloaded2.Framework\\KeenReloaded2.Framework.csproj|solutionrelative:keenreloaded2.framework\\gameentities\\constructs\\enemytransporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}|KeenReloaded2.Framework\\KeenReloaded2.Framework.csproj|C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\keenreloaded2.framework\\gameentities\\constructs\\door.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}|KeenReloaded2.Framework\\KeenReloaded2.Framework.csproj|solutionrelative:keenreloaded2.framework\\gameentities\\constructs\\door.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\keenreloaded2\\usercontrols\\mapmakerusercontrols\\editdestinationdoorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|solutionrelative:keenreloaded2\\usercontrols\\mapmakerusercontrols\\editdestinationdoorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}|KeenReloaded2.Framework\\KeenReloaded2.Framework.csproj|C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\keenreloaded2.framework\\gameentities\\collisionobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}|KeenReloaded2.Framework\\KeenReloaded2.Framework.csproj|solutionrelative:keenreloaded2.framework\\gameentities\\collisionobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}|KeenReloaded2.Framework\\KeenReloaded2.Framework.csproj|c:\\users\\kjw2\\source\\repos\\keenreloaded2\\keenreloaded2.framework\\gameentities\\enemies\\gix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}|KeenReloaded2.Framework\\KeenReloaded2.Framework.csproj|C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\keenreloaded2.framework\\gameentities\\enemies\\gix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}|KeenReloaded2.Framework\\KeenReloaded2.Framework.csproj|solutionrelative:keenreloaded2.framework\\gameentities\\enemies\\gix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -18,11 +54,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
               "Title": "Gix.cs",
               "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2.Framework\\GameEntities\\Enemies\\Gix.cs",
               "RelativeDocumentMoniker": "KeenReloaded2.Framework\\GameEntities\\Enemies\\Gix.cs",
@@ -31,22 +67,129 @@
               "ViewState": "AgIAAIIBAAAAAAAAAAAUwJABAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-04T20:01:53.447Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CollisionObject.cs",
+              "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2.Framework\\GameEntities\\CollisionObject.cs",
+              "RelativeDocumentMoniker": "KeenReloaded2.Framework\\GameEntities\\CollisionObject.cs",
+              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2.Framework\\GameEntities\\CollisionObject.cs",
+              "RelativeToolTip": "KeenReloaded2.Framework\\GameEntities\\CollisionObject.cs",
+              "ViewState": "AgIAAHECAAAAAAAAAADwv3kCAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T20:04:08.96Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EditDestinationNodeForm.cs",
+              "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\UserControls\\MapMakerUserControls\\EditDestinationNodeForm.cs",
+              "RelativeDocumentMoniker": "KeenReloaded2\\UserControls\\MapMakerUserControls\\EditDestinationNodeForm.cs",
+              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\UserControls\\MapMakerUserControls\\EditDestinationNodeForm.cs",
+              "RelativeToolTip": "KeenReloaded2\\UserControls\\MapMakerUserControls\\EditDestinationNodeForm.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAgwG4AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T20:50:12.292Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EditDestinationDoorForm.cs",
+              "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\UserControls\\MapMakerUserControls\\EditDestinationDoorForm.cs",
+              "RelativeDocumentMoniker": "KeenReloaded2\\UserControls\\MapMakerUserControls\\EditDestinationDoorForm.cs",
+              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\UserControls\\MapMakerUserControls\\EditDestinationDoorForm.cs",
+              "RelativeToolTip": "KeenReloaded2\\UserControls\\MapMakerUserControls\\EditDestinationDoorForm.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAWwCEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T20:41:31.97Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MapMakerObjectPropertyListControl.cs",
+              "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\UserControls\\MapMakerUserControls\\MapMakerObjectPropertyListControl.cs",
+              "RelativeDocumentMoniker": "KeenReloaded2\\UserControls\\MapMakerUserControls\\MapMakerObjectPropertyListControl.cs",
+              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\UserControls\\MapMakerUserControls\\MapMakerObjectPropertyListControl.cs",
+              "RelativeToolTip": "KeenReloaded2\\UserControls\\MapMakerUserControls\\MapMakerObjectPropertyListControl.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAArwD4AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T21:17:40.806Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CollisionObject.cs",
-              "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2.Framework\\GameEntities\\CollisionObject.cs",
-              "RelativeDocumentMoniker": "KeenReloaded2.Framework\\GameEntities\\CollisionObject.cs",
-              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2.Framework\\GameEntities\\CollisionObject.cs*",
-              "RelativeToolTip": "KeenReloaded2.Framework\\GameEntities\\CollisionObject.cs*",
-              "ViewState": "AgIAAHECAAAAAAAAAADwv30CAABJAAAAAAAAAA==",
+              "Title": "MapMaker.cs",
+              "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\MapMaker.cs",
+              "RelativeDocumentMoniker": "KeenReloaded2\\MapMaker.cs",
+              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\MapMaker.cs",
+              "RelativeToolTip": "KeenReloaded2\\MapMaker.cs",
+              "ViewState": "AgIAAMMCAAAAAAAAAAAkwMQCAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-04T20:04:08.96Z",
-              "IsPinned": true,
+              "WhenOpened": "2025-11-04T20:43:41.165Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EditDestinationNodeForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\UserControls\\MapMakerUserControls\\EditDestinationNodeForm.cs",
+              "RelativeDocumentMoniker": "KeenReloaded2\\UserControls\\MapMakerUserControls\\EditDestinationNodeForm.cs",
+              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\UserControls\\MapMakerUserControls\\EditDestinationNodeForm.cs [Design]",
+              "RelativeToolTip": "KeenReloaded2\\UserControls\\MapMakerUserControls\\EditDestinationNodeForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T21:24:57.216Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EnemyTransporter.cs",
+              "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2.Framework\\GameEntities\\Constructs\\EnemyTransporter.cs",
+              "RelativeDocumentMoniker": "KeenReloaded2.Framework\\GameEntities\\Constructs\\EnemyTransporter.cs",
+              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2.Framework\\GameEntities\\Constructs\\EnemyTransporter.cs",
+              "RelativeToolTip": "KeenReloaded2.Framework\\GameEntities\\Constructs\\EnemyTransporter.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAowEQAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T20:56:22.837Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MapMakerObjectPropertyControl.cs",
+              "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\UserControls\\MapMakerUserControls\\MapMakerObjectPropertyControl.cs",
+              "RelativeDocumentMoniker": "KeenReloaded2\\UserControls\\MapMakerUserControls\\MapMakerObjectPropertyControl.cs",
+              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\UserControls\\MapMakerUserControls\\MapMakerObjectPropertyControl.cs",
+              "RelativeToolTip": "KeenReloaded2\\UserControls\\MapMakerUserControls\\MapMakerObjectPropertyControl.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAIwJsAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T20:41:49.883Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Door.cs",
+              "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2.Framework\\GameEntities\\Constructs\\Door.cs",
+              "RelativeDocumentMoniker": "KeenReloaded2.Framework\\GameEntities\\Constructs\\Door.cs",
+              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2.Framework\\GameEntities\\Constructs\\Door.cs",
+              "RelativeToolTip": "KeenReloaded2.Framework\\GameEntities\\Constructs\\Door.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAYwFcAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T20:55:44.313Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EditDestinationDoorForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\UserControls\\MapMakerUserControls\\EditDestinationDoorForm.cs",
+              "RelativeDocumentMoniker": "KeenReloaded2\\UserControls\\MapMakerUserControls\\EditDestinationDoorForm.cs",
+              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\UserControls\\MapMakerUserControls\\EditDestinationDoorForm.cs [Design]",
+              "RelativeToolTip": "KeenReloaded2\\UserControls\\MapMakerUserControls\\EditDestinationDoorForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T20:41:25.977Z"
             }
           ]
         }

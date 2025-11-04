@@ -37,10 +37,10 @@
             // lstDoors
             // 
             this.lstDoors.FormattingEnabled = true;
-            this.lstDoors.ItemHeight = 20;
-            this.lstDoors.Location = new System.Drawing.Point(12, 51);
+            this.lstDoors.Location = new System.Drawing.Point(8, 33);
+            this.lstDoors.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lstDoors.Name = "lstDoors";
-            this.lstDoors.Size = new System.Drawing.Size(250, 264);
+            this.lstDoors.Size = new System.Drawing.Size(168, 173);
             this.lstDoors.TabIndex = 0;
             this.lstDoors.SelectedIndexChanged += new System.EventHandler(this.LstDoors_SelectedIndexChanged);
             // 
@@ -48,17 +48,19 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(9, 8);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 25);
+            this.label1.Size = new System.Drawing.Size(111, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Available Doors:";
             // 
             // btnDone
             // 
-            this.btnDone.Location = new System.Drawing.Point(142, 321);
+            this.btnDone.Location = new System.Drawing.Point(95, 209);
+            this.btnDone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDone.Name = "btnDone";
-            this.btnDone.Size = new System.Drawing.Size(120, 48);
+            this.btnDone.Size = new System.Drawing.Size(80, 31);
             this.btnDone.TabIndex = 2;
             this.btnDone.Text = "Done";
             this.btnDone.UseVisualStyleBackColor = true;
@@ -66,27 +68,30 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(12, 321);
+            this.btnClear.Location = new System.Drawing.Point(8, 209);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(124, 46);
+            this.btnClear.Size = new System.Drawing.Size(83, 30);
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "Clear Selection";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.BtnClear_Click);
             // 
-            // EditDestinationDoorForm
+            // EditDestinationNodeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(273, 379);
+            this.ClientSize = new System.Drawing.Size(182, 246);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lstDoors);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MinimizeBox = false;
-            this.Name = "EditDestinationDoorForm";
+            this.Name = "EditDestinationNodeForm";
             this.Text = "Select Door Destination";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditDestinationNodeForm_FormClosing);
             this.Load += new System.EventHandler(this.EditDestinationDoorForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

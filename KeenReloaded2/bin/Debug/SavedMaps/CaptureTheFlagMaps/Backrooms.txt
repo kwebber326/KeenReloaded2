@@ -413,7 +413,6 @@ keen5_door|1254|3864|92|94|15|KEEN5_REGULAR|30|41
 keen4_gray_door|2725|611|60|92|15|KEEN4_GRAY|46|
 keen5_door|1473|1131|92|94|15|KEEN5_REGULAR|33|46
 keen6_transporter|2701|1381|96|128|15|15||10
-keen6_transporter|3545|1377|96|128|15|16||10
 keen4_oracle_door2|3760|1342|126|160|15|KEEN4_ORACLE|47|2
 keen4_gray_door|2867|3345|60|92|15|KEEN4_GRAY|48|
 keen5_door|1048|546|92|94|15|KEEN5_REGULAR|34|48
@@ -438,7 +437,6 @@ keen6_industrial_pole_middle|1831|1194|12|32|15|keen6_industrial_pole_middle|MID
 keen6_industrial_pole_middle|1831|1226|12|32|15|keen6_industrial_pole_middle|MIDDLE|KEEN6_INDUSTRIAL
 keen6_industrial_pole_bottom - Copy|1831|1258|12|28|15|keen6_industrial_pole_bottom - Copy|BOTTOM|KEEN6_INDUSTRIAL
 keen6_door|2469|714|124|126|15|KEEN6|59|2
-keen6_transporter|60|1848|96|128|15|5||10
 keen6_transporter|343|1848|96|128|15|6||10
 keen6_transporter|60|2348|96|128|15|7||10
 keen6_transporter|343|2348|96|128|15|8||10
@@ -456,6 +454,8 @@ keen6_transporter|60|848|96|128|15|1|8|10
 keen6_transporter|343|848|96|128|15|2|17|10
 keen6_transporter|60|1348|96|128|15|3|19|10
 keen6_transporter|343|1348|96|128|15|4|13|10
+keen6_transporter|60|1848|96|128|15|5|16|10
+keen6_transporter|3545|1377|96|128|15|16|21|10
 keen5_pink_platform|205|2239|62|30|18|KEEN5_PINK|[206,2140,106,2140,106,2242,206,2242,306,2242,306,2346,205,2346]|92af10f1-2423-4b5d-9af9-841c5febe2a8|True
 keen5_spinning_fire_hazard1|405|2588|32|32|18
 keen5_spinning_fire_hazard1|405|2620|32|32|18
