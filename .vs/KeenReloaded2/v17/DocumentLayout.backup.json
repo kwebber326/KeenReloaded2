@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}|KeenReloaded2.Framework\\KeenReloaded2.Framework.csproj|solutionrelative:keenreloaded2.framework\\gameentities\\collisionobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}|KeenReloaded2.Framework\\KeenReloaded2.Framework.csproj|c:\\users\\kjw2\\source\\repos\\keenreloaded2\\keenreloaded2.framework\\gameentities\\constructs\\enemytransporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}|KeenReloaded2.Framework\\KeenReloaded2.Framework.csproj|C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\keenreloaded2.framework\\gameentities\\constructs\\enemytransporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1C5A10EC-3E1C-4FD6-8A36-FC7AD42F7FDC}|KeenReloaded2.Framework\\KeenReloaded2.Framework.csproj|solutionrelative:keenreloaded2.framework\\gameentities\\constructs\\enemytransporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -30,9 +30,9 @@
               "Title": "CollisionObject.cs",
               "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2.Framework\\GameEntities\\CollisionObject.cs",
               "RelativeDocumentMoniker": "KeenReloaded2.Framework\\GameEntities\\CollisionObject.cs",
-              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2.Framework\\GameEntities\\CollisionObject.cs",
-              "RelativeToolTip": "KeenReloaded2.Framework\\GameEntities\\CollisionObject.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAewCwAAAA9AAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2.Framework\\GameEntities\\CollisionObject.cs*",
+              "RelativeToolTip": "KeenReloaded2.Framework\\GameEntities\\CollisionObject.cs*",
+              "ViewState": "AgIAACgAAAAAAAAAAAAIwD4AAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-12T00:10:47.574Z",
               "EditorCaption": ""
@@ -47,8 +47,7 @@
               "RelativeToolTip": "KeenReloaded2.Framework\\GameEntities\\Constructs\\EnemyTransporter.cs",
               "ViewState": "AgIAAGoAAAAAAAAAAAAUwHYAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-12T00:10:19.997Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-12T00:10:19.997Z"
             }
           ]
         }

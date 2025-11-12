@@ -36,7 +36,6 @@ namespace KeenReloaded.Framework
 
         public virtual void MoveToPosition(Point p)
         {
-            IEnumerable<Direction> directionsToUpdate = GetDirectionsToMoveBasedOnTwoPoints(this.HitBox.Location, p);
             var oldPosition = new Point(this.HitBox.X, this.HitBox.Y);
             this.HitBox = new Rectangle(p.X, p.Y, this.HitBox.Width, this.HitBox.Height);
             if (!_collidingNodes.Any() && _collisionGrid != null)
