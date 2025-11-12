@@ -550,9 +550,9 @@ keen5_bag_o_sugar1|1755|1065|26|32|50|KEEN5_BAG_O_SUGAR
 gem_red1|2257|3613|26|20|RED|50|False
 neural_stunner_smg_1|2748|3903|46|22|50|30
 neural_stunner_smg_1|2748|3881|46|22|50|30
+keen5_bag_o_sugar1|910|966|26|32|50|KEEN5_BAG_O_SUGAR
+keen5_bag_o_sugar1|884|966|26|32|50|KEEN5_BAG_O_SUGAR
 bean_with_bacon_megarocket|59|360|452|174|bean_with_bacon_megarocket.png|True|201
 fg_keen5_wall_black_middle_1|512|500|500|500|fg_keen5_wall_black_middle_1.png|False|201
-keen5_bag_o_sugar1|884|966|26|32|500|KEEN5_BAG_O_SUGAR
-keen5_bag_o_sugar1|910|966|26|32|500|KEEN5_BAG_O_SUGAR
 gem_placeholder_blue_empty|1961|3936|26|22|50|BLUE|[c1476064-69d6-4951-a2ea-303822798ef9]
 gem_placeholder_red_empty|2241|3936|26|22|50|RED|[9cabfd78-79c1-4062-a283-9771881d62f6]
