@@ -74,6 +74,10 @@ keen4_cave_wall_bottom7|939|2346|64|32|10
 keen4_cave_wall_edge_left|929|2345|64|64|10
 keen4_cave_wall_bottom7|929|2409|32|32|10
 keen4_cave_platform_middle|533|2308|434|36|10
+keen4_forest_floor_edge_left|928|124|72|64|10
+keen4_forest_wall_left_edge|928|188|72|320|10
+keen4_forest_floor_edge_right|1000|124|52|64|10
+keen4_forest_wall_right_edge|1000|188|52|320|10
 keen4_secret_platform_large_icon|118|297|14|2|15|SHOW3
 keen4_blue_door|706|639|60|92|15|KEEN4_BLUE|2|
 keen4_oracle_door2|27|2800|126|160|15|KEEN4_ORACLE|1|2
