@@ -18,6 +18,8 @@ using KeenReloaded2.Entities.Statistics.HighScores;
 using System.Diagnostics;
 using KeenReloaded2.Framework.GameEntities.Weapons;
 using KeenReloaded2.Framework.GameEventArgs;
+using System.Runtime.CompilerServices;
+using KeenReloaded2.Framework.GameEntities.Interfaces;
 
 namespace KeenReloaded2
 {
@@ -251,12 +253,35 @@ namespace KeenReloaded2
 
         private void RestartLevelFromBeginning()
         {
+            _gameUpdateTimer.Stop();
             DetachEvents();
-            pbGameImage.Image = null;
+            DisposeBitmaps();
             LevelCompleteObjectives.ClearAll();
             var mapMakerData = MapUtility.LoadMapData(_game.Map.MapPath);
             InitializeGameData(_gameMode, mapMakerData, true);
             InitializeGameState();
+        }
+
+        private void DisposeBitmaps()
+        {
+            var tmp = pbGameImage.Image;
+            pbGameImage.Image = null;
+            tmp?.Dispose();
+
+            var tmp2 = pbBackgroundImage.Image;
+            pbBackgroundImage.Image = null;
+            tmp2?.Dispose();
+
+
+            //var data = _game.Map.MapData;
+            //foreach (var ditem in data)
+            //{
+            //    if (ditem.GameObject is ISprite)
+            //    {
+            //        (ditem.GameObject).Image?.Dispose();
+            //        ditem.Image?.Dispose();
+            //    }
+            //}
         }
 
         private void DetachEvents()
