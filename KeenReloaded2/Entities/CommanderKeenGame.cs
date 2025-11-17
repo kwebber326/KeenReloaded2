@@ -543,23 +543,59 @@ namespace KeenReloaded2.Entities
         public void Dispose()
         {
             Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         protected virtual void Dispose(bool disposing)
         {
+            if (_disposed) return;
+
             if (disposing)
             {
-                foreach (var obj in _gameObjects)
-                {
-                    this.DetachEventsForObject(obj);
-                }
+                DisposeGameObjects();
                 if (_backgroundImage != null)
                 {
+                    _backgroundImage.Dispose();
                     _backgroundImage = null;
-                    GC.Collect();
                 }
             }
             _disposed = true;
+        }
+
+        private void DisposeGameObjects()
+        {
+            foreach (var obj in _gameObjects)
+            {
+                this.DetachEventsForObject(obj);
+            }
+
+            foreach (var obj in _updatableGameObjects)
+            {
+                this.DetachEventsForObject(obj);
+            }
+
+            foreach (var obj in _animatedBackgrounds)
+            {
+                this.DetachEventsForObject(obj);
+            }
+
+            foreach (var obj in _backgroundsAndTiles)
+            {
+                this.DetachEventsForObject(obj);
+            }
+
+            _gameObjects = null;
+            _updatableGameObjects = null;
+            _animatedBackgrounds = null;
+            _backgroundsAndTiles = null;
+        }
+    }
+
+    internal static class ImageHelper
+    {
+        public static void DisposeBitmap(Image img)
+        {
+            img?.Dispose();
         }
     }
 }

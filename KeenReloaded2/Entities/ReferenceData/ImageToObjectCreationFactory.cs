@@ -259,48 +259,50 @@ namespace KeenReloaded2.Entities.ReferenceData
                 {
                     try
                     {
-                        Image img = Image.FromFile(file);
-                        string imageName = FileIOUtility.ExtractFileNameFromPath(file);
-                        Type type = typeof(Background);
-                        string imagePath = file;
+                        using (Image img = Image.FromFile(file))
+                        {
+                            string imageName = FileIOUtility.ExtractFileNameFromPath(file);
+                            Type type = typeof(Background);
+                            string imagePath = file;
 
-                        var parameters = new List<MapMakerObjectProperty>()
-                    {
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                             DisplayName = "Area: ",
-                             DataType = typeof(Rectangle),
-                             Value = new Rectangle(0, 0, img.Width, img.Height)
-                         },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "imagePath",
-                             DisplayName = "Image: ",
-                             DataType = typeof(string),
-                             Value = imageName + ".png",
-                             IsSpriteProperty = true,
-                             Readonly = true,
-                             Hidden = true
-                         },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "stretchImage",
-                             DisplayName = "Stretch Image: ",
-                             DataType = typeof(bool),
-                             Value = true
-                         },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "zIndex",
-                             DisplayName = "Z Index: ",
-                             DataType = typeof(int),
-                             Value = 0
-                         }
-                    }.ToArray();
+                            var parameters = new List<MapMakerObjectProperty>()
+                            {
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                                     DisplayName = "Area: ",
+                                     DataType = typeof(Rectangle),
+                                     Value = new Rectangle(0, 0, img.Width, img.Height)
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "imagePath",
+                                     DisplayName = "Image: ",
+                                     DataType = typeof(string),
+                                     Value = imageName + ".png",
+                                     IsSpriteProperty = true,
+                                     Readonly = true,
+                                     Hidden = true
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "stretchImage",
+                                     DisplayName = "Stretch Image: ",
+                                     DataType = typeof(bool),
+                                     Value = true
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "zIndex",
+                                     DisplayName = "Z Index: ",
+                                     DataType = typeof(int),
+                                     Value = 0
+                                 }
+                            }.ToArray();
 
-                        MapMakerObject obj = new MapMakerObject(type, imagePath, false, parameters);
-                        backgroundReferenceData.Add(imageName, obj);
+                            MapMakerObject obj = new MapMakerObject(type, imagePath, false, parameters);
+                            backgroundReferenceData.Add(imageName, obj);
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -319,50 +321,52 @@ namespace KeenReloaded2.Entities.ReferenceData
                 {
                     try
                     {
-                        Image img = Image.FromFile(file);
-                        string imageName = FileIOUtility.ExtractFileNameFromPath(file);
-                        Type type = typeof(MimicBlock);
-                        string imagePath = file;
-
-                        var parameters = new List<MapMakerObjectProperty>()
-                    {
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                             DisplayName = "Area: ",
-                             DataType = typeof(Rectangle),
-                             Value = new Rectangle(0, 0, img.Width, img.Height)
-                         },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "imagePath",
-                             DisplayName = "Image: ",
-                             DataType = typeof(string),
-                             Value = imageName + ".png",
-                             IsSpriteProperty = true,
-                             Readonly = true,
-                             Hidden = true
-                         },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "stretchImage",
-                             DisplayName = "Stretch Image: ",
-                             DataType = typeof(bool),
-                             Value = true
-                         },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "zIndex",
-                             DisplayName = "Z Index: ",
-                             DataType = typeof(int),
-                             Value = 201
-                         }
-                    }.ToArray();
-
-                        if (!backgroundReferenceData.ContainsKey(imageName))
+                        using (Image img = Image.FromFile(file))
                         {
-                            MapMakerObject obj = new MapMakerObject(type, imagePath, false, parameters);
-                            backgroundReferenceData.Add(imageName, obj);
+                            string imageName = FileIOUtility.ExtractFileNameFromPath(file);
+                            Type type = typeof(MimicBlock);
+                            string imagePath = file;
+
+                            var parameters = new List<MapMakerObjectProperty>()
+                            {
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                                     DisplayName = "Area: ",
+                                     DataType = typeof(Rectangle),
+                                     Value = new Rectangle(0, 0, img.Width, img.Height)
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "imagePath",
+                                     DisplayName = "Image: ",
+                                     DataType = typeof(string),
+                                     Value = imageName + ".png",
+                                     IsSpriteProperty = true,
+                                     Readonly = true,
+                                     Hidden = true
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "stretchImage",
+                                     DisplayName = "Stretch Image: ",
+                                     DataType = typeof(bool),
+                                     Value = true
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "zIndex",
+                                     DisplayName = "Z Index: ",
+                                     DataType = typeof(int),
+                                     Value = 201
+                                 }
+                            }.ToArray();
+
+                            if (!backgroundReferenceData.ContainsKey(imageName))
+                            {
+                                MapMakerObject obj = new MapMakerObject(type, imagePath, false, parameters);
+                                backgroundReferenceData.Add(imageName, obj);
+                            }
                         }
                     }
                     catch (Exception ex)
@@ -382,66 +386,68 @@ namespace KeenReloaded2.Entities.ReferenceData
                 {
                     try
                     {
-                        Image img = Image.FromFile(file);
-                        string imageName = FileIOUtility.ExtractFileNameFromPath(file);
-                        Type type = typeof(AnimatedBackground);
-                        string imagePath = file;
-                        string imageSetPath = Path.Combine(path, imageName);
-                        string[] imageSet = Directory.GetFiles(imageSetPath)
-                           .Select(f => FileIOUtility.ExtractFileNameFromPath(f) + ".png").ToArray();
+                        using (Image img = Image.FromFile(file))
+                        {
+                            string imageName = FileIOUtility.ExtractFileNameFromPath(file);
+                            Type type = typeof(AnimatedBackground);
+                            string imagePath = file;
+                            string imageSetPath = Path.Combine(path, imageName);
+                            string[] imageSet = Directory.GetFiles(imageSetPath)
+                               .Select(f => FileIOUtility.ExtractFileNameFromPath(f) + ".png").ToArray();
 
-                        var parameters = new List<MapMakerObjectProperty>()
-                    {
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                             DisplayName = "Area: ",
-                             DataType = typeof(Rectangle),
-                             Value = new Rectangle(0, 0, img.Width, img.Height)
-                         },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "imagePath",
-                             DisplayName = "Image: ",
-                             DataType = typeof(string),
-                             Value = imageName + ".png",
-                             IsSpriteProperty = true,
-                             Readonly = true,
-                             Hidden = true
-                         },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "stretchImage",
-                             DisplayName = "Stretch Image: ",
-                             DataType = typeof(bool),
-                             Value = true
-                         },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "zIndex",
-                             DisplayName = "Z Index: ",
-                             DataType = typeof(int),
-                             Value = 0
-                         },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "images",
-                             DisplayName = "Images: ",
-                             Hidden = true,
-                             DataType = typeof(string[]),
-                             Value = imageSet
-                         },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "imageRotationDelayMilliseconds",
-                             DisplayName = "Amimation update delay (ms): ",
-                             DataType = typeof(int),
-                             Value = 200
-                         }
-                    }.ToArray();
+                            var parameters = new List<MapMakerObjectProperty>()
+                            {
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                                     DisplayName = "Area: ",
+                                     DataType = typeof(Rectangle),
+                                     Value = new Rectangle(0, 0, img.Width, img.Height)
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "imagePath",
+                                     DisplayName = "Image: ",
+                                     DataType = typeof(string),
+                                     Value = imageName + ".png",
+                                     IsSpriteProperty = true,
+                                     Readonly = true,
+                                     Hidden = true
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "stretchImage",
+                                     DisplayName = "Stretch Image: ",
+                                     DataType = typeof(bool),
+                                     Value = true
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "zIndex",
+                                     DisplayName = "Z Index: ",
+                                     DataType = typeof(int),
+                                     Value = 0
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "images",
+                                     DisplayName = "Images: ",
+                                     Hidden = true,
+                                     DataType = typeof(string[]),
+                                     Value = imageSet
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "imageRotationDelayMilliseconds",
+                                     DisplayName = "Amimation update delay (ms): ",
+                                     DataType = typeof(int),
+                                     Value = 200
+                                 }
+                            }.ToArray();
 
-                        MapMakerObject obj = new MapMakerObject(type, imagePath, false, parameters);
-                        backgroundReferenceData.Add(imageName, obj);
+                            MapMakerObject obj = new MapMakerObject(type, imagePath, false, parameters);
+                            backgroundReferenceData.Add(imageName, obj);
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -460,66 +466,68 @@ namespace KeenReloaded2.Entities.ReferenceData
                 {
                     try
                     {
-                        Image img = Image.FromFile(file);
-                        string imageName = FileIOUtility.ExtractFileNameFromPath(file);
-                        Type type = typeof(AnimatedBackground);
-                        string imagePath = file;
-                        string imageSetPath = Path.Combine(path, imageName);
-                        string[] imageSet = Directory.GetFiles(imageSetPath)
-                            .Select(f => FileIOUtility.ExtractFileNameFromPath(f) + ".png").ToArray();
+                        using (Image img = Image.FromFile(file))
+                        {
+                            string imageName = FileIOUtility.ExtractFileNameFromPath(file);
+                            Type type = typeof(AnimatedBackground);
+                            string imagePath = file;
+                            string imageSetPath = Path.Combine(path, imageName);
+                            string[] imageSet = Directory.GetFiles(imageSetPath)
+                                .Select(f => FileIOUtility.ExtractFileNameFromPath(f) + ".png").ToArray();
 
-                        var parameters = new List<MapMakerObjectProperty>()
-                    {
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                             DisplayName = "Area: ",
-                             DataType = typeof(Rectangle),
-                             Value = new Rectangle(0, 0, img.Width, img.Height)
-                         },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "imagePath",
-                             DisplayName = "Image: ",
-                             DataType = typeof(string),
-                             Value = imageName + ".png",
-                             IsSpriteProperty = true,
-                             Readonly = true,
-                             Hidden = true
-                         },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "stretchImage",
-                             DisplayName = "Stretch Image: ",
-                             DataType = typeof(bool),
-                             Value = true
-                         },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "zIndex",
-                             DisplayName = "Z Index: ",
-                             DataType = typeof(int),
-                             Value = 201
-                         },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "images",
-                             DisplayName = "Images: ",
-                             Hidden = true,
-                             DataType = typeof(string[]),
-                             Value = imageSet
-                         },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "imageRotationDelayMilliseconds",
-                             DisplayName = "Amimation update delay (ms): ",
-                             DataType = typeof(int),
-                             Value = 200
-                         }
-                    }.ToArray();
+                            var parameters = new List<MapMakerObjectProperty>()
+                            {
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                                     DisplayName = "Area: ",
+                                     DataType = typeof(Rectangle),
+                                     Value = new Rectangle(0, 0, img.Width, img.Height)
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "imagePath",
+                                     DisplayName = "Image: ",
+                                     DataType = typeof(string),
+                                     Value = imageName + ".png",
+                                     IsSpriteProperty = true,
+                                     Readonly = true,
+                                     Hidden = true
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "stretchImage",
+                                     DisplayName = "Stretch Image: ",
+                                     DataType = typeof(bool),
+                                     Value = true
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "zIndex",
+                                     DisplayName = "Z Index: ",
+                                     DataType = typeof(int),
+                                     Value = 201
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "images",
+                                     DisplayName = "Images: ",
+                                     Hidden = true,
+                                     DataType = typeof(string[]),
+                                     Value = imageSet
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "imageRotationDelayMilliseconds",
+                                     DisplayName = "Amimation update delay (ms): ",
+                                     DataType = typeof(int),
+                                     Value = 200
+                                 }
+                            }.ToArray();
 
-                        MapMakerObject obj = new MapMakerObject(type, imagePath, false, parameters);
-                        backgroundReferenceData.Add(imageName, obj);
+                            MapMakerObject obj = new MapMakerObject(type, imagePath, false, parameters);
+                            backgroundReferenceData.Add(imageName, obj);
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -540,9 +548,10 @@ namespace KeenReloaded2.Entities.ReferenceData
                     string biome = InferBiomeFromImage(imageName);
                     string episodeFolder = biome.Substring(0, biome.LastIndexOf('_')).ToLower();
                     string path = Path.Combine(FileIOUtility.GetResourcePathForMainProject(), imageName + ".png");
-                    Image img = Image.FromFile(path);
-                    MapMakerObjectProperty[] properties = new MapMakerObjectProperty[]
+                    using (Image img = Image.FromFile(path))
                     {
+                        MapMakerObjectProperty[] properties = new MapMakerObjectProperty[]
+                        {
                         new MapMakerObjectProperty()
                         {
                             DisplayName = "Area: ",
@@ -589,10 +598,11 @@ namespace KeenReloaded2.Entities.ReferenceData
                             Hidden = true,
                             Value = biome
                          }
-                    };
-                    MapMakerObject obj = new MapMakerObject(type, path, false, properties);
-                    if (!backgroundReferenceData.ContainsKey(imageName))
-                        backgroundReferenceData.Add(imageName, obj);
+                        };
+                        MapMakerObject obj = new MapMakerObject(type, path, false, properties);
+                        if (!backgroundReferenceData.ContainsKey(imageName))
+                            backgroundReferenceData.Add(imageName, obj);
+                    }
                 }
             }
 
@@ -960,13 +970,14 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             foreach (var filePath in gemFiles)
             {
-                var img = Image.FromFile(filePath);
-                string imgName = FileIOUtility.ExtractFileNameFromPath(filePath);
-
-                if (filePath.Contains("placeholder"))
+                using (var img = Image.FromFile(filePath))
                 {
-                    MapMakerObjectProperty[] constructorParameters = new MapMakerObjectProperty[]
-                   {
+                    string imgName = FileIOUtility.ExtractFileNameFromPath(filePath);
+
+                    if (filePath.Contains("placeholder"))
+                    {
+                        MapMakerObjectProperty[] constructorParameters = new MapMakerObjectProperty[]
+                       {
                     new MapMakerObjectProperty()
                         {
                             DisplayName = "Area: ",
@@ -1005,15 +1016,15 @@ namespace KeenReloaded2.Entities.ReferenceData
                             Value = new IActivateable[] { },
                             DisplayName = "Activation Objects: "
                         },
-                   };
-                    MapMakerObject obj = new MapMakerObject(typeof(GemPlaceHolder), filePath, false, constructorParameters);
+                       };
+                        MapMakerObject obj = new MapMakerObject(typeof(GemPlaceHolder), filePath, false, constructorParameters);
 
-                    backgroundReferenceData.Add(imgName, obj);
-                }
-                else if (filePath.Contains("key_gate"))
-                {
-                    MapMakerObjectProperty[] constructorParameters = new MapMakerObjectProperty[]
+                        backgroundReferenceData.Add(imgName, obj);
+                    }
+                    else if (filePath.Contains("key_gate"))
                     {
+                        MapMakerObjectProperty[] constructorParameters = new MapMakerObjectProperty[]
+                        {
                         new MapMakerObjectProperty()
                         {
                             DisplayName = "Area: ",
@@ -1053,15 +1064,15 @@ namespace KeenReloaded2.Entities.ReferenceData
                             DisplayName ="Id: ",
                             Readonly = true
                         },
-                    };
-                    MapMakerObject obj = new MapMakerObject(typeof(KeyGate), filePath, false, constructorParameters);
+                        };
+                        MapMakerObject obj = new MapMakerObject(typeof(KeyGate), filePath, false, constructorParameters);
 
-                    backgroundReferenceData.Add(imgName, obj);
-                }
-                else
-                {
-                    MapMakerObjectProperty[] constructorParameters = new MapMakerObjectProperty[]
+                        backgroundReferenceData.Add(imgName, obj);
+                    }
+                    else
                     {
+                        MapMakerObjectProperty[] constructorParameters = new MapMakerObjectProperty[]
+                        {
                     new MapMakerObjectProperty()
                         {
                             DisplayName = "Area: ",
@@ -1109,10 +1120,11 @@ namespace KeenReloaded2.Entities.ReferenceData
                             Value = false,
                             Hidden = true
                         },
-                    };
-                    MapMakerObject obj = new MapMakerObject(typeof(Gem), filePath, false, constructorParameters);
+                        };
+                        MapMakerObject obj = new MapMakerObject(typeof(Gem), filePath, false, constructorParameters);
 
-                    backgroundReferenceData.Add(imgName, obj);
+                        backgroundReferenceData.Add(imgName, obj);
+                    }
                 }
             }
 
@@ -1135,9 +1147,10 @@ namespace KeenReloaded2.Entities.ReferenceData
                     if (!_pointImageTypeDict.TryGetValue(pointImageName, out PointItemType pointItemType))
                         continue;
 
-                    Image img = Image.FromFile(file);
-                    MapMakerObjectProperty[] objectProperties = new MapMakerObjectProperty[]
+                    using (Image img = Image.FromFile(file))
                     {
+                        MapMakerObjectProperty[] objectProperties = new MapMakerObjectProperty[]
+                        {
                         new MapMakerObjectProperty()
                         {
                                 DisplayName = "Area: ",
@@ -1178,9 +1191,10 @@ namespace KeenReloaded2.Entities.ReferenceData
                                 PossibleValues = Enum.GetNames(typeof(PointItemType)),
                                 Readonly = true
                         },
-                    };
-                    MapMakerObject obj = new MapMakerObject(typeof(PointItem), file, false, objectProperties);
-                    backgroundReferenceData.Add(pointImageName, obj);
+                        };
+                        MapMakerObject obj = new MapMakerObject(typeof(PointItem), file, false, objectProperties);
+                        backgroundReferenceData.Add(pointImageName, obj);
+                    }
                 }
             }
 
@@ -1717,9 +1731,10 @@ namespace KeenReloaded2.Entities.ReferenceData
             #region mine
             string keen4MineImagePath = keen4HazardFiles.FirstOrDefault(m => m.Contains(nameof(Properties.Resources.keen4_mine)));
             string mineKeyName = FileIOUtility.ExtractFileNameFromPath(keen4MineImagePath);
-            Image keen4MineImage = Image.FromFile(keen4MineImagePath);
+            using (Image keen4MineImage = Image.FromFile(keen4MineImagePath))
+            {
 
-            MapMakerObjectProperty[] mineProperties = new MapMakerObjectProperty[]
+                MapMakerObjectProperty[] mineProperties = new MapMakerObjectProperty[]
             {
                   new MapMakerObjectProperty()
                   {
@@ -1787,8 +1802,9 @@ namespace KeenReloaded2.Entities.ReferenceData
                   },
             };
 
-            MapMakerObject mineObj = new MapMakerObject(typeof(Mine), keen4MineImagePath, false, mineProperties);
-            backgroundReferenceData.Add(mineKeyName, mineObj);
+                MapMakerObject mineObj = new MapMakerObject(typeof(Mine), keen4MineImagePath, false, mineProperties);
+                backgroundReferenceData.Add(mineKeyName, mineObj);
+            }
             #endregion
 
             #region keen 4
@@ -1796,25 +1812,26 @@ namespace KeenReloaded2.Entities.ReferenceData
             #region Spikes
             string keen4spikeImagePath = keen4HazardFiles.FirstOrDefault(m => m.Contains(nameof(Properties.Resources.keen_4_spikes)));
             string spikeKeyName = FileIOUtility.ExtractFileNameFromPath(keen4spikeImagePath);
-            Image keen4SpikeImage = Image.FromFile(keen4spikeImagePath);
-
-            MapMakerObjectProperty[] keen4SpikeProperties = new MapMakerObjectProperty[]
+            using (Image keen4SpikeImage = Image.FromFile(keen4spikeImagePath))
             {
-                  new MapMakerObjectProperty()
-                  {
-                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                       DataType = typeof(SpaceHashGrid),
-                       Value = null,
-                       Hidden = true,
-                       IsIgnoredInMapData = true
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                      DisplayName = "Area: ",
-                      DataType = typeof(Rectangle),
-                      Value = new Rectangle(0, 0, keen4MineImage.Width, keen4MineImage.Height),
-                  },
+
+                MapMakerObjectProperty[] keen4SpikeProperties = new MapMakerObjectProperty[]
+                {
+                      new MapMakerObjectProperty()
+                      {
+                           PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                           DataType = typeof(SpaceHashGrid),
+                           Value = null,
+                           Hidden = true,
+                           IsIgnoredInMapData = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                          DisplayName = "Area: ",
+                          DataType = typeof(Rectangle),
+                          Value = new Rectangle(0, 0, keen4SpikeImage.Width, keen4SpikeImage.Height),
+                      },
                   new MapMakerObjectProperty()
                   {
                       PropertyName = "hazardType",
@@ -1832,9 +1849,10 @@ namespace KeenReloaded2.Entities.ReferenceData
                   },
             };
 
-            MapMakerObject keen4SpikeObj = new MapMakerObject(typeof(Hazard), keen4spikeImagePath, false, keen4SpikeProperties);
+                MapMakerObject keen4SpikeObj = new MapMakerObject(typeof(Hazard), keen4spikeImagePath, false, keen4SpikeProperties);
 
-            backgroundReferenceData.Add(spikeKeyName, keen4SpikeObj);
+                backgroundReferenceData.Add(spikeKeyName, keen4SpikeObj);
+            }
             #endregion
 
             #region spears
@@ -1842,17 +1860,18 @@ namespace KeenReloaded2.Entities.ReferenceData
             foreach (var file in keen4spearImagePaths)
             {
                 string spearKeyName = FileIOUtility.ExtractFileNameFromPath(file);
-                Image keen4SpearImage = Image.FromFile(file);
-
-                MapMakerObjectProperty[] keen4SpearProperties = new MapMakerObjectProperty[]
+                using (Image keen4SpearImage = Image.FromFile(file))
                 {
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                      DisplayName = "Area: ",
-                      DataType = typeof(Rectangle),
-                      Value = new Rectangle(0, 0, keen4MineImage.Width, keen4MineImage.Height),
-                  },
+
+                    MapMakerObjectProperty[] keen4SpearProperties = new MapMakerObjectProperty[]
+                    {
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                          DisplayName = "Area: ",
+                          DataType = typeof(Rectangle),
+                          Value = new Rectangle(0, 0, keen4SpearImage.Width, keen4SpearImage.Height),
+                      },
                   new MapMakerObjectProperty()
                   {
                        PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
@@ -1878,9 +1897,10 @@ namespace KeenReloaded2.Entities.ReferenceData
                   }
                 };
 
-                MapMakerObject keen4SpearObj = new MapMakerObject(typeof(Spear), file, false, keen4SpearProperties);
+                    MapMakerObject keen4SpearObj = new MapMakerObject(typeof(Spear), file, false, keen4SpearProperties);
 
-                backgroundReferenceData.Add(spearKeyName, keen4SpearObj);
+                    backgroundReferenceData.Add(spearKeyName, keen4SpearObj);
+                }
 
             }
             #endregion
@@ -1891,59 +1911,61 @@ namespace KeenReloaded2.Entities.ReferenceData
             foreach (var file in keen4DartGunImagePaths)
             {
                 string dartGunKeyName = FileIOUtility.ExtractFileNameFromPath(file);
-                Image keen4DartGunImage = Image.FromFile(file);
-
-                MapMakerObjectProperty[] keen4DartGunProperties = new MapMakerObjectProperty[]
+                using (Image keen4DartGunImage = Image.FromFile(file))
                 {
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                      DisplayName = "Area: ",
-                      DataType = typeof(Rectangle),
-                      Value = new Rectangle(0, 0, keen4MineImage.Width, keen4MineImage.Height),
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                       DataType = typeof(SpaceHashGrid),
-                       Value = null,
-                       Hidden = true,
-                       IsIgnoredInMapData = true
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = "zIndex",
-                      DataType = typeof(int),
-                      Value = 18,
-                      DisplayName ="Z Index: "
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = "direction",
-                      DataType = typeof(Direction),
-                      Hidden = true,
-                      PossibleValues = Enum.GetNames(typeof(Direction)),
-                      Value = InferDirectionFromFile(file)
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = "isFiring",
-                      DataType = typeof(bool),
-                      DisplayName = "Active: ",
-                      Value = true
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = "shotDelayOffset",
-                      DataType = typeof(int),
-                      DisplayName = "Shot Timing Offset: ",
-                      Value = 0
-                  }
-                };
 
-                MapMakerObject keen4DartGunObj = new MapMakerObject(typeof(DartGun), file, false, keen4DartGunProperties);
+                    MapMakerObjectProperty[] keen4DartGunProperties = new MapMakerObjectProperty[]
+                    {
+                          new MapMakerObjectProperty()
+                          {
+                              PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                              DisplayName = "Area: ",
+                              DataType = typeof(Rectangle),
+                              Value = new Rectangle(0, 0, keen4DartGunImage.Width, keen4DartGunImage.Height),
+                          },
+                          new MapMakerObjectProperty()
+                          {
+                               PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                               DataType = typeof(SpaceHashGrid),
+                               Value = null,
+                               Hidden = true,
+                               IsIgnoredInMapData = true
+                          },
+                          new MapMakerObjectProperty()
+                          {
+                              PropertyName = "zIndex",
+                              DataType = typeof(int),
+                              Value = 18,
+                              DisplayName ="Z Index: "
+                          },
+                          new MapMakerObjectProperty()
+                          {
+                              PropertyName = "direction",
+                              DataType = typeof(Direction),
+                              Hidden = true,
+                              PossibleValues = Enum.GetNames(typeof(Direction)),
+                              Value = InferDirectionFromFile(file)
+                          },
+                          new MapMakerObjectProperty()
+                          {
+                              PropertyName = "isFiring",
+                              DataType = typeof(bool),
+                              DisplayName = "Active: ",
+                              Value = true
+                          },
+                          new MapMakerObjectProperty()
+                          {
+                              PropertyName = "shotDelayOffset",
+                              DataType = typeof(int),
+                              DisplayName = "Shot Timing Offset: ",
+                              Value = 0
+                          }
+                    };
 
-                backgroundReferenceData.Add(dartGunKeyName, keen4DartGunObj);
+                    MapMakerObject keen4DartGunObj = new MapMakerObject(typeof(DartGun), file, false, keen4DartGunProperties);
+
+                    backgroundReferenceData.Add(dartGunKeyName, keen4DartGunObj);
+                }
 
             }
 
@@ -1955,16 +1977,17 @@ namespace KeenReloaded2.Entities.ReferenceData
             foreach (var file in keen4FireImagePaths)
             {
                 string fireKeyName = FileIOUtility.ExtractFileNameFromPath(file);
-                Image keen4FireImage = Image.FromFile(file);
-
-                MapMakerObjectProperty[] keenFireProperties = new MapMakerObjectProperty[]
+                using (Image keen4FireImage = Image.FromFile(file))
                 {
+
+                    MapMakerObjectProperty[] keenFireProperties = new MapMakerObjectProperty[]
+                    {
                   new MapMakerObjectProperty()
                   {
                       PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
                       DisplayName = "Area: ",
                       DataType = typeof(Rectangle),
-                      Value = new Rectangle(0, 0, keen4MineImage.Width, keen4MineImage.Height),
+                      Value = new Rectangle(0, 0, keen4FireImage.Width, keen4FireImage.Height),
                   },
                   new MapMakerObjectProperty()
                   {
@@ -1989,12 +2012,12 @@ namespace KeenReloaded2.Entities.ReferenceData
                       PossibleValues = Enum.GetNames(typeof(Direction)),
                       Value = InferDirectionFromFile(file)
                   },
-                };
+                    };
 
-                MapMakerObject keen4FireObj = new MapMakerObject(typeof(Fire), file, false, keenFireProperties);
+                    MapMakerObject keen4FireObj = new MapMakerObject(typeof(Fire), file, false, keenFireProperties);
 
-                backgroundReferenceData.Add(fireKeyName, keen4FireObj);
-
+                    backgroundReferenceData.Add(fireKeyName, keen4FireObj);
+                }
             }
 
             #endregion
@@ -2003,14 +2026,16 @@ namespace KeenReloaded2.Entities.ReferenceData
             string rppFile = keen4HazardFiles.FirstOrDefault(f => f.Contains("rocket"));
             string rppKey = FileIOUtility.ExtractFileNameFromPath(rppFile);
 
-            MapMakerObjectProperty[] rppProperties = new MapMakerObjectProperty[]
+            using (Image rppImg = Image.FromFile(rppFile))
             {
+                MapMakerObjectProperty[] rppProperties = new MapMakerObjectProperty[]
+                {
                  new MapMakerObjectProperty()
                   {
                       PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
                       DisplayName = "Area: ",
                       DataType = typeof(Rectangle),
-                      Value = new Rectangle(0, 0, keen4MineImage.Width, keen4MineImage.Height),
+                      Value = new Rectangle(0, 0, rppImg.Width, rppImg.Height),
                   },
                   new MapMakerObjectProperty()
                   {
@@ -2027,10 +2052,11 @@ namespace KeenReloaded2.Entities.ReferenceData
                       Value = 18,
                       DisplayName ="Z Index: "
                   },
-            };
+                };
 
-            MapMakerObject rppObj = new MapMakerObject(typeof(RocketPropelledPlatform), rppFile, false, rppProperties);
-            backgroundReferenceData.Add(rppKey, rppObj);
+                MapMakerObject rppObj = new MapMakerObject(typeof(RocketPropelledPlatform), rppFile, false, rppProperties);
+                backgroundReferenceData.Add(rppKey, rppObj);
+            }
 
             #endregion
 
@@ -2038,10 +2064,11 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             string acidPoolFile = keen4HazardFiles.FirstOrDefault(f => f.Contains("poison_pool"));
             string acidPoolKey = FileIOUtility.ExtractFileNameFromPath(acidPoolFile);
-            Image acidImg = Image.FromFile(acidPoolFile);
-
-            MapMakerObjectProperty[] acidPoolProperties = new MapMakerObjectProperty[]
+            using (Image acidImg = Image.FromFile(acidPoolFile))
             {
+
+                MapMakerObjectProperty[] acidPoolProperties = new MapMakerObjectProperty[]
+                {
                  new MapMakerObjectProperty()
                   {
                       PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
@@ -2071,20 +2098,22 @@ namespace KeenReloaded2.Entities.ReferenceData
                       Value = 1,
                       DisplayName ="Length: "
                   },
-            };
+                };
 
-            MapMakerObject acidPoolObj = new MapMakerObject(typeof(AcidPool), acidPoolFile, false, acidPoolProperties);
-            backgroundReferenceData.Add(acidPoolKey, acidPoolObj);
+                MapMakerObject acidPoolObj = new MapMakerObject(typeof(AcidPool), acidPoolFile, false, acidPoolProperties);
+                backgroundReferenceData.Add(acidPoolKey, acidPoolObj);
+            }
 
             #endregion
 
             #region Tar Pit
             string tarPoolFile = keen4HazardFiles.FirstOrDefault(f => f.Contains("tar"));
             string tarPoolKey = FileIOUtility.ExtractFileNameFromPath(tarPoolFile);
-            Image tarImg = Image.FromFile(tarPoolFile);
-
-            MapMakerObjectProperty[] tarPoolProperties = new MapMakerObjectProperty[]
+            using (Image tarImg = Image.FromFile(tarPoolFile))
             {
+
+                MapMakerObjectProperty[] tarPoolProperties = new MapMakerObjectProperty[]
+                {
                  new MapMakerObjectProperty()
                   {
                       PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
@@ -2121,19 +2150,21 @@ namespace KeenReloaded2.Entities.ReferenceData
                       Value = 0,
                       DisplayName ="Depth: "
                   },
-            };
+                };
 
-            MapMakerObject tarPoolObj = new MapMakerObject(typeof(TarPit), tarPoolFile, false, tarPoolProperties);
-            backgroundReferenceData.Add(tarPoolKey, tarPoolObj);
+                MapMakerObject tarPoolObj = new MapMakerObject(typeof(TarPit), tarPoolFile, false, tarPoolProperties);
+                backgroundReferenceData.Add(tarPoolKey, tarPoolObj);
+            }
             #endregion
 
             #region Water Hazard
 
             string keen4WaterHazardFile = keen4HazardFiles.FirstOrDefault(f => f.Contains("keen4_water"));
             string keen4WaterHazardKey = FileIOUtility.ExtractFileNameFromPath(keen4WaterHazardFile);
-            Image keen4WaterHazardImg = Image.FromFile(keen4WaterHazardFile);
+            using (Image keen4WaterHazardImg = Image.FromFile(keen4WaterHazardFile))
+            {
 
-            MapMakerObjectProperty[] keen4WaterHazardProperties = new MapMakerObjectProperty[]
+                MapMakerObjectProperty[] keen4WaterHazardProperties = new MapMakerObjectProperty[]
             {
                  new MapMakerObjectProperty()
                   {
@@ -2173,8 +2204,9 @@ namespace KeenReloaded2.Entities.ReferenceData
                   },
             };
 
-            MapMakerObject keen4WaterHazardObj = new MapMakerObject(typeof(Keen4WaterHazard), keen4WaterHazardFile, false, keen4WaterHazardProperties);
-            backgroundReferenceData.Add(keen4WaterHazardKey, keen4WaterHazardObj);
+                MapMakerObject keen4WaterHazardObj = new MapMakerObject(typeof(Keen4WaterHazard), keen4WaterHazardFile, false, keen4WaterHazardProperties);
+                backgroundReferenceData.Add(keen4WaterHazardKey, keen4WaterHazardObj);
+            }
 
             #endregion
 
@@ -2184,36 +2216,38 @@ namespace KeenReloaded2.Entities.ReferenceData
             #region Spinning Fire
             string spinningFireFile = keen5HazardFiles.FirstOrDefault(f => f.Contains("spinning_fire"));
             string spinningFirelKey = FileIOUtility.ExtractFileNameFromPath(spinningFireFile);
-            Image spinningFireImg = Image.FromFile(spinningFireFile);
-
-            MapMakerObjectProperty[] spinningFireProperties = new MapMakerObjectProperty[]
+            using (Image spinningFireImg = Image.FromFile(spinningFireFile))
             {
-                 new MapMakerObjectProperty()
-                  {
-                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                      DisplayName = "Area: ",
-                      DataType = typeof(Rectangle),
-                      Value = new Rectangle(0, 0, spinningFireImg.Width, spinningFireImg.Height),
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                       DataType = typeof(SpaceHashGrid),
-                       Value = null,
-                       Hidden = true,
-                       IsIgnoredInMapData = true
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = "zIndex",
-                      DataType = typeof(int),
-                      Value = 18,
-                      DisplayName ="Z Index: "
-                  },
-            };
 
-            MapMakerObject spinningFireObj = new MapMakerObject(typeof(Keen5SpinningFire), spinningFireFile, false, spinningFireProperties);
-            backgroundReferenceData.Add(spinningFirelKey, spinningFireObj);
+                MapMakerObjectProperty[] spinningFireProperties = new MapMakerObjectProperty[]
+                {
+                     new MapMakerObjectProperty()
+                      {
+                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                          DisplayName = "Area: ",
+                          DataType = typeof(Rectangle),
+                          Value = new Rectangle(0, 0, spinningFireImg.Width, spinningFireImg.Height),
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                           PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                           DataType = typeof(SpaceHashGrid),
+                           Value = null,
+                           Hidden = true,
+                           IsIgnoredInMapData = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "zIndex",
+                          DataType = typeof(int),
+                          Value = 18,
+                          DisplayName ="Z Index: "
+                      },
+                };
+
+                MapMakerObject spinningFireObj = new MapMakerObject(typeof(Keen5SpinningFire), spinningFireFile, false, spinningFireProperties);
+                backgroundReferenceData.Add(spinningFirelKey, spinningFireObj);
+            }
             #endregion
 
             #region Keen 5 Laser Turrets
@@ -2221,9 +2255,10 @@ namespace KeenReloaded2.Entities.ReferenceData
             foreach (var file in keen5LaserTurretImagePaths)
             {
                 string laserTurretKeyName = FileIOUtility.ExtractFileNameFromPath(file);
-                Image keen5LaserTurretImage = Image.FromFile(file);
+                using (Image keen5LaserTurretImage = Image.FromFile(file))
+                {
 
-                MapMakerObjectProperty[] keen5LaserTurretProperties = new MapMakerObjectProperty[]
+                    MapMakerObjectProperty[] keen5LaserTurretProperties = new MapMakerObjectProperty[]
                 {
                   new MapMakerObjectProperty()
                   {
@@ -2280,9 +2315,10 @@ namespace KeenReloaded2.Entities.ReferenceData
                   }
                 };
 
-                MapMakerObject keen5LaserTurretObj = new MapMakerObject(typeof(LaserTurret), file, false, keen5LaserTurretProperties);
+                    MapMakerObject keen5LaserTurretObj = new MapMakerObject(typeof(LaserTurret), file, false, keen5LaserTurretProperties);
 
-                backgroundReferenceData.Add(laserTurretKeyName, keen5LaserTurretObj);
+                    backgroundReferenceData.Add(laserTurretKeyName, keen5LaserTurretObj);
+                }
 
             }
             #endregion
@@ -2293,11 +2329,12 @@ namespace KeenReloaded2.Entities.ReferenceData
             foreach (var file in keen5SpinningBurnImagePaths)
             {
                 string spinningBurnKeyName = FileIOUtility.ExtractFileNameFromPath(file);
-                Image keen5SpinningBurnImage = Image.FromFile(file);
-                string indexStr = file[file.LastIndexOf('.') - 1].ToString();
-                int startIndex = int.TryParse(indexStr, out int index) ? index - 1 : 1;
+                using (Image keen5SpinningBurnImage = Image.FromFile(file))
+                {
+                    string indexStr = file[file.LastIndexOf('.') - 1].ToString();
+                    int startIndex = int.TryParse(indexStr, out int index) ? index - 1 : 1;
 
-                MapMakerObjectProperty[] keen5SpinningBurnProperties = new MapMakerObjectProperty[]
+                    MapMakerObjectProperty[] keen5SpinningBurnProperties = new MapMakerObjectProperty[]
                 {
                   new MapMakerObjectProperty()
                   {
@@ -2346,9 +2383,10 @@ namespace KeenReloaded2.Entities.ReferenceData
                   },
                 };
 
-                MapMakerObject keen5SpinningBurnObj = new MapMakerObject(typeof(Keen5SpinningBurnPlatform), file, false, keen5SpinningBurnProperties);
+                    MapMakerObject keen5SpinningBurnObj = new MapMakerObject(typeof(Keen5SpinningBurnPlatform), file, false, keen5SpinningBurnProperties);
 
-                backgroundReferenceData.Add(spinningBurnKeyName, keen5SpinningBurnObj);
+                    backgroundReferenceData.Add(spinningBurnKeyName, keen5SpinningBurnObj);
+                }
 
             }
 
@@ -2358,9 +2396,10 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             string laserFieldFile = keen5HazardFiles.FirstOrDefault(f => f.Contains("laser_field"));
             string laserFieldlKey = FileIOUtility.ExtractFileNameFromPath(laserFieldFile);
-            Image laserFieldImg = Image.FromFile(laserFieldFile);
+            using (Image laserFieldImg = Image.FromFile(laserFieldFile))
+            {
 
-            MapMakerObjectProperty[] laserFieldProperties = new MapMakerObjectProperty[]
+                MapMakerObjectProperty[] laserFieldProperties = new MapMakerObjectProperty[]
             {
                   new MapMakerObjectProperty()
                   {
@@ -2394,8 +2433,9 @@ namespace KeenReloaded2.Entities.ReferenceData
                   },
             };
 
-            MapMakerObject laserFieldObj = new MapMakerObject(typeof(Keen5LaserField), laserFieldFile, false, laserFieldProperties);
-            backgroundReferenceData.Add(laserFieldlKey, laserFieldObj);
+                MapMakerObject laserFieldObj = new MapMakerObject(typeof(Keen5LaserField), laserFieldFile, false, laserFieldProperties);
+                backgroundReferenceData.Add(laserFieldlKey, laserFieldObj);
+            }
 
             #endregion
 
@@ -2403,43 +2443,45 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             string forceFieldFile = keen5HazardFiles.FirstOrDefault(f => f.Contains("force_field"));
             string forceFieldKey = FileIOUtility.ExtractFileNameFromPath(forceFieldFile);
-            Image forceFieldImg = Image.FromFile(forceFieldFile);
-
-            MapMakerObjectProperty[] forceFieldProperties = new MapMakerObjectProperty[]
+            using (Image forceFieldImg = Image.FromFile(forceFieldFile))
             {
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                      DisplayName = "Area: ",
-                      DataType = typeof(Rectangle),
-                      Value = new Rectangle(0, 0, forceFieldImg.Width, forceFieldImg.Height + 96),
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                       DataType = typeof(SpaceHashGrid),
-                       Value = null,
-                       Hidden = true,
-                       IsIgnoredInMapData = true
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = "zIndex",
-                      DataType = typeof(int),
-                      Value = 18,
-                      DisplayName ="Z Index: "
-                  },
-                   new MapMakerObjectProperty()
-                  {
-                      PropertyName = "health",
-                      DataType = typeof(int),
-                      Value = 1,
-                      DisplayName ="Health: "
-                  },
-            };
 
-            MapMakerObject forceFieldObj = new MapMakerObject(typeof(ForceField), forceFieldFile, false, forceFieldProperties);
-            backgroundReferenceData.Add(forceFieldKey, forceFieldObj);
+                MapMakerObjectProperty[] forceFieldProperties = new MapMakerObjectProperty[]
+                {
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                          DisplayName = "Area: ",
+                          DataType = typeof(Rectangle),
+                          Value = new Rectangle(0, 0, forceFieldImg.Width, forceFieldImg.Height + 96),
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                           PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                           DataType = typeof(SpaceHashGrid),
+                           Value = null,
+                           Hidden = true,
+                           IsIgnoredInMapData = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "zIndex",
+                          DataType = typeof(int),
+                          Value = 18,
+                          DisplayName ="Z Index: "
+                      },
+                       new MapMakerObjectProperty()
+                      {
+                          PropertyName = "health",
+                          DataType = typeof(int),
+                          Value = 1,
+                          DisplayName ="Health: "
+                      },
+                };
+
+                MapMakerObject forceFieldObj = new MapMakerObject(typeof(ForceField), forceFieldFile, false, forceFieldProperties);
+                backgroundReferenceData.Add(forceFieldKey, forceFieldObj);
+            }
 
             #endregion
 
@@ -2450,80 +2492,84 @@ namespace KeenReloaded2.Entities.ReferenceData
             #region burn hazard
             string keen6BurnFile = keen6HazardFiles.FirstOrDefault(f => f.Contains("burn_hazard"));
             string burnHazardKey = FileIOUtility.ExtractFileNameFromPath(keen6BurnFile);
-            Image burnHazardImg = Image.FromFile(keen6BurnFile);
-
-            MapMakerObjectProperty[] burnHazardProperties = new MapMakerObjectProperty[]
+            using (Image burnHazardImg = Image.FromFile(keen6BurnFile))
             {
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                      DisplayName = "Area: ",
-                      DataType = typeof(Rectangle),
-                      Value = new Rectangle(0, 0, burnHazardImg.Width, burnHazardImg.Height),
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                       DataType = typeof(SpaceHashGrid),
-                       Value = null,
-                       Hidden = true,
-                       IsIgnoredInMapData = true
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = "zIndex",
-                      DataType = typeof(int),
-                      Value = 18,
-                      DisplayName ="Z Index: "
-                  },
-            };
 
-            MapMakerObject burnHazardObj = new MapMakerObject(typeof(Keen6BurnHazard), keen6BurnFile, false, burnHazardProperties);
-            backgroundReferenceData.Add(burnHazardKey, burnHazardObj);
+                MapMakerObjectProperty[] burnHazardProperties = new MapMakerObjectProperty[]
+                {
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                          DisplayName = "Area: ",
+                          DataType = typeof(Rectangle),
+                          Value = new Rectangle(0, 0, burnHazardImg.Width, burnHazardImg.Height),
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                           PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                           DataType = typeof(SpaceHashGrid),
+                           Value = null,
+                           Hidden = true,
+                           IsIgnoredInMapData = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "zIndex",
+                          DataType = typeof(int),
+                          Value = 18,
+                          DisplayName ="Z Index: "
+                      },
+                };
+
+                MapMakerObject burnHazardObj = new MapMakerObject(typeof(Keen6BurnHazard), keen6BurnFile, false, burnHazardProperties);
+                backgroundReferenceData.Add(burnHazardKey, burnHazardObj);
+            }
             #endregion
 
             #region spikes
             string keen6SpikeImagePath = keen6HazardFiles.FirstOrDefault(m => m.Contains(nameof(Properties.Resources.keen6_dome_spikes)));
             string keen6SpikeKeyName = FileIOUtility.ExtractFileNameFromPath(keen6SpikeImagePath);
-            Image keen6SpikeImage = Image.FromFile(keen6SpikeImagePath);
-
-            MapMakerObjectProperty[] keen6SpikeProperties = new MapMakerObjectProperty[]
+            using (Image keen6SpikeImage = Image.FromFile(keen6SpikeImagePath))
             {
-                  new MapMakerObjectProperty()
-                  {
-                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                       DataType = typeof(SpaceHashGrid),
-                       Value = null,
-                       Hidden = true,
-                       IsIgnoredInMapData = true
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                      DisplayName = "Area: ",
-                      DataType = typeof(Rectangle),
-                      Value = new Rectangle(0, 0, keen6SpikeImage.Width, keen6SpikeImage.Height),
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = "hazardType",
-                      DataType = typeof(HazardType),
-                      Value = HazardType.KEEN6_SPIKE,
-                      Hidden = true,
-                      IsSpriteProperty = true
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = "zIndex",
-                      DataType = typeof(int),
-                      Value = 18,
-                      DisplayName ="Z Index: "
-                  },
-            };
 
-            MapMakerObject keen6SpikeObj = new MapMakerObject(typeof(Hazard), keen6SpikeImagePath, false, keen6SpikeProperties);
+                MapMakerObjectProperty[] keen6SpikeProperties = new MapMakerObjectProperty[]
+                {
+                      new MapMakerObjectProperty()
+                      {
+                           PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                           DataType = typeof(SpaceHashGrid),
+                           Value = null,
+                           Hidden = true,
+                           IsIgnoredInMapData = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                          DisplayName = "Area: ",
+                          DataType = typeof(Rectangle),
+                          Value = new Rectangle(0, 0, keen6SpikeImage.Width, keen6SpikeImage.Height),
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "hazardType",
+                          DataType = typeof(HazardType),
+                          Value = HazardType.KEEN6_SPIKE,
+                          Hidden = true,
+                          IsSpriteProperty = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "zIndex",
+                          DataType = typeof(int),
+                          Value = 18,
+                          DisplayName ="Z Index: "
+                      },
+                };
 
-            backgroundReferenceData.Add(keen6SpikeKeyName, keen6SpikeObj);
+                MapMakerObject keen6SpikeObj = new MapMakerObject(typeof(Hazard), keen6SpikeImagePath, false, keen6SpikeProperties);
+
+                backgroundReferenceData.Add(keen6SpikeKeyName, keen6SpikeObj);
+            }
 
             #endregion
 
@@ -2531,36 +2577,38 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             string keen6DrillFile = keen6HazardFiles.FirstOrDefault(f => f.Contains("drill"));
             string drillHazardKey = FileIOUtility.ExtractFileNameFromPath(keen6DrillFile);
-            Image drillHazardImg = Image.FromFile(keen6DrillFile);
-
-            MapMakerObjectProperty[] drillHazardProperties = new MapMakerObjectProperty[]
+            using (Image drillHazardImg = Image.FromFile(keen6DrillFile))
             {
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                      DisplayName = "Area: ",
-                      DataType = typeof(Rectangle),
-                      Value = new Rectangle(0, 0, drillHazardImg.Width, drillHazardImg.Height),
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                       DataType = typeof(SpaceHashGrid),
-                       Value = null,
-                       Hidden = true,
-                       IsIgnoredInMapData = true
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = "zIndex",
-                      DataType = typeof(int),
-                      Value = 18,
-                      DisplayName ="Z Index: "
-                  },
-            };
 
-            MapMakerObject drillHazardObj = new MapMakerObject(typeof(Keen6Drill), keen6DrillFile, false, drillHazardProperties);
-            backgroundReferenceData.Add(drillHazardKey, drillHazardObj);
+                MapMakerObjectProperty[] drillHazardProperties = new MapMakerObjectProperty[]
+                {
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                          DisplayName = "Area: ",
+                          DataType = typeof(Rectangle),
+                          Value = new Rectangle(0, 0, drillHazardImg.Width, drillHazardImg.Height),
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                           PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                           DataType = typeof(SpaceHashGrid),
+                           Value = null,
+                           Hidden = true,
+                           IsIgnoredInMapData = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "zIndex",
+                          DataType = typeof(int),
+                          Value = 18,
+                          DisplayName ="Z Index: "
+                      },
+                };
+
+                MapMakerObject drillHazardObj = new MapMakerObject(typeof(Keen6Drill), keen6DrillFile, false, drillHazardProperties);
+                backgroundReferenceData.Add(drillHazardKey, drillHazardObj);
+            }
 
             #endregion
 
@@ -2568,9 +2616,10 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             string keen6ConveyerBeltFile = keen6HazardFiles.FirstOrDefault(f => f.Contains("conveyer"));
             string conveyerHazardKey = FileIOUtility.ExtractFileNameFromPath(keen6ConveyerBeltFile);
-            Image conveyerHazardImg = Image.FromFile(keen6ConveyerBeltFile);
+            using (Image conveyerHazardImg = Image.FromFile(keen6ConveyerBeltFile))
+            {
 
-            MapMakerObjectProperty[] conveyerHazardProperties = new MapMakerObjectProperty[]
+                MapMakerObjectProperty[] conveyerHazardProperties = new MapMakerObjectProperty[]
             {
                   new MapMakerObjectProperty()
                   {
@@ -2613,8 +2662,9 @@ namespace KeenReloaded2.Entities.ReferenceData
                   },
             };
 
-            MapMakerObject conveyerHazardObj = new MapMakerObject(typeof(ConveyerBelt), keen6ConveyerBeltFile, false, conveyerHazardProperties);
-            backgroundReferenceData.Add(conveyerHazardKey, conveyerHazardObj);
+                MapMakerObject conveyerHazardObj = new MapMakerObject(typeof(ConveyerBelt), keen6ConveyerBeltFile, false, conveyerHazardProperties);
+                backgroundReferenceData.Add(conveyerHazardKey, conveyerHazardObj);
+            }
 
             #endregion
 
@@ -2622,44 +2672,46 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             string keen6SmasherFile = keen6HazardFiles.FirstOrDefault(f => f.Contains("smasher"));
             string smasherHazardKey = FileIOUtility.ExtractFileNameFromPath(keen6SmasherFile);
-            Image smasherHazardImg = Image.FromFile(keen6SmasherFile);
-
-            MapMakerObjectProperty[] smasherHazardProperties = new MapMakerObjectProperty[]
+            using (Image smasherHazardImg = Image.FromFile(keen6SmasherFile))
             {
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                      DisplayName = "Area: ",
-                      DataType = typeof(Rectangle),
-                      Value = new Rectangle(0, 0, smasherHazardImg.Width, smasherHazardImg.Height),
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                       DataType = typeof(SpaceHashGrid),
-                       Value = null,
-                       Hidden = true,
-                       IsIgnoredInMapData = true
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = "zIndex",
-                      DataType = typeof(int),
-                      Value = 18,
-                      DisplayName ="Z Index: "
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = "initialState",
-                      DataType = typeof(SmasherState),
-                      Value = SmasherState.OFF,
-                      PossibleValues = Enum.GetNames(typeof(SmasherState)),
-                      DisplayName ="Initial State: "
-                  },
-            };
 
-            MapMakerObject smasherHazardObj = new MapMakerObject(typeof(Smasher), keen6SmasherFile, false, smasherHazardProperties);
-            backgroundReferenceData.Add(smasherHazardKey, smasherHazardObj);
+                MapMakerObjectProperty[] smasherHazardProperties = new MapMakerObjectProperty[]
+                {
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                          DisplayName = "Area: ",
+                          DataType = typeof(Rectangle),
+                          Value = new Rectangle(0, 0, smasherHazardImg.Width, smasherHazardImg.Height),
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                           PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                           DataType = typeof(SpaceHashGrid),
+                           Value = null,
+                           Hidden = true,
+                           IsIgnoredInMapData = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "zIndex",
+                          DataType = typeof(int),
+                          Value = 18,
+                          DisplayName ="Z Index: "
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "initialState",
+                          DataType = typeof(SmasherState),
+                          Value = SmasherState.OFF,
+                          PossibleValues = Enum.GetNames(typeof(SmasherState)),
+                          DisplayName ="Initial State: "
+                      },
+                };
+
+                MapMakerObject smasherHazardObj = new MapMakerObject(typeof(Smasher), keen6SmasherFile, false, smasherHazardProperties);
+                backgroundReferenceData.Add(smasherHazardKey, smasherHazardObj);
+            }
 
             #endregion
 
@@ -2667,44 +2719,46 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             string keen6FlamethrowerFile = keen6HazardFiles.FirstOrDefault(f => f.Contains("flame_thrower"));
             string flamethrowerHazardKey = FileIOUtility.ExtractFileNameFromPath(keen6FlamethrowerFile);
-            Image flamethrowerHazardImg = Image.FromFile(keen6FlamethrowerFile);
-
-            MapMakerObjectProperty[] flamethrowerHazardProperties = new MapMakerObjectProperty[]
+            using (Image flamethrowerHazardImg = Image.FromFile(keen6FlamethrowerFile))
             {
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                      DisplayName = "Area: ",
-                      DataType = typeof(Rectangle),
-                      Value = new Rectangle(0, 0, flamethrowerHazardImg.Width, flamethrowerHazardImg.Height),
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                       DataType = typeof(SpaceHashGrid),
-                       Value = null,
-                       Hidden = true,
-                       IsIgnoredInMapData = true
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = "zIndex",
-                      DataType = typeof(int),
-                      Value = 18,
-                      DisplayName ="Z Index: "
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = "initialState",
-                      DataType = typeof(FlameThrowerState),
-                      Value = FlameThrowerState.OFF,
-                      PossibleValues = Enum.GetNames(typeof(FlameThrowerState)),
-                      DisplayName ="Initial State: "
-                  },
-            };
 
-            MapMakerObject flamethrowerHazardObj = new MapMakerObject(typeof(FlameThrower), keen6FlamethrowerFile, false, flamethrowerHazardProperties);
-            backgroundReferenceData.Add(flamethrowerHazardKey, flamethrowerHazardObj);
+                MapMakerObjectProperty[] flamethrowerHazardProperties = new MapMakerObjectProperty[]
+                {
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                          DisplayName = "Area: ",
+                          DataType = typeof(Rectangle),
+                          Value = new Rectangle(0, 0, flamethrowerHazardImg.Width, flamethrowerHazardImg.Height),
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                           PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                           DataType = typeof(SpaceHashGrid),
+                           Value = null,
+                           Hidden = true,
+                           IsIgnoredInMapData = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "zIndex",
+                          DataType = typeof(int),
+                          Value = 18,
+                          DisplayName ="Z Index: "
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "initialState",
+                          DataType = typeof(FlameThrowerState),
+                          Value = FlameThrowerState.OFF,
+                          PossibleValues = Enum.GetNames(typeof(FlameThrowerState)),
+                          DisplayName ="Initial State: "
+                      },
+                };
+
+                MapMakerObject flamethrowerHazardObj = new MapMakerObject(typeof(FlameThrower), keen6FlamethrowerFile, false, flamethrowerHazardProperties);
+                backgroundReferenceData.Add(flamethrowerHazardKey, flamethrowerHazardObj);
+            }
 
             #endregion
 
@@ -2712,52 +2766,54 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             string laserField6File = keen6HazardFiles.FirstOrDefault(f => f.Contains("laser_field"));
             string laserField6Key = FileIOUtility.ExtractFileNameFromPath(laserField6File);
-            Image laserField6Img = Image.FromFile(laserField6File);
-
-            MapMakerObjectProperty[] laserField6Properties = new MapMakerObjectProperty[]
+            using (Image laserField6Img = Image.FromFile(laserField6File))
             {
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                      DisplayName = "Area: ",
-                      DataType = typeof(Rectangle),
-                      Value = new Rectangle(0, 0, laserField6Img.Width, laserField6Img.Height + 96),
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                       DataType = typeof(SpaceHashGrid),
-                       Value = null,
-                       Hidden = true,
-                       IsIgnoredInMapData = true
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = "zIndex",
-                      DataType = typeof(int),
-                      Value = 18,
-                      DisplayName ="Z Index: "
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = "initialState",
-                      DataType = typeof(LaserFieldState),
-                      Value = LaserFieldState.OFF,
-                      PossibleValues = Enum.GetNames(typeof(LaserFieldState))
-                            .Where(e => e == "OFF" || e == "PHASE1").ToArray(),
-                      DisplayName ="Initial State: "
-                  },
-            };
 
-            MapMakerObject laserField6Obj = new MapMakerObject(typeof(Keen6LaserField), laserField6File, false, laserField6Properties);
-            backgroundReferenceData.Add(laserField6Key, laserField6Obj);
+                MapMakerObjectProperty[] laserField6Properties = new MapMakerObjectProperty[]
+                {
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                          DisplayName = "Area: ",
+                          DataType = typeof(Rectangle),
+                          Value = new Rectangle(0, 0, laserField6Img.Width, laserField6Img.Height + 96),
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                           PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                           DataType = typeof(SpaceHashGrid),
+                           Value = null,
+                           Hidden = true,
+                           IsIgnoredInMapData = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "zIndex",
+                          DataType = typeof(int),
+                          Value = 18,
+                          DisplayName ="Z Index: "
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "initialState",
+                          DataType = typeof(LaserFieldState),
+                          Value = LaserFieldState.OFF,
+                          PossibleValues = Enum.GetNames(typeof(LaserFieldState))
+                                .Where(e => e == "OFF" || e == "PHASE1").ToArray(),
+                          DisplayName ="Initial State: "
+                      },
+                };
 
-            #endregion
+                MapMakerObject laserField6Obj = new MapMakerObject(typeof(Keen6LaserField), laserField6File, false, laserField6Properties);
+                backgroundReferenceData.Add(laserField6Key, laserField6Obj);
 
-            #region Keen 6 Toggle Laser Field
-            string toggleLaserFieldObjectKey = nameof(Properties.Resources.keen6_laser_field_toggle);
-            MapMakerObjectProperty[] toggleLaserFieldProperties = new MapMakerObjectProperty[]
-            {
+
+                #endregion
+
+                #region Keen 6 Toggle Laser Field
+                string toggleLaserFieldObjectKey = nameof(Properties.Resources.keen6_laser_field_toggle);
+                MapMakerObjectProperty[] toggleLaserFieldProperties = new MapMakerObjectProperty[]
+                {
                 new MapMakerObjectProperty()
                   {
                       PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
@@ -2795,45 +2851,48 @@ namespace KeenReloaded2.Entities.ReferenceData
                     DisplayName ="Id: ",
                     Readonly = true
                 },
-            };
-            MapMakerObject laserField6ToggleObj = new MapMakerObject(typeof(Keen6ToggleLaserField), laserField6File, false, toggleLaserFieldProperties);
-            backgroundReferenceData.Add(toggleLaserFieldObjectKey, laserField6ToggleObj);
+                };
+                MapMakerObject laserField6ToggleObj = new MapMakerObject(typeof(Keen6ToggleLaserField), laserField6File, false, toggleLaserFieldProperties);
+                backgroundReferenceData.Add(toggleLaserFieldObjectKey, laserField6ToggleObj);
+            }
             #endregion
 
             #region Keen 6 Electric Rods tile
 
             string electricRodFile = keen6HazardFiles.FirstOrDefault(f => f.Contains("electric_rod"));
             string electricRodKey = FileIOUtility.ExtractFileNameFromPath(electricRodFile);
-            Image electricRodImg = Image.FromFile(electricRodFile);
-
-            MapMakerObjectProperty[] electricRodProperties = new MapMakerObjectProperty[]
+            using (Image electricRodImg = Image.FromFile(electricRodFile))
             {
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                      DisplayName = "Area: ",
-                      DataType = typeof(Rectangle),
-                      Value = new Rectangle(0, 0, electricRodImg.Width, electricRodImg.Height + 96),
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                       DataType = typeof(SpaceHashGrid),
-                       Value = null,
-                       Hidden = true,
-                       IsIgnoredInMapData = true
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = "zIndex",
-                      DataType = typeof(int),
-                      Value = 18,
-                      DisplayName ="Z Index: "
-                  },
-            };
 
-            MapMakerObject electricRodObj = new MapMakerObject(typeof(Keen6ElectricRodHazard), electricRodFile, false, electricRodProperties);
-            backgroundReferenceData.Add(electricRodKey, electricRodObj);
+                MapMakerObjectProperty[] electricRodProperties = new MapMakerObjectProperty[]
+                {
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                          DisplayName = "Area: ",
+                          DataType = typeof(Rectangle),
+                          Value = new Rectangle(0, 0, electricRodImg.Width, electricRodImg.Height + 96),
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                           PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                           DataType = typeof(SpaceHashGrid),
+                           Value = null,
+                           Hidden = true,
+                           IsIgnoredInMapData = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "zIndex",
+                          DataType = typeof(int),
+                          Value = 18,
+                          DisplayName ="Z Index: "
+                      },
+                };
+
+                MapMakerObject electricRodObj = new MapMakerObject(typeof(Keen6ElectricRodHazard), electricRodFile, false, electricRodProperties);
+                backgroundReferenceData.Add(electricRodKey, electricRodObj);
+            }
 
             #endregion
 
@@ -2850,11 +2909,12 @@ namespace KeenReloaded2.Entities.ReferenceData
             foreach (var slimeTileLeftFile in slimeTileLeftFiles)
             {
                 string slimeTileLeftKey = FileIOUtility.ExtractFileNameFromPath(slimeTileLeftFile);
-                Image slimeTileLeftImg = Image.FromFile(slimeTileLeftFile);
-                string indexStr = slimeTileLeftFile[slimeTileLeftFile.LastIndexOf('.') - 1].ToString();
-                int currentSpriteIndex = Convert.ToInt32(indexStr) - 1;
+                using (Image slimeTileLeftImg = Image.FromFile(slimeTileLeftFile))
+                {
+                    string indexStr = slimeTileLeftFile[slimeTileLeftFile.LastIndexOf('.') - 1].ToString();
+                    int currentSpriteIndex = Convert.ToInt32(indexStr) - 1;
 
-                MapMakerObjectProperty[] slimeTileLeftProperties = new MapMakerObjectProperty[]
+                    MapMakerObjectProperty[] slimeTileLeftProperties = new MapMakerObjectProperty[]
                 {
                   new MapMakerObjectProperty()
                   {
@@ -2887,8 +2947,9 @@ namespace KeenReloaded2.Entities.ReferenceData
                   },
                 };
 
-                MapMakerObject slimeTileLeftObj = new MapMakerObject(typeof(Keen6SlimeHazardEdgeFloorLeft), slimeTileLeftFile, false, slimeTileLeftProperties);
-                backgroundReferenceData.Add(slimeTileLeftKey, slimeTileLeftObj);
+                    MapMakerObject slimeTileLeftObj = new MapMakerObject(typeof(Keen6SlimeHazardEdgeFloorLeft), slimeTileLeftFile, false, slimeTileLeftProperties);
+                    backgroundReferenceData.Add(slimeTileLeftKey, slimeTileLeftObj);
+                }
             }
 
             string[] slimeTileRightFiles = keen6IndustrialFiles.Where(f => f.Contains("slime_hazard_right")).ToArray();
@@ -2896,11 +2957,12 @@ namespace KeenReloaded2.Entities.ReferenceData
             foreach (var slimeTileRightFile in slimeTileRightFiles)
             {
                 string slimeTileRightKey = FileIOUtility.ExtractFileNameFromPath(slimeTileRightFile);
-                Image slimeTileRightImg = Image.FromFile(slimeTileRightFile);
-                string indexStr = slimeTileRightFile[slimeTileRightFile.LastIndexOf('.') - 1].ToString();
-                int currentSpriteIndex = Convert.ToInt32(indexStr) - 1;
+                using (Image slimeTileRightImg = Image.FromFile(slimeTileRightFile))
+                {
+                    string indexStr = slimeTileRightFile[slimeTileRightFile.LastIndexOf('.') - 1].ToString();
+                    int currentSpriteIndex = Convert.ToInt32(indexStr) - 1;
 
-                MapMakerObjectProperty[] slimeTileRightProperties = new MapMakerObjectProperty[]
+                    MapMakerObjectProperty[] slimeTileRightProperties = new MapMakerObjectProperty[]
                 {
                   new MapMakerObjectProperty()
                   {
@@ -2933,8 +2995,9 @@ namespace KeenReloaded2.Entities.ReferenceData
                   },
                 };
 
-                MapMakerObject slimeTileRightObj = new MapMakerObject(typeof(Keen6SlimeHazardEdgeFloorRight), slimeTileRightFile, false, slimeTileRightProperties);
-                backgroundReferenceData.Add(slimeTileRightKey, slimeTileRightObj);
+                    MapMakerObject slimeTileRightObj = new MapMakerObject(typeof(Keen6SlimeHazardEdgeFloorRight), slimeTileRightFile, false, slimeTileRightProperties);
+                    backgroundReferenceData.Add(slimeTileRightKey, slimeTileRightObj);
+                }
             }
 
 
@@ -2943,11 +3006,12 @@ namespace KeenReloaded2.Entities.ReferenceData
             foreach (var slimeTileMiddleFile in slimeTileMiddleFiles)
             {
                 string slimeTileMiddleKey = FileIOUtility.ExtractFileNameFromPath(slimeTileMiddleFile);
-                Image slimeTileMiddleImg = Image.FromFile(slimeTileMiddleFile);
-                string indexStr = slimeTileMiddleFile[slimeTileMiddleFile.LastIndexOf('.') - 1].ToString();
-                int currentSpriteIndex = Convert.ToInt32(indexStr) - 1;
+                using (Image slimeTileMiddleImg = Image.FromFile(slimeTileMiddleFile))
+                {
+                    string indexStr = slimeTileMiddleFile[slimeTileMiddleFile.LastIndexOf('.') - 1].ToString();
+                    int currentSpriteIndex = Convert.ToInt32(indexStr) - 1;
 
-                MapMakerObjectProperty[] slimeTileMiddleProperties = new MapMakerObjectProperty[]
+                    MapMakerObjectProperty[] slimeTileMiddleProperties = new MapMakerObjectProperty[]
                 {
                   new MapMakerObjectProperty()
                   {
@@ -2980,8 +3044,9 @@ namespace KeenReloaded2.Entities.ReferenceData
                   },
                 };
 
-                MapMakerObject slimeTileMiddleObj = new MapMakerObject(typeof(Keen6SLimeHazardMiddleFloor), slimeTileMiddleFile, false, slimeTileMiddleProperties);
-                backgroundReferenceData.Add(slimeTileMiddleKey, slimeTileMiddleObj);
+                    MapMakerObject slimeTileMiddleObj = new MapMakerObject(typeof(Keen6SLimeHazardMiddleFloor), slimeTileMiddleFile, false, slimeTileMiddleProperties);
+                    backgroundReferenceData.Add(slimeTileMiddleKey, slimeTileMiddleObj);
+                }
             }
 
             #endregion
@@ -2991,9 +3056,10 @@ namespace KeenReloaded2.Entities.ReferenceData
             foreach (var file in keen6LaserTurretImagePaths)
             {
                 string laserTurretKeyName = FileIOUtility.ExtractFileNameFromPath(file);
-                Image keen6LaserTurretImage = Image.FromFile(file);
+                using (Image keen6LaserTurretImage = Image.FromFile(file))
+                {
 
-                MapMakerObjectProperty[] keen6LaserTurretProperties = new MapMakerObjectProperty[]
+                    MapMakerObjectProperty[] keen6LaserTurretProperties = new MapMakerObjectProperty[]
                 {
                   new MapMakerObjectProperty()
                   {
@@ -3050,9 +3116,10 @@ namespace KeenReloaded2.Entities.ReferenceData
                   }
                 };
 
-                MapMakerObject keen6LaserTurretObj = new MapMakerObject(typeof(LaserTurret), file, false, keen6LaserTurretProperties);
+                    MapMakerObject keen6LaserTurretObj = new MapMakerObject(typeof(LaserTurret), file, false, keen6LaserTurretProperties);
 
-                backgroundReferenceData.Add(laserTurretKeyName, keen6LaserTurretObj);
+                    backgroundReferenceData.Add(laserTurretKeyName, keen6LaserTurretObj);
+                }
 
             }
             #endregion
@@ -3094,45 +3161,47 @@ namespace KeenReloaded2.Entities.ReferenceData
             string keyCardPath = Directory.GetFiles(keyCardDirectory).FirstOrDefault(s => s.Contains("key_card"));
 
             string keyCardKeyName = FileIOUtility.ExtractFileNameFromPath(keyCardPath);
-            Image keyCardImg = Image.FromFile(keyCardPath);
-
-
-            MapMakerObjectProperty[] keyCardProperties = new MapMakerObjectProperty[]
+            using (Image keyCardImg = Image.FromFile(keyCardPath))
             {
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                      DisplayName = "Area: ",
-                      DataType = typeof(Rectangle),
-                      Value = new Rectangle(0, 0, keyCardImg.Width, keyCardImg.Height),
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                       PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                       DataType = typeof(SpaceHashGrid),
-                       Value = null,
-                       Hidden = true,
-                       IsIgnoredInMapData = true
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = "imageName",
-                      Readonly = true,
-                      DataType = typeof(string),
-                      Value = keyCardKeyName,
-                      IsIgnoredInMapData = true
-                  },
-                  new MapMakerObjectProperty()
-                  {
-                      PropertyName = "zIndex",
-                      DataType = typeof(int),
-                      Value = 20,
-                      DisplayName ="Z Index: "
-                  },
-            };
 
-            MapMakerObject keyCardObj = new MapMakerObject(typeof(KeyCard), keyCardPath, false, keyCardProperties);
-            backgroundReferenceData.Add(keyCardKeyName, keyCardObj);
+
+                MapMakerObjectProperty[] keyCardProperties = new MapMakerObjectProperty[]
+                {
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                          DisplayName = "Area: ",
+                          DataType = typeof(Rectangle),
+                          Value = new Rectangle(0, 0, keyCardImg.Width, keyCardImg.Height),
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                           PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                           DataType = typeof(SpaceHashGrid),
+                           Value = null,
+                           Hidden = true,
+                           IsIgnoredInMapData = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "imageName",
+                          Readonly = true,
+                          DataType = typeof(string),
+                          Value = keyCardKeyName,
+                          IsIgnoredInMapData = true
+                      },
+                      new MapMakerObjectProperty()
+                      {
+                          PropertyName = "zIndex",
+                          DataType = typeof(int),
+                          Value = 20,
+                          DisplayName ="Z Index: "
+                      },
+                };
+
+                MapMakerObject keyCardObj = new MapMakerObject(typeof(KeyCard), keyCardPath, false, keyCardProperties);
+                backgroundReferenceData.Add(keyCardKeyName, keyCardObj);
+            }
 
             #endregion
 
@@ -3146,14 +3215,15 @@ namespace KeenReloaded2.Entities.ReferenceData
                 string key = GetFlagKeyNameFromFile(file);
 
                 string imageName = FileIOUtility.ExtractFileNameFromPath(file);
-                Image img = Image.FromFile(file);
-
-                bool isFlag = !key.Contains("destination");
-
-                if (isFlag)
+                using (Image img = Image.FromFile(file))
                 {
-                    MapMakerObjectProperty[] ctfProperties = new MapMakerObjectProperty[]
+
+                    bool isFlag = !key.Contains("destination");
+
+                    if (isFlag)
                     {
+                        MapMakerObjectProperty[] ctfProperties = new MapMakerObjectProperty[]
+                        {
                       new MapMakerObjectProperty()
                       {
                           PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
@@ -3214,12 +3284,12 @@ namespace KeenReloaded2.Entities.ReferenceData
                           Value = 10,
                           DisplayName ="Point Loss Per Second: "
                         },
-                    };
-                    bool isBlackFlag = key.ToLower().Contains("black");
-                    if (isBlackFlag)
-                    {
-                        var blackFlagProperties = new MapMakerObjectProperty[]
+                        };
+                        bool isBlackFlag = key.ToLower().Contains("black");
+                        if (isBlackFlag)
                         {
+                            var blackFlagProperties = new MapMakerObjectProperty[]
+                            {
                              new MapMakerObjectProperty()
                             {
                               PropertyName = "pointsDegradedPerSecond",
@@ -3227,19 +3297,19 @@ namespace KeenReloaded2.Entities.ReferenceData
                               Value = 10,
                               DisplayName ="Point Loss Per Second: "
                             }
-                        };
-                        AddSimpleGameObject(backgroundReferenceData, ctfFiles, key, typeof(EnemyFlag), blackFlagProperties, 15);
+                            };
+                            AddSimpleGameObject(backgroundReferenceData, ctfFiles, key, typeof(EnemyFlag), blackFlagProperties, 15);
+                        }
+                        else
+                        {
+                            MapMakerObject flagObj = new MapMakerObject(typeof(Flag), file, false, ctfProperties);
+                            backgroundReferenceData.Add(key, flagObj);
+                        }
                     }
                     else
                     {
-                        MapMakerObject flagObj = new MapMakerObject(typeof(Flag), file, false, ctfProperties);
-                        backgroundReferenceData.Add(key, flagObj);
-                    }
-                }
-                else
-                {
-                    MapMakerObjectProperty[] ctfProperties = new MapMakerObjectProperty[]
-                  {
+                        MapMakerObjectProperty[] ctfProperties = new MapMakerObjectProperty[]
+                      {
                       new MapMakerObjectProperty()
                       {
                           PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
@@ -3271,10 +3341,11 @@ namespace KeenReloaded2.Entities.ReferenceData
                             PossibleValues = Enum.GetNames(typeof(GemColor)),
                             IsSpriteProperty = true
                         }
-                  };
+                      };
 
-                    MapMakerObject flagObj = new MapMakerObject(typeof(CTFDestination), file, false, ctfProperties);
-                    backgroundReferenceData.Add(key, flagObj);
+                        MapMakerObject flagObj = new MapMakerObject(typeof(CTFDestination), file, false, ctfProperties);
+                        backgroundReferenceData.Add(key, flagObj);
+                    }
                 }
             }
 
@@ -3285,51 +3356,53 @@ namespace KeenReloaded2.Entities.ReferenceData
             string shieldFile = Directory.GetFiles(shieldDirectory).FirstOrDefault(f => f.Contains("Shield"));
 
             string shieldImageName = FileIOUtility.ExtractFileNameFromPath(shieldFile);
-            Image shieldImg = Image.FromFile(shieldFile);
-
-            MapMakerObjectProperty[] shieldProperties = new MapMakerObjectProperty[]
+            using (Image shieldImg = Image.FromFile(shieldFile))
             {
-                      new MapMakerObjectProperty()
-                      {
-                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                          DisplayName = "Area: ",
-                          DataType = typeof(Rectangle),
-                          Value = new Rectangle(0, 0, shieldImg.Width, shieldImg.Height),
-                      },
-                      new MapMakerObjectProperty()
-                      {
-                           PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                           DataType = typeof(SpaceHashGrid),
-                           Value = null,
-                           Hidden = true,
-                           IsIgnoredInMapData = true
-                      },
-                      new MapMakerObjectProperty()
-                      {
-                          PropertyName = "imageName",
-                          Readonly = true,
-                          DataType = typeof(string),
-                          Value = shieldImageName,
-                          IsIgnoredInMapData = true
-                      },
-                      new MapMakerObjectProperty()
-                      {
-                          PropertyName = "zIndex",
-                          DataType = typeof(int),
-                          Value = 20,
-                          DisplayName ="Z Index: "
-                      },
-                      new MapMakerObjectProperty()
-                      {
-                          PropertyName = "duration",
-                          DataType = typeof(int),
-                          Value = 30,
-                          DisplayName ="Duration (seconds): "
-                      }
-            };
 
-            MapMakerObject shieldObj = new MapMakerObject(typeof(Shield), shieldFile, false, shieldProperties);
-            backgroundReferenceData.Add(shieldImageName, shieldObj);
+                MapMakerObjectProperty[] shieldProperties = new MapMakerObjectProperty[]
+                {
+                          new MapMakerObjectProperty()
+                          {
+                              PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                              DisplayName = "Area: ",
+                              DataType = typeof(Rectangle),
+                              Value = new Rectangle(0, 0, shieldImg.Width, shieldImg.Height),
+                          },
+                          new MapMakerObjectProperty()
+                          {
+                               PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                               DataType = typeof(SpaceHashGrid),
+                               Value = null,
+                               Hidden = true,
+                               IsIgnoredInMapData = true
+                          },
+                          new MapMakerObjectProperty()
+                          {
+                              PropertyName = "imageName",
+                              Readonly = true,
+                              DataType = typeof(string),
+                              Value = shieldImageName,
+                              IsIgnoredInMapData = true
+                          },
+                          new MapMakerObjectProperty()
+                          {
+                              PropertyName = "zIndex",
+                              DataType = typeof(int),
+                              Value = 20,
+                              DisplayName ="Z Index: "
+                          },
+                          new MapMakerObjectProperty()
+                          {
+                              PropertyName = "duration",
+                              DataType = typeof(int),
+                              Value = 30,
+                              DisplayName ="Duration (seconds): "
+                          }
+                };
+
+                MapMakerObject shieldObj = new MapMakerObject(typeof(Shield), shieldFile, false, shieldProperties);
+                backgroundReferenceData.Add(shieldImageName, shieldObj);
+            }
 
 
             #endregion
@@ -3395,9 +3468,10 @@ namespace KeenReloaded2.Entities.ReferenceData
                 bool isChute = file.Contains("chute");
                 bool isOracle = file.Contains("oracle");
                 string doorImageName = FileIOUtility.ExtractFileNameFromPath(file);
-                Image doorImg = Image.FromFile(file);
+                using (Image doorImg = Image.FromFile(file))
+                {
 
-                MapMakerObjectProperty[] doorProperties = new MapMakerObjectProperty[]
+                    MapMakerObjectProperty[] doorProperties = new MapMakerObjectProperty[]
                 {
                       new MapMakerObjectProperty()
                       {
@@ -3446,10 +3520,10 @@ namespace KeenReloaded2.Entities.ReferenceData
                           IsDoorSelectionProperty = true
                       },
                 };
-                if (isExitDoor)
-                {
-                    var altDoorProperties = new MapMakerObjectProperty[]
+                    if (isExitDoor)
                     {
+                        var altDoorProperties = new MapMakerObjectProperty[]
+                        {
                         new MapMakerObjectProperty()
                       {
                           PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
@@ -3472,20 +3546,21 @@ namespace KeenReloaded2.Entities.ReferenceData
                             Value = 15,
                             DisplayName ="Z Index: "
                       },
-                    };
-                    MapMakerObject doorObj = new MapMakerObject(typeof(ExitDoor), file, false, altDoorProperties);
-                    backgroundReferenceData.Add(doorImageName, doorObj);
-                }
-                else
-                {
-                    if (isChute)
-                        doorProperties.LastOrDefault().Hidden = true;
-
-                    Type doorType = isOracle ? typeof(Keen4OracleDoor) : typeof(Door);
-
-                    MapMakerObject doorObj = new MapMakerObject(doorType, file, false, doorProperties);
-                    if (!backgroundReferenceData.ContainsKey(doorImageName))
+                        };
+                        MapMakerObject doorObj = new MapMakerObject(typeof(ExitDoor), file, false, altDoorProperties);
                         backgroundReferenceData.Add(doorImageName, doorObj);
+                    }
+                    else
+                    {
+                        if (isChute)
+                            doorProperties.LastOrDefault().Hidden = true;
+
+                        Type doorType = isOracle ? typeof(Keen4OracleDoor) : typeof(Door);
+
+                        MapMakerObject doorObj = new MapMakerObject(doorType, file, false, doorProperties);
+                        if (!backgroundReferenceData.ContainsKey(doorImageName))
+                            backgroundReferenceData.Add(doorImageName, doorObj);
+                    }
                 }
             }
 
@@ -3498,10 +3573,11 @@ namespace KeenReloaded2.Entities.ReferenceData
             foreach (var file in switchFiles)
             {
                 string switchImgName = FileIOUtility.ExtractFileNameFromPath(file);
-                Image switchImg = Image.FromFile(file);
-                bool isOn = file.Contains("_on");
-                var switchType = InferSwitchTypeFromFile(file);
-                MapMakerObjectProperty[] switchProperties = new MapMakerObjectProperty[]
+                using (Image switchImg = Image.FromFile(file))
+                {
+                    bool isOn = file.Contains("_on");
+                    var switchType = InferSwitchTypeFromFile(file);
+                    MapMakerObjectProperty[] switchProperties = new MapMakerObjectProperty[]
                 {
                       new MapMakerObjectProperty()
                       {
@@ -3550,10 +3626,11 @@ namespace KeenReloaded2.Entities.ReferenceData
                       }
                 };
 
-                Type t = typeof(ToggleSwitch);
-                MapMakerObject switchObj = new MapMakerObject(t, file, false, switchProperties);
-                if (!backgroundReferenceData.ContainsKey(switchImgName))
-                    backgroundReferenceData.Add(switchImgName, switchObj);
+                    Type t = typeof(ToggleSwitch);
+                    MapMakerObject switchObj = new MapMakerObject(t, file, false, switchProperties);
+                    if (!backgroundReferenceData.ContainsKey(switchImgName))
+                        backgroundReferenceData.Add(switchImgName, switchObj);
+                }
             }
 
             var keen6SwitchFiles = allFiles.Where(f => f.Contains("keen6_Switch") && !f.Contains("pole"));
@@ -3561,53 +3638,55 @@ namespace KeenReloaded2.Entities.ReferenceData
             foreach (var file in keen6SwitchFiles)
             {
                 string switchImgName = FileIOUtility.ExtractFileNameFromPath(file);
-                Image switchImg = Image.FromFile(file);
-                bool isOn = file.Contains("_On");
-                var switchType = InferSwitchTypeFromFile(file);
-                MapMakerObjectProperty[] switchProperties = new MapMakerObjectProperty[]
+                using (Image switchImg = Image.FromFile(file))
                 {
-                      new MapMakerObjectProperty()
-                      {
-                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                          DisplayName = "Area: ",
-                          DataType = typeof(Rectangle),
-                          Value = new Rectangle(0, 0, switchImg.Width, switchImg.Height),
-                      },
-                      new MapMakerObjectProperty()
-                      {
-                           PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                           DataType = typeof(SpaceHashGrid),
-                           Value = null,
-                           Hidden = true,
-                           IsIgnoredInMapData = true
-                      },
-                      new MapMakerObjectProperty()
-                      {
-                            PropertyName = "zIndex",
-                            DataType = typeof(int),
-                            Value = 15,
-                            DisplayName ="Z Index: "
-                      },
-                      new MapMakerObjectProperty()
-                        {
-                            PropertyName = "toggleObjects",
-                            DataType = typeof(IActivateable[]),
-                            Value = new IActivateable[] { },
-                            DisplayName = "Activation Objects: "
-                        },
-                      new MapMakerObjectProperty()
-                      {
-                          PropertyName = "isActive",
-                          DataType = typeof(bool),
-                          Hidden = true,
-                          Value = isOn
-                      },
-                };
+                    bool isOn = file.Contains("_On");
+                    var switchType = InferSwitchTypeFromFile(file);
+                    MapMakerObjectProperty[] switchProperties = new MapMakerObjectProperty[]
+                    {
+                          new MapMakerObjectProperty()
+                          {
+                              PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                              DisplayName = "Area: ",
+                              DataType = typeof(Rectangle),
+                              Value = new Rectangle(0, 0, switchImg.Width, switchImg.Height),
+                          },
+                          new MapMakerObjectProperty()
+                          {
+                               PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                               DataType = typeof(SpaceHashGrid),
+                               Value = null,
+                               Hidden = true,
+                               IsIgnoredInMapData = true
+                          },
+                          new MapMakerObjectProperty()
+                          {
+                                PropertyName = "zIndex",
+                                DataType = typeof(int),
+                                Value = 15,
+                                DisplayName ="Z Index: "
+                          },
+                          new MapMakerObjectProperty()
+                            {
+                                PropertyName = "toggleObjects",
+                                DataType = typeof(IActivateable[]),
+                                Value = new IActivateable[] { },
+                                DisplayName = "Activation Objects: "
+                            },
+                          new MapMakerObjectProperty()
+                          {
+                              PropertyName = "isActive",
+                              DataType = typeof(bool),
+                              Hidden = true,
+                              Value = isOn
+                          },
+                    };
 
-                Type t = typeof(Keen6Switch);
-                MapMakerObject switchObj = new MapMakerObject(t, file, false, switchProperties);
-                if (!backgroundReferenceData.ContainsKey(switchImgName))
-                    backgroundReferenceData.Add(switchImgName, switchObj);
+                    Type t = typeof(Keen6Switch);
+                    MapMakerObject switchObj = new MapMakerObject(t, file, false, switchProperties);
+                    if (!backgroundReferenceData.ContainsKey(switchImgName))
+                        backgroundReferenceData.Add(switchImgName, switchObj);
+                }
             }
 
             string keen6SwitchPoleFile = allFiles.FirstOrDefault(f => f.Contains("keen6_Switch_pole"));
@@ -3662,9 +3741,10 @@ namespace KeenReloaded2.Entities.ReferenceData
             foreach (var file in poleFiles)
             {
                 string poleImageKey = FileIOUtility.ExtractFileNameFromPath(file);
-                Image poleImage = Image.FromFile(file);
+                using (Image poleImage = Image.FromFile(file))
+                {
 
-                MapMakerObjectProperty[] poleProperties = new MapMakerObjectProperty[]
+                    MapMakerObjectProperty[] poleProperties = new MapMakerObjectProperty[]
                 {
                      new MapMakerObjectProperty()
                       {
@@ -3716,10 +3796,11 @@ namespace KeenReloaded2.Entities.ReferenceData
                       },
                 };
 
-                MapMakerObject poleObj = new MapMakerObject(typeof(Pole), file, false, poleProperties);
-                if (!backgroundReferenceData.ContainsKey(poleImageKey))
-                {
-                    backgroundReferenceData.Add(poleImageKey, poleObj);
+                    MapMakerObject poleObj = new MapMakerObject(typeof(Pole), file, false, poleProperties);
+                    if (!backgroundReferenceData.ContainsKey(poleImageKey))
+                    {
+                        backgroundReferenceData.Add(poleImageKey, poleObj);
+                    }
                 }
             }
 
@@ -4044,11 +4125,12 @@ namespace KeenReloaded2.Entities.ReferenceData
                 bool isMiddleTile = !isLeftEdgeTile && !isRightEdgeTile;
                 bool isActive = file.Contains("filled") || isMiddleTile;
                 string interactiveTileKey = FileIOUtility.ExtractFileNameFromPath(file);
-                Image interactiveTileImg = Image.FromFile(file);
-                string biome = InferInteractiveTileBiomeFromImageFile(file);
+                using (Image interactiveTileImg = Image.FromFile(file))
+                {
+                    string biome = InferInteractiveTileBiomeFromImageFile(file);
 
-                Type t = null;
-                MapMakerObjectProperty[] interactiveTileProperties = new MapMakerObjectProperty[]
+                    Type t = null;
+                    MapMakerObjectProperty[] interactiveTileProperties = new MapMakerObjectProperty[]
                   {
                         new MapMakerObjectProperty()
                         {
@@ -4113,19 +4195,20 @@ namespace KeenReloaded2.Entities.ReferenceData
                         },
                   };
 
-                if (!isMiddleTile)
-                {
-                    t = isLeftEdgeTile ? typeof(ActivateableLeftEdgeTile) : typeof(ActivateableRightEdgeTile);
-                }
-                else
-                {
-                    t = typeof(ActivateableMiddleTile);
-                }
+                    if (!isMiddleTile)
+                    {
+                        t = isLeftEdgeTile ? typeof(ActivateableLeftEdgeTile) : typeof(ActivateableRightEdgeTile);
+                    }
+                    else
+                    {
+                        t = typeof(ActivateableMiddleTile);
+                    }
 
-                if (t != null && !backgroundReferenceData.ContainsKey(interactiveTileKey))
-                {
-                    MapMakerObject interactiveTileObj = new MapMakerObject(t, file, false, interactiveTileProperties);
-                    backgroundReferenceData.Add(interactiveTileKey, interactiveTileObj);
+                    if (t != null && !backgroundReferenceData.ContainsKey(interactiveTileKey))
+                    {
+                        MapMakerObject interactiveTileObj = new MapMakerObject(t, file, false, interactiveTileProperties);
+                        backgroundReferenceData.Add(interactiveTileKey, interactiveTileObj);
+                    }
                 }
             }
 
@@ -4769,45 +4852,47 @@ namespace KeenReloaded2.Entities.ReferenceData
         private static void AddSimpleGameObject(Dictionary<string, MapMakerObject> referenceData, string[] imageFiles, string searchKeyword, Type objectType, MapMakerObjectProperty[] additionalProperties = null, int zIndex = 25)
         {
             var imageFile = imageFiles.FirstOrDefault(f => f.Contains(searchKeyword));
-            Image img = Image.FromFile(imageFile);
-            string key = FileIOUtility.ExtractFileNameFromPath(imageFile);
-
-            List<MapMakerObjectProperty> objectProperties = new List<MapMakerObjectProperty>()
+            using (Image img = Image.FromFile(imageFile))
             {
-                 new MapMakerObjectProperty()
-                        {
-                            DisplayName = "Area: ",
-                            PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
-                            DataType = typeof(Rectangle),
-                            Value = new Rectangle(0, 0, img.Width, img.Height),
-                        },
-                        new MapMakerObjectProperty()
-                        {
-                            PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
-                            DataType = typeof(SpaceHashGrid),
-                            Value = null,
-                            Hidden = true,
-                            IsIgnoredInMapData = true
-                        },
-                         new MapMakerObjectProperty()
-                         {
-                             PropertyName = "zIndex",
-                             DisplayName = "Z Index: ",
-                             DataType = typeof(int),
-                             Value = zIndex
-                         },
-            };
+                string key = FileIOUtility.ExtractFileNameFromPath(imageFile);
 
-            if (additionalProperties != null)
-            {
-                foreach (var property in additionalProperties)
+                List<MapMakerObjectProperty> objectProperties = new List<MapMakerObjectProperty>()
                 {
-                    objectProperties.Add(property);
-                }
-            }
+                     new MapMakerObjectProperty()
+                            {
+                                DisplayName = "Area: ",
+                                PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                                DataType = typeof(Rectangle),
+                                Value = new Rectangle(0, 0, img.Width, img.Height),
+                            },
+                            new MapMakerObjectProperty()
+                            {
+                                PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                                DataType = typeof(SpaceHashGrid),
+                                Value = null,
+                                Hidden = true,
+                                IsIgnoredInMapData = true
+                            },
+                             new MapMakerObjectProperty()
+                             {
+                                 PropertyName = "zIndex",
+                                 DisplayName = "Z Index: ",
+                                 DataType = typeof(int),
+                                 Value = zIndex
+                             },
+                };
 
-            MapMakerObject gameObject = new MapMakerObject(objectType, imageFile, false, objectProperties.ToArray());
-            referenceData.Add(key, gameObject);
+                if (additionalProperties != null)
+                {
+                    foreach (var property in additionalProperties)
+                    {
+                        objectProperties.Add(property);
+                    }
+                }
+
+                MapMakerObject gameObject = new MapMakerObject(objectType, imageFile, false, objectProperties.ToArray());
+                referenceData.Add(key, gameObject);
+            }
         }
 
         private static Direction InferDirectionFromFile(string file)
@@ -4982,9 +5067,10 @@ namespace KeenReloaded2.Entities.ReferenceData
             string imagePath = weaponsPath + @"\" + resourceName + ".png";
             string imageName = FileIOUtility.ExtractFileNameFromPath(imagePath);
             mapMakerObjectKey = imageName;
-            Image image = Image.FromFile(imagePath);
+            using (Image image = Image.FromFile(imagePath))
+            {
 
-            MapMakerObjectProperty[] weaponProperties = new MapMakerObjectProperty[]
+                MapMakerObjectProperty[] weaponProperties = new MapMakerObjectProperty[]
           {
 
                         new MapMakerObjectProperty()
@@ -5027,8 +5113,9 @@ namespace KeenReloaded2.Entities.ReferenceData
                             DisplayName = "Ammo: "
                         }
           };
-            MapMakerObject rpg = new MapMakerObject(typeof(TWeapon), imagePath, false, weaponProperties);
-            return rpg;
+                MapMakerObject rpg = new MapMakerObject(typeof(TWeapon), imagePath, false, weaponProperties);
+                return rpg;
+            }
         }
 
         private static string InferBiomeFromImage(string imageName)
