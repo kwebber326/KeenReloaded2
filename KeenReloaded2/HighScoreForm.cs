@@ -93,10 +93,7 @@ namespace KeenReloaded2
                         }
                         else
                         {
-                            var max = highScores.Max(h => h.Value);
-                            var maxItem = highScores.FirstOrDefault(h => h.Value?.ToString() == max?.ToString());
-                            highScores.Remove(maxItem);
-
+                            highScores.Remove(_newHighScore);
                         }
                     }
                    
@@ -116,7 +113,6 @@ namespace KeenReloaded2
                     {
                         highScores.Remove(_newHighScore);
                     }
-                    //TODO: write player stats
                 }
                 highScores = _highScoreUtility.GetSortedList(highScores)
                     .Take(HIGH_SCORE_MAX_NUMBER_OF_ENTRIES).ToList();
