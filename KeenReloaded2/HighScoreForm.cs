@@ -113,7 +113,6 @@ namespace KeenReloaded2
                     {
                         highScores.Remove(_newHighScore);
                     }
-                    //TODO: write player stats
                 }
                 highScores = _highScoreUtility.GetSortedList(highScores)
                     .Take(HIGH_SCORE_MAX_NUMBER_OF_ENTRIES).ToList();
