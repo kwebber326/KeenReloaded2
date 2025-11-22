@@ -66,6 +66,9 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         private Size _walkHitBoxSize = new Size();
         private Size _flyHitBoxSize = new Size();
 
+        private const int MINIMUM_FLY_TIME = 80;
+        private int _flyTimeTick = 0;
+
         public BlueEagle(Rectangle area, SpaceHashGrid grid,  int zIndex)
             : base(grid, area)
         {
@@ -239,6 +242,22 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 return;
             }
 
+            if (this.IsOnEdge(Direction.RIGHT)
+                && _keen.HitBox.Right > this.HitBox.Right
+                && _keen.HitBox.Top > this.HitBox.Bottom)
+            {
+                this.Fly();
+                return;
+            }
+
+            if (this.IsOnEdge(Direction.LEFT)
+                && _keen.HitBox.Left < this.HitBox.Left
+                && _keen.HitBox.Top > this.HitBox.Bottom)
+            {
+                this.Fly();
+                return;
+            }
+
             this.HitBox = new Rectangle(this.HitBox.X, landingTile.HitBox.Top - this.HitBox.Height - 1, this.HitBox.Width, this.HitBox.Height);
 
             int xOffset = this.HorizontalDirection == Direction.LEFT ? WALK_VELOCITY * -1 : WALK_VELOCITY;
@@ -285,6 +304,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             {
                 this.State = BirdMoveState.FLYING;
                 _spriteChangeDelayTick = 0;
+                _flyTimeTick = 0;
                 SetDirectionFromKeenLocation();
             }
 
@@ -298,13 +318,16 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 UpdateSprite();
             }
 
+            if (_flyTimeTick < MINIMUM_FLY_TIME)
+                _flyTimeTick++;
+
             var collisions = this.CheckCollision(new Rectangle(this.HitBox.X, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height), true);
           
             CollisionObject tile = GetTopMostLandingTile(FLY_VELOCITY);
             if (tile != null)
             {
                 this.HitBox = new Rectangle(this.HitBox.X, tile.HitBox.Top - this.HitBox.Height - 1, _walkHitBoxSize.Width, _flyHitBoxSize.Height);
-                if (!this.IsOnEdge(_horizontalDirection) && _keen.HitBox.Bottom >= this.HitBox.Bottom)
+                if (!this.IsOnEdge(_horizontalDirection) && _keen.HitBox.Bottom >= this.HitBox.Bottom && _flyTimeTick >= MINIMUM_FLY_TIME)
                 {
                     this.Walk();
                     return;

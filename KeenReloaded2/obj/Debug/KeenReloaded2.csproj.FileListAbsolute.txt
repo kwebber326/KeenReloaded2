@@ -142,3 +142,4 @@ C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2\obj\Debug\KeenReloaded2.U
 C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2\obj\Debug\KeenRelo.D4E28FF1.Up2Date
 C:\Users\kjw2\source\repos\KeenReloaded2\KeenReloaded2\obj\Debug\KeenReloaded2.exe.config
 C:\Users\kjw2\source\repos\KeenReloaded2\KeenReloaded2\obj\Debug\KeenReloaded2.UserControls.MapMakerUserControls.EditDestinationNodeForm.resources
+C:\Users\kjw2\source\repos\KeenReloaded22\KeenReloaded2\obj\Debug\KeenReloaded2.UserControls.MapMakerUserControls.EditDestinationNodeForm.resources
