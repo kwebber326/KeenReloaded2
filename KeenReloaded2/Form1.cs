@@ -255,11 +255,13 @@ namespace KeenReloaded2
         {
             _gameUpdateTimer.Stop();
             DetachEvents();
-            DisposeBitmaps();
+            //DisposeBitmaps();
             LevelCompleteObjectives.ClearAll();
             var mapMakerData = MapUtility.LoadMapData(_game.Map.MapPath);
             InitializeGameData(_gameMode, mapMakerData, true);
             InitializeGameState();
+            pnlGameWindow.VerticalScroll.Maximum = 280;
+            pnlGameWindow.HorizontalScroll.Maximum = 800;
         }
 
         private void DisposeBitmaps()
@@ -271,17 +273,6 @@ namespace KeenReloaded2
             var tmp2 = pbBackgroundImage.Image;
             pbBackgroundImage.Image = null;
             tmp2?.Dispose();
-
-
-            //var data = _game.Map.MapData;
-            //foreach (var ditem in data)
-            //{
-            //    if (ditem.GameObject is ISprite)
-            //    {
-            //        (ditem.GameObject).Image?.Dispose();
-            //        ditem.Image?.Dispose();
-            //    }
-            //}
         }
 
         private void DetachEvents()
