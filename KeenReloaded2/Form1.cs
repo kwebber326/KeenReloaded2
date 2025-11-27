@@ -328,7 +328,7 @@ namespace KeenReloaded2
                 _rectUpdates++;
             }
 
-            if (!_paused && !_levelCompleted)
+            if (!_paused && !_levelCompleted && !_game.IsDisposed)
             {
                 var rectangle = GetViewRectangle();
                 if (_gameMode == MainMenuConstants.OPTION_LABEL_NORMAL_MODE)
@@ -458,7 +458,6 @@ namespace KeenReloaded2
             if (_game != null && !_game.IsDisposed)
             {
                 _game.BackgroundImageRedrawn -= _game_BackgroundImageRedrawn;
-                _game.Dispose();
             }
             soundPlayer1.StopMusic();
             LevelCompleteObjectives.ClearAll();

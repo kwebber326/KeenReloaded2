@@ -584,10 +584,10 @@ namespace KeenReloaded2.Entities
                 this.DetachEventsForObject(obj);
             }
 
-            _gameObjects = null;
-            _updatableGameObjects = null;
-            _animatedBackgrounds = null;
-            _backgroundsAndTiles = null;
+            _gameObjects = new OrderedList<ISprite>(_compareFunction);
+            _updatableGameObjects = new List<IUpdatable>();
+            _animatedBackgrounds = new List<AnimatedBackground>();
+            _backgroundsAndTiles = new OrderedList<ISprite>(_compareFunction);
         }
     }
 

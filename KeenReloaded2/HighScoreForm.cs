@@ -84,12 +84,16 @@ namespace KeenReloaded2
                     //insert new high score to list and determine if the player achieved a high score
                     highScores.Add(_newHighScore);
                     var min = highScores.Min(h => h.Value);
+                    var max = highScores.Max(h => h.Value);
                     if (highScores.Count > HIGH_SCORE_MAX_NUMBER_OF_ENTRIES)
                     {
                         if (IsValidHighScore(_newHighScore))
                         {
-                            var lastMin = highScores.LastOrDefault(h => h.Value?.ToString() == min?.ToString());
-                            highScores.Remove(lastMin);
+                            var scoreToRemove = _gameMode != MainMenuConstants.OPTION_LABEL_NORMAL_MODE
+                               ? highScores.LastOrDefault(h => h.Value?.ToString() == min?.ToString())
+                               : highScores.LastOrDefault(h => h?.Value?.ToString() == max?.ToString());
+                            
+                            highScores.Remove(scoreToRemove);
                         }
                         else
                         {
