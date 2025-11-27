@@ -149,7 +149,6 @@ neural_stunner1|256|320|30|22|50|5
 neural_stunner1|286|320|30|22|50|5
 neural_stunner1|256|342|30|22|50|5
 neural_stunner1|286|342|30|22|50|5
-neural_stunner_smg_1|1407|381|46|22|50|60
 keen4_doughnut1|1434|2907|30|30|50|KEEN4_DOUGHNUT
 keen4_candy_bar1|1138|2458|26|32|50|KEEN4_SHIKKERS_CANDY_BAR
 keen4_candy_bar1|1299|2387|26|32|50|KEEN4_SHIKKERS_CANDY_BAR
@@ -184,3 +183,4 @@ keen4_icecream_cone1|436|2922|20|32|50|KEEN4_ICECREAM_CONE
 keen4_icecream_cone1|864|2922|20|32|50|KEEN4_ICECREAM_CONE
 keen4_icecream_cone1|941|2922|20|32|50|KEEN4_ICECREAM_CONE
 keen4_icecream_cone1|1016|2922|20|32|50|KEEN4_ICECREAM_CONE
+neural_stunner_smg_1|1407|381|46|22|50|30

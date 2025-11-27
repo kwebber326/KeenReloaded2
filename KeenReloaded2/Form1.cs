@@ -137,6 +137,13 @@ namespace KeenReloaded2
 
         private void InitializeGameState()
         {
+            // Dispose old timer if it exists
+            if (_gameUpdateTimer != null)
+            {
+                _gameUpdateTimer.Stop();
+                _gameUpdateTimer.Dispose();
+            }
+
             _gameUpdateTimer = new Timer();
             _gameUpdateTimer.Interval = 50;
             _gameUpdateTimer.Tick += _gameUpdateTimer_Tick;
@@ -255,7 +262,6 @@ namespace KeenReloaded2
         {
             _gameUpdateTimer.Stop();
             DetachEvents();
-            //DisposeBitmaps();
             LevelCompleteObjectives.ClearAll();
             var mapMakerData = MapUtility.LoadMapData(_game.Map.MapPath);
             InitializeGameData(_gameMode, mapMakerData, true);
@@ -266,23 +272,59 @@ namespace KeenReloaded2
 
         private void DisposeBitmaps()
         {
-            var tmp = pbGameImage.Image;
-            pbGameImage.Image = null;
-            tmp?.Dispose();
+            // Only dispose if the image hasn't already been disposed by another component
+            try
+            {
+                var tmp = pbGameImage.Image;
+                pbGameImage.Image = null;
+                if (tmp != null && !IsImageDisposed(tmp))
+                    tmp.Dispose();
+            }
+            catch { /* Already disposed */ }
 
-            var tmp2 = pbBackgroundImage.Image;
-            pbBackgroundImage.Image = null;
-            tmp2?.Dispose();
+            try
+            {
+                var tmp2 = pbBackgroundImage.Image;
+                pbBackgroundImage.Image = null;
+                if (tmp2 != null && !IsImageDisposed(tmp2))
+                    tmp2.Dispose();
+            }
+            catch { /* Already disposed */ }
+        }
+
+        private bool IsImageDisposed(Image image)
+        {
+            try
+            {
+                // Try to access a property - will throw if disposed
+                var _ = image.Width;
+                return false;
+            }
+            catch
+            {
+                return true;
+            }
         }
 
         private void DetachEvents()
         {
-            _keen.KeenDied -= _keen_KeenDied;
-            _keen.KeenLevelCompleted -= _keen_KeenLevelCompleted;
-            _keen.KeenMoved -= _keen_KeenMoved;
-            _gameUpdateTimer.Tick -= _gameUpdateTimer_Tick;
+            if (_keen != null)
+            {
+                _keen.KeenDied -= _keen_KeenDied;
+                _keen.KeenLevelCompleted -= _keen_KeenLevelCompleted;
+                _keen.KeenMoved -= _keen_KeenMoved;
+            }
+            if (_gameUpdateTimer != null)
+            {
+                _gameUpdateTimer.Tick -= _gameUpdateTimer_Tick;
+            }
             pnlGameWindow.MouseWheel -= PnlGameWindow_MouseWheel;
             this.MouseWheel -= PnlGameWindow_MouseWheel;
+
+            if (_game != null && !_game.IsDisposed)
+            {
+                _game.BackgroundImageRedrawn -= _game_BackgroundImageRedrawn;
+            }
         }
 
         private void _game_BackgroundImageRedrawn(object sender, EventArgs e)
@@ -453,12 +495,22 @@ namespace KeenReloaded2
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            _gameUpdateTimer.Tick -= _gameUpdateTimer_Tick;
-            _gameUpdateTimer.Stop();
-            if (_game != null && !_game.IsDisposed)
+            // Stop timers
+            if (_gameUpdateTimer != null)
             {
-                _game.BackgroundImageRedrawn -= _game_BackgroundImageRedrawn;
+                _gameUpdateTimer.Stop();
+                _gameUpdateTimer.Dispose();
             }
+            _levelCompletionTimer?.Stop();
+
+            // Detach all event handlers
+            DetachEvents();
+
+            // Unsubscribe from EventStore
+            EventStore<bool>.UnSubscribe(
+                MapMakerConstants.EventStoreEventNames.KEEN_DISAPPEAR_DEATH,
+                Keen_Disappear_Death);
+
             soundPlayer1.StopMusic();
             LevelCompleteObjectives.ClearAll();
         }
@@ -559,7 +611,9 @@ namespace KeenReloaded2
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (!_game.IsDisposed) 
+            this.DisposeBitmaps();
+
+            if (_game != null && !_game.IsDisposed)
                 _game.Dispose();
         }
     }
