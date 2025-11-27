@@ -556,5 +556,11 @@ namespace KeenReloaded2
 
             return new Rectangle(x, y, width, height);
         }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!_game.IsDisposed) 
+                _game.Dispose();
+        }
     }
 }

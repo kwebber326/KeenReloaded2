@@ -7,19 +7,23 @@
       "RelativeMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|solutionrelative:keenreloaded2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|c:\\users\\kjw2\\source\\repos\\keenreloaded2\\keenreloaded2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|solutionrelative:keenreloaded2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|c:\\users\\kjw2\\source\\repos\\keenreloaded2\\keenreloaded2\\highscoreform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|solutionrelative:keenreloaded2\\highscoreform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\keenreloaded2\\entities\\commanderkeengame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|solutionrelative:keenreloaded2\\entities\\commanderkeengame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\keenreloaded2\\highscoreform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|solutionrelative:keenreloaded2\\highscoreform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|c:\\users\\kjw2\\source\\repos\\keenreloaded2\\keenreloaded2\\maploader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\keenreloaded2\\maploader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|solutionrelative:keenreloaded2\\maploader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|c:\\users\\kjw2\\source\\repos\\keenreloaded2\\keenreloaded2\\utilities\\highscorefactory\\highscorefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\keenreloaded2\\utilities\\highscorefactory\\highscorefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C25C9C02-F90D-4124-BC20-853A042D19E6}|KeenReloaded2\\KeenReloaded2.csproj|solutionrelative:keenreloaded2\\utilities\\highscorefactory\\highscorefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -82,9 +86,9 @@
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\Form1.cs",
               "RelativeDocumentMoniker": "KeenReloaded2\\Form1.cs",
-              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\Form1.cs",
-              "RelativeToolTip": "KeenReloaded2\\Form1.cs",
-              "ViewState": "AgIAAEIBAAAAAAAAAAAUwFABAAAQAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\Form1.cs*",
+              "RelativeToolTip": "KeenReloaded2\\Form1.cs*",
+              "ViewState": "AgIAACQCAAAAAAAAAAApwDICAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-16T17:45:26.784Z",
               "IsPinned": true,
@@ -92,21 +96,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "CommanderKeenGame.cs",
               "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\Entities\\CommanderKeenGame.cs",
               "RelativeDocumentMoniker": "KeenReloaded2\\Entities\\CommanderKeenGame.cs",
               "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\Entities\\CommanderKeenGame.cs",
               "RelativeToolTip": "KeenReloaded2\\Entities\\CommanderKeenGame.cs",
-              "ViewState": "AgIAABkCAAAAAAAAAAAswCYCAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAABkCAAAAAAAAAAAswCACAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-16T17:44:43.173Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "MapMaker.cs",
               "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\MapMaker.cs",
               "RelativeDocumentMoniker": "KeenReloaded2\\MapMaker.cs",
@@ -118,12 +121,24 @@
               "IsPinned": true
             },
             {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\Form1.cs",
+              "RelativeDocumentMoniker": "KeenReloaded2\\Form1.cs",
+              "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\Form1.cs [Design]*",
+              "RelativeToolTip": "KeenReloaded2\\Form1.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T08:37:29.907Z",
+              "EditorCaption": " [Design]"
+            },
+            {
               "$type": "Bookmark",
               "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "MapLoader.cs",
               "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\MapLoader.cs",
               "RelativeDocumentMoniker": "KeenReloaded2\\MapLoader.cs",
@@ -131,12 +146,11 @@
               "RelativeToolTip": "KeenReloaded2\\MapLoader.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAUwCwAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-27T07:52:25.798Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-27T07:52:25.798Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "HighScoreFactory.cs",
               "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\Utilities\\HighScoreFactory\\HighScoreFactory.cs",
               "RelativeDocumentMoniker": "KeenReloaded2\\Utilities\\HighScoreFactory\\HighScoreFactory.cs",
@@ -144,12 +158,11 @@
               "RelativeToolTip": "KeenReloaded2\\Utilities\\HighScoreFactory\\HighScoreFactory.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T15:11:48.923Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T15:11:48.923Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "KOTHHighScoreUtility.cs",
               "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\Utilities\\HighScoreFactory\\KOTHHighScoreUtility.cs",
               "RelativeDocumentMoniker": "KeenReloaded2\\Utilities\\HighScoreFactory\\KOTHHighScoreUtility.cs",
@@ -174,7 +187,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "MaskedTile.cs",
               "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2.Framework\\GameEntities\\Tiles\\MaskedTile.cs",
               "RelativeDocumentMoniker": "KeenReloaded2.Framework\\GameEntities\\Tiles\\MaskedTile.cs",
@@ -186,7 +199,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Item.cs",
               "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2.Framework\\GameEntities\\Items\\Item.cs",
               "RelativeDocumentMoniker": "KeenReloaded2.Framework\\GameEntities\\Items\\Item.cs",
@@ -198,7 +211,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "MapMakerObjectPropertyListControl.cs",
               "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\UserControls\\MapMakerUserControls\\MapMakerObjectPropertyListControl.cs",
               "RelativeDocumentMoniker": "KeenReloaded2\\UserControls\\MapMakerUserControls\\MapMakerObjectPropertyListControl.cs",
@@ -210,7 +223,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "MapMakerObject.cs",
               "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\Entities\\MapMakerObject.cs",
               "RelativeDocumentMoniker": "KeenReloaded2\\Entities\\MapMakerObject.cs",
@@ -222,7 +235,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "MapUtility.cs",
               "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\Utilities\\MapUtility.cs",
               "RelativeDocumentMoniker": "KeenReloaded2\\Utilities\\MapUtility.cs",
@@ -234,7 +247,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "ImageToObjectCreationFactory.cs",
               "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2\\Entities\\ReferenceData\\ImageToObjectCreationFactory.cs",
               "RelativeDocumentMoniker": "KeenReloaded2\\Entities\\ReferenceData\\ImageToObjectCreationFactory.cs",
@@ -246,7 +259,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "BitMapTool.cs",
               "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2.Drawing\\BitMapTool.cs",
               "RelativeDocumentMoniker": "KeenReloaded2.Drawing\\BitMapTool.cs",
@@ -258,7 +271,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "CollisionObject.cs",
               "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2.Framework\\GameEntities\\CollisionObject.cs",
               "RelativeDocumentMoniker": "KeenReloaded2.Framework\\GameEntities\\CollisionObject.cs",
@@ -270,7 +283,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "EnemyTransporter.cs",
               "DocumentMoniker": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2.Framework\\GameEntities\\Constructs\\EnemyTransporter.cs",
               "RelativeDocumentMoniker": "KeenReloaded2.Framework\\GameEntities\\Constructs\\EnemyTransporter.cs",

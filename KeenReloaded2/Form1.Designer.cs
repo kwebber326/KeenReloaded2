@@ -47,15 +47,17 @@ namespace KeenReloaded2
             this.pnlGameWindow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlGameWindow.Controls.Add(this.pbBackgroundImage);
             this.pnlGameWindow.Controls.Add(this.pbGameImage);
-            this.pnlGameWindow.Location = new System.Drawing.Point(614, 1);
+            this.pnlGameWindow.Location = new System.Drawing.Point(409, 1);
+            this.pnlGameWindow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlGameWindow.Name = "pnlGameWindow";
-            this.pnlGameWindow.Size = new System.Drawing.Size(1400, 1200);
+            this.pnlGameWindow.Size = new System.Drawing.Size(935, 781);
             this.pnlGameWindow.TabIndex = 2;
             // 
             // pbBackgroundImage
             // 
             this.pbBackgroundImage.BackColor = System.Drawing.Color.Transparent;
-            this.pbBackgroundImage.Location = new System.Drawing.Point(4, 4);
+            this.pbBackgroundImage.Location = new System.Drawing.Point(3, 3);
+            this.pbBackgroundImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbBackgroundImage.Name = "pbBackgroundImage";
             this.pbBackgroundImage.Size = new System.Drawing.Size(100, 50);
             this.pbBackgroundImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -65,7 +67,8 @@ namespace KeenReloaded2
             // pbGameImage
             // 
             this.pbGameImage.BackColor = System.Drawing.Color.Transparent;
-            this.pbGameImage.Location = new System.Drawing.Point(4, 4);
+            this.pbGameImage.Location = new System.Drawing.Point(3, 3);
+            this.pbGameImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbGameImage.Name = "pbGameImage";
             this.pbGameImage.Size = new System.Drawing.Size(100, 50);
             this.pbGameImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -78,18 +81,21 @@ namespace KeenReloaded2
             this.lblStopwatch.BackColor = System.Drawing.Color.Transparent;
             this.lblStopwatch.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStopwatch.ForeColor = System.Drawing.Color.YellowGreen;
-            this.lblStopwatch.Location = new System.Drawing.Point(614, 1216);
-            this.lblStopwatch.MaximumSize = new System.Drawing.Size(1400, 0);
+            this.lblStopwatch.Location = new System.Drawing.Point(409, 790);
+            this.lblStopwatch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblStopwatch.MaximumSize = new System.Drawing.Size(933, 0);
             this.lblStopwatch.Name = "lblStopwatch";
-            this.lblStopwatch.Size = new System.Drawing.Size(357, 48);
+            this.lblStopwatch.Size = new System.Drawing.Size(240, 32);
             this.lblStopwatch.TabIndex = 4;
             this.lblStopwatch.Text = "Keen Reloaded";
             // 
             // soundPlayer1
             // 
-            this.soundPlayer1.Location = new System.Drawing.Point(366, 203);
+            this.soundPlayer1.Keen = null;
+            this.soundPlayer1.Location = new System.Drawing.Point(244, 132);
+            this.soundPlayer1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.soundPlayer1.Name = "soundPlayer1";
-            this.soundPlayer1.Size = new System.Drawing.Size(150, 150);
+            this.soundPlayer1.Size = new System.Drawing.Size(100, 98);
             this.soundPlayer1.TabIndex = 3;
             this.soundPlayer1.Visible = false;
             // 
@@ -98,18 +104,19 @@ namespace KeenReloaded2
             this.inventoryPanel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.inventoryPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.inventoryPanel1.Keen = null;
-            this.inventoryPanel1.Location = new System.Drawing.Point(3, 1);
+            this.inventoryPanel1.Location = new System.Drawing.Point(2, 1);
+            this.inventoryPanel1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.inventoryPanel1.Name = "inventoryPanel1";
             this.inventoryPanel1.ShowFlagInventory = true;
-            this.inventoryPanel1.Size = new System.Drawing.Size(605, 1471);
+            this.inventoryPanel1.Size = new System.Drawing.Size(405, 958);
             this.inventoryPanel1.TabIndex = 1;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
-            this.ClientSize = new System.Drawing.Size(2178, 1474);
+            this.ClientSize = new System.Drawing.Size(1069, 573);
             this.ControlBox = false;
             this.Controls.Add(this.lblStopwatch);
             this.Controls.Add(this.soundPlayer1);
@@ -117,10 +124,12 @@ namespace KeenReloaded2
             this.Controls.Add(this.inventoryPanel1);
             this.Cursor = System.Windows.Forms.Cursors.No;
             this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Keen Reloaded";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
