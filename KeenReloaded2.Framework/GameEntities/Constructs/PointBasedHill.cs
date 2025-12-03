@@ -17,6 +17,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
     {
         private readonly int _pointLimitPerLocation;
         private int _pointsScoredAtLocation;
+        private int _basePointsScored;
 
         public PointBasedHill(Rectangle area, SpaceHashGrid grid, int zIndex, List<Point> points, int spawnDelaySeconds, int pointsPerSecond, int additionPointsPerMonster, int pointLimitPerLocation)
             : base(area, grid, zIndex, points, -1, spawnDelaySeconds, pointsPerSecond, additionPointsPerMonster)
@@ -79,10 +80,14 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
         {
             base.EvaluatePointsScored(out points);
             _pointsScoredAtLocation += points;
-            if (_pointsScoredAtLocation >= _pointLimitPerLocation)
+            if (points > 0)
+                _basePointsScored += _pointsPerSecond;
+
+            if (_basePointsScored >= _pointLimitPerLocation)
             {
                 _pointsScoredAtLocation = 0;
                 SpawnAtNextLocation();
+                _basePointsScored = 0;
             }
         }
 
