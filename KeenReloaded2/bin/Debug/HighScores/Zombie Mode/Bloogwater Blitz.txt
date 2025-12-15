@@ -4,5 +4,5 @@ Kenny|253000
 Kenny|238100
 Kenny|216600
 Kenny|195400
+Kenny|179200
 Kenny|99000
-kenny|60100

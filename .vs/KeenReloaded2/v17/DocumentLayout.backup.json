@@ -86,7 +86,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
@@ -113,7 +113,8 @@
               "ViewState": "AgIAABwCAAAAAAAAAIAwwB4CAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-16T17:44:43.173Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -142,6 +143,10 @@
               "IsPinned": true
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "PointBasedHill.cs",
@@ -149,14 +154,10 @@
               "RelativeDocumentMoniker": "KeenReloaded2.Framework\\GameEntities\\Constructs\\PointBasedHill.cs",
               "ToolTip": "C:\\Users\\kjw2\\source\\repos\\KeenReloaded2\\KeenReloaded2.Framework\\GameEntities\\Constructs\\PointBasedHill.cs*",
               "RelativeToolTip": "KeenReloaded2.Framework\\GameEntities\\Constructs\\PointBasedHill.cs*",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAwwFMAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAwwFAAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-03T04:29:31.198Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
             },
             {
               "$type": "Document",
@@ -216,7 +217,8 @@
               "RelativeToolTip": "KeenReloaded2\\HighScoreForm.cs",
               "ViewState": "AgIAAEQAAAAAAAAAAADwv1EAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T14:43:04.484Z"
+              "WhenOpened": "2025-11-17T14:43:04.484Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
