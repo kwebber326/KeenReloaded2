@@ -2210,7 +2210,8 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                             TryJump();
                         }
                     }
-                    else if (this.MoveState == Enums.MoveState.JUMPING && !IsKeyPressed(KEY_CTRL))
+                    else if (this.MoveState == Enums.MoveState.JUMPING 
+                            && ((!IsKeyPressed(KEY_CTRL) && !_isUsingPogo) || (_isUsingPogo && _currentJumpHeight >= SetJumpHeightIfUsingPogo(MAX_POGO_HEIGHT))))
                     {
                         SetToFallStateFromJumpState();
                     }
@@ -2220,6 +2221,10 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                     {
                         _jumpReady = true;
                         _jumpFromPole = this.MoveState == Enums.MoveState.ON_POLE;
+                    }
+                    else if (_isUsingPogo && _currentJumpHeight <= SetJumpHeightIfUsingPogo(MAX_POGO_HEIGHT))
+                    {
+                        this.TryJump();
                     }
 
                     if (!IsKeyPressed(KEY_UP) && _togglingSwitch)

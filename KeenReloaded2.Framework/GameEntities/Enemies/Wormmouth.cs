@@ -30,7 +30,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         private int _peekStateChangeDelayTick = 0;
         private int _peekStateValue;
 
-        private const int ATTACK_RANGE = 40;
+        private const int HORIZTONAL_ATTACK_RANGE = 40;
+        private const int VERTICAL_ATTACK_RANGE = 48;
         private const int ATTACK_STATE_CHANGE_DELAY = 1;
         private int _attackStateChangeDelayTick = 0;
         private int _currentAttackImage = 0;
@@ -326,10 +327,10 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         private bool IsKeenInRange()
         {
-            return ((this.Direction == Enums.Direction.LEFT && (_keen.HitBox.Right >= this.HitBox.X - ATTACK_RANGE && _keen.HitBox.Right < this.HitBox.Left))
+            return ((this.Direction == Enums.Direction.LEFT && (_keen.HitBox.Right >= this.HitBox.X - HORIZTONAL_ATTACK_RANGE && _keen.HitBox.Right < this.HitBox.Left))
                 ||
-                    (this.Direction == Enums.Direction.RIGHT && (_keen.HitBox.X <= this.HitBox.Right + ATTACK_RANGE && _keen.HitBox.X > this.HitBox.X)))
-                && (_keen.HitBox.Bottom > this.HitBox.Top && _keen.HitBox.Top < this.HitBox.Bottom);
+                    (this.Direction == Enums.Direction.RIGHT && (_keen.HitBox.X <= this.HitBox.Right + HORIZTONAL_ATTACK_RANGE && _keen.HitBox.X > this.HitBox.X)))
+                && (_keen.HitBox.Bottom > this.HitBox.Top - VERTICAL_ATTACK_RANGE && _keen.HitBox.Top < this.HitBox.Bottom && !IsCeilingAbove(VERTICAL_ATTACK_RANGE));
         }
 
         private void TryPeek()

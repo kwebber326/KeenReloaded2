@@ -13,6 +13,7 @@ using KeenReloaded.Framework.Utilities;
 using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Constants;
+using KeenReloaded2.Framework.GameEntities.Items;
 
 namespace KeenReloaded.Framework
 {
@@ -429,6 +430,20 @@ namespace KeenReloaded.Framework
             {
                 direction = Direction.RIGHT;
             }
+        }
+
+        protected virtual bool IsCeilingAbove(int heightOverHeadTocheck = 0)
+        {
+            Rectangle areaToCheck = new Rectangle(this.HitBox.X, this.HitBox.Y - heightOverHeadTocheck,
+                this.HitBox.Width, this.HitBox.Height + heightOverHeadTocheck);
+            return IsCeilingAbove(areaToCheck);
+        }
+
+        protected virtual bool IsCeilingAbove(Rectangle areaToCheck)
+        {
+            var collisions = this.CheckCollision(areaToCheck, true);
+            collisions = collisions.Where(c => c.CollisionType == CollisionType.BLOCK).ToList();
+            return collisions.Any();
         }
 
         protected virtual bool IsNothingBeneath()
