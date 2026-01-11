@@ -1,0 +1,13 @@
+1500|1500
+keen4_background_cave_blue1|0|0|1500|1500|keen4_background_cave_blue1.png|False|0
+keen4_cave_air_floor_edge_left|149|306|72|64|10
+keen4_cave_floor_middle|221|306|500|64|10
+keen4_cave_floor_edge_right|721|306|52|64|10
+keen4_cave_platform_left_edge|624|195|30|38|10
+keen4_cave_platform_middle|654|195|32|36|10
+keen4_cave_platform_right_edge|686|195|30|38|10
+keen4_flag_base_red1|620|171|32|32|10
+enemy_spawner1|625|240|92|94|18|[Wormmouth]|10|10|100000000
+keen_stand_left|655|139|26|64|LEFT
+keen4_slug_move_right2|219|277|32|48|25
+BFG1|629|93|61|24|50|5000

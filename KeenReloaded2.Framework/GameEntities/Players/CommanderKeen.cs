@@ -1848,6 +1848,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         public void Stun()
         {
             _stunTimeTick = 0;
+            _isUsingPogo = false;
             this.MoveState = Enums.MoveState.STUNNED;
         }
 
@@ -2039,6 +2040,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             SetNextExtraLifePointGoal();
             this.HasKeyCard = false;
             InitializeWeapons();
+            _isUsingPogo = false;
             while (_gems.Any())
             {
                 var gemToRemove = _gems.FirstOrDefault();
@@ -2053,6 +2055,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             this.Points = points;
             this.Drops = drops;
             _disappearDeath = false;
+            _isUsingPogo = false;
             _deathSequenceDelayTick = 0;
             SetNextExtraLifePointGoal();
     

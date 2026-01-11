@@ -468,7 +468,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public void Jump()
         {
-            throw new NotImplementedException();
+            
         }
 
         public bool CanJump
