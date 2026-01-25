@@ -4238,6 +4238,13 @@ namespace KeenReloaded2.Entities.ReferenceData
                     .ToArray(),
                     DisplayName = "Event Type: ",
                     Value = ObjectiveEventType.LEVEL_EXIT
+                },
+                new MapMakerObjectProperty
+                {
+                    PropertyName = "activateables",
+                    DataType = typeof(IActivateable[]),
+                    Value = new IActivateable[]{},
+                    DisplayName = "Powered Components:"
                 }
             };
             AddSimpleGameObject(backgroundReferenceData, keen5InteractiveTileFiles, powerGenerator1Key,

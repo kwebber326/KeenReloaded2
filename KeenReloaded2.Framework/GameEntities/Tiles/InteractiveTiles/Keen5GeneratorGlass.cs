@@ -46,7 +46,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 
         public bool ObjectiveComplete => this.IsDead();
 
-        public void Update()
+        public virtual void Update()
         {
             if (!_isDead)
             {

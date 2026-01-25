@@ -32,13 +32,15 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
         private const int GLASS_X_OFFSET = 172;
         private const int GLASS_Y_OFFSET = 54;
         private ObjectiveEventType _eventType;
+        private IActivateable[] _activateables;
 
-        public Keen5PowerOmegamaticGenerator1(Rectangle area, SpaceHashGrid grid, int zIndex, ObjectiveEventType eventType) : base(grid, area)
+        public Keen5PowerOmegamaticGenerator1(Rectangle area, SpaceHashGrid grid, int zIndex, ObjectiveEventType eventType, IActivateable[] activateables) : base(grid, area)
         {
             _zIndex = zIndex;
             _area = area;
             _eventType = eventType;
             this.HitBox = area;
+            _activateables = activateables;
             Initialize();
         }
 
@@ -103,7 +105,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 
                 if (_eventType == ObjectiveEventType.DEACTIVATE)
                 {
-                    Keen5PowerNodeGlass keen5PowerNodeGlass = new Keen5PowerNodeGlass(_collisionGrid, powerNodeHitbox, _zIndex, new List<IActivateable>());//TODO: take this as a new parameter
+                    Keen5PowerNodeGlass keen5PowerNodeGlass = new Keen5PowerNodeGlass(_collisionGrid, powerNodeHitbox, _zIndex, _activateables);
                     _glass = keen5PowerNodeGlass;
                 }
                 else if (_eventType == ObjectiveEventType.LEVEL_EXIT)
@@ -144,7 +146,13 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
         {
             string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
             string imageName = nameof(Properties.Resources.keen5_omegamatic_first_machine1);
-            return $"{imageName}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{_zIndex}{separator}{_eventType}";
+            string arrayItemSeparator = MapMakerConstants.MAP_MAKER_ELEMENT_SEPARATOR;
+            string data = $"{imageName}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{_zIndex}{separator}{_eventType}";
+            if (_activateables != null)
+            {
+                data += $"{separator}{string.Join(arrayItemSeparator, _activateables.Select(a => a.ActivationID))}";
+            }
+            return data;
         }
     }
 }

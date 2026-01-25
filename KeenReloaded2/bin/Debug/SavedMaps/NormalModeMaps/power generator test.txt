@@ -5,6 +5,8 @@ keen5_pipe_platform|452|399|346|80|10
 keen5_floor_black_floor_edge_left|100|723|72|64|10
 keen5_floor_black_middle|172|723|600|64|10
 keen5_floor_black_floor_edge_right|772|723|52|64|10
-keen5_omegamatic_first_machine1|420|515|312|240|15|LEVEL_EXIT
+keen4_removable_platform|127|563|128|62|10|KEEN4_GREEN|True|95d99745-0978-415c-a892-17286764421e
+key_gate1|298|578|26|180|10|ffc27833-643c-4cc0-a39a-fbfe772026ad
 keen5_red_generator_wall|525|296|128|64|15
+keen5_omegamatic_first_machine1|433|508|312|240|15|DEACTIVATE|95d99745-0978-415c-a892-17286764421e,ffc27833-643c-4cc0-a39a-fbfe772026ad
 keen_stand_right|149|339|26|64|RIGHT
