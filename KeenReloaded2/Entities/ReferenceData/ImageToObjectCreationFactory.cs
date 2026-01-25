@@ -4226,8 +4226,22 @@ namespace KeenReloaded2.Entities.ReferenceData
             //power generators
             #region generator 1
             var powerGenerator1Key = nameof(Properties.Resources.keen5_omegamatic_first_machine1);
+            MapMakerObjectProperty[] powerGeneratorAddedProperties = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty
+                {
+                    PropertyName = "eventType",
+                    DataType = typeof(ObjectiveEventType),
+                    PossibleValues = Enum.GetNames(typeof(ObjectiveEventType))
+                    .Where( e => e == nameof(ObjectiveEventType.LEVEL_EXIT) 
+                              || e == nameof(ObjectiveEventType.DEACTIVATE))
+                    .ToArray(),
+                    DisplayName = "Event Type: ",
+                    Value = ObjectiveEventType.LEVEL_EXIT
+                }
+            };
             AddSimpleGameObject(backgroundReferenceData, keen5InteractiveTileFiles, powerGenerator1Key,
-                typeof(Keen5PowerOmegamaticGenerator1), null, 15);
+                typeof(Keen5PowerOmegamaticGenerator1), powerGeneratorAddedProperties, 15);
             #endregion
 
             #endregion

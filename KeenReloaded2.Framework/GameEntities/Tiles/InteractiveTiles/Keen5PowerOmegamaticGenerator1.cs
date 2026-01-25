@@ -26,11 +26,14 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
         private InvisibleTile _leftSideCollisionArea;
         private InvisibleTile _rightSideCollisionArea;
 
-        public Keen5PowerOmegamaticGenerator1(Rectangle area, SpaceHashGrid grid, int zIndex) : base(grid, area)
+        private ObjectiveEventType _eventType;
+
+        public Keen5PowerOmegamaticGenerator1(Rectangle area, SpaceHashGrid grid, int zIndex, ObjectiveEventType eventType) : base(grid, area)
         {
             _zIndex = zIndex;
             _area = area;
             Initialize();
+            _eventType = eventType;
         }
 
         public int ZIndex => _zIndex;
@@ -91,7 +94,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
         {
             string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
             string imageName = nameof(Properties.Resources.keen5_omegamatic_first_machine1);
-            return $"{imageName}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{_zIndex}";
+            return $"{imageName}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{_zIndex}{separator}{_eventType}";
         }
     }
 }
