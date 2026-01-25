@@ -1,4 +1,5 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded.Framework.Utilities;
 using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
@@ -9,6 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 {
@@ -21,19 +23,23 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
         private const int SPRITE_CHANGE_DELAY = 4;
         private int _currentSpriteChangeDelayTick;
         private int _currentSpriteIndex;
+        private bool _stopUpdatingGlass;
 
         private InvisibleTile _metalPipeCollisionArea;
         private InvisibleTile _leftSideCollisionArea;
         private InvisibleTile _rightSideCollisionArea;
-
+        private Keen5GeneratorGlass _glass;
+        private const int GLASS_X_OFFSET = 172;
+        private const int GLASS_Y_OFFSET = 54;
         private ObjectiveEventType _eventType;
 
         public Keen5PowerOmegamaticGenerator1(Rectangle area, SpaceHashGrid grid, int zIndex, ObjectiveEventType eventType) : base(grid, area)
         {
             _zIndex = zIndex;
             _area = area;
-            Initialize();
             _eventType = eventType;
+            this.HitBox = area;
+            Initialize();
         }
 
         public int ZIndex => _zIndex;
@@ -48,6 +54,17 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 
         public void Update()
         {
+            if (!(_glass?.IsDead() ?? true))
+            {
+                _glass.Update();
+                DrawCombinedImage();
+            }
+            else if (_glass != null && !_stopUpdatingGlass)
+            {
+                _glass.Update();
+                DrawCombinedImage();
+                _stopUpdatingGlass = true;
+            }
             this.UpdateSprite();
         }
 
@@ -55,26 +72,58 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
         {
             _sprite = _spritesList[_currentSpriteIndex];
 
-            //metal pipe hitbox
-            Rectangle metalPipeHitbox = new Rectangle(_area.X, _area.Y + 74, 26, 46);
-            _metalPipeCollisionArea = new InvisibleTile(_collisionGrid, metalPipeHitbox, true);
+            if (_collidingNodes != null && _collisionGrid != null)
+            {
+                //metal pipe hitbox
+                Rectangle metalPipeHitbox = new Rectangle(_area.X, _area.Y + 74, 26, 46);
+                _metalPipeCollisionArea = new InvisibleTile(_collisionGrid, metalPipeHitbox, true);
 
-            //left block hitbox
-            int blockVerticalOffset = 28;
-            int leftBlockHorizontalOffset = 6;
-            Rectangle leftBlockHitbox = new Rectangle(_area.X + metalPipeHitbox.Width + leftBlockHorizontalOffset,
-                _area.Y + blockVerticalOffset, 
-                100 - leftBlockHorizontalOffset,
-                _area.Height - blockVerticalOffset);
-            _leftSideCollisionArea = new InvisibleTile(_collisionGrid, leftBlockHitbox, true);
+                //left block hitbox
+                int blockVerticalOffset = 28;
+                int leftBlockHorizontalOffset = 6;
+                Rectangle leftBlockHitbox = new Rectangle(_area.X + metalPipeHitbox.Width + leftBlockHorizontalOffset,
+                    _area.Y + blockVerticalOffset,
+                    100 - leftBlockHorizontalOffset,
+                    _area.Height - blockVerticalOffset);
+                _leftSideCollisionArea = new InvisibleTile(_collisionGrid, leftBlockHitbox, true);
 
-            //right block hitbox
-            int rightBlockHorizontalOffset = 228;
-            int rightBlockWidth = 70;
-            Rectangle rightBlockHitbox = new Rectangle(_area.X + rightBlockHorizontalOffset,
-                _area.Y + blockVerticalOffset,
-                rightBlockWidth, _area.Height - blockVerticalOffset);
-            _rightSideCollisionArea = new InvisibleTile(_collisionGrid, rightBlockHitbox, true);
+                //right block hitbox
+                int rightBlockHorizontalOffset = 228;
+                int rightBlockWidth = 70;
+                Rectangle rightBlockHitbox = new Rectangle(_area.X + rightBlockHorizontalOffset,
+                    _area.Y + blockVerticalOffset,
+                    rightBlockWidth, _area.Height - blockVerticalOffset);
+                _rightSideCollisionArea = new InvisibleTile(_collisionGrid, rightBlockHitbox, true);
+
+
+                //power node glass object
+                Rectangle powerNodeHitbox = new Rectangle(_area.X + GLASS_X_OFFSET,
+                    _area.Y + GLASS_Y_OFFSET,
+                    Keen5PowerNodeGlass.IMAGE_WIDTH, Keen5PowerNodeGlass.IMAGE_HEIGHT);
+
+                if (_eventType == ObjectiveEventType.DEACTIVATE)
+                {
+                    Keen5PowerNodeGlass keen5PowerNodeGlass = new Keen5PowerNodeGlass(_collisionGrid, powerNodeHitbox, _zIndex, new List<IActivateable>());//TODO: take this as a new parameter
+                    _glass = keen5PowerNodeGlass;
+                }
+                else if (_eventType == ObjectiveEventType.LEVEL_EXIT)
+                {
+                    Keen5GeneratorGlass keen5GeneratorGlass = new Keen5GeneratorGlass(_collisionGrid, powerNodeHitbox, _zIndex);
+                    _glass = keen5GeneratorGlass;
+                }
+            }
+            DrawCombinedImage(true);
+        }
+
+        private void DrawCombinedImage(bool initialDrawing = false)
+        {
+            Image newImg = initialDrawing
+                ? SpriteSheet.SpriteSheet.Keen5GlassGeneratorSprites.FirstOrDefault()
+                : _glass?.Image;
+
+            _sprite = BitMapTool.DrawImagesOnCanvas(_area.Size,
+                null, new Image[] { _sprite, newImg },
+                new Point[] { new Point(0, 0), new Point(GLASS_X_OFFSET, GLASS_Y_OFFSET) });
         }
 
         private void UpdateSprite()
@@ -87,6 +136,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
                         _currentSpriteIndex = 0;
                     }
                     _sprite = _spritesList[_currentSpriteIndex];
+                    DrawCombinedImage();
                 });
         }
 
