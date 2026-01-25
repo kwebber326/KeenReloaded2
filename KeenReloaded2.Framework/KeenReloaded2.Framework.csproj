@@ -265,6 +265,8 @@
     <Compile Include="GameEntities\Tiles\Floors\LeftEdgeFloorTile.cs" />
     <Compile Include="GameEntities\Tiles\HealthBarTile.cs" />
     <Compile Include="GameEntities\Tiles\InteractiveTiles\Keen5GeneratorGlass.cs" />
+    <Compile Include="GameEntities\Tiles\InteractiveTiles\Keen5PowerNodeGlass.cs" />
+    <Compile Include="GameEntities\Tiles\InteractiveTiles\Keen5PowerOmegamaticGenerator1.cs" />
     <Compile Include="GameEntities\Tiles\InvisibleTile.cs" />
     <Compile Include="GameEntities\Tiles\MapEdgeTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\ActivateableLeftEdgeTile.cs" />
@@ -6249,6 +6251,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_water5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_first_machine1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_first_machine2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_first_machine3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_first_machine4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

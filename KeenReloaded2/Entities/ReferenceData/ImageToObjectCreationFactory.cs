@@ -14,6 +14,7 @@ using KeenReloaded2.Framework.GameEntities.Items.WeaponsAmmo;
 using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.Tiles;
 using KeenReloaded2.Framework.GameEntities.Tiles.Floors;
+using KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles;
 using KeenReloaded2.Framework.GameEntities.Tiles.Platforms;
 using KeenReloaded2.Framework.GameEntities.Tiles.Walls;
 using KeenReloaded2.Framework.ReferenceDataClasses;
@@ -4222,6 +4223,13 @@ namespace KeenReloaded2.Entities.ReferenceData
             AddSimpleGameObject(backgroundReferenceData, keen4InteractiveTileFiles, councilMemberKey,
                 typeof(CouncilMember), null, 15);
 
+            //power generators
+            #region generator 1
+            var powerGenerator1Key = nameof(Properties.Resources.keen5_omegamatic_first_machine1);
+            AddSimpleGameObject(backgroundReferenceData, keen5InteractiveTileFiles, powerGenerator1Key,
+                typeof(Keen5PowerOmegamaticGenerator1), null, 15);
+            #endregion
+
             #endregion
 
             #region Enemies
@@ -4570,6 +4578,7 @@ namespace KeenReloaded2.Entities.ReferenceData
             #endregion
 
             #region miscellaneous
+
             //random weapon generator
             var miscellaneousFilesPath = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_MISCELLANEOUS, "keen5", Biomes.BIOME_KEEN5_BLACK);
             var miscallaneousImageFiles = Directory.GetFiles(miscellaneousFilesPath);

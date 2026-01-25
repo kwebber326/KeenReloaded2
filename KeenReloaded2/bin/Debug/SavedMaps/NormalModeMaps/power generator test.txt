@@ -1,0 +1,9 @@
+1500|1500
+keen5_background_omegamatic_blue1|0|0|1500|1500|keen5_background_omegamatic_blue1.png|True|0
+keen5_pipe_platform|106|399|346|80|10
+keen5_pipe_platform|452|399|346|80|10
+keen5_floor_black_floor_edge_left|100|723|72|64|10
+keen5_floor_black_middle|172|723|600|64|10
+keen5_floor_black_floor_edge_right|772|723|52|64|10
+keen5_omegamatic_first_machine1|420|515|312|240|15
+keen_stand_right|149|339|26|64|RIGHT

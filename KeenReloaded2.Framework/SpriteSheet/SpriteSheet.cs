@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -3405,6 +3406,29 @@ namespace KeenReloaded2.Framework.SpriteSheet
         #endregion
 
         #region Miscellaneous
+
+        #region Power Generators
+        private static Image[] _keen5PowerGenerator1Images;
+
+        public static Image[] Keen5PowerGenerator1Images
+        {
+            get
+            {
+                if (_keen5PowerGenerator1Images == null)
+                {
+                    _keen5PowerGenerator1Images = new Image[]
+                    {
+                        Properties.Resources.keen5_omegamatic_first_machine1,
+                        Properties.Resources.keen5_omegamatic_first_machine2,
+                        Properties.Resources.keen5_omegamatic_first_machine3,
+                        Properties.Resources.keen5_omegamatic_first_machine4,
+                    };
+                }
+                return _keen5PowerGenerator1Images;
+            }
+        }
+        #endregion
+
         private static Image[] _keen4CouncilMemberWalkLeftImages;
 
         public static Image[] Keen4CouncilMemberWalkLeftImages

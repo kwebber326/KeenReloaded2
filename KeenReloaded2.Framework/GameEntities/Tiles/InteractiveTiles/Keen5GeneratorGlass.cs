@@ -16,16 +16,16 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 {
     public class Keen5GeneratorGlass : DestructibleCollisionTile, IUpdatable, ISprite, ILevelObjective
     {
-        private readonly int _zIndex;
-        private Image _sprite;
-        private bool _firstDeathEvaluation = true;
-        private Image[] _glassSprites = SpriteSheet.SpriteSheet.Keen5GlassGeneratorSprites;
-        private int _currentSpriteIndex = 0;
+        protected readonly int _zIndex;
+        protected Image _sprite;
+        protected bool _firstDeathEvaluation = true;
+        protected Image[] _glassSprites = SpriteSheet.SpriteSheet.Keen5GlassGeneratorSprites;
+        protected int _currentSpriteIndex = 0;
 
         public const int IMAGE_WIDTH = 32;
         public const int IMAGE_HEIGHT = 20;
 
-        private CommanderKeen _keen;
+        protected CommanderKeen _keen;
 
         public Keen5GeneratorGlass(SpaceHashGrid grid, Rectangle hitbox, int zIndex) : base(grid, hitbox, true)
         {
@@ -42,7 +42,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 
         public bool CanUpdate => true;
 
-        public override ObjectiveCompleteEvent EventType => ObjectiveCompleteEvent.LEVEL_EXIT;
+        public override ObjectiveEventType EventType => ObjectiveEventType.LEVEL_EXIT;
 
         public bool ObjectiveComplete => this.IsDead();
 
@@ -61,15 +61,20 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
                     _sprite = Properties.Resources.keen5_destructible_glass_tile_destroyed;
                     this.PublishSoundPlayEvent(
                         GeneralGameConstants.Sounds.GLASS_BREAK);
-                    if (LevelCompleteObjectives.AreAllTileObjectivesComplete())
-                    {
-                        _keen.PassLevel();
-                    }
+                    PerformActionForEvent();
                 }
             }
         }
 
-        private void UpdateSprite()
+        protected virtual void PerformActionForEvent()
+        {
+            if (LevelCompleteObjectives.AreAllTileObjectivesComplete())
+            {
+                _keen.PassLevel();
+            }
+        }
+
+        protected void UpdateSprite()
         {
             if (_currentSpriteIndex == 0)
                 _currentSpriteIndex = 1;

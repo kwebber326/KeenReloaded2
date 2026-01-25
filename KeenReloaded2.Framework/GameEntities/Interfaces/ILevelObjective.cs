@@ -9,7 +9,7 @@ namespace KeenReloaded2.Framework.GameEntities.Interfaces
 {
     public interface ILevelObjective
     {
-        ObjectiveCompleteEvent EventType { get; }
+        ObjectiveEventType EventType { get; }
 
         bool ObjectiveComplete { get; }
     }

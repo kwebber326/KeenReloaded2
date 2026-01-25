@@ -17,7 +17,7 @@ namespace KeenReloaded2.Framework.GameEntities
 
         public static bool TryAddTileObjective(ILevelObjective objective)
         {
-            if (objective == null || objective.EventType != Enums.ObjectiveCompleteEvent.LEVEL_EXIT)
+            if (objective == null || objective.EventType != Enums.ObjectiveEventType.LEVEL_EXIT)
                 return false;
 
             if (_levelObjectives.Any(t => t.Equals(objective)))

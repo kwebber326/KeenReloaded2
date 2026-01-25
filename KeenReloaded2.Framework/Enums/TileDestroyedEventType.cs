@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.Enums
 {
-    public enum ObjectiveCompleteEvent
+    public enum ObjectiveEventType
     {
         NONE,
         LEVEL_EXIT,
-        DEATH
+        DEATH,
+        DEACTIVATE
     }
 }

@@ -1,2 +1,3 @@
+Kenny|16000
 Kenny|11900
 Kenny|10000
