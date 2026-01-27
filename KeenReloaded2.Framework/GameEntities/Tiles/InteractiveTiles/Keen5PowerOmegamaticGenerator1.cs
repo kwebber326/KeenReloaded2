@@ -2,7 +2,9 @@
 using KeenReloaded.Framework.Utilities;
 using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.GameEntities.Backgrounds;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -14,7 +16,7 @@ using System.Xml.Linq;
 
 namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 {
-    public class Keen5PowerOmegamaticGenerator1 : CollisionObject, IUpdatable, ISprite
+    public class Keen5PowerOmegamaticGenerator1 : CollisionObject, IUpdatable, ISprite, ICreateRemove
     {
         private Image _sprite;
         private readonly int _zIndex;
@@ -24,15 +26,19 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
         private int _currentSpriteChangeDelayTick;
         private int _currentSpriteIndex;
         private bool _stopUpdatingGlass;
+        private bool _foreGroundAdded;
 
         private InvisibleTile _metalPipeCollisionArea;
         private InvisibleTile _leftSideCollisionArea;
         private InvisibleTile _rightSideCollisionArea;
         private Keen5GeneratorGlass _glass;
         private const int GLASS_X_OFFSET = 172;
-        private const int GLASS_Y_OFFSET = 54;
+        private const int GLASS_Y_OFFSET = 56;
         private ObjectiveEventType _eventType;
         private IActivateable[] _activateables;
+
+        public event EventHandler<ObjectEventArgs> Create;
+        public event EventHandler<ObjectEventArgs> Remove;
 
         public Keen5PowerOmegamaticGenerator1(Rectangle area, SpaceHashGrid grid, int zIndex, ObjectiveEventType eventType, IActivateable[] activateables) : base(grid, area)
         {
@@ -67,6 +73,12 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
                 DrawCombinedImage();
                 _stopUpdatingGlass = true;
             }
+
+            if (!_foreGroundAdded)
+            {
+                this.AddCrossbarForeGround();
+            }
+
             this.UpdateSprite();
         }
 
@@ -115,6 +127,22 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
                 }
             }
             DrawCombinedImage(true);
+        }
+
+        private void AddCrossbarForeGround()
+        {
+            if (_leftSideCollisionArea == null || this.Create == null)
+                return;
+
+            Rectangle leftBlockHitbox = _leftSideCollisionArea.HitBox;
+            var crossbarImg = Properties.Resources.keen5_omegamatic_first_machine_crossbar;
+            int crossbarHorizontalOffset = 4;
+            int crossBarVerticalOffset = 164;
+            Rectangle crossbarArea = new Rectangle(leftBlockHitbox.Right + crossbarHorizontalOffset
+                , _area.Y + crossBarVerticalOffset, crossbarImg.Width, crossbarImg.Height);
+            Background bgCrossbar = new Background(crossbarArea, crossbarImg, false, 201);
+            this.Create?.Invoke(this, new ObjectEventArgs { ObjectSprite = bgCrossbar });
+            _foreGroundAdded = true;
         }
 
         private void DrawCombinedImage(bool initialDrawing = false)

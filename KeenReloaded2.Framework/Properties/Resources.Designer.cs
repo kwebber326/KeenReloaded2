@@ -10103,6 +10103,16 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen5_omegamatic_first_machine_crossbar {
+            get {
+                object obj = ResourceManager.GetObject("keen5_omegamatic_first_machine_crossbar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen5_omegamatic_first_machine1 {
             get {
                 object obj = ResourceManager.GetObject("keen5_omegamatic_first_machine1", resourceCulture);
