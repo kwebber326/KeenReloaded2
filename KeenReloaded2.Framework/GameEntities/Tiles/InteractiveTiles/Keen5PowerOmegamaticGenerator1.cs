@@ -62,7 +62,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
         public override CollisionType CollisionType => CollisionType.NONE;
 
         public List<IActivateable> ToggleObjects => _glass is Keen5PowerNodeGlass ? 
-            ((Keen5PowerNodeGlass) _glass).ToggleObjects : new List<IActivateable>();
+            _activateables?.ToList() ?? new List<IActivateable>() : new List<IActivateable>();
 
         public bool IsActive => !(_glass?.IsDead() ?? true);
 
@@ -123,7 +123,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 
                 if (_eventType == ObjectiveEventType.DEACTIVATE)
                 {
-                    Keen5PowerNodeGlass keen5PowerNodeGlass = new Keen5PowerNodeGlass(_collisionGrid, powerNodeHitbox, _zIndex, _activateables);
+                    Keen5PowerNodeGlass keen5PowerNodeGlass = new Keen5PowerNodeGlass(_collisionGrid, powerNodeHitbox, _zIndex, this);
                     _glass = keen5PowerNodeGlass;
                 }
                 else if (_eventType == ObjectiveEventType.LEVEL_EXIT)
@@ -193,7 +193,13 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 
         public void Toggle()
         {
-            throw new NotImplementedException();
+            if (_activateables == null || !_activateables.Any() || _glass == null || !_glass.IsDead())
+                return;
+
+            foreach (var component in _activateables)
+            {
+                component.Deactivate();
+            }
         }
     }
 }

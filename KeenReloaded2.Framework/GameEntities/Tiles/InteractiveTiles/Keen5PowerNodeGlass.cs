@@ -12,33 +12,28 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 {
-    public class Keen5PowerNodeGlass : Keen5GeneratorGlass, IActivator
+    public class Keen5PowerNodeGlass : Keen5GeneratorGlass
     {
-        private readonly List<IActivateable> _toggleObjects;
-        public Keen5PowerNodeGlass(SpaceHashGrid grid, Rectangle hitbox, int zIndex, IActivateable[] activateables)
+        private readonly IActivator _parentActivator;
+
+        public Keen5PowerNodeGlass(SpaceHashGrid grid, Rectangle hitbox, int zIndex, IActivator parentActivator)
             : base(grid, hitbox, zIndex)
         {
-            _toggleObjects = activateables?.ToList() ?? new List<IActivateable>();
+            _parentActivator = parentActivator;
         }
 
         public override ObjectiveEventType EventType => ObjectiveEventType.DEACTIVATE;
 
-        public List<IActivateable> ToggleObjects => _toggleObjects;
-
         public bool IsActive => !_isDead;
+
+        
 
         public event EventHandler<ToggleEventArgs> Toggled;
 
         public void Toggle()
         {
             _isDead = true;
-            if (_toggleObjects == null || !_toggleObjects.Any())
-                return;
-
-            foreach (var component in _toggleObjects)
-            {
-                component.Deactivate();
-            }
+            _parentActivator.Toggle();
         }
 
         public override bool Equals(object obj)
