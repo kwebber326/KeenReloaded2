@@ -1,4 +1,5 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEventArgs;
@@ -43,6 +44,26 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
         public override bool Equals(object obj)
         {
             return obj is Keen5PowerNodeGlass && base.Equals(obj);
+        }
+
+        public override void Update()
+        {
+            if (!_isDead && _unbroken)
+            {
+                UpdateSprite();
+            }
+            else
+            {
+                _keen = GetClosestAlivePlayer();
+                if (_keen != null)
+                {
+                    _sprite = Properties.Resources.keen5_destructible_glass_tile_destroyed;
+                    this.PublishSoundPlayEvent(
+                        GeneralGameConstants.Sounds.GLASS_BREAK);
+                    PerformActionForEvent();
+                    _isDead = true;
+                }
+            }
         }
 
         protected override void PerformActionForEvent()

@@ -16,7 +16,7 @@ using System.Xml.Linq;
 
 namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 {
-    public class Keen5PowerOmegamaticGenerator1 : CollisionObject, IUpdatable, ISprite, ICreateRemove
+    public class Keen5PowerOmegamaticGenerator1 : CollisionObject, IUpdatable, ISprite, ICreateRemove, IActivator
     {
         private Image _sprite;
         private readonly int _zIndex;
@@ -39,6 +39,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 
         public event EventHandler<ObjectEventArgs> Create;
         public event EventHandler<ObjectEventArgs> Remove;
+        public event EventHandler<ToggleEventArgs> Toggled;
 
         public Keen5PowerOmegamaticGenerator1(Rectangle area, SpaceHashGrid grid, int zIndex, ObjectiveEventType eventType, IActivateable[] activateables) : base(grid, area)
         {
@@ -59,6 +60,11 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
         public bool CanUpdate => true;
 
         public override CollisionType CollisionType => CollisionType.NONE;
+
+        public List<IActivateable> ToggleObjects => _glass is Keen5PowerNodeGlass ? 
+            ((Keen5PowerNodeGlass) _glass).ToggleObjects : new List<IActivateable>();
+
+        public bool IsActive => !(_glass?.IsDead() ?? true);
 
         public void Update()
         {
@@ -175,12 +181,19 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
             string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
             string imageName = nameof(Properties.Resources.keen5_omegamatic_first_machine1);
             string arrayItemSeparator = MapMakerConstants.MAP_MAKER_ELEMENT_SEPARATOR;
+            string arrayStart = MapMakerConstants.MAP_MAKER_ARRAY_START;
+            string arrayEnd = MapMakerConstants.MAP_MAKER_ARRAY_END;
             string data = $"{imageName}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{_zIndex}{separator}{_eventType}";
             if (_activateables != null)
             {
-                data += $"{separator}{string.Join(arrayItemSeparator, _activateables.Select(a => a.ActivationID))}";
+                data += $"{separator}{arrayStart}{string.Join(arrayItemSeparator, _activateables.Select(a => a.ActivationID))}{arrayEnd}";
             }
             return data;
+        }
+
+        public void Toggle()
+        {
+            throw new NotImplementedException();
         }
     }
 }

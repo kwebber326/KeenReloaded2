@@ -18,12 +18,16 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
     {
         protected readonly int _zIndex;
         protected Image _sprite;
-        protected bool _firstDeathEvaluation = true;
+        protected bool _unbroken = true;
         protected Image[] _glassSprites = SpriteSheet.SpriteSheet.Keen5GlassGeneratorSprites;
         protected int _currentSpriteIndex = 0;
 
         public const int IMAGE_WIDTH = 32;
         public const int IMAGE_HEIGHT = 20;
+
+        private bool _performedAction;
+        private const int ACTION_PERFORM_DELAY = 20;
+        private int _actionPerformDelayTick = 0;
 
         protected CommanderKeen _keen;
 
@@ -46,23 +50,34 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 
         public bool ObjectiveComplete => this.IsDead();
 
+        public override void Die()
+        {
+            _collisionType = CollisionType.NONE;
+            _unbroken = false;
+        }
+
         public virtual void Update()
         {
-            if (!_isDead)
+            if (!_isDead && _unbroken)
             {
                 UpdateSprite();
             }
-            else if (_firstDeathEvaluation)
+            else if (!_performedAction)
             {
                 _keen = GetClosestAlivePlayer();
                 if (_keen != null)
                 {
-                    _firstDeathEvaluation = false;
                     _sprite = Properties.Resources.keen5_destructible_glass_tile_destroyed;
                     this.PublishSoundPlayEvent(
                         GeneralGameConstants.Sounds.GLASS_BREAK);
-                    PerformActionForEvent();
+                    _performedAction = true;
                 }
+            }
+            else if (_actionPerformDelayTick++ == ACTION_PERFORM_DELAY)
+            {
+                _actionPerformDelayTick = 0;
+                _isDead = true;
+                PerformActionForEvent();
             }
         }
 
