@@ -4251,6 +4251,13 @@ namespace KeenReloaded2.Entities.ReferenceData
                 typeof(Keen5PowerOmegamaticGenerator1), powerGeneratorAddedProperties, 15);
             #endregion
 
+            #region generator 2
+            var powerGenerator2Key = nameof(Properties.Resources.keen5_omegamatic_second_machine1);
+          
+            AddSimpleGameObject(backgroundReferenceData, keen5InteractiveTileFiles, powerGenerator2Key,
+                typeof(Keen5PowerOmegamaticGenerator2), powerGeneratorAddedProperties, 15);
+            #endregion
+
             #endregion
 
             #region Enemies

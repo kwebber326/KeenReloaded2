@@ -10523,6 +10523,56 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen5_omegamatic_second_machine_crossbar {
+            get {
+                object obj = ResourceManager.GetObject("keen5_omegamatic_second_machine_crossbar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_omegamatic_second_machine1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_omegamatic_second_machine1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_omegamatic_second_machine2 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_omegamatic_second_machine2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_omegamatic_second_machine3 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_omegamatic_second_machine3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_omegamatic_second_machine4 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_omegamatic_second_machine4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen5_orange_platform {
             get {
                 object obj = ResourceManager.GetObject("keen5_orange_platform", resourceCulture);

@@ -200,6 +200,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
             {
                 component.Deactivate();
             }
+
+            this.Toggled?.Invoke(this, new ToggleEventArgs() { IsActive = this.IsActive });
         }
     }
 }

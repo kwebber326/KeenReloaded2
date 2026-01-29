@@ -1,0 +1,12 @@
+1500|1500
+keen5_background_omegamatic_blue1|0|0|1500|1500|keen5_background_omegamatic_blue1.png|True|0
+keen5_pipe_platform|163|314|346|80|10
+keen5_pipe_platform|509|314|346|80|10
+keen5_floor_black_floor_edge_left|164|652|72|64|10
+keen5_floor_black_middle|236|652|600|64|10
+keen5_floor_black_floor_edge_right|836|652|52|64|10
+keen5_removable_platform_left_edge_filled_black|177|523|42|62|10|KEEN5_BLACK|True|e946fb0d-9ef2-45d2-ba92-48bfe4d1f246
+keen4_removable_platform|219|523|32|62|10|KEEN4_GREEN|True|93c4f5ec-f10f-42bd-aa45-a55678a937fb
+keen5_removable_platform_right_edge_filled_black|251|523|38|64|10|KEEN5_BLACK|True|fcb3432a-de32-4c4d-b2be-d09f02b22b6f
+keen_stand_right|206|222|26|64|RIGHT
+keen5_omegamatic_second_machine1|541|435|280|240|15|DEACTIVATE|[e946fb0d-9ef2-45d2-ba92-48bfe4d1f246,93c4f5ec-f10f-42bd-aa45-a55678a937fb,fcb3432a-de32-4c4d-b2be-d09f02b22b6f]
