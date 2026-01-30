@@ -16,164 +16,47 @@ using System.Xml.Linq;
 
 namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 {
-    public class Keen5PowerOmegamaticGenerator1 : CollisionObject, IUpdatable, ISprite, ICreateRemove, IActivator
+    public class Keen5PowerOmegamaticGenerator1 : Keen5PowerGenerator
     {
-        private Image _sprite;
-        private readonly int _zIndex;
-        private readonly Rectangle _area;
-        private readonly Image[] _spritesList = SpriteSheet.SpriteSheet.Keen5PowerGenerator1Images;
-        private const int SPRITE_CHANGE_DELAY = 4;
-        private int _currentSpriteChangeDelayTick;
-        private int _currentSpriteIndex;
-        private bool _stopUpdatingGlass;
-        private bool _foreGroundAdded;
-
-        private InvisibleTile _metalPipeCollisionArea;
-        private InvisibleTile _leftSideCollisionArea;
-        private InvisibleTile _rightSideCollisionArea;
-        private Keen5GeneratorGlass _glass;
-        private const int GLASS_X_OFFSET = 172;
         private const int GLASS_Y_OFFSET = 56;
-        private ObjectiveEventType _eventType;
-        private IActivateable[] _activateables;
+        private InvisibleTile _metalPipeCollisionArea;
 
-        public event EventHandler<ObjectEventArgs> Create;
-        public event EventHandler<ObjectEventArgs> Remove;
-        public event EventHandler<ToggleEventArgs> Toggled;
-
-        public Keen5PowerOmegamaticGenerator1(Rectangle area, SpaceHashGrid grid, int zIndex, ObjectiveEventType eventType, IActivateable[] activateables) : base(grid, area)
+        public Keen5PowerOmegamaticGenerator1(Rectangle area, SpaceHashGrid grid, int zIndex, ObjectiveEventType eventType, IActivateable[] activateables) 
+            : base(area, grid, zIndex, eventType, activateables)
         {
-            _zIndex = zIndex;
-            _area = area;
-            _eventType = eventType;
-            this.HitBox = area;
-            _activateables = activateables;
-            Initialize();
+            AddMetalPipeHitbox();
         }
-
-        public int ZIndex => _zIndex;
-
-        public Image Image => _sprite;
-
-        public Point Location => _area.Location;
-
-        public bool CanUpdate => true;
 
         public override CollisionType CollisionType => CollisionType.NONE;
 
-        public List<IActivateable> ToggleObjects => _glass is Keen5PowerNodeGlass ? 
-            _activateables?.ToList() ?? new List<IActivateable>() : new List<IActivateable>();
+        protected override int GLASS_X_OFFSET => 172;
 
-        public bool IsActive => !(_glass?.IsDead() ?? true);
-
-        public void Update()
+        protected override List<ICrossBar> CrossBars => new List<ICrossBar>
         {
-            if (!(_glass?.IsDead() ?? true))
-            {
-                _glass.Update();
-                DrawCombinedImage();
-            }
-            else if (_glass != null && !_stopUpdatingGlass)
-            {
-                _glass.Update();
-                DrawCombinedImage();
-                _stopUpdatingGlass = true;
-            }
+            new Generator1CrossBar()
+        };
 
-            if (!_foreGroundAdded)
-            {
-                this.AddCrossbarForeGround();
-            }
+        protected override Image[] SpriteList => SpriteSheet.SpriteSheet.Keen5PowerGenerator1Images;
 
-            this.UpdateSprite();
-        }
+        protected override int SPRITE_CHANGE_DELAY => 4;
 
-        private void Initialize()
+        protected override int BLOCK_VERTICAL_OFFSET => 28;
+
+        protected override int[] YOffsets => new int[] { GLASS_Y_OFFSET };
+
+        protected override int LEFT_BLOCK_HORIZONTAL_OFFSET => 32;
+
+        protected override int RIGHT_BLOCK_HORIZONTAL_OFFSET => 228;
+
+        protected override int LEFT_BLOCK_WIDTH => 124;
+
+        protected override int RIGHT_BLOCK_WIDTH => 70;
+
+        private void AddMetalPipeHitbox()
         {
-            _sprite = _spritesList[_currentSpriteIndex];
-
-            if (_collidingNodes != null && _collisionGrid != null)
-            {
-                //metal pipe hitbox
-                Rectangle metalPipeHitbox = new Rectangle(_area.X, _area.Y + 74, 26, 46);
-                _metalPipeCollisionArea = new InvisibleTile(_collisionGrid, metalPipeHitbox, true);
-
-                //left block hitbox
-                int blockVerticalOffset = 28;
-                int leftBlockHorizontalOffset = 6;
-                Rectangle leftBlockHitbox = new Rectangle(_area.X + metalPipeHitbox.Width + leftBlockHorizontalOffset,
-                    _area.Y + blockVerticalOffset,
-                    100 - leftBlockHorizontalOffset,
-                    _area.Height - blockVerticalOffset);
-                _leftSideCollisionArea = new InvisibleTile(_collisionGrid, leftBlockHitbox, true);
-
-                //right block hitbox
-                int rightBlockHorizontalOffset = 228;
-                int rightBlockWidth = 70;
-                Rectangle rightBlockHitbox = new Rectangle(_area.X + rightBlockHorizontalOffset,
-                    _area.Y + blockVerticalOffset,
-                    rightBlockWidth, _area.Height - blockVerticalOffset);
-                _rightSideCollisionArea = new InvisibleTile(_collisionGrid, rightBlockHitbox, true);
-
-
-                //power node glass object
-                Rectangle powerNodeHitbox = new Rectangle(_area.X + GLASS_X_OFFSET,
-                    _area.Y + GLASS_Y_OFFSET,
-                    Keen5PowerNodeGlass.IMAGE_WIDTH, Keen5PowerNodeGlass.IMAGE_HEIGHT);
-
-                if (_eventType == ObjectiveEventType.DEACTIVATE)
-                {
-                    Keen5PowerNodeGlass keen5PowerNodeGlass = new Keen5PowerNodeGlass(_collisionGrid, powerNodeHitbox, _zIndex, this);
-                    _glass = keen5PowerNodeGlass;
-                }
-                else if (_eventType == ObjectiveEventType.LEVEL_EXIT)
-                {
-                    Keen5GeneratorGlass keen5GeneratorGlass = new Keen5GeneratorGlass(_collisionGrid, powerNodeHitbox, _zIndex);
-                    _glass = keen5GeneratorGlass;
-                }
-            }
-            DrawCombinedImage(true);
-        }
-
-        private void AddCrossbarForeGround()
-        {
-            if (_leftSideCollisionArea == null || this.Create == null)
-                return;
-
-            Rectangle leftBlockHitbox = _leftSideCollisionArea.HitBox;
-            var crossbarImg = Properties.Resources.keen5_omegamatic_first_machine_crossbar;
-            int crossbarHorizontalOffset = 4;
-            int crossBarVerticalOffset = 164;
-            Rectangle crossbarArea = new Rectangle(leftBlockHitbox.Right + crossbarHorizontalOffset
-                , _area.Y + crossBarVerticalOffset, crossbarImg.Width, crossbarImg.Height);
-            Background bgCrossbar = new Background(crossbarArea, crossbarImg, false, 201);
-            this.Create?.Invoke(this, new ObjectEventArgs { ObjectSprite = bgCrossbar });
-            _foreGroundAdded = true;
-        }
-
-        private void DrawCombinedImage(bool initialDrawing = false)
-        {
-            Image newImg = initialDrawing
-                ? SpriteSheet.SpriteSheet.Keen5GlassGeneratorSprites.FirstOrDefault()
-                : _glass?.Image;
-
-            _sprite = BitMapTool.DrawImagesOnCanvas(_area.Size,
-                null, new Image[] { _sprite, newImg },
-                new Point[] { new Point(0, 0), new Point(GLASS_X_OFFSET, GLASS_Y_OFFSET) });
-        }
-
-        private void UpdateSprite()
-        {
-            this.UpdateSpriteByDelayBase(ref _currentSpriteChangeDelayTick, ref _currentSpriteIndex, SPRITE_CHANGE_DELAY,
-                () =>
-                {
-                    if (_currentSpriteIndex >= _spritesList.Length)
-                    {
-                        _currentSpriteIndex = 0;
-                    }
-                    _sprite = _spritesList[_currentSpriteIndex];
-                    DrawCombinedImage();
-                });
+            //metal pipe hitbox
+            Rectangle metalPipeHitbox = new Rectangle(_area.X, _area.Y + 74, 26, 46);
+            _metalPipeCollisionArea = new InvisibleTile(_collisionGrid, metalPipeHitbox, true);
         }
 
         public override string ToString()
@@ -189,19 +72,21 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
                 data += $"{separator}{arrayStart}{string.Join(arrayItemSeparator, _activateables.Select(a => a.ActivationID))}{arrayEnd}";
             }
             return data;
-        }
+        }       
+    }
 
-        public void Toggle()
-        {
-            if (_activateables == null || !_activateables.Any() || _glass == null || !_glass.IsDead())
-                return;
+    class Generator1CrossBar : ICrossBar
+    {
+        public int HorizontalOffset => 4;
 
-            foreach (var component in _activateables)
-            {
-                component.Deactivate();
-            }
+        public int VerticalOffset => 164;
 
-            this.Toggled?.Invoke(this, new ToggleEventArgs() { IsActive = this.IsActive });
-        }
+        public int ZIndex => 201;
+
+        public Image Image => Properties.Resources.keen5_omegamatic_first_machine_crossbar;
+
+        public Point Location => new Point(HorizontalOffset, VerticalOffset);
+
+        public bool CanUpdate => true;
     }
 }

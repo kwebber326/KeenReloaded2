@@ -15,42 +15,18 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 {
-    public class Keen5PowerOmegamaticGenerator2 : CollisionObject, IUpdatable, ISprite, ICreateRemove, IActivator
+    public class Keen5PowerOmegamaticGenerator2 : Keen5PowerGenerator
     {
-        protected readonly int _zIndex;
-        protected readonly Rectangle _area;
-        protected readonly ObjectiveEventType _eventType;
-        protected readonly IActivateable[] _activateables;
-        protected readonly Image[] _spritesList = SpriteSheet.SpriteSheet.Keen5PowerGenerator2Images;
-        protected readonly int GLASS_X_OFFSET = 136;
         private readonly int GLASS_Y_OFFSET1 = 56;
         private readonly int GLASS_Y_OFFSET2 = 122;
-        protected const int BLOCK_VERTICAL_OFFSET = 28;
 
-        protected readonly int SPRITE_CHANGE_DELAY = 2;
-        protected Image _sprite;
-        protected bool _foreGroundAdded;
-        protected InvisibleTile _leftSideCollisionArea;
-        protected InvisibleTile _rightSideCollisionArea;
-        protected int _currentSpriteIndex;
-
-        private List<Keen5GeneratorGlass> _glassObjects = new List<Keen5GeneratorGlass>();
-        private bool _stopUpdatingGlass;
-        private int _currentSpriteChangeDelayTick;
-
-
-        public Keen5PowerOmegamaticGenerator2(Rectangle area, SpaceHashGrid grid, int zIndex, ObjectiveEventType eventType, IActivateable[] activateables) : base(grid, area)
+        public Keen5PowerOmegamaticGenerator2(Rectangle area, SpaceHashGrid grid, int zIndex, ObjectiveEventType eventType, IActivateable[] activateables) 
+            : base(area, grid, zIndex, eventType, activateables)
         {
-            _zIndex = zIndex;
-            _area = area;
-            this.HitBox = area;
-            _eventType = eventType;
-            _activateables = activateables;
 
-            Initialize();
         }
 
-        protected int[] YOffsets
+        protected override int[] YOffsets
         {
             get
             {
@@ -58,7 +34,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
             }
         }
 
-        protected int LEFT_BLOCK_HORIZONTAL_OFFSET
+        protected override int LEFT_BLOCK_HORIZONTAL_OFFSET
         {
             get
             {
@@ -66,7 +42,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
             }
         }
 
-        protected int RIGHT_BLOCK_HORIZONTAL_OFFSET
+        protected override int RIGHT_BLOCK_HORIZONTAL_OFFSET
         {
             get
             {
@@ -74,7 +50,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
             }
         }
 
-        protected int LEFT_BLOCK_WIDTH
+        protected override int LEFT_BLOCK_WIDTH
         {
             get
             {
@@ -82,7 +58,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
             }
         }
 
-        protected int RIGHT_BLOCK_WIDTH
+        protected override int RIGHT_BLOCK_WIDTH
         {
             get
             {
@@ -90,165 +66,20 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
             }
         }
 
-        protected void Initialize()
-        {
-            _sprite = _spritesList[_currentSpriteIndex];
-
-            if (_collidingNodes != null && _collisionGrid != null)
-            {
-                //left block hitbox
-                int blockVerticalOffset = BLOCK_VERTICAL_OFFSET;
-                int leftBlockHorizontalOffset = LEFT_BLOCK_HORIZONTAL_OFFSET;
-                Rectangle leftBlockHitbox = new Rectangle(_area.X + leftBlockHorizontalOffset,
-                    _area.Y + blockVerticalOffset,
-                    LEFT_BLOCK_WIDTH - leftBlockHorizontalOffset,
-                    _area.Height - blockVerticalOffset);
-                _leftSideCollisionArea = new InvisibleTile(_collisionGrid, leftBlockHitbox, true);
-
-                //right block hitbox
-                int rightBlockHorizontalOffset = RIGHT_BLOCK_HORIZONTAL_OFFSET;
-                int rightBlockWidth = RIGHT_BLOCK_WIDTH;
-                Rectangle rightBlockHitbox = new Rectangle(_area.X + rightBlockHorizontalOffset,
-                    _area.Y + blockVerticalOffset,
-                    rightBlockWidth, _area.Height - blockVerticalOffset);
-                _rightSideCollisionArea = new InvisibleTile(_collisionGrid, rightBlockHitbox, true);
-
-
-                //power node glass objects
-                foreach (int yOffset in this.YOffsets)
-                {
-                    Rectangle powerNodeHitbox = new Rectangle(_area.X + GLASS_X_OFFSET,
-                     _area.Y + yOffset,
-                     Keen5PowerNodeGlass.IMAGE_WIDTH, Keen5PowerNodeGlass.IMAGE_HEIGHT);
-
-                    Keen5GeneratorGlass glass = _eventType == ObjectiveEventType.DEACTIVATE
-                        ? new Keen5PowerNodeGlass(_collisionGrid, powerNodeHitbox, _zIndex, this)
-                        : new Keen5GeneratorGlass(_collisionGrid, powerNodeHitbox, _zIndex);
-
-                    _glassObjects.Add(glass);
-                }
-            }
-            DrawCombinedImage(true);
-        }
-
-        private void AddCrossbarForeGround()
-        {
-            if (_leftSideCollisionArea == null || this.Create == null)
-                return;
-
-            Rectangle leftBlockHitbox = _leftSideCollisionArea.HitBox;
-            var crossbarImg = Properties.Resources.keen5_omegamatic_second_machine_crossbar;
-            int crossbarHorizontalOffset = 2;
-            int crossBarVerticalOffset = 166;
-            Rectangle crossbarArea = new Rectangle(leftBlockHitbox.Right + crossbarHorizontalOffset
-                , _area.Y + crossBarVerticalOffset, crossbarImg.Width, crossbarImg.Height);
-            Background bgCrossbar = new Background(crossbarArea, crossbarImg, false, 201);
-            this.Create?.Invoke(this, new ObjectEventArgs { ObjectSprite = bgCrossbar });
-            _foreGroundAdded = true;
-        }
-
-        protected void DrawCombinedImage(bool initialDrawing = false)
-        {
-            Image newImg = initialDrawing
-                ? SpriteSheet.SpriteSheet.Keen5GlassGeneratorSprites.FirstOrDefault()
-                : _glassObjects?[0]?.Image;
-
-            List<Point> points = new List<Point>() { new Point(0, 0) };
-            List<Image> images = new List<Image>() { _sprite };
-            foreach (int yOffset in this.YOffsets)
-            {
-                points.Add(new Point(GLASS_X_OFFSET, yOffset));
-                images.Add(newImg);
-            }
-
-            _sprite = BitMapTool.DrawImagesOnCanvas(_area.Size,
-                null, images.ToArray(), points.ToArray());
-        }
+        protected override int GLASS_X_OFFSET => 136;
 
         public override CollisionType CollisionType => CollisionType.NONE;
 
-        public int ZIndex => _zIndex;
+        protected override List<ICrossBar> CrossBars => new List<ICrossBar> 
+        { 
+            new Generator2CrossBar()
+        };
 
-        public Image Image => _sprite;
+        protected override Image[] SpriteList => SpriteSheet.SpriteSheet.Keen5PowerGenerator2Images;
 
-        public Point Location => _area.Location;
+        protected override int SPRITE_CHANGE_DELAY => 2;
 
-        public bool CanUpdate => true;
-
-        public List<IActivateable> ToggleObjects => _activateables?.ToList() ?? new List<IActivateable>();
-
-        public bool IsActive => _glassObjects.Any() && _glassObjects.Any(g => !g.IsDead());
-
-        public event EventHandler<ObjectEventArgs> Create;
-        public event EventHandler<ObjectEventArgs> Remove;
-        public event EventHandler<ToggleEventArgs> Toggled;
-
-        protected bool ValidGlassDeadState()
-        {
-            if (!_glassObjects.Any())
-                return false;
-            if (!_glassObjects.All(g => g.IsDead()))
-                return false;
-
-            return true;
-        }
-
-        public void Toggle()
-        {
-            if (_activateables == null || !_activateables.Any() || !ValidGlassDeadState())
-                return;
-
-            foreach (var component in _activateables)
-            {
-                component.Deactivate();
-            }
-
-            this.Toggled?.Invoke(this, new ToggleEventArgs() { IsActive = this.IsActive });
-        }
-
-        public void Update()
-        {
-            if (!ValidGlassDeadState())
-            {
-                UpdateAllGlassNodes();
-                DrawCombinedImage();
-            }
-            else if (ValidGlassDeadState() && !_stopUpdatingGlass)
-            {
-                UpdateAllGlassNodes();
-                DrawCombinedImage();
-                _stopUpdatingGlass = true;
-            }
-
-            if (!_foreGroundAdded)
-            {
-                this.AddCrossbarForeGround();
-            }
-
-            this.UpdateSprite();
-        }
-
-        protected void UpdateSprite()
-        {
-            this.UpdateSpriteByDelayBase(ref _currentSpriteChangeDelayTick, ref _currentSpriteIndex, SPRITE_CHANGE_DELAY,
-                () =>
-                {
-                    if (_currentSpriteIndex >= _spritesList.Length)
-                    {
-                        _currentSpriteIndex = 0;
-                    }
-                    _sprite = _spritesList[_currentSpriteIndex];
-                    DrawCombinedImage();
-                });
-        }
-
-        protected void UpdateAllGlassNodes()
-        {
-            foreach (var glass in _glassObjects)
-            {
-                glass.Update();
-            }
-        }
+        protected override int BLOCK_VERTICAL_OFFSET => 28;
 
         public override string ToString()
         {
@@ -264,5 +95,20 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
             }
             return data;
         }
+    }
+
+    class Generator2CrossBar : ICrossBar
+    {
+        public int HorizontalOffset => 2;
+
+        public int VerticalOffset => 168;
+
+        public int ZIndex => 201;
+
+        public Image Image => Properties.Resources.keen5_omegamatic_second_machine_crossbar;
+
+        public Point Location => new Point(HorizontalOffset, VerticalOffset);
+
+        public bool CanUpdate => true;
     }
 }

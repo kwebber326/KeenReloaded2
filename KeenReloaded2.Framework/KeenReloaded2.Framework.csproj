@@ -265,6 +265,7 @@
     <Compile Include="GameEntities\Tiles\Floors\LeftEdgeFloorTile.cs" />
     <Compile Include="GameEntities\Tiles\HealthBarTile.cs" />
     <Compile Include="GameEntities\Tiles\InteractiveTiles\Keen5GeneratorGlass.cs" />
+    <Compile Include="GameEntities\Tiles\InteractiveTiles\Keen5PowerGenerator.cs" />
     <Compile Include="GameEntities\Tiles\InteractiveTiles\Keen5PowerNodeGlass.cs" />
     <Compile Include="GameEntities\Tiles\InteractiveTiles\Keen5PowerOmegamaticGenerator1.cs" />
     <Compile Include="GameEntities\Tiles\InteractiveTiles\Keen5PowerOmegamaticGenerator2.cs" />
