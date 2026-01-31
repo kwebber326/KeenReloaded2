@@ -6820,6 +6820,21 @@
     <None Include="Resources\keen5_omegamatic_second_machine3.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_third_machine1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_third_machine4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_third_machine_crossbar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_third_machine2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_third_machine3.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\keen5_omegamatic_second_machine4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

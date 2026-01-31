@@ -11,3 +11,4 @@ keen5_removable_platform_right_edge_filled_black|251|523|38|64|10|KEEN5_BLACK|Tr
 keen_stand_right|206|222|26|64|RIGHT
 keen5_omegamatic_second_machine1|541|464|280|240|15|DEACTIVATE|[e946fb0d-9ef2-45d2-ba92-48bfe4d1f246,93c4f5ec-f10f-42bd-aa45-a55678a937fb,fcb3432a-de32-4c4d-b2be-d09f02b22b6f]
 keen5_omegamatic_first_machine1|508|107|312|240|15|LEVEL_EXIT|[]
+keen5_omegamatic_third_machine1|896|125|302|304|15|LEVEL_EXIT|[]

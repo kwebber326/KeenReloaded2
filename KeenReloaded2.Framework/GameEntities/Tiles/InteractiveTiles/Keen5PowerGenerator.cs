@@ -38,6 +38,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
         protected List<Keen5GeneratorGlass> _glassObjects = new List<Keen5GeneratorGlass>();
 
         private bool _stopUpdatingGlass;
+        private bool _toggled;
 
         public Keen5PowerGenerator(Rectangle area, SpaceHashGrid grid, int zIndex, ObjectiveEventType eventType, IActivateable[] activateables) : base(grid, area)
         {
@@ -105,14 +106,15 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 
         protected void DrawCombinedImage(bool initialDrawing = false)
         {
-            Image newImg = initialDrawing
-                ? SpriteSheet.SpriteSheet.Keen5GlassGeneratorSprites.FirstOrDefault()
-                : _glassObjects?[0]?.Image;
-
             List<Point> points = new List<Point>() { new Point(0, 0) };
             List<Image> images = new List<Image>() { _sprite };
-            foreach (int yOffset in this.YOffsets)
+            for(int i = 0; i < this.YOffsets.Length; i++)
             {
+                int yOffset = this.YOffsets[i];
+                Image newImg = initialDrawing
+                ? SpriteSheet.SpriteSheet.Keen5GlassGeneratorSprites.FirstOrDefault()
+                : _glassObjects?[i]?.Image;
+
                 points.Add(new Point(GLASS_X_OFFSET, yOffset));
                 images.Add(newImg);
             }
@@ -201,7 +203,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 
         public void Toggle()
         {
-            if (_activateables == null || !_activateables.Any() || !ValidGlassDeadState())
+            if (_toggled || _activateables == null || !_activateables.Any() || !ValidGlassDeadState())
                 return;
 
             foreach (var component in _activateables)
@@ -210,6 +212,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
             }
 
             this.Toggled?.Invoke(this, new ToggleEventArgs() { IsActive = this.IsActive });
+            _toggled = true;
         }
 
         protected abstract List<ICrossBar> CrossBars { get; }

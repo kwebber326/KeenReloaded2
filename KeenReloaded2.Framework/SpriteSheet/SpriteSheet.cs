@@ -3447,6 +3447,26 @@ namespace KeenReloaded2.Framework.SpriteSheet
                 return _keen5PowerGenerator2Images;
             }
         }
+
+        private static Image[] _keen5PowerGenerator3Images;
+
+        public static Image[] Keen5PowerGenerator3Images
+        {
+            get
+            {
+                if (_keen5PowerGenerator3Images == null)
+                {
+                    _keen5PowerGenerator3Images = new Image[]
+                    {
+                        Properties.Resources.keen5_omegamatic_third_machine1,
+                        Properties.Resources.keen5_omegamatic_third_machine2,
+                        Properties.Resources.keen5_omegamatic_third_machine3,
+                        Properties.Resources.keen5_omegamatic_third_machine4,
+                    };
+                }
+                return _keen5PowerGenerator3Images;
+            }
+        }
         #endregion
 
         private static Image[] _keen4CouncilMemberWalkLeftImages;
