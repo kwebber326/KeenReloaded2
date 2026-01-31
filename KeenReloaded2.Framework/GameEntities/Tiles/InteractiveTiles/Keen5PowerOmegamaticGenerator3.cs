@@ -35,7 +35,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
         {
             get
             {
-                return 6;
+                return 22;
             }
         }
 
@@ -43,7 +43,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
         {
             get
             {
-                return 200;
+                return 182;
             }
         }
 
@@ -51,7 +51,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
         {
             get
             {
-                return 100;
+                return 84;
             }
         }
 
@@ -96,9 +96,9 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 
     class Generator3CrossBar : ICrossBar
     {
-        public int HorizontalOffset => -38;
+        public int HorizontalOffset => -22;
 
-        public int VerticalOffset => 218;
+        public int VerticalOffset => 219;
 
         public int ZIndex => 201;
 

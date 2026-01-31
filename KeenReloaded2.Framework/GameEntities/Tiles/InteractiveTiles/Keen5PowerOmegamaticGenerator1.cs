@@ -77,7 +77,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 
     class Generator1CrossBar : ICrossBar
     {
-        public int HorizontalOffset => 4;
+        public int HorizontalOffset => -22;
 
         public int VerticalOffset => 164;
 
