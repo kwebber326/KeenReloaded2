@@ -59,7 +59,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
         {
             get
             {
-                return 70;
+                return 94;
             }
         }
 
