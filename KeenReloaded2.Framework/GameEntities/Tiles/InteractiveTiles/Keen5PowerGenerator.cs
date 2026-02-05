@@ -99,12 +99,13 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
                         : new Keen5GeneratorGlass(_collisionGrid, powerNodeHitbox, _zIndex);
 
                     _glassObjects.Add(glass);
+                    LevelCompleteObjectives.TryAddTileObjective(glass);
                 }
             }
             DrawCombinedImage(true);
         }
 
-        protected void DrawCombinedImage(bool initialDrawing = false)
+        protected virtual void DrawCombinedImage(bool initialDrawing = false)
         {
             List<Point> points = new List<Point>() { new Point(0, 0) };
             List<Image> images = new List<Image>() { _sprite };
@@ -157,7 +158,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
             return true;
         }
 
-        public void Update()
+        public virtual void Update()
         {
             if (!ValidGlassDeadState())
             {

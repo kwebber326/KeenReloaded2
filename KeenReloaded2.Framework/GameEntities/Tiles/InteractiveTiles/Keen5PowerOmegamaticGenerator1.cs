@@ -19,11 +19,13 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
     public class Keen5PowerOmegamaticGenerator1 : Keen5PowerGenerator
     {
         private const int GLASS_Y_OFFSET = 56;
+        List<ICrossBar> _crossbars;
         private InvisibleTile _metalPipeCollisionArea;
 
         public Keen5PowerOmegamaticGenerator1(Rectangle area, SpaceHashGrid grid, int zIndex, ObjectiveEventType eventType, IActivateable[] activateables) 
             : base(area, grid, zIndex, eventType, activateables)
         {
+            _crossbars = new List<ICrossBar>() { new Generator1CrossBar() };
             AddMetalPipeHitbox();
         }
 
@@ -31,10 +33,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 
         protected override int GLASS_X_OFFSET => 172;
 
-        protected override List<ICrossBar> CrossBars => new List<ICrossBar>
-        {
-            new Generator1CrossBar()
-        };
+        protected override List<ICrossBar> CrossBars => _crossbars;
 
         protected override Image[] SpriteList => SpriteSheet.SpriteSheet.Keen5PowerGenerator1Images;
 

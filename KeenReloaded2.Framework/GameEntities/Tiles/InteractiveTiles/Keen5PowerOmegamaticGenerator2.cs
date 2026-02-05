@@ -19,11 +19,12 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
     {
         private readonly int GLASS_Y_OFFSET1 = 56;
         private readonly int GLASS_Y_OFFSET2 = 122;
+        private readonly List<ICrossBar> _crossbars;
 
         public Keen5PowerOmegamaticGenerator2(Rectangle area, SpaceHashGrid grid, int zIndex, ObjectiveEventType eventType, IActivateable[] activateables) 
             : base(area, grid, zIndex, eventType, activateables)
         {
-
+            _crossbars = new List<ICrossBar>() { new Generator2CrossBar() };
         }
 
         protected override int[] YOffsets
@@ -70,10 +71,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 
         public override CollisionType CollisionType => CollisionType.NONE;
 
-        protected override List<ICrossBar> CrossBars => new List<ICrossBar> 
-        { 
-            new Generator2CrossBar()
-        };
+        protected override List<ICrossBar> CrossBars => _crossbars;
 
         protected override Image[] SpriteList => SpriteSheet.SpriteSheet.Keen5PowerGenerator2Images;
 

@@ -6837,5 +6837,29 @@
   <ItemGroup>
     <None Include="Resources\keen5_omegamatic_second_machine_crossbar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_fourth_machine_spinner1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_fourth_machine_spinner2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_fourth_machine_spinner3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_fourth_machine1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_fourth_machine2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_fourth_machine3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_fourth_machine4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_fourth_machine_crossbar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

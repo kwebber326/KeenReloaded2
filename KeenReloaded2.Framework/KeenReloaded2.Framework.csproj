@@ -270,6 +270,7 @@
     <Compile Include="GameEntities\Tiles\InteractiveTiles\Keen5PowerOmegamaticGenerator1.cs" />
     <Compile Include="GameEntities\Tiles\InteractiveTiles\Keen5PowerOmegamaticGenerator2.cs" />
     <Compile Include="GameEntities\Tiles\InteractiveTiles\Keen5PowerOmegamaticGenerator3.cs" />
+    <Compile Include="GameEntities\Tiles\InteractiveTiles\Keen5PowerOmegamaticGenerator4.cs" />
     <Compile Include="GameEntities\Tiles\InvisibleTile.cs" />
     <Compile Include="GameEntities\Tiles\MapEdgeTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\ActivateableLeftEdgeTile.cs" />
@@ -6299,6 +6300,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen5_omegamatic_second_machine_crossbar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_fourth_machine_spinner1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_fourth_machine_spinner2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_fourth_machine_spinner3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_fourth_machine1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_fourth_machine2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_fourth_machine3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_fourth_machine4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_omegamatic_fourth_machine_crossbar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
