@@ -527,7 +527,7 @@ namespace KeenReloaded2.Entities
 
         void item_CreatedObject(object sender, ObjectEventArgs e)
         {
-            ISprite addedObject = e.ObjectSprite as ISprite;
+            ISprite addedObject = e.ObjectSprite;
             if (addedObject != null)
             {
                 _gameObjects.InsertAscending(addedObject);

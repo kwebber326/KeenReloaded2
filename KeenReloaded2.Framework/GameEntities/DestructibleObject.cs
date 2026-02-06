@@ -61,8 +61,11 @@ namespace KeenReloaded2.Framework.GameEntities
 
         protected void OnKilled()
         {
-            if (Killed != null)
+            if (Killed != null && !_killedEventFired)
+            {
                 this.Killed(this, new ObjectEventArgs() { ObjectSprite = this as ISprite });
+                _killedEventFired = true;
+            }
         }
 
         protected virtual void HandleCollision(CollisionObject obj)

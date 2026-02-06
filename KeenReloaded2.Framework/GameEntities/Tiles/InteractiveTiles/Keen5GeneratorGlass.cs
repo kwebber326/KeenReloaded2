@@ -16,16 +16,20 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 {
     public class Keen5GeneratorGlass : DestructibleCollisionTile, IUpdatable, ISprite, ILevelObjective
     {
-        private readonly int _zIndex;
-        private Image _sprite;
-        private bool _firstDeathEvaluation = true;
-        private Image[] _glassSprites = SpriteSheet.SpriteSheet.Keen5GlassGeneratorSprites;
-        private int _currentSpriteIndex = 0;
+        protected readonly int _zIndex;
+        protected Image _sprite;
+        protected bool _unbroken = true;
+        protected Image[] _glassSprites = SpriteSheet.SpriteSheet.Keen5GlassGeneratorSprites;
+        protected int _currentSpriteIndex = 0;
 
         public const int IMAGE_WIDTH = 32;
         public const int IMAGE_HEIGHT = 20;
 
-        private CommanderKeen _keen;
+        private bool _performedAction;
+        private const int ACTION_PERFORM_DELAY = 20;
+        private int _actionPerformDelayTick = 0;
+
+        protected CommanderKeen _keen;
 
         public Keen5GeneratorGlass(SpaceHashGrid grid, Rectangle hitbox, int zIndex) : base(grid, hitbox, true)
         {
@@ -42,34 +46,50 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 
         public bool CanUpdate => true;
 
-        public override ObjectiveCompleteEvent EventType => ObjectiveCompleteEvent.LEVEL_EXIT;
+        public override ObjectiveEventType EventType => ObjectiveEventType.LEVEL_EXIT;
 
         public bool ObjectiveComplete => this.IsDead();
 
-        public void Update()
+        public override void Die()
         {
-            if (!_isDead)
+            _collisionType = CollisionType.NONE;
+            _unbroken = false;
+        }
+
+        public virtual void Update()
+        {
+            if (!_isDead && _unbroken)
             {
                 UpdateSprite();
             }
-            else if (_firstDeathEvaluation)
+            else if (!_performedAction)
             {
                 _keen = GetClosestAlivePlayer();
                 if (_keen != null)
                 {
-                    _firstDeathEvaluation = false;
                     _sprite = Properties.Resources.keen5_destructible_glass_tile_destroyed;
                     this.PublishSoundPlayEvent(
                         GeneralGameConstants.Sounds.GLASS_BREAK);
-                    if (LevelCompleteObjectives.AreAllTileObjectivesComplete())
-                    {
-                        _keen.PassLevel();
-                    }
+                    _performedAction = true;
                 }
+            }
+            else if (_actionPerformDelayTick++ == ACTION_PERFORM_DELAY)
+            {
+                _actionPerformDelayTick = 0;
+                _isDead = true;
+                PerformActionForEvent();
             }
         }
 
-        private void UpdateSprite()
+        protected virtual void PerformActionForEvent()
+        {
+            if (LevelCompleteObjectives.AreAllTileObjectivesComplete())
+            {
+                _keen.PassLevel();
+            }
+        }
+
+        protected void UpdateSprite()
         {
             if (_currentSpriteIndex == 0)
                 _currentSpriteIndex = 1;
