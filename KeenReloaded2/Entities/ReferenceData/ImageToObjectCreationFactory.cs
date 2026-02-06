@@ -14,6 +14,7 @@ using KeenReloaded2.Framework.GameEntities.Items.WeaponsAmmo;
 using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.Tiles;
 using KeenReloaded2.Framework.GameEntities.Tiles.Floors;
+using KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles;
 using KeenReloaded2.Framework.GameEntities.Tiles.Platforms;
 using KeenReloaded2.Framework.GameEntities.Tiles.Walls;
 using KeenReloaded2.Framework.ReferenceDataClasses;
@@ -4222,6 +4223,57 @@ namespace KeenReloaded2.Entities.ReferenceData
             AddSimpleGameObject(backgroundReferenceData, keen4InteractiveTileFiles, councilMemberKey,
                 typeof(CouncilMember), null, 15);
 
+            //power generators
+            #region generator 1
+            var powerGenerator1Key = nameof(Properties.Resources.keen5_omegamatic_first_machine1);
+            MapMakerObjectProperty[] powerGeneratorAddedProperties = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty
+                {
+                    PropertyName = "eventType",
+                    DataType = typeof(ObjectiveEventType),
+                    PossibleValues = Enum.GetNames(typeof(ObjectiveEventType))
+                    .Where( e => e == nameof(ObjectiveEventType.LEVEL_EXIT) 
+                              || e == nameof(ObjectiveEventType.DEACTIVATE))
+                    .ToArray(),
+                    DisplayName = "Event Type: ",
+                    Value = ObjectiveEventType.LEVEL_EXIT
+                },
+                new MapMakerObjectProperty
+                {
+                    PropertyName = "activateables",
+                    DataType = typeof(IActivateable[]),
+                    Value = new IActivateable[]{},
+                    DisplayName = "Powered Components:"
+                }
+            };
+            AddSimpleGameObject(backgroundReferenceData, keen5InteractiveTileFiles, powerGenerator1Key,
+                typeof(Keen5PowerOmegamaticGenerator1), powerGeneratorAddedProperties, 15);
+            #endregion
+
+            #region generator 2
+            var powerGenerator2Key = nameof(Properties.Resources.keen5_omegamatic_second_machine1);
+          
+            AddSimpleGameObject(backgroundReferenceData, keen5InteractiveTileFiles, powerGenerator2Key,
+                typeof(Keen5PowerOmegamaticGenerator2), powerGeneratorAddedProperties, 15);
+            #endregion
+
+            #region generator 3
+            var powerGenerator3Key = nameof(Properties.Resources.keen5_omegamatic_third_machine1);
+
+            AddSimpleGameObject(backgroundReferenceData, keen5InteractiveTileFiles, powerGenerator3Key,
+                typeof(Keen5PowerOmegamaticGenerator3), powerGeneratorAddedProperties, 15);
+
+            #endregion
+
+            #region generator 4
+            var powerGenerator4Key = nameof(Properties.Resources.keen5_omegamatic_fourth_machine1);
+
+            AddSimpleGameObject(backgroundReferenceData, keen5InteractiveTileFiles, powerGenerator4Key,
+                typeof(Keen5PowerOmegamaticGenerator4), powerGeneratorAddedProperties, 15);
+
+            #endregion
+
             #endregion
 
             #region Enemies
@@ -4570,6 +4622,7 @@ namespace KeenReloaded2.Entities.ReferenceData
             #endregion
 
             #region miscellaneous
+
             //random weapon generator
             var miscellaneousFilesPath = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_MISCELLANEOUS, "keen5", Biomes.BIOME_KEEN5_BLACK);
             var miscallaneousImageFiles = Directory.GetFiles(miscellaneousFilesPath);

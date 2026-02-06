@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -3405,6 +3406,108 @@ namespace KeenReloaded2.Framework.SpriteSheet
         #endregion
 
         #region Miscellaneous
+
+        #region Power Generators
+        private static Image[] _keen5PowerGenerator1Images;
+
+        public static Image[] Keen5PowerGenerator1Images
+        {
+            get
+            {
+                if (_keen5PowerGenerator1Images == null)
+                {
+                    _keen5PowerGenerator1Images = new Image[]
+                    {
+                        Properties.Resources.keen5_omegamatic_first_machine1,
+                        Properties.Resources.keen5_omegamatic_first_machine2,
+                        Properties.Resources.keen5_omegamatic_first_machine3,
+                        Properties.Resources.keen5_omegamatic_first_machine4,
+                    };
+                }
+                return _keen5PowerGenerator1Images;
+            }
+        }
+
+        private static Image[] _keen5PowerGenerator2Images;
+
+        public static Image[] Keen5PowerGenerator2Images
+        {
+            get
+            {
+                if (_keen5PowerGenerator2Images == null)
+                {
+                    _keen5PowerGenerator2Images = new Image[]
+                    {
+                        Properties.Resources.keen5_omegamatic_second_machine1,
+                        Properties.Resources.keen5_omegamatic_second_machine2,
+                        Properties.Resources.keen5_omegamatic_second_machine3,
+                        Properties.Resources.keen5_omegamatic_second_machine4,
+                    };
+                }
+                return _keen5PowerGenerator2Images;
+            }
+        }
+
+        private static Image[] _keen5PowerGenerator3Images;
+
+        public static Image[] Keen5PowerGenerator3Images
+        {
+            get
+            {
+                if (_keen5PowerGenerator3Images == null)
+                {
+                    _keen5PowerGenerator3Images = new Image[]
+                    {
+                        Properties.Resources.keen5_omegamatic_third_machine1,
+                        Properties.Resources.keen5_omegamatic_third_machine2,
+                        Properties.Resources.keen5_omegamatic_third_machine3,
+                        Properties.Resources.keen5_omegamatic_third_machine4,
+                    };
+                }
+                return _keen5PowerGenerator3Images;
+            }
+        }
+
+        private static Image[] _keen5PowerGenerator4Images;
+
+        public static Image[] Keen5PowerGenerator4Images
+        {
+            get
+            {
+                if (_keen5PowerGenerator4Images == null)
+                {
+                    _keen5PowerGenerator4Images = new Image[]
+                    {
+                        Properties.Resources.keen5_omegamatic_fourth_machine1,
+                        Properties.Resources.keen5_omegamatic_fourth_machine2,
+                        Properties.Resources.keen5_omegamatic_fourth_machine3,
+                        Properties.Resources.keen5_omegamatic_fourth_machine4,
+                    };
+                }
+                return _keen5PowerGenerator4Images;
+            }
+        }
+
+        private static Image[] _keen5PowerGenerator4SpinnerImages;
+
+        public static Image[] Keen5PowerGenerator4SpinnerImages
+        {
+            get
+            {
+                if (_keen5PowerGenerator4SpinnerImages == null)
+                {
+                    _keen5PowerGenerator4SpinnerImages = new Image[]
+                    {
+                        Properties.Resources.keen5_omegamatic_fourth_machine_spinner1,
+                        Properties.Resources.keen5_omegamatic_fourth_machine_spinner2,
+                        Properties.Resources.keen5_omegamatic_fourth_machine_spinner3,
+                    };
+                }
+                return _keen5PowerGenerator4SpinnerImages;
+            }
+        }
+        #endregion
+
         private static Image[] _keen4CouncilMemberWalkLeftImages;
 
         public static Image[] Keen4CouncilMemberWalkLeftImages
