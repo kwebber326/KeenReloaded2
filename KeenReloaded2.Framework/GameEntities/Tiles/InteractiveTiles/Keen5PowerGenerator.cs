@@ -99,7 +99,6 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
                         : new Keen5GeneratorGlass(_collisionGrid, powerNodeHitbox, _zIndex);
 
                     _glassObjects.Add(glass);
-                    LevelCompleteObjectives.TryAddTileObjective(glass);
                 }
             }
             DrawCombinedImage(true);

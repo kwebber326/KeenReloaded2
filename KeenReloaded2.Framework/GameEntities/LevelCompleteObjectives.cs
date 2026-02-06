@@ -32,6 +32,11 @@ namespace KeenReloaded2.Framework.GameEntities
             return _levelObjectives.All(t => t.ObjectiveComplete);
         }
 
+        public static bool Contains(ILevelObjective levelObjective)
+        {
+            return _levelObjectives.Any(c => c.Equals(levelObjective));
+        }
+
         public static void ClearAll()
         {
             _levelObjectives.Clear();

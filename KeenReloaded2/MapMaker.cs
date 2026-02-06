@@ -6,6 +6,7 @@ using KeenReloaded2.Entities;
 using KeenReloaded2.Entities.DataStructures;
 using KeenReloaded2.Entities.ReferenceData;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.GameEntities;
 using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Tiles;
@@ -1238,6 +1239,7 @@ namespace KeenReloaded2
                 MessageBox.Show($"Map '{txtMapName.Text}' did not save successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            LevelCompleteObjectives.ClearAll();
             _mapHasUnsavedChanges = false;
             string directory = MapUtility.GetSavedMapsPath(cmbGameMode.Text);
             string mapFile = Path.Combine(directory, txtMapName.Text + ".txt");
@@ -1289,6 +1291,7 @@ namespace KeenReloaded2
             else
             {
                 this.UnsubscribeToEventStoreEvents();
+                LevelCompleteObjectives.ClearAll();
             }
         }
 
