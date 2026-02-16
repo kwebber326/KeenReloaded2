@@ -200,7 +200,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         {
             if (this.State != BirdMoveState.WALKING)
             {
-                this.State = BirdMoveState.WALKING;
+               
                 _spriteChangeDelayTick = 0;
             }
 
@@ -274,6 +274,10 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             else
             {
                 this.HitBox = new Rectangle(this.HitBox.X + xOffset, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
+            }
+            if (this.State != BirdMoveState.WALKING)
+            {
+                this.State = BirdMoveState.WALKING;
             }
             KillKeenIfColliding();
         }
