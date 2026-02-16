@@ -128,21 +128,28 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
 
         public void Update()
         {
-            _keen = this.GetClosestPlayer();
-            switch (_state)
+            try
             {
-                case BirdMoveState.WAITING:
-                    this.UpdateWaitState();
-                    break;
-                case BirdMoveState.WALKING:
-                    this.Walk();
-                    break;
-                case BirdMoveState.FLYING:
-                    this.Fly();
-                    break;
-                case BirdMoveState.STUNNED:
-                    this.UpdateStunnedState();
-                    break;
+                _keen = this.GetClosestPlayer();
+                switch (_state)
+                {
+                    case BirdMoveState.WAITING:
+                        this.UpdateWaitState();
+                        break;
+                    case BirdMoveState.WALKING:
+                        this.Walk();
+                        break;
+                    case BirdMoveState.FLYING:
+                        this.Fly();
+                        break;
+                    case BirdMoveState.STUNNED:
+                        this.UpdateStunnedState();
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
             }
         }
 
