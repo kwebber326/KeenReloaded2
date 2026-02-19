@@ -6325,5 +6325,17 @@
   <ItemGroup>
     <None Include="Resources\keen5_omegamatic_fourth_machine_crossbar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_crockpot1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_crockpot2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_crockpot3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_crockpot4.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

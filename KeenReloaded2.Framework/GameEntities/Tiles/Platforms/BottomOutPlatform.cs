@@ -22,7 +22,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
         protected override void Fall()
         {
             //Retain falling without vertical collision detection for self
-            if (KeenIsStandingOnThis() || _bottomedOut)
+            bool keenStandingOnThisInCurrentFrame = KeenIsStandingOnThis();
+            if (keenStandingOnThisInCurrentFrame || _bottomedOut)
             {
                 _direction = Direction.DOWN;
                 this.HitBox = new Rectangle(this.HitBox.X, this.HitBox.Y + _currentVerticalVelocity, this.HitBox.Width, this.HitBox.Height);
@@ -33,7 +34,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.Platforms
                     //since this falls through platforms, only update keen Y pos when keen hits floor tiles
                     Rectangle areaToCheck = new Rectangle(_keen.HitBox.X, _keen.HitBox.Y, _keen.HitBox.Width, _keen.HitBox.Height + _currentVerticalVelocity);
                     var collisions = _keen.CheckCollision(areaToCheck, true);
-                    if (!collisions.Any() && (_keen.MoveState == MoveState.STANDING || _keen.MoveState == MoveState.RUNNING))
+                    if (!collisions.Any() && (_keen.MoveState == MoveState.STANDING || _keen.MoveState == MoveState.RUNNING)
+                        && keenStandingOnThisInCurrentFrame)
                         UpdateKeenVerticalPosition();
                     else if (collisions.Any() && !_bottomedOut)
                     {
