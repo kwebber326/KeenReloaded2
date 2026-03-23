@@ -228,14 +228,16 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             var collisions = this.CheckCollision(areaToCheck);
             var barriers = collisions.Where(c => c.CollisionType == CollisionType.BLOCK).ToList();
 
+            var ceilingTile = this.GetCeilingTile(barriers);
+
             var leftTile = this.GetRightMostLeftTile(barriers);
-            if (leftTile != null && leftTile.HitBox.Top < this.HitBox.Bottom && leftTile.HitBox.Bottom > this.HitBox.Top)
+            if (leftTile != null && leftTile != ceilingTile && leftTile.HitBox.Top < this.HitBox.Bottom && leftTile.HitBox.Bottom > this.HitBox.Top)
             {
                 xPos = leftTile.HitBox.Right + 1;
             }
 
             var rightTile = this.GetLeftMostRightTile(barriers);
-            if (rightTile != null && rightTile.HitBox.Top < this.HitBox.Bottom && rightTile.HitBox.Bottom > this.HitBox.Top)
+            if (rightTile != null && rightTile != ceilingTile && rightTile.HitBox.Top < this.HitBox.Bottom && rightTile.HitBox.Bottom > this.HitBox.Top)
             {
                 width += this.HitBox.Left - xPos - 1;
                 if (width < 1)
