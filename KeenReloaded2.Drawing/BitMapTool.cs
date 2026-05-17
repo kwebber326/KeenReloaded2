@@ -1,7 +1,10 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -99,6 +102,7 @@ namespace KeenReloaded.Framework.Utilities
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex);
                 if (finalImage != null)
                     finalImage.Dispose();
                 throw;
@@ -109,6 +113,92 @@ namespace KeenReloaded.Framework.Utilities
                 foreach (Bitmap image in images)
                 {
                     image.Dispose();
+                }
+            }
+        }
+
+        public static List<Bitmap> SplitBitmap(string file, int width, int height)
+        {
+            List<Bitmap> result = new List<Bitmap>();
+            try
+            {
+                var sourceImage = new Bitmap(file);
+                int sourceImageWidth = sourceImage.Width;
+                int sourceImageHeight = sourceImage.Height;
+                int x = 0, y = 0;
+
+                while (y < sourceImageHeight)
+                {
+                    while (x < sourceImageWidth)
+                    {
+                        Bitmap bmp = new Bitmap(width, height);
+                        using (Graphics graphics = Graphics.FromImage(bmp))
+                        {
+
+                            graphics.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceOver;
+
+                            graphics.DrawImage(sourceImage,
+                                new Rectangle(0, 0, width, height),
+                                new Rectangle(x, y, width, height),
+                                GraphicsUnit.Pixel);
+
+                            result.Add(bmp);
+                        }
+                        x += width;
+                    }
+                    x = 0;
+                    y += height;
+                }
+
+                return result;
+            }
+            catch
+            {
+                foreach (var img in result)
+                {
+                    img.Dispose();
+                }
+                return null;
+            }
+        }
+
+        public static bool WriteImagesToDirectory(List<Bitmap> images, string directory)
+        {
+            try
+            {
+                if (images == null)
+                    return false;
+
+                if (!Directory.Exists(directory))
+                    Directory.CreateDirectory(directory);
+                else
+                {
+                    var files = Directory.GetFiles(directory);
+                    foreach (var file in files)
+                    {
+                        File.Delete(file);
+                    }
+                }
+
+                int imgNum = 0;
+                foreach (var img in images)
+                {
+                    string file = Path.Combine(directory, $"img_{imgNum++}.bmp");
+                    img.Save(file, ImageFormat.Bmp);
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return false;
+            }
+            finally
+            {
+                foreach (var img in images)
+                {
+                    img.Dispose();
                 }
             }
         }

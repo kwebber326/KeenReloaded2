@@ -5,5 +5,4 @@ Kenny W|177900
 Kenny|151700
 K dub|148600
 Kenny|138900
-K dog|131600
-
+Kenny 2 dub|138900
