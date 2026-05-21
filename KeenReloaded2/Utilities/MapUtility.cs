@@ -306,6 +306,8 @@ namespace KeenReloaded2.Utilities
                     return MapMakerConstants.KING_OF_THE_HILL_FOLDER;
                 case MainMenuConstants.OPTION_LABEL_CTF_MODE:
                     return MapMakerConstants.CAPTURE_THE_FLAG_MAPS_FOLDER;
+                case MainMenuConstants.OPTION_LABEL_WORLD_MODE:
+                    return MapMakerConstants.WORLD_MAPS_FOLDER;
             }
             return string.Empty;
         }

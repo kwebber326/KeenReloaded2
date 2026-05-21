@@ -4850,7 +4850,87 @@ namespace KeenReloaded2.Entities.ReferenceData
             AddSimpleGameObject(backgroundReferenceData, miscallaneousImageFiles, transporterKey, typeof(EnemyTransporter), additionalNodeProperties, 15);
             #endregion
 
+            string workingDirectory = Path.Combine(Environment.CurrentDirectory, FileIOUtility.WORLD_MAPS_DIRECTORY);
+            AddWorldMapObjectReferenceData(backgroundReferenceData, workingDirectory);
+
             return backgroundReferenceData;
+        }
+
+        private static void AddWorldMapObjectReferenceData(Dictionary<string, MapMakerObject> referenceData, string currentDirectory)
+        {
+            string[] files = Directory.GetFiles(currentDirectory);
+            string[] directories = Directory.GetDirectories(currentDirectory);
+
+            //base case
+            if (files.Length == 0 && directories.Length == 0)
+                return;
+
+            //make reference data of different types based on category
+            if (currentDirectory.Contains("Backgrounds"))
+            {
+                foreach (var file in files)
+                {
+                    Image img = Image.FromFile(file);
+                    Rectangle area = new Rectangle(0, 0, img.Width, img.Height);
+                    string imgName = FileIOUtility.ExtractFileNameFromPath(file);
+                    img.Tag = imgName;
+                    MapMakerObject obj = new MapMakerObject(
+                     typeof(Background), file, false, new MapMakerObjectProperty[] {
+                         new MapMakerObjectProperty()
+                         {
+                             DisplayName = "Area:",
+                             PropertyName  = GeneralGameConstants.AREA_PROPERTY_NAME,
+                             DataType = typeof(Rectangle),
+                             Value = area
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "sprite",
+                             DataType = typeof(Image),
+                             Value = img,
+                             Hidden = true
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             DisplayName = "Stretch Image:",
+                             DataType = typeof(bool),
+                             Value = false,
+                             PropertyName = "stretchImage"
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             DisplayName = "ZIndex:",
+                             DataType = typeof(int),
+                             Value = 0,
+                             PropertyName = "zIndex"
+                         },
+                    });
+
+                    referenceData.Add(imgName, obj);
+                }
+            }
+            else if (currentDirectory.Contains("Interactive Tiles"))
+            {
+
+            }
+            else if (currentDirectory.Contains("Levels"))
+            {
+
+            }
+            else if (currentDirectory.Contains("Tiles"))
+            {
+
+            }
+
+            //recursively go through directories to find objects
+            if (directories.Length > 0)
+            {
+                foreach (var directory in directories)
+                {
+                    currentDirectory = Path.Combine(currentDirectory, directory);
+                    AddWorldMapObjectReferenceData(referenceData, currentDirectory);
+                }
+            }
         }
 
         #region reference data

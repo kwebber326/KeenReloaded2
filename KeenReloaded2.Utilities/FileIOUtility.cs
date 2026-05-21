@@ -16,6 +16,7 @@ namespace KeenReloaded2.Utilities
         public const string PARTIAL_ALGO_SETTINGS_FILE_NAME = "PartialAlgoSettings.txt";
         public const string HIGH_SCORE_FOLDER = "HighScores";
         public const string MUSIC_FOLDER = "Music";
+        public const string WORLD_MAPS_DIRECTORY = "MapMakerObjects\\WorldMapObjects";
 
         public static string LoadSavedCharacterSelection()
         {

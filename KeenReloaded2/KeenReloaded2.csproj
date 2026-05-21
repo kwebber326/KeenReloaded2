@@ -369,6 +369,12 @@
     <Compile Include="Utilities\MapUtility.cs" />
     <Compile Include="Utilities\StatUtility.cs" />
     <Compile Include="Utilities\UserControlSprites.cs" />
+    <Compile Include="WorldMapEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorldMapEditor.Designer.cs">
+      <DependentUpon>WorldMapEditor.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdvancedToolsForm.resx">
       <DependentUpon>AdvancedToolsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -496,6 +502,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MusicAndSound\SoundPlayer.resx">
       <DependentUpon>SoundPlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorldMapEditor.resx">
+      <DependentUpon>WorldMapEditor.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

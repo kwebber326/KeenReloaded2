@@ -19,6 +19,8 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
         private readonly int _zIndex;
         protected Image _image;
 
+        public Background() { }
+
         public Background(Rectangle area, string imageName, bool stretchImage, int zIndex)
         {
             _area = area;
@@ -102,7 +104,10 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
         public override string ToString()
         {
             string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
-            string imageName = FileIOUtility.ExtractFileNameFromPath(_imagePath);
+
+            string imageName = !string.IsNullOrWhiteSpace(_imagePath)
+                ? FileIOUtility.ExtractFileNameFromPath(_imagePath)
+                : _image.Tag?.ToString();
             return $"{imageName}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{_imagePath}{separator}{_stretchImage}{separator}{ZIndex}";
         }
     }

@@ -29,8 +29,22 @@ namespace KeenReloaded2
             new MainMenuOption(MainMenuConstants.OPTION_LABEL_ZOMBIE_MODE, () => OpenMapPlayerInGameMode(MainMenuConstants.OPTION_LABEL_ZOMBIE_MODE)),
             new MainMenuOption(MainMenuConstants.OPTION_LABEL_KOTH_MODE, () => OpenMapPlayerInGameMode(MainMenuConstants.OPTION_LABEL_KOTH_MODE)),
             new MainMenuOption(MainMenuConstants.OPTION_LABEL_CTF_MODE, () => OpenMapPlayerInGameMode(MainMenuConstants.OPTION_LABEL_CTF_MODE)),
-            new MainMenuOption(MainMenuConstants.OPTION_LABEL_MAP_MAKER_MODE, () => OpenMapMaker())
+            new MainMenuOption(MainMenuConstants.OPTION_LABEL_MAP_MAKER_MODE, () => OpenMapMaker()),
+            new MainMenuOption(MainMenuConstants.OPTION_LABEL_WORLD_MODE, () => OpenWorldMode()),
+            new MainMenuOption(MainMenuConstants.OPTION_LABEL_WORLD_MAP_EDITOR, () => OpenWorldMapEditor())
         };
+
+        private static void OpenWorldMapEditor()
+        {
+            WorldMapEditor worldMapEditor = new WorldMapEditor();
+            worldMapEditor.ShowDialog();
+        }
+
+        private static void OpenWorldMode()
+        {
+           
+        }
+
         public MainMenu()
         {
             InitializeComponent();

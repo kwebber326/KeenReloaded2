@@ -13,6 +13,9 @@ namespace KeenReloaded2.Constants
         public const string OPTION_LABEL_CTF_MODE = "Capture the Flag";
         public const string OPTION_LABEL_KOTH_MODE = "King of the Hill";
         public const string OPTION_LABEL_MAP_MAKER_MODE = "Map Maker";
+        public const string OPTION_LABEL_WORLD_MAP_EDITOR = "World Map Editor";
+        public const string OPTION_LABEL_WORLD_MODE = "World Mode";
+
         public static class Characters
         {
             public const string BILLY_BLAZE = "Billy Blaze";
