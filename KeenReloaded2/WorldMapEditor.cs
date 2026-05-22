@@ -3,15 +3,18 @@ using KeenReloaded2.ControlEventArgs;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Entities.DataStructures;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.GameEntities;
 using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Tiles;
+using KeenReloaded2.Framework.GameEntities.WorldMapEntities;
 using KeenReloaded2.UserControls.MapMakerUserControls;
 using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -43,11 +46,28 @@ namespace KeenReloaded2
             if (value1 < value2) return -1;
             return 0;
         };
+        private string _lastFilePath;
 
         public WorldMapEditor()
         {
             InitializeComponent();
             _mapMakerObjects = new OrderedList<GameObjectMapping>(_comparatorFunction);
+        }
+
+        public Point PlayerPosition
+        {
+            get
+            {
+                int x = int.TryParse(txtPlayerX.Text, out int xVal) ? xVal : 0;
+                int y = int.TryParse(txtPlayerY.Text, out int yVal) ? yVal : 0;
+
+                return new Point(x, y);
+            }
+            private set
+            {
+                txtPlayerX.Text = value.X.ToString();
+                txtPlayerY.Text = value.Y.ToString();
+            }
         }
 
         private void WorldMapEditor_Load(object sender, EventArgs e)
@@ -70,6 +90,10 @@ namespace KeenReloaded2
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true; // cancel the key press
+            }
+            else
+            {
+                _mapHasUnsavedChanges = true;
             }
         }
 
@@ -252,7 +276,7 @@ namespace KeenReloaded2
                     property.Value = Guid.NewGuid();
                 }
             }
-           
+
             ISprite placeableObject = (ISprite)obj.Construct();
             GameObjectMapping mapping = new GameObjectMapping()
             {
@@ -304,7 +328,8 @@ namespace KeenReloaded2
 
                 _objectDirectory = Path.Combine(WORKING_DIRECTORY, folder);
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show("Error loading objects: " + ex.Message);
             }
         }
@@ -489,7 +514,7 @@ namespace KeenReloaded2
 
         private void pnlCanvas_MouseLeave(object sender, EventArgs e)
         {
-            _mouseInCanvas = false;   
+            _mouseInCanvas = false;
         }
 
         private void WorldMapEditor_KeyUp(object sender, KeyEventArgs e)
@@ -534,6 +559,37 @@ namespace KeenReloaded2
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtMapName.Text))
+            {
+                MessageBox.Show("Enter a map name");
+                return;
+            }
+
+            Rectangle playerHitBox = new Rectangle(PlayerPosition.X, PlayerPosition.Y,
+                16, 16);
+
+            if (_mapMakerObjects.Count(m => m.GameObject is WorldMapEditor) > 1)
+            {
+                MessageBox.Show("Cannot have duplicate players on the board. Delete extra world map players before saving,");
+                return;
+            }
+            else
+            {
+                WorldMapPlayer player = new WorldMapPlayer(playerHitBox, null, 20);
+
+                if (!_mapMakerObjects.Select(g => g.GameObject).OfType<WorldMapPlayer>().Any())
+                {
+                    GameObjectMapping playerMapping = new GameObjectMapping();
+                    playerMapping.GameObject = player;
+                    _mapMakerObjects.Add(playerMapping);
+                }
+                else
+                {
+                    var playerMapping = _mapMakerObjects.First(g => g.GameObject is WorldMapPlayer);
+                    playerMapping.GameObject = player;
+                }
+            }
+
             var rectangles = _mapMakerObjects.Select(s => new Rectangle(s.Location, s.Size)).ToList();
             var minX = rectangles.Select(l => l.Left).Min();
             var maxX = rectangles.Select(l => l.Right).Max();
@@ -561,14 +617,150 @@ namespace KeenReloaded2
             }
         }
 
+        private void UpdatePlayerPositionOnCanvas()
+        {
+            int x = PlayerPosition.X; int y = PlayerPosition.Y;
+            int canvasX = x + pnlCanvas.Location.X;
+            int canvasY = y + pnlCanvas.Location.Y;
+            var player = _mapMakerObjects.Select(g => g.GameObject).OfType<WorldMapPlayer>().FirstOrDefault();
+            if (player != null)
+            {
+                var objectMapping = this.TryGetWorldMapPlayerObjectMapping(out GameObjectMapping mapping)
+                   ? mapping : null;
+
+                if (objectMapping != null)
+                    objectMapping.Location = new Point(x, y);
+            }
+            else
+            {
+                var objectMapping = new GameObjectMapping()
+                {
+                    GameObject = new WorldMapPlayer(new Rectangle(x, y, 16, 16), null, 20),
+                    Location = new Point(x, y)
+                };
+                _mapMakerObjects.InsertAscending(objectMapping);
+                pnlCanvas.Controls.Add(objectMapping);
+                RefreshZIndexPositioningForCollidingObjects(objectMapping);
+            }
+        }
+
         private void txtPlayerX_TextChanged(object sender, EventArgs e)
         {
-            
+            UpdatePlayerPositionOnCanvas();
         }
 
         private void txtPlayerY_TextChanged(object sender, EventArgs e)
         {
+            UpdatePlayerPositionOnCanvas();
+        }
 
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            if (_mapHasUnsavedChanges
+              && MessageBox.Show("This map has unsaved changes, and this action will override those changes. Continue?", "Unsaved Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            {
+                return;
+            }
+
+            dialogMapLoader.InitialDirectory = MapUtility.GetSavedMapsPath(MainMenuConstants.OPTION_LABEL_WORLD_MODE);
+            dialogMapLoader.Filter = "*.txt|";
+            dialogMapLoader.ShowDialog();
+        }
+
+        private void dialogMapLoader_FileOk(object sender, CancelEventArgs e)
+        {
+            try
+            {
+                //load the map data
+                string path = dialogMapLoader.FileName ??
+                    Path.Combine(MapUtility.GetSavedMapsPath(MainMenuConstants.OPTION_LABEL_WORLD_MODE), txtMapName.Text);
+                _lastFilePath = path;
+                var mapMakerData = MapUtility.LoadMapData(path);
+                _mapMakerObjects = OrderedList<GameObjectMapping>.FromEnumerable(mapMakerData.MapData, _comparatorFunction, true);
+                mapMakerObjectPropertyListControl1.SetObjectBank(_mapMakerObjects);
+
+                var playerPosition = _mapMakerObjects.Select(g => g.GameObject).OfType<WorldMapPlayer>().FirstOrDefault()?.Location;
+
+                if (playerPosition != null)
+                {
+                    this.PlayerPosition = playerPosition.Value;
+                }
+
+                //clear events for existing items
+                var existingItems = pnlCanvas.Controls.OfType<GameObjectMapping>();
+                if (existingItems.Any())
+                {
+                    foreach (var item in existingItems)
+                    {
+                        //item.Click -= GameObjectMapping_Click;
+                        UnRegisterEventsForGameObjectMapping(item);
+                    }
+                }
+                //clear out the canvas
+                pnlCanvas.Controls.Clear();
+
+                //register new data on grid and load to canvas
+                foreach (var mapObject in _mapMakerObjects)
+                {
+                    RegisterEventsForGameObjectMapping(mapObject);
+                    pnlCanvas.Controls.Add(mapObject);
+                }
+
+                //set the map name text box value to the name of the newly loaded map
+                txtMapName.Text = mapMakerData.MapName;
+
+                //refresh map state
+                ClearSelectedMapItem();
+                RefreshZIndexPositioning();
+
+                pnlCanvas.Focus();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                MessageBox.Show($"Map did not load successfully: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                ClearMapMakerSelection();
+            }
+        }
+
+        private void RefreshZIndexPositioning()
+        {
+            var orderedByZindexObjects = _mapMakerObjects.OrderBy(o => o.GameObject.ZIndex);
+            foreach (var obj in orderedByZindexObjects)
+            {
+                obj.BringToFront();
+            }
+        }
+
+        private bool TryGetWorldMapPlayerObjectMapping(out GameObjectMapping player)
+        {
+            player = null;
+            foreach (var control in pnlCanvas.Controls)
+            {
+                if (control is GameObjectMapping)
+                {
+                    var mapping = (GameObjectMapping)control;
+                    if (mapping.GameObject is WorldMapPlayer)
+                    {
+                        player = mapping;
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        private void WorldMapEditor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_mapHasUnsavedChanges
+          && MessageBox.Show("This map has unsaved changes. Closing the map maker will cause you to lose these changes. Continue?", "Unsaved Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

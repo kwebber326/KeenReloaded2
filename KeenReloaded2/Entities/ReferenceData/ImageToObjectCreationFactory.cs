@@ -17,6 +17,7 @@ using KeenReloaded2.Framework.GameEntities.Tiles.Floors;
 using KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles;
 using KeenReloaded2.Framework.GameEntities.Tiles.Platforms;
 using KeenReloaded2.Framework.GameEntities.Tiles.Walls;
+using KeenReloaded2.Framework.GameEntities.WorldMapEntities;
 using KeenReloaded2.Framework.ReferenceDataClasses;
 using KeenReloaded2.Utilities;
 using System;
@@ -4852,6 +4853,7 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             string workingDirectory = Path.Combine(Environment.CurrentDirectory, FileIOUtility.WORLD_MAPS_DIRECTORY);
             AddWorldMapObjectReferenceData(backgroundReferenceData, workingDirectory);
+            AddWorldMapPlayer(backgroundReferenceData);
 
             return backgroundReferenceData;
         }
@@ -4873,7 +4875,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                     Image img = Image.FromFile(file);
                     Rectangle area = new Rectangle(0, 0, img.Width, img.Height);
                     string imgName = FileIOUtility.ExtractFileNameFromPath(file);
-                    img.Tag = imgName;
+                    img.Tag = file;
                     MapMakerObject obj = new MapMakerObject(
                      typeof(Background), file, false, new MapMakerObjectProperty[] {
                          new MapMakerObjectProperty()
@@ -4931,6 +4933,40 @@ namespace KeenReloaded2.Entities.ReferenceData
                     AddWorldMapObjectReferenceData(referenceData, currentDirectory);
                 }
             }
+        }
+
+        private static void AddWorldMapPlayer(Dictionary<string, MapMakerObject> referenceData)
+        {
+            string imagePath = Path.Combine(Environment.CurrentDirectory, FileIOUtility.WORLD_MAPS_DIRECTORY, FileIOUtility.WORLD_MAP_PLAYER_FOLDER, nameof(Properties.Resources.keen_stop_up) + ".png");
+            string imageName = nameof(Properties.Resources.keen_stop_up);
+            
+            MapMakerObject mapMakerObject = new MapMakerObject(typeof(WorldMapPlayer),
+                imagePath, false, new MapMakerObjectProperty[]
+                {
+                     new MapMakerObjectProperty() 
+                     {
+                         PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
+                         DataType = typeof(Rectangle),
+                         Value = new Rectangle( 0, 0, 16, 16),
+                         DisplayName = "Area:"
+                     },
+                     new MapMakerObjectProperty()
+                     {
+                         PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                         DataType = typeof(SpaceHashGrid),
+                         Value = null,
+                         Hidden = true
+                     },
+                     new MapMakerObjectProperty()
+                     {
+                         PropertyName = GeneralGameConstants.Z_INDEX_PROPERTY_NAME,
+                         DisplayName = "Z Index:",
+                         DataType = typeof(int),
+                         Value = 20
+                     }
+                });
+
+            referenceData.Add(imageName, mapMakerObject);
         }
 
         #region reference data

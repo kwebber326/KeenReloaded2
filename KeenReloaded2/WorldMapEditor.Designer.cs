@@ -47,6 +47,7 @@
             this.btnNew = new System.Windows.Forms.Button();
             this.pnlCanvas = new System.Windows.Forms.Panel();
             this.chkSmartPlacer = new System.Windows.Forms.CheckBox();
+            this.dialogMapLoader = new System.Windows.Forms.OpenFileDialog();
             this.mapMakerObjectPropertyListControl1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapMakerObjectPropertyListControl();
             this.mapObjectContainer1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapObjectContainer();
             this.pnlSelectionData.SuspendLayout();
@@ -206,6 +207,7 @@
             this.btnLoad.TabIndex = 1;
             this.btnLoad.Text = "Load World Map";
             this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // btnNew
             // 
@@ -238,6 +240,11 @@
             this.chkSmartPlacer.TabIndex = 7;
             this.chkSmartPlacer.Text = "Use SmartPlacer";
             this.chkSmartPlacer.UseVisualStyleBackColor = true;
+            // 
+            // dialogMapLoader
+            // 
+            this.dialogMapLoader.FileName = "openFileDialog1";
+            this.dialogMapLoader.FileOk += new System.ComponentModel.CancelEventHandler(this.dialogMapLoader_FileOk);
             // 
             // mapMakerObjectPropertyListControl1
             // 
@@ -274,6 +281,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WorldMapEditor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WorldMapEditor_FormClosing);
             this.Load += new System.EventHandler(this.WorldMapEditor_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.WorldMapEditor_KeyUp);
             this.pnlSelectionData.ResumeLayout(false);
@@ -307,5 +315,6 @@
         private System.Windows.Forms.Label label4;
         private UserControls.MapMakerUserControls.MapMakerObjectPropertyListControl mapMakerObjectPropertyListControl1;
         private System.Windows.Forms.CheckBox chkSmartPlacer;
+        private System.Windows.Forms.OpenFileDialog dialogMapLoader;
     }
 }

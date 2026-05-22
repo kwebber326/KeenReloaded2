@@ -1,3 +1,10 @@
-1016|182
-keen4_no_diving|202|150|32|32||False|0
-img_106|1000|32|16|16||False|0
+489|341
+keen4_no_diving|272|249|32|32|keen4_no_diving.bmp|False|0
+keen4_dirt_path2|422|145|16|32|keen4_dirt_path2.bmp|False|0
+img_173|230|183|16|16|img_173.bmp|False|0
+img_172|214|183|16|16|img_172.bmp|False|0
+img_473|457|309|16|16|img_473.bmp|False|0
+img_456|441|309|16|16|img_456.bmp|False|0
+img_456|473|309|16|16|img_456.bmp|False|0
+img_455|441|325|16|16|img_455.bmp|False|0
+keen_stop_up|230|23|16|16

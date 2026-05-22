@@ -311,6 +311,7 @@
     <Compile Include="GameEntities\Weapons\ShotgunNeuralStunner.cs" />
     <Compile Include="GameEntities\Weapons\SMGNeuralStunner.cs" />
     <Compile Include="GameEntities\Weapons\SnakeGun.cs" />
+    <Compile Include="GameEntities\WorldMapEntities\WorldMapPlayer.cs" />
     <Compile Include="GameEventArgs\FlagCapturedEventArgs.cs" />
     <Compile Include="GameEventArgs\ItemAcquiredEventArgs.cs" />
     <Compile Include="GameEventArgs\ObjectEventArgs.cs" />
@@ -6336,6 +6337,159 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen4_crockpot4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_bar_hang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_call1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_call2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_move_down_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_move_down_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_move_down_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_move_down_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_move_down1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_move_down2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_move_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_move_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_move_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_move_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_move_up_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_move_up_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_move_up_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_move_up_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_move_up1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_move_up2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_on_foot1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_on_foot2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_rope_climb1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_rope_climb2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_stop_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_stop_down_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_stop_down_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_stop_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_stop_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_stop_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_stop_up_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_stop_up_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_swim_down_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_swim_down_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_swim_down_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_swim_down_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_swim_down1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_swim_down2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_swim_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_swim_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_swim_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_swim_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_swim_up_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_swim_up_left2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_swim_up_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_swim_up_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_swim_up1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_swim_up2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_wave1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_wave2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_rope1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_rope2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -104,11 +104,12 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
         public override string ToString()
         {
             string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
-
+            string altFilePath = _image.Tag?.ToString();
+            string altPathExtension = altFilePath?.Substring(altFilePath.LastIndexOf('.')) ?? ".png";
             string imageName = !string.IsNullOrWhiteSpace(_imagePath)
                 ? FileIOUtility.ExtractFileNameFromPath(_imagePath)
-                : _image.Tag?.ToString();
-            return $"{imageName}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{_imagePath}{separator}{_stretchImage}{separator}{ZIndex}";
+                : FileIOUtility.ExtractFileNameFromPath(altFilePath);
+            return $"{imageName}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{_imagePath ?? (imageName + altPathExtension)}{separator}{_stretchImage}{separator}{ZIndex}";
         }
     }
 }
