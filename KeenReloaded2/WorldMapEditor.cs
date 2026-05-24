@@ -215,8 +215,8 @@ namespace KeenReloaded2
             mapMakerObjectPropertyListControl1.SetProperties(null);
             ClearSelectedMapItem();
             RemoveCursorItem();
-            //if (pnlMapCanvas.Controls.Contains(_smartPlacer))
-            //    RemoveSmartPlacerFromCanvas();
+            if (pnlCanvas.Controls.Contains(_smartPlacer))
+                RemoveSmartPlacerFromCanvas();
         }
 
         private void ClearSelectedMapItem()
@@ -714,6 +714,9 @@ namespace KeenReloaded2
                 RefreshZIndexPositioning();
 
                 pnlCanvas.Focus();
+
+                //reset dirty state
+                _mapHasUnsavedChanges = false;
             }
             catch (Exception ex)
             {

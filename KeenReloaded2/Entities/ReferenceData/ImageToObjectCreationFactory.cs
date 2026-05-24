@@ -4234,7 +4234,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                     PropertyName = "eventType",
                     DataType = typeof(ObjectiveEventType),
                     PossibleValues = Enum.GetNames(typeof(ObjectiveEventType))
-                    .Where( e => e == nameof(ObjectiveEventType.LEVEL_EXIT) 
+                    .Where( e => e == nameof(ObjectiveEventType.LEVEL_EXIT)
                               || e == nameof(ObjectiveEventType.DEACTIVATE))
                     .ToArray(),
                     DisplayName = "Event Type: ",
@@ -4254,7 +4254,7 @@ namespace KeenReloaded2.Entities.ReferenceData
 
             #region generator 2
             var powerGenerator2Key = nameof(Properties.Resources.keen5_omegamatic_second_machine1);
-          
+
             AddSimpleGameObject(backgroundReferenceData, keen5InteractiveTileFiles, powerGenerator2Key,
                 typeof(Keen5PowerOmegamaticGenerator2), powerGeneratorAddedProperties, 15);
             #endregion
@@ -4868,14 +4868,14 @@ namespace KeenReloaded2.Entities.ReferenceData
                 return;
 
             //make reference data of different types based on category
-            if (currentDirectory.Contains("Backgrounds"))
+            foreach (var file in files)
             {
-                foreach (var file in files)
+                Image img = Image.FromFile(file);
+                Rectangle area = new Rectangle(0, 0, img.Width, img.Height);
+                string imgName = FileIOUtility.ExtractFileNameFromPath(file);
+                img.Tag = file;
+                if (currentDirectory.Contains("Backgrounds"))
                 {
-                    Image img = Image.FromFile(file);
-                    Rectangle area = new Rectangle(0, 0, img.Width, img.Height);
-                    string imgName = FileIOUtility.ExtractFileNameFromPath(file);
-                    img.Tag = file;
                     MapMakerObject obj = new MapMakerObject(
                      typeof(Background), file, false, new MapMakerObjectProperty[] {
                          new MapMakerObjectProperty()
@@ -4910,18 +4910,51 @@ namespace KeenReloaded2.Entities.ReferenceData
 
                     referenceData.Add(imgName, obj);
                 }
-            }
-            else if (currentDirectory.Contains("Interactive Tiles"))
-            {
+                else if (currentDirectory.Contains("Interactive Tiles"))
+                {
+                   
+                }
+                else if (currentDirectory.Contains("Levels"))
+                {
 
-            }
-            else if (currentDirectory.Contains("Levels"))
-            {
+                }
+                else if (currentDirectory.Contains("Tiles"))
+                {
+                   MapMakerObject obj = new MapMakerObject(
+                   typeof(WorldMapCollisionTile), file, false, new MapMakerObjectProperty[] {
+                         new MapMakerObjectProperty()
+                         {
+                             DisplayName = "Area:",
+                             PropertyName  = GeneralGameConstants.AREA_PROPERTY_NAME,
+                             DataType = typeof(Rectangle),
+                             Value = area
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                             DataType = typeof(SpaceHashGrid),
+                             Value = null,
+                             IsIgnoredInMapData = true,
+                             Hidden = true
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             DisplayName = "ZIndex:",
+                             DataType = typeof(int),
+                             Value = 10,
+                             PropertyName = "zIndex"
+                         },
+                           new MapMakerObjectProperty()
+                         {
+                             PropertyName = "sprite",
+                             DataType = typeof(Image),
+                             Value = img,
+                             Hidden = true
+                         },
+                  });
 
-            }
-            else if (currentDirectory.Contains("Tiles"))
-            {
-
+                  referenceData.Add(imgName, obj);
+                }
             }
 
             //recursively go through directories to find objects
@@ -4939,11 +4972,11 @@ namespace KeenReloaded2.Entities.ReferenceData
         {
             string imagePath = Path.Combine(Environment.CurrentDirectory, FileIOUtility.WORLD_MAPS_DIRECTORY, FileIOUtility.WORLD_MAP_PLAYER_FOLDER, nameof(Properties.Resources.keen_stop_up) + ".png");
             string imageName = nameof(Properties.Resources.keen_stop_up);
-            
+
             MapMakerObject mapMakerObject = new MapMakerObject(typeof(WorldMapPlayer),
                 imagePath, false, new MapMakerObjectProperty[]
                 {
-                     new MapMakerObjectProperty() 
+                     new MapMakerObjectProperty()
                      {
                          PropertyName = GeneralGameConstants.AREA_PROPERTY_NAME,
                          DataType = typeof(Rectangle),
