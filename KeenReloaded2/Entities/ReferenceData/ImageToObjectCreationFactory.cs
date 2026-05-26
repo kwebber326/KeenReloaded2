@@ -4968,6 +4968,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                                      PropertyName = "imagesPath",
                                      DataType = typeof(string),
                                      Value = animationImagesPath,
+                                     IsIgnoredInMapData = true,
                                      Hidden = true
                                  },
                                  new MapMakerObjectProperty()

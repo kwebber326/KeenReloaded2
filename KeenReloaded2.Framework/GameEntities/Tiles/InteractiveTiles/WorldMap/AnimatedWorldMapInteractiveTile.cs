@@ -19,10 +19,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles.WorldMap
     {
         private readonly Animation _animation;
         private readonly int _animationStartIndex;
-        private readonly string _animationKey;
         private readonly int _animationDelay;
         private readonly Image[] _imageList;
-        private readonly string _workingDirectory;
 
         public AnimatedWorldMapInteractiveTile(Rectangle area, SpaceHashGrid grid, int zIndex, WorldMapInteractiveTileAction action, Image sprite, string imagesPath, int animationDelay, int animationStartIndex, string key)
             : base(area, grid, zIndex, action, sprite)
@@ -31,8 +29,6 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles.WorldMap
             {
                 _animationStartIndex = animationStartIndex;
                 _animationDelay = animationDelay;
-                _animationKey = key;
-                _workingDirectory = imagesPath;
                 _imageList = new Image[0];
                 if (AnimationDictionary.Animations.TryGetValue(key, out Image[] images))
                 {
@@ -42,7 +38,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles.WorldMap
                 else
                 {
                    
-                    var fullPath = Path.Combine(Environment.CurrentDirectory, _workingDirectory);
+                    var fullPath = Path.Combine(Environment.CurrentDirectory, imagesPath);
                     var imageFiles = Directory.GetFiles(fullPath);
                     _imageList = imageFiles.Select(f =>
                     {
@@ -85,7 +81,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles.WorldMap
         public override string ToString()
         {
             string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
-            return base.ToString() + $"{separator}{_workingDirectory}{separator}{_animationDelay}{separator}{_animationStartIndex}{separator}{_animationKey}";
+            return base.ToString() + $"{separator}{_animationDelay}{separator}{_animationStartIndex}";
         }
     }
 }
