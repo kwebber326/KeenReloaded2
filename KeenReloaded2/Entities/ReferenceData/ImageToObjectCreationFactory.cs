@@ -15,11 +15,13 @@ using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.Tiles;
 using KeenReloaded2.Framework.GameEntities.Tiles.Floors;
 using KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles;
+using KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles.WorldMap;
 using KeenReloaded2.Framework.GameEntities.Tiles.Platforms;
 using KeenReloaded2.Framework.GameEntities.Tiles.Walls;
 using KeenReloaded2.Framework.GameEntities.WorldMapEntities;
 using KeenReloaded2.Framework.ReferenceDataClasses;
 using KeenReloaded2.Utilities;
+using SharpDX.Direct3D11;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -4910,9 +4912,135 @@ namespace KeenReloaded2.Entities.ReferenceData
 
                     referenceData.Add(imgName, obj);
                 }
-                else if (currentDirectory.Contains("Interactive Tiles"))
+                else if (currentDirectory.EndsWith("Interactive Tiles"))
                 {
-                   
+                    int startIndex = imgName.LastIndexOf("_") + 1;
+                    string actionStr = imgName.Substring(startIndex);
+                    WorldMapInteractiveTileAction action = (WorldMapInteractiveTileAction)
+                        Enum.Parse(typeof(WorldMapInteractiveTileAction), actionStr);
+                    if (imgName.Contains(MapMakerConstants.WORLD_MAP_ANIMATED_TILE_INIDICATOR))
+                    {
+                        string folder = imgName.Substring(0, imgName.LastIndexOf(MapMakerConstants.WORLD_MAP_ANIMATED_TILE_INIDICATOR));
+                        string animationImagesPath = Path.Combine(currentDirectory, folder);
+                        animationImagesPath = animationImagesPath.Replace(Environment.CurrentDirectory + "\\", "");
+
+                        MapMakerObject mapMakerObject = new MapMakerObject(typeof(AnimatedWorldMapInteractiveTile),
+                            file, false, new MapMakerObjectProperty[]
+                            {
+                                 new MapMakerObjectProperty()
+                                 {
+                                     DisplayName = "Area:",
+                                     PropertyName  = GeneralGameConstants.AREA_PROPERTY_NAME,
+                                     DataType = typeof(Rectangle),
+                                     Value = area
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                                     DataType = typeof(SpaceHashGrid),
+                                     Value = null,
+                                     IsIgnoredInMapData = true,
+                                     Hidden = true
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     DisplayName = "ZIndex:",
+                                     DataType = typeof(int),
+                                     Value = 0,
+                                     PropertyName = "zIndex"
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "action",
+                                     DataType = typeof(WorldMapInteractiveTileAction),
+                                     Value = action,
+                                     Hidden = true
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "sprite",
+                                     DataType = typeof(Image),
+                                     Value = img,
+                                     Hidden = true
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "imagesPath",
+                                     DataType = typeof(string),
+                                     Value = animationImagesPath,
+                                     Hidden = true
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "animationDelay",
+                                     DisplayName = "Animation Delay:",
+                                     DataType = typeof(int),
+                                     Value = 200,
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "animationStartIndex",
+                                     DisplayName = "Animation Start Index:",
+                                     DataType = typeof(int),
+                                     Value = 0,
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "key",
+                                     DataType = typeof(string),
+                                     Value = folder,
+                                     Hidden = true
+                                 }
+                        });
+
+                        referenceData.Add(imgName, mapMakerObject);
+                    }
+                    else
+                    {
+                        MapMakerObject mapMakerObject = new MapMakerObject(
+                            typeof(WorldMapInteractiveTile), file, false,
+                            new MapMakerObjectProperty[]
+                            {
+                                 new MapMakerObjectProperty()
+                                 {
+                                     DisplayName = "Area:",
+                                     PropertyName  = GeneralGameConstants.AREA_PROPERTY_NAME,
+                                     DataType = typeof(Rectangle),
+                                     Value = area
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                                     DataType = typeof(SpaceHashGrid),
+                                     Value = null,
+                                     IsIgnoredInMapData = true,
+                                     Hidden = true
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     DisplayName = "ZIndex:",
+                                     DataType = typeof(int),
+                                     Value = 0,
+                                     PropertyName = "zIndex"
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "action",
+                                     DataType = typeof(WorldMapInteractiveTileAction),
+                                     Value = action,
+                                     Hidden = true
+                                 },
+                                 new MapMakerObjectProperty()
+                                 {
+                                     PropertyName = "sprite",
+                                     DataType = typeof(Image),
+                                     Value = img,
+                                     Hidden = true
+                                 },
+                              
+                        });
+                        referenceData.Add(imgName, mapMakerObject);
+                    }
                 }
                 else if (currentDirectory.Contains("Levels"))
                 {
@@ -4920,8 +5048,8 @@ namespace KeenReloaded2.Entities.ReferenceData
                 }
                 else if (currentDirectory.Contains("Tiles"))
                 {
-                   MapMakerObject obj = new MapMakerObject(
-                   typeof(WorldMapCollisionTile), file, false, new MapMakerObjectProperty[] {
+                    MapMakerObject obj = new MapMakerObject(
+                    typeof(WorldMapCollisionTile), file, false, new MapMakerObjectProperty[] {
                          new MapMakerObjectProperty()
                          {
                              DisplayName = "Area:",
@@ -4951,9 +5079,9 @@ namespace KeenReloaded2.Entities.ReferenceData
                              Value = img,
                              Hidden = true
                          },
-                  });
+                   });
 
-                  referenceData.Add(imgName, obj);
+                    referenceData.Add(imgName, obj);
                 }
             }
 

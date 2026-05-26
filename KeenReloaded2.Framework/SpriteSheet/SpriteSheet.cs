@@ -3544,5 +3544,301 @@ namespace KeenReloaded2.Framework.SpriteSheet
             }
         }
         #endregion
+
+        #region World Map Sprites
+
+        #region Player Swimming
+        private static Image[] _playerSwimUpImages;
+
+        public static Image[] PlayerSwimUpImages
+        {
+            get
+            {
+                if (_playerSwimUpImages == null)
+                {
+                    _playerSwimUpImages = new Image[]
+                    {
+                        Properties.Resources.keen_swim_up1,
+                        Properties.Resources.keen_swim_up2
+                    };
+                }
+                return _playerSwimUpImages;
+            }
+        }
+
+        private static Image[] _playerSwimDownImages;
+
+        public static Image[] PlayerSwimDownImages
+        {
+            get
+            {
+                if (_playerSwimDownImages == null)
+                {
+                    _playerSwimDownImages = new Image[]
+                    {
+                        Properties.Resources.keen_swim_down1,
+                        Properties.Resources.keen_swim_down2
+                    };
+                }
+                return _playerSwimDownImages;
+            }
+        }
+
+        private static Image[] _playerSwimLeftImages;
+
+        public static Image[] PlayerSwimLeftImages
+        {
+            get
+            {
+                if (_playerSwimLeftImages == null)
+                {
+                    _playerSwimLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen_swim_left1,
+                        Properties.Resources.keen_swim_left2
+                    };
+                }
+                return _playerSwimLeftImages;
+            }
+        }
+
+        private static Image[] _playerSwimRightImages;
+
+        public static Image[] PlayerSwimRightImages
+        {
+            get
+            {
+                if (_playerSwimRightImages == null)
+                {
+                    _playerSwimRightImages = new Image[]
+                    {
+                        Properties.Resources.keen_swim_right1,
+                        Properties.Resources.keen_swim_right2
+                    };
+                }
+                return _playerSwimRightImages;
+            }
+        }
+
+        private static Image[] _playerSwimUpLeftImages;
+
+        public static Image[] PlayerSwimUpLeftImages
+        {
+            get
+            {
+                if (_playerSwimUpLeftImages == null)
+                {
+                    _playerSwimUpLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen_swim_up_left1,
+                        Properties.Resources.keen_swim_up_left2
+                    };
+                }
+                return _playerSwimUpLeftImages;
+            }
+        }
+
+        private static Image[] _playerSwimUpRightImages;
+
+        public static Image[] PlayerSwimUpRightImages
+        {
+            get
+            {
+                if (_playerSwimUpRightImages == null)
+                {
+                    _playerSwimUpRightImages = new Image[]
+                    {
+                        Properties.Resources.keen_swim_up_right1,
+                        Properties.Resources.keen_swim_up_right2
+                    };
+                }
+                return _playerSwimUpRightImages;
+            }
+        }
+
+        private static Image[] _playerSwimDownLeftImages;
+
+        public static Image[] PlayerSwimDownLeftImages
+        {
+            get
+            {
+                if (_playerSwimDownLeftImages == null)
+                {
+                    _playerSwimDownLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen_swim_down_left1,
+                        Properties.Resources.keen_swim_down_left2
+                    };
+                }
+                return _playerSwimDownLeftImages;
+            }
+        }
+
+        private static Image[] _playerSwimDownRightImages;
+
+        public static Image[] PlayerSwimDownRightImages
+        {
+            get
+            {
+                if (_playerSwimDownRightImages == null)
+                {
+                    _playerSwimDownRightImages = new Image[]
+                    {
+                        Properties.Resources.keen_swim_down_right1,
+                        Properties.Resources.keen_swim_down_right2
+                    };
+                }
+                return _playerSwimDownRightImages;
+            }
+        }
+        #endregion
+
+        #region Player Moving
+        private static Image[] _playerMoveUpImages;
+
+        public static Image[] PlayerMoveUpImages
+        {
+            get
+            {
+                if (_playerMoveUpImages == null)
+                {
+                    _playerMoveUpImages = new Image[]
+                    {
+                        Properties.Resources.keen_move_up1,
+                        Properties.Resources.keen_move_up2
+                    };
+                }
+                return _playerMoveUpImages;
+            }
+        }
+
+        private static Image[] _playerMoveDownImages;
+
+        public static Image[] PlayerMoveDownImages
+        {
+            get
+            {
+                if (_playerMoveDownImages == null)
+                {
+                    _playerMoveDownImages = new Image[]
+                    {
+                        Properties.Resources.keen_move_down1,
+                        Properties.Resources.keen_move_down2
+                    };
+                }
+                return _playerMoveDownImages;
+            }
+        }
+
+        private static Image[] _playerMoveLeftImages;
+
+        public static Image[] PlayerMoveLeftImages
+        {
+            get
+            {
+                if (_playerMoveLeftImages == null)
+                {
+                    _playerMoveLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen_move_left1,
+                        Properties.Resources.keen_move_left2
+                    };
+                }
+                return _playerMoveLeftImages;
+            }
+        }
+
+        private static Image[] _playerMoveRightImages;
+
+        public static Image[] PlayerMoveRightImages
+        {
+            get
+            {
+                if (_playerMoveRightImages == null)
+                {
+                    _playerMoveRightImages = new Image[]
+                    {
+                        Properties.Resources.keen_move_right1,
+                        Properties.Resources.keen_move_right2
+                    };
+                }
+                return _playerMoveRightImages;
+            }
+        }
+
+        private static Image[] _playerMoveUpLeftImages;
+
+        public static Image[] PlayerMoveUpLeftImages
+        {
+            get
+            {
+                if (_playerMoveUpLeftImages == null)
+                {
+                    _playerMoveUpLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen_move_up_left1,
+                        Properties.Resources.keen_move_up_left2
+                    };
+                }
+                return _playerMoveUpLeftImages;
+            }
+        }
+
+        private static Image[] _playerMoveUpRightImages;
+
+        public static Image[] PlayerMoveUpRightImages
+        {
+            get
+            {
+                if (_playerMoveUpRightImages == null)
+                {
+                    _playerMoveUpRightImages = new Image[]
+                    {
+                        Properties.Resources.keen_move_up_right1,
+                        Properties.Resources.keen_move_up_right2
+                    };
+                }
+                return _playerMoveUpRightImages;
+            }
+        }
+
+        private static Image[] _playerMoveDownLeftImages;
+
+        public static Image[] PlayerMoveDownLeftImages
+        {
+            get
+            {
+                if (_playerMoveDownLeftImages == null)
+                {
+                    _playerMoveDownLeftImages = new Image[]
+                    {
+                        Properties.Resources.keen_move_down_left1,
+                        Properties.Resources.keen_move_down_left2
+                    };
+                }
+                return _playerMoveDownLeftImages;
+            }
+        }
+
+        private static Image[] _playerMoveDownRightImages;
+
+        public static Image[] PlayerMoveDownRightImages
+        {
+            get
+            {
+                if (_playerMoveDownRightImages == null)
+                {
+                    _playerMoveDownRightImages = new Image[]
+                    {
+                        Properties.Resources.keen_move_down_right1,
+                        Properties.Resources.keen_move_down_right2
+                    };
+                }
+                return _playerMoveDownRightImages;
+            }
+        }
+        #endregion
+
+        #endregion
     }
 }

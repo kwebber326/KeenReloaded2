@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\TileDestroyedEventType.cs" />
+    <Compile Include="Enums\WorldMapInteractiveTileAction.cs" />
     <Compile Include="Extensions\DestructibleObjectExtensions.cs" />
     <Compile Include="GameEntities\AltCharacters\CouncilMember.cs" />
     <Compile Include="GameEntities\Backgrounds\MimicBlocks.cs" />
@@ -271,6 +272,8 @@
     <Compile Include="GameEntities\Tiles\InteractiveTiles\Keen5PowerOmegamaticGenerator2.cs" />
     <Compile Include="GameEntities\Tiles\InteractiveTiles\Keen5PowerOmegamaticGenerator3.cs" />
     <Compile Include="GameEntities\Tiles\InteractiveTiles\Keen5PowerOmegamaticGenerator4.cs" />
+    <Compile Include="GameEntities\Tiles\InteractiveTiles\WorldMap\AnimatedWorldMapInteractiveTile.cs" />
+    <Compile Include="GameEntities\Tiles\InteractiveTiles\WorldMap\WorldMapInteractiveTile.cs" />
     <Compile Include="GameEntities\Tiles\InvisibleTile.cs" />
     <Compile Include="GameEntities\Tiles\MapEdgeTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\ActivateableLeftEdgeTile.cs" />
@@ -330,6 +333,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ReferenceDataClasses\AnimationDictionary.cs" />
     <Compile Include="ReferenceDataClasses\Biomes.cs" />
     <Compile Include="ReferenceDataClasses\Enemies.cs" />
     <Compile Include="SpriteSheet\SpriteSheet.cs" />

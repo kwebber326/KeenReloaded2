@@ -1,0 +1,4 @@
+201|277
+still_water_SWIM|185|261|16|16|2|SWIM|still_water_SWIM.bmp
+ripple_water(animated)_SWIM|177|195|16|16|3|SWIM|ripple_water(animated)_SWIM.bmp|MapMakerObjects\WorldMapObjects\world_map_keen4\Interactive Tiles\ripple_water|200|2|ripple_water
+keen_stop_up|0|0|16|16
