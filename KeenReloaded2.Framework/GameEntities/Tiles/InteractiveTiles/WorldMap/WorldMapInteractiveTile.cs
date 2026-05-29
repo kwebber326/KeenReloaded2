@@ -46,19 +46,11 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles.WorldMap
 
         public override CollisionType CollisionType => CollisionType.NONE;
 
-        protected string GetImageFileName(string fullPath)
-        {
-            string altPathExtension = fullPath?.Substring(fullPath.LastIndexOf('.')) ?? ".png";
-            string imageName = FileIOUtility.ExtractFileNameFromPath(fullPath);
-            return imageName + altPathExtension;
-        }
-
         public override string ToString()
         {
             string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
             string imageName = FileIOUtility.ExtractFileNameFromPath(_tag);
-            string imageFileName = GetImageFileName(_tag);
-            return $"{imageName}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{ZIndex}{separator}{_action.ToString()}{separator}{(imageFileName)}";
+            return $"{imageName}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}{separator}{ZIndex}{separator}{_action.ToString()}";
         }
     }
 }

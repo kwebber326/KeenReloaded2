@@ -1,5 +1,6 @@
 ﻿using KeenReloaded2.Constants;
 using KeenReloaded2.ControlEventArgs;
+using KeenReloaded2.ControlEventArgs.EventStoreData;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Entities.DataStructures;
 using KeenReloaded2.Framework.Enums;
@@ -81,6 +82,8 @@ namespace KeenReloaded2
             mapMakerObjectPropertyListControl1.PlaceObjectClicked += MapMakerObjectPropertyListControl1_PlaceObjectClicked;
             txtPlayerX.KeyPress += NumericTextBox_KeyPress;
             txtPlayerY.KeyPress += NumericTextBox_KeyPress;
+
+            this.SubscribeToEventStoreEvents();
         }
 
         // Allow only digits + control keys (Backspace, etc.)
@@ -617,6 +620,26 @@ namespace KeenReloaded2
             }
         }
 
+        private void SubscribeToEventStoreEvents()
+        {
+            //Advanced Tools Events
+            EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_SELECTION_CHANGED, AdvancedTools_SelectionChanged);
+            EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_PREVIEW, AdvancedTools_ActionPreview);
+            EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_COMMIT, AdvancedTools_ActionCommit);
+            EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_UNDO, AdvancedTools_ActionCancel);
+            EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_CANCEL, AdvancedTools_ActionCancel);
+        }
+
+        private void UnsubscribeToEventStoreEvents()
+        {
+            //Advanced Tools Events
+            EventStore<AdvancedToolsEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_SELECTION_CHANGED, AdvancedTools_SelectionChanged);
+            EventStore<AdvancedToolsEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_PREVIEW, AdvancedTools_ActionPreview);
+            EventStore<AdvancedToolsEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_COMMIT, AdvancedTools_ActionCommit);
+            EventStore<AdvancedToolsEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_UNDO, AdvancedTools_ActionCancel);
+            EventStore<AdvancedToolsEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_CANCEL, AdvancedTools_ActionCancel);
+        }
+
         private void UpdatePlayerPositionOnCanvas()
         {
             int x = PlayerPosition.X; int y = PlayerPosition.Y;
@@ -644,6 +667,46 @@ namespace KeenReloaded2
             }
         }
 
+        private void SetHighlightStateForSelection(List<GameObjectMapping> selection, bool highlighted)
+        {
+            if (selection == null || !selection.Any())
+                return;
+
+            foreach (var selectedItem in selection)
+            {
+                if (highlighted)
+                {
+                    selectedItem.BorderStyle = BorderStyle.Fixed3D;
+                    selectedItem.BackColor = Color.Red;
+                }
+                else
+                {
+                    selectedItem.BorderStyle = BorderStyle.None;
+                    selectedItem.BackColor = Color.Transparent;
+                }
+            }
+        }
+
+        private void HighlightActivateables(List<IActivateable> activateables, Color color, bool addBorder = false)
+        {
+            foreach (var item in activateables)
+            {
+                var obj = _mapMakerObjects.FirstOrDefault(d => d.GameObject == item);
+                if (obj != null)
+                {
+                    obj.BackColor = color;
+                    if (addBorder)
+                    {
+                        obj.BorderStyle = BorderStyle.Fixed3D;
+                    }
+                    else
+                    {
+                        obj.BorderStyle = BorderStyle.None;
+                    }
+                }
+            }
+        }
+
         private void txtPlayerX_TextChanged(object sender, EventArgs e)
         {
             UpdatePlayerPositionOnCanvas();
@@ -665,6 +728,118 @@ namespace KeenReloaded2
             dialogMapLoader.InitialDirectory = MapUtility.GetSavedMapsPath(MainMenuConstants.OPTION_LABEL_WORLD_MODE);
             dialogMapLoader.Filter = "*.txt|";
             dialogMapLoader.ShowDialog();
+        }
+
+        private void AdvancedTools_ActionPreview(object sender, ControlEventArgs<AdvancedToolsEventArgs> e)
+        {
+            List<GameObjectMapping> changedData = e?.Data?.ChangeData?.ChangedData as List<GameObjectMapping>;
+            if (changedData == null || !changedData.Any())
+                return;
+            var action = e.Data.ChangeData.Action;
+
+            if (action == AdvancedToolsActions.EXTEND ||
+                action == AdvancedToolsActions.COPY ||
+                action == AdvancedToolsActions.MOVE)
+            {
+                foreach (var item in changedData)
+                {
+                    item.BackColor = Color.Red;
+                    item.BorderStyle = BorderStyle.Fixed3D;
+                    if (action != AdvancedToolsActions.MOVE)
+                    {
+                        _mapMakerObjects.InsertAscending(item);
+                        pnlCanvas.Controls.Add(item);
+                        item.BringToFront();
+                    }
+                    Rectangle offsetArea = new Rectangle(item.Location.X + pnlCanvas.AutoScrollPosition.X,
+                      item.Location.Y + pnlCanvas.AutoScrollPosition.Y,
+                      item.GameObject.Image.Width, item.GameObject.Image.Height);
+                    item.Location = offsetArea.Location;
+                }
+            }
+            else if (action == AdvancedToolsActions.DELETE)
+            {
+                foreach (var item in changedData)
+                {
+                    _mapMakerObjects.Remove(item);
+                    pnlCanvas.Controls.Remove(item);
+                    UnRegisterEventsForGameObjectMapping(item);
+                }
+            }
+        }
+
+        private void AdvancedTools_ActionCommit(object sender, ControlEventArgs<AdvancedToolsEventArgs> e)
+        {
+            List<GameObjectMapping> changedData = e?.Data?.ChangeData?.ChangedData as List<GameObjectMapping>;
+            if (changedData == null || !changedData.Any())
+                return;
+            var action = e.Data.ChangeData.Action;
+            if (action == AdvancedToolsActions.EXTEND ||
+                action == AdvancedToolsActions.COPY ||
+                action == AdvancedToolsActions.MOVE)
+            {
+                foreach (var item in changedData)
+                {
+                    item.BackColor = Color.Transparent;
+                    item.BorderStyle = BorderStyle.None;
+                    if (action != AdvancedToolsActions.MOVE)
+                    {
+                        RegisterEventsForGameObjectMapping(item);
+                    }
+                }
+                if (action != AdvancedToolsActions.MOVE)
+                {
+                    RefreshZIndexPositioning();
+                }
+            }
+            _mapHasUnsavedChanges = true;
+        }
+
+        private void AdvancedTools_ActionCancel(object sender, ControlEventArgs<AdvancedToolsEventArgs> e)
+        {
+            List<GameObjectMapping> changedData = e?.Data?.ChangeData?.ChangedData as List<GameObjectMapping>;
+            if (changedData == null || !changedData.Any())
+                return;
+            var action = e.Data.ChangeData.Action;
+
+            if (action == AdvancedToolsActions.EXTEND ||
+              action == AdvancedToolsActions.COPY)
+            {
+                foreach (var item in changedData)
+                {
+                    item.BackColor = Color.Transparent;
+                    item.BorderStyle = BorderStyle.None;
+                    _mapMakerObjects.Remove(item);
+                    pnlCanvas.Controls.Remove(item);
+                    UnRegisterEventsForGameObjectMapping(item);
+                }
+            }
+            else if (action == AdvancedToolsActions.DELETE)
+            {
+                foreach (var item in changedData)
+                {
+                    item.BackColor = Color.Transparent;
+                    item.BorderStyle = BorderStyle.None;
+                    _mapMakerObjects.InsertAscending(item);
+                    pnlCanvas.Controls.Add(item);
+                    RefreshZIndexPositioningForCollidingObjects(item);
+                    RegisterEventsForGameObjectMapping(item);
+                }
+            }
+        }
+
+        private void AdvancedTools_SelectionChanged(object sender, ControlEventArgs<AdvancedToolsEventArgs> e)
+        {
+            var changedData = e?.Data?.ChangeData?.ChangedData;
+            var objMetaData = e?.Data?.ChangeData?.ChangeMetaData;
+            if (changedData == null)
+                return;
+
+            if (changedData is List<GameObjectMapping> && bool.TryParse(objMetaData?.ToString(), out bool isSelected))
+            {
+                List<GameObjectMapping> changedObjects = (List<GameObjectMapping>)changedData;
+                SetHighlightStateForSelection(changedObjects, isSelected);
+            }
         }
 
         private void dialogMapLoader_FileOk(object sender, CancelEventArgs e)
@@ -764,6 +939,17 @@ namespace KeenReloaded2
             {
                 e.Cancel = true;
             }
+            else
+            {
+                this.UnsubscribeToEventStoreEvents();
+            }
+        }
+
+        private void btnAdvancedTools_Click(object sender, EventArgs e)
+        {
+            this.ClearMapMakerSelection();
+            AdvancedToolsForm advancedToolsForm = new AdvancedToolsForm(_mapMakerObjects);
+            var dialogResult = advancedToolsForm.ShowDialog();
         }
     }
 }

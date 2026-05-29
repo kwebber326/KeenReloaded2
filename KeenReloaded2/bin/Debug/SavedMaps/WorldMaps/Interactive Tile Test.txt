@@ -1,4 +1,4 @@
-313|277
-still_water_SWIM|185|261|16|16|2|SWIM|still_water_SWIM.bmp
-ripple_water(animated)_SWIM|297|207|16|16|2|SWIM|ripple_water(animated)_SWIM.bmp|200|4
+314|223
+still_water_SWIM|298|128|16|16|1|SWIM
+ripple_water(animated)_SWIM|297|207|16|16|2|SWIM|100|4
 keen_stop_up|0|0|16|16

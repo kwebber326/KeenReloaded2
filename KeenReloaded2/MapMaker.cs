@@ -575,7 +575,7 @@ namespace KeenReloaded2
             }
         }
 
-        private void AdvancedTools_SelectionChanged(object sender, ControlEventArgs<AdvancedToolsEventArgs> e)
+     private void AdvancedTools_SelectionChanged(object sender, ControlEventArgs<AdvancedToolsEventArgs> e)
         {
             var changedData = e?.Data?.ChangeData?.ChangedData;
             var objMetaData = e?.Data?.ChangeData?.ChangeMetaData;
@@ -595,7 +595,7 @@ namespace KeenReloaded2
             HighlightActivateables(e.Data.CurrentActiveablesUnSelected, Color.Transparent, true);
             HighlightActivateables(e.Data.OtherActivateablesSelected, Color.Blue);
             HighlightActivateables(e.Data.OtherActiveablesUnSelected, Color.Transparent);
-        }
+        }   
 
         private void ActivatorSelection_Complete(object sender, ControlEventArgs.ControlEventArgs<ActivatorSelectionCompletedEventArgs> e)
         {

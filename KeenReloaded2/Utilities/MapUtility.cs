@@ -168,10 +168,11 @@ namespace KeenReloaded2.Utilities
 
             areaProperty.Value = area;
 
+            int offSet = 5;
             for (int i = 5; i < properties.Length; i++)
             {
                 string rawValue = properties[i];
-                MapMakerObjectProperty associatedProperty = explicitNonStandardParameters[i - 5];//there should be only one area parameter
+                MapMakerObjectProperty associatedProperty = explicitNonStandardParameters[i - offSet];//there should be only one area parameter
                 if (associatedProperty.DataType == typeof(int))
                 {
                     int value = Convert.ToInt32(rawValue);
@@ -221,6 +222,7 @@ namespace KeenReloaded2.Utilities
                     int areaY = Convert.ToInt32(properties[i++]);
                     int areaWidth = Convert.ToInt32(properties[i++]);
                     int areaHeight = Convert.ToInt32(properties[i]);
+                    offSet += 3;
                     Rectangle areaPropVal = new Rectangle(areaX, areaY, areaWidth, areaHeight);
                     associatedProperty.Value = areaPropVal;
                 }

@@ -50,6 +50,7 @@
             this.dialogMapLoader = new System.Windows.Forms.OpenFileDialog();
             this.mapMakerObjectPropertyListControl1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapMakerObjectPropertyListControl();
             this.mapObjectContainer1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapObjectContainer();
+            this.btnAdvancedTools = new System.Windows.Forms.Button();
             this.pnlSelectionData.SuspendLayout();
             this.pnlActions.SuspendLayout();
             this.SuspendLayout();
@@ -171,6 +172,7 @@
             // 
             // pnlActions
             // 
+            this.pnlActions.Controls.Add(this.btnAdvancedTools);
             this.pnlActions.Controls.Add(this.btnTest);
             this.pnlActions.Controls.Add(this.btnSave);
             this.pnlActions.Controls.Add(this.btnLoad);
@@ -265,6 +267,16 @@
             this.mapObjectContainer1.Size = new System.Drawing.Size(411, 222);
             this.mapObjectContainer1.TabIndex = 5;
             // 
+            // btnAdvancedTools
+            // 
+            this.btnAdvancedTools.Location = new System.Drawing.Point(166, 3);
+            this.btnAdvancedTools.Name = "btnAdvancedTools";
+            this.btnAdvancedTools.Size = new System.Drawing.Size(96, 23);
+            this.btnAdvancedTools.TabIndex = 4;
+            this.btnAdvancedTools.Text = "Advanced Tools";
+            this.btnAdvancedTools.UseVisualStyleBackColor = true;
+            this.btnAdvancedTools.Click += new System.EventHandler(this.btnAdvancedTools_Click);
+            // 
             // WorldMapEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -316,5 +328,6 @@
         private UserControls.MapMakerUserControls.MapMakerObjectPropertyListControl mapMakerObjectPropertyListControl1;
         private System.Windows.Forms.CheckBox chkSmartPlacer;
         private System.Windows.Forms.OpenFileDialog dialogMapLoader;
+        private System.Windows.Forms.Button btnAdvancedTools;
     }
 }

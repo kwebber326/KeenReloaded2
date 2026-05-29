@@ -23,6 +23,8 @@ namespace KeenReloaded2.Constants
         public const string MAP_MAKER_ARRAY_END = "]";
         public const string MAP_MAKER_ELEMENT_SEPARATOR = ",";
         public const string WORLD_MAP_ANIMATED_TILE_INIDICATOR = "(animated)";
+        public const string WORLD_MAP_STATIC_LEVEL_INDICATOR = "c1";
+        public const string WORLD_MAP_ANIMATED_LEVEL_INDICATOR = "c2";
     public static class Categories
         {
             public const string OBJECT_CATEGORY_TILES = "Tiles";
