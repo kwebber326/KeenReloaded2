@@ -538,19 +538,7 @@ namespace KeenReloaded2
                         _mapHasUnsavedChanges = true;
                     }
                     break;
-                case Keys.Up:
-                case Keys.Down:
-                case Keys.Left:
-                case Keys.Right:
-                    if (_selectedGameObjectMapping != null)
-                    {
-                        _selectedGameObjectMapping.BorderStyle = BorderStyle.Fixed3D;
-                        mapMakerObjectPropertyListControl1.SetProperties(_selectedGameObjectMapping.MapMakerObject, true, true);
-                    }
-                    break;
                 case Keys.Space:
-                    if (!txtMapName.Focused)
-                        ClearFocus();
                     if (_cursorItem != null && UserWantsSmartPlacer())
                     {
                         _useSmartPlacer = true;

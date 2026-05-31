@@ -316,6 +316,8 @@
     <Compile Include="GameEntities\Weapons\SMGNeuralStunner.cs" />
     <Compile Include="GameEntities\Weapons\SnakeGun.cs" />
     <Compile Include="GameEntities\WorldMapEntities\AnimatedWorldMapLevel.cs" />
+    <Compile Include="GameEntities\WorldMapEntities\ForeGroundMultiHitboxWorldMapLevel.cs" />
+    <Compile Include="GameEntities\WorldMapEntities\MultiHitBoxWorldMapLevel.cs" />
     <Compile Include="GameEntities\WorldMapEntities\WorldMapLevel.cs" />
     <Compile Include="GameEntities\WorldMapEntities\WorldMapPlayer.cs" />
     <Compile Include="GameEventArgs\FlagCapturedEventArgs.cs" />

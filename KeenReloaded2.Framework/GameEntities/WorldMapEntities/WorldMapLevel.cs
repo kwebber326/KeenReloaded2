@@ -20,8 +20,10 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         protected readonly Rectangle _area;
         protected string _separator;
         protected string _objectKey;
+        protected readonly string _levelName;
+        protected readonly string _levelEntryText;
 
-        public WorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Rectangle hitbox, Image sprite) 
+        public WorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Rectangle hitbox, Image sprite, string levelName, string levelEntryText) 
             : base(grid, hitbox)
         {
             _zIndex = zIndex;
@@ -30,6 +32,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             _separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
             _objectKey = _sprite?.Tag?.ToString() ?? "unknown_level";
             _objectKey = FileIOUtility.ExtractFileNameFromPath(_objectKey);
+            _levelName = levelName;
+            _levelEntryText = levelEntryText;
         }
 
         public int ZIndex => _zIndex;
@@ -47,7 +51,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             return $"{_objectKey}{_separator}"+ 
                 $"{_area.X}{_separator}{_area.Y}{_separator}{_area.Width}{_separator}{_area.Height}"+
                 $"{_separator}{_zIndex}{_separator}{this.HitBox.X}{_separator}{this.HitBox.Y}" + 
-                $"{_separator}{this.HitBox.Width}{_separator}{this.HitBox.Height}";
+                $"{_separator}{this.HitBox.Width}{_separator}{this.HitBox.Height}{_separator}{_levelName}{_separator}{_levelEntryText}";
         }
     }
 }

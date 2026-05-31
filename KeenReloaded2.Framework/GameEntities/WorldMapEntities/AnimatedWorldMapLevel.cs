@@ -19,8 +19,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         private readonly int _animationStartIndex;
         private readonly int _animationDelay;
         private readonly Image[] _imageList;
-        public AnimatedWorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Rectangle hitbox, Image sprite, string imagesPath, int animationDelay, int animationStartIndex, string key) 
-            : base(area, grid, zIndex, hitbox, sprite)
+        public AnimatedWorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Rectangle hitbox, Image sprite, string levelName, string levelEntryText, string imagesPath, int animationDelay, int animationStartIndex, string key) 
+            : base(area, grid, zIndex, hitbox, sprite, levelName, levelEntryText)
         {
             try
             {

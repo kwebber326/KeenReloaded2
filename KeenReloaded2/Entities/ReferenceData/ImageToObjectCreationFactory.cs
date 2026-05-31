@@ -5090,6 +5090,20 @@ namespace KeenReloaded2.Entities.ReferenceData
                              Hidden = true,
                              IsIgnoredInMapData = true
                          },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "levelName",
+                             DisplayName = "Level:",
+                             DataType = typeof(string),
+                             Value = string.Empty
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "levelEntryText",
+                             DisplayName = "Entry Text:",
+                             DataType = typeof(string),
+                             Value = string.Empty
+                         },
                     };
 
                     if (t == typeof(AnimatedWorldMapLevel))
