@@ -1,4 +1,5 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Tiles;
 using System;
@@ -13,7 +14,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
     public class MultiHitBoxWorldMapLevel : WorldMapLevel
     {
         private readonly List<Rectangle> _hitBoxes;
-        public MultiHitBoxWorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, List<Rectangle> hitboxes, Image sprite, string levelName, string levelEntryText) 
+
+        public MultiHitBoxWorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Image sprite, string levelName, string levelEntryText, List<Rectangle> hitboxes) 
             : base(area, grid, zIndex, area, sprite, levelName, levelEntryText)
         {
             _hitBoxes = hitboxes;
@@ -27,5 +29,30 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         }
 
         public override CollisionType CollisionType => CollisionType.NONE;
+
+        protected virtual string BuildRectangleArrayStringRepresentation(List<Rectangle> rectangles)
+        {
+            StringBuilder builder = new StringBuilder();
+
+            string arrayStart = MapMakerConstants.MAP_MAKER_ARRAY_START;
+            string arrayEnd = MapMakerConstants.MAP_MAKER_ARRAY_END;
+            string elementSeparator = MapMakerConstants.MAP_MAKER_ELEMENT_SEPARATOR;
+
+            builder.Append(arrayStart);
+            string[] elementStringReps = rectangles.Select(r => 
+             $"{r.X}{elementSeparator}{r.Y}{elementSeparator}{r.Width}{elementSeparator}{r.Height}").ToArray();
+
+            string arrStr = string.Join(elementSeparator, elementStringReps);
+            builder.Append(arrStr);
+            builder.Append(arrayEnd);
+
+            return builder.ToString();
+        }
+
+        public override string ToString()
+        {
+            string hitBoxArr = BuildRectangleArrayStringRepresentation(_hitBoxes);
+            return base.ToString() + $"{_separator}{hitBoxArr}";
+        }
     }
 }

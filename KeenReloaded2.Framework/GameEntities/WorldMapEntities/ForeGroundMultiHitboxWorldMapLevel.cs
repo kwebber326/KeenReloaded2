@@ -16,8 +16,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         private readonly List<Rectangle> _foregroundAreas;
         private bool _updated;
 
-        public ForeGroundMultiHitboxWorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, List<Rectangle> hitboxes, Image sprite, string levelName, string levelEntryText, List<Rectangle> foregroundAreas)
-            : base(area, grid, zIndex, hitboxes, sprite, levelName, levelEntryText)
+        public ForeGroundMultiHitboxWorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Image sprite, string levelName, string levelEntryText, List<Rectangle> hitboxes, List<Rectangle> foregroundAreas)
+            : base(area, grid, zIndex, sprite, levelName, levelEntryText, hitboxes)
         {
             _foregroundAreas = foregroundAreas;
         }
@@ -46,6 +46,12 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                 }
                 _updated = true;
             }
+        }
+
+        public override string ToString()
+        {
+            string foregroundArr = BuildRectangleArrayStringRepresentation(_foregroundAreas);
+            return base.ToString() + $"{_separator}{foregroundArr}";
         }
     }
 }

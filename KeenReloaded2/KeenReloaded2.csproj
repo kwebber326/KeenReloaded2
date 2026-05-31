@@ -369,6 +369,7 @@
     <Compile Include="Utilities\MapUtility.cs" />
     <Compile Include="Utilities\StatUtility.cs" />
     <Compile Include="Utilities\UserControlSprites.cs" />
+    <Compile Include="Utilities\WorldMapLevelFactory.cs" />
     <Compile Include="WorldMapEditor.cs">
       <SubType>Form</SubType>
     </Compile>
