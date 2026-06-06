@@ -41,6 +41,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlActions = new System.Windows.Forms.Panel();
+            this.btnAdvancedTools = new System.Windows.Forms.Button();
             this.btnTest = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@
             this.dialogMapLoader = new System.Windows.Forms.OpenFileDialog();
             this.mapMakerObjectPropertyListControl1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapMakerObjectPropertyListControl();
             this.mapObjectContainer1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapObjectContainer();
-            this.btnAdvancedTools = new System.Windows.Forms.Button();
             this.pnlSelectionData.SuspendLayout();
             this.pnlActions.SuspendLayout();
             this.SuspendLayout();
@@ -182,6 +182,16 @@
             this.pnlActions.Size = new System.Drawing.Size(266, 118);
             this.pnlActions.TabIndex = 3;
             // 
+            // btnAdvancedTools
+            // 
+            this.btnAdvancedTools.Location = new System.Drawing.Point(166, 3);
+            this.btnAdvancedTools.Name = "btnAdvancedTools";
+            this.btnAdvancedTools.Size = new System.Drawing.Size(96, 23);
+            this.btnAdvancedTools.TabIndex = 4;
+            this.btnAdvancedTools.Text = "Advanced Tools";
+            this.btnAdvancedTools.UseVisualStyleBackColor = true;
+            this.btnAdvancedTools.Click += new System.EventHandler(this.btnAdvancedTools_Click);
+            // 
             // btnTest
             // 
             this.btnTest.Location = new System.Drawing.Point(6, 90);
@@ -190,6 +200,7 @@
             this.btnTest.TabIndex = 3;
             this.btnTest.Text = "Test World Map";
             this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // btnSave
             // 
@@ -266,16 +277,6 @@
             this.mapObjectContainer1.Name = "mapObjectContainer1";
             this.mapObjectContainer1.Size = new System.Drawing.Size(411, 222);
             this.mapObjectContainer1.TabIndex = 5;
-            // 
-            // btnAdvancedTools
-            // 
-            this.btnAdvancedTools.Location = new System.Drawing.Point(166, 3);
-            this.btnAdvancedTools.Name = "btnAdvancedTools";
-            this.btnAdvancedTools.Size = new System.Drawing.Size(96, 23);
-            this.btnAdvancedTools.TabIndex = 4;
-            this.btnAdvancedTools.Text = "Advanced Tools";
-            this.btnAdvancedTools.UseVisualStyleBackColor = true;
-            this.btnAdvancedTools.Click += new System.EventHandler(this.btnAdvancedTools_Click);
             // 
             // WorldMapEditor
             // 

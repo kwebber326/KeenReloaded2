@@ -13,10 +13,10 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 {
     public class MultiHitBoxWorldMapLevel : WorldMapLevel
     {
-        private readonly List<Rectangle> _hitBoxes;
+        private readonly Rectangle[] _hitBoxes;
 
-        public MultiHitBoxWorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Image sprite, string levelName, string levelEntryText, List<Rectangle> hitboxes) 
-            : base(area, grid, zIndex, area, sprite, levelName, levelEntryText)
+        public MultiHitBoxWorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Image sprite, string levelName, string levelEntryText, Rectangle[] hitboxes) 
+            : base(area, grid, zIndex, sprite, levelName, levelEntryText)
         {
             _hitBoxes = hitboxes;
             if (_collisionGrid != null && _collidingNodes != null)
@@ -30,7 +30,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 
         public override CollisionType CollisionType => CollisionType.NONE;
 
-        protected virtual string BuildRectangleArrayStringRepresentation(List<Rectangle> rectangles)
+        protected virtual string BuildRectangleArrayStringRepresentation(Rectangle[] rectangles)
         {
             StringBuilder builder = new StringBuilder();
 

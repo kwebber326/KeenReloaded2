@@ -1,31 +1,33 @@
-﻿using KeenReloaded2.Framework.GameEntities.Players;
+﻿using KeenReloaded.Framework;
+using KeenReloaded.Framework.Utilities;
+using KeenReloaded2.Constants;
+using KeenReloaded2.Entities.DataStructures;
+using KeenReloaded2.Entities.ReferenceData;
+using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.Factories;
+using KeenReloaded2.Framework.GameEntities;
+using KeenReloaded2.Framework.GameEntities.AltCharacters;
+using KeenReloaded2.Framework.GameEntities.Backgrounds;
+using KeenReloaded2.Framework.GameEntities.Constructs;
+using KeenReloaded2.Framework.GameEntities.Constructs.Checkpoints;
+using KeenReloaded2.Framework.GameEntities.Enemies;
+using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Framework.GameEntities.Items;
+using KeenReloaded2.Framework.GameEntities.Players;
+using KeenReloaded2.Framework.GameEntities.Tiles;
 using KeenReloaded2.Framework.GameEntities.Weapons;
+using KeenReloaded2.Framework.GameEntities.WorldMapEntities;
 using KeenReloaded2.Framework.GameEventArgs;
+using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
-using KeenReloaded2.Framework.Interfaces;
-using KeenReloaded2.Framework.GameEntities.Interfaces;
-using KeenReloaded2.Framework.GameEntities.Items;
-using System.Drawing;
-using KeenReloaded2.Constants;
-using KeenReloaded2.Framework.GameEntities.AltCharacters;
-using KeenReloaded2.Entities.ReferenceData;
-using KeenReloaded2.Framework.GameEntities;
-using KeenReloaded2.Framework.Enums;
-using KeenReloaded2.Framework.Factories;
-using KeenReloaded2.Framework.GameEntities.Constructs;
-using KeenReloaded2.Entities.DataStructures;
-using KeenReloaded2.Framework.GameEntities.Backgrounds;
-using KeenReloaded.Framework.Utilities;
-using KeenReloaded.Framework;
-using KeenReloaded2.Framework.GameEntities.Tiles;
-using KeenReloaded2.Utilities;
-using KeenReloaded2.Framework.GameEntities.Constructs.Checkpoints;
-using KeenReloaded2.Framework.GameEntities.Enemies;
 
 namespace KeenReloaded2.Entities
 {
@@ -33,6 +35,7 @@ namespace KeenReloaded2.Entities
     {
         private Dictionary<string, bool> _keysPressed;
         private CommanderKeen _keen;
+        private WorldMapPlayer _worldMapKeen;
         private OrderedList<ISprite> _gameObjects;
         private OrderedList<ISprite> _backgroundsAndTiles;
         private List<IUpdatable> _updatableGameObjects = new List<IUpdatable>();
@@ -73,6 +76,11 @@ namespace KeenReloaded2.Entities
             if (map != null && map.MapData != null)
             {
                 _keen = map.MapData.Select(d => d.GameObject).OfType<CommanderKeen>().FirstOrDefault();
+                if (_keen == null)
+                {
+                    _worldMapKeen = map.MapData.Select(d => d.GameObject)
+                        .OfType<WorldMapPlayer>().FirstOrDefault();
+                }
                 //populate non backgrounds
                 Func<GameObjectMapping, bool> backgroundTypeFunc = (c) => (!c.GameObject?.CanUpdate ?? false) && !(c.GameObject is MapEdgeTile);
                 var nonBackGrounds = map.MapData.Where(c => !backgroundTypeFunc(c)).Select(d => d.GameObject).ToList();
@@ -184,12 +192,16 @@ namespace KeenReloaded2.Entities
         {
             if (_keen != null)
                 _keen.SetKeyPressed(key, isPressed);
+            else if (_worldMapKeen != null)
+                _worldMapKeen.SetKeyPressed(key, isPressed);
         }
 
         public bool IsKeyPressed(string key)
         {
             if (_keen != null)
                 return _keen.IsKeyPressed(key);
+            else if (_worldMapKeen != null)
+                return _worldMapKeen.IsKeyPressed(key);
 
             return false;
         }

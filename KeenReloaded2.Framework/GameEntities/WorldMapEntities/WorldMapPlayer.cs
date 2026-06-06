@@ -4,7 +4,10 @@ using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 {
@@ -16,16 +19,40 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         private bool _isMoving;
         private WorldMapPlayerMoveState _moveState;
         private readonly int _zIndex;
-
+        private readonly Dictionary<string, bool> _keysPressed;
         private const int SPRITE_CHANGE_DELAY = 2;
         private int _currentSpriteIndex;
         private int _currentSpriteChangeDelayTick;
+        private const string KEY_LEFT = GeneralGameConstants.Keys.KEY_LEFT;
+        private const string KEY_RIGHT = GeneralGameConstants.Keys.KEY_RIGHT;
+        private const string KEY_UP = GeneralGameConstants.Keys.KEY_UP;
+        private const string KEY_DOWN = GeneralGameConstants.Keys.KEY_DOWN;
+        private const string KEY_CTRL = GeneralGameConstants.Keys.KEY_CTRL;
+        private const string KEY_SPACE = GeneralGameConstants.Keys.KEY_SPACE;
+        private const string KEY_ENTER = GeneralGameConstants.Keys.KEY_ENTER;
+
+        private const int MOVE_VELOCITY = 10;
+
+        public event EventHandler Moved;
 
         public WorldMapPlayer(Rectangle area, SpaceHashGrid grid, int zIndex) : base(grid, area)
         {
             this.Direction = Direction.UP;
             _area = area;
             _zIndex = zIndex;
+            _keysPressed = new Dictionary<string, bool>();
+            InitializeKeyControls();
+        }
+
+        private void InitializeKeyControls()
+        {
+            _keysPressed.Add(KEY_LEFT, false);
+            _keysPressed.Add(KEY_RIGHT, false);
+            _keysPressed.Add(KEY_UP, false);
+            _keysPressed.Add(KEY_DOWN, false);
+            _keysPressed.Add(KEY_CTRL, false);
+            _keysPressed.Add(KEY_SPACE, false);
+            _keysPressed.Add(KEY_ENTER, false);
         }
 
         public override CollisionType CollisionType => CollisionType.PLAYER;
@@ -40,9 +67,195 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             }
         }
 
+        public void SetKeyPressed(string key, bool pressed)
+        {
+            if (_keysPressed.ContainsKey(key))
+            {
+                _keysPressed[key] = pressed;
+            }
+        }
+
+        public bool IsKeyPressed(string key)
+        {
+            if (string.IsNullOrWhiteSpace(key)) return false;
+            return _keysPressed.ContainsKey(key) && _keysPressed[key];
+        }
+
+        public bool AreKeysPressed(params string[] keys)
+        {
+            if (keys == null || keys.Length == 0)
+                return false;
+
+            return keys.All(k => IsKeyPressed(k));
+        }
+
+        private bool NoKeysPressed()
+        {
+            return !_keysPressed.Values.Any();
+        }
+
+        private bool OpposingKeysPressed()
+        {
+            return AreKeysPressed(KEY_LEFT, KEY_RIGHT)
+                || AreKeysPressed(KEY_UP, KEY_DOWN);
+        }
+
+        private bool AnyDirectionKeysPressed()
+        {
+            return IsKeyPressed(KEY_UP) || IsKeyPressed(KEY_DOWN) ||
+                IsKeyPressed(KEY_RIGHT) || IsKeyPressed(KEY_LEFT);
+        }
+
         public void Update()
         {
-            //TODO: implement movement
+            //no keys or opposing keys pressed on an update cycle where plays is not stationary
+            if ((!AnyDirectionKeysPressed() || OpposingKeysPressed())
+                && this.MoveState != WorldMapPlayerMoveState.STILL)
+            {
+                this.MoveState = WorldMapPlayerMoveState.STILL;
+                return;
+            }
+
+            SetDirectionFromPressedMovementKeys();
+            if (AnyDirectionKeysPressed())
+            {
+                this.MoveState = WorldMapPlayerMoveState.RUNNING;
+                TryMove();
+            }
+        }
+
+        private void TryMove()
+        {
+            if (IsLeftDirection(_direction))
+            {
+                TryMoveLeft();
+            }
+            else if (IsRightDirection(_direction))
+            {
+                TryMoveRight();
+            }
+
+            if (IsUpDirection(_direction))
+            {
+                TryMoveUp();
+            }
+            else if (IsDownDirection(_direction))
+            {
+                TryMoveDown();
+            }
+
+            OnMoved();
+        }
+
+        private void OnMoved()
+        {
+            this.Moved?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void TryMoveRight()
+        {
+            Rectangle areaToCheck = new Rectangle(this.HitBox.X + MOVE_VELOCITY,
+          this.HitBox.Y, this.HitBox.Width + MOVE_VELOCITY, this.HitBox.Height);
+
+            var collisions = this.CheckCollision(areaToCheck, true);
+
+            var collisionTile = this.GetLeftMostRightTile(collisions);
+            Rectangle newArea = areaToCheck;
+            if (collisionTile != null)
+            {
+                newArea.X = collisionTile.HitBox.Left - 1;
+            }
+
+            this.HitBox = newArea;
+        }
+
+        private void TryMoveDown()
+        {
+            Rectangle areaToCheck = new Rectangle(this.HitBox.X,
+                this.HitBox.Y + MOVE_VELOCITY, this.HitBox.Width,
+                this.HitBox.Height + MOVE_VELOCITY);
+
+            var collisions = this.CheckCollision(areaToCheck, true);
+
+            var collisionTile = this.GetTopMostLandingTile(collisions);
+            Rectangle newArea = areaToCheck;
+            if (collisionTile != null)
+            {
+                newArea.Y = collisionTile.HitBox.Top - 1;
+            }
+
+            this.HitBox = newArea;
+        }
+
+        private void TryMoveLeft()
+        {
+            Rectangle areaToCheck = new Rectangle(this.HitBox.X - MOVE_VELOCITY,
+                this.HitBox.Y, this.HitBox.Width + MOVE_VELOCITY, this.HitBox.Height);
+
+            var collisions = this.CheckCollision(areaToCheck, true);
+
+            var collisionTile = this.GetRightMostLeftTile(collisions);
+            Rectangle newArea = areaToCheck;
+            if (collisionTile != null)
+            {
+                newArea.X = collisionTile.HitBox.Right + 1;
+            }
+
+            this.HitBox = newArea;
+        }
+
+        private void TryMoveUp()
+        {
+            Rectangle areaToCheck = new Rectangle(this.HitBox.X,
+                this.HitBox.Y - MOVE_VELOCITY, this.HitBox.Width,
+                this.HitBox.Height + MOVE_VELOCITY);
+
+            var collisions = this.CheckCollision(areaToCheck, true);
+
+            var collisionTile = this.GetCeilingTile(collisions);
+            Rectangle newArea = areaToCheck;
+            if (collisionTile != null)
+            {
+                newArea.Y = collisionTile.HitBox.Bottom + 1;
+            }
+
+            this.HitBox = newArea;
+        }
+
+        private void SetDirectionFromPressedMovementKeys()
+        {
+            if (IsKeyPressed(KEY_LEFT))
+            {
+                this.Direction = Direction.LEFT;
+                if (IsKeyPressed(KEY_UP))
+                    this.Direction = Direction.UP_LEFT;
+                else if (IsKeyPressed(KEY_DOWN))
+                    this.Direction = Direction.DOWN_LEFT;
+            }
+            else if (IsKeyPressed(KEY_RIGHT))
+            {
+                this.Direction = Direction.RIGHT;
+                if (IsKeyPressed(KEY_UP))
+                    this.Direction = Direction.UP_RIGHT;
+                else if (IsKeyPressed(KEY_DOWN))
+                    this.Direction = Direction.DOWN_RIGHT;
+            }
+            else if (IsKeyPressed(KEY_UP))
+            {
+                this.Direction = Direction.UP;
+                if (IsKeyPressed(KEY_LEFT))
+                    this.Direction = Direction.UP_LEFT;
+                else if (IsKeyPressed(KEY_RIGHT))
+                    this.Direction = Direction.UP_RIGHT;
+            }
+            else if (IsKeyPressed(KEY_DOWN))
+            {
+                this.Direction = Direction.DOWN;
+                if (IsKeyPressed(KEY_LEFT))
+                    this.Direction = Direction.DOWN_LEFT;
+                else if (IsKeyPressed(KEY_RIGHT))
+                    this.Direction = Direction.DOWN_RIGHT;
+            }
         }
 
         public override Rectangle HitBox
@@ -62,13 +275,14 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         public Image Image => _sprite;
 
         public Point Location => this.HitBox.Location;
-        
-        public WorldMapPlayerMoveState MoveState { 
+
+        public WorldMapPlayerMoveState MoveState
+        {
             get
             {
-                return _moveState;        
+                return _moveState;
             }
-            set 
+            set
             {
                 _moveState = value;
                 UpdateSprite();
@@ -84,7 +298,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             switch (_direction)
             {
                 case Direction.UP:
-                   switch (MoveState)
+                    switch (MoveState)
                     {
                         case WorldMapPlayerMoveState.RUNNING:
                             images = SpriteSheet.SpriteSheet.PlayerMoveUpImages; break;
@@ -134,7 +348,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                         case WorldMapPlayerMoveState.RUNNING:
                             images = SpriteSheet.SpriteSheet.PlayerMoveUpRightImages; break;
                         case WorldMapPlayerMoveState.SWIMMING:
-                            images = SpriteSheet.SpriteSheet.PlayerSwimUpRightImages; break;
+                            images = SpriteSheet.SpriteSheet.PlayerSwimUpRightImages; break; break;
                     }
                     _sprite = Properties.Resources.keen_stop_up_right; break;
                 case Direction.DOWN_LEFT:
@@ -154,13 +368,13 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                         case WorldMapPlayerMoveState.SWIMMING:
                             images = SpriteSheet.SpriteSheet.PlayerSwimDownRightImages; break;
                     }
-                    _sprite = Properties.Resources.keen_stop_down_left; break;
+                    _sprite = Properties.Resources.keen_stop_down_right; break;
             }
 
             if (MoveState != WorldMapPlayerMoveState.STILL && images.Length > 0)
             {
                 this.UpdateSpriteByDelayBase(ref _currentSpriteChangeDelayTick,
-                    ref _currentSpriteIndex, SPRITE_CHANGE_DELAY, 
+                    ref _currentSpriteIndex, SPRITE_CHANGE_DELAY,
                     () =>
                     {
                         if (_currentSpriteIndex >= images.Length)

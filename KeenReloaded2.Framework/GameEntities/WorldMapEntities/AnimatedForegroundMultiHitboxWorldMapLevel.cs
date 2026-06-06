@@ -20,7 +20,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         private readonly Image[] _imageList;
         private readonly Animation _animation;
 
-        public AnimatedForegroundMultiHitboxWorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Image sprite, string levelName, string levelEntryText, List<Rectangle> hitboxes, List<Rectangle> foregroundAreas, string imagesPath, int animationDelay, int animationStartIndex, string key) 
+        public AnimatedForegroundMultiHitboxWorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Image sprite, string levelName, string levelEntryText, Rectangle[] hitboxes, Rectangle[] foregroundAreas, string imagesPath, int animationDelay, int animationStartIndex, string key) 
             : base(area, grid, zIndex, sprite, levelName, levelEntryText, hitboxes, foregroundAreas)
         {
             try

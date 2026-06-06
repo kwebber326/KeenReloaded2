@@ -1,0 +1,2 @@
+639|482
+keen4_cave_mountains_c1|514|140|125|110|10|Cavern of Hopelessness|Keen Ideates in the Cavern of Hopelessness|[0,0,41,110,62,0,62,55]|[0,0,62,110,62,0,62,55]

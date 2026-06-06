@@ -191,6 +191,25 @@ namespace KeenReloaded2.Utilities
 
                         associatedProperty.Value = assignedActivateables.ToArray();
                     }
+                    else if (associatedProperty.DataType == typeof(Rectangle[]))
+                    {
+                        int index = 0;
+                        List<Rectangle> rectangles = new List<Rectangle>();
+                        while (index <= values.Length - 4)
+                        {
+                            try
+                            {
+                                int xPos = Convert.ToInt32(values[index++]);
+                                int yPos = Convert.ToInt32(values[index++]);
+                                int rectWidth = Convert.ToInt32(values[index++]);
+                                int rectHeight = Convert.ToInt32(values[index++]);
+                                Rectangle r = new Rectangle(xPos, yPos, rectWidth, rectHeight);
+                                rectangles.Add(r);
+                            }
+                            catch { }
+                        }
+                        associatedProperty.Value = rectangles.ToArray();
+                    }
                 }
                 else if (associatedProperty.DataType == typeof(bool))
                 {

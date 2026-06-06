@@ -550,19 +550,24 @@ namespace KeenReloaded2
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            TrySaveMap();
+        }
+
+        private bool TrySaveMap()
+        {
             if (string.IsNullOrWhiteSpace(txtMapName.Text))
             {
                 MessageBox.Show("Enter a map name");
-                return;
+                return false;
             }
 
             Rectangle playerHitBox = new Rectangle(PlayerPosition.X, PlayerPosition.Y,
                 16, 16);
 
-            if (_mapMakerObjects.Count(m => m.GameObject is WorldMapEditor) > 1)
+            if (_mapMakerObjects.Count(m => m.GameObject is WorldMapPlayer) > 1)
             {
                 MessageBox.Show("Cannot have duplicate players on the board. Delete extra world map players before saving,");
-                return;
+                return false;
             }
             else
             {
@@ -606,6 +611,8 @@ namespace KeenReloaded2
             {
                 MessageBox.Show($"Map '{txtMapName.Text}' did not save successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            return true;
         }
 
         private void SubscribeToEventStoreEvents()
@@ -938,6 +945,25 @@ namespace KeenReloaded2
             this.ClearMapMakerSelection();
             AdvancedToolsForm advancedToolsForm = new AdvancedToolsForm(_mapMakerObjects);
             var dialogResult = advancedToolsForm.ShowDialog();
+        }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            if (!TrySaveMap())
+            {
+                MessageBox.Show($"Map '{txtMapName.Text}' did not save successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            LevelCompleteObjectives.ClearAll();
+            _mapHasUnsavedChanges = false;
+            string directory = MapUtility.GetSavedMapsPath(MainMenuConstants.OPTION_LABEL_WORLD_MODE);
+            string mapFile = Path.Combine(directory, txtMapName.Text + ".txt");
+            var mapData = MapUtility.LoadMapData(mapFile);
+            using (WorldMapPlayerForm gameForm = new WorldMapPlayerForm(mapData, true))
+            {
+                gameForm.ShowDialog();
+                dialogMapLoader.FileName = mapFile;
+            }
         }
     }
 }

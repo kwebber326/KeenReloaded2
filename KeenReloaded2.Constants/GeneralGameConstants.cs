@@ -83,6 +83,28 @@ namespace KeenReloaded2.Constants
             public const string TELEPORT = "teleporter.wav";
         }
 
+        public static class Keys
+        {
+            public const string KEY_LEFT = "Left";
+            public const string KEY_RIGHT = "Right";
+            public const string KEY_UP = "Up";
+            public const string KEY_DOWN = "Down";
+            public const string KEY_CTRL = "ControlKey";
+            public const string KEY_SPACE = "Space";
+            public const string KEY_1 = "D1";
+            public const string KEY_2 = "D2";
+            public const string KEY_3 = "D3";
+            public const string KEY_4 = "D4";
+            public const string KEY_5 = "D5";
+            public const string KEY_6 = "D6";
+            public const string KEY_7 = "D7";
+            public const string KEY_8 = "D8";
+            public const string KEY_ENTER = "Return";
+            public const string KEY_SHIFT = "ShiftKey";
+            public const string KEY_SHIELD = "S";
+            public const string KEY_ALT = "Menu";
+        }
+
         public const string AREA_PROPERTY_NAME = "area";
         public const string SPACE_HASH_GRID_PROPERTY_NAME = "grid";
         public const string HITBOX_PROPERTY_NAME = "hitbox";

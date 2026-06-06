@@ -46,13 +46,6 @@ namespace KeenReloaded2.Utilities
                              Value = 10,
                              PropertyName = "zIndex"
                          },
-                          new MapMakerObjectProperty()
-                         {
-                             DisplayName = "Hitbox Area:",
-                             PropertyName  = GeneralGameConstants.HITBOX_PROPERTY_NAME,
-                             DataType = typeof(Rectangle),
-                             Value = area
-                         },
                            new MapMakerObjectProperty()
                          {
                              PropertyName = "sprite",
@@ -140,6 +133,7 @@ namespace KeenReloaded2.Utilities
                         new Rectangle(0, 0, img.Width / 2, img.Height),
                         new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2)
                     },
+                    Hidden = true
                 });
                 obj = new MapMakerObject(typeof(ForeGroundMultiHitboxWorldMapLevel),
                     file, false, properties.ToArray());
@@ -171,16 +165,39 @@ namespace KeenReloaded2.Utilities
                         new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2),
                         new Rectangle(img.Width - img.Width / 3, img.Height / 2, img.Width / 3, img.Height / 2)
                     },
+                    Hidden = true
                 });
                 obj = new MapMakerObject(typeof(ForeGroundMultiHitboxWorldMapLevel),
                     file, false, properties.ToArray());
             }
             else if (imgName.Contains("keen4_level_fire_c2"))
             {
-                properties.AddRange(animatedWorldMapProperties);
-                var hitboxProperty = properties.FirstOrDefault(p => p.PropertyName == GeneralGameConstants.HITBOX_PROPERTY_NAME);
+                properties.Add(new MapMakerObjectProperty()
+                {
+                    PropertyName = "hitboxes",
+                    DisplayName = "Hitboxes:",
+                    DataType = typeof(Rectangle[]),
+                    Value = new Rectangle[]
+    {
+                        new Rectangle(0, 0, img.Width / 3, img.Height),
+                        new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2),
+                        new Rectangle(img.Width - img.Width / 3, img.Height / 2, img.Width / 3, img.Height / 2)
+    },
+                    Hidden = true
+                });
 
-                obj = new MapMakerObject(typeof(AnimatedWorldMapLevel), file, false, properties.ToArray());
+                properties.Add(new MapMakerObjectProperty()
+                {
+                    PropertyName = "foregroundAreas",
+                    DisplayName = "Foreground Areas:",
+                    DataType = typeof(Rectangle[]),
+                    Value = new Rectangle[0],
+                    Hidden = true
+                });
+                properties.AddRange(animatedWorldMapProperties);
+
+                obj = new MapMakerObject(typeof(AnimatedForegroundMultiHitboxWorldMapLevel),
+                    file, false, properties.ToArray());
             }
             else if (imgName.Contains("keen4_level_village2_c1"))
             {
@@ -227,6 +244,7 @@ namespace KeenReloaded2.Utilities
                         new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2),
                         new Rectangle(img.Width - img.Width / 3, img.Height / 2, img.Width / 3, img.Height / 2)
                     },
+                    Hidden = true
                 });
                 properties.AddRange(animatedWorldMapProperties);
 
@@ -260,6 +278,7 @@ namespace KeenReloaded2.Utilities
                         new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2),
                         new Rectangle(img.Width - img.Width / 3, img.Height / 2, img.Width / 3, img.Height / 2)
                     },
+                    Hidden = true
                 });
 
                 obj = new MapMakerObject(typeof(ForeGroundMultiHitboxWorldMapLevel),
@@ -292,6 +311,7 @@ namespace KeenReloaded2.Utilities
                         new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2),
                         new Rectangle(img.Width - img.Width / 3, img.Height / 2, img.Width / 3, img.Height / 2)
                     },
+                    Hidden = true
                 });
 
                 obj = new MapMakerObject(typeof(ForeGroundMultiHitboxWorldMapLevel),
@@ -324,6 +344,7 @@ namespace KeenReloaded2.Utilities
                         new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2),
                         new Rectangle(img.Width - img.Width / 3, img.Height / 2, img.Width / 3, img.Height / 2)
                     },
+                    Hidden = true
                 });
 
                 obj = new MapMakerObject(typeof(ForeGroundMultiHitboxWorldMapLevel),
@@ -356,6 +377,7 @@ namespace KeenReloaded2.Utilities
                         new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2),
                         new Rectangle(img.Width - img.Width / 3, img.Height / 2, img.Width / 3, img.Height / 2)
                     },
+                    Hidden = true
                 });
 
                 obj = new MapMakerObject(typeof(ForeGroundMultiHitboxWorldMapLevel),
@@ -388,6 +410,7 @@ namespace KeenReloaded2.Utilities
                         new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2),
                         new Rectangle(img.Width - img.Width / 3, img.Height / 2, img.Width / 3, img.Height / 2)
                     },
+                    Hidden = true
                 });
 
                 obj = new MapMakerObject(typeof(ForeGroundMultiHitboxWorldMapLevel),
@@ -420,6 +443,7 @@ namespace KeenReloaded2.Utilities
                         new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2),
                         new Rectangle(img.Width - img.Width / 3, img.Height / 2, img.Width / 3, img.Height / 2)
                     },
+                    Hidden = true
                 });
 
                 obj = new MapMakerObject(typeof(ForeGroundMultiHitboxWorldMapLevel),
@@ -452,6 +476,7 @@ namespace KeenReloaded2.Utilities
                         new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2),
                         new Rectangle(img.Width - img.Width / 3, img.Height / 2, img.Width / 3, img.Height / 2)
                     },
+                    Hidden = true
                 });
 
                 obj = new MapMakerObject(typeof(ForeGroundMultiHitboxWorldMapLevel),
@@ -479,6 +504,7 @@ namespace KeenReloaded2.Utilities
                     DisplayName = "Foreground Areas:",
                     DataType = typeof(Rectangle[]),
                     Value = new Rectangle[0],
+                    Hidden = true
                 });
                 properties.AddRange(animatedWorldMapProperties);
 
@@ -512,6 +538,7 @@ namespace KeenReloaded2.Utilities
                         new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2),
                         new Rectangle(img.Width - img.Width / 3, img.Height / 2, img.Width / 3, img.Height / 2)
                     },
+                    Hidden = true
                 });
 
                 obj = new MapMakerObject(typeof(ForeGroundMultiHitboxWorldMapLevel),
@@ -544,6 +571,7 @@ namespace KeenReloaded2.Utilities
                         new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2),
                         new Rectangle(img.Width - img.Width / 3, img.Height / 2, img.Width / 3, img.Height / 2)
                     },
+                    Hidden = true
                 });
 
                 obj = new MapMakerObject(typeof(ForeGroundMultiHitboxWorldMapLevel),
@@ -571,6 +599,7 @@ namespace KeenReloaded2.Utilities
                     DisplayName = "Foreground Areas:",
                     DataType = typeof(Rectangle[]),
                     Value = new Rectangle[0],
+                    Hidden = true
                 });
 
                 obj = new MapMakerObject(typeof(ForeGroundMultiHitboxWorldMapLevel),

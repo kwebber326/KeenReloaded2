@@ -20,6 +20,7 @@ using KeenReloaded2.Framework.GameEntities.Weapons;
 using KeenReloaded2.Framework.GameEventArgs;
 using System.Runtime.CompilerServices;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Framework.GameEntities.WorldMapEntities;
 
 namespace KeenReloaded2
 {

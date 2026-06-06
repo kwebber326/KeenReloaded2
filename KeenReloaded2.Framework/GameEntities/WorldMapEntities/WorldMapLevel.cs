@@ -23,8 +23,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         protected readonly string _levelName;
         protected readonly string _levelEntryText;
 
-        public WorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Rectangle hitbox, Image sprite, string levelName, string levelEntryText) 
-            : base(grid, hitbox)
+        public WorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Image sprite, string levelName, string levelEntryText) 
+            : base(grid, area)
         {
             _zIndex = zIndex;
             _sprite = sprite;
@@ -44,14 +44,14 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 
         public virtual bool CanUpdate => false;
 
-        public override CollisionType CollisionType => CollisionType.BLOCK;
+        public override CollisionType CollisionType => CollisionType.NONE;
 
         public override string ToString()
         {
             return $"{_objectKey}{_separator}"+ 
                 $"{_area.X}{_separator}{_area.Y}{_separator}{_area.Width}{_separator}{_area.Height}"+
-                $"{_separator}{_zIndex}{_separator}{this.HitBox.X}{_separator}{this.HitBox.Y}" + 
-                $"{_separator}{this.HitBox.Width}{_separator}{this.HitBox.Height}{_separator}{_levelName}{_separator}{_levelEntryText}";
+                $"{_separator}{_zIndex}" + 
+                $"{_separator}{_levelName}{_separator}{_levelEntryText}";
         }
     }
 }

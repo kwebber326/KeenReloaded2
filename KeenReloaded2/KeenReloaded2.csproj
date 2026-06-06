@@ -376,6 +376,12 @@
     <Compile Include="WorldMapEditor.Designer.cs">
       <DependentUpon>WorldMapEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="WorldMapPlayerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorldMapPlayerForm.Designer.cs">
+      <DependentUpon>WorldMapPlayerForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdvancedToolsForm.resx">
       <DependentUpon>AdvancedToolsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -506,6 +512,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WorldMapEditor.resx">
       <DependentUpon>WorldMapEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorldMapPlayerForm.resx">
+      <DependentUpon>WorldMapPlayerForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

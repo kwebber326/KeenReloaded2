@@ -474,24 +474,24 @@ namespace KeenReloaded2.Framework.GameEntities.Players
         #region private fields
 
         private Dictionary<string, bool> _keysPressed;
-        private const string KEY_LEFT = "Left";
-        private const string KEY_RIGHT = "Right";
-        private const string KEY_UP = "Up";
-        private const string KEY_DOWN = "Down";
-        private const string KEY_CTRL = "ControlKey";
-        private const string KEY_SPACE = "Space";
-        private const string KEY_1 = "D1";
-        private const string KEY_2 = "D2";
-        private const string KEY_3 = "D3";
-        private const string KEY_4 = "D4";
-        private const string KEY_5 = "D5";
-        private const string KEY_6 = "D6";
-        private const string KEY_7 = "D7";
-        private const string KEY_8 = "D8";
-        private const string KEY_ENTER = "Return";
-        private const string KEY_SHIFT = "ShiftKey";
-        private const string KEY_SHIELD = "S";
-        private const string KEY_ALT = "Menu";
+        private const string KEY_LEFT = GeneralGameConstants.Keys.KEY_LEFT;
+        private const string KEY_RIGHT = GeneralGameConstants.Keys.KEY_RIGHT;
+        private const string KEY_UP = GeneralGameConstants.Keys.KEY_UP;
+        private const string KEY_DOWN = GeneralGameConstants.Keys.KEY_DOWN;
+        private const string KEY_CTRL = GeneralGameConstants.Keys.KEY_CTRL;
+        private const string KEY_SPACE = GeneralGameConstants.Keys.KEY_SPACE;
+        private const string KEY_1 = GeneralGameConstants.Keys.KEY_1;
+        private const string KEY_2 = GeneralGameConstants.Keys.KEY_2;
+        private const string KEY_3 = GeneralGameConstants.Keys.KEY_3;
+        private const string KEY_4 = GeneralGameConstants.Keys.KEY_4;
+        private const string KEY_5 = GeneralGameConstants.Keys.KEY_5;
+        private const string KEY_6 = GeneralGameConstants.Keys.KEY_6;
+        private const string KEY_7 = GeneralGameConstants.Keys.KEY_7;
+        private const string KEY_8 = GeneralGameConstants.Keys.KEY_8;
+        private const string KEY_ENTER = GeneralGameConstants.Keys.KEY_ENTER;
+        private const string KEY_SHIFT = GeneralGameConstants.Keys.KEY_SHIFT;
+        private const string KEY_SHIELD = GeneralGameConstants.Keys.KEY_SHIELD;
+        private const string KEY_ALT = GeneralGameConstants.Keys.KEY_ALT;
 
         private const int WEAPON_ROTATE_DELAY = 2;
         private int _currentWeaponRotateDelayTick = WEAPON_ROTATE_DELAY;

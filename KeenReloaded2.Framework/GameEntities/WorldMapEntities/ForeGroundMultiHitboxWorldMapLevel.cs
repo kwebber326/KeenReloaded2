@@ -13,10 +13,10 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 {
     public class ForeGroundMultiHitboxWorldMapLevel : MultiHitBoxWorldMapLevel, IUpdatable, ICreateRemove
     {
-        private readonly List<Rectangle> _foregroundAreas;
+        private readonly Rectangle[] _foregroundAreas;
         private bool _updated;
 
-        public ForeGroundMultiHitboxWorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Image sprite, string levelName, string levelEntryText, List<Rectangle> hitboxes, List<Rectangle> foregroundAreas)
+        public ForeGroundMultiHitboxWorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Image sprite, string levelName, string levelEntryText, Rectangle[] hitboxes, Rectangle[] foregroundAreas)
             : base(area, grid, zIndex, sprite, levelName, levelEntryText, hitboxes)
         {
             _foregroundAreas = foregroundAreas;
