@@ -44,6 +44,7 @@ namespace KeenReloaded2.Entities
         private bool _disposed;
 
         public event EventHandler BackgroundImageRedrawn;
+        public event EventHandler LevelEntered;
 
         private Func<ISprite, ISprite, int> _compareFunction = (x1, x2) =>
         {
@@ -360,7 +361,18 @@ namespace KeenReloaded2.Entities
                 item.BiomeChanged += Item_BiomeChanged;
             }
 
+            if (obj is IWorldMapLevel)
+            {
+                var item = obj as IWorldMapLevel;
+                item.WorldMapEntered += Item_WorldMapEntered;
+            }
+
             RegisterZombieEnemy(obj);
+        }
+
+        private void Item_WorldMapEntered(object sender, EventArgs e)
+        {
+            LevelEntered?.Invoke(sender, EventArgs.Empty);
         }
 
         private void Checkpoint_CheckPointHit(object sender, EventArgs e)
@@ -447,6 +459,11 @@ namespace KeenReloaded2.Entities
             {
                 var item = obj as IBiomeTile;
                 item.BiomeChanged -= Item_BiomeChanged;
+            }
+            if (obj is IWorldMapLevel)
+            {
+                var item = obj as IWorldMapLevel;
+                item.WorldMapEntered -= Item_WorldMapEntered;
             }
             UnRegisterZombieEnemy(obj);
         }

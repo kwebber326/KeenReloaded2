@@ -1,4 +1,5 @@
 ﻿using KeenReloaded.Framework;
+using KeenReloaded.Framework.Utilities;
 using KeenReloaded2.Framework.GameEntities.Backgrounds;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.Interfaces;
@@ -16,8 +17,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         private readonly Rectangle[] _foregroundAreas;
         private bool _updated;
 
-        public ForeGroundMultiHitboxWorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Image sprite, string levelName, string levelEntryText, Rectangle[] hitboxes, Rectangle[] foregroundAreas)
-            : base(area, grid, zIndex, sprite, levelName, levelEntryText, hitboxes)
+        public ForeGroundMultiHitboxWorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Image sprite, string levelName, string levelEntryText, string episode, Rectangle[] entryPoints, Rectangle[] hitboxes, Rectangle[] foregroundAreas)
+            : base(area, grid, zIndex, sprite, levelName, levelEntryText, episode, entryPoints, hitboxes)
         {
             _foregroundAreas = foregroundAreas;
         }
@@ -30,14 +31,18 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             this.Create?.Invoke(this, e);
         }
 
-        public void Update()
+        public virtual void Update()
         {
             if (!_updated)
             {
                 foreach (var foregroundArea in _foregroundAreas)
                 {
                     Image image = _sprite;
-                    Background background = new Background(foregroundArea, image, true, _zIndex + 200);
+                    var area = new Rectangle(this.HitBox.X + foregroundArea.X,
+                        this.HitBox.Y + foregroundArea.Y, foregroundArea.Width, foregroundArea.Height);
+                    image = BitMapTool.CropImage(image, foregroundArea);
+                    Background background = new Background(area
+                        , image, false, _zIndex + 200);
                     ObjectEventArgs e = new ObjectEventArgs()
                     {
                         ObjectSprite = background
@@ -47,6 +52,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                 _updated = true;
             }
         }
+
+        public override bool CanUpdate => true;
 
         public override string ToString()
         {

@@ -89,9 +89,12 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             return keys.All(k => IsKeyPressed(k));
         }
 
-        private bool NoKeysPressed()
+        public bool AreAnyKeysPressed(params string[] keys)
         {
-            return !_keysPressed.Values.Any();
+            if (keys == null || keys.Length == 0)
+                return false;
+
+            return keys.Any(k => IsKeyPressed(k));
         }
 
         private bool OpposingKeysPressed()
@@ -102,12 +105,26 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 
         private bool AnyDirectionKeysPressed()
         {
-            return IsKeyPressed(KEY_UP) || IsKeyPressed(KEY_DOWN) ||
-                IsKeyPressed(KEY_RIGHT) || IsKeyPressed(KEY_LEFT);
+            return AreAnyKeysPressed(KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT);
+        }
+
+        private bool AnyActionKeyPressed()
+        {
+            return AreAnyKeysPressed(KEY_CTRL, KEY_ENTER, KEY_SPACE);
         }
 
         public void Update()
         {
+            if (AnyActionKeyPressed())
+            {
+                Rectangle areaToCheck = this.HitBox;
+                var collisions = this.CheckCollision(areaToCheck);
+                var levelCollision = collisions.FirstOrDefault(c => c is IWorldMapLevel) as WorldMapLevel;
+                if (levelCollision != null)
+                {
+                    levelCollision.TryEnterLevel(this);
+                }
+            }
             //no keys or opposing keys pressed on an update cycle where plays is not stationary
             if ((!AnyDirectionKeysPressed() || OpposingKeysPressed())
                 && this.MoveState != WorldMapPlayerMoveState.STILL)
@@ -160,10 +177,11 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             var collisions = this.CheckCollision(areaToCheck, true);
 
             var collisionTile = this.GetLeftMostRightTile(collisions);
-            Rectangle newArea = areaToCheck;
+                  Rectangle newArea = new Rectangle(this.HitBox.X + MOVE_VELOCITY,
+                this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
             if (collisionTile != null)
             {
-                newArea.X = collisionTile.HitBox.Left - 1;
+                newArea.X = collisionTile.HitBox.Left - this.HitBox.Width - 1;
             }
 
             this.HitBox = newArea;
@@ -178,10 +196,11 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             var collisions = this.CheckCollision(areaToCheck, true);
 
             var collisionTile = this.GetTopMostLandingTile(collisions);
-            Rectangle newArea = areaToCheck;
+            Rectangle newArea = new Rectangle(this.HitBox.X,
+                this.HitBox.Y + MOVE_VELOCITY, this.HitBox.Width, this.HitBox.Height);
             if (collisionTile != null)
             {
-                newArea.Y = collisionTile.HitBox.Top - 1;
+                newArea.Y = collisionTile.HitBox.Top - this.HitBox.Height - 1;
             }
 
             this.HitBox = newArea;
@@ -195,7 +214,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             var collisions = this.CheckCollision(areaToCheck, true);
 
             var collisionTile = this.GetRightMostLeftTile(collisions);
-            Rectangle newArea = areaToCheck;
+            Rectangle newArea = new Rectangle(this.HitBox.X - MOVE_VELOCITY,
+          this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
             if (collisionTile != null)
             {
                 newArea.X = collisionTile.HitBox.Right + 1;
@@ -213,7 +233,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             var collisions = this.CheckCollision(areaToCheck, true);
 
             var collisionTile = this.GetCeilingTile(collisions);
-            Rectangle newArea = areaToCheck;
+            Rectangle newArea = new Rectangle(this.HitBox.X,
+          this.HitBox.Y - MOVE_VELOCITY, this.HitBox.Width, this.HitBox.Height);
             if (collisionTile != null)
             {
                 newArea.Y = collisionTile.HitBox.Bottom + 1;

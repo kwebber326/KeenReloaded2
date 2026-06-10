@@ -206,6 +206,7 @@
     <Compile Include="GameEntities\Interfaces\IProjectile.cs" />
     <Compile Include="GameEntities\Interfaces\ISquashable.cs" />
     <Compile Include="GameEntities\Interfaces\IStunnable.cs" />
+    <Compile Include="GameEntities\Interfaces\IWorldMapLevel.cs" />
     <Compile Include="GameEntities\Interfaces\IZombieBountyEnemy.cs" />
     <Compile Include="GameEntities\Items\EnemyFlag.cs" />
     <Compile Include="GameEntities\Items\ExtraLife.cs" />

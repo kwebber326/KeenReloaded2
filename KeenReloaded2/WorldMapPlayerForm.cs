@@ -1,6 +1,7 @@
 ﻿using KeenReloaded2.Constants;
 using KeenReloaded2.DialogWindows;
 using KeenReloaded2.Entities;
+using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.WorldMapEntities;
 using KeenReloaded2.UserControls.InventoryPanel;
@@ -108,18 +109,38 @@ namespace KeenReloaded2
             if (_game != null)
             {
                 _game.BackgroundImageRedrawn -= _game_BackgroundImageRedrawn;
+                _game.LevelEntered -= _game_LevelEntered;
                 _game.Dispose();
             }
 
             _game = new CommanderKeenGame(data);
             pbBackgroundImage.Image = _game.BackGroundImage;
             _game.BackgroundImageRedrawn += _game_BackgroundImageRedrawn;
+            _game.LevelEntered += _game_LevelEntered;
             var gameObjects = data.MapData.Select(d => d.GameObject);
 
             _player = gameObjects.OfType<WorldMapPlayer>().FirstOrDefault();
 
             _maxVisionY = _game.Map.MapSize.Height - VIEW_RADIUS;
             _maxVisionX = _game.Map.MapSize.Width - VIEW_RADIUS;
+        }
+
+        private void _game_LevelEntered(object sender, EventArgs e)
+        {
+            _gameUpdateTimer.Stop();
+            IWorldMapLevel level = sender as IWorldMapLevel;
+            if (level == null)
+            {
+                //TODO: This must show a fancier commander keen related error message box
+                MessageBox.Show("This level has an issue and cannot load");
+                _gameUpdateTimer.Start();
+            }
+
+            string levelName = level.LevelName;
+            string levelEntryText = level.LevelEntryText;
+            string episode = level.Episode;
+            //TODO: this must show a loading animation while level is loading in the background
+            MessageBox.Show($"Level: {levelName}\nEntry Text: {levelEntryText}\nEpisode: {level.Episode}");
         }
 
         protected override bool IsInputKey(Keys keyData)
@@ -143,6 +164,7 @@ namespace KeenReloaded2
             if (_game != null && !_game.IsDisposed)
             {
                 _game.BackgroundImageRedrawn -= _game_BackgroundImageRedrawn;
+                _game.LevelEntered -= _game_LevelEntered;
             }
         }
 

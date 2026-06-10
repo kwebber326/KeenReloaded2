@@ -1,4 +1,0 @@
-314|223
-still_water_SWIM|298|128|16|16|1|SWIM
-ripple_water(animated)_SWIM|297|207|16|16|2|SWIM|100|4
-keen_stop_up|0|0|16|16

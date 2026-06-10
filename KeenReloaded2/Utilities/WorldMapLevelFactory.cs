@@ -2,14 +2,11 @@
 using KeenReloaded2.Constants;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Framework.GameEntities.WorldMapEntities;
-using SharpDX.Direct3D11;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KeenReloaded2.Utilities
 {
@@ -68,6 +65,20 @@ namespace KeenReloaded2.Utilities
                              DataType = typeof(string),
                              Value = string.Empty
                          },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "episode",
+                             DataType = typeof(string),
+                             Hidden = true,
+                             Value = string.Empty
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "entryPoints",
+                             DataType = typeof(Rectangle[]),
+                             Value = new Rectangle[0],
+                             Hidden = true,
+                         }
                     };
 
             string folder = imgName.Substring(0, imgName.LastIndexOf("_"));
@@ -113,15 +124,25 @@ namespace KeenReloaded2.Utilities
                 properties.Add(new MapMakerObjectProperty()
                 {
                     PropertyName = "hitboxes",
-                    DisplayName = "Hitboxes:",
                     DataType = typeof(Rectangle[]),
                     Value = new Rectangle[]
                     {
                         new Rectangle(0, 0, img.Width / 3, img.Height),
-                        new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2)
+                        new Rectangle(0, 0, img.Width, img.Height / 2),
+                        new Rectangle(img.Width/ 3, img.Height - img.Height / 5, 16, 22),
+                        new Rectangle(95, 52, 30, 32)
                     },
                     Hidden = true
                 });
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(0, 60, 60, 32)
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_4;
 
                 properties.Add(new MapMakerObjectProperty()
                 {
@@ -131,7 +152,7 @@ namespace KeenReloaded2.Utilities
                     Value = new Rectangle[]
                     {
                         new Rectangle(0, 0, img.Width / 2, img.Height),
-                        new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2)
+                        new Rectangle(0, 0, img.Width, img.Height / 2)
                     },
                     Hidden = true
                 });
@@ -153,6 +174,16 @@ namespace KeenReloaded2.Utilities
                     },
                     Hidden = true
                 });
+
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(0, 60, 60, 32)
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_4;
 
                 properties.Add(new MapMakerObjectProperty()
                 {
@@ -178,13 +209,23 @@ namespace KeenReloaded2.Utilities
                     DisplayName = "Hitboxes:",
                     DataType = typeof(Rectangle[]),
                     Value = new Rectangle[]
-    {
+                    {
                         new Rectangle(0, 0, img.Width / 3, img.Height),
                         new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2),
                         new Rectangle(img.Width - img.Width / 3, img.Height / 2, img.Width / 3, img.Height / 2)
-    },
+                    },
                     Hidden = true
                 });
+
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(0, 60, 60, 32)
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_4;
 
                 properties.Add(new MapMakerObjectProperty()
                 {
@@ -214,6 +255,16 @@ namespace KeenReloaded2.Utilities
                     Hidden = true
                 });
 
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(0, 60, 60, 32)
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_4;
+
                 obj = new MapMakerObject(typeof(MultiHitBoxWorldMapLevel), file, false,
                     properties.ToArray());
             }
@@ -232,6 +283,16 @@ namespace KeenReloaded2.Utilities
                    },
                     Hidden = true
                 });
+
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(0, 60, 60, 32)
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_4;
 
                 properties.Add(new MapMakerObjectProperty()
                 {
@@ -267,6 +328,16 @@ namespace KeenReloaded2.Utilities
                     Hidden = true
                 });
 
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(0, 60, 60, 32)
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_4;
+
                 properties.Add(new MapMakerObjectProperty()
                 {
                     PropertyName = "foregroundAreas",
@@ -299,6 +370,16 @@ namespace KeenReloaded2.Utilities
                     },
                     Hidden = true
                 });
+
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(0, 60, 60, 32)
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_4;
 
                 properties.Add(new MapMakerObjectProperty()
                 {
@@ -333,6 +414,16 @@ namespace KeenReloaded2.Utilities
                     Hidden = true
                 });
 
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(0, 60, 60, 32)
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_4;
+
                 properties.Add(new MapMakerObjectProperty()
                 {
                     PropertyName = "foregroundAreas",
@@ -365,6 +456,16 @@ namespace KeenReloaded2.Utilities
                     },
                     Hidden = true
                 });
+
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(0, 60, 60, 32)
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_4;
 
                 properties.Add(new MapMakerObjectProperty()
                 {
@@ -399,6 +500,16 @@ namespace KeenReloaded2.Utilities
                     Hidden = true
                 });
 
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(0, 60, 60, 32)
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_4;
+
                 properties.Add(new MapMakerObjectProperty()
                 {
                     PropertyName = "foregroundAreas",
@@ -432,6 +543,16 @@ namespace KeenReloaded2.Utilities
                     Hidden = true
                 });
 
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(0, 60, 60, 32)
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_4;
+
                 properties.Add(new MapMakerObjectProperty()
                 {
                     PropertyName = "foregroundAreas",
@@ -464,6 +585,16 @@ namespace KeenReloaded2.Utilities
                     },
                     Hidden = true
                 });
+
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(0, 60, 60, 32)
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_4;
 
                 properties.Add(new MapMakerObjectProperty()
                 {
@@ -498,6 +629,16 @@ namespace KeenReloaded2.Utilities
                     Hidden = true
                 });
 
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(0, 60, 60, 32)
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_4;
+
                 properties.Add(new MapMakerObjectProperty()
                 {
                     PropertyName = "foregroundAreas",
@@ -526,6 +667,16 @@ namespace KeenReloaded2.Utilities
                     },
                     Hidden = true
                 });
+
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(0, 60, 60, 32)
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_4;
 
                 properties.Add(new MapMakerObjectProperty()
                 {
@@ -560,6 +711,16 @@ namespace KeenReloaded2.Utilities
                     Hidden = true
                 });
 
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(0, 60, 60, 32)
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_4;
+
                 properties.Add(new MapMakerObjectProperty()
                 {
                     PropertyName = "foregroundAreas",
@@ -592,6 +753,16 @@ namespace KeenReloaded2.Utilities
                     },
                     Hidden = true
                 });
+
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(0, 60, 60, 32)
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_4;
 
                 properties.Add(new MapMakerObjectProperty()
                 {
