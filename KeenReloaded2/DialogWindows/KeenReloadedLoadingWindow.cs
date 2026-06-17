@@ -50,6 +50,9 @@ namespace KeenReloaded2.DialogWindows
             {
                 _eventsCompletedCheckTimer.Stop();
                 this.DialogResult = DialogResult.OK;
+                this.soundPlayer1.Mute();
+                _animationDone = false;
+                _mapLoaded = false;
                 this.Close();
             }
         }
@@ -60,6 +63,8 @@ namespace KeenReloaded2.DialogWindows
             EnableTextWrapping();
             base.KeenReloadedMessageWindow_Load(this, EventArgs.Empty);
             string sound = this.GetSoundFromEpisode(episode);
+            pbLoadingImage.Image = Properties.Resources.Keen_level_entry1;
+            this.soundPlayer1.Unmute();
             this.PublishSoundPlayEvent(sound);
             _animationStartTimer.Start();
             LoadMapInBackground(level);
@@ -94,7 +99,6 @@ namespace KeenReloaded2.DialogWindows
         private void _animationStartTimer_Tick(object sender, EventArgs e)
         {
             InitializeAnimation();
-            _animationDone = true;
             if (!_eventsCompletedCheckTimer.Enabled)
             {
                 _eventsCompletedCheckTimer.Start();
@@ -121,7 +125,6 @@ namespace KeenReloaded2.DialogWindows
                 {
                     Debug.Write(ex);
                     this.DialogResult = DialogResult.Cancel;
-                    this.soundPlayer1.StopMusic(true);
                     this.Close();
                 }
             });

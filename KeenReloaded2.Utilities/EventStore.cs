@@ -14,7 +14,7 @@ namespace KeenReloaded2.Utilities
             if (Listeners == null)
                 Listeners = new Dictionary<string, List<EventHandler<ControlEventArgs.ControlEventArgs<T>>>>();
 
-            if (Listeners.TryGetValue(eventName,  out List<EventHandler<ControlEventArgs.ControlEventArgs<T>>> callbacks))
+            if (Listeners.TryGetValue(eventName, out List<EventHandler<ControlEventArgs.ControlEventArgs<T>>> callbacks))
             {
                 foreach (var callback in callbacks)
                 {
@@ -35,7 +35,8 @@ namespace KeenReloaded2.Utilities
 
             if (Listeners.TryGetValue(eventName, out List<EventHandler<ControlEventArgs.ControlEventArgs<T>>> callbacks))
             {
-                callbacks.Add(callback);
+                if (!callbacks.Any(c => c.Method.DeclaringType == callback.Method.DeclaringType))
+                    callbacks.Add(callback);
             }
             else
             {

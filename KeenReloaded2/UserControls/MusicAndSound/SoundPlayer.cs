@@ -112,6 +112,20 @@ namespace KeenReloaded2.UserControls.MusicAndSound
             }
         }
 
+        public void Mute()
+        {
+            EventStore<SoundPlayEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
+            EventStore<string>.UnSubscribe(MapMakerConstants.EventStoreEventNames.KEEN_LEVEL_COMPLETE,
+               Level_Complete);
+        }
+
+        public void Unmute()
+        {
+            EventStore<SoundPlayEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
+            EventStore<string>.Subscribe(MapMakerConstants.EventStoreEventNames.KEEN_LEVEL_COMPLETE,
+               Level_Complete);
+        }
+
         public void PlaySound(SoundPlayEventArgs data)
         {
             string soundName = data?.Sound;
