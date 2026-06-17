@@ -12,7 +12,7 @@ namespace KeenReloaded2.DialogWindows
 {
     public partial class KeenReloadedMessageWindow : Form
     {
-        private readonly string _messageText;
+        protected string _messageText;
 
         public KeenReloadedMessageWindow()
         {
@@ -25,7 +25,7 @@ namespace KeenReloaded2.DialogWindows
             _messageText = messageText;
         }
 
-        private void KeenReloadedMessageWindow_Load(object sender, EventArgs e)
+        protected virtual void KeenReloadedMessageWindow_Load(object sender, EventArgs e)
         {
             lblText.Text = _messageText;
         }
@@ -33,6 +33,11 @@ namespace KeenReloaded2.DialogWindows
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -48,6 +48,7 @@ namespace KeenReloaded2
             return 0;
         };
         private string _lastFilePath;
+        private bool _showSaveMessage;
 
         public WorldMapEditor()
         {
@@ -550,6 +551,7 @@ namespace KeenReloaded2
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            _showSaveMessage = true;
             TrySaveMap();
         }
 
@@ -601,13 +603,13 @@ namespace KeenReloaded2
             var height = maxY - minY;
 
             var mapSize = new Size(width, height);
-
-            if (MapUtility.SaveMap(txtMapName.Text, MainMenuConstants.OPTION_LABEL_WORLD_MODE, mapSize, _mapMakerObjects))
+            bool successfulSave = MapUtility.SaveMap(txtMapName.Text, MainMenuConstants.OPTION_LABEL_WORLD_MODE, mapSize, _mapMakerObjects);
+            if (successfulSave && _showSaveMessage)
             {
                 MessageBox.Show($"Map '{txtMapName.Text}' was saved successfully!");
                 _mapHasUnsavedChanges = false;
             }
-            else
+            else if (!successfulSave)
             {
                 MessageBox.Show($"Map '{txtMapName.Text}' did not save successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -949,6 +951,7 @@ namespace KeenReloaded2
 
         private void btnTest_Click(object sender, EventArgs e)
         {
+            _showSaveMessage = false;
             if (!TrySaveMap())
             {
                 MessageBox.Show($"Map '{txtMapName.Text}' did not save successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

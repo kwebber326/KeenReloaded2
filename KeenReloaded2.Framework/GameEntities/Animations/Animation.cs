@@ -54,10 +54,13 @@ namespace KeenReloaded2.Framework.GameEntities.Animations
 
             if (_currentIndex == _images.Count - 1)
             {
-                _currentIndex = 0;
                 if (!_isRepeating)
                 {
                     this.Stop();
+                }
+                else
+                {
+                    _currentIndex = 0;
                 }
             }
             else

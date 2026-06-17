@@ -6814,4 +6814,22 @@
   <data name="ripple_water5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\MapMakerObjects\WorldMapObjects\world_map_keen4\Interactive Tiles\ripple_water\ripple_water5.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Keen_level_entry1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keen_level_entry1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keen_level_entry2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keen_level_entry2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keen_level_entry3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keen_level_entry3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keen_level_entry4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keen_level_entry4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keen_level_entry6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keen_level_entry6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keen_level_entry7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keen_level_entry7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

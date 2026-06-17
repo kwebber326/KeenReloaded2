@@ -315,7 +315,7 @@ namespace KeenReloaded2.Utilities
             return points;
         }
 
-        private static string GetFolderFromGameMode(string gameMode)
+        public static string GetFolderFromGameMode(string gameMode)
         {
             switch (gameMode)
             {

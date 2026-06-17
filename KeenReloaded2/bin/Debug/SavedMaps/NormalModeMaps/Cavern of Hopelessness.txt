@@ -92,7 +92,7 @@ keen4_cave_wall_middle|1624|3392|576|64|10
 keen4_removable_platform|660|3328|912|62|10|KEEN4_GREEN|True|78d6dabb-606b-476c-8840-296f05694675
 keen4_cave_wall_edge_left|1035|1130|64|64|10
 keen4_cave_air_floor_edge_left|1035|1066|64|64|10
-keen4_removable_platform|0|3704|2200|62|10|KEEN4_GREEN|False|a13b5587-3746-4e98-a2db-13541dfe195c
+keen4_removable_platform|0|3704|2200|62|10|KEEN4_GREEN|True|a13b5587-3746-4e98-a2db-13541dfe195c
 keen4_cave_platform_left_edge|2064|1058|30|38|10
 keen4_cave_platform_middle|2094|1058|32|36|10
 keen4_cave_platform_right_edge|2126|1058|30|38|10
@@ -271,7 +271,7 @@ keen4_slug_move_right2|1347|744|32|48|25
 keen4_blue_eagle_egg|1951|757|38|44|25
 keen4_slug_move_right2|2048|747|32|48|25
 keen4_mad_mushroom_right1|200|190|58|62|25
-keen4_gnosticene_ancient_jump_left1|1927|2364|80|60|25
+keen4_gnosticene_ancient_jump_left1|1899|2369|80|60|25
 edge_of_map_tile_debug|-31|-16|32|4000|25|BARRIER
 gem_yellow1|1068|2370|26|20|YELLOW|50|False
 keen4_lifewater_flask1|2173|3901|22|32|50|KEEN4_LIFEWATER_FLASK
@@ -377,9 +377,9 @@ keen4_switch1_on|2142|3659|32|32|15|KEEN4_1|[a13b5587-3746-4e98-a2db-13541dfe195
 keen4_switch2_on|99|234|32|32|15|KEEN4_2|[086165f6-c003-4475-be67-0d9f95f7d2ce]|True
 keen4_switch1_off|1858|2383|32|32|15|KEEN4_1|[f2f8f5c4-47f8-4c91-a3dc-4d22a958d161,f36de5e5-7a57-4f52-98d9-134e6a4aa6b2]|False
 keen4_switch2_off|105|466|32|32|15|KEEN4_2|[fe5c5400-e83c-4c27-84f5-507636ecdd05]|False
-keen4_switch1_off|1826|2383|32|32|15|KEEN4_1|[d44781b6-485d-4660-aa25-8c663f8c9826,e7536a7b-cbbf-482d-bf52-d99eb0f5b3d1]|False
+keen4_switch1_off|1826|2383|32|32|15|KEEN4_1|[e7536a7b-cbbf-482d-bf52-d99eb0f5b3d1,d44781b6-485d-4660-aa25-8c663f8c9826]|False
 keen4_switch1_on|1794|2383|32|32|15|KEEN4_1|[d6d1082f-d076-4b72-a45c-676d9236a983]|True
-keen4_switch1_on|1890|2383|32|32|15|KEEN4_1|[211d8c88-785d-485c-8a02-267ebe7a9143,78d6dabb-606b-476c-8840-296f05694675]|True
+keen4_switch1_on|1890|2383|32|32|15|KEEN4_1|[78d6dabb-606b-476c-8840-296f05694675,211d8c88-785d-485c-8a02-267ebe7a9143]|True
 keen4_switch2_off|1120|759|32|32|15|KEEN4_2|[726ed6aa-e55d-4c0a-92a9-15ca699ce9e3]|False
 keen4_switch2_off|32|3429|32|32|15|KEEN4_2|[]|False
 gem_placeholder_red_empty|1590|3330|26|22|50|RED|[74642a71-50de-4f01-8eb5-cad02c4833d3]

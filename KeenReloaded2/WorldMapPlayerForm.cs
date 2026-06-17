@@ -32,6 +32,7 @@ namespace KeenReloaded2
         private int _maxVisionX;
         private bool _paused;
         private Timer _gameUpdateTimer;
+        private KeenReloadedLoadingWindow _loadingWindow;
 
         private void UpdateViewRectangle()
         {
@@ -80,13 +81,14 @@ namespace KeenReloaded2
         public WorldMapPlayerForm(MapMakerData data, bool mapMakerMode)
         {
             InitializeComponent();
-
+            _loadingWindow = new KeenReloadedLoadingWindow();
             InitializeGameData(data);
             _mapMakerMove = mapMakerMode;
             pbBackgroundImage.SendToBack();
             pbGameImage.Parent = pbBackgroundImage;
             pbBackgroundImage.Image = _game.BackGroundImage;
             pbGameImage.Location = new Point(0, 0);
+           
         }
 
         private void WorldMapPlayerForm_Load(object sender, EventArgs e)
@@ -139,8 +141,18 @@ namespace KeenReloaded2
             string levelName = level.LevelName;
             string levelEntryText = level.LevelEntryText;
             string episode = level.Episode;
-            //TODO: this must show a loading animation while level is loading in the background
-            MessageBox.Show($"Level: {levelName}\nEntry Text: {levelEntryText}\nEpisode: {level.Episode}");
+            _player.ClearAllKeyPressStates();
+
+
+           _loadingWindow.LoadLevel(levelName, episode, levelEntryText);
+            if (_loadingWindow.DialogResult == DialogResult.OK)
+            {
+                Form1 form1 = new Form1(
+                    MainMenuConstants.OPTION_LABEL_NORMAL_MODE,
+                    _loadingWindow.MapData, true);
+                form1.ShowDialog();
+                _gameUpdateTimer.Start();
+            }
         }
 
         protected override bool IsInputKey(Keys keyData)
@@ -250,6 +262,9 @@ namespace KeenReloaded2
 
             // Detach all event handlers
             DetachEvents();
+
+            //dispose sound player
+           
         }
 
         private void WorldMapPlayerForm_FormClosed(object sender, FormClosedEventArgs e)

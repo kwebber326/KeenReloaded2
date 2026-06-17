@@ -89,11 +89,15 @@
     <Compile Include="ControlEventArgs\EventStoreData\PointListChangedEventArgs.cs" />
     <Compile Include="ControlEventArgs\MainMenuOptionEventArgs.cs" />
     <Compile Include="ControlEventArgs\MapMakerObjectEventArgs.cs" />
+    <Compile Include="ControlEventArgs\WorldMapEventArgs.cs" />
     <Compile Include="DialogWindows\KeenOptionButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="DialogWindows\KeenOptionButton.Designer.cs">
       <DependentUpon>KeenOptionButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogWindows\KeenReloadedLoadingWindow.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="DialogWindows\KeenReloadedMessageWindow.cs">
       <SubType>Form</SubType>
@@ -387,6 +391,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DialogWindows\KeenOptionButton.resx">
       <DependentUpon>KeenOptionButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogWindows\KeenReloadedLoadingWindow.resx">
+      <DependentUpon>KeenReloadedLoadingWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DialogWindows\KeenReloadedMessageWindow.resx">
       <DependentUpon>KeenReloadedMessageWindow.cs</DependentUpon>
@@ -7059,6 +7066,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\MapMakerObjects\WorldMapObjects\world_map_keen4\Interactive Tiles\ripple_water\ripple_water5.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keen_level_entry1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keen_level_entry2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keen_level_entry3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keen_level_entry4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keen_level_entry6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keen_level_entry7.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

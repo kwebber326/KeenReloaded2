@@ -98,8 +98,8 @@ keen_4_spikes|1257|1500|63|70
 keen_4_spikes|1320|1500|63|70
 keen_4_spikes|1383|1500|63|70
 random_item_generator_closed|1200|2867|124|92|18|1000
-enemy_spawner1|1384|2200|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth,GnosticeneAncient]|5|20|10000000
-enemy_spawner1|20|2200|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth,GnosticeneAncient]|5|20|10000000
+enemy_spawner1|20|2200|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth]|5|20|10000000
+enemy_spawner1|1384|2200|92|94|18|[PoisonSlug,Lick,Bounder,Wormmouth]|5|20|10000000
 keen_stand_right|45|389|26|64|RIGHT
 edge_of_map_tile_debug|-16|-16|32|3016|25|BARRIER
 edge_of_map_tile_debug|1484|-16|32|3016|25|BARRIER

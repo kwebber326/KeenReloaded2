@@ -38,34 +38,38 @@ namespace KeenReloaded2.DialogWindows
             // pictureBox1
             // 
             this.pictureBox1.Image = global::KeenReloaded2.Properties.Resources.keen_message_window;
-            this.pictureBox1.Location = new System.Drawing.Point(2, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(1, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(444, 156);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // lblText
             // 
             this.lblText.AutoSize = true;
             this.lblText.BackColor = System.Drawing.Color.White;
             this.lblText.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblText.Location = new System.Drawing.Point(238, 102);
+            this.lblText.Location = new System.Drawing.Point(119, 53);
+            this.lblText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblText.Name = "lblText";
-            this.lblText.Size = new System.Drawing.Size(166, 27);
+            this.lblText.Size = new System.Drawing.Size(118, 18);
             this.lblText.TabIndex = 1;
             this.lblText.Text = "Sample Text";
             // 
             // KeenReloadedMessageWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(881, 302);
+            this.ClientSize = new System.Drawing.Size(440, 157);
             this.ControlBox = false;
             this.Controls.Add(this.lblText);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "KeenReloadedMessageWindow";
@@ -85,6 +89,6 @@ namespace KeenReloaded2.DialogWindows
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblText;
+        protected Label lblText;
     }
 }
