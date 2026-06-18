@@ -149,7 +149,7 @@ namespace KeenReloaded2
             {
                 Form1 form1 = new Form1(
                     MainMenuConstants.OPTION_LABEL_NORMAL_MODE,
-                    _loadingWindow.MapData, true);
+                    _loadingWindow.MapData, true, true);
                 form1.ShowDialog();
                 _gameUpdateTimer.Start();
             }

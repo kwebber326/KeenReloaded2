@@ -28,6 +28,7 @@ namespace KeenReloaded2
     {
         private readonly string _gameMode;
         private readonly bool _inMapMakerMode;
+        private readonly bool _isWorldMode;
         private Timer _gameUpdateTimer = new Timer();
         private Stopwatch _levelCompletionTimer = new Stopwatch();
         private CommanderKeenGame _game;
@@ -49,8 +50,9 @@ namespace KeenReloaded2
             InitializeComponent();
         }
 
-        public Form1(string gameMode, MapMakerData data, bool inMapMakerMode)
+        public Form1(string gameMode, MapMakerData data, bool inMapMakerMode, bool isWorldMode = false)
         {
+            _isWorldMode = isWorldMode;
             InitializeComponent();
             _gameMode = gameMode;
             _inMapMakerMode = inMapMakerMode;
@@ -254,7 +256,7 @@ namespace KeenReloaded2
             int heightDiff = checkpoint.HitBox.Height - _keen.HitBox.Height;
             Point restartLocation = new Point(checkpoint.Location.X, checkpoint.Location.Y + heightDiff);
             _keen.MoveToPosition(restartLocation);
-            
+
 
             this.UpdateViewRectangle();
         }
@@ -531,7 +533,8 @@ namespace KeenReloaded2
         {
             if (e.KeyCode == Keys.Escape)
             {
-                OpenDialog(e.KeyCode);
+                if (!_isWorldMode)
+                    OpenDialog(e.KeyCode);
             }
             else
             {
