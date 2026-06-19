@@ -133,9 +133,12 @@ namespace KeenReloaded2
             IWorldMapLevel level = sender as IWorldMapLevel;
             if (level == null)
             {
-                //TODO: This must show a fancier commander keen related error message box
-                MessageBox.Show("This level has an issue and cannot load");
+                KeenReloadedErrorMessageWindow errorMessageWindow =
+                    new KeenReloadedErrorMessageWindow("Level could not be loaded");
+                errorMessageWindow.ShowDialog();
+                _player.ClearAllKeyPressStates();
                 _gameUpdateTimer.Start();
+                return;
             }
 
             string levelName = level.LevelName;

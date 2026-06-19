@@ -96,6 +96,9 @@
     <Compile Include="DialogWindows\KeenOptionButton.Designer.cs">
       <DependentUpon>KeenOptionButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="DialogWindows\KeenReloadedErrorMessageWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DialogWindows\KeenReloadedLoadingWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -391,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DialogWindows\KeenOptionButton.resx">
       <DependentUpon>KeenOptionButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogWindows\KeenReloadedErrorMessageWindow.resx">
+      <DependentUpon>KeenReloadedErrorMessageWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DialogWindows\KeenReloadedLoadingWindow.resx">
       <DependentUpon>KeenReloadedLoadingWindow.cs</DependentUpon>
@@ -7084,6 +7090,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Keen_level_entry7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_face_scared.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

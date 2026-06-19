@@ -3993,6 +3993,16 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen_face_scared {
+            get {
+                object obj = ResourceManager.GetObject("keen_face_scared", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen_fall_left {
             get {
                 object obj = ResourceManager.GetObject("keen_fall_left", resourceCulture);
