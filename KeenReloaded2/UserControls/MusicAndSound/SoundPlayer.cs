@@ -23,11 +23,12 @@ namespace KeenReloaded2.UserControls.MusicAndSound
 {
     public partial class SoundPlayer : UserControl
     {
+        AudioSettings _settings;
         public SoundPlayer()
         {
             InitializeComponent();
-            AudioSettings settings = FileIOUtility.LoadAudioSettings();
-            if (settings.Sounds)
+            _settings = FileIOUtility.LoadAudioSettings();
+            if (_settings.Sounds)
             {
                 EventStore<SoundPlayEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
                 _soundDevice.StartEngine();
@@ -36,9 +37,9 @@ namespace KeenReloaded2.UserControls.MusicAndSound
             else
                 EventStore<SoundPlayEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
 
-            if (settings.Music)
+            if (_settings.Music)
             {
-                _song = settings.SelectedSong;
+                _song = _settings.SelectedSong;
                 this.PlayMusic(_song);
             }
 
@@ -70,7 +71,7 @@ namespace KeenReloaded2.UserControls.MusicAndSound
 
         protected void Sound_Play(object sender, ControlEventArgs<SoundPlayEventArgs> eventArgs)
         {
-            if (eventArgs.Data == null)
+            if (eventArgs.Data == null || !_settings.Sounds)
                 return;
 
             this.PlaySound(eventArgs.Data);
