@@ -152,10 +152,17 @@ namespace KeenReloaded2
             {
                 Form1 form1 = new Form1(
                     MainMenuConstants.OPTION_LABEL_NORMAL_MODE,
-                    _loadingWindow.MapData, true, true);
+                    _loadingWindow.MapData, true, true, _playerState);
+                form1.KeenStateChanged += Form1_KeenStateChanged;
                 form1.ShowDialog();
+                form1.KeenStateChanged -= Form1_KeenStateChanged;
                 _gameUpdateTimer.Start();
             }
+        }
+
+        private void Form1_KeenStateChanged(object sender, Framework.GameEventArgs.ObjectEventArgs e)
+        {
+            _playerState = e?.ObjectSprite as CommanderKeen;
         }
 
         protected override bool IsInputKey(Keys keyData)

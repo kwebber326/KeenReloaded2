@@ -228,7 +228,7 @@ namespace KeenReloaded2.Entities
             }
         }
 
-        public void ChangeKeenSkin(string characterName, out CommanderKeen keen)
+        public void ChangeKeenSkin(string characterName, out CommanderKeen keen, CommanderKeen keenOverride = null)
         {
             //detach keen from events, updatable objects and collision detection
             _updatableGameObjects.Remove(_keen);
@@ -240,33 +240,40 @@ namespace KeenReloaded2.Entities
                 node.Objects.Remove(_keen);
                 node.NonEnemies.Remove(_keen);
             }
+            var points = keenOverride != null ? keenOverride.Points : _keen.Points;
+            var lives = keenOverride != null ? keenOverride.Lives : _keen.Lives; 
             //build new character and attach it to collision detection
             switch (characterName)
             {
                 case MainMenuConstants.Characters.ORACLE_ELDER:
-                    _keen = new OracleElder(_keen.CollisionGrid, _keen.HitBox, _keen.Direction, _keen.Lives, _keen.Points);
+                    _keen = new OracleElder(_keen.CollisionGrid, _keen.HitBox, _keen.Direction, lives, points);
                     break;
                 case MainMenuConstants.Characters.COMMANDER_KEEN:
-                    _keen = new CommanderKeen(_keen.HitBox, _keen.CollisionGrid, _keen.Direction, _keen.Lives, _keen.Points);
+                    _keen = new CommanderKeen(_keen.HitBox, _keen.CollisionGrid, _keen.Direction, lives, points);
                     break;
                 case MainMenuConstants.Characters.LT_BARKER:
-                    _keen = new BabyLouie(_keen.CollisionGrid, _keen.HitBox, _keen.Direction, _keen.Lives, _keen.Points);
+                    _keen = new BabyLouie(_keen.CollisionGrid, _keen.HitBox, _keen.Direction, lives, points);
                     break;
                 case MainMenuConstants.Characters.COUNCIL_PAGE:
-                    _keen = new CouncilPage(_keen.CollisionGrid, _keen.HitBox, _keen.Direction, _keen.Lives, _keen.Points);
+                    _keen = new CouncilPage(_keen.CollisionGrid, _keen.HitBox, _keen.Direction, lives, points);
                     break;
                 case MainMenuConstants.Characters.BILLY_BLAZE:
-                    _keen = new KChirps(_keen.CollisionGrid, _keen.HitBox, _keen.Direction, _keen.Lives, _keen.Points);
+                    _keen = new KChirps(_keen.CollisionGrid, _keen.HitBox, _keen.Direction, lives, points);
                     break;
                 case MainMenuConstants.Characters.YORP:
-                    _keen = new Locoyorp(_keen.CollisionGrid, _keen.HitBox, _keen.Direction, _keen.Lives, _keen.Points);
+                    _keen = new Locoyorp(_keen.CollisionGrid, _keen.HitBox, _keen.Direction, lives, points);
                     break;
                 case MainMenuConstants.Characters.MORTIMER_MCMIRE:
-                    _keen = new MortimerMcMire(_keen.CollisionGrid, _keen.HitBox, _keen.Direction, _keen.Lives, _keen.Points);
+                    _keen = new MortimerMcMire(_keen.CollisionGrid, _keen.HitBox, _keen.Direction, lives, points);
                     break;
                 case MainMenuConstants.Characters.PRINCESS_LINDSEY:
-                    _keen = new PrincessIndi(_keen.CollisionGrid, _keen.HitBox, _keen.Direction, _keen.Lives, _keen.Points);
+                    _keen = new PrincessIndi(_keen.CollisionGrid, _keen.HitBox, _keen.Direction, lives, points);
                     break;
+            }
+
+            if (keenOverride != null)
+            {
+                _keen.InitializeWeapons(keenOverride.Weapons);
             }
             //assign output variable
             keen = _keen;

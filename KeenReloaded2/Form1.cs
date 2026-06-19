@@ -45,18 +45,20 @@ namespace KeenReloaded2
         private const int INITIAL_VIEW_RECT_UPDATES = 3;
         private int _rectUpdates;
 
+        public event EventHandler<ObjectEventArgs> KeenStateChanged;
+
         public Form1()
         {
             InitializeComponent();
         }
 
-        public Form1(string gameMode, MapMakerData data, bool inMapMakerMode, bool isWorldMode = false)
+        public Form1(string gameMode, MapMakerData data, bool inMapMakerMode, bool isWorldMode = false, CommanderKeen keenOverride = null)
         {
             _isWorldMode = isWorldMode;
             InitializeComponent();
             _gameMode = gameMode;
             _inMapMakerMode = inMapMakerMode;
-            InitializeGameData(gameMode, data, false);
+            InitializeGameData(gameMode, data, false, keenOverride);
             //unsubscribe cannot execute on form closing due to changing a callback collection during iteration
             //Here, we will clean out any previous subscriptions before subscribing
             EventStore<bool>.UnSubscribe(
@@ -69,7 +71,7 @@ namespace KeenReloaded2
             pnlGameWindow.HorizontalScroll.Maximum = 800;
         }
 
-        private void InitializeGameData(string gameMode, MapMakerData data, bool isReset)
+        private void InitializeGameData(string gameMode, MapMakerData data, bool isReset, CommanderKeen keenOverride = null)
         {
             if (_game != null)
             {
@@ -85,14 +87,21 @@ namespace KeenReloaded2
             int lives = _keen?.Lives ?? 0;
             int drops = _keen?.Drops ?? 0;
             long points = _keen?.Points ?? 0;
-            var weapons = _gameMode != MainMenuConstants.OPTION_LABEL_NORMAL_MODE && isReset ? _keen.Weapons : null;
+            var weapons = (_gameMode != MainMenuConstants.OPTION_LABEL_NORMAL_MODE && isReset) || (_isWorldMode && isReset) ? _keen.Weapons : null;
             var shield = inventoryPanel1.Shield;
-            _keen = gameObjects.OfType<CommanderKeen>().FirstOrDefault();
+            var keenInstance = gameObjects.OfType<CommanderKeen>().FirstOrDefault();
+
+            _keen = _isWorldMode && keenOverride != null ? keenOverride : keenInstance;
 
             string characterName = FileIOUtility.LoadSavedCharacterSelection();
             if (characterName != MainMenuConstants.Characters.COMMANDER_KEEN)
             {
-                _game.ChangeKeenSkin(characterName, out CommanderKeen keen);
+                CommanderKeen keen;
+                if (_isWorldMode)
+                    _game.ChangeKeenSkin(characterName, out keen, keenOverride);
+                else
+                    _game.ChangeKeenSkin(characterName, out keen);
+
                 _keen = keen;
             }
             soundPlayer1.Keen = _keen;
@@ -120,7 +129,7 @@ namespace KeenReloaded2
 
         private void ResetKeenState(int lives, int drops, long points, List<Framework.GameEntities.Weapons.NeuralStunner> weapons, Framework.GameEntities.Items.Shield shield)
         {
-            if (_gameMode != MainMenuConstants.OPTION_LABEL_NORMAL_MODE || LevelCompleteObjectives.LastHitCheckPoint != null)
+            if (_gameMode != MainMenuConstants.OPTION_LABEL_NORMAL_MODE || LevelCompleteObjectives.LastHitCheckPoint != null || _isWorldMode)
             {
                 _keen.ResetKeenAfterDeath(lives, drops, points, weapons, shield, LevelCompleteObjectives.LastHitCheckPoint == null);
             }
@@ -516,6 +525,7 @@ namespace KeenReloaded2
 
             soundPlayer1.StopMusic();
             LevelCompleteObjectives.ClearAll();
+            KeenStateChanged?.Invoke(this, new ObjectEventArgs() { ObjectSprite = _keen });
         }
 
 
