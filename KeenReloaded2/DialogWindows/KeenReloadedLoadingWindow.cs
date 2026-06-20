@@ -44,6 +44,16 @@ namespace KeenReloaded2.DialogWindows
             get; private set;
         }
 
+        public void UnmuteMusic()
+        {
+            this.soundPlayer1.UnmuteMusic();
+        }
+
+        public void MuteMusic()
+        {
+            this.soundPlayer1.UnmuteMusic();
+        }
+
         private void _eventsCompletedCheckTimer_Tick(object sender, EventArgs e)
         {
             if (_animationDone && _mapLoaded)
@@ -65,6 +75,7 @@ namespace KeenReloaded2.DialogWindows
             string sound = this.GetSoundFromEpisode(episode);
             pbLoadingImage.Image = Properties.Resources.Keen_level_entry1;
             this.soundPlayer1.Unmute();
+            this.soundPlayer1.MuteMusic();
             this.PublishSoundPlayEvent(sound);
             _animationStartTimer.Start();
             LoadMapInBackground(level);

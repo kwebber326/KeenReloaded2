@@ -156,6 +156,7 @@ namespace KeenReloaded2
                 form1.KeenStateChanged += Form1_KeenStateChanged;
                 form1.ShowDialog();
                 form1.KeenStateChanged -= Form1_KeenStateChanged;
+                _loadingWindow.UnmuteMusic();
                 _gameUpdateTimer.Start();
             }
         }

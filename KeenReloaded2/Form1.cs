@@ -523,7 +523,7 @@ namespace KeenReloaded2
                 MapMakerConstants.EventStoreEventNames.KEEN_DISAPPEAR_DEATH,
                 Keen_Disappear_Death);
 
-            soundPlayer1.StopMusic();
+            soundPlayer1.KillMusicPlayer();
             LevelCompleteObjectives.ClearAll();
             KeenStateChanged?.Invoke(this, new ObjectEventArgs() { ObjectSprite = _keen });
         }

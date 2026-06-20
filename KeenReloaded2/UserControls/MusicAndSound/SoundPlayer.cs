@@ -90,7 +90,17 @@ namespace KeenReloaded2.UserControls.MusicAndSound
             }
         }
 
-        public void StopMusic(bool dispose = false)
+        public void MuteMusic()
+        {
+            _musicPlayer?.Stop();
+        }
+
+        public void UnmuteMusic()
+        {
+            _musicPlayer?.PlayLooping();
+        }
+
+        public void KillMusicPlayer(bool dispose = false)
         {
             try
             {
