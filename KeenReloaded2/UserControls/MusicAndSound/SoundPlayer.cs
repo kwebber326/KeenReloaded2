@@ -81,13 +81,17 @@ namespace KeenReloaded2.UserControls.MusicAndSound
         {
             if (String.IsNullOrWhiteSpace(songName))
                 return;
+            if (!_settings.Music) return;
 
-            if (_musicPlayer == null)
+            if (_musicPlayer != null)
             {
-                string path = Path.Combine(MUSIC_PATH, songName);
-                _musicPlayer = new System.Media.SoundPlayer(path);
-                _musicPlayer.PlayLooping();
+                _musicPlayer.Stop();
+                _musicPlayer.Dispose();
             }
+
+            string path = Path.Combine(MUSIC_PATH, songName);
+            _musicPlayer = new System.Media.SoundPlayer(path);
+            _musicPlayer.PlayLooping();
         }
 
         public void MuteMusic()

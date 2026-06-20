@@ -52,12 +52,16 @@ namespace KeenReloaded2
             InitializeComponent();
         }
 
-        public Form1(string gameMode, MapMakerData data, bool inMapMakerMode, bool isWorldMode = false, CommanderKeen keenOverride = null)
+        public Form1(string gameMode, MapMakerData data, bool inMapMakerMode, bool isWorldMode = false, CommanderKeen keenOverride = null, string songOverride = null)
         {
             _isWorldMode = isWorldMode;
             InitializeComponent();
             _gameMode = gameMode;
             _inMapMakerMode = inMapMakerMode;
+            if (!string.IsNullOrWhiteSpace(songOverride))
+            {
+                this.soundPlayer1.PlayMusic(songOverride);
+            }
             InitializeGameData(gameMode, data, false, keenOverride);
             //unsubscribe cannot execute on form closing due to changing a callback collection during iteration
             //Here, we will clean out any previous subscriptions before subscribing

@@ -17,8 +17,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         private readonly Rectangle[] _foregroundAreas;
         private bool _updated;
 
-        public ForeGroundMultiHitboxWorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Image sprite, string levelName, string levelEntryText, string episode, Rectangle[] entryPoints, Rectangle[] hitboxes, Rectangle[] foregroundAreas)
-            : base(area, grid, zIndex, sprite, levelName, levelEntryText, episode, entryPoints, hitboxes)
+        public ForeGroundMultiHitboxWorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Image sprite, string levelName, string levelEntryText, string episode, string music, Rectangle[] entryPoints, Rectangle[] hitboxes, Rectangle[] foregroundAreas)
+            : base(area, grid, zIndex, sprite, levelName, levelEntryText, episode, music, entryPoints, hitboxes)
         {
             _foregroundAreas = foregroundAreas;
         }

@@ -144,6 +144,7 @@ namespace KeenReloaded2
             string levelName = level.LevelName;
             string levelEntryText = level.LevelEntryText;
             string episode = level.Episode;
+            string music = level.Music;
             _player.ClearAllKeyPressStates();
 
 
@@ -152,7 +153,7 @@ namespace KeenReloaded2
             {
                 Form1 form1 = new Form1(
                     MainMenuConstants.OPTION_LABEL_NORMAL_MODE,
-                    _loadingWindow.MapData, true, true, _playerState);
+                    _loadingWindow.MapData, true, true, _playerState, music);
                 form1.KeenStateChanged += Form1_KeenStateChanged;
                 form1.ShowDialog();
                 form1.KeenStateChanged -= Form1_KeenStateChanged;

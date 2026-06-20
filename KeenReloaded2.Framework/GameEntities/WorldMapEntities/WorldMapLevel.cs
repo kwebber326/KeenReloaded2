@@ -27,10 +27,11 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         protected readonly Rectangle[] _levelEntryPoints;
         protected readonly Rectangle[] _trueEntryPoints;
         protected readonly string _episode;
+        private readonly string _music;
 
         public event EventHandler WorldMapEntered;
 
-        public WorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Image sprite, string levelName, string levelEntryText, string episode, Rectangle[] entryPoints) 
+        public WorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Image sprite, string levelName, string levelEntryText, string episode, string music, Rectangle[] entryPoints) 
             : base(grid, area)
         {
             _zIndex = zIndex;
@@ -42,6 +43,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             _levelName = levelName;
             _levelEntryText = levelEntryText;
             _episode = episode;
+            _music = music;
             _levelEntryPoints = entryPoints;
             _trueEntryPoints = entryPoints.Select(e => new Rectangle(
                 this.HitBox.X + e.X,
@@ -64,6 +66,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         public string LevelEntryText => _levelEntryText;
 
         public string Episode => _episode;
+
+        public  string Music => _music;
 
         protected virtual string BuildRectangleArrayStringRepresentation(Rectangle[] rectangles)
         {
@@ -99,7 +103,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             return $"{_objectKey}{_separator}"+ 
                 $"{_area.X}{_separator}{_area.Y}{_separator}{_area.Width}{_separator}{_area.Height}"+
                 $"{_separator}{_zIndex}" + 
-                $"{_separator}{_levelName}{_separator}{_levelEntryText}{_separator}{_episode}{_separator}{entryPointsArr}";
+                $"{_separator}{_levelName}{_separator}{_levelEntryText}{_separator}{_episode}{_separator}{_music}{_separator}{entryPointsArr}";
         }
     }
 }

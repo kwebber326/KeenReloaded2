@@ -220,7 +220,8 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             lblPropertyName.Text = _mapMakerObjectProperty.DisplayName;
             if (_mapMakerObjectProperty.DataType.IsEnum
              || _mapMakerObjectProperty.DataType == typeof(string[])
-             || _mapMakerObjectProperty.DataType == typeof(List<string>))
+             || _mapMakerObjectProperty.DataType == typeof(List<string>)
+             || _mapMakerObjectProperty.PropertyName == GeneralGameConstants.MUSIC_PROPERTY_NAME)
             {
                 if (!_mapMakerObjectProperty.IsMultiSelect || _mapMakerObjectProperty.DataType.IsEnum)
                 {
@@ -288,6 +289,12 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
             if (_mapMakerObjectProperty.DataType == typeof(string[]))
             {
                 selectedValues = ((string[])_mapMakerObjectProperty.Value).ToList();
+            }
+            else if (_mapMakerObjectProperty.PropertyName == GeneralGameConstants.MUSIC_PROPERTY_NAME)
+            {
+                selectedValues = string.IsNullOrWhiteSpace(_mapMakerObjectProperty.Value?.ToString())
+                    ? values.Take(1).Select(c => c.ToString()).ToList()
+                    : new List<string> { _mapMakerObjectProperty.Value.ToString() };
             }
             else
             {

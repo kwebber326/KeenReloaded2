@@ -12,6 +12,19 @@ namespace KeenReloaded2.Utilities
 {
     public static class WorldMapLevelFactory
     {
+        private static string[] _worldMapSongs;
+
+        public static string[] WorldMapSongs
+        {
+            get
+            {
+                if (_worldMapSongs == null)
+                {
+                    _worldMapSongs = FileIOUtility.LoadWavFormatSongs().ToArray();
+                }
+                return _worldMapSongs;
+            }
+        } 
         public static MapMakerObject GetWorldMapLevelObject(string file, string currentDirectory)
         {
             Image img = Image.FromFile(file);
@@ -70,6 +83,14 @@ namespace KeenReloaded2.Utilities
                              PropertyName = "episode",
                              DataType = typeof(string),
                              Hidden = true,
+                             Value = string.Empty
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = GeneralGameConstants.MUSIC_PROPERTY_NAME,
+                             DataType = typeof(string),
+                             DisplayName = "Music:",
+                             PossibleValues = WorldMapSongs,
                              Value = string.Empty
                          },
                          new MapMakerObjectProperty()

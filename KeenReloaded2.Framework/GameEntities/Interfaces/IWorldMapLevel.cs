@@ -16,5 +16,7 @@ namespace KeenReloaded2.Framework.GameEntities.Interfaces
         string LevelEntryText { get; }
 
         string Episode { get; }
+
+        string Music { get; }
     }
 }
