@@ -18,6 +18,7 @@ namespace KeenReloaded2.Utilities
         public const string MUSIC_FOLDER = "Music";
         public const string WORLD_MAPS_DIRECTORY = "MapMakerObjects\\WorldMapObjects";
         public const string WORLD_MAP_PLAYER_FOLDER = "world_map_player";
+        public const string WORLD_MAP_LEVEL_MUSIC_MAPPING_FOLDER = "WorldMapLevelMusic";
 
         public static string LoadSavedCharacterSelection()
         {

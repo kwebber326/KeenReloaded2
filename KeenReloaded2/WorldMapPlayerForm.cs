@@ -5,6 +5,7 @@ using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.WorldMapEntities;
 using KeenReloaded2.UserControls.InventoryPanel;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -82,6 +83,11 @@ namespace KeenReloaded2
         {
             InitializeComponent();
             _loadingWindow = new KeenReloadedLoadingWindow();
+            if (MapUtility.LoadWorldMapMusic(data.MapName, out string music))
+            {
+                _loadingWindow.ChangeSong(music);
+            }
+
             InitializeGameData(data);
             _mapMakerMove = mapMakerMode;
             pbBackgroundImage.SendToBack();
@@ -276,7 +282,7 @@ namespace KeenReloaded2
             DetachEvents();
 
             //dispose sound player
-           
+            _loadingWindow.KillMusicPlayer();  
         }
 
         private void WorldMapPlayerForm_FormClosed(object sender, FormClosedEventArgs e)

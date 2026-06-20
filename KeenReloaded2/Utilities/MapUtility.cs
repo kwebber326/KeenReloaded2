@@ -115,6 +115,50 @@ namespace KeenReloaded2.Utilities
             }
         }
 
+        public static bool SaveWorldMapMusic(string worldMapLevelName, string songName)
+        {
+            try
+            {
+                string path = Path.Combine(Environment.CurrentDirectory, FileIOUtility.WORLD_MAP_LEVEL_MUSIC_MAPPING_FOLDER, worldMapLevelName + ".txt");
+                using (FileStream fs = File.OpenWrite(path))
+                using (StreamWriter writer = new StreamWriter(fs))
+                {
+                    writer.WriteLine(songName);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return false;
+            }
+        }
+
+        public static bool LoadWorldMapMusic(string worldMapLevelName, out string music)
+        {
+            try
+            {
+                music = null;
+                string path = Path.Combine(Environment.CurrentDirectory,
+                    FileIOUtility.WORLD_MAP_LEVEL_MUSIC_MAPPING_FOLDER, worldMapLevelName + ".txt");
+
+                if (!File.Exists(path))
+                    return false;
+
+                using (FileStream fs = File.OpenRead(path))
+                using (StreamReader reader = new StreamReader(fs))
+                {
+                   music = reader.ReadLine();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                music = null;
+                return false;
+            }
+        }
         public static string GetSavedMapsPath(string gameMode)
         {
             string gameModeFolder = GetFolderFromGameMode(gameMode);
@@ -124,6 +168,24 @@ namespace KeenReloaded2.Utilities
 
             string path = Path.Combine(System.Environment.CurrentDirectory, MapMakerConstants.SAVED_MAPS_FOLDER, gameModeFolder);
             return path;
+        }
+
+        public static string GetFolderFromGameMode(string gameMode)
+        {
+            switch (gameMode)
+            {
+                case MainMenuConstants.OPTION_LABEL_NORMAL_MODE:
+                    return MapMakerConstants.NORMAL_MAPS_FOLDER;
+                case MainMenuConstants.OPTION_LABEL_ZOMBIE_MODE:
+                    return MapMakerConstants.ZOMBIE_MAPS_FOLDER;
+                case MainMenuConstants.OPTION_LABEL_KOTH_MODE:
+                    return MapMakerConstants.KING_OF_THE_HILL_FOLDER;
+                case MainMenuConstants.OPTION_LABEL_CTF_MODE:
+                    return MapMakerConstants.CAPTURE_THE_FLAG_MAPS_FOLDER;
+                case MainMenuConstants.OPTION_LABEL_WORLD_MODE:
+                    return MapMakerConstants.WORLD_MAPS_FOLDER;
+            }
+            return string.Empty;
         }
 
         private static Size ParseMapSizeData(string data)
@@ -313,24 +375,6 @@ namespace KeenReloaded2.Utilities
             }
 
             return points;
-        }
-
-        public static string GetFolderFromGameMode(string gameMode)
-        {
-            switch (gameMode)
-            {
-                case MainMenuConstants.OPTION_LABEL_NORMAL_MODE:
-                    return MapMakerConstants.NORMAL_MAPS_FOLDER;
-                case MainMenuConstants.OPTION_LABEL_ZOMBIE_MODE:
-                    return MapMakerConstants.ZOMBIE_MAPS_FOLDER;
-                case MainMenuConstants.OPTION_LABEL_KOTH_MODE:
-                    return MapMakerConstants.KING_OF_THE_HILL_FOLDER;
-                case MainMenuConstants.OPTION_LABEL_CTF_MODE:
-                    return MapMakerConstants.CAPTURE_THE_FLAG_MAPS_FOLDER;
-                case MainMenuConstants.OPTION_LABEL_WORLD_MODE:
-                    return MapMakerConstants.WORLD_MAPS_FOLDER;
-            }
-            return string.Empty;
         }
 
         private static string GetGameModeFromFolderPath(string path)

@@ -76,6 +76,7 @@ namespace KeenReloaded2
         {
             cmbCategory.SelectedIndexChanged += CmbCategory_SelectedIndexChanged;
             InitializeEpisodeList();
+            InitializeSongList();
             mapObjectContainer1.ObjectClicked += MapObjectContainer1_ObjectClicked;
             _cursorUpdateTimer.Interval = 10;
             _cursorUpdateTimer.Tick += _cursorUpdateTimer_Tick;
@@ -197,6 +198,17 @@ namespace KeenReloaded2
             _episodeFileFolderDict.Add(GeneralGameConstants.Episodes.EPISODE_6, "world_map_keen6");
             cmbEpisode.SelectedIndexChanged += CmbEpisode_SelectedIndexChanged;
             cmbEpisode.SelectedIndex = 0;
+        }
+
+        private void InitializeSongList()
+        {
+            var songs = FileIOUtility.LoadWavFormatSongs();
+            foreach (var song in songs)
+            {
+                cmbMusic.Items.Add(song);
+            }
+
+            cmbMusic.SelectedIndex = 0;
         }
 
         private void RemoveCursorItem()
@@ -614,6 +626,13 @@ namespace KeenReloaded2
                 MessageBox.Show($"Map '{txtMapName.Text}' did not save successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            string selectedSong = cmbMusic.SelectedItem?.ToString();
+            if (!string.IsNullOrWhiteSpace(selectedSong) &&
+                !MapUtility.SaveWorldMapMusic(txtMapName.Text, selectedSong))
+            {
+                MessageBox.Show($"Music for map '{txtMapName.Text}' did not save successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             return true;
         }
 
@@ -886,6 +905,12 @@ namespace KeenReloaded2
                 RefreshZIndexPositioning();
 
                 pnlCanvas.Focus();
+
+                if (MapUtility.LoadWorldMapMusic(mapMakerData.MapName, out string music))
+                {
+                    var selectedIndex = cmbMusic.Items.IndexOf(music);
+                    cmbMusic.SelectedIndex = selectedIndex >= 0 ? selectedIndex : 0;
+                }
 
                 //reset dirty state
                 _mapHasUnsavedChanges = false;

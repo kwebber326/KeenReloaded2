@@ -49,6 +49,8 @@
             this.pnlCanvas = new System.Windows.Forms.Panel();
             this.chkSmartPlacer = new System.Windows.Forms.CheckBox();
             this.dialogMapLoader = new System.Windows.Forms.OpenFileDialog();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbMusic = new System.Windows.Forms.ComboBox();
             this.mapMakerObjectPropertyListControl1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapMakerObjectPropertyListControl();
             this.mapObjectContainer1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapObjectContainer();
             this.pnlSelectionData.SuspendLayout();
@@ -73,6 +75,8 @@
             // 
             // pnlSelectionData
             // 
+            this.pnlSelectionData.Controls.Add(this.cmbMusic);
+            this.pnlSelectionData.Controls.Add(this.label7);
             this.pnlSelectionData.Controls.Add(this.txtPlayerY);
             this.pnlSelectionData.Controls.Add(this.label6);
             this.pnlSelectionData.Controls.Add(this.label5);
@@ -86,12 +90,12 @@
             this.pnlSelectionData.Controls.Add(this.cmbEpisode);
             this.pnlSelectionData.Location = new System.Drawing.Point(12, 13);
             this.pnlSelectionData.Name = "pnlSelectionData";
-            this.pnlSelectionData.Size = new System.Drawing.Size(266, 118);
+            this.pnlSelectionData.Size = new System.Drawing.Size(266, 143);
             this.pnlSelectionData.TabIndex = 2;
             // 
             // txtPlayerY
             // 
-            this.txtPlayerY.Location = new System.Drawing.Point(186, 81);
+            this.txtPlayerY.Location = new System.Drawing.Point(186, 117);
             this.txtPlayerY.Name = "txtPlayerY";
             this.txtPlayerY.Size = new System.Drawing.Size(48, 20);
             this.txtPlayerY.TabIndex = 9;
@@ -101,7 +105,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(163, 84);
+            this.label6.Location = new System.Drawing.Point(163, 120);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(17, 13);
             this.label6.TabIndex = 8;
@@ -110,7 +114,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(85, 84);
+            this.label5.Location = new System.Drawing.Point(85, 120);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(17, 13);
             this.label5.TabIndex = 7;
@@ -118,7 +122,7 @@
             // 
             // txtPlayerX
             // 
-            this.txtPlayerX.Location = new System.Drawing.Point(108, 81);
+            this.txtPlayerX.Location = new System.Drawing.Point(108, 117);
             this.txtPlayerX.Name = "txtPlayerX";
             this.txtPlayerX.Size = new System.Drawing.Size(48, 20);
             this.txtPlayerX.TabIndex = 6;
@@ -128,7 +132,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 84);
+            this.label4.Location = new System.Drawing.Point(3, 120);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 13);
             this.label4.TabIndex = 5;
@@ -177,9 +181,9 @@
             this.pnlActions.Controls.Add(this.btnSave);
             this.pnlActions.Controls.Add(this.btnLoad);
             this.pnlActions.Controls.Add(this.btnNew);
-            this.pnlActions.Location = new System.Drawing.Point(12, 134);
+            this.pnlActions.Location = new System.Drawing.Point(12, 162);
             this.pnlActions.Name = "pnlActions";
-            this.pnlActions.Size = new System.Drawing.Size(266, 118);
+            this.pnlActions.Size = new System.Drawing.Size(266, 90);
             this.pnlActions.TabIndex = 3;
             // 
             // btnAdvancedTools
@@ -194,7 +198,7 @@
             // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(6, 90);
+            this.btnTest.Location = new System.Drawing.Point(166, 61);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(96, 23);
             this.btnTest.TabIndex = 3;
@@ -258,6 +262,24 @@
             // 
             this.dialogMapLoader.FileName = "openFileDialog1";
             this.dialogMapLoader.FileOk += new System.ComponentModel.CancelEventHandler(this.dialogMapLoader_FileOk);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 85);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(38, 13);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Music:";
+            // 
+            // cmbMusic
+            // 
+            this.cmbMusic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMusic.FormattingEnabled = true;
+            this.cmbMusic.Location = new System.Drawing.Point(76, 85);
+            this.cmbMusic.Name = "cmbMusic";
+            this.cmbMusic.Size = new System.Drawing.Size(186, 21);
+            this.cmbMusic.TabIndex = 11;
             // 
             // mapMakerObjectPropertyListControl1
             // 
@@ -330,5 +352,7 @@
         private System.Windows.Forms.CheckBox chkSmartPlacer;
         private System.Windows.Forms.OpenFileDialog dialogMapLoader;
         private System.Windows.Forms.Button btnAdvancedTools;
+        private System.Windows.Forms.ComboBox cmbMusic;
+        private System.Windows.Forms.Label label7;
     }
 }

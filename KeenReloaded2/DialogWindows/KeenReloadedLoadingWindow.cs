@@ -51,7 +51,17 @@ namespace KeenReloaded2.DialogWindows
 
         public void MuteMusic()
         {
-            this.soundPlayer1.UnmuteMusic();
+            this.soundPlayer1.MuteMusic();
+        }
+
+        public void ChangeSong(string songName)
+        {
+            this.soundPlayer1.PlayMusic(songName);
+        }
+
+        public void KillMusicPlayer()
+        {
+            this.soundPlayer1.KillMusicPlayer(true);
         }
 
         private void _eventsCompletedCheckTimer_Tick(object sender, EventArgs e)
