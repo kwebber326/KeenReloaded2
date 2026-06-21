@@ -625,6 +625,22 @@ namespace KeenReloaded2.Entities
             _animatedBackgrounds = new List<AnimatedBackground>();
             _backgroundsAndTiles = new OrderedList<ISprite>(_compareFunction);
         }
+
+        public void MarkLevelComplete(IActivateable level)
+        {
+            if (level == null)
+                return;
+
+            var activators = _gameObjects.OfType<IActivator>();
+            if (activators.Any())
+            {
+                var activator = activators.FirstOrDefault(f => f.ToggleObjects.Contains(level));
+                if (activator != null)
+                {
+                    activator.Toggle();
+                }
+            }
+        }
     }
 
     internal static class ImageHelper

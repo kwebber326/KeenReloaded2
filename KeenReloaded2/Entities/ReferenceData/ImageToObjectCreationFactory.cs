@@ -5088,6 +5088,13 @@ namespace KeenReloaded2.Entities.ReferenceData
 
                     referenceData.Add(imgName, obj);
                 }
+                else if (currentDirectory.EndsWith("CheckPoints"))
+                {
+                    MapMakerObject obj = WorldMapCheckPointFactory.GetCheckPointFromImage(
+                        file, imgName, img);
+
+                    referenceData.Add(imgName, obj);
+                }
             }
 
             //recursively go through directories to find objects

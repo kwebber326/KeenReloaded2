@@ -644,11 +644,16 @@ namespace KeenReloaded2
             EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_COMMIT, AdvancedTools_ActionCommit);
             EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_UNDO, AdvancedTools_ActionCancel);
             EventStore<AdvancedToolsEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_CANCEL, AdvancedTools_ActionCancel);
+
+            EventStore<ActivatorSelectionChangedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ACTIVATOR_SELECTION_CHANGED, ActivatorSelection_Changed);
+            EventStore<ActivatorSelectionCompletedEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_ACTIVATOR_SELECTION_COMPLETE, ActivatorSelection_Complete);
         }
 
         private void UnsubscribeToEventStoreEvents()
         {
             //Advanced Tools Events
+            EventStore<ActivatorSelectionChangedEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_ACTIVATOR_SELECTION_CHANGED, ActivatorSelection_Changed);
+            EventStore<ActivatorSelectionCompletedEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_ACTIVATOR_SELECTION_COMPLETE, ActivatorSelection_Complete);
             EventStore<AdvancedToolsEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_SELECTION_CHANGED, AdvancedTools_SelectionChanged);
             EventStore<AdvancedToolsEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_PREVIEW, AdvancedTools_ActionPreview);
             EventStore<AdvancedToolsEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_ADVANCED_TOOLS_ACTION_COMMIT, AdvancedTools_ActionCommit);
@@ -701,6 +706,19 @@ namespace KeenReloaded2
                     selectedItem.BackColor = Color.Transparent;
                 }
             }
+        }
+
+        private void ActivatorSelection_Changed(object sender, ControlEventArgs.ControlEventArgs<ActivatorSelectionChangedEventArgs> e)
+        {
+            HighlightActivateables(e.Data.CurrentActivateablesSelected, Color.Red, true);
+            HighlightActivateables(e.Data.CurrentActiveablesUnSelected, Color.Transparent, true);
+            HighlightActivateables(e.Data.OtherActivateablesSelected, Color.Blue);
+            HighlightActivateables(e.Data.OtherActiveablesUnSelected, Color.Transparent);
+        }
+
+        private void ActivatorSelection_Complete(object sender, ControlEventArgs.ControlEventArgs<ActivatorSelectionCompletedEventArgs> e)
+        {
+            HighlightActivateables(e.Data.Activateables, Color.Transparent);
         }
 
         private void HighlightActivateables(List<IActivateable> activateables, Color color, bool addBorder = false)

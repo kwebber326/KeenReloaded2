@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 {
-    public class WorldMapLevel : CollisionObject, ISprite, IWorldMapLevel
+    public class WorldMapLevel : CollisionObject, ISprite, IWorldMapLevel, IActivateable
     {
         protected readonly int _zIndex;
         protected Image _sprite;
@@ -27,11 +27,13 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         protected readonly Rectangle[] _levelEntryPoints;
         protected readonly Rectangle[] _trueEntryPoints;
         protected readonly string _episode;
-        private readonly string _music;
+        protected readonly string _music;
+        protected readonly Guid _activationId;
+        protected bool _isActive = true;
 
         public event EventHandler WorldMapEntered;
 
-        public WorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Image sprite, string levelName, string levelEntryText, string episode, string music, Rectangle[] entryPoints) 
+        public WorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Image sprite, string levelName, string levelEntryText, string episode, string music, Guid activationId, Rectangle[] entryPoints) 
             : base(grid, area)
         {
             _zIndex = zIndex;
@@ -44,6 +46,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             _levelEntryText = levelEntryText;
             _episode = episode;
             _music = music;
+            _activationId = activationId;
             _levelEntryPoints = entryPoints;
             _trueEntryPoints = entryPoints.Select(e => new Rectangle(
                 this.HitBox.X + e.X,
@@ -69,6 +72,10 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 
         public  string Music => _music;
 
+        public bool IsActive => _isActive;
+
+        public Guid ActivationID => _activationId;
+
         protected virtual string BuildRectangleArrayStringRepresentation(Rectangle[] rectangles)
         {
             StringBuilder builder = new StringBuilder();
@@ -90,7 +97,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 
         public void TryEnterLevel(WorldMapPlayer player)
         {
-            if (player == null ||
+            if (player == null || !_isActive ||
                 !_trueEntryPoints.Any(e => e.IntersectsWith(player.HitBox)))
                 return;
 
@@ -103,7 +110,18 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             return $"{_objectKey}{_separator}"+ 
                 $"{_area.X}{_separator}{_area.Y}{_separator}{_area.Width}{_separator}{_area.Height}"+
                 $"{_separator}{_zIndex}" + 
-                $"{_separator}{_levelName}{_separator}{_levelEntryText}{_separator}{_episode}{_separator}{_music}{_separator}{entryPointsArr}";
+                $"{_separator}{_levelName}{_separator}{_levelEntryText}{_separator}{_episode}" + 
+                $"{_separator}{_music}{_separator}{_activationId}{_separator}{entryPointsArr}";
+        }
+
+        public void Activate()
+        {
+            _isActive = true;
+        }
+
+        public void Deactivate()
+        {
+            _isActive = false;
         }
     }
 }

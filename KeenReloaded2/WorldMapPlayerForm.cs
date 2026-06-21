@@ -164,6 +164,10 @@ namespace KeenReloaded2
                 form1.ShowDialog();
                 form1.KeenStateChanged -= Form1_KeenStateChanged;
                 _loadingWindow.UnmuteMusic();
+                if (form1.LevelCompleted)
+                {
+                    _game.MarkLevelComplete(level as IActivateable);
+                }
                 _gameUpdateTimer.Start();
             }
         }

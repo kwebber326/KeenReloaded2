@@ -47,6 +47,8 @@ namespace KeenReloaded2
 
         public event EventHandler<ObjectEventArgs> KeenStateChanged;
 
+        public bool LevelCompleted => _levelCompleted;
+
         public Form1()
         {
             InitializeComponent();
@@ -125,7 +127,7 @@ namespace KeenReloaded2
             _maxVisionY = _game.Map.MapSize.Height - VIEW_RADIUS;
             _maxVisionX = _game.Map.MapSize.Width - VIEW_RADIUS;
 
-            if (_gameMode == MainMenuConstants.OPTION_LABEL_NORMAL_MODE && !isReset)
+            if (_gameMode == MainMenuConstants.OPTION_LABEL_NORMAL_MODE && !isReset && !_isWorldMode)
             {
                 _levelCompletionTimer.Start();
             }

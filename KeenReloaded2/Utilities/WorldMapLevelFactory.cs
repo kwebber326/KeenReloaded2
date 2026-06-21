@@ -95,6 +95,14 @@ namespace KeenReloaded2.Utilities
                          },
                          new MapMakerObjectProperty()
                          {
+                             PropertyName = GeneralGameConstants.ACTIVATION_ID_PROPERTY_NAME,
+                             DataType = typeof(Guid),
+                             DisplayName = "Id:",
+                             Readonly = true,
+                             Value = new Guid()
+                         },
+                         new MapMakerObjectProperty()
+                         {
                              PropertyName = "entryPoints",
                              DataType = typeof(Rectangle[]),
                              Value = new Rectangle[0],
