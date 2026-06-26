@@ -112,14 +112,8 @@ namespace KeenReloaded2.UserControls.MapMakerUserControls
 
                 if (!gameObjectIsBackground)
                 {
-
                     var collisionObjects = gameObjects.Select(c => c.GameObject).OfType<CollisionObject>();
                     if (!collisionObjects.Any())
-                        return null;
-                    var sameTypeObjects =
-                        collisionObjects.Where(g =>
-                        (g.CollisionType == CollisionType.BLOCK || g.CollisionType == CollisionType.PLATFORM));
-                    if (!sameTypeObjects.Any())
                         return null;
                 }
 

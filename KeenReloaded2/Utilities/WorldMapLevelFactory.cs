@@ -416,7 +416,7 @@ namespace KeenReloaded2.Utilities
                 if (entryPointProp != null)
                     entryPointProp.Value = new Rectangle[]
                     {
-                        new Rectangle(0, 60, 60, 32)
+                        new Rectangle(27, 46, 39, 19)
                     };
 
                 var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
@@ -429,9 +429,9 @@ namespace KeenReloaded2.Utilities
                     DataType = typeof(Rectangle[]),
                     Value = new Rectangle[]
                     {
-                        new Rectangle(0, 0, img.Width / 2, img.Height),
-                        new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2),
-                        new Rectangle(img.Width - img.Width / 3, img.Height / 2, img.Width / 3, img.Height / 2)
+                        new Rectangle(0, 0, 96, 63),
+                        new Rectangle(0, 0, 32, 14),
+                        new Rectangle(63, 62, 32, 14)
                     },
                     Hidden = true
                 });
@@ -459,7 +459,7 @@ namespace KeenReloaded2.Utilities
                 if (entryPointProp != null)
                     entryPointProp.Value = new Rectangle[]
                     {
-                        new Rectangle(0, 60, 60, 32)
+                        new Rectangle(27, 46, 39, 19)
                     };
 
                 var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
@@ -472,9 +472,9 @@ namespace KeenReloaded2.Utilities
                     DataType = typeof(Rectangle[]),
                     Value = new Rectangle[]
                     {
-                        new Rectangle(0, 0, img.Width / 2, img.Height),
-                        new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2),
-                        new Rectangle(img.Width - img.Width / 3, img.Height / 2, img.Width / 3, img.Height / 2)
+                        new Rectangle(0, 0, 96, 63),
+                        new Rectangle(0, 0, 32, 14),
+                        new Rectangle(63, 62, 32, 14)
                     },
                     Hidden = true
                 });
