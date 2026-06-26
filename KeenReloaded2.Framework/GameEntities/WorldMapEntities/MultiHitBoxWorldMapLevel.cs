@@ -13,7 +13,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 {
     public class MultiHitBoxWorldMapLevel : WorldMapLevel
     {
-        private readonly Rectangle[] _hitBoxes;
+        protected readonly Rectangle[] _hitBoxes;
 
         public MultiHitBoxWorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Image sprite, string levelName, string levelEntryText, string episode, string music, Guid activationId, Rectangle[] entryPoints, Rectangle[] hitboxes) 
             : base(area, grid, zIndex, sprite, levelName, levelEntryText, episode, music, activationId, entryPoints)

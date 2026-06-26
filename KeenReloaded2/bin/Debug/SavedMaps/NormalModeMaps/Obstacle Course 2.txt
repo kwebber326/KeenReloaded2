@@ -1,0 +1,10 @@
+3000|3000
+keen5_outer_space1|0|0|3000|3000|keen5_outer_space1.png|False|-2
+keen5_purple_background_plain1|103|141|2870|2800|keen5_purple_background_plain1.png|False|-1
+keen5_floor_red_edge_left|72|83|72|64|10
+keen5_wall_red_middle|72|147|64|2800|10
+keen5_floor_red_middle|134|2883|2800|64|10
+keen5_wall_red_middle|2934|147|64|2800|10
+keen5_floor_red_middle|144|83|2800|64|10
+keen5_floor_red_edge_right|2944|83|52|64|10
+keen_stand_right|213|2817|26|64|RIGHT

@@ -1,9 +1,8 @@
 Kdog|135000
 Kenny the dog|121100
+Kenny the tank|118000
 Kenny|109400
 Kenny big dawg|104700
 Kenny Wins|100000
 Kenny|83500
-Kenny|77200
-Kenny|71300
-67900
+Kenny the dog|78400

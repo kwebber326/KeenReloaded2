@@ -15,10 +15,10 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 {
     public class AnimatedForegroundMultiHitboxWorldMapLevel : ForeGroundMultiHitboxWorldMapLevel
     {
-        private readonly int _animationDelay;
-        private readonly int _animationStartIndex;
-        private readonly Image[] _imageList;
-        private readonly Animation _animation;
+        protected readonly int _animationDelay;
+        protected readonly int _animationStartIndex;
+        protected readonly Image[] _imageList;
+        protected Animation _animation;
 
         public AnimatedForegroundMultiHitboxWorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Image sprite, string levelName, string levelEntryText, string episode, string music, Guid activationId, Rectangle[] entryPoints, Rectangle[] hitboxes, Rectangle[] foregroundAreas, string imagesPath, int animationDelay, int animationStartIndex, string key) 
             : base(area, grid, zIndex, sprite, levelName, levelEntryText, episode, music, activationId, entryPoints, hitboxes, foregroundAreas)
@@ -28,6 +28,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                 _animationStartIndex = animationStartIndex;
                 _animationDelay = animationDelay;
                 _imageList = new Image[0];
+                //add only one time and share memory for multiple levels of the same type
                 if (AnimationDictionary.Animations.TryGetValue(key, out Image[] images))
                 {
                     _animation = new Animation(images.ToList(), animationDelay, true);
@@ -69,7 +70,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             }
         }
 
-        private void _animation_AnimationMoveNext(object sender, EventArgs e)
+        protected virtual void _animation_AnimationMoveNext(object sender, EventArgs e)
         {
             _sprite = _animation.CurrentImage;
         }

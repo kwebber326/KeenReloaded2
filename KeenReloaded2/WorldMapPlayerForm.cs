@@ -83,6 +83,7 @@ namespace KeenReloaded2
         {
             InitializeComponent();
             _loadingWindow = new KeenReloadedLoadingWindow();
+            _loadingWindow.WorldMapLoadError += _loadingWindow_WorldMapLoadError;
             if (MapUtility.LoadWorldMapMusic(data.MapName, out string music))
             {
                 _loadingWindow.ChangeSong(music);
@@ -94,7 +95,12 @@ namespace KeenReloaded2
             pbGameImage.Parent = pbBackgroundImage;
             pbBackgroundImage.Image = _game.BackGroundImage;
             pbGameImage.Location = new Point(0, 0);
-           
+
+        }
+
+        private void _loadingWindow_WorldMapLoadError(object sender, EventArgs e)
+        {
+            HandleMapLoadError();
         }
 
         private void WorldMapPlayerForm_Load(object sender, EventArgs e)
@@ -139,11 +145,7 @@ namespace KeenReloaded2
             IWorldMapLevel level = sender as IWorldMapLevel;
             if (level == null)
             {
-                KeenReloadedErrorMessageWindow errorMessageWindow =
-                    new KeenReloadedErrorMessageWindow("Level could not be loaded");
-                errorMessageWindow.ShowDialog();
-                _player.ClearAllKeyPressStates();
-                _gameUpdateTimer.Start();
+                HandleMapLoadError();
                 return;
             }
 
@@ -154,7 +156,7 @@ namespace KeenReloaded2
             _player.ClearAllKeyPressStates();
 
 
-           _loadingWindow.LoadLevel(levelName, episode, levelEntryText);
+            _loadingWindow.LoadLevel(levelName, episode, levelEntryText);
             if (_loadingWindow.DialogResult == DialogResult.OK)
             {
                 Form1 form1 = new Form1(
@@ -170,6 +172,18 @@ namespace KeenReloaded2
                 }
                 _gameUpdateTimer.Start();
             }
+        }
+
+        private void HandleMapLoadError()
+        {
+            _player.ClearAllKeyPressStates();
+            KeenReloadedErrorMessageWindow errorMessageWindow =
+                new KeenReloadedErrorMessageWindow("Level could not be loaded");
+      
+            errorMessageWindow.ShowDialog();
+           
+            if (!_gameUpdateTimer.Enabled)
+                _gameUpdateTimer.Start();
         }
 
         private void Form1_KeenStateChanged(object sender, Framework.GameEventArgs.ObjectEventArgs e)
@@ -286,7 +300,7 @@ namespace KeenReloaded2
             DetachEvents();
 
             //dispose sound player
-            _loadingWindow.KillMusicPlayer();  
+            _loadingWindow.KillMusicPlayer();
         }
 
         private void WorldMapPlayerForm_FormClosed(object sender, FormClosedEventArgs e)

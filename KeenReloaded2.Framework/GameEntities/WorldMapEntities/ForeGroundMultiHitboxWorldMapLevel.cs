@@ -14,8 +14,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 {
     public class ForeGroundMultiHitboxWorldMapLevel : MultiHitBoxWorldMapLevel, IUpdatable, ICreateRemove
     {
-        private readonly Rectangle[] _foregroundAreas;
-        private bool _updated;
+        protected readonly Rectangle[] _foregroundAreas;
+        protected bool _updated;
 
         public ForeGroundMultiHitboxWorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Image sprite, string levelName, string levelEntryText, string episode, string music, Guid activationId, Rectangle[] entryPoints, Rectangle[] hitboxes, Rectangle[] foregroundAreas)
             : base(area, grid, zIndex, sprite, levelName, levelEntryText, episode, music, activationId, entryPoints, hitboxes)
@@ -29,6 +29,11 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         protected void OnCreate(ObjectEventArgs e)
         {
             this.Create?.Invoke(this, e);
+        }
+
+        protected void OnRemove(ObjectEventArgs e)
+        {
+            this.Remove?.Invoke(this, e);
         }
 
         public virtual void Update()

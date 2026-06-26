@@ -199,7 +199,7 @@ namespace KeenReloaded2.Utilities
                     {
                         new Rectangle(0, 0, img.Width / 3, img.Height),
                         new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2),
-                        new Rectangle(img.Width - img.Width / 3, img.Height / 2, img.Width / 3, img.Height / 2)
+                        new Rectangle(img.Width - img.Width / 3, img.Height / 2, img.Width / 3, img.Height / 2),
                     },
                     Hidden = true
                 });
@@ -208,7 +208,7 @@ namespace KeenReloaded2.Utilities
                 if (entryPointProp != null)
                     entryPointProp.Value = new Rectangle[]
                     {
-                        new Rectangle(0, 60, 60, 32)
+                        new Rectangle(0, 30, 60, 62)
                     };
 
                 var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
@@ -223,7 +223,13 @@ namespace KeenReloaded2.Utilities
                     {
                         new Rectangle(0, 0, img.Width / 2, img.Height),
                         new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2),
-                        new Rectangle(img.Width - img.Width / 3, img.Height / 2, img.Width / 3, img.Height / 2)
+                        new Rectangle(img.Width - img.Width / 3, img.Height / 2, img.Width / 3, img.Height / 2),
+                        new Rectangle(46, 35, 30, 11),
+                        new Rectangle(49,47, 9, 6),
+                        new Rectangle(49, 53, 8, 3),
+                        new Rectangle(50, 57, 3, 2),
+                        new Rectangle(53, 56, 3, 4),
+                        new Rectangle(44, 43, 15, 16)
                     },
                     Hidden = true
                 });
@@ -239,9 +245,9 @@ namespace KeenReloaded2.Utilities
                     DataType = typeof(Rectangle[]),
                     Value = new Rectangle[]
                     {
-                        new Rectangle(0, 0, img.Width / 3, img.Height),
-                        new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2),
-                        new Rectangle(img.Width - img.Width / 3, img.Height / 2, img.Width / 3, img.Height / 2)
+                        new Rectangle(2, 2, 77, 26),
+                        new Rectangle(2, 26, 48, 38),
+                        new Rectangle(50, 54, 17, 9)
                     },
                     Hidden = true
                 });
@@ -250,7 +256,8 @@ namespace KeenReloaded2.Utilities
                 if (entryPointProp != null)
                     entryPointProp.Value = new Rectangle[]
                     {
-                        new Rectangle(0, 60, 60, 32)
+                        new Rectangle(48, 30, 21, 24),
+                        new Rectangle(74, 37, 13, 24)
                     };
 
                 var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
@@ -288,7 +295,7 @@ namespace KeenReloaded2.Utilities
                 if (entryPointProp != null)
                     entryPointProp.Value = new Rectangle[]
                     {
-                        new Rectangle(0, 60, 60, 32)
+                        new Rectangle(30, 0, 30, 64)
                     };
 
                 var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
@@ -317,7 +324,7 @@ namespace KeenReloaded2.Utilities
                 if (entryPointProp != null)
                     entryPointProp.Value = new Rectangle[]
                     {
-                        new Rectangle(0, 60, 60, 32)
+                        new Rectangle(0, 30, 60, 62)
                     };
 
                 var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
@@ -330,15 +337,13 @@ namespace KeenReloaded2.Utilities
                     DataType = typeof(Rectangle[]),
                     Value = new Rectangle[]
                     {
-                        new Rectangle(0, 0, img.Width / 2, img.Height),
-                        new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2),
-                        new Rectangle(img.Width - img.Width / 3, img.Height / 2, img.Width / 3, img.Height / 2)
+                        new Rectangle(29, 45, 21, 1)
                     },
                     Hidden = true
                 });
                 properties.AddRange(animatedWorldMapProperties);
 
-                obj = new MapMakerObject(typeof(AnimatedForegroundMultiHitboxWorldMapLevel),
+                obj = new MapMakerObject(typeof(Keen4MirageWorldMapLevel),
                     file, false, properties.ToArray());
             }
             else if (imgName.Contains("keen4_oasis_c1"))
@@ -361,7 +366,7 @@ namespace KeenReloaded2.Utilities
                 if (entryPointProp != null)
                     entryPointProp.Value = new Rectangle[]
                     {
-                        new Rectangle(0, 60, 60, 32)
+                        new Rectangle(0, 0, 96, 80)
                     };
 
                 var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
@@ -374,9 +379,16 @@ namespace KeenReloaded2.Utilities
                     DataType = typeof(Rectangle[]),
                     Value = new Rectangle[]
                     {
-                        new Rectangle(0, 0, img.Width / 2, img.Height),
-                        new Rectangle(img.Width / 2, 0, img.Width / 2, img.Height / 2),
-                        new Rectangle(img.Width - img.Width / 3, img.Height / 2, img.Width / 3, img.Height / 2)
+                        new Rectangle(41, 45, 11, 7),
+                        new Rectangle(25,41, 15, 13),
+                        new Rectangle(26, 51, 13, 6),
+                        new Rectangle(50, 50, 4, 3),
+                        new Rectangle(54, 50, 4, 4),
+                        new Rectangle(58, 53, 3, 4),
+                        new Rectangle(60, 56, 4, 3),
+                        new Rectangle(60, 58, 6, 3),
+                        new Rectangle(52, 43, 4, 4),
+                        new Rectangle(49, 45, 5, 3)
                     },
                     Hidden = true
                 });
@@ -744,7 +756,7 @@ namespace KeenReloaded2.Utilities
                 if (entryPointProp != null)
                     entryPointProp.Value = new Rectangle[]
                     {
-                        new Rectangle(0, 60, 60, 32)
+                        new Rectangle(0, 30, 30, 64)
                     };
 
                 var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");

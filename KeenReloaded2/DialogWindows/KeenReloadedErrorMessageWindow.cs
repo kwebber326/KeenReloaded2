@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace KeenReloaded2.DialogWindows
 {
@@ -13,6 +14,15 @@ namespace KeenReloaded2.DialogWindows
         public KeenReloadedErrorMessageWindow(string errorMsg) : base(errorMsg)
         {
             this.InitializeComponent();
+        }
+
+        protected override void KeenReloadedMessageWindow_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Escape)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
         private void InitializeComponent()

@@ -79,6 +79,8 @@ namespace KeenReloaded2.DialogWindows
 
         public void LoadLevel(string level, string episode, string loadingText)
         {
+            _animationDone = false;
+            _mapLoaded = false;
             _messageText = loadingText;
             EnableTextWrapping();
             base.KeenReloadedMessageWindow_Load(this, EventArgs.Empty);
@@ -139,14 +141,24 @@ namespace KeenReloaded2.DialogWindows
                     string path = Path.Combine(Environment.CurrentDirectory, folder, level + ".txt");
 
                     var mapData = MapUtility.LoadMapData(path);
+                    if (mapData == null || !mapData.MapData.Any())
+                        throw new FileLoadException("error loading map " + level);
+
                     this.MapData = mapData;
                     _mapLoaded = true;
                 }
                 catch (Exception ex)
                 {
                     Debug.Write(ex);
-                    this.DialogResult = DialogResult.Cancel;
-                    this.Close();
+                    if (this.IsHandleCreated)
+                    {
+                        this.BeginInvoke((MethodInvoker)delegate
+                        {
+                            this.DialogResult = DialogResult.Cancel;
+                            this.WorldMapLoadError?.Invoke(this, EventArgs.Empty);
+                            this.Close();
+                        });
+                    }
                 }
             });
         }

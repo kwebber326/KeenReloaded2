@@ -322,6 +322,7 @@
     <Compile Include="GameEntities\Weapons\SnakeGun.cs" />
     <Compile Include="GameEntities\WorldMapEntities\AnimatedForegroundMultiHitboxWorldMapLevel.cs" />
     <Compile Include="GameEntities\WorldMapEntities\ForeGroundMultiHitboxWorldMapLevel.cs" />
+    <Compile Include="GameEntities\WorldMapEntities\Keen4MirageWorldMapLevel.cs" />
     <Compile Include="GameEntities\WorldMapEntities\MultiHitBoxWorldMapLevel.cs" />
     <Compile Include="GameEntities\WorldMapEntities\WorldMapLevel.cs" />
     <Compile Include="GameEntities\WorldMapEntities\WorldMapPlayer.cs" />

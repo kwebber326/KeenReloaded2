@@ -216,7 +216,7 @@ namespace KeenReloaded2.Utilities
             {
                 Debug.WriteLine(ex);
             }
-            return null;
+            return Array.Empty<string>();
         }
 
         public static List<Tuple<string, string>> ReadHighScoresByGameModeAndLevel(string gameMode, string mapName)

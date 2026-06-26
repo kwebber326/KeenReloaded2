@@ -4,8 +4,16 @@ keen4_no_diving|421|2000|32|32|keen4_no_diving.bmp|False|0
 ripple_water(animated)_SWIM|747|310|16|16|0|SWIM|200|0
 keen4_no_diving|346|243|32|32|keen4_no_diving.bmp|False|0
 keen4_dirt_path2|156|425|16|32|keen4_dirt_path2.bmp|False|0
-keen4_dirt_path1|140|425|16|16|keen4_dirt_path1.bmp|False|0
 img_597|140|441|16|16|img_597.bmp|False|0
+keen4_dirt_path1|140|425|16|16|keen4_dirt_path1.bmp|False|2
 keen4_cave_mountains_c1|449|206|125|110|10|Cavern of Hopelessness|Keen ideates in the cavern of hopelessness|Secret of the Oracle|toohot_original.wav|5a1a7757-6607-47bd-8a45-36cbd54f609c|[0,60,60,32]|[0,0,41,110,0,0,125,55,41,88,16,22,95,52,30,32]|[0,0,62,110,0,0,125,55]
-keen_stop_up|0|0|16|16
+keen4_oasis_c1|108|362|96|80|10|Sprint Through the Oasis|Keen sprints through the oasis|Secret of the Oracle|shadowlands.wav|9f957d9e-ec08-4784-b306-060e38b8c6af|[0,0,96,80]|[0,0,32,80,48,0,48,40,64,40,32,40]|[41,45,11,7,25,41,15,13,26,51,13,6,50,50,4,3,54,50,4,4,58,53,3,4,60,56,4,3,60,58,6,3,52,43,4,4,49,45,5,3]
+keen4_crystal_cave_c1|292|360|96|80|10|test level||Secret of the Oracle|aliens.wav|ab095b86-f966-483a-bfe1-baae5e796ec8|[0,30,60,62]|[0,0,32,80,48,0,48,40,64,40,32,40]|[0,0,48,80,48,0,48,40,64,40,32,40,46,35,30,11,49,47,9,6,49,53,8,3,50,57,3,2,53,56,3,4,44,43,15,16]
+keen4_level_fire_c2|504|396|111|64|10|test level|testing|Secret of the Oracle|aliens.wav|15109611-767b-4424-816a-5004bd684f33|[48,30,21,24,74,37,13,24]|[2,2,77,26,2,26,48,38,50,54,17,9]|[]|200|0
+keen4_level_village2_c1|168|547|96|64|10|test level|testing|Secret of the Oracle|aliens.wav|07faf40d-1c4d-466d-9122-cc97b9f2a5c4|[30,0,30,64]|[0,0,32,64,64,0,32,64]
+keen4_mirage_c2|367|557|82|64|10|test level|testing|Secret of the Oracle|aliens.wav|8847fcf1-9894-4252-a8ab-e56623bb8541|[0,30,60,62]|[0,0,27,64,41,0,41,32,55,32,27,32]|[29,45,21,1]|200|0
+keen_stop_up|200|200|16|16
 keen4_flag_base_yellow_wm|574|285|32|32|10|[5a1a7757-6607-47bd-8a45-36cbd54f609c]
+keen4_flag_base_yellow_wm|208|404|32|32|10|[]
+keen4_flag_base_red1_wm|392|410|32|32|10|[ab095b86-f966-483a-bfe1-baae5e796ec8]
+keen4_flag_base_yellow_wm|463|586|32|32|10|[8847fcf1-9894-4252-a8ab-e56623bb8541]

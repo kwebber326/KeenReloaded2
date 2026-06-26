@@ -92,7 +92,6 @@ keen4_cave_wall_middle|1624|3392|576|64|10
 keen4_removable_platform|660|3328|912|62|10|KEEN4_GREEN|True|78d6dabb-606b-476c-8840-296f05694675
 keen4_cave_wall_edge_left|1035|1130|64|64|10
 keen4_cave_air_floor_edge_left|1035|1066|64|64|10
-keen4_removable_platform|0|3704|2200|62|10|KEEN4_GREEN|True|a13b5587-3746-4e98-a2db-13541dfe195c
 keen4_cave_platform_left_edge|2064|1058|30|38|10
 keen4_cave_platform_middle|2094|1058|32|36|10
 keen4_cave_platform_right_edge|2126|1058|30|38|10
@@ -117,6 +116,7 @@ keen4_removable_platform|1100|1153|500|62|10|KEEN4_GREEN|False|d44781b6-485d-466
 keen4_removable_platform|634|1990|186|62|10|KEEN4_GREEN|True|211d8c88-785d-485c-8a02-267ebe7a9143
 keen4_cave_floor_middle|0|3218|300|64|10
 keen4_cave_air_floor_edge_right|300|3218|52|64|10
+keen4_removable_platform|0|3704|2200|62|10|KEEN4_GREEN|False|a13b5587-3746-4e98-a2db-13541dfe195c
 keen4_blue_door|1824|2190|60|92|15|KEEN4_BLUE|1|
 keen4_gray_door|1050|2329|60|92|15|KEEN4_GRAY|2|
 keen4_cave_pole_manhole|1599|1861|96|72|15|keen4_cave_pole_manhole|MANHOLE|KEEN4_CAVE
@@ -381,7 +381,7 @@ keen4_switch1_off|1826|2383|32|32|15|KEEN4_1|[e7536a7b-cbbf-482d-bf52-d99eb0f5b3
 keen4_switch1_on|1794|2383|32|32|15|KEEN4_1|[d6d1082f-d076-4b72-a45c-676d9236a983]|True
 keen4_switch1_on|1890|2383|32|32|15|KEEN4_1|[78d6dabb-606b-476c-8840-296f05694675,211d8c88-785d-485c-8a02-267ebe7a9143]|True
 keen4_switch2_off|1120|759|32|32|15|KEEN4_2|[726ed6aa-e55d-4c0a-92a9-15ca699ce9e3]|False
-keen4_switch2_off|32|3429|32|32|15|KEEN4_2|[]|False
+keen4_switch2_off|32|3429|32|32|15|KEEN4_2|[a13b5587-3746-4e98-a2db-13541dfe195c]|False
 gem_placeholder_red_empty|1590|3330|26|22|50|RED|[74642a71-50de-4f01-8eb5-cad02c4833d3]
 gem_placeholder_yellow_empty|1616|3330|26|22|50|YELLOW|[84086f7d-8033-4b52-ae1f-87c19e0b449e]
 gem_placeholder_blue_empty|1642|3330|26|22|50|BLUE|[208509e8-0662-4c18-9f51-b57d5f3b9414]
