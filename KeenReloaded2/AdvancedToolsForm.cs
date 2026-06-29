@@ -265,8 +265,7 @@ namespace KeenReloaded2
 
         private void AdvancedToolsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (this.DialogResult == DialogResult.Cancel
-                && (_previousAdvancedToolsSelection?.Any() ?? false))
+            if ( (_previousAdvancedToolsSelection?.Any() ?? false))
             {
                 var selection = _previousAdvancedToolsSelection.Values.ToList();
                 AdvancedToolsEventArgs eventData = new AdvancedToolsEventArgs()

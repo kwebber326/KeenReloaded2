@@ -1301,7 +1301,8 @@ namespace KeenReloaded2
         {
             this.ClearMapMakerSelection();
             AdvancedToolsForm advancedToolsForm = new AdvancedToolsForm(_mapMakerObjects);
-            var dialogResult = advancedToolsForm.ShowDialog();
+            //var dialogResult = advancedToolsForm.ShowDialog();
+            advancedToolsForm.Show();
         }
     }
 }

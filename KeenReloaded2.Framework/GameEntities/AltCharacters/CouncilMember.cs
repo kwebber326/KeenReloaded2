@@ -88,6 +88,11 @@ namespace KeenReloaded2.Framework.GameEntities.AltCharacters
 
         public void Update()
         {
+            var keen = GetClosestAlivePlayer();
+            if (keen != null && keen.HitBox.IntersectsWith(this.HitBox))
+            {
+                keen.PassLevel();
+            }
             if (this.IsNothingBeneath())
             {
                 this.BasicFall(FALL_SPEED);
