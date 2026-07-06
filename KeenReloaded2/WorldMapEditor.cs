@@ -1011,5 +1011,34 @@ namespace KeenReloaded2
                 dialogMapLoader.FileName = mapFile;
             }
         }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            if (_mapHasUnsavedChanges
+           && MessageBox.Show("This map has unsaved changes, and this action will override those changes. Continue?", "Unsaved Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            {
+                return;
+            }
+
+            //clear events for existing items
+            var existingItems = pnlCanvas.Controls.OfType<GameObjectMapping>();
+            if (existingItems.Any())
+            {
+                foreach (var item in existingItems)
+                {
+                    UnRegisterEventsForGameObjectMapping(item);
+                }
+            }
+            //clear out the canvas
+            pnlCanvas.Controls.Clear();
+
+            //set map name default
+            txtMapName.Text = "<New Map>";
+
+            //clear mapMaker Objects
+            this.ClearMapMakerSelection();
+            this.ClearSelectedMapItem();
+            _mapMakerObjects.Clear();
+        }
     }
 }

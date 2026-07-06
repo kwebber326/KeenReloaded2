@@ -16,7 +16,6 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
     public class Keen4MirageWorldMapLevel : AnimatedForegroundMultiHitboxWorldMapLevel
     {
         List<Background> _foregrounds = new List<Background>();
-        List<InvisibleTile> _invisibleTiles = new List<InvisibleTile>();
         protected MirageState _state = MirageState.HOLD_ON;
         protected const int HOLD_TIME = 100;
         protected int _holdTimeTick = 0;
@@ -28,7 +27,6 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             if (_collidingNodes != null && _collisionGrid != null)
             {
                 InitializeForegroundObjects();
-                CaptureInvisibleHitboxTiles();
             }
         }
 
@@ -107,7 +105,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 
         private void RemoveHitBoxes()
         {
-            foreach (var tile in _invisibleTiles)
+            foreach (var tile in _collisionTiles)
             {
                 tile.RemoveTileFromGrid();
             }
@@ -127,7 +125,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 
         private void CreateHitboxes()
         {
-            foreach (var tile in _invisibleTiles)
+            foreach (var tile in _collisionTiles)
             {
                 tile.AddTileToGrid();
             }
@@ -146,12 +144,6 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 
                 _foregrounds.Add(background);
             }
-        }
-
-        private void CaptureInvisibleHitboxTiles()
-        {
-            var invisiTiles = _collidingNodes.SelectMany(c => c.Objects.OfType<InvisibleTile>());
-            _invisibleTiles = invisiTiles.ToList();
         }
 
         protected override void _animation_AnimationMoveNext(object sender, EventArgs e)

@@ -302,6 +302,29 @@ namespace KeenReloaded.Framework.Utilities
             }
         }
 
+        public static Bitmap EraseImageSection(Image image, Rectangle subSection)
+        {
+            Bitmap bmp = new Bitmap(image);
+            try
+            {
+                using (Graphics g = Graphics.FromImage(bmp))
+                {
+                    g.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceCopy;
+                    using (var brush = new SolidBrush(Color.Transparent))
+                    {
+                        g.FillRectangle(brush, subSection);
+                    }
+                }
+                return bmp;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                bmp?.Dispose();
+                throw;
+            }
+        }
+
         public static Bitmap CropImage(Image image, Rectangle subSection)
         {
             var bitmap = new Bitmap(subSection.Width, subSection.Height);

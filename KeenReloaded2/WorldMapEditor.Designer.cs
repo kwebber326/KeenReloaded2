@@ -31,6 +31,8 @@
             this.cmbEpisode = new System.Windows.Forms.ComboBox();
             this.txtMapName = new System.Windows.Forms.TextBox();
             this.pnlSelectionData = new System.Windows.Forms.Panel();
+            this.cmbMusic = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtPlayerY = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -49,8 +51,6 @@
             this.pnlCanvas = new System.Windows.Forms.Panel();
             this.chkSmartPlacer = new System.Windows.Forms.CheckBox();
             this.dialogMapLoader = new System.Windows.Forms.OpenFileDialog();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cmbMusic = new System.Windows.Forms.ComboBox();
             this.mapMakerObjectPropertyListControl1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapMakerObjectPropertyListControl();
             this.mapObjectContainer1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapObjectContainer();
             this.pnlSelectionData.SuspendLayout();
@@ -92,6 +92,24 @@
             this.pnlSelectionData.Name = "pnlSelectionData";
             this.pnlSelectionData.Size = new System.Drawing.Size(266, 143);
             this.pnlSelectionData.TabIndex = 2;
+            // 
+            // cmbMusic
+            // 
+            this.cmbMusic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMusic.FormattingEnabled = true;
+            this.cmbMusic.Location = new System.Drawing.Point(76, 85);
+            this.cmbMusic.Name = "cmbMusic";
+            this.cmbMusic.Size = new System.Drawing.Size(186, 21);
+            this.cmbMusic.TabIndex = 11;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 85);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(38, 13);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Music:";
             // 
             // txtPlayerY
             // 
@@ -234,6 +252,7 @@
             this.btnNew.TabIndex = 0;
             this.btnNew.Text = "New World Map";
             this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // pnlCanvas
             // 
@@ -262,24 +281,6 @@
             // 
             this.dialogMapLoader.FileName = "openFileDialog1";
             this.dialogMapLoader.FileOk += new System.ComponentModel.CancelEventHandler(this.dialogMapLoader_FileOk);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 85);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 13);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Music:";
-            // 
-            // cmbMusic
-            // 
-            this.cmbMusic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbMusic.FormattingEnabled = true;
-            this.cmbMusic.Location = new System.Drawing.Point(76, 85);
-            this.cmbMusic.Name = "cmbMusic";
-            this.cmbMusic.Size = new System.Drawing.Size(186, 21);
-            this.cmbMusic.TabIndex = 11;
             // 
             // mapMakerObjectPropertyListControl1
             // 

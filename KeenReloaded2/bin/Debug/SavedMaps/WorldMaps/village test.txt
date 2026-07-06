@@ -1,0 +1,13 @@
+765|717
+keen4_no_diving|733|88|32|32|keen4_no_diving.bmp|False|0
+keen4_no_diving|354|685|32|32|keen4_no_diving.bmp|False|0
+keen4_no_diving|101|95|32|32|keen4_no_diving.bmp|False|0
+keen4_village_c1|178|499|112|80|10|test level|testing|Secret of the Oracle|aliens.wav|a3e8fde2-aaa4-4c31-a49f-e85cb551575b|[34,16,32,48]|[0,0,33,80,64,0,48,80,32,66,31,12]|[]|NORMAL
+keen4_village_c1|409|488|112|80|10|test level|testing|Secret of the Oracle|aliens.wav|07def0bd-6a1f-492a-85c4-c820f0db9ded|[34,16,32,48]|[0,0,33,80,64,0,48,80,32,66,31,12]|[]|ROTATE_180
+keen4_village_c1|427|287|112|80|10|test level||Secret of the Oracle|aliens.wav|4f6df485-fad4-418c-868e-670790dfb06b|[34,16,32,48]|[0,0,33,80,64,0,48,80,32,66,31,12]|[]|ROTATE_LEFT_90
+keen4_village_c1|374|74|112|80|10|test level||Secret of the Oracle|aliens.wav|d10e03be-1d56-4429-b84d-e075f0279245|[34,16,32,48]|[0,0,33,80,64,0,48,80,32,66,31,12]|[]|ROTATE_RIGHT_90
+keen_stop_up|200|200|16|16
+keen4_flag_base_yellow_wm|130|539|32|32|10|[a3e8fde2-aaa4-4c31-a49f-e85cb551575b]
+keen4_flag_base_yellow_wm|527|505|32|32|10|[07def0bd-6a1f-492a-85c4-c820f0db9ded]
+keen4_flag_base_yellow_wm|495|405|32|32|10|[4f6df485-fad4-418c-868e-670790dfb06b]
+keen4_flag_base_yellow_wm|415|196|32|32|10|[d10e03be-1d56-4429-b84d-e075f0279245]

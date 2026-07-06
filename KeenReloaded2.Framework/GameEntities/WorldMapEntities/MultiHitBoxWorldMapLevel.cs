@@ -14,6 +14,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
     public class MultiHitBoxWorldMapLevel : WorldMapLevel
     {
         protected readonly Rectangle[] _hitBoxes;
+        protected List<InvisibleTile> _collisionTiles = new List<InvisibleTile>();
 
         public MultiHitBoxWorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Image sprite, string levelName, string levelEntryText, string episode, string music, Guid activationId, Rectangle[] entryPoints, Rectangle[] hitboxes) 
             : base(area, grid, zIndex, sprite, levelName, levelEntryText, episode, music, activationId, entryPoints)
@@ -26,6 +27,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                     var trueArea = new Rectangle(this.HitBox.X + hitbox.X, this.HitBox.Y + hitbox.Y,
                         hitbox.Width, hitbox.Height);
                     InvisibleTile tile = new InvisibleTile(grid, trueArea);
+                    _collisionTiles.Add(tile);
                 }
             }
         }

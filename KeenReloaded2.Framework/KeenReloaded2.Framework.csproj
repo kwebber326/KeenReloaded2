@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\Orientation.cs" />
     <Compile Include="Enums\TileDestroyedEventType.cs" />
     <Compile Include="Enums\WorldMapInteractiveTileAction.cs" />
     <Compile Include="Extensions\DestructibleObjectExtensions.cs" />
@@ -322,6 +323,7 @@
     <Compile Include="GameEntities\Weapons\SnakeGun.cs" />
     <Compile Include="GameEntities\WorldMapEntities\AnimatedForegroundMultiHitboxWorldMapLevel.cs" />
     <Compile Include="GameEntities\WorldMapEntities\ForeGroundMultiHitboxWorldMapLevel.cs" />
+    <Compile Include="GameEntities\WorldMapEntities\Keen4GatedVillageWorldMapLevel.cs" />
     <Compile Include="GameEntities\WorldMapEntities\Keen4MirageWorldMapLevel.cs" />
     <Compile Include="GameEntities\WorldMapEntities\MultiHitBoxWorldMapLevel.cs" />
     <Compile Include="GameEntities\WorldMapEntities\WorldMapLevel.cs" />

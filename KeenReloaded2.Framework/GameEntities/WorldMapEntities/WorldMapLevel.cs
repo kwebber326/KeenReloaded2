@@ -114,12 +114,12 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                 $"{_separator}{_music}{_separator}{_activationId}{_separator}{entryPointsArr}";
         }
 
-        public void Activate()
+        public virtual void Activate()
         {
             _isActive = true;
         }
 
-        public void Deactivate()
+        public virtual void Deactivate()
         {
             _isActive = false;
         }
