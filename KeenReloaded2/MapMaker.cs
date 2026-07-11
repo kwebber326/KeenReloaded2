@@ -46,7 +46,8 @@ namespace KeenReloaded2
         private bool _mouseInCanvas;
         private bool _useSmartPlacer = false;
         private bool _mapHasUnsavedChanges = false;
-        private string _lastFilePath;
+        private bool _advancedToolsWindowOpen = false;
+        private AdvancedToolsForm _advancedToolsForm;
         private List<PointMarkerControl> _pathWayPoints = new List<PointMarkerControl>();
 
         public MapMaker()
@@ -1030,7 +1031,7 @@ namespace KeenReloaded2
                 //load the map data
                 string path = dialogMapLoader.FileName ??
                     Path.Combine(MapUtility.GetSavedMapsPath(cmbGameMode.Text), txtMapName.Text);
-                _lastFilePath = path;
+
                 var mapMakerData = MapUtility.LoadMapData(path);
                 _mapMakerObjects = OrderedList<GameObjectMapping>.FromEnumerable(mapMakerData.MapData, _comparatorFunction, true);
                 mapMakerObjectPropertyListControl1.SetObjectBank(_mapMakerObjects);
@@ -1299,10 +1300,20 @@ namespace KeenReloaded2
 
         private void BtnAdvancedTools_Click(object sender, EventArgs e)
         {
-            this.ClearMapMakerSelection();
-            AdvancedToolsForm advancedToolsForm = new AdvancedToolsForm(_mapMakerObjects);
-            //var dialogResult = advancedToolsForm.ShowDialog();
-            advancedToolsForm.Show();
+            if (!_advancedToolsWindowOpen)
+            {
+                this.ClearMapMakerSelection();
+                _advancedToolsForm = new AdvancedToolsForm(_mapMakerObjects);
+                _advancedToolsForm.FormClosing += _advancedToolsForm_FormClosing;
+                _advancedToolsForm.Show();
+                _advancedToolsWindowOpen = true;
+            }
+        }
+
+        private void _advancedToolsForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _advancedToolsWindowOpen = false;
+            _advancedToolsForm.FormClosing -= _advancedToolsForm_FormClosing;
         }
     }
 }

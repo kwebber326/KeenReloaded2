@@ -4,6 +4,7 @@ using KeenReloaded2.Entities;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.WorldMapEntities;
+using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.UserControls.InventoryPanel;
 using KeenReloaded2.Utilities;
 using System;
@@ -143,7 +144,7 @@ namespace KeenReloaded2
         {
             _gameUpdateTimer.Stop();
             IWorldMapLevel level = sender as IWorldMapLevel;
-            if (level == null)
+            if (level == null || !_loadingWindow.IsMapValid(level.LevelName))
             {
                 HandleMapLoadError();
                 return;
@@ -177,6 +178,14 @@ namespace KeenReloaded2
         private void HandleMapLoadError()
         {
             _player.ClearAllKeyPressStates();
+
+            EventStore<SoundPlayEventArgs>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+              new SoundPlayEventArgs()
+              {
+                  SenderPosition = null,
+                  Sound = GeneralGameConstants.Sounds.KEEN_ACCESS_DENIED
+              });
+
             KeenReloadedErrorMessageWindow errorMessageWindow =
                 new KeenReloadedErrorMessageWindow("Level could not be loaded");
       

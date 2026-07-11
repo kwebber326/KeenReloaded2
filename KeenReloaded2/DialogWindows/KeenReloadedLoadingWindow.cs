@@ -77,6 +77,13 @@ namespace KeenReloaded2.DialogWindows
             }
         }
 
+        public bool IsMapValid(string level)
+        {
+            var path = GetWorldMapLevelPath(level);
+            bool fileExists = File.Exists(path);
+            return fileExists;
+        }
+
         public void LoadLevel(string level, string episode, string loadingText)
         {
             _animationDone = false;
@@ -135,10 +142,7 @@ namespace KeenReloaded2.DialogWindows
             {
                 try
                 {
-                    string folder = Path.Combine(MapMakerConstants.SAVED_MAPS_FOLDER,
-                        MapUtility.GetFolderFromGameMode(
-                        MainMenuConstants.OPTION_LABEL_NORMAL_MODE));
-                    string path = Path.Combine(Environment.CurrentDirectory, folder, level + ".txt");
+                    string path = GetWorldMapLevelPath(level);
 
                     var mapData = MapUtility.LoadMapData(path);
                     if (mapData == null || !mapData.MapData.Any())
@@ -161,6 +165,15 @@ namespace KeenReloaded2.DialogWindows
                     }
                 }
             });
+        }
+
+        private static string GetWorldMapLevelPath(string level)
+        {
+            string folder = Path.Combine(MapMakerConstants.SAVED_MAPS_FOLDER,
+                MapUtility.GetFolderFromGameMode(
+                MainMenuConstants.OPTION_LABEL_NORMAL_MODE));
+            string path = Path.Combine(Environment.CurrentDirectory, folder, level + ".txt");
+            return path;
         }
 
         private void PublishSoundPlayEvent(string soundName)

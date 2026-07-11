@@ -1,3 +1,4 @@
+Kenny the dare devil|143000
 Kdog|135000
 Kenny the dog|121100
 Kenny the tank|118000
@@ -5,4 +6,3 @@ Kenny|109400
 Kenny big dawg|104700
 Kenny Wins|100000
 Kenny|83500
-Kenny the dog|78400
