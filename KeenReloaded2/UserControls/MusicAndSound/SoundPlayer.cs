@@ -30,7 +30,7 @@ namespace KeenReloaded2.UserControls.MusicAndSound
             _settings = FileIOUtility.LoadAudioSettings();
             if (_settings.Sounds)
             {
-                EventStore<SoundPlayEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
+                EventStore<SoundPlayEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play, singleInstancePerType: true);
                 _soundDevice.StartEngine();
                 _voice = new MasteringVoice(_soundDevice);
             }
@@ -44,7 +44,7 @@ namespace KeenReloaded2.UserControls.MusicAndSound
             }
 
             EventStore<string>.Subscribe(MapMakerConstants.EventStoreEventNames.KEEN_LEVEL_COMPLETE,
-                    Level_Complete);
+                    Level_Complete, singleInstancePerType: true);
         }
 
         private const string SOUNDS_FOLDER = "Sounds";
@@ -136,9 +136,9 @@ namespace KeenReloaded2.UserControls.MusicAndSound
 
         public void Unmute()
         {
-            EventStore<SoundPlayEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
+            EventStore<SoundPlayEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play, singleInstancePerType: true);
             EventStore<string>.Subscribe(MapMakerConstants.EventStoreEventNames.KEEN_LEVEL_COMPLETE,
-               Level_Complete);
+               Level_Complete, singleInstancePerType: true);
         }
 
         public void PlaySound(SoundPlayEventArgs data)
