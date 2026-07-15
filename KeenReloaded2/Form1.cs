@@ -49,6 +49,8 @@ namespace KeenReloaded2
 
         public bool LevelCompleted => _levelCompleted;
 
+        public bool GameOver => (_keen?.Lives ?? 0) < 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -257,7 +259,11 @@ namespace KeenReloaded2
             int lives = _keen?.Lives ?? 0;
             int drops = _keen?.Drops ?? 0;
             long points = _keen?.Points ?? 0;
-            var weapons = LevelCompleteObjectives.KeenInventoryProfile?.Weapons ?? new List<NeuralStunner>();
+
+            var weapons = _keen?.Weapons 
+                ?? LevelCompleteObjectives.KeenInventoryProfile?.Weapons 
+                ?? new List<NeuralStunner>();
+
             var shield = inventoryPanel1.Shield;
             _gameUpdateTimer.Start();
             _keen.Revive();

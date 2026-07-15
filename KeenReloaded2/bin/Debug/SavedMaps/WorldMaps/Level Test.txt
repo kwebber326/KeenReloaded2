@@ -209,6 +209,12 @@ img_0|742|540|16|16|img_0.bmp|False|0
 img_0|758|540|16|16|img_0.bmp|False|0
 img_0|774|540|16|16|img_0.bmp|False|0
 img_0|790|540|16|16|img_0.bmp|False|0
+img_16|89|205|16|16|img_16.bmp|False|0
+img_16|73|205|16|16|img_16.bmp|False|0
+img_16|73|221|16|16|img_16.bmp|False|0
+img_16|57|205|16|16|img_16.bmp|False|0
+img_16|57|221|16|16|img_16.bmp|False|0
+img_16|89|221|16|16|img_16.bmp|False|0
 keen4_dirt_path1|140|425|16|16|keen4_dirt_path1.bmp|False|2
 keen4_cave_mountains_c1|449|206|125|110|10|Cavern of Hopelessness|Keen ideates in the cavern of hopelessness|Secret of the Oracle|toohot_original.wav|5a1a7757-6607-47bd-8a45-36cbd54f609c|[0,60,60,32]|[0,0,41,110,0,0,125,55,41,88,16,22,95,52,30,32]|[0,0,62,110,0,0,125,55]
 keen4_oasis_c1|108|362|96|80|10|Sprint Through the Oasis|Keen sprints through the oasis|Secret of the Oracle|shadowlands.wav|9f957d9e-ec08-4784-b306-060e38b8c6af|[0,0,96,80]|[0,0,32,80,48,0,48,40,64,40,32,40]|[41,45,11,7,25,41,15,13,26,51,13,6,50,50,4,3,54,50,4,4,58,53,3,4,60,56,4,3,60,58,6,3,52,43,4,4,49,45,5,3]
@@ -217,7 +223,6 @@ keen4_level_village2_c1|168|547|96|64|10|test level|testing|Secret of the Oracle
 keen4_mirage_c2|367|557|82|64|10|test level|testing|Secret of the Oracle|aliens.wav|8847fcf1-9894-4252-a8ab-e56623bb8541|[0,30,60,62]|[0,0,27,64,41,0,41,32,55,32,27,32]|[29,45,21,1]|200|0
 keen4_pyramid_forbidden_c1|274|84|96|80|10|test level|testing|Secret of the Oracle|aliens.wav|820d5480-03a3-4236-ba95-b91c4c3322bd|[27,46,39,19]|[0,0,32,80,48,0,48,40,64,40,32,40]|[0,0,96,63,0,0,32,14,63,62,32,14]
 keen4_pyramid_eye_c1|525|600|96|80|10|test level|testing|Secret of the Oracle|aliens.wav|6928dbdd-0b24-4af9-bfc9-1a3feec614cc|[27,46,39,19]|[0,0,32,80,48,0,48,40,64,40,32,40]|[0,0,96,63,0,0,32,14,63,62,32,14]
-keen4_crystal_cave_c1|292|360|96|80|10|Deep Freeze|Keen catches frostbite in the deep freeze cavern|Secret of the Oracle|aliens.wav|ab095b86-f966-483a-bfe1-baae5e796ec8|[0,30,60,62]|[0,0,32,80,48,0,48,40,64,40,32,40]|[0,0,48,80,48,0,48,40,64,40,32,40,46,35,30,11,49,47,9,6,49,53,8,3,50,57,3,2,53,56,3,4,44,43,15,16]
 keen4_sand_yego_c1|96|256|96|64|10|test level|testing|Secret of the Oracle|aliens.wav|55dc9faf-9e6e-4674-a50b-06af1a69367e|[15,27,96,64]|[8,6,75,22,3,30,13,12,74,32,17,11,0,45,31,20,64,44,31,20]|[24,31,2,14,27,28,7,19,32,32,5,14,36,28,9,19,35,33,5,14,50,28,8,19,58,33,2,14,60,28,7,19,67,33,3,13,24,34,46,12]
 keen4_small_village_c1|229|250|72|48|10|test level|testing|Secret of the Oracle|aliens.wav|df3c24aa-42db-4540-b637-e62705c6ab94|[23,0,48,25,48,24,23,24]|[0,0,10,48,8,11,16,15,8,26,41,22,32,34,11,2]|[]
 keen4_tar_isle_c2|637|85|96|128|10|test level|testing|Secret of the Oracle|aliens.wav|009bf91a-6f3d-4cd7-9eb9-5d47571e184a|[25,21,53,22]|[2,40,94,87,10,22,13,15,86,32,6,7]|[]|200|0
@@ -225,6 +230,22 @@ keen4_underground_c1|441|54|159|115|10|test level|testing|Secret of the Oracle|a
 keen4_well_of_wishes_c1|300|696|80|80|10|test level|testing|Secret of the Oracle|aliens.wav|6e367b57-94f8-40c1-9dd8-c27531adc430|[35,32,32,15,20,38,30,21]|[15,10,63,31,50,48,25,9,48,56,5,10]|[]
 keen4_pyramid_moon_c1|34|63|95|68|10|||Secret of the Oracle||29898a33-cd6c-4995-85d0-be67d65e8e95|[30,38,34,15]|[0,0,32,68,31,0,32,36,63,0,31,68]|[24,0,48,53]
 keen4_village_c1|145|56|112|80|10|||Secret of the Oracle|aliens.wav|25c6f3a4-e622-4b77-9b98-9e37fa472f77|[34,16,32,48]|[0,0,33,80,64,0,48,80,32,66,31,12]|[]|ROTATE_180
+img_444|41|189|16|16|10|img_444.bmp
+img_445|57|189|16|16|10|img_445.bmp
+img_446|73|189|16|16|10|img_446.bmp
+img_446|89|189|16|16|10|img_446.bmp
+img_447|105|189|16|16|10|img_447.bmp
+img_480|41|205|16|16|10|img_480.bmp
+img_481|105|205|16|16|10|img_481.bmp
+img_481|41|221|16|16|10|img_481.bmp
+img_483|105|221|16|16|10|img_483.bmp
+img_482|105|237|16|16|10|img_482.bmp
+img_500|89|237|16|16|10|img_500.bmp
+img_500|73|237|16|16|10|img_500.bmp
+img_500|57|237|16|16|10|img_500.bmp
+img_481|41|237|16|16|10|img_481.bmp
+img_500|43|237|16|16|10|img_500.bmp
+keen4_crystal_cave_c1|292|360|96|80|10|Deep Freeze|Keen catches frostbite in the deep freeze cavern|Secret of the Oracle|shadowlands.wav|ab095b86-f966-483a-bfe1-baae5e796ec8|[0,30,60,62]|[0,0,32,80,48,0,48,40,64,40,32,40]|[0,0,48,80,48,0,48,40,64,40,32,40,46,35,30,11,49,47,9,6,49,53,8,3,50,57,3,2,53,56,3,4,44,43,15,16]
 keen_stop_up|200|200|16|16
 keen4_flag_base_yellow_wm|574|285|32|32|10|[5a1a7757-6607-47bd-8a45-36cbd54f609c]
 keen4_flag_base_red1_wm|392|410|32|32|10|[ab095b86-f966-483a-bfe1-baae5e796ec8]

@@ -156,7 +156,6 @@ namespace KeenReloaded2
             string music = level.Music;
             _player.ClearAllKeyPressStates();
 
-
             _loadingWindow.LoadLevel(levelName, episode, levelEntryText);
             if (_loadingWindow.DialogResult == DialogResult.OK)
             {
@@ -171,7 +170,16 @@ namespace KeenReloaded2
                 {
                     _game.MarkLevelComplete(level as IActivateable);
                 }
-                _gameUpdateTimer.Start();
+                else if (form1.GameOver)
+                {
+                    //TODO: Insert Gameover animation here and await the closing of the 
+                    //gameover animation form before closing
+                    this.Close();
+                }
+                else
+                {
+                    _gameUpdateTimer.Start();
+                }
             }
         }
 
