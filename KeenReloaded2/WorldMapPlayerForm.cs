@@ -169,10 +169,11 @@ namespace KeenReloaded2
                 if (form1.LevelCompleted)
                 {
                     _game.MarkLevelComplete(level as IActivateable);
+                    _gameUpdateTimer.Start();
                 }
                 else if (form1.GameOver)
                 {
-                    //TODO: Insert Gameover animation here and await the closing of the 
+                    //TODO: Insert game over animation here and await the closing of the 
                     //gameover animation form before closing
                     this.Close();
                 }

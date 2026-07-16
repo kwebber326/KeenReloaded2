@@ -13,5 +13,7 @@ keen4_pyramid_floor_middle|340|499|48|64|10
 keen4_pyramid_floor_middle|388|499|48|64|10
 keen4_pyramid_floor_edge_right|436|499|52|64|10
 keen4_council_member_ponder_right|423|405|38|76|15
+keen5_force_field_bottom|284|347|32|250|18|100
 keen_stand_right|201|256|26|64|RIGHT
 edge_of_map_tile_debug|338|205|32|128|25|EXIT
+keen_dreams_boobus_bomb2|217|187|30|30|50|500
