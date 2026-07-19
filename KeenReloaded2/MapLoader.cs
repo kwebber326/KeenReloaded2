@@ -1,4 +1,5 @@
-﻿using KeenReloaded2.Utilities;
+﻿using KeenReloaded2.Constants;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,14 @@ namespace KeenReloaded2
     {
         private readonly string _gameMode;
         private string _path;
+
+        public string SelectedFile
+        {
+            get
+            {
+                return openFileDialog1.FileName;
+            }
+        }
 
         public MapLoader()
         {
@@ -40,6 +49,13 @@ namespace KeenReloaded2
         {
             try
             {
+                this.DialogResult = DialogResult.OK;
+                if (_gameMode == MainMenuConstants.OPTION_LABEL_WORLD_MODE)
+                {
+                    this.Close();
+                    return;
+                }
+
                 var mapData = MapUtility.LoadMapData(openFileDialog1.FileName);
                 Form1 game = new Form1(_gameMode, mapData, false);
                 game.ShowDialog();

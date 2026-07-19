@@ -41,6 +41,7 @@ namespace KeenReloaded2
         private const int MAX_VISION_OFFSET = 10;
         private const int VISION_OFFSET_COEFFICIENT = 10;
         private bool _levelCompleted;
+        private bool _gameQuit = false;
 
         private const int INITIAL_VIEW_RECT_UPDATES = 3;
         private int _rectUpdates;
@@ -49,7 +50,7 @@ namespace KeenReloaded2
 
         public bool LevelCompleted => _levelCompleted;
 
-        public bool GameOver => (_keen?.Lives ?? 0) < 0;
+        public bool GameOver => (_keen?.Lives ?? 0) < 0 || _gameQuit;
 
         public Form1()
         {
@@ -557,10 +558,29 @@ namespace KeenReloaded2
             {
                 if (!_isWorldMode)
                     OpenDialog(e.KeyCode);
+                else
+                    OpenMainMenuDialog();
             }
             else
             {
                 _game.SetKeyPressed(e.KeyCode.ToString(), false);
+            }
+        }
+
+        private void OpenMainMenuDialog()
+        {
+            _paused = true;
+            WorldMapModeMainMenu menu = new WorldMapModeMainMenu(_game.Map.MapPath, true);
+            var result = menu.ShowDialog();
+            if (result == DialogResult.Abort)
+            {
+                _levelCompletionTimer.Stop();
+                _gameQuit = true;
+                this.Close();
+            }
+            else
+            {
+                _paused = false;
             }
         }
 

@@ -4323,6 +4323,16 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen_main_menu {
+            get {
+                object obj = ResourceManager.GetObject("keen_main_menu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen_message_window {
             get {
                 object obj = ResourceManager.GetObject("keen_message_window", resourceCulture);
@@ -18736,6 +18746,16 @@ namespace KeenReloaded2.Properties {
         internal static System.Drawing.Bitmap M_ {
             get {
                 object obj = ResourceManager.GetObject("M_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MainMenuSelector {
+            get {
+                object obj = ResourceManager.GetObject("MainMenuSelector", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -42,7 +42,13 @@ namespace KeenReloaded2
 
         private static void OpenWorldMode()
         {
-           
+            MapLoader mapPlayer = new MapLoader(MainMenuConstants.OPTION_LABEL_WORLD_MODE);
+            var result = mapPlayer.ShowDialog();
+            if (!string.IsNullOrWhiteSpace(mapPlayer.SelectedFile) && result != DialogResult.Cancel)
+            {
+                WorldMapModeMainMenu menu = new WorldMapModeMainMenu(mapPlayer.SelectedFile);
+                menu.ShowDialog();
+            }
         }
 
         public MainMenu()

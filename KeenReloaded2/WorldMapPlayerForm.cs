@@ -363,7 +363,19 @@ namespace KeenReloaded2
         private void OpenGameIODialog()
         {
             _paused = !_paused;
-            //TODO: Make the save/load/new game dialog and display it here
+            if (_paused)
+            {
+                WorldMapModeMainMenu menu = new WorldMapModeMainMenu(_game.Map.MapPath, true);
+                var result = menu.ShowDialog();
+                if (result == DialogResult.Cancel)
+                {
+                    _paused = false;
+                }
+                else if (result == DialogResult.Abort)
+                {
+                    this.Close();
+                }
+            }
         }
     }
 }
