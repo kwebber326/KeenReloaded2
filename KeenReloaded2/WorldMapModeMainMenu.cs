@@ -22,7 +22,7 @@ namespace KeenReloaded2
         private const string NEW_GAME = "New Game";
         private const string LOAD_GAME = "Load Game";
         private const string SAVE_GAME = "Save Game";
-        private const string END_GAME = "End Game";
+        private const string CONFIGURE = "Configure";
         private const string QUIT = "Quit";
 
         private int _selectedMenuIndex = 0;
@@ -36,7 +36,7 @@ namespace KeenReloaded2
                  new WorldMapMenuOption() { Name = NEW_GAME, YPos = 344 },
                  new WorldMapMenuOption() { Name = LOAD_GAME, YPos = 406 },
                  new WorldMapMenuOption() { Name = SAVE_GAME, YPos = 468 },
-                 new WorldMapMenuOption() { Name = END_GAME, YPos = 530 },
+                 new WorldMapMenuOption() { Name = CONFIGURE, YPos = 530 },
                  new WorldMapMenuOption() { Name = QUIT, YPos = 592 },
             };
 
@@ -46,7 +46,7 @@ namespace KeenReloaded2
             { NEW_GAME, () => StartNewGame() },
             { LOAD_GAME, () => LoadGame() },
             { SAVE_GAME, () => SaveGame() },
-            { END_GAME, () => EndGame() },
+            { CONFIGURE, () => Configure() },
             { QUIT, () => OnQuit() },
         };
         private bool _suppressSelection;
@@ -56,7 +56,7 @@ namespace KeenReloaded2
             GameQuit?.Invoke(null, EventArgs.Empty);
         }
 
-        private static void EndGame()
+        private static void Configure()
         {
             MessageBox.Show("Implementation in progress");
         }
