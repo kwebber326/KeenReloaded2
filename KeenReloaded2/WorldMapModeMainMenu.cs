@@ -185,6 +185,13 @@ namespace KeenReloaded2
 
         private void ExecuteQuitGameProtocol()
         {
+            if (!_inGame)
+            {
+                this.DialogResult = DialogResult.Abort;
+                this.Close();
+                return;
+            }
+
             KeenReloadedYesNoDialogWindow keenReloadedYesNo =
                 new KeenReloadedYesNoDialogWindow("Unsaved progress will be lost.\nQuit?", false);
             var dialogResult = keenReloadedYesNo.ShowDialog();
