@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 {
-    public class WorldMapLevel : CollisionObject, ISprite, IWorldMapLevel, IActivateable
+    public class WorldMapLevel : CollisionObject, ISprite, IWorldMapLevel
     {
         protected readonly int _zIndex;
         protected Image _sprite;

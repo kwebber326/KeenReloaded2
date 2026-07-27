@@ -49,6 +49,10 @@ namespace KeenReloaded2
         };
         private string _lastFilePath;
         private bool _showSaveMessage;
+        private bool _advancedToolsOpen;
+        private bool _levelObjectivesFormOpen;
+        private LevelObjectivesForm _levelObjectivesForm;
+        private AdvancedToolsForm _advancedToolsForm;
 
         public WorldMapEditor()
         {
@@ -987,9 +991,20 @@ namespace KeenReloaded2
 
         private void btnAdvancedTools_Click(object sender, EventArgs e)
         {
-            this.ClearMapMakerSelection();
-            AdvancedToolsForm advancedToolsForm = new AdvancedToolsForm(_mapMakerObjects);
-            var dialogResult = advancedToolsForm.ShowDialog();
+            if (!_advancedToolsOpen)
+            {
+                this.ClearMapMakerSelection();
+                _advancedToolsForm = new AdvancedToolsForm(_mapMakerObjects);
+                _advancedToolsForm.FormClosing += _advancedToolsForm_FormClosing;
+                _advancedToolsForm.Show();
+                _advancedToolsOpen = true;
+            }
+        }
+
+        private void _advancedToolsForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _advancedToolsForm.FormClosing -= _advancedToolsForm_FormClosing;
+            _advancedToolsOpen = false;
         }
 
         private void btnTest_Click(object sender, EventArgs e)
@@ -1039,6 +1054,27 @@ namespace KeenReloaded2
             this.ClearMapMakerSelection();
             this.ClearSelectedMapItem();
             _mapMakerObjects.Clear();
+        }
+
+        private void btnWorldMapObjectives_Click(object sender, EventArgs e)
+        {
+            if (!_levelObjectivesFormOpen)
+            {
+                var objects = _mapMakerObjects.Select(g => g.GameObject).ToList();
+                var levels = objects.OfType<IWorldMapLevel>()?.ToList() ??
+                     new List<IWorldMapLevel>();
+                var activateables = objects.OfType<IActivateable>()?.ToList();
+                _levelObjectivesForm = new LevelObjectivesForm(levels, activateables);
+                _levelObjectivesForm.FormClosing += LevelObjectivesForm_FormClosing;
+                _levelObjectivesForm.Show();
+                _levelObjectivesFormOpen = true;
+            }
+        }
+
+        private void LevelObjectivesForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _levelObjectivesForm.FormClosing -= LevelObjectivesForm_FormClosing;
+            _levelObjectivesFormOpen = false;
         }
     }
 }

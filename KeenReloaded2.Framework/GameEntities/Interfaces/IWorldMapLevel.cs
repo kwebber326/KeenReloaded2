@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.GameEntities.Interfaces
 {
-    public interface IWorldMapLevel
+    public interface IWorldMapLevel : IActivateable
     {
         event EventHandler WorldMapEntered;
 

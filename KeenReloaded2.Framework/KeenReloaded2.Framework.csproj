@@ -205,6 +205,7 @@
     <Compile Include="GameEntities\Interfaces\IGravityObject.cs" />
     <Compile Include="GameEntities\Interfaces\IHangableTile.cs" />
     <Compile Include="GameEntities\Interfaces\IHealthBar.cs" />
+    <Compile Include="GameEntities\Interfaces\IInteractiveLevelObjective.cs" />
     <Compile Include="GameEntities\Interfaces\ILevelObjective.cs" />
     <Compile Include="GameEntities\Interfaces\IMoveable.cs" />
     <Compile Include="GameEntities\Interfaces\ISprite.cs" />
@@ -327,6 +328,7 @@
     <Compile Include="GameEntities\WorldMapEntities\Keen4MirageWorldMapLevel.cs" />
     <Compile Include="GameEntities\WorldMapEntities\MultiHitBoxWorldMapLevel.cs" />
     <Compile Include="GameEntities\WorldMapEntities\WorldMapLevel.cs" />
+    <Compile Include="GameEntities\WorldMapEntities\WorldMapObjectiveData.cs" />
     <Compile Include="GameEntities\WorldMapEntities\WorldMapPlayer.cs" />
     <Compile Include="GameEventArgs\FlagCapturedEventArgs.cs" />
     <Compile Include="GameEventArgs\ItemAcquiredEventArgs.cs" />

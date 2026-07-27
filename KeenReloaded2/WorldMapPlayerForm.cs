@@ -168,7 +168,7 @@ namespace KeenReloaded2
                 _loadingWindow.UnmuteMusic();
                 if (form1.LevelCompleted)
                 {
-                    _game.MarkLevelComplete(level as IActivateable);
+                    _game.MarkLevelComplete(level);
                     _gameUpdateTimer.Start();
                 }
                 else if (form1.GameOver)

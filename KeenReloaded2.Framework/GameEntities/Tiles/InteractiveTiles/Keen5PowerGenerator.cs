@@ -14,12 +14,12 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
 {
-    public abstract class Keen5PowerGenerator : CollisionObject, IUpdatable, ISprite, ICreateRemove, IActivator
+    public abstract class Keen5PowerGenerator : CollisionObject, IUpdatable, ISprite, ICreateRemove, IActivator, IInteractiveLevelObjective
     {
         protected readonly int _zIndex;
         protected readonly Rectangle _area;
         protected readonly ObjectiveEventType _eventType;
-        protected readonly IActivateable[] _activateables;
+        protected IActivateable[] _activateables;
         protected abstract int GLASS_X_OFFSET { get; }
 
         public event EventHandler<ObjectEventArgs> Create;
@@ -215,6 +215,24 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
             _toggled = true;
         }
 
+        public void UpdateSelf(params object[] objects)
+        {
+            if (objects.Length < 1)
+                return;
+
+            var activateables = objects[0] as IEnumerable<IActivateable>;
+            if (activateables != null)
+            {
+                _activateables = activateables.ToArray();
+            }
+
+        }
+
+        public void UpdateGame()
+        {
+           
+        }
+
         protected abstract List<ICrossBar> CrossBars { get; }
 
         protected abstract Image[] SpriteList { get; }
@@ -247,6 +265,10 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
         {
             get;
         }
+
+        public ObjectiveEventType EventType => _eventType;
+
+        public bool ObjectiveComplete => _toggled;
     }
 
     public interface ICrossBar : ISprite

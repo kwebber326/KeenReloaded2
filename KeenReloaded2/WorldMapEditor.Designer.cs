@@ -53,6 +53,7 @@
             this.dialogMapLoader = new System.Windows.Forms.OpenFileDialog();
             this.mapMakerObjectPropertyListControl1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapMakerObjectPropertyListControl();
             this.mapObjectContainer1 = new KeenReloaded2.UserControls.MapMakerUserControls.MapObjectContainer();
+            this.btnWorldMapObjectives = new System.Windows.Forms.Button();
             this.pnlSelectionData.SuspendLayout();
             this.pnlActions.SuspendLayout();
             this.SuspendLayout();
@@ -301,11 +302,22 @@
             this.mapObjectContainer1.Size = new System.Drawing.Size(411, 222);
             this.mapObjectContainer1.TabIndex = 5;
             // 
+            // btnWorldMapObjectives
+            // 
+            this.btnWorldMapObjectives.Location = new System.Drawing.Point(281, 42);
+            this.btnWorldMapObjectives.Name = "btnWorldMapObjectives";
+            this.btnWorldMapObjectives.Size = new System.Drawing.Size(94, 48);
+            this.btnWorldMapObjectives.TabIndex = 8;
+            this.btnWorldMapObjectives.Text = "Open World Map Objectives";
+            this.btnWorldMapObjectives.UseVisualStyleBackColor = true;
+            this.btnWorldMapObjectives.Click += new System.EventHandler(this.btnWorldMapObjectives_Click);
+            // 
             // WorldMapEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 805);
+            this.Controls.Add(this.btnWorldMapObjectives);
             this.Controls.Add(this.chkSmartPlacer);
             this.Controls.Add(this.mapMakerObjectPropertyListControl1);
             this.Controls.Add(this.mapObjectContainer1);
@@ -355,5 +367,6 @@
         private System.Windows.Forms.Button btnAdvancedTools;
         private System.Windows.Forms.ComboBox cmbMusic;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnWorldMapObjectives;
     }
 }

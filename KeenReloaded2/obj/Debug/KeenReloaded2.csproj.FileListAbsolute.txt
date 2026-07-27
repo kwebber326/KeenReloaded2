@@ -146,5 +146,6 @@ C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2\obj\Debug\KeenReloaded2.W
 C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2\obj\Debug\KeenReloaded2.WorldMapPlayerForm.resources
 C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2\obj\Debug\KeenReloaded2.DialogWindows.KeenReloadedLoadingWindow.resources
 C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2\obj\Debug\KeenReloaded2.DialogWindows.KeenReloadedErrorMessageWindow.resources
-C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2\obj\Debug\KeenReloaded2.exe.config
 C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2\obj\Debug\KeenReloaded2.WorldMapModeMainMenu.resources
+C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2\obj\Debug\KeenReloaded2.exe.config
+C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2\obj\Debug\KeenReloaded2.LevelObjectivesForm.resources

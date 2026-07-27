@@ -146,6 +146,12 @@
     <Compile Include="HighScoreForm.Designer.cs">
       <DependentUpon>HighScoreForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LevelObjectivesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LevelObjectivesForm.Designer.cs">
+      <DependentUpon>LevelObjectivesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -416,6 +422,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HighScoreForm.resx">
       <DependentUpon>HighScoreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LevelObjectivesForm.resx">
+      <DependentUpon>LevelObjectivesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>

@@ -170,6 +170,15 @@ namespace KeenReloaded2.Utilities
             return path;
         }
 
+        public static string GetWorldMapLevelPath(string level)
+        {
+            string folder = Path.Combine(MapMakerConstants.SAVED_MAPS_FOLDER,
+                MapUtility.GetFolderFromGameMode(
+                MainMenuConstants.OPTION_LABEL_NORMAL_MODE));
+            string path = Path.Combine(Environment.CurrentDirectory, folder, level + ".txt");
+            return path;
+        }
+
         public static string GetFolderFromGameMode(string gameMode)
         {
             switch (gameMode)

@@ -1,0 +1,7 @@
+1500|1500
+keen5_background_omegamatic_blue1|0|0|1500|1500|keen5_background_omegamatic_blue1.png|True|0
+keen5_pipe_platform|388|333|346|80|10
+keen5_pipe_platform|356|574|346|80|10
+keen4_council_member_ponder_right|532|471|38|76|15
+keen_stand_right|465|57|26|64|RIGHT
+keen5_omegamatic_second_machine1|433|122|280|240|15|LEVEL_EXIT|[25c6f3a4-e622-4b77-9b98-9e37fa472f77]

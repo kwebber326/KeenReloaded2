@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.GameEntities.AltCharacters
 {
-    public class CouncilMember : CollisionObject, IUpdatable, ISprite
+    public class CouncilMember : CollisionObject, IUpdatable, ISprite, ILevelObjective
     {
         private int _zIndex;
         private Image _sprite;
@@ -29,6 +29,7 @@ namespace KeenReloaded2.Framework.GameEntities.AltCharacters
         private int _currentSpriteChangeDelayTick;
         private int _currentSpriteIndex;
         private CouncilMemberMoveState _state;
+        private bool _rescued = false;
 
         public CouncilMember(Rectangle area, SpaceHashGrid grid, int zIndex) : base(grid, area)
         {
@@ -86,11 +87,16 @@ namespace KeenReloaded2.Framework.GameEntities.AltCharacters
             }
         }
 
+        public ObjectiveEventType EventType => ObjectiveEventType.LEVEL_EXIT;
+
+        public bool ObjectiveComplete => _rescued;
+
         public void Update()
         {
             var keen = GetClosestAlivePlayer();
             if (keen != null && keen.HitBox.IntersectsWith(this.HitBox))
             {
+                _rescued = true;
                 keen.PassLevel();
             }
             if (this.IsNothingBeneath())

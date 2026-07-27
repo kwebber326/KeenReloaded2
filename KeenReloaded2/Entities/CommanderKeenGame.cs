@@ -626,7 +626,7 @@ namespace KeenReloaded2.Entities
             _backgroundsAndTiles = new OrderedList<ISprite>(_compareFunction);
         }
 
-        public void MarkLevelComplete(IActivateable level)
+        public void MarkLevelComplete(IWorldMapLevel level)
         {
             if (level == null)
                 return;
