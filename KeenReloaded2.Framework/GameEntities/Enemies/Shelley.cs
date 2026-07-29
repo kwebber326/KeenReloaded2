@@ -355,7 +355,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 this.HitBox = new Rectangle(collisionXPos, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
                 if (_keen.HitBox.IntersectsWith(this.HitBox))
                 {
-                    KillKeenAreal();
+                    KillKeenArea();
                 }
             }
             else
@@ -363,7 +363,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 var areaToCheckToKillKeen = new Rectangle(this.Direction == Enums.Direction.LEFT ? this.HitBox.X + xOffset : this.HitBox.X, this.HitBox.Y, Math.Abs(xOffset), this.HitBox.Height);
                 if (_keen.HitBox.IntersectsWith(areaToCheckToKillKeen))
                 {
-                    KillKeenAreal();
+                    KillKeenArea();
                 }
                 this.HitBox = new Rectangle(this.HitBox.X + xOffset, this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
             }
@@ -373,7 +373,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 this.HitBox = new Rectangle(this.HitBox.X, collisionYPos, this.HitBox.Width, this.HitBox.Height);
                 if (_keen.HitBox.IntersectsWith(this.HitBox))
                 {
-                    KillKeenAreal();
+                    KillKeenArea();
                 }
                 if (_currentVerticalVelocity > 0)
                 {
@@ -386,7 +386,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     , this.HitBox.Width, Math.Abs(_currentVerticalVelocity));
                 if (_keen.HitBox.IntersectsWith(areaToCheckToKillKeen))
                 {
-                    KillKeenAreal();
+                    KillKeenArea();
                 }
                 this.HitBox = new Rectangle(this.HitBox.X, this.HitBox.Y + _currentVerticalVelocity, this.HitBox.Width, this.HitBox.Height);
             }
@@ -434,7 +434,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             }
         }
 
-        private void KillKeenAreal()
+        private void KillKeenArea()
         {
             _keen.Die();
             if (_currentVerticalVelocity > 0)
@@ -493,11 +493,26 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             }
         }
 
+        private bool ShouldRemove(ISprite obj)
+        {
+            if (obj == this)
+                return true;
+
+            if (obj is Fragment)
+            {
+                var frgmnt = (Fragment)obj;
+                if (frgmnt.Parent == this)
+                    return true;
+            }
+
+            return false;
+        }
+
         protected void OnRemove(ObjectEventArgs args)
         {
             if (this.Remove != null)
             {
-                if (args.ObjectSprite == this)
+                if (this.ShouldRemove(args.ObjectSprite))
                 {
                     foreach (var node in _collidingNodes)
                     {
@@ -520,7 +535,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             };
             OnCreate(args);
             //left shard
-            Fragment leftFragment = new Fragment(_collisionGrid, new Rectangle(this.HitBox.X - 31, this.HitBox.Y, 30, 20), Direction.LEFT, FragmentType.KEEN5_SHELLEY, 40, 0);
+            Fragment leftFragment = new Fragment(_collisionGrid, new Rectangle(this.HitBox.X - 31, this.HitBox.Y, 30, 20), Direction.LEFT, FragmentType.KEEN5_SHELLEY, 40, 0, this);
             leftFragment.Create += new EventHandler<ObjectEventArgs>(explosion_Create);
             leftFragment.Remove += new EventHandler<ObjectEventArgs>(explosion_Remove);
             ObjectEventArgs argsF1 = new ObjectEventArgs()
@@ -529,7 +544,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             };
             OnCreate(argsF1);
             //right shard
-            Fragment rightFragment = new Fragment(_collisionGrid, new Rectangle(this.HitBox.Right + 1, this.HitBox.Y, 14, 12), Direction.RIGHT, FragmentType.KEEN5_SHELLEY, 40, 0);
+            Fragment rightFragment = new Fragment(_collisionGrid, new Rectangle(this.HitBox.Right + 1, this.HitBox.Y, 14, 12), Direction.RIGHT, FragmentType.KEEN5_SHELLEY, 40, 0, this);
             rightFragment.Create += new EventHandler<ObjectEventArgs>(explosion_Create);
             rightFragment.Remove += new EventHandler<ObjectEventArgs>(explosion_Remove);
             ObjectEventArgs argsF2 = new ObjectEventArgs()

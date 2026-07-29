@@ -542,28 +542,28 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             int fragmentSize = 14;
 
             //top left
-            Fragment fragment1 = new Fragment(_collisionGrid, new Rectangle(GetRandomExplosionFragmentStartPoint(fragmentSize), new Size(fragmentSize, fragmentSize)), Direction.LEFT, FragmentType.KEEN5_SHIKADI_MINE, 40, 0);
+            Fragment fragment1 = new Fragment(_collisionGrid, new Rectangle(GetRandomExplosionFragmentStartPoint(fragmentSize), new Size(fragmentSize, fragmentSize)), Direction.LEFT, FragmentType.KEEN5_SHIKADI_MINE, 40, 0, this);
             fragment1.Create += new EventHandler<ObjectEventArgs>(fragment_Create);
             fragment1.Remove += new EventHandler<ObjectEventArgs>(fragment_Remove);
 
             OnCreate(new ObjectEventArgs() { ObjectSprite = fragment1 });
 
             //bottom left
-            Fragment fragment2 = new Fragment(_collisionGrid, new Rectangle(GetRandomExplosionFragmentStartPoint(fragmentSize), new Size(fragmentSize, fragmentSize)), Direction.LEFT, FragmentType.KEEN5_SHIKADI_MINE, 40, 0);
+            Fragment fragment2 = new Fragment(_collisionGrid, new Rectangle(GetRandomExplosionFragmentStartPoint(fragmentSize), new Size(fragmentSize, fragmentSize)), Direction.LEFT, FragmentType.KEEN5_SHIKADI_MINE, 40, 0, this);
             fragment2.Create += new EventHandler<ObjectEventArgs>(fragment_Create);
             fragment2.Remove += new EventHandler<ObjectEventArgs>(fragment_Remove);
 
             OnCreate(new ObjectEventArgs() { ObjectSprite = fragment2 });
 
             //top right
-            Fragment fragment3 = new Fragment(_collisionGrid, new Rectangle(GetRandomExplosionFragmentStartPoint(fragmentSize), new Size(fragmentSize, fragmentSize)), Direction.RIGHT, FragmentType.KEEN5_SHIKADI_MINE, 40, 0);
+            Fragment fragment3 = new Fragment(_collisionGrid, new Rectangle(GetRandomExplosionFragmentStartPoint(fragmentSize), new Size(fragmentSize, fragmentSize)), Direction.RIGHT, FragmentType.KEEN5_SHIKADI_MINE, 40, 0, this);
             fragment3.Create += new EventHandler<ObjectEventArgs>(fragment_Create);
             fragment3.Remove += new EventHandler<ObjectEventArgs>(fragment_Remove);
 
             OnCreate(new ObjectEventArgs() { ObjectSprite = fragment3 });
 
             //bottom right
-            Fragment fragment4 = new Fragment(_collisionGrid, new Rectangle(GetRandomExplosionFragmentStartPoint(fragmentSize), new Size(fragmentSize, fragmentSize)), Direction.RIGHT, FragmentType.KEEN5_SHIKADI_MINE, 50, 0);
+            Fragment fragment4 = new Fragment(_collisionGrid, new Rectangle(GetRandomExplosionFragmentStartPoint(fragmentSize), new Size(fragmentSize, fragmentSize)), Direction.RIGHT, FragmentType.KEEN5_SHIKADI_MINE, 50, 0, this);
             fragment4.Create += new EventHandler<ObjectEventArgs>(fragment_Create);
             fragment4.Remove += new EventHandler<ObjectEventArgs>(fragment_Remove);
 
@@ -573,7 +573,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             int vertDir1 = rand1 == 0 ? -1 : 1;
 
             //vertical left
-            Fragment fragment5 = new Fragment(_collisionGrid, new Rectangle(GetRandomExplosionFragmentStartPoint(fragmentSize), new Size(fragmentSize, fragmentSize)), Direction.LEFT, FragmentType.KEEN5_SHIKADI_MINE, 30, -50 * vertDir1, true);
+            Fragment fragment5 = new Fragment(_collisionGrid, new Rectangle(GetRandomExplosionFragmentStartPoint(fragmentSize), new Size(fragmentSize, fragmentSize)), Direction.LEFT, FragmentType.KEEN5_SHIKADI_MINE, 30, -50 * vertDir1, this, true);
             fragment5.Create += new EventHandler<ObjectEventArgs>(fragment_Create);
             fragment5.Remove += new EventHandler<ObjectEventArgs>(fragment_Remove);
 
@@ -583,7 +583,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             vertDir1 = rand1 == 0 ? -1 : 1;
 
             //vertical right
-            Fragment fragment6 = new Fragment(_collisionGrid, new Rectangle(GetRandomExplosionFragmentStartPoint(fragmentSize), new Size(fragmentSize, fragmentSize)), Direction.RIGHT, FragmentType.KEEN5_SHIKADI_MINE, 30, -50 * vertDir1, true);
+            Fragment fragment6 = new Fragment(_collisionGrid, new Rectangle(GetRandomExplosionFragmentStartPoint(fragmentSize), new Size(fragmentSize, fragmentSize)), Direction.RIGHT, FragmentType.KEEN5_SHIKADI_MINE, 30, -50 * vertDir1, this, true);
             fragment6.Create += new EventHandler<ObjectEventArgs>(fragment_Create);
             fragment6.Remove += new EventHandler<ObjectEventArgs>(fragment_Remove);
 
