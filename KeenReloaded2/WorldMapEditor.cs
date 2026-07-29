@@ -53,6 +53,8 @@ namespace KeenReloaded2
         private bool _levelObjectivesFormOpen;
         private LevelObjectivesForm _levelObjectivesForm;
         private AdvancedToolsForm _advancedToolsForm;
+        private WorldMapObjectiveData _worldMapData
+            = new WorldMapObjectiveData();
 
         public WorldMapEditor()
         {
@@ -1020,7 +1022,7 @@ namespace KeenReloaded2
             string directory = MapUtility.GetSavedMapsPath(MainMenuConstants.OPTION_LABEL_WORLD_MODE);
             string mapFile = Path.Combine(directory, txtMapName.Text + ".txt");
             var mapData = MapUtility.LoadMapData(mapFile);
-            using (WorldMapPlayerForm gameForm = new WorldMapPlayerForm(mapData, true))
+            using (WorldMapPlayerForm gameForm = new WorldMapPlayerForm(mapData, true, _worldMapData))
             {
                 gameForm.ShowDialog();
                 dialogMapLoader.FileName = mapFile;
@@ -1064,7 +1066,7 @@ namespace KeenReloaded2
                 var levels = objects.OfType<IWorldMapLevel>()?.ToList() ??
                      new List<IWorldMapLevel>();
                 var activateables = objects.OfType<IActivateable>()?.ToList();
-                _levelObjectivesForm = new LevelObjectivesForm(levels, activateables);
+                _levelObjectivesForm = new LevelObjectivesForm(levels, activateables, _worldMapData);
                 _levelObjectivesForm.FormClosing += LevelObjectivesForm_FormClosing;
                 _levelObjectivesForm.Show();
                 _levelObjectivesFormOpen = true;

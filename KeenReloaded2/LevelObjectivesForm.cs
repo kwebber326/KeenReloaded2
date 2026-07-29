@@ -2,6 +2,7 @@
 using KeenReloaded2.Entities;
 using KeenReloaded2.Framework.GameEntities;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Framework.GameEntities.WorldMapEntities;
 using KeenReloaded2.UserControls.MapMakerUserControls;
 using KeenReloaded2.Utilities;
 using System;
@@ -19,6 +20,7 @@ namespace KeenReloaded2
 {
     public partial class LevelObjectivesForm : Form
     {
+        private WorldMapObjectiveData _worldMapObjectiveData;
         private List<IActivateable> _activateables;
         private List<IWorldMapLevel> _levels;
         private Dictionary<string, List<ILevelObjective>> _mapLevelObjectives
@@ -30,9 +32,10 @@ namespace KeenReloaded2
         }
 
         public LevelObjectivesForm(IEnumerable<IWorldMapLevel> levels,
-            IEnumerable<IActivateable> activateables)
+            IEnumerable<IActivateable> activateables, WorldMapObjectiveData worldMapObjectiveData)
         {
             InitializeComponent();
+            _worldMapObjectiveData = worldMapObjectiveData;
             _activateables = activateables.ToList();
             _levels = levels.Where(l => !string.IsNullOrWhiteSpace(l.LevelName)).ToList();
             PopulateLevelList();
@@ -81,35 +84,29 @@ namespace KeenReloaded2
                 }
                 finally
                 {
-                    PopulateLevelObjectives(levelObjectives);
+                    PopulateLevelObjectives(levelObjectives, selectedLevel);
                 }
             }
         }
 
-        private void PopulateLevelObjectives(List<ILevelObjective> levelObjectives)
+        private void PopulateLevelObjectives(List<ILevelObjective> levelObjectives, string levelName)
         {
             cmbObjectives.Items.Clear();
             foreach (var item in levelObjectives)
             {
-                string key = GetKeyFromLevelObjective(item);
+                string key = WorldMapObjectiveData.GetKeyFromLevelObjective(item, levelName);
                 cmbObjectives.Items.Add(key);
             }
         }
 
-        private static string GetKeyFromLevelObjective(ILevelObjective item)
-        {
-            string name = item.GetType().Name;
-            Point location = (item as ISprite)?.Location ?? new Point(0, 0);
-            string key = name + "_" + location.ToString();
-            return key;
-        }
+      
 
         private Image GetImageFromLevelObjectiveKey(string key)
         {
             string selectedLevel = cmbLevelNames.SelectedItem?.ToString();
             var objective = _mapLevelObjectives.TryGetValue(selectedLevel, out List<ILevelObjective> levelObjectives)
                 ? levelObjectives.FirstOrDefault(l =>
-                   key == GetKeyFromLevelObjective(l))
+                   key == WorldMapObjectiveData.GetKeyFromLevelObjective(l, selectedLevel))
                 : null;
 
             if (objective == null)
@@ -134,7 +131,7 @@ namespace KeenReloaded2
             if (selectedItem == null || selectedLevel == null ||
                 !_mapLevelObjectives.TryGetValue(selectedLevel, out var levelObjectives)) return;
 
-            var activator = levelObjectives.FirstOrDefault(l => GetKeyFromLevelObjective(l)
+            var activator = levelObjectives.FirstOrDefault(l => WorldMapObjectiveData.GetKeyFromLevelObjective(l, selectedLevel)
              == selectedItem) as IActivator;
 
             if (activator == null || !(activator is IInteractiveLevelObjective)) return;
@@ -147,28 +144,13 @@ namespace KeenReloaded2
             {
                 try
                 {
-                    var levelObjective = (IInteractiveLevelObjective)activator;
-                    levelObjective.UpdateSelf(editActivatorForm.ChosenActivateables);
-                    string mapFile = MapUtility.GetWorldMapLevelPath(selectedLevel);
-                    MapMakerData data = MapUtility.LoadMapData(mapFile);
-                    var existingItem = data.MapData.Select(d => d.GameObject)
-                        .Where((g) =>
-                        {
-                            string existingStr = g.ToString();
-                            string newStr = levelObjective.ToString();
-                            var existingArr = existingStr.Split(MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR[0]);
-                            var newArr = newStr.Split(MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR[0]);
-                            for (int i = 0; i < 5; i++)
-                            {
-                                if (newArr[i] != existingArr[i]) return false;
-                            }
-                            return true;
-                        }).FirstOrDefault();
-                    if (existingItem != null)
+                    var activateables = editActivatorForm.ChosenActivateables;
+                    ILevelObjective levelObjective = activator as ILevelObjective;
+                    if (levelObjective != null)
                     {
-                        var mapMakerObj = data.MapData.FirstOrDefault(d => d.GameObject == existingItem);
-                        mapMakerObj.GameObject = (ISprite)levelObjective;
-                        MapUtility.SaveMap(data.MapName, data.GameMode, data.MapSize, data.MapData);
+                        _worldMapObjectiveData.AddOrUpdateObjectives(
+                            new List<ILevelObjective>() { levelObjective }, selectedLevel,
+                            activateables);
                     }
                 }
                 catch (Exception ex)

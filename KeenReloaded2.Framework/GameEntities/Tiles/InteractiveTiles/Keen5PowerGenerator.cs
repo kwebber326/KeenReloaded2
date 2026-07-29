@@ -20,6 +20,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
         protected readonly Rectangle _area;
         protected readonly ObjectiveEventType _eventType;
         protected IActivateable[] _activateables;
+        protected List<Guid> _worldMapActivationIds = new List<Guid>();
         protected abstract int GLASS_X_OFFSET { get; }
 
         public event EventHandler<ObjectEventArgs> Create;
@@ -226,6 +227,7 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
                 _activateables = activateables.ToArray();
             }
 
+            _worldMapActivationIds = activateables.Select(a => a.ActivationID).ToList();
         }
 
         public void UpdateGame()
@@ -269,6 +271,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
         public ObjectiveEventType EventType => _eventType;
 
         public bool ObjectiveComplete => _toggled;
+
+        public List<Guid> WorldMapActivationIds => _worldMapActivationIds;
     }
 
     public interface ICrossBar : ISprite

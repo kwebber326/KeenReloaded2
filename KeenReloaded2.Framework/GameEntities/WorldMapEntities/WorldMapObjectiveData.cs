@@ -2,32 +2,64 @@
 using KeenReloaded2.Framework.GameEventArgs;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Windows.Forms.VisualStyles;
 
 namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 {
     public class WorldMapObjectiveData
     {
-        Dictionary<Guid, List<IActivator>> _objectiveObjectMapping =
-            new Dictionary<Guid, List<IActivator>>();
+        public static string GetKeyFromLevelObjective(ILevelObjective item, string levelName)
+        {
+            string name = item.GetType().Name;
+            Point location = (item as ISprite)?.Location ?? new Point(0, 0);
+            string key = levelName + "_" + name + "_" + location.ToString();
+            return key;
+        }
 
-        public IEnumerable<ILevelObjective> LevelObjectives { get; set; }
-
+        public Dictionary<string, ILevelObjective> LevelObjectives { get; set; } = new Dictionary<string, ILevelObjective>();
         public Func<bool> LevelObjectivesComplete { get; set; }
 
         public List<IActivator> ToggleObjects =>
-            _objectiveObjectMapping.Values.SelectMany(s => s).ToList();
+            this.LevelObjectives.Values.Select(s => s as IActivator).Where(a => a != null).ToList();
 
         public event EventHandler GameBeaten;
         public event EventHandler<ToggleEventArgs> Toggled;
 
-        public void CompleteWorldMapObjective(Guid activationId)
+        public void AddOrUpdateObjectives(List<ILevelObjective> objectives, string levelName, List<IActivateable> activateables = null)
         {
-            if (_objectiveObjectMapping.TryGetValue(activationId, out List<IActivator> activationSet))
+            foreach (var objective in objectives)
             {
-                foreach (var activateableObject in activationSet)
+                var key = GetKeyFromLevelObjective(objective, levelName);
+                if (this.LevelObjectives.TryGetValue(key, out  ILevelObjective obj))
                 {
-                    activateableObject.Toggle();
+                    this.LevelObjectives[key] = objective;
+                }
+                else
+                {
+                    this.LevelObjectives.Add(key, objective);
+                }
+
+                var activator = objective as IInteractiveLevelObjective;
+                if (activator != null && activateables != null)
+                {
+                    activator.UpdateSelf(activateables);
+                }
+            }
+        }
+
+        public void UpdateWorldMapObjectives()
+        {
+            foreach (var item in LevelObjectives.Values)
+            {
+                if (item.ObjectiveComplete)
+                {
+                    var activator = item as IActivator;
+                    if (activator != null)
+                    {
+                        activator.Toggle();
+                    }
                 }
             }
 

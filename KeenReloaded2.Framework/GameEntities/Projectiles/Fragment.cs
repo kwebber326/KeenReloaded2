@@ -15,9 +15,11 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
 {
     public class Fragment : CollisionObject, IUpdatable, ISprite, ICreateRemove
     {
-        public Fragment(SpaceHashGrid grid, Rectangle hitbox, Direction direction, FragmentType fragmentType, int initialHorizontalSpeed, int initialVerticalSpeed, bool explodeVertically = false)
+        private readonly CollisionObject _parent;
+        public Fragment(SpaceHashGrid grid, Rectangle hitbox, Direction direction, FragmentType fragmentType, int initialHorizontalSpeed, int initialVerticalSpeed, CollisionObject parent, bool explodeVertically = false)
             : base(grid, hitbox)
         {
+            _parent = parent;
             _direction = direction;
             _fragmentType = fragmentType;
             _explodeVertically = explodeVertically;
@@ -25,6 +27,8 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
             INITIAL_VERTICAL_VELOCITY = initialVerticalSpeed;
             Initialize();
         }
+
+        public CollisionObject Parent => _parent;
 
         private void Initialize()
         {

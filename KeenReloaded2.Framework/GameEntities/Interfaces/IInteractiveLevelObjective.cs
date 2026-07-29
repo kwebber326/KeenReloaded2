@@ -10,6 +10,8 @@ namespace KeenReloaded2.Framework.GameEntities.Interfaces
     {
         void UpdateSelf(params object[] objects);
 
+        List<Guid> WorldMapActivationIds { get; }
+
         void UpdateGame();
     }
 }

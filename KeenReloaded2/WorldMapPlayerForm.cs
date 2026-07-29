@@ -35,6 +35,8 @@ namespace KeenReloaded2
         private bool _paused;
         private Timer _gameUpdateTimer;
         private KeenReloadedLoadingWindow _loadingWindow;
+        private WorldMapObjectiveData _worldMapObjectiveData
+            = new WorldMapObjectiveData();
 
         private void UpdateViewRectangle()
         {
@@ -80,9 +82,10 @@ namespace KeenReloaded2
             InitializeComponent();
         }
 
-        public WorldMapPlayerForm(MapMakerData data, bool mapMakerMode)
+        public WorldMapPlayerForm(MapMakerData data, bool mapMakerMode, WorldMapObjectiveData objectiveData = null)
         {
             InitializeComponent();
+            _worldMapObjectiveData = objectiveData ?? new WorldMapObjectiveData();
             _loadingWindow = new KeenReloadedLoadingWindow();
             _loadingWindow.WorldMapLoadError += _loadingWindow_WorldMapLoadError;
             if (MapUtility.LoadWorldMapMusic(data.MapName, out string music))
@@ -160,8 +163,8 @@ namespace KeenReloaded2
             if (_loadingWindow.DialogResult == DialogResult.OK)
             {
                 Form1 form1 = new Form1(
-                    MainMenuConstants.OPTION_LABEL_NORMAL_MODE,
-                    _loadingWindow.MapData, true, true, _playerState, music);
+                   MainMenuConstants.OPTION_LABEL_NORMAL_MODE,
+                   _loadingWindow.MapData, true, true, _playerState, music);
                 form1.KeenStateChanged += Form1_KeenStateChanged;
                 form1.ShowDialog();
                 form1.KeenStateChanged -= Form1_KeenStateChanged;
@@ -169,6 +172,7 @@ namespace KeenReloaded2
                 if (form1.LevelCompleted)
                 {
                     _game.MarkLevelComplete(level);
+                    _worldMapObjectiveData.UpdateWorldMapObjectives();
                     _gameUpdateTimer.Start();
                 }
                 else if (form1.GameOver)
@@ -197,9 +201,9 @@ namespace KeenReloaded2
 
             KeenReloadedErrorMessageWindow errorMessageWindow =
                 new KeenReloadedErrorMessageWindow("Level could not be loaded");
-      
+
             errorMessageWindow.ShowDialog();
-           
+
             if (!_gameUpdateTimer.Enabled)
                 _gameUpdateTimer.Start();
         }
