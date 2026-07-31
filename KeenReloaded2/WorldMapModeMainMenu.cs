@@ -106,7 +106,9 @@ namespace KeenReloaded2
             _suppressSelection = false;
             _inGame = true;
             var map = MapUtility.LoadMapData(_worldMapFile);
-            WorldMapPlayerForm form = new WorldMapPlayerForm(map, false);
+            string mapName = _worldMapFile.Substring(_worldMapFile.LastIndexOf('\\') + 1).Replace(".txt", "");
+            var objectiveData = MapUtility.LoadWorldMapObjectives(mapName);
+            WorldMapPlayerForm form = new WorldMapPlayerForm(map, false, objectiveData);
             this.DialogResult = DialogResult.Abort;
             this.Close();
             form.ShowDialog();

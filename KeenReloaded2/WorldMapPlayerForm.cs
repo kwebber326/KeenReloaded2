@@ -192,7 +192,19 @@ namespace KeenReloaded2
             _game.MarkLevelComplete(level);
             var worldMapGameObjects = _game.Map.MapData.Select(d => d.GameObject);
             var levelGameObjects = mapData.MapData.Select(d => d.GameObject);
-            var objectives = levelGameObjects.Where(g => g is ILevelObjective).ToList();
+            var objectives = levelGameObjects.Where(g => 
+            {
+                if (!(g is ILevelObjective))
+                    return false;
+
+                if (g is IActivator)
+                {
+                    var act = g as IActivator;
+                    return !act.IsActive;
+                }
+
+                return true;
+            }).ToList();
             var relevantActivateables = worldMapGameObjects.OfType<IActivateable>()?.ToList();
             _worldMapObjectiveData.UpdateWorldMapObjectives(levelName, _player, objectives, relevantActivateables);
         }
