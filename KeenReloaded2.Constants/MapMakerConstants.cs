@@ -17,6 +17,7 @@ namespace KeenReloaded2.Constants
         public const string ZOMBIE_MAPS_FOLDER = "ZombieModeMaps";
         public const string KING_OF_THE_HILL_FOLDER = "KingOfTheHillMaps";
         public const string CAPTURE_THE_FLAG_MAPS_FOLDER = "CaptureTheFlagMaps";
+        public const string WORLD_MAP_OBJECTIVES_FOLDER = "WorldMapObjectives";
         public const string WORLD_MAPS_FOLDER = "WorldMaps";
         public const string MAP_MAKER_PROPERTY_SEPARATOR = "|";
         public const string MAP_MAKER_ARRAY_START = "[";

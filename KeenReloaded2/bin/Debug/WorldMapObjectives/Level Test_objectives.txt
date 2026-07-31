@@ -1,0 +1,1 @@
+{"EndGoals":{},"Activators":{"test objective level_Keen5PowerOmegamaticGenerator2_{X=433,Y=122}":{"Type":0,"WorldMapComponents":["25c6f3a4-e622-4b77-9b98-9e37fa472f77"],"Completed":false}},"Items":{}}

@@ -31,15 +31,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbLevelNames = new System.Windows.Forms.ComboBox();
             this.pnlLevelControls = new System.Windows.Forms.Panel();
+            this.pnlManageObjective = new System.Windows.Forms.Panel();
+            this.btnActivation = new System.Windows.Forms.Button();
+            this.btnAddObjective = new System.Windows.Forms.Button();
             this.pbObjectiveImage = new System.Windows.Forms.PictureBox();
             this.cmbObjectives = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnActivation = new System.Windows.Forms.Button();
-            this.btnAddObjective = new System.Windows.Forms.Button();
-            this.pnlManageObjective = new System.Windows.Forms.Panel();
             this.pnlLevelControls.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbObjectiveImage)).BeginInit();
             this.pnlManageObjective.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbObjectiveImage)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -73,6 +73,36 @@
             this.pnlLevelControls.Size = new System.Drawing.Size(771, 375);
             this.pnlLevelControls.TabIndex = 2;
             // 
+            // pnlManageObjective
+            // 
+            this.pnlManageObjective.Controls.Add(this.btnActivation);
+            this.pnlManageObjective.Controls.Add(this.btnAddObjective);
+            this.pnlManageObjective.Location = new System.Drawing.Point(3, 39);
+            this.pnlManageObjective.Name = "pnlManageObjective";
+            this.pnlManageObjective.Size = new System.Drawing.Size(200, 100);
+            this.pnlManageObjective.TabIndex = 6;
+            this.pnlManageObjective.Visible = false;
+            // 
+            // btnActivation
+            // 
+            this.btnActivation.Location = new System.Drawing.Point(3, 3);
+            this.btnActivation.Name = "btnActivation";
+            this.btnActivation.Size = new System.Drawing.Size(141, 43);
+            this.btnActivation.TabIndex = 4;
+            this.btnActivation.Text = "Manage Activation Components";
+            this.btnActivation.UseVisualStyleBackColor = true;
+            this.btnActivation.Click += new System.EventHandler(this.btnActivation_Click);
+            // 
+            // btnAddObjective
+            // 
+            this.btnAddObjective.Location = new System.Drawing.Point(4, 52);
+            this.btnAddObjective.Name = "btnAddObjective";
+            this.btnAddObjective.Size = new System.Drawing.Size(141, 43);
+            this.btnAddObjective.TabIndex = 5;
+            this.btnAddObjective.Text = "Add Objective to Game Completion Ruleset";
+            this.btnAddObjective.UseVisualStyleBackColor = true;
+            this.btnAddObjective.Click += new System.EventHandler(this.btnAddObjective_Click);
+            // 
             // pbObjectiveImage
             // 
             this.pbObjectiveImage.Location = new System.Drawing.Point(618, 12);
@@ -102,35 +132,6 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Choose Level Objective:";
             // 
-            // btnActivation
-            // 
-            this.btnActivation.Location = new System.Drawing.Point(3, 3);
-            this.btnActivation.Name = "btnActivation";
-            this.btnActivation.Size = new System.Drawing.Size(141, 43);
-            this.btnActivation.TabIndex = 4;
-            this.btnActivation.Text = "Manage Activation Components";
-            this.btnActivation.UseVisualStyleBackColor = true;
-            this.btnActivation.Click += new System.EventHandler(this.btnActivation_Click);
-            // 
-            // btnAddObjective
-            // 
-            this.btnAddObjective.Location = new System.Drawing.Point(4, 52);
-            this.btnAddObjective.Name = "btnAddObjective";
-            this.btnAddObjective.Size = new System.Drawing.Size(141, 43);
-            this.btnAddObjective.TabIndex = 5;
-            this.btnAddObjective.Text = "Add Objective to Game Completion Ruleset";
-            this.btnAddObjective.UseVisualStyleBackColor = true;
-            // 
-            // pnlManageObjective
-            // 
-            this.pnlManageObjective.Controls.Add(this.btnActivation);
-            this.pnlManageObjective.Controls.Add(this.btnAddObjective);
-            this.pnlManageObjective.Location = new System.Drawing.Point(3, 39);
-            this.pnlManageObjective.Name = "pnlManageObjective";
-            this.pnlManageObjective.Size = new System.Drawing.Size(200, 100);
-            this.pnlManageObjective.TabIndex = 6;
-            this.pnlManageObjective.Visible = false;
-            // 
             // LevelObjectivesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,8 +145,8 @@
             this.Load += new System.EventHandler(this.LevelObjectivesForm_Load);
             this.pnlLevelControls.ResumeLayout(false);
             this.pnlLevelControls.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbObjectiveImage)).EndInit();
             this.pnlManageObjective.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbObjectiveImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

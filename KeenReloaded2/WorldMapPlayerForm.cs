@@ -35,8 +35,8 @@ namespace KeenReloaded2
         private bool _paused;
         private Timer _gameUpdateTimer;
         private KeenReloadedLoadingWindow _loadingWindow;
-        private WorldMapObjectiveData _worldMapObjectiveData
-            = new WorldMapObjectiveData();
+        private WorldMapObjectiveManager _worldMapObjectiveData
+            = new WorldMapObjectiveManager();
 
         private void UpdateViewRectangle()
         {
@@ -82,10 +82,10 @@ namespace KeenReloaded2
             InitializeComponent();
         }
 
-        public WorldMapPlayerForm(MapMakerData data, bool mapMakerMode, WorldMapObjectiveData objectiveData = null)
+        public WorldMapPlayerForm(MapMakerData data, bool mapMakerMode, WorldMapObjectiveManager objectiveData = null)
         {
             InitializeComponent();
-            _worldMapObjectiveData = objectiveData ?? new WorldMapObjectiveData();
+            _worldMapObjectiveData = objectiveData ?? new WorldMapObjectiveManager();
             _loadingWindow = new KeenReloadedLoadingWindow();
             _loadingWindow.WorldMapLoadError += _loadingWindow_WorldMapLoadError;
             if (MapUtility.LoadWorldMapMusic(data.MapName, out string music))
@@ -171,8 +171,7 @@ namespace KeenReloaded2
                 _loadingWindow.UnmuteMusic();
                 if (form1.LevelCompleted)
                 {
-                    _game.MarkLevelComplete(level);
-                    _worldMapObjectiveData.UpdateWorldMapObjectives();
+                    ProcessLevelCompletion(level, levelName, _loadingWindow.MapData);
                     _gameUpdateTimer.Start();
                 }
                 else if (form1.GameOver)
@@ -186,6 +185,16 @@ namespace KeenReloaded2
                     _gameUpdateTimer.Start();
                 }
             }
+        }
+
+        private void ProcessLevelCompletion(IWorldMapLevel level, string levelName, MapMakerData mapData)
+        {
+            _game.MarkLevelComplete(level);
+            var worldMapGameObjects = _game.Map.MapData.Select(d => d.GameObject);
+            var levelGameObjects = mapData.MapData.Select(d => d.GameObject);
+            var objectives = levelGameObjects.Where(g => g is ILevelObjective).ToList();
+            var relevantActivateables = worldMapGameObjects.OfType<IActivateable>()?.ToList();
+            _worldMapObjectiveData.UpdateWorldMapObjectives(levelName, _player, objectives, relevantActivateables);
         }
 
         private void HandleMapLoadError()

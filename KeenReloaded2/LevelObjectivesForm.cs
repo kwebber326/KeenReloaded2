@@ -20,7 +20,8 @@ namespace KeenReloaded2
 {
     public partial class LevelObjectivesForm : Form
     {
-        private WorldMapObjectiveData _worldMapObjectiveData;
+        private readonly string _mapName;
+        private WorldMapObjectiveManager _worldMapObjectiveData;
         private List<IActivateable> _activateables;
         private List<IWorldMapLevel> _levels;
         private Dictionary<string, List<ILevelObjective>> _mapLevelObjectives
@@ -31,10 +32,11 @@ namespace KeenReloaded2
             InitializeComponent();
         }
 
-        public LevelObjectivesForm(IEnumerable<IWorldMapLevel> levels,
-            IEnumerable<IActivateable> activateables, WorldMapObjectiveData worldMapObjectiveData)
+        public LevelObjectivesForm(string mapName, IEnumerable<IWorldMapLevel> levels,
+            IEnumerable<IActivateable> activateables, WorldMapObjectiveManager worldMapObjectiveData)
         {
             InitializeComponent();
+            _mapName = mapName;
             _worldMapObjectiveData = worldMapObjectiveData;
             _activateables = activateables.ToList();
             _levels = levels.Where(l => !string.IsNullOrWhiteSpace(l.LevelName)).ToList();
@@ -94,7 +96,7 @@ namespace KeenReloaded2
             cmbObjectives.Items.Clear();
             foreach (var item in levelObjectives)
             {
-                string key = WorldMapObjectiveData.GetKeyFromLevelObjective(item, levelName);
+                string key = WorldMapObjectiveManager.GetKeyFromLevelObjective(item as ISprite, levelName);
                 cmbObjectives.Items.Add(key);
             }
         }
@@ -106,7 +108,7 @@ namespace KeenReloaded2
             string selectedLevel = cmbLevelNames.SelectedItem?.ToString();
             var objective = _mapLevelObjectives.TryGetValue(selectedLevel, out List<ILevelObjective> levelObjectives)
                 ? levelObjectives.FirstOrDefault(l =>
-                   key == WorldMapObjectiveData.GetKeyFromLevelObjective(l, selectedLevel))
+                   key == WorldMapObjectiveManager.GetKeyFromLevelObjective(l as ISprite, selectedLevel))
                 : null;
 
             if (objective == null)
@@ -131,13 +133,17 @@ namespace KeenReloaded2
             if (selectedItem == null || selectedLevel == null ||
                 !_mapLevelObjectives.TryGetValue(selectedLevel, out var levelObjectives)) return;
 
-            var activator = levelObjectives.FirstOrDefault(l => WorldMapObjectiveData.GetKeyFromLevelObjective(l, selectedLevel)
+            var activator = levelObjectives.FirstOrDefault(l => WorldMapObjectiveManager.GetKeyFromLevelObjective(l as ISprite, selectedLevel)
              == selectedItem) as IActivator;
 
             if (activator == null || !(activator is IInteractiveLevelObjective)) return;
 
+            var activationIds = _worldMapObjectiveData.LevelObjectives.Activators.Values
+                .SelectMany(v => v.WorldMapComponents).ToList();
+            var toggleObjects = _activateables.Where(a =>
+                activationIds.Contains(a.ActivationID)).ToList();
             EditActivatorForm editActivatorForm = new EditActivatorForm(
-                activator.ToggleObjects, _activateables);
+               toggleObjects, _activateables);
 
             var result = editActivatorForm.ShowDialog();
             if (result == DialogResult.OK)
@@ -149,8 +155,9 @@ namespace KeenReloaded2
                     if (levelObjective != null)
                     {
                         _worldMapObjectiveData.AddOrUpdateObjectives(
-                            new List<ILevelObjective>() { levelObjective }, selectedLevel,
-                            activateables);
+                            new List<ISprite>() { levelObjective as ISprite }, selectedLevel,
+                            WorldMapLevelObjectiveType.ACTIVATOR, activateables.Select(a => a.ActivationID));
+                        MapUtility.SaveWorldMapObjectives(_worldMapObjectiveData, _mapName);
                     }
                 }
                 catch (Exception ex)
@@ -160,6 +167,11 @@ namespace KeenReloaded2
                         "File I/O error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void btnAddObjective_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

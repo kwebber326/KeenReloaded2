@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -328,7 +331,7 @@
     <Compile Include="GameEntities\WorldMapEntities\Keen4MirageWorldMapLevel.cs" />
     <Compile Include="GameEntities\WorldMapEntities\MultiHitBoxWorldMapLevel.cs" />
     <Compile Include="GameEntities\WorldMapEntities\WorldMapLevel.cs" />
-    <Compile Include="GameEntities\WorldMapEntities\WorldMapObjectiveData.cs" />
+    <Compile Include="GameEntities\WorldMapEntities\WorldMapObjectiveManager.cs" />
     <Compile Include="GameEntities\WorldMapEntities\WorldMapPlayer.cs" />
     <Compile Include="GameEventArgs\FlagCapturedEventArgs.cs" />
     <Compile Include="GameEventArgs\ItemAcquiredEventArgs.cs" />
@@ -368,6 +371,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\gem_acquired.png" />
   </ItemGroup>
   <ItemGroup>

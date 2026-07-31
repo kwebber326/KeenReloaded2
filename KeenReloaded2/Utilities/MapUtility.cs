@@ -6,6 +6,7 @@ using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.Tiles;
+using KeenReloaded2.Framework.GameEntities.WorldMapEntities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,6 +14,8 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
+using System.Windows.Forms;
 
 namespace KeenReloaded2.Utilities
 {
@@ -112,6 +115,44 @@ namespace KeenReloaded2.Utilities
             {
                 Debug.WriteLine(ex);
                 return new MapMakerData();
+            }
+        }
+
+        public static bool SaveWorldMapObjectives(WorldMapObjectiveManager worldMapObjectiveData, string mapName)
+        {
+            try
+            {
+                string data = worldMapObjectiveData.ToString();
+                string path = Path.Combine(Environment.CurrentDirectory, MapMakerConstants.WORLD_MAP_OBJECTIVES_FOLDER);
+                Directory.CreateDirectory(path);
+                string file = Path.Combine(path, mapName + "_objectives.txt");
+                File.WriteAllText(file, data);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return false;
+            }
+        }
+
+        public static WorldMapObjectiveManager LoadWorldMapObjectives(string mapName)
+        {
+            try
+            {
+                string path = Path.Combine(Environment.CurrentDirectory, MapMakerConstants.WORLD_MAP_OBJECTIVES_FOLDER);
+                Directory.CreateDirectory(path);
+                string file = Path.Combine(path, mapName + "_objectives.txt");
+                string data = File.ReadAllText(file);
+                WorldMapObjectiveManager dataObj = new WorldMapObjectiveManager();
+                var objectives = JsonConvert.DeserializeObject<WorldMapObjectiveData>(data);
+                dataObj.LevelObjectives = objectives;
+                return dataObj;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return null;
             }
         }
 
