@@ -98,9 +98,11 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                         }
                     }
                 }
-                if (player != null && this.LevelObjectives.Items.TryGetValue(key, out var item))
+                if (player != null && (objective as IItemLevelObjective) != null)
                 {
-                    //TODO: change world map player to have items
+                    var item = (IItemLevelObjective)objective;
+                    if (item.ObjectiveComplete)
+                        player.AcquireItem(item.ItemType);
                 }
             }
 
@@ -230,7 +232,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
     public enum WorldMapItemType
     {
         SWIMSUIT,
-        SANDWICH
+        SANDWICH,
+        GENERIC_COLLECTIBLE
     }
 
     public enum WorldMapLevelObjectiveType

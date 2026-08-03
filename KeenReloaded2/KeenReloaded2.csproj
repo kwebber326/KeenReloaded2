@@ -7045,12 +7045,6 @@
     <None Include="Resources\keen_swim_left2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen_swim_right1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen_swim_right2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen_swim_up_left1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -7121,6 +7115,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen_main_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen4_swimsuit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_swim_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_swim_right2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

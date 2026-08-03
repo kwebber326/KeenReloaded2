@@ -5,19 +5,12 @@ using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.WorldMapEntities;
 using KeenReloaded2.Framework.GameEventArgs;
-using KeenReloaded2.UserControls.InventoryPanel;
 using KeenReloaded2.Utilities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Printing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace KeenReloaded2
 {
@@ -104,7 +97,7 @@ namespace KeenReloaded2
 
         private void _loadingWindow_WorldMapLoadError(object sender, EventArgs e)
         {
-            HandleMapLoadError();
+            HandleMapError("Error loading level");
         }
 
         private void WorldMapPlayerForm_Load(object sender, EventArgs e)
@@ -149,7 +142,7 @@ namespace KeenReloaded2
             IWorldMapLevel level = sender as IWorldMapLevel;
             if (level == null || !_loadingWindow.IsMapValid(level.LevelName))
             {
-                HandleMapLoadError();
+                HandleMapError("Error loading level");
                 return;
             }
 
@@ -192,7 +185,9 @@ namespace KeenReloaded2
             _game.MarkLevelComplete(level);
             var worldMapGameObjects = _game.Map.MapData.Select(d => d.GameObject);
             var levelGameObjects = mapData.MapData.Select(d => d.GameObject);
-            var objectives = levelGameObjects.Where(g => 
+
+            //activators
+            var activatorObjectives = levelGameObjects.Where(g => 
             {
                 if (!(g is ILevelObjective))
                     return false;
@@ -206,10 +201,33 @@ namespace KeenReloaded2
                 return true;
             }).ToList();
             var relevantActivateables = worldMapGameObjects.OfType<IActivateable>()?.ToList();
-            _worldMapObjectiveData.UpdateWorldMapObjectives(levelName, _player, objectives, relevantActivateables);
+            _worldMapObjectiveData.UpdateWorldMapObjectives(levelName, _player, activatorObjectives, relevantActivateables);
+
+            //items
+            var itemObjectives = levelGameObjects.Where(l => l is IItemLevelObjective
+                && ((IItemLevelObjective)l).ObjectiveComplete).OfType<ISprite>(); 
+            if (itemObjectives.Any())
+            {
+                _worldMapObjectiveData.UpdateWorldMapObjectives(levelName, _player,
+                   itemObjectives.ToList());
+            }
+            //end goals
+            var endGoalObjectives = levelGameObjects.OfType<ILevelObjective>();
+            if (endGoalObjectives.Any())
+            {
+                var endGoalObjects = endGoalObjectives.Where(
+                    e => e.EventType == Framework.Enums.ObjectiveEventType.LEVEL_EXIT
+                     && e.ObjectiveComplete)
+                    .OfType<ISprite>();
+                if (endGoalObjects.Any())
+                {
+                    _worldMapObjectiveData.UpdateWorldMapObjectives(levelName, _player,
+                        endGoalObjects.ToList());
+                }
+            }
         }
 
-        private void HandleMapLoadError()
+        private void HandleMapError(string message)
         {
             _player.ClearAllKeyPressStates();
 
@@ -221,7 +239,7 @@ namespace KeenReloaded2
               });
 
             KeenReloadedErrorMessageWindow errorMessageWindow =
-                new KeenReloadedErrorMessageWindow("Level could not be loaded");
+                new KeenReloadedErrorMessageWindow(message);
 
             errorMessageWindow.ShowDialog();
 
@@ -324,10 +342,16 @@ namespace KeenReloaded2
             _gameUpdateTimer.Tick += _gameUpdateTimer_Tick;
             _gameUpdateTimer.Start();
             _player.Moved += _keen_KeenMoved;
+            _player.PlayerError += _player_PlayerError;
             UpdateViewRectangle();
             pnlGameWindow.AutoScroll = true;
             pnlGameWindow.MouseWheel += PnlGameWindow_MouseWheel;
             this.MouseWheel += PnlGameWindow_MouseWheel;
+        }
+
+        private void _player_PlayerError(object sender, string e)
+        {
+            HandleMapError(e);
         }
 
         private void WorldMapPlayerForm_FormClosing(object sender, FormClosingEventArgs e)

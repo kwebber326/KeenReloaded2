@@ -4226,6 +4226,11 @@ namespace KeenReloaded2.Entities.ReferenceData
             AddSimpleGameObject(backgroundReferenceData, keen4InteractiveTileFiles, councilMemberKey,
                 typeof(CouncilMember), null, 15);
 
+            //suimsuit
+            var swimsuitKey = nameof(Properties.Resources.keen4_swimsuit);
+            AddSimpleGameObject(backgroundReferenceData, keen4InteractiveTileFiles, swimsuitKey,
+                typeof(Keen4Swimsuit), null, 15);
+
             //power generators
             #region generator 1
             var powerGenerator1Key = nameof(Properties.Resources.keen5_omegamatic_first_machine1);

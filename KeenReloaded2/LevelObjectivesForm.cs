@@ -2,6 +2,7 @@
 using KeenReloaded2.Entities;
 using KeenReloaded2.Framework.GameEntities;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Framework.GameEntities.Items;
 using KeenReloaded2.Framework.GameEntities.WorldMapEntities;
 using KeenReloaded2.UserControls.MapMakerUserControls;
 using KeenReloaded2.Utilities;
@@ -171,7 +172,50 @@ namespace KeenReloaded2
 
         private void btnAddObjective_Click(object sender, EventArgs e)
         {
+            var selectedItem = cmbObjectives.SelectedItem?.ToString();
+            var selectedLevel = cmbLevelNames.SelectedItem?.ToString();
 
+            if (selectedItem == null || selectedLevel == null ||
+               !_mapLevelObjectives.TryGetValue(selectedLevel, out var levelObjectives)) return;
+
+            var levelObjective = levelObjectives.FirstOrDefault(l => WorldMapObjectiveManager
+                .GetKeyFromLevelObjective(l as ISprite, selectedLevel) == selectedItem);
+
+            _worldMapObjectiveData.AddOrUpdateObjectives(
+                           new List<ISprite>() { levelObjective as ISprite }, selectedLevel,
+                           WorldMapLevelObjectiveType.END_GOAL);
+            MapUtility.SaveWorldMapObjectives(_worldMapObjectiveData, _mapName);
+        }
+
+        private void btnAddToItems_Click(object sender, EventArgs e)
+        {
+            var selectedItem = cmbObjectives.SelectedItem?.ToString();
+            var selectedLevel = cmbLevelNames.SelectedItem?.ToString();
+
+            if (selectedItem == null || selectedLevel == null ||
+               !_mapLevelObjectives.TryGetValue(selectedLevel, out var levelObjectives)) return;
+
+            var levelObjective = levelObjectives.FirstOrDefault(l => WorldMapObjectiveManager
+                .GetKeyFromLevelObjective(l as ISprite, selectedLevel) == selectedItem);
+
+            var itemType = GetWorldMapItemType(levelObjective);
+            _worldMapObjectiveData.AddOrUpdateObjectives(
+                           new List<ISprite>() { levelObjective as ISprite }, selectedLevel,
+                           WorldMapLevelObjectiveType.ITEM, itemType);
+            MapUtility.SaveWorldMapObjectives(_worldMapObjectiveData, _mapName);
+        }
+
+        private WorldMapItemType GetWorldMapItemType(ILevelObjective levelObjective)
+        {
+            if (levelObjective == null)
+                throw new ArgumentNullException(nameof(levelObjective));
+
+            if (levelObjective is Keen4Swimsuit)
+            {
+                return WorldMapItemType.SWIMSUIT;
+            }
+
+            return WorldMapItemType.GENERIC_COLLECTIBLE;
         }
     }
 }

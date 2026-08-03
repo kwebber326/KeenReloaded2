@@ -1,7 +1,9 @@
 ﻿using KeenReloaded.Framework;
 using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles.WorldMap;
 using KeenReloaded2.Framework.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -23,6 +25,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         private const int SPRITE_CHANGE_DELAY = 2;
         private int _currentSpriteIndex;
         private int _currentSpriteChangeDelayTick;
+        private bool _hitWater;
+
         private const string KEY_LEFT = GeneralGameConstants.Keys.KEY_LEFT;
         private const string KEY_RIGHT = GeneralGameConstants.Keys.KEY_RIGHT;
         private const string KEY_UP = GeneralGameConstants.Keys.KEY_UP;
@@ -30,10 +34,12 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         private const string KEY_CTRL = GeneralGameConstants.Keys.KEY_CTRL;
         private const string KEY_SPACE = GeneralGameConstants.Keys.KEY_SPACE;
         private const string KEY_ENTER = GeneralGameConstants.Keys.KEY_ENTER;
+        private List<WorldMapItemType> _itemsAcquired = new List<WorldMapItemType>();
 
         private const int MOVE_VELOCITY = 10;
 
         public event EventHandler Moved;
+        public event EventHandler<string> PlayerError;
 
         public WorldMapPlayer(Rectangle area, SpaceHashGrid grid, int zIndex) : base(grid, area)
         {
@@ -122,6 +128,11 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             }
         }
 
+        public void AcquireItem(WorldMapItemType item)
+        {
+            _itemsAcquired.Add(item);
+        }
+
         public void Update()
         {
             if (AnyActionKeyPressed())
@@ -144,11 +155,83 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 
             SetDirectionFromPressedMovementKeys();
             if (AnyDirectionKeysPressed())
-            {
-                this.MoveState = WorldMapPlayerMoveState.RUNNING;
+            { 
                 TryMove();
+                this.MoveState = ShouldSwim()
+                   ? WorldMapPlayerMoveState.SWIMMING : WorldMapPlayerMoveState.RUNNING;
             }
         }
+
+        private bool ShouldSwim()
+        {
+            return _hitWater && _itemsAcquired.Contains(WorldMapItemType.SWIMSUIT);
+        }
+
+        #region CollisionObject overrides
+        protected override CollisionObject GetLeftMostRightTile(List<CollisionObject> collisions)
+        {
+            var MaskedTiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK || (c is WorldMapInteractiveTile));
+            if (collisions.Any() && MaskedTiles.Any())
+            {
+                var rightTiles = MaskedTiles.Where(c => c.HitBox.Left > this.HitBox.Left && c.HitBox.Top < this.HitBox.Bottom && c.HitBox.Bottom > this.HitBox.Top).ToList();
+                if (rightTiles.Any())
+                {
+                    int minX = rightTiles.Select(t => t.HitBox.Left).Min();
+                    CollisionObject obj = rightTiles.FirstOrDefault(x => x.HitBox.Left == minX);
+                    return obj;
+                }
+            }
+            return null;
+        }
+
+        protected override CollisionObject GetRightMostLeftTile(List<CollisionObject> collisions)
+        {
+            var MaskedTiles = collisions.Where(c => c.CollisionType == CollisionType.BLOCK || (c is WorldMapInteractiveTile));
+            if (collisions.Any() && MaskedTiles.Any())
+            {
+                var leftTiles = MaskedTiles.Where(c => c.HitBox.Left < this.HitBox.Left && c.HitBox.Top < this.HitBox.Bottom && c.HitBox.Bottom > this.HitBox.Top).ToList();
+                if (leftTiles.Any())
+                {
+                    int maxX = leftTiles.Select(t => t.HitBox.Right).Max();
+                    CollisionObject obj = leftTiles.FirstOrDefault(x => x.HitBox.Right == maxX);
+                    return obj;
+                }
+            }
+            return null;
+        }
+
+        protected override CollisionObject GetTopMostLandingTile(List<CollisionObject> collisions)
+        {
+            CollisionObject topMostTile = null;
+            var landingTiles = collisions.Where(h => (h.CollisionType == CollisionType.BLOCK || (h is WorldMapInteractiveTile))
+                && h.HitBox.Top >= this.HitBox.Top);
+
+            if (!landingTiles.Any())
+                return null;
+
+            int minY = landingTiles.Select(c => c.HitBox.Top).Min();
+            topMostTile = landingTiles.FirstOrDefault(t => t.HitBox.Top == minY);
+
+            return topMostTile;
+        }
+
+        protected override CollisionObject GetCeilingTile(List<CollisionObject> collisions)
+        {
+            var tiles = collisions
+                .Where(c => (c.CollisionType == CollisionType.BLOCK || (c is WorldMapInteractiveTile))
+                     ).ToList();
+            if (tiles.Any())
+            {
+                int maxBottom = tiles.Select(c => c.HitBox.Bottom).Max();
+                CollisionObject obj = collisions.FirstOrDefault(c => c.HitBox.Bottom == maxBottom);
+                return obj;
+            }
+            return null;
+        }
+
+        #endregion
+
+        #region movement
 
         private void TryMove()
         {
@@ -177,18 +260,18 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         {
             this.Moved?.Invoke(this, EventArgs.Empty);
         }
-
         private void TryMoveRight()
         {
             Rectangle areaToCheck = new Rectangle(this.HitBox.X + MOVE_VELOCITY,
           this.HitBox.Y, this.HitBox.Width + MOVE_VELOCITY, this.HitBox.Height);
 
-            var collisions = this.CheckCollision(areaToCheck, true);
+            var collisions = this.CheckCollision(areaToCheck);
 
             var collisionTile = this.GetLeftMostRightTile(collisions);
-                  Rectangle newArea = new Rectangle(this.HitBox.X + MOVE_VELOCITY,
-                this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
-            if (collisionTile != null)
+            Rectangle newArea = new Rectangle(this.HitBox.X + MOVE_VELOCITY,
+          this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
+
+            if (ShouldCollide(collisionTile))
             {
                 newArea.X = collisionTile.HitBox.Left - this.HitBox.Width - 1;
             }
@@ -202,12 +285,12 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                 this.HitBox.Y + MOVE_VELOCITY, this.HitBox.Width,
                 this.HitBox.Height + MOVE_VELOCITY);
 
-            var collisions = this.CheckCollision(areaToCheck, true);
+            var collisions = this.CheckCollision(areaToCheck);
 
             var collisionTile = this.GetTopMostLandingTile(collisions);
             Rectangle newArea = new Rectangle(this.HitBox.X,
                 this.HitBox.Y + MOVE_VELOCITY, this.HitBox.Width, this.HitBox.Height);
-            if (collisionTile != null)
+            if (ShouldCollide(collisionTile))
             {
                 newArea.Y = collisionTile.HitBox.Top - this.HitBox.Height - 1;
             }
@@ -220,12 +303,11 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             Rectangle areaToCheck = new Rectangle(this.HitBox.X - MOVE_VELOCITY,
                 this.HitBox.Y, this.HitBox.Width + MOVE_VELOCITY, this.HitBox.Height);
 
-            var collisions = this.CheckCollision(areaToCheck, true);
-
+            var collisions = this.CheckCollision(areaToCheck);
             var collisionTile = this.GetRightMostLeftTile(collisions);
             Rectangle newArea = new Rectangle(this.HitBox.X - MOVE_VELOCITY,
           this.HitBox.Y, this.HitBox.Width, this.HitBox.Height);
-            if (collisionTile != null)
+            if (ShouldCollide(collisionTile))
             {
                 newArea.X = collisionTile.HitBox.Right + 1;
             }
@@ -239,12 +321,11 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                 this.HitBox.Y - MOVE_VELOCITY, this.HitBox.Width,
                 this.HitBox.Height + MOVE_VELOCITY);
 
-            var collisions = this.CheckCollision(areaToCheck, true);
-
+            var collisions = this.CheckCollision(areaToCheck);
             var collisionTile = this.GetCeilingTile(collisions);
             Rectangle newArea = new Rectangle(this.HitBox.X,
           this.HitBox.Y - MOVE_VELOCITY, this.HitBox.Width, this.HitBox.Height);
-            if (collisionTile != null)
+            if (ShouldCollide(collisionTile))
             {
                 newArea.Y = collisionTile.HitBox.Bottom + 1;
             }
@@ -288,6 +369,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             }
         }
 
+        #endregion
+
         public override Rectangle HitBox
         {
             get => base.HitBox;
@@ -321,9 +404,32 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 
         public bool CanUpdate => true;
 
+        #region helpers
+        private bool ShouldCollide(CollisionObject collisionObject)
+        {
+            _hitWater = false;
+            if (collisionObject == null)
+                return false;
+
+            if (collisionObject.CollisionType == CollisionType.BLOCK)
+                return true;
+
+            if (collisionObject is WorldMapInteractiveTile)
+            {
+                var tile = (WorldMapInteractiveTile)collisionObject;
+                _hitWater = tile.Action == WorldMapInteractiveTileAction.SWIM;
+                if (_hitWater && !_itemsAcquired.Contains(WorldMapItemType.SWIMSUIT))
+                {
+                    this.PlayerError?.Invoke(this, "I can't swim!");
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         private void UpdateSprite()
         {
-            //TODO: account for movement state when setting sprite
             Image[] images = new Image[0];
             switch (_direction)
             {
@@ -335,7 +441,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                         case WorldMapPlayerMoveState.SWIMMING:
                             images = SpriteSheet.SpriteSheet.PlayerSwimUpImages; break;
                     }
-                    _sprite = Properties.Resources.keen_stop_up; break;
+                    _sprite = ShouldSwim() ? Properties.Resources.keen_swim_up1 : Properties.Resources.keen_stop_up; break;
                 case Direction.LEFT:
                     switch (MoveState)
                     {
@@ -344,7 +450,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                         case WorldMapPlayerMoveState.SWIMMING:
                             images = SpriteSheet.SpriteSheet.PlayerSwimLeftImages; break;
                     }
-                    _sprite = Properties.Resources.keen_stop_left; break;
+                    _sprite = ShouldSwim() ? Properties.Resources.keen_swim_left1 : Properties.Resources.keen_stop_left; break;
                 case Direction.RIGHT:
                     switch (MoveState)
                     {
@@ -353,7 +459,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                         case WorldMapPlayerMoveState.SWIMMING:
                             images = SpriteSheet.SpriteSheet.PlayerSwimRightImages; break;
                     }
-                    _sprite = Properties.Resources.keen_stop_right; break;
+                    _sprite = ShouldSwim() ? Properties.Resources.keen_swim_right1 : Properties.Resources.keen_stop_right; break;
                 case Direction.DOWN:
                     switch (MoveState)
                     {
@@ -362,7 +468,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                         case WorldMapPlayerMoveState.SWIMMING:
                             images = SpriteSheet.SpriteSheet.PlayerSwimDownImages; break;
                     }
-                    _sprite = Properties.Resources.keen_stop_down; break;
+                    _sprite = ShouldSwim() ? Properties.Resources.keen_swim_down1 : Properties.Resources.keen_stop_down; break;
                 case Direction.UP_LEFT:
                     switch (MoveState)
                     {
@@ -371,7 +477,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                         case WorldMapPlayerMoveState.SWIMMING:
                             images = SpriteSheet.SpriteSheet.PlayerSwimUpLeftImages; break;
                     }
-                    _sprite = Properties.Resources.keen_stop_up_left; break;
+                    _sprite = ShouldSwim() ? Properties.Resources.keen_swim_up_left1 : Properties.Resources.keen_stop_up_left; break;
                 case Direction.UP_RIGHT:
                     switch (MoveState)
                     {
@@ -389,7 +495,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                         case WorldMapPlayerMoveState.SWIMMING:
                             images = SpriteSheet.SpriteSheet.PlayerSwimDownLeftImages; break;
                     }
-                    _sprite = Properties.Resources.keen_stop_down_left; break;
+                    _sprite = ShouldSwim() ? Properties.Resources.keen_swim_down_left1 : Properties.Resources.keen_stop_down_left; break;
                 case Direction.DOWN_RIGHT:
                     switch (MoveState)
                     {
@@ -398,7 +504,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                         case WorldMapPlayerMoveState.SWIMMING:
                             images = SpriteSheet.SpriteSheet.PlayerSwimDownRightImages; break;
                     }
-                    _sprite = Properties.Resources.keen_stop_down_right; break;
+                    _sprite = ShouldSwim() ? Properties.Resources.keen_swim_down_right1 : Properties.Resources.keen_stop_down_right; break;
             }
 
             if (MoveState != WorldMapPlayerMoveState.STILL && images.Length > 0)
@@ -416,6 +522,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             }
         }
 
+        #endregion
         public override string ToString()
         {
             string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;

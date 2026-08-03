@@ -32,6 +32,7 @@
             this.cmbLevelNames = new System.Windows.Forms.ComboBox();
             this.pnlLevelControls = new System.Windows.Forms.Panel();
             this.pnlManageObjective = new System.Windows.Forms.Panel();
+            this.btnAddToItems = new System.Windows.Forms.Button();
             this.btnActivation = new System.Windows.Forms.Button();
             this.btnAddObjective = new System.Windows.Forms.Button();
             this.pbObjectiveImage = new System.Windows.Forms.PictureBox();
@@ -75,13 +76,24 @@
             // 
             // pnlManageObjective
             // 
+            this.pnlManageObjective.Controls.Add(this.btnAddToItems);
             this.pnlManageObjective.Controls.Add(this.btnActivation);
             this.pnlManageObjective.Controls.Add(this.btnAddObjective);
             this.pnlManageObjective.Location = new System.Drawing.Point(3, 39);
             this.pnlManageObjective.Name = "pnlManageObjective";
-            this.pnlManageObjective.Size = new System.Drawing.Size(200, 100);
+            this.pnlManageObjective.Size = new System.Drawing.Size(200, 157);
             this.pnlManageObjective.TabIndex = 6;
             this.pnlManageObjective.Visible = false;
+            // 
+            // btnAddToItems
+            // 
+            this.btnAddToItems.Location = new System.Drawing.Point(4, 101);
+            this.btnAddToItems.Name = "btnAddToItems";
+            this.btnAddToItems.Size = new System.Drawing.Size(141, 43);
+            this.btnAddToItems.TabIndex = 6;
+            this.btnAddToItems.Text = "Add Objective to Game Items";
+            this.btnAddToItems.UseVisualStyleBackColor = true;
+            this.btnAddToItems.Click += new System.EventHandler(this.btnAddToItems_Click);
             // 
             // btnActivation
             // 
@@ -163,5 +175,6 @@
         private System.Windows.Forms.Panel pnlManageObjective;
         private System.Windows.Forms.Button btnActivation;
         private System.Windows.Forms.Button btnAddObjective;
+        private System.Windows.Forms.Button btnAddToItems;
     }
 }
