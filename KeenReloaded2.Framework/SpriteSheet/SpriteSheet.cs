@@ -3543,6 +3543,24 @@ namespace KeenReloaded2.Framework.SpriteSheet
                 return _keen4CouncilMemberWalkRightImages;
             }
         }
+
+        private static Image[] _mollyImages;
+
+        public static Image[] MollyImages
+        {
+            get
+            {
+                if (_mollyImages == null)
+                {
+                    _mollyImages = new Image[]
+                    {
+                        Properties.Resources.keen6_molly1,
+                        Properties.Resources.keen6_molly2
+                    };
+                }
+                return _mollyImages;
+            }
+        }
         #endregion
 
         #region World Map Sprites

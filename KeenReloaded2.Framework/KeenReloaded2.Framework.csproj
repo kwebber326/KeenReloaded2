@@ -51,6 +51,7 @@
     <Compile Include="Enums\WorldMapInteractiveTileAction.cs" />
     <Compile Include="Extensions\DestructibleObjectExtensions.cs" />
     <Compile Include="GameEntities\AltCharacters\CouncilMember.cs" />
+    <Compile Include="GameEntities\AltCharacters\Molly.cs" />
     <Compile Include="GameEntities\Backgrounds\MimicBlocks.cs" />
     <Compile Include="GameEntities\Constructs\BiomeChanger.cs" />
     <Compile Include="GameEntities\Constructs\Checkpoints\Checkpoint.cs" />
@@ -222,8 +223,11 @@
     <Compile Include="GameEntities\Items\ExtraLife.cs" />
     <Compile Include="GameEntities\Items\Flag.cs" />
     <Compile Include="GameEntities\Items\Gem.cs" />
+    <Compile Include="GameEntities\Items\GrapplingHook.cs" />
     <Compile Include="GameEntities\Items\Item.cs" />
     <Compile Include="GameEntities\Items\Keen4Swimsuit.cs" />
+    <Compile Include="GameEntities\Items\Keen6RocketCard.cs" />
+    <Compile Include="GameEntities\Items\Keen6Sandwich.cs" />
     <Compile Include="GameEntities\Items\KeyCard.cs" />
     <Compile Include="GameEntities\Items\PointItem.cs" />
     <Compile Include="GameEntities\Items\Drops\RainDrop.cs" />
@@ -6519,6 +6523,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen_swim_right2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_grappling_hook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_molly1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_molly2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_rocket_card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_sandwich.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4231,6 +4231,26 @@ namespace KeenReloaded2.Entities.ReferenceData
             AddSimpleGameObject(backgroundReferenceData, keen4InteractiveTileFiles, swimsuitKey,
                 typeof(Keen4Swimsuit), null, 15);
 
+            //grappling hook
+            var grapplingHookKey = nameof(Properties.Resources.keen6_grappling_hook);
+            AddSimpleGameObject(backgroundReferenceData, keen6InteractiveTileFiles, grapplingHookKey,
+                typeof(GrapplingHook), null, 15);
+
+            //sandwich
+            var sandwichKey = nameof(Properties.Resources.keen6_sandwich);
+            AddSimpleGameObject(backgroundReferenceData, keen6InteractiveTileFiles, sandwichKey,
+                typeof(Keen6Sandwich), null, 15);
+
+            //rocket card
+            var rocketCardKey = nameof(Properties.Resources.keen6_rocket_card);
+            AddSimpleGameObject(backgroundReferenceData, keen6InteractiveTileFiles, rocketCardKey,
+                typeof(Keen6RocketCard), null, 15);
+
+            //molly
+            var mollyKey = nameof(Properties.Resources.keen6_molly1);
+            AddSimpleGameObject(backgroundReferenceData, keen6InteractiveTileFiles, mollyKey,
+                typeof(Molly), null, 15);
+
             //power generators
             #region generator 1
             var powerGenerator1Key = nameof(Properties.Resources.keen5_omegamatic_first_machine1);

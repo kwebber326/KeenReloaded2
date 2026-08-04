@@ -245,7 +245,7 @@ img_500|43|237|16|16|10|img_500.bmp
 keen4_crystal_cave_c1|292|360|96|80|10|Deep Freeze|Keen catches frostbite in the deep freeze cavern|Secret of the Oracle|shadowlands.wav|ab095b86-f966-483a-bfe1-baae5e796ec8|[0,30,60,62]|[0,0,32,80,48,0,48,40,64,40,32,40]|[0,0,48,80,48,0,48,40,64,40,32,40,46,35,30,11,49,47,9,6,49,53,8,3,50,57,3,2,53,56,3,4,44,43,15,16]
 keen4_village_c1|145|56|112|80|10|Mystic Temple|Keen violates the sanctity of the Mystic Temple|Secret of the Oracle|aliens.wav|25c6f3a4-e622-4b77-9b98-9e37fa472f77|[34,16,32,48]|[0,0,33,80,64,0,48,80,32,66,31,12]|[]|ROTATE_180
 keen4_mirage_c2|367|557|82|64|10|test objective level|testing|Secret of the Oracle|omegamatic_beginning.wav|8847fcf1-9894-4252-a8ab-e56623bb8541|[0,30,60,62]|[0,0,27,64,41,0,41,32,55,32,27,32]|[29,45,21,1]|200|0
-keen4_sand_yego_c1|102|268|96|64|10|||Secret of the Oracle||58c51856-53f6-4e83-abe8-48cc0a6f9be2|[15,27,96,64]|[8,6,75,18,3,30,13,12,74,32,17,11,0,45,31,20,64,44,31,20]|[24,31,2,14,27,28,7,19,32,32,5,14,36,28,9,19,35,33,5,14,50,28,8,19,58,33,2,14,60,28,7,19,67,33,3,13,24,34,46,12]
+keen4_sand_yego_c1|102|268|96|64|10|test level|testing|Secret of the Oracle|aliens.wav|58c51856-53f6-4e83-abe8-48cc0a6f9be2|[15,27,96,64]|[8,6,75,18,3,30,13,12,74,32,17,11,0,45,31,20,64,44,31,20]|[24,31,2,14,27,28,7,19,32,32,5,14,36,28,9,19,35,33,5,14,50,28,8,19,58,33,2,14,60,28,7,19,67,33,3,13,24,34,46,12]
 keen_stop_up|200|200|16|16
 keen4_flag_base_yellow_wm|574|285|32|32|10|[5a1a7757-6607-47bd-8a45-36cbd54f609c]
 keen4_flag_base_red1_wm|392|410|32|32|10|[ab095b86-f966-483a-bfe1-baae5e796ec8]

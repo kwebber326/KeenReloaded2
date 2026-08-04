@@ -7125,5 +7125,20 @@
   <ItemGroup>
     <None Include="Resources\keen_swim_right2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_grappling_hook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_molly1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_molly2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_rocket_card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_sandwich.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -235,6 +235,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
     {
         SWIMSUIT,
         SANDWICH,
+        GRAPPLING_HOOK,
+        ROCKET_CARD,
         GENERIC_COLLECTIBLE
     }
 

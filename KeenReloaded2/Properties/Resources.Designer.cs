@@ -16913,6 +16913,16 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen6_grappling_hook {
+            get {
+                object obj = ResourceManager.GetObject("keen6_grappling_hook", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen6_ice_cream_bar1 {
             get {
                 object obj = ResourceManager.GetObject("keen6_ice_cream_bar1", resourceCulture);
@@ -17306,6 +17316,26 @@ namespace KeenReloaded2.Properties {
         internal static System.Drawing.Bitmap keen6_laser_turret_up {
             get {
                 object obj = ResourceManager.GetObject("keen6_laser_turret_up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_molly1 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_molly1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_molly2 {
+            get {
+                object obj = ResourceManager.GetObject("keen6_molly2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -17863,6 +17893,16 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen6_rocket_card {
+            get {
+                object obj = ResourceManager.GetObject("keen6_rocket_card", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen6_root_beer_float1 {
             get {
                 object obj = ResourceManager.GetObject("keen6_root_beer_float1", resourceCulture);
@@ -17896,6 +17936,16 @@ namespace KeenReloaded2.Properties {
         internal static System.Drawing.Bitmap keen6_rope2 {
             get {
                 object obj = ResourceManager.GetObject("keen6_rope2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen6_sandwich {
+            get {
+                object obj = ResourceManager.GetObject("keen6_sandwich", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
