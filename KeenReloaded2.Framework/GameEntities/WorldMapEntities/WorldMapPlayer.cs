@@ -204,13 +204,14 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         {
             CollisionObject topMostTile = null;
             var landingTiles = collisions.Where(h => (h.CollisionType == CollisionType.BLOCK || (h is WorldMapInteractiveTile))
-                && h.HitBox.Top >= this.HitBox.Top);
+                && h.HitBox.Top >= this.HitBox.Bottom);
 
             if (!landingTiles.Any())
                 return null;
 
             int minY = landingTiles.Select(c => c.HitBox.Top).Min();
-            topMostTile = landingTiles.FirstOrDefault(t => t.HitBox.Top == minY);
+            topMostTile = landingTiles.FirstOrDefault(t => t.HitBox.Top == minY
+                && ShouldCollide(t));
 
             return topMostTile;
         }
@@ -219,11 +220,12 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         {
             var tiles = collisions
                 .Where(c => (c.CollisionType == CollisionType.BLOCK || (c is WorldMapInteractiveTile))
-                     ).ToList();
+                    && c.HitBox.Bottom <= this.HitBox.Top).ToList();
             if (tiles.Any())
             {
                 int maxBottom = tiles.Select(c => c.HitBox.Bottom).Max();
-                CollisionObject obj = collisions.FirstOrDefault(c => c.HitBox.Bottom == maxBottom);
+                CollisionObject obj = collisions.FirstOrDefault(c => c.HitBox.Bottom == maxBottom
+                  && ShouldCollide(c));
                 return obj;
             }
             return null;
@@ -290,7 +292,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             var collisionTile = this.GetTopMostLandingTile(collisions);
             Rectangle newArea = new Rectangle(this.HitBox.X,
                 this.HitBox.Y + MOVE_VELOCITY, this.HitBox.Width, this.HitBox.Height);
-            if (ShouldCollide(collisionTile))
+            if (collisionTile != null)
             {
                 newArea.Y = collisionTile.HitBox.Top - this.HitBox.Height - 1;
             }
@@ -325,7 +327,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             var collisionTile = this.GetCeilingTile(collisions);
             Rectangle newArea = new Rectangle(this.HitBox.X,
           this.HitBox.Y - MOVE_VELOCITY, this.HitBox.Width, this.HitBox.Height);
-            if (ShouldCollide(collisionTile))
+            if (collisionTile != null)
             {
                 newArea.Y = collisionTile.HitBox.Bottom + 1;
             }

@@ -533,7 +533,7 @@ namespace KeenReloaded2.Utilities
                     DataType = typeof(Rectangle[]),
                     Value = new Rectangle[]
                     {
-                        new Rectangle(8, 6, 75, 22),
+                        new Rectangle(8, 6, 75, 18),
                         new Rectangle(3, 30, 13, 12),
                         new Rectangle(74, 32, 17, 11),
                         new Rectangle(0, 45, 31, 20),
