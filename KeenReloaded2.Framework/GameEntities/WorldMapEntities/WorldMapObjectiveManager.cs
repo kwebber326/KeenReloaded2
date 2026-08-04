@@ -24,6 +24,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         public WorldMapObjectiveData LevelObjectives { get; set; } = new WorldMapObjectiveData();
         public bool ObjectivesComplete()
         {
+            if (!this.LevelObjectives.EndGoals.Any()) return false;
+
             return LevelObjectives.EndGoals.Values.All(l => l.Completed);
         }
 

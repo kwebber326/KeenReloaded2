@@ -164,7 +164,7 @@ namespace KeenReloaded2
                 _loadingWindow.UnmuteMusic();
                 if (form1.LevelCompleted)
                 {
-                    ProcessLevelCompletion(level, levelName, _loadingWindow.MapData);
+                    ProcessLevelCompletion(level, levelName, form1.LoadedMapData);
                     _gameUpdateTimer.Start();
                 }
                 else if (form1.GameOver)
@@ -172,7 +172,7 @@ namespace KeenReloaded2
                     //TODO: Insert game over animation here and await the closing of the 
                     //gameover animation form before closing
                     this.Close();
-                }
+                }  
                 else
                 {
                     _gameUpdateTimer.Start();
@@ -204,7 +204,7 @@ namespace KeenReloaded2
             _worldMapObjectiveData.UpdateWorldMapObjectives(levelName, _player, activatorObjectives, relevantActivateables);
 
             //items
-            var itemObjectives = levelGameObjects.Where(l => l is IItemLevelObjective
+            var itemObjectives = levelGameObjects.Where(l =>   l is IItemLevelObjective
                 && ((IItemLevelObjective)l).ObjectiveComplete).OfType<ISprite>(); 
             if (itemObjectives.Any())
             {

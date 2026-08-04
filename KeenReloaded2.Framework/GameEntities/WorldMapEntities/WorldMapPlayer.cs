@@ -5,9 +5,11 @@ using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles.WorldMap;
 using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -155,7 +157,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 
             SetDirectionFromPressedMovementKeys();
             if (AnyDirectionKeysPressed())
-            { 
+            {
                 TryMove();
                 this.MoveState = ShouldSwim()
                    ? WorldMapPlayerMoveState.SWIMMING : WorldMapPlayerMoveState.RUNNING;
@@ -165,6 +167,31 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         private bool ShouldSwim()
         {
             return _hitWater && _itemsAcquired.Contains(WorldMapItemType.SWIMSUIT);
+        }
+
+        private void EvaluateInteractiveTileCollisionState(IEnumerable<CollisionObject> collisions)
+        {
+            var interactiveTiles = collisions.OfType<WorldMapInteractiveTile>();
+            _hitWater = false;
+            if (interactiveTiles.Any())
+            {
+                WorldMapInteractiveTile closestTile = null;
+
+                foreach (var tile in interactiveTiles)
+                {
+                    if (closestTile == null || 
+                        CommonGameFunctions.GetEuclideanDistance(tile.HitBox.Location, this.HitBox.Location)
+                         < CommonGameFunctions.GetEuclideanDistance(closestTile.HitBox.Location, this.HitBox.Location))
+                    {
+                        closestTile = tile;
+                    }
+                }
+
+                if (closestTile != null && closestTile.Action == WorldMapInteractiveTileAction.SWIM)
+                {
+                    _hitWater = true;
+                }
+            }
         }
 
         #region CollisionObject overrides
@@ -207,7 +234,10 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                 && h.HitBox.Top >= this.HitBox.Bottom);
 
             if (!landingTiles.Any())
+            {
+                EvaluateInteractiveTileCollisionState(collisions);
                 return null;
+            }
 
             int minY = landingTiles.Select(c => c.HitBox.Top).Min();
             topMostTile = landingTiles.FirstOrDefault(t => t.HitBox.Top == minY
@@ -227,6 +257,10 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                 CollisionObject obj = collisions.FirstOrDefault(c => c.HitBox.Bottom == maxBottom
                   && ShouldCollide(c));
                 return obj;
+            }
+            else
+            {
+                EvaluateInteractiveTileCollisionState(collisions);
             }
             return null;
         }
@@ -326,7 +360,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             var collisions = this.CheckCollision(areaToCheck);
             var collisionTile = this.GetCeilingTile(collisions);
             Rectangle newArea = new Rectangle(this.HitBox.X,
-          this.HitBox.Y - MOVE_VELOCITY, this.HitBox.Width, this.HitBox.Height);
+                this.HitBox.Y - MOVE_VELOCITY, this.HitBox.Width, this.HitBox.Height);
             if (collisionTile != null)
             {
                 newArea.Y = collisionTile.HitBox.Bottom + 1;
