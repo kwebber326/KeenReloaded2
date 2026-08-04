@@ -4251,6 +4251,20 @@ namespace KeenReloaded2.Entities.ReferenceData
             AddSimpleGameObject(backgroundReferenceData, keen6InteractiveTileFiles, mollyKey,
                 typeof(Molly), null, 15);
 
+            //princess lindsey
+
+            MapMakerObjectProperty hintMessageProperty = new MapMakerObjectProperty()
+            {
+                PropertyName = "hintMessage",
+                DisplayName = "Hint Message:",
+                DataType = typeof(string),
+                Value = string.Empty
+            };
+
+            var princessLindseyKey = nameof(Properties.Resources.princess_lindsey1);
+            AddSimpleGameObject(backgroundReferenceData, keen4InteractiveTileFiles, princessLindseyKey,
+                typeof(PrincessLindsey), new MapMakerObjectProperty[] { hintMessageProperty }, 15);
+
             //power generators
             #region generator 1
             var powerGenerator1Key = nameof(Properties.Resources.keen5_omegamatic_first_machine1);

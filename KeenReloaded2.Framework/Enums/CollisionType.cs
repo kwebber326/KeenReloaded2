@@ -31,6 +31,7 @@ namespace KeenReloaded2.Framework.Enums
         CONVEYOR_BELT,
         TOGGLE_SWITCH,
         KEEN_ONLY_PLATFORM,
-        CHECKPOINT
+        CHECKPOINT,
+        HINT_MESSAGE
     }
 }

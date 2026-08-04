@@ -87,12 +87,14 @@ namespace KeenReloaded2
             if (_game != null)
             {
                 _game.BackgroundImageRedrawn -= _game_BackgroundImageRedrawn;
+                _game.InGameMessageReceived -= _game_InGameMessageReceived;
                 _game.Dispose();
             }
 
             _game = new CommanderKeenGame(data);
             pbBackgroundImage.Image = _game.BackGroundImage;
             _game.BackgroundImageRedrawn += _game_BackgroundImageRedrawn;
+            _game.InGameMessageReceived += _game_InGameMessageReceived;
             var gameObjects = data.MapData.Select(d => d.GameObject);
 
             int lives = _keen?.Lives ?? 0;
@@ -136,6 +138,16 @@ namespace KeenReloaded2
             {
                 _levelCompletionTimer.Start();
             }
+        }
+
+        private void _game_InGameMessageReceived(object sender, string e)
+        {
+            _paused = true;
+            KeenReloadedMessageWindow messageWindow
+                = new KeenReloadedMessageWindow(e, 1000);
+            messageWindow.ShowDialog();
+            _keen?.ClearAllKeysPressed();
+            _paused = false;
         }
 
         private void ResetKeenState(int lives, int drops, long points, List<Framework.GameEntities.Weapons.NeuralStunner> weapons, Framework.GameEntities.Items.Shield shield)
@@ -219,7 +231,7 @@ namespace KeenReloaded2
                 EventStore<string>.Publish(MapMakerConstants.EventStoreEventNames.KEEN_LEVEL_COMPLETE,
                     string.Empty);
                 RemoveKeenFromGame();
-                KeenReloadedMessageWindow window = new KeenReloadedMessageWindow("Level Completed!");
+                KeenReloadedMessageWindow window = new KeenReloadedMessageWindow("Level Completed!", 500);
                 window.ShowDialog();
                 ExecuteShutdownProtocol();
             }
@@ -351,6 +363,7 @@ namespace KeenReloaded2
             if (_game != null && !_game.IsDisposed)
             {
                 _game.BackgroundImageRedrawn -= _game_BackgroundImageRedrawn;
+                _game.InGameMessageReceived -= _game_InGameMessageReceived;
             }
         }
 

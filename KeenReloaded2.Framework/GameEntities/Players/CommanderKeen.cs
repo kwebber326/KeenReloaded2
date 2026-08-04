@@ -964,7 +964,14 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 //raise keen passed level event
                 this.OnKeenLevelCompleted(new ObjectEventArgs() { ObjectSprite = this });
             }
-
+            else if (obj.CollisionType == CollisionType.HINT_MESSAGE)
+            {
+                var hintGiver = obj as IHintMessenger;
+                if (hintGiver != null)
+                {
+                    hintGiver.SendMessage();
+                }
+            }
         }
 
         private bool CanOpenGemGate(GemPlaceHolder p)
@@ -1871,6 +1878,15 @@ namespace KeenReloaded2.Framework.GameEntities.Players
 
         public bool CanUpdate => true;
         #endregion
+
+        public void ClearAllKeysPressed()
+        {
+            var keys = new List<string>(_keysPressed.Keys);
+            foreach (var key in keys)
+            {
+                _keysPressed[key] = false;
+            }
+        }
 
         public NeuralStunner CurrentWeapon
         {

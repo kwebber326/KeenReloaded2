@@ -45,6 +45,7 @@ namespace KeenReloaded2.Entities
 
         public event EventHandler BackgroundImageRedrawn;
         public event EventHandler LevelEntered;
+        public event EventHandler<string> InGameMessageReceived;
 
         private Func<ISprite, ISprite, int> _compareFunction = (x1, x2) =>
         {
@@ -374,7 +375,18 @@ namespace KeenReloaded2.Entities
                 item.WorldMapEntered += Item_WorldMapEntered;
             }
 
+            if (obj is IHintMessenger)
+            {
+                var item = obj as IHintMessenger;
+                item.Message += Item_Message;
+            }
+
             RegisterZombieEnemy(obj);
+        }
+
+        private void Item_Message(object sender, string e)
+        {
+            InGameMessageReceived?.Invoke(this, e);
         }
 
         private void Item_WorldMapEntered(object sender, EventArgs e)
@@ -472,6 +484,13 @@ namespace KeenReloaded2.Entities
                 var item = obj as IWorldMapLevel;
                 item.WorldMapEntered -= Item_WorldMapEntered;
             }
+
+            if (obj is IHintMessenger)
+            {
+                var item = obj as IHintMessenger;
+                item.Message -= Item_Message;
+            }
+
             UnRegisterZombieEnemy(obj);
         }
 

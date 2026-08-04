@@ -7140,5 +7140,17 @@
   <ItemGroup>
     <None Include="Resources\keen6_sandwich.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_lindsey1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_lindsey2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_lindsey3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_lindsey4.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

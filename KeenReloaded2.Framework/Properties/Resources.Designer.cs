@@ -20123,6 +20123,46 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap princess_lindsey1 {
+            get {
+                object obj = ResourceManager.GetObject("princess_lindsey1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap princess_lindsey2 {
+            get {
+                object obj = ResourceManager.GetObject("princess_lindsey2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap princess_lindsey3 {
+            get {
+                object obj = ResourceManager.GetObject("princess_lindsey3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap princess_lindsey4 {
+            get {
+                object obj = ResourceManager.GetObject("princess_lindsey4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap random_item_generator_closed {
             get {
                 object obj = ResourceManager.GetObject("random_item_generator_closed", resourceCulture);

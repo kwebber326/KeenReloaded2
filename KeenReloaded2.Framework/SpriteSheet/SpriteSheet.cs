@@ -3561,6 +3561,26 @@ namespace KeenReloaded2.Framework.SpriteSheet
                 return _mollyImages;
             }
         }
+
+        private static Image[] _princessLindseyImages;
+
+        public static Image[] PrincessLindseyImages
+        {
+            get
+            {
+                if (_princessLindseyImages == null)
+                {
+                    _princessLindseyImages = new Image[]
+                    {
+                        Properties.Resources.princess_lindsey1,
+                        Properties.Resources.princess_lindsey2,
+                        Properties.Resources.princess_lindsey3,
+                        Properties.Resources.princess_lindsey4,
+                    };
+                }
+                return _princessLindseyImages;
+            }
+        }
         #endregion
 
         #region World Map Sprites

@@ -21,6 +21,7 @@ keen6_rocket_card|235|44|30|32|15
 chute|521|923|64|64|15|CHUTE|2|
 keen6_door|148|239|124|126|15|KEEN6|1|2
 keen6_molly1|383|1060|30|64|15
+princess_lindsey1|404|773|48|64|15|Sample Text
 keen_stand_left|474|47|26|64|LEFT
 keen5_shelley_left2|78|143|28|30|25
 keen5_keg_o_vitalin1|360|76|64|50|50|KEEN5_KEG_O_VITALIN

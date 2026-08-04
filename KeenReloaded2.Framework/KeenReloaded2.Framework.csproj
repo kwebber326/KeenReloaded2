@@ -52,6 +52,7 @@
     <Compile Include="Extensions\DestructibleObjectExtensions.cs" />
     <Compile Include="GameEntities\AltCharacters\CouncilMember.cs" />
     <Compile Include="GameEntities\AltCharacters\Molly.cs" />
+    <Compile Include="GameEntities\AltCharacters\PrincessLindsey.cs" />
     <Compile Include="GameEntities\Backgrounds\MimicBlocks.cs" />
     <Compile Include="GameEntities\Constructs\BiomeChanger.cs" />
     <Compile Include="GameEntities\Constructs\Checkpoints\Checkpoint.cs" />
@@ -209,6 +210,7 @@
     <Compile Include="GameEntities\Interfaces\IGravityObject.cs" />
     <Compile Include="GameEntities\Interfaces\IHangableTile.cs" />
     <Compile Include="GameEntities\Interfaces\IHealthBar.cs" />
+    <Compile Include="GameEntities\Interfaces\IHintMessenger.cs" />
     <Compile Include="GameEntities\Interfaces\IInteractiveLevelObjective.cs" />
     <Compile Include="GameEntities\Interfaces\IItemLevelObjective.cs" />
     <Compile Include="GameEntities\Interfaces\ILevelObjective.cs" />
@@ -6538,6 +6540,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen6_sandwich.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_lindsey1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_lindsey2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_lindsey3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\princess_lindsey4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
