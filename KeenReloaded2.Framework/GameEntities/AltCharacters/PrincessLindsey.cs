@@ -2,7 +2,9 @@
 using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -62,7 +64,9 @@ namespace KeenReloaded2.Framework.GameEntities.AltCharacters
         public void SendMessage()
         {
             if (!_messageDelayed)
-            { 
+            {
+                EventStore<SoundPlayEventArgs>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                    new SoundPlayEventArgs() { Sound = GeneralGameConstants.Sounds.MAJOR_ITEM_ACQUIRED });
                 Message?.Invoke(this, _hintMessage);
                 _messageDelayed = true; 
             }
