@@ -37,11 +37,6 @@ namespace KeenReloaded2.Framework.GameEntities.Items
 
         public bool ObjectiveComplete => _acquired;
 
-        public void Acquire()
-        {
-            _acquired = true;
-        }
-
         public WorldMapItemType ItemType => WorldMapItemType.SWIMSUIT;
 
         public override string ToString()
@@ -50,6 +45,11 @@ namespace KeenReloaded2.Framework.GameEntities.Items
             string name = nameof(Properties.Resources.keen4_swimsuit);
             return $"{name}{separator}{this.Location.X}{separator}{this.Location.Y}{separator}"+
                    $"{this.HitBox.Width}{separator}{this.HitBox.Height}{separator}{_zIndex}";
+        }
+
+        public void CompleteObjective()
+        {
+            _acquired = true;
         }
     }
 }

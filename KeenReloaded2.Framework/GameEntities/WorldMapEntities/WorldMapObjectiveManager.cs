@@ -16,8 +16,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         public static string GetKeyFromLevelObjective(ISprite item, string levelName)
         {
             string name = item.GetType().Name;
-            Point location = item?.Location ?? new Point(0, 0);
-            string key = levelName + "_" + name + "_" + location.ToString();
+            string key = levelName + "_" + item.ToString();
             return key;
         }
 
@@ -67,6 +66,38 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                         else
                         {
                             this.LevelObjectives.Items.Add(key, WorldMapObjectiveFactory.BuildWorldMapObjective(type, argData) as ItemWorldMapObjective);
+                        }
+                        break;
+                }
+
+            }
+        }
+
+        public void RemoveExistingObjectives(List<ISprite> objectives, string levelName, WorldMapLevelObjectiveType type)
+        {
+            foreach (var objective in objectives)
+            {
+                var key = GetKeyFromLevelObjective(objective, levelName);
+                switch (type)
+                {
+                    case WorldMapLevelObjectiveType.ACTIVATOR:
+                        if (this.LevelObjectives.Activators.ContainsKey(key))
+                        {
+                            this.LevelObjectives.Activators.Remove(key);
+                        }
+
+                        break;
+                    case WorldMapLevelObjectiveType.END_GOAL:
+                        if (this.LevelObjectives.EndGoals.ContainsKey(key))
+                        {
+                            this.LevelObjectives.EndGoals.Remove(key);
+                        }
+                        break;
+
+                    case WorldMapLevelObjectiveType.ITEM:
+                        if (this.LevelObjectives.Items.ContainsKey(key))
+                        {
+                            this.LevelObjectives.Items.Remove(key);
                         }
                         break;
                 }

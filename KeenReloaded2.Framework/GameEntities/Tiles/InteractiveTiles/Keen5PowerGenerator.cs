@@ -235,6 +235,11 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
            
         }
 
+        public void CompleteObjective()
+        {
+            this.Toggle();
+        }
+
         protected abstract List<ICrossBar> CrossBars { get; }
 
         protected abstract Image[] SpriteList { get; }

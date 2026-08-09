@@ -30,10 +30,12 @@ namespace KeenReloaded2.Framework.GameEntities.AltCharacters
         private int _currentSpriteIndex;
         private CouncilMemberMoveState _state;
         private bool _rescued = false;
+        private Rectangle _area;
 
         public CouncilMember(Rectangle area, SpaceHashGrid grid, int zIndex) : base(grid, area)
         {
             _zIndex = zIndex;
+            _area = new Rectangle(area.X, area.Y, area.Width, area.Height);
             this.HitBox = area;
             _direction = this.GetRandomHorizontalDirection();
             this.Initialize();
@@ -179,8 +181,13 @@ namespace KeenReloaded2.Framework.GameEntities.AltCharacters
         {
             var initialImageName = nameof(Properties.Resources.keen4_council_member_ponder_right);
             var separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
-            var area = this.HitBox;
+            var area = _area;
             return $"{initialImageName}{separator}{area.X}{separator}{area.Y}{separator}{area.Width}{separator}{area.Height}{separator}{_zIndex}";
+        }
+
+        public void CompleteObjective()
+        {
+            _rescued = true;
         }
     }
 

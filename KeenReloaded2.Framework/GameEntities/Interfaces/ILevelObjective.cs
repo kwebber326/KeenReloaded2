@@ -12,5 +12,7 @@ namespace KeenReloaded2.Framework.GameEntities.Interfaces
         ObjectiveEventType EventType { get; }
 
         bool ObjectiveComplete { get; }
+
+        void CompleteObjective();
     }
 }

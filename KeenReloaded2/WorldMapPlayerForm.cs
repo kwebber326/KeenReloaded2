@@ -92,7 +92,13 @@ namespace KeenReloaded2
             pbGameImage.Parent = pbBackgroundImage;
             pbBackgroundImage.Image = _game.BackGroundImage;
             pbGameImage.Location = new Point(0, 0);
+            _worldMapObjectiveData.GameBeaten += _worldMapObjectiveData_GameBeaten;
 
+        }
+
+        private void _worldMapObjectiveData_GameBeaten(object sender, EventArgs e)
+        {
+            _worldMapObjectiveData.GameBeaten -= _worldMapObjectiveData_GameBeaten;
         }
 
         private void _loadingWindow_WorldMapLoadError(object sender, EventArgs e)
@@ -275,6 +281,8 @@ namespace KeenReloaded2
                 _game.BackgroundImageRedrawn -= _game_BackgroundImageRedrawn;
                 _game.LevelEntered -= _game_LevelEntered;
             }
+
+            _worldMapObjectiveData.GameBeaten -= _worldMapObjectiveData_GameBeaten;
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

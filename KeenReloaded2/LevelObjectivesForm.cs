@@ -125,6 +125,20 @@ namespace KeenReloaded2
             string key = cmbObjectives.SelectedItem?.ToString();
             pbObjectiveImage.Image = GetImageFromLevelObjectiveKey(key);
             pnlManageObjective.Visible = cmbObjectives.SelectedIndex >= 0;
+            UpdateButtonTexts(key);
+        }
+
+        private void UpdateButtonTexts(string key)
+        {
+            btnAddObjective.Text = _worldMapObjectiveData != null && 
+                !_worldMapObjectiveData.LevelObjectives.EndGoals.ContainsKey(key)
+                ? "Add Objective to Game Completion Ruleset"
+                : "Remove Objective from Game Completion Ruleset";
+
+            btnAddToItems.Text = _worldMapObjectiveData != null &&
+                !_worldMapObjectiveData.LevelObjectives.Items.ContainsKey(key)
+                ? "Add Objective to Game Items"
+                : "Remove Objective from Game Items";
         }
 
         private void btnActivation_Click(object sender, EventArgs e)
@@ -181,10 +195,22 @@ namespace KeenReloaded2
             var levelObjective = levelObjectives.FirstOrDefault(l => WorldMapObjectiveManager
                 .GetKeyFromLevelObjective(l as ISprite, selectedLevel) == selectedItem);
 
-            _worldMapObjectiveData.AddOrUpdateObjectives(
-                           new List<ISprite>() { levelObjective as ISprite }, selectedLevel,
-                           WorldMapLevelObjectiveType.END_GOAL);
-            MapUtility.SaveWorldMapObjectives(_worldMapObjectiveData, _mapName);
+            if (!_worldMapObjectiveData.LevelObjectives.EndGoals.ContainsKey(selectedItem))
+            {
+                _worldMapObjectiveData.AddOrUpdateObjectives(
+                               new List<ISprite>() { levelObjective as ISprite }, selectedLevel,
+                               WorldMapLevelObjectiveType.END_GOAL);
+                MapUtility.SaveWorldMapObjectives(_worldMapObjectiveData, _mapName);
+            }
+            else
+            {
+                _worldMapObjectiveData.RemoveExistingObjectives(
+                          new List<ISprite>() { levelObjective as ISprite }, selectedLevel,
+                          WorldMapLevelObjectiveType.END_GOAL);
+                MapUtility.SaveWorldMapObjectives(_worldMapObjectiveData, _mapName);
+            }
+
+            UpdateButtonTexts(selectedItem);
         }
 
         private void btnAddToItems_Click(object sender, EventArgs e)
@@ -199,10 +225,23 @@ namespace KeenReloaded2
                 .GetKeyFromLevelObjective(l as ISprite, selectedLevel) == selectedItem);
 
             var itemType = GetWorldMapItemType(levelObjective);
-            _worldMapObjectiveData.AddOrUpdateObjectives(
-                           new List<ISprite>() { levelObjective as ISprite }, selectedLevel,
-                           WorldMapLevelObjectiveType.ITEM, itemType);
-            MapUtility.SaveWorldMapObjectives(_worldMapObjectiveData, _mapName);
+
+            if (!_worldMapObjectiveData.LevelObjectives.Items.ContainsKey(selectedItem))
+            {
+                _worldMapObjectiveData.AddOrUpdateObjectives(
+                               new List<ISprite>() { levelObjective as ISprite }, selectedLevel,
+                               WorldMapLevelObjectiveType.ITEM, itemType);
+                MapUtility.SaveWorldMapObjectives(_worldMapObjectiveData, _mapName);
+            }
+            else
+            {
+                _worldMapObjectiveData.RemoveExistingObjectives(
+                   new List<ISprite>() { levelObjective as ISprite }, selectedLevel,
+                   WorldMapLevelObjectiveType.ITEM);
+                MapUtility.SaveWorldMapObjectives(_worldMapObjectiveData, _mapName);
+            }
+
+            UpdateButtonTexts(selectedItem);
         }
 
         private WorldMapItemType GetWorldMapItemType(ILevelObjective levelObjective)

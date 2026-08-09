@@ -108,5 +108,10 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
         {
             return base.GetHashCode();
         }
+
+        public void CompleteObjective()
+        {
+           
+        }
     }
 }

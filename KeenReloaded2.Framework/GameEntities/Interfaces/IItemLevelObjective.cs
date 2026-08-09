@@ -10,7 +10,5 @@ namespace KeenReloaded2.Framework.GameEntities.Interfaces
     public interface IItemLevelObjective : ILevelObjective
     {
         WorldMapItemType ItemType { get; }
-
-        void Acquire();
     }
 }

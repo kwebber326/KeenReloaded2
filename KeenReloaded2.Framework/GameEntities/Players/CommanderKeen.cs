@@ -956,10 +956,10 @@ namespace KeenReloaded2.Framework.GameEntities.Players
             }
             else if (obj.CollisionType == CollisionType.EXIT)
             {
-                var itemLevelObjective = obj as IItemLevelObjective;
-                if (itemLevelObjective != null)
+                var levelObjective = obj as ILevelObjective;
+                if (levelObjective != null)
                 {
-                    itemLevelObjective.Acquire();
+                    levelObjective.CompleteObjective();
                 }
                 //raise keen passed level event
                 this.OnKeenLevelCompleted(new ObjectEventArgs() { ObjectSprite = this });

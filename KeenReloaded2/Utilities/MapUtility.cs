@@ -143,6 +143,10 @@ namespace KeenReloaded2.Utilities
                 string path = Path.Combine(Environment.CurrentDirectory, MapMakerConstants.WORLD_MAP_OBJECTIVES_FOLDER);
                 Directory.CreateDirectory(path);
                 string file = Path.Combine(path, mapName + "_objectives.txt");
+
+                if (!File.Exists(file))
+                    return new WorldMapObjectiveManager();
+
                 string data = File.ReadAllText(file);
                 WorldMapObjectiveManager dataObj = new WorldMapObjectiveManager();
                 var objectives = JsonConvert.DeserializeObject<WorldMapObjectiveData>(data);

@@ -51,5 +51,10 @@ namespace KeenReloaded2.Framework.GameEntities.Items
             return $"{name}{separator}{this.Location.X}{separator}{this.Location.Y}{separator}" +
                    $"{this.HitBox.Width}{separator}{this.HitBox.Height}{separator}{_zIndex}";
         }
+
+        public void CompleteObjective()
+        {
+            _acquired = true;
+        }
     }
 }

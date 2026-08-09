@@ -22,12 +22,14 @@ namespace KeenReloaded2.Framework.GameEntities.AltCharacters
         private const int FALL_VELOCITY = 30;
         private int _spriteChangeDelayTick = 0;
         private int _currentSpriteIndex = 0;
+        Rectangle _area;
         
         private Image _sprite;
 
         public Molly(Rectangle area, SpaceHashGrid grid, int zIndex) : base(grid, area)
         {
             _zIndex = zIndex;
+            _area = new Rectangle(area.X, area.Y, area.Width, area.Height);
             this.HitBox = area;
             _sprite = _sprites[_currentSpriteIndex];
         }
@@ -88,8 +90,13 @@ namespace KeenReloaded2.Framework.GameEntities.AltCharacters
         {
             var initialImageName = nameof(Properties.Resources.keen6_molly1);
             var separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
-            var area = this.HitBox;
+            var area = _area;
             return $"{initialImageName}{separator}{area.X}{separator}{area.Y}{separator}{area.Width}{separator}{area.Height}{separator}{_zIndex}";
+        }
+
+        public void CompleteObjective()
+        {
+            _rescued = true;
         }
     }
 }
