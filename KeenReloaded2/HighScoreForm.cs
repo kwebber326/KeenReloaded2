@@ -108,6 +108,10 @@ namespace KeenReloaded2
                         string text = _gameMode == MainMenuConstants.OPTION_LABEL_NORMAL_MODE
                             ? "You've achieved a fast time!\nEnter your name here:"
                             : "You've achieved a high score!\n Enter your name here:";
+                        if (_gameMode == MainMenuConstants.OPTION_LABEL_WORLD_MODE)
+                        {
+                            text = "You beat the game and \nachieved a high score!";
+                        }
                         KeenReloadedTextInputDialog highScoreUserNameDialog = new KeenReloadedTextInputDialog(text);
                         highScoreUserNameDialog.ShowDialog();
                         _newHighScore.PlayerName = highScoreUserNameDialog.UserNameText;
@@ -139,7 +143,8 @@ namespace KeenReloaded2
 
         private bool IsValidHighScore(IHighScore score)
         {
-            return _gameMode == MainMenuConstants.OPTION_LABEL_NORMAL_MODE || (long)score.Value > 0;
+            return _gameMode == MainMenuConstants.OPTION_LABEL_NORMAL_MODE || (long)score.Value > 0
+                || (_gameMode == MainMenuConstants.OPTION_LABEL_WORLD_MODE && (long)score.Value >= 0);
         }
 
         private void WriteHighScoresOnBoard(List<IHighScore> scores)

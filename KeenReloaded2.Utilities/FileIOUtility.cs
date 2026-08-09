@@ -221,10 +221,15 @@ namespace KeenReloaded2.Utilities
 
         public static List<Tuple<string, string>> ReadHighScoresByGameModeAndLevel(string gameMode, string mapName)
         {
-            string path = Path.Combine(Environment.CurrentDirectory, HIGH_SCORE_FOLDER, gameMode, mapName + ".txt");
+            string directory = Path.Combine(Environment.CurrentDirectory, HIGH_SCORE_FOLDER, gameMode);
+            string path = Path.Combine(directory, mapName + ".txt");
             List<Tuple<string, string>> data = new List<Tuple<string, string>>();
             try
             {
+                if (!Directory.Exists(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                }
                 if (!File.Exists(path))
                 {
                     using (FileStream fs1 = File.Create(path)) { };

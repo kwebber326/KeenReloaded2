@@ -52,6 +52,8 @@ namespace KeenReloaded2
 
         public bool GameOver => (_keen?.Lives ?? 0) < 0 || _gameQuit;
 
+        public string WorldMapPath { get; set; }
+
         public MapMakerData LoadedMapData => _game?.IsDisposed ?? false ? _game?.Map : null;
 
         public Form1()
@@ -585,7 +587,7 @@ namespace KeenReloaded2
         private void OpenMainMenuDialog()
         {
             _paused = true;
-            WorldMapModeMainMenu menu = new WorldMapModeMainMenu(_game.Map.MapPath, true);
+            WorldMapModeMainMenu menu = new WorldMapModeMainMenu(this.WorldMapPath, true);
             var result = menu.ShowDialog();
             if (result == DialogResult.Abort)
             {

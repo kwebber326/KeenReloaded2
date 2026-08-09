@@ -26,4 +26,5 @@ keen_stand_left|474|47|26|64|LEFT
 keen5_shelley_left2|78|143|28|30|25
 keen5_keg_o_vitalin1|360|76|64|50|50|KEEN5_KEG_O_VITALIN
 keen5_keg_o_vitalin1|527|63|64|50|50|KEEN5_KEG_O_VITALIN
+keen5_bag_o_sugar1|350|179|26|32|50|KEEN5_BAG_O_SUGAR
 keen5_omegamatic_second_machine1|433|122|280|240|15|LEVEL_EXIT|[]

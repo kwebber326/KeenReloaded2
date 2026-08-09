@@ -22,6 +22,8 @@ namespace KeenReloaded2.Utilities.HighScoreFactory
                     return new CTFHighScoreUtility();
                 case MainMenuConstants.OPTION_LABEL_KOTH_MODE:
                     return new KOTHHighScoreUtility();
+                case MainMenuConstants.OPTION_LABEL_WORLD_MODE:
+                    return new WorldModeHighScoreUtility();
             }
 
             return null;

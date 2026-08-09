@@ -1,6 +1,7 @@
 ﻿using KeenReloaded2.Constants;
 using KeenReloaded2.DialogWindows;
 using KeenReloaded2.Entities;
+using KeenReloaded2.Entities.Statistics.HighScores;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.WorldMapEntities;
@@ -22,7 +23,7 @@ namespace KeenReloaded2
         private const int VIEW_RADIUS = GeneralGameConstants.VIEW_RADIUS;
         private const int MAX_VISION_OFFSET = 10;
         private const int VISION_OFFSET_COEFFICIENT = 10;
-        private readonly bool _mapMakerMove;
+        private readonly bool _mapMakerMode;
         private int _maxVisionY;
         private int _maxVisionX;
         private bool _paused;
@@ -87,7 +88,7 @@ namespace KeenReloaded2
             }
 
             InitializeGameData(data);
-            _mapMakerMove = mapMakerMode;
+            _mapMakerMode = mapMakerMode;
             pbBackgroundImage.SendToBack();
             pbGameImage.Parent = pbBackgroundImage;
             pbBackgroundImage.Image = _game.BackGroundImage;
@@ -99,6 +100,15 @@ namespace KeenReloaded2
         private void _worldMapObjectiveData_GameBeaten(object sender, EventArgs e)
         {
             _worldMapObjectiveData.GameBeaten -= _worldMapObjectiveData_GameBeaten;
+            if (!_mapMakerMode)
+            {
+                IHighScore score = new WorldModeHighScore(string.Empty, _game.Map.MapName, _playerState?.Points ?? 0);
+                HighScoreForm highScoreForm = score != null
+                    ? new HighScoreForm(score, MainMenuConstants.OPTION_LABEL_WORLD_MODE, _game?.Map?.MapName)
+                    : new HighScoreForm(MainMenuConstants.OPTION_LABEL_WORLD_MODE, _game?.Map?.MapName);
+                highScoreForm.ShowDialog();
+            }
+            this.Close();
         }
 
         private void _loadingWindow_WorldMapLoadError(object sender, EventArgs e)
@@ -164,6 +174,7 @@ namespace KeenReloaded2
                 Form1 form1 = new Form1(
                    MainMenuConstants.OPTION_LABEL_NORMAL_MODE,
                    _loadingWindow.MapData, true, true, _playerState, music);
+                form1.WorldMapPath = _game.Map.MapPath;
                 form1.KeenStateChanged += Form1_KeenStateChanged;
                 form1.ShowDialog();
                 form1.KeenStateChanged -= Form1_KeenStateChanged;
@@ -349,6 +360,13 @@ namespace KeenReloaded2
             _gameUpdateTimer.Interval = 50;
             _gameUpdateTimer.Tick += _gameUpdateTimer_Tick;
             _gameUpdateTimer.Start();
+
+            if (_player == null)
+            { 
+                this.Close();
+                return;
+            }
+
             _player.Moved += _keen_KeenMoved;
             _player.PlayerError += _player_PlayerError;
             UpdateViewRectangle();

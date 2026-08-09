@@ -131,6 +131,7 @@
     <Compile Include="Entities\Statistics\HighScores\HighScore.cs" />
     <Compile Include="Entities\Statistics\HighScores\KOTHHighScore.cs" />
     <Compile Include="Entities\Statistics\HighScores\NormalModeHighScore.cs" />
+    <Compile Include="Entities\Statistics\HighScores\WorldModeHighScore.cs" />
     <Compile Include="Entities\Statistics\HighScores\ZombieModeHighScore.cs" />
     <Compile Include="Entities\Statistics\KOTHStats.cs" />
     <Compile Include="Entities\Statistics\NormalModeStats.cs" />
@@ -381,6 +382,7 @@
     <Compile Include="Utilities\HighScoreFactory\IHighScoreUtility.cs" />
     <Compile Include="Utilities\HighScoreFactory\KOTHHighScoreUtility.cs" />
     <Compile Include="Utilities\HighScoreFactory\NormalModeHighScoreUtility.cs" />
+    <Compile Include="Utilities\HighScoreFactory\WorldModeHighScoreUtility.cs" />
     <Compile Include="Utilities\HighScoreFactory\ZombieModeHighScoreUtility.cs" />
     <Compile Include="Utilities\MapUtility.cs" />
     <Compile Include="Utilities\StatUtility.cs" />
