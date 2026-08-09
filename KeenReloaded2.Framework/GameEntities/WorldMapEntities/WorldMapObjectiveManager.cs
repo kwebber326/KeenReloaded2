@@ -116,7 +116,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                 var key = GetKeyFromLevelObjective(objective, levelName);
                 if (this.LevelObjectives.EndGoals.TryGetValue(key, out var endGoal))
                 {
-                    endGoal.Completed = true;
+                    if ((objective as ILevelObjective)?.ObjectiveComplete ?? false)
+                        endGoal.Completed = true;
                 }
                 if (this.LevelObjectives.Activators.TryGetValue(key, out var activator))
                 {

@@ -1,7 +1,9 @@
+Kdog|9000
 Kenny|5000
 Kenny|5000
 Kenny|5000
 Kenny|5000
 Kenny|5000
 Kenny|5000
-Kenny|0
+Kenny|5000
+
