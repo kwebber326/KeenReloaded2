@@ -30,6 +30,8 @@ namespace KeenReloaded2
         public static event EventHandler GameQuit;
         public static event EventHandler GameStart;
 
+        public WorldMapMenuOptionDecision? MenuDecision => _menuDecision;
+
         private WorldMapMenuOption[] _menuOptions
             = new WorldMapMenuOption[]
             {
@@ -50,6 +52,7 @@ namespace KeenReloaded2
             { QUIT, () => OnQuit() },
         };
         private bool _suppressSelection;
+        private WorldMapMenuOptionDecision? _menuDecision;
 
         private static void OnQuit()
         {
@@ -103,15 +106,13 @@ namespace KeenReloaded2
                 }
             }
 
+            _menuDecision = WorldMapMenuOptionDecision.START_NEW;
             _suppressSelection = false;
             _inGame = true;
-            var map = MapUtility.LoadMapData(_worldMapFile);
-            string mapName = _worldMapFile.Substring(_worldMapFile.LastIndexOf('\\') + 1).Replace(".txt", "");
-            var objectiveData = MapUtility.LoadWorldMapObjectives(mapName);
-            WorldMapPlayerForm form = new WorldMapPlayerForm(map, false, objectiveData);
+          
             this.DialogResult = DialogResult.Abort;
             this.Close();
-            form.ShowDialog();
+            
         }
 
         private void WorldMapModeMainMenu_GameQuit(object sender, EventArgs e)
@@ -190,6 +191,7 @@ namespace KeenReloaded2
             if (!_inGame)
             {
                 this.DialogResult = DialogResult.Abort;
+                _menuDecision = WorldMapMenuOptionDecision.QUIT;
                 this.Close();
                 return;
             }
@@ -200,6 +202,7 @@ namespace KeenReloaded2
             if (dialogResult == DialogResult.Yes)
             {
                 this.DialogResult = DialogResult.Abort;
+                _menuDecision = WorldMapMenuOptionDecision.QUIT;
                 this.Close();
             }
             else
@@ -256,6 +259,13 @@ namespace KeenReloaded2
         {
             DetachMenuEvents();
         }
+    }
+
+    public enum WorldMapMenuOptionDecision
+    {
+        START_NEW,
+        QUIT,
+        LOAD_EXISTING
     }
 
     public struct WorldMapMenuOption

@@ -43,6 +43,8 @@ namespace KeenReloaded2
         private bool _levelCompleted;
         private bool _gameQuit = false;
 
+        private WorldMapMenuOptionDecision? _menuDecision;
+
         private const int INITIAL_VIEW_RECT_UPDATES = 3;
         private int _rectUpdates;
 
@@ -53,6 +55,8 @@ namespace KeenReloaded2
         public bool GameOver => (_keen?.Lives ?? 0) < 0 || _gameQuit;
 
         public string WorldMapPath { get; set; }
+
+        public WorldMapMenuOptionDecision? MenuDecision => _menuDecision;
 
         public MapMakerData LoadedMapData => _game?.IsDisposed ?? false ? _game?.Map : null;
 
@@ -593,6 +597,7 @@ namespace KeenReloaded2
             {
                 _levelCompletionTimer.Stop();
                 _gameQuit = true;
+                _menuDecision = menu.MenuDecision;
                 this.Close();
             }
             else

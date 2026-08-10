@@ -21,8 +21,6 @@ namespace KeenReloaded2
         private CommanderKeen _playerState;
         private CommanderKeenGame _game;
         private const int VIEW_RADIUS = GeneralGameConstants.VIEW_RADIUS;
-        private const int MAX_VISION_OFFSET = 10;
-        private const int VISION_OFFSET_COEFFICIENT = 10;
         private readonly bool _mapMakerMode;
         private int _maxVisionY;
         private int _maxVisionX;
@@ -31,6 +29,10 @@ namespace KeenReloaded2
         private KeenReloadedLoadingWindow _loadingWindow;
         private WorldMapObjectiveManager _worldMapObjectiveData
             = new WorldMapObjectiveManager();
+
+        private WorldMapMenuOptionDecision? _menuDecision;
+
+        public WorldMapMenuOptionDecision? MenuDecision => _menuDecision;
 
         private void UpdateViewRectangle()
         {
@@ -186,9 +188,17 @@ namespace KeenReloaded2
                 }
                 else if (form1.GameOver)
                 {
-                    //TODO: Insert game over animation here and await the closing of the 
-                    //gameover animation form before closing
-                    this.Close();
+                    if (form1.MenuDecision == WorldMapMenuOptionDecision.START_NEW)
+                    {
+                        _menuDecision = WorldMapMenuOptionDecision.START_NEW;
+                        this.Close();
+                    }
+                    else if (form1.MenuDecision == null)
+                    {
+                        //TODO: Insert game over animation here and await the closing of the 
+                        //gameover animation form before closing
+                        this.Close();
+                    }
                 }  
                 else
                 {
@@ -448,6 +458,7 @@ namespace KeenReloaded2
                 }
                 else if (result == DialogResult.Abort)
                 {
+                    _menuDecision = menu.MenuDecision;
                     this.Close();
                 }
             }

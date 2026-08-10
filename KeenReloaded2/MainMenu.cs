@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace KeenReloaded2
 {
@@ -48,7 +49,37 @@ namespace KeenReloaded2
             {
                 WorldMapModeMainMenu menu = new WorldMapModeMainMenu(mapPlayer.SelectedFile);
                 menu.ShowDialog();
+                if (menu.MenuDecision == WorldMapMenuOptionDecision.START_NEW)
+                {
+                    bool quitGame = false;
+                    do
+                    {
+                        string path = mapPlayer.SelectedFile;
+                        var map = MapUtility.LoadMapData(path);
+                        string mapName = path.Substring(path.LastIndexOf('\\') + 1).Replace(".txt", "");
+                        var objectiveData = MapUtility.LoadWorldMapObjectives(mapName);
+                        using (WorldMapPlayerForm form = new WorldMapPlayerForm(map, false, objectiveData))
+                        {
+                            form.ShowDialog();
+
+                            if (form.MenuDecision == null || form.MenuDecision == WorldMapMenuOptionDecision.QUIT)
+                                quitGame = true;
+
+                        }
+
+                    } while (!quitGame);
+                }
             }
+        }
+
+        private void StartNewGame(string mapPath)
+        {
+            string path = mapPath;
+            var map = MapUtility.LoadMapData(path);
+            string mapName = path.Substring(path.LastIndexOf('\\') + 1).Replace(".txt", "");
+            var objectiveData = MapUtility.LoadWorldMapObjectives(mapName);
+            WorldMapPlayerForm form = new WorldMapPlayerForm(map, false, objectiveData);
+            form.ShowDialog();
         }
 
         public MainMenu()

@@ -1023,11 +1023,20 @@ namespace KeenReloaded2
             string mapFile = Path.Combine(directory, txtMapName.Text + ".txt");
             var mapData = MapUtility.LoadMapData(mapFile);
             _worldMapData = MapUtility.LoadWorldMapObjectives(txtMapName.Text);
-            using (WorldMapPlayerForm gameForm = new WorldMapPlayerForm(mapData, true, _worldMapData))
+
+            bool quitGame = false;
+
+            do
             {
-                gameForm.ShowDialog();
-                dialogMapLoader.FileName = mapFile;
-            }
+                using (WorldMapPlayerForm gameForm = new WorldMapPlayerForm(mapData, true, _worldMapData))
+                {
+                    gameForm.ShowDialog();
+                    dialogMapLoader.FileName = mapFile;
+                    if (gameForm.MenuDecision == null ||
+                        gameForm.MenuDecision == WorldMapMenuOptionDecision.QUIT)
+                        quitGame = true;
+                }
+            } while (!quitGame);
         }
 
         private void btnNew_Click(object sender, EventArgs e)
