@@ -7154,5 +7154,14 @@
   <ItemGroup>
     <None Include="Resources\princess_lindsey4.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_configure_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_menu_option_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_menu_option_on.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

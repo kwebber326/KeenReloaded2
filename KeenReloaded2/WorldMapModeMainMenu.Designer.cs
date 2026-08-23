@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbScreen = new System.Windows.Forms.PictureBox();
             this.pbSelector = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbScreen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSelector)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // pbScreen
             // 
-            this.pictureBox1.Image = global::KeenReloaded2.Properties.Resources.keen_main_menu;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1024, 1024);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pbScreen.Image = global::KeenReloaded2.Properties.Resources.keen_main_menu;
+            this.pbScreen.Location = new System.Drawing.Point(0, 0);
+            this.pbScreen.Name = "pbScreen";
+            this.pbScreen.Size = new System.Drawing.Size(1024, 1024);
+            this.pbScreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbScreen.TabIndex = 0;
+            this.pbScreen.TabStop = false;
+            this.pbScreen.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pbSelector
             // 
@@ -63,7 +63,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 881);
             this.Controls.Add(this.pbSelector);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbScreen);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "WorldMapModeMainMenu";
@@ -73,7 +73,7 @@
             this.Load += new System.EventHandler(this.WorldMapModeMainMenu_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.WorldMapModeMainMenu_KeyPress);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.WorldMapModeMainMenu_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbScreen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSelector)).EndInit();
             this.ResumeLayout(false);
 
@@ -81,7 +81,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbScreen;
         private System.Windows.Forms.PictureBox pbSelector;
     }
 }

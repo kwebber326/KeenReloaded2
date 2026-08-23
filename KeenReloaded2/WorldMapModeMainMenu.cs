@@ -17,6 +17,7 @@ namespace KeenReloaded2
     {
         private readonly string _worldMapFile;
         private const int SELECTOR_X_POS = 350;
+        private const int TOGGLE_IMAGE_X_POS = 600;
         private bool _inGame = false;
 
         private const string NEW_GAME = "New Game";
@@ -25,14 +26,25 @@ namespace KeenReloaded2
         private const string CONFIGURE = "Configure";
         private const string QUIT = "Quit";
 
+        private const string SOUND = "Sound";
+        private const string MUSIC = "Music";
+        private const string BACK = "Back";
+
         private int _selectedMenuIndex = 0;
 
         public static event EventHandler GameQuit;
         public static event EventHandler GameStart;
+        public static event EventHandler GameConfigure;
+        public static event EventHandler GameGoBack;
+        public static event EventHandler GameSoundToggle;
+        public static event EventHandler GameMusicToggle;
 
-        public WorldMapMenuOptionDecision? MenuDecision => _menuDecision;
+        private bool _suppressSelection;
+        private WorldMapMenuOptionDecision? _menuDecision;
 
-        private WorldMapMenuOption[] _menuOptions
+        private WorldMapMenuOption[] _currentMenu;
+        private AudioSettings _settings;
+        private WorldMapMenuOption[] _mainMenuOptions
             = new WorldMapMenuOption[]
             {
                  new WorldMapMenuOption() { Name = NEW_GAME, YPos = 344 },
@@ -42,6 +54,13 @@ namespace KeenReloaded2
                  new WorldMapMenuOption() { Name = QUIT, YPos = 592 },
             };
 
+        private WorldMapMenuOption[] _configureMenuOptions = new WorldMapMenuOption[]
+        {
+            new WorldMapMenuOption() { Name = MUSIC, YPos = 376 },
+            new WorldMapMenuOption() { Name = SOUND, YPos = 448 },
+            new WorldMapMenuOption() { Name = BACK, YPos = 518 }
+        };
+
         private Dictionary<string, Action> _menuActions
             = new Dictionary<string, Action>()
         {
@@ -50,9 +69,73 @@ namespace KeenReloaded2
             { SAVE_GAME, () => SaveGame() },
             { CONFIGURE, () => Configure() },
             { QUIT, () => OnQuit() },
+            { SOUND, () => OnSoundToggle() },
+            { MUSIC, () => OnMusicToggle() },
+            { BACK, () => OnGoBack() }
         };
-        private bool _suppressSelection;
-        private WorldMapMenuOptionDecision? _menuDecision;
+
+        public WorldMapModeMainMenu()
+        {
+            InitializeComponent();
+        }
+
+        public WorldMapModeMainMenu(string worldMapFile, bool inGame = false)
+        {
+            _inGame = inGame;
+            _worldMapFile = worldMapFile;
+            _currentMenu = _mainMenuOptions;
+            InitializeComponent();
+            InitializeAudioSettings();
+            AttachMenuEvents();
+        }
+
+        private void InitializeAudioSettings()
+        {
+            _settings = FileIOUtility.LoadAudioSettings();
+            _configureMenuOptions[1].PictureBox = new PictureBox()
+            {
+                Image = _settings.Sounds
+               ? Properties.Resources.keen_menu_option_on
+               : Properties.Resources.keen_menu_option_off,
+                Location = new Point(TOGGLE_IMAGE_X_POS, _configureMenuOptions[1].YPos)
+            };
+            _configureMenuOptions[0].PictureBox = new PictureBox()
+            {
+                Image = _settings.Music
+               ? Properties.Resources.keen_menu_option_on
+               : Properties.Resources.keen_menu_option_off,
+                Location = new Point(TOGGLE_IMAGE_X_POS, _configureMenuOptions[0].YPos)
+            };
+            foreach (var option in _configureMenuOptions)
+            {
+                if (option.PictureBox != null)
+                {
+                    option.PictureBox.BackColor = Color.Transparent;
+                    option.PictureBox.Parent = pbScreen;
+                    option.PictureBox.Visible = false;
+                    pbScreen.Controls.Add(option.PictureBox);
+                }
+            }
+        }
+
+        public WorldMapMenuOptionDecision? MenuDecision => _menuDecision;
+
+        public bool AudioSettingsChanged { get; private set; }
+
+        private static void OnGoBack()
+        {
+            GameGoBack?.Invoke(null, EventArgs.Empty);
+        }
+
+        private static void OnSoundToggle()
+        {
+           GameSoundToggle?.Invoke(null, EventArgs.Empty);
+        }
+
+        private static void OnMusicToggle()
+        {
+            GameMusicToggle?.Invoke(null, EventArgs.Empty);
+        }
 
         private static void OnQuit()
         {
@@ -61,7 +144,7 @@ namespace KeenReloaded2
 
         private static void Configure()
         {
-            MessageBox.Show("Implementation in progress");
+            GameConfigure?.Invoke(null, EventArgs.Empty);
         }
 
         private static void SaveGame()
@@ -77,19 +160,6 @@ namespace KeenReloaded2
         private static void StartNewGame()
         {
             GameStart?.Invoke(null, EventArgs.Empty);
-        }
-
-        public WorldMapModeMainMenu()
-        {
-            InitializeComponent();
-        }
-
-        public WorldMapModeMainMenu(string worldMapFile, bool inGame = false)
-        {
-            _inGame = inGame;
-            _worldMapFile = worldMapFile;
-            InitializeComponent();
-            AttachMenuEvents();
         }
 
         private void WorldMapModeMainMenu_GameStart(object sender, EventArgs e)
@@ -165,7 +235,7 @@ namespace KeenReloaded2
                     return;
                 }
 
-                var selectedOption = _menuOptions[_selectedMenuIndex];
+                var selectedOption = _currentMenu[_selectedMenuIndex];
                 if (_menuActions.TryGetValue(selectedOption.Name, out Action action))
                 {
                     action();
@@ -173,17 +243,69 @@ namespace KeenReloaded2
             }
         }
 
-        private void AttachMenuEvents()
-        {
-            GameQuit += WorldMapModeMainMenu_GameQuit;
-            GameStart += WorldMapModeMainMenu_GameStart;
-        }
-
-
         private void DetachMenuEvents()
         {
             GameQuit -= WorldMapModeMainMenu_GameQuit;
             GameStart -= WorldMapModeMainMenu_GameStart;
+            GameConfigure -= WorldMapModeMainMenu_GameConfigure;
+            GameGoBack -= WorldMapModeMainMenu_GameGoBack;
+            GameSoundToggle -= WorldMapModeMainMenu_GameSoundToggle;
+            GameMusicToggle -= WorldMapModeMainMenu_GameMusicToggle;
+        }
+
+        private void AttachMenuEvents()
+        {
+            GameQuit += WorldMapModeMainMenu_GameQuit;
+            GameStart += WorldMapModeMainMenu_GameStart;
+            GameConfigure += WorldMapModeMainMenu_GameConfigure;
+            GameGoBack += WorldMapModeMainMenu_GameGoBack;
+            GameSoundToggle += WorldMapModeMainMenu_GameSoundToggle;
+            GameMusicToggle += WorldMapModeMainMenu_GameMusicToggle;
+        }
+
+        private void WorldMapModeMainMenu_GameMusicToggle(object sender, EventArgs e)
+        {
+            _settings.Music = !_settings.Music;
+            FileIOUtility.SaveAudioSettings(_settings);
+            _configureMenuOptions[0].PictureBox.Image = _settings.Music
+                 ? Properties.Resources.keen_menu_option_on
+                 : Properties.Resources.keen_menu_option_off;
+            this.AudioSettingsChanged = true;
+        }
+
+        private void WorldMapModeMainMenu_GameSoundToggle(object sender, EventArgs e)
+        {
+            _settings.Sounds = !_settings.Sounds;
+            FileIOUtility.SaveAudioSettings(_settings);
+            _configureMenuOptions[1].PictureBox.Image = _settings.Sounds
+                ? Properties.Resources.keen_menu_option_on
+                : Properties.Resources.keen_menu_option_off;
+            this.AudioSettingsChanged = true;
+        }
+
+        private void WorldMapModeMainMenu_GameGoBack(object sender, EventArgs e)
+        {
+            if (_currentMenu == _configureMenuOptions)
+            {
+                pbScreen.Image = Properties.Resources.keen_main_menu;
+                _currentMenu = _mainMenuOptions;
+                _selectedMenuIndex = 0;
+                pbSelector.Location = new Point(
+                    pbSelector.Location.X, _currentMenu[_selectedMenuIndex].YPos);
+                _configureMenuOptions[0].PictureBox.Visible = false;
+                _configureMenuOptions[1].PictureBox.Visible = false;
+            }
+        }
+
+        private void WorldMapModeMainMenu_GameConfigure(object sender, EventArgs e)
+        {
+            pbScreen.Image = Properties.Resources.keen_configure_menu;
+            _currentMenu = _configureMenuOptions;
+            _selectedMenuIndex = 0;
+            pbSelector.Location = new Point(
+                pbSelector.Location.X, _currentMenu[_selectedMenuIndex].YPos);
+            _configureMenuOptions[0].PictureBox.Visible = true;
+            _configureMenuOptions[1].PictureBox.Visible = true;
         }
 
         private void ExecuteQuitGameProtocol()
@@ -225,7 +347,7 @@ namespace KeenReloaded2
 
         private void CycleMenuDown()
         {
-            if (++_selectedMenuIndex >= _menuOptions.Length)
+            if (++_selectedMenuIndex >= _currentMenu.Length)
             {
                 _selectedMenuIndex = 0;
             }
@@ -237,7 +359,7 @@ namespace KeenReloaded2
         {
             if (--_selectedMenuIndex < 0)
             {
-                _selectedMenuIndex = _menuOptions.Length - 1;
+                _selectedMenuIndex = _currentMenu.Length - 1;
             }
 
             MoveSelectorToSelectedOption();
@@ -245,7 +367,7 @@ namespace KeenReloaded2
 
         private void MoveSelectorToSelectedOption()
         {
-            WorldMapMenuOption selectedOption = _menuOptions[_selectedMenuIndex];
+            WorldMapMenuOption selectedOption = _currentMenu[_selectedMenuIndex];
 
             pbSelector.Location = new Point(SELECTOR_X_POS, selectedOption.YPos);
         }
@@ -273,5 +395,7 @@ namespace KeenReloaded2
         public string Name { get; set; }
 
         public int YPos { get; set; }
+
+        public PictureBox PictureBox { get; set; }
     }
 }

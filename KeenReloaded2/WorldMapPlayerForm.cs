@@ -193,6 +193,10 @@ namespace KeenReloaded2
                         _menuDecision = WorldMapMenuOptionDecision.START_NEW;
                         this.Close();
                     }
+                    else if (form1.MenuDecision == WorldMapMenuOptionDecision.QUIT)
+                    {
+                        this.Close();
+                    }
                     else if (form1.MenuDecision == null)
                     {
                         //TODO: Insert game over animation here and await the closing of the 
