@@ -87,14 +87,27 @@ namespace KeenReloaded2
             InitializeComponent();
             EventStore<string>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_SELECTED_SONG_CHANGED,
                 SelectedSong_Changed);
+            EventStore<AudioSettings>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_AUDIO_SETTINGS_CHANGED,
+                Audio_Settings_Changed);
 
             musicSelectControl1.Visible = chkMusic.Checked;
+        }
+
+        private void Audio_Settings_Changed(object sender, ControlEventArgs<AudioSettings> e)
+        {
+            var settings = e.Data;
+            SetControlsFromSettingsInput(settings);
         }
 
         #region helper methods
         private void InitializeAudioSettings()
         {
             AudioSettings settings = FileIOUtility.LoadAudioSettings();
+            SetControlsFromSettingsInput(settings);
+        }
+
+        private void SetControlsFromSettingsInput(AudioSettings settings)
+        {
             chkSounds.Checked = settings.Sounds;
             chkMusic.Checked = settings.Music;
             _selectedSong = settings.SelectedSong;

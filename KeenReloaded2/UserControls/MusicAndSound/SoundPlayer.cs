@@ -18,6 +18,7 @@ using SharpDX.XAudio2;
 using SharpDX.IO;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.GameEntities.Players;
+using System.Runtime.InteropServices;
 
 namespace KeenReloaded2.UserControls.MusicAndSound
 {
@@ -28,15 +29,7 @@ namespace KeenReloaded2.UserControls.MusicAndSound
         {
             InitializeComponent();
             _settings = FileIOUtility.LoadAudioSettings();
-            if (_settings.Sounds)
-            {
-                EventStore<SoundPlayEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play, singleInstancePerType: true);
-                _soundDevice.StartEngine();
-                _voice = new MasteringVoice(_soundDevice);
-            }
-            else
-                EventStore<SoundPlayEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
-
+            InitializeSoundMechanism();
             if (_settings.Music)
             {
                 _song = _settings.SelectedSong;
@@ -45,6 +38,21 @@ namespace KeenReloaded2.UserControls.MusicAndSound
 
             EventStore<string>.Subscribe(MapMakerConstants.EventStoreEventNames.KEEN_LEVEL_COMPLETE,
                     Level_Complete, singleInstancePerType: true);
+
+            EventStore<AudioSettings>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_AUDIO_SETTINGS_CHANGED,
+                Audio_Settings_Changed);
+        }
+
+        private void InitializeSoundMechanism()
+        {
+            SubscribeToSoundPlayEvent();
+
+
+            _soundDevice.StartEngine();
+            if (_voice == null)
+            {
+                _voice = new MasteringVoice(_soundDevice);
+            }
         }
 
         private const string SOUNDS_FOLDER = "Sounds";
@@ -56,6 +64,7 @@ namespace KeenReloaded2.UserControls.MusicAndSound
         private MasteringVoice _voice;
         private System.Media.SoundPlayer _musicPlayer;
         List<SourceVoice> _sounds = new List<SourceVoice>();
+        private bool _soundSubscribed;
 
         public CommanderKeen Keen { get; set; }
 
@@ -77,11 +86,36 @@ namespace KeenReloaded2.UserControls.MusicAndSound
             this.PlaySound(eventArgs.Data);
         }
 
-        public void PlayMusic(string songName)
+        protected void Audio_Settings_Changed(object sender, ControlEventArgs<AudioSettings> eventArgs)
+        {
+            _settings = FileIOUtility.LoadAudioSettings();
+            if (eventArgs?.Data?.SelectedSong != null)
+            {
+                _settings.SelectedSong = eventArgs.Data.SelectedSong;
+            }
+            if (!_settings.Music)
+                this.MuteMusic();
+            else
+                this.PlayMusic(_settings.SelectedSong, true);
+
+            if (_settings.Sounds && !_soundSubscribed)
+            {
+                InitializeSoundMechanism();
+            }
+        }
+
+        public void PlayMusic(string songName, bool unmute = false)
         {
             if (String.IsNullOrWhiteSpace(songName))
                 return;
             if (!_settings.Music) return;
+
+            if (unmute && _musicPlayer != null)
+            {
+                _musicPlayer.SoundLocation = Path.Combine(MUSIC_PATH, songName);
+                _musicPlayer.PlayLooping();
+                return;
+            }
 
             if (_musicPlayer != null)
             {
@@ -104,6 +138,19 @@ namespace KeenReloaded2.UserControls.MusicAndSound
             _musicPlayer?.PlayLooping();
         }
 
+        public void MuteSound()
+        {
+            _settings.Sounds = false;
+            FileIOUtility.SaveAudioSettings(_settings);
+        }
+
+        public void UnMuteSounds()
+        {
+            _settings.Sounds = true;
+            FileIOUtility.SaveAudioSettings(_settings);
+            SubscribeToSoundPlayEvent();
+        }
+
         public void KillMusicPlayer(bool dispose = false)
         {
             try
@@ -116,9 +163,10 @@ namespace KeenReloaded2.UserControls.MusicAndSound
             }
             finally
             {
-                EventStore<SoundPlayEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
+                UnsubscribeToSoundPlayEvent();
                 EventStore<string>.UnSubscribe(MapMakerConstants.EventStoreEventNames.KEEN_LEVEL_COMPLETE,
                    Level_Complete);
+
                 _soundDevice.StopEngine();
                 if (dispose)
                 {
@@ -127,18 +175,40 @@ namespace KeenReloaded2.UserControls.MusicAndSound
             }
         }
 
-        public void Mute()
+        private void SubscribeToSoundPlayEvent()
+        {
+            if (!_soundSubscribed || EventStore<AudioSettings>.GetSubscriberCount(
+                MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY) == 0)
+            {
+                EventStore<SoundPlayEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play, singleInstancePerType: true);
+                _soundSubscribed = true;
+            }
+        }
+
+        private void UnsubscribeToSoundPlayEvent()
         {
             EventStore<SoundPlayEventArgs>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play);
+            _soundSubscribed = false;
+        }
+
+        public void Mute()
+        {
+            UnsubscribeToSoundPlayEvent();
             EventStore<string>.UnSubscribe(MapMakerConstants.EventStoreEventNames.KEEN_LEVEL_COMPLETE,
                Level_Complete);
         }
 
         public void Unmute()
         {
-            EventStore<SoundPlayEventArgs>.Subscribe(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY, Sound_Play, singleInstancePerType: true);
+            SubscribeToSoundPlayEvent();
             EventStore<string>.Subscribe(MapMakerConstants.EventStoreEventNames.KEEN_LEVEL_COMPLETE,
                Level_Complete, singleInstancePerType: true);
+        }
+
+        public void UnSubscribeAudioChanges()
+        {
+            EventStore<AudioSettings>.UnSubscribe(MapMakerConstants.EventStoreEventNames.EVENT_AUDIO_SETTINGS_CHANGED,
+               Audio_Settings_Changed, false);
         }
 
         public void PlaySound(SoundPlayEventArgs data)
@@ -210,6 +280,13 @@ namespace KeenReloaded2.UserControls.MusicAndSound
                 _voice.Dispose(); ;
             if (_soundDevice != null && !_soundDevice.IsDisposed)
                 _soundDevice.Dispose();
+
+            UnSubscribeAudioChanges();
+        }
+
+        internal void ForceSubscribe()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -28,6 +28,7 @@ namespace KeenReloaded2
     {
         private readonly string _gameMode;
         private readonly bool _inMapMakerMode;
+        private readonly string _songOverride;
         private readonly bool _isWorldMode;
         private Timer _gameUpdateTimer = new Timer();
         private Stopwatch _levelCompletionTimer = new Stopwatch();
@@ -71,6 +72,7 @@ namespace KeenReloaded2
             InitializeComponent();
             _gameMode = gameMode;
             _inMapMakerMode = inMapMakerMode;
+            _songOverride = songOverride;
             if (!string.IsNullOrWhiteSpace(songOverride))
             {
                 this.soundPlayer1.PlayMusic(songOverride);
@@ -84,6 +86,7 @@ namespace KeenReloaded2
             EventStore<bool>.Subscribe(
                 MapMakerConstants.EventStoreEventNames.KEEN_DISAPPEAR_DEATH,
                 Keen_Disappear_Death);
+
             pnlGameWindow.VerticalScroll.Maximum = 280;
             pnlGameWindow.HorizontalScroll.Maximum = 800;
         }
@@ -557,6 +560,8 @@ namespace KeenReloaded2
                 MapMakerConstants.EventStoreEventNames.KEEN_DISAPPEAR_DEATH,
                 Keen_Disappear_Death);
 
+            soundPlayer1.UnSubscribeAudioChanges();
+
             soundPlayer1.KillMusicPlayer();
             LevelCompleteObjectives.ClearAll();
             KeenStateChanged?.Invoke(this, new ObjectEventArgs() { ObjectSprite = _keen });
@@ -591,7 +596,7 @@ namespace KeenReloaded2
         private void OpenMainMenuDialog()
         {
             _paused = true;
-            WorldMapModeMainMenu menu = new WorldMapModeMainMenu(this.WorldMapPath, true);
+            WorldMapModeMainMenu menu = new WorldMapModeMainMenu(this.WorldMapPath, true, _songOverride);
             var result = menu.ShowDialog();
             if (result == DialogResult.Abort)
             {

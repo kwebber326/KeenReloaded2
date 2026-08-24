@@ -1,4 +1,5 @@
-﻿using KeenReloaded2.DialogWindows;
+﻿using KeenReloaded2.Constants;
+using KeenReloaded2.DialogWindows;
 using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
@@ -43,6 +44,7 @@ namespace KeenReloaded2
         private WorldMapMenuOptionDecision? _menuDecision;
 
         private WorldMapMenuOption[] _currentMenu;
+        private readonly string _songOverride;
         private AudioSettings _settings;
         private WorldMapMenuOption[] _mainMenuOptions
             = new WorldMapMenuOption[]
@@ -79,11 +81,12 @@ namespace KeenReloaded2
             InitializeComponent();
         }
 
-        public WorldMapModeMainMenu(string worldMapFile, bool inGame = false)
+        public WorldMapModeMainMenu(string worldMapFile, bool inGame = false, string songOverride = null)
         {
             _inGame = inGame;
             _worldMapFile = worldMapFile;
             _currentMenu = _mainMenuOptions;
+            _songOverride = songOverride;
             InitializeComponent();
             InitializeAudioSettings();
             AttachMenuEvents();
@@ -92,6 +95,10 @@ namespace KeenReloaded2
         private void InitializeAudioSettings()
         {
             _settings = FileIOUtility.LoadAudioSettings();
+            if (_songOverride != null)
+            {
+                _settings.SelectedSong = _songOverride;
+            }
             _configureMenuOptions[1].PictureBox = new PictureBox()
             {
                 Image = _settings.Sounds
@@ -119,8 +126,6 @@ namespace KeenReloaded2
         }
 
         public WorldMapMenuOptionDecision? MenuDecision => _menuDecision;
-
-        public bool AudioSettingsChanged { get; private set; }
 
         private static void OnGoBack()
         {
@@ -270,7 +275,9 @@ namespace KeenReloaded2
             _configureMenuOptions[0].PictureBox.Image = _settings.Music
                  ? Properties.Resources.keen_menu_option_on
                  : Properties.Resources.keen_menu_option_off;
-            this.AudioSettingsChanged = true;
+            EventStore<AudioSettings>.Publish(
+                MapMakerConstants.EventStoreEventNames.EVENT_AUDIO_SETTINGS_CHANGED,
+                _settings);
         }
 
         private void WorldMapModeMainMenu_GameSoundToggle(object sender, EventArgs e)
@@ -280,7 +287,9 @@ namespace KeenReloaded2
             _configureMenuOptions[1].PictureBox.Image = _settings.Sounds
                 ? Properties.Resources.keen_menu_option_on
                 : Properties.Resources.keen_menu_option_off;
-            this.AudioSettingsChanged = true;
+            EventStore<AudioSettings>.Publish(
+                MapMakerConstants.EventStoreEventNames.EVENT_AUDIO_SETTINGS_CHANGED,
+                _settings);
         }
 
         private void WorldMapModeMainMenu_GameGoBack(object sender, EventArgs e)

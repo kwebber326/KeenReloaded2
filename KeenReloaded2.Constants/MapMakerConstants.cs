@@ -69,6 +69,7 @@ namespace KeenReloaded2.Constants
             public const string EVENT_ADVANCED_TOOLS_ACTION_CANCEL = "[Advanced Tools]actionCancel";
             //music and sounds
             public const string EVENT_SOUND_PLAY = "playSound";
+            public const string EVENT_AUDIO_SETTINGS_CHANGED = "audioSettingsChanged";
             //keen events
             public const string KEEN_DISAPPEAR_DEATH = "keenDisappearDeath";
             public const string KEEN_LEVEL_COMPLETE = "levelComplete";

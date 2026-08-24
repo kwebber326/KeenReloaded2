@@ -22,6 +22,7 @@ namespace KeenReloaded2
         private CommanderKeenGame _game;
         private const int VIEW_RADIUS = GeneralGameConstants.VIEW_RADIUS;
         private readonly bool _mapMakerMode;
+        private readonly string _songOverride;
         private int _maxVisionY;
         private int _maxVisionX;
         private bool _paused;
@@ -86,6 +87,7 @@ namespace KeenReloaded2
             _loadingWindow.WorldMapLoadError += _loadingWindow_WorldMapLoadError;
             if (MapUtility.LoadWorldMapMusic(data.MapName, out string music))
             {
+                _songOverride = music;
                 _loadingWindow.ChangeSong(music);
             }
 
@@ -180,10 +182,17 @@ namespace KeenReloaded2
                 form1.KeenStateChanged += Form1_KeenStateChanged;
                 form1.ShowDialog();
                 form1.KeenStateChanged -= Form1_KeenStateChanged;
-                _loadingWindow.UnmuteMusic();
+                var settings = FileIOUtility.LoadAudioSettings();
+                if (settings.Music) _loadingWindow.UnmuteMusic();
+                else _loadingWindow.MuteMusic();
+
+                if (settings.Sounds) _loadingWindow.UnMuteSounds();
+                else _loadingWindow.MuteSounds();
+
                 if (form1.LevelCompleted)
                 {
                     ProcessLevelCompletion(level, levelName, form1.LoadedMapData);
+                    EmitSongOverrideEventForWorldMapMusic();
                     _gameUpdateTimer.Start();
                 }
                 else if (form1.GameOver)
@@ -203,10 +212,11 @@ namespace KeenReloaded2
                         //gameover animation form before closing
                         this.Close();
                     }
-                }  
+                }
                 else
                 {
                     _gameUpdateTimer.Start();
+                    EmitSongOverrideEventForWorldMapMusic();
                 }
             }
         }
@@ -218,7 +228,7 @@ namespace KeenReloaded2
             var levelGameObjects = mapData.MapData.Select(d => d.GameObject);
 
             //activators
-            var activatorObjectives = levelGameObjects.Where(g => 
+            var activatorObjectives = levelGameObjects.Where(g =>
             {
                 if (!(g is ILevelObjective))
                     return false;
@@ -235,8 +245,8 @@ namespace KeenReloaded2
             _worldMapObjectiveData.UpdateWorldMapObjectives(levelName, _player, activatorObjectives, relevantActivateables);
 
             //items
-            var itemObjectives = levelGameObjects.Where(l =>   l is IItemLevelObjective
-                && ((IItemLevelObjective)l).ObjectiveComplete).OfType<ISprite>(); 
+            var itemObjectives = levelGameObjects.Where(l => l is IItemLevelObjective
+                && ((IItemLevelObjective)l).ObjectiveComplete).OfType<ISprite>();
             if (itemObjectives.Any())
             {
                 _worldMapObjectiveData.UpdateWorldMapObjectives(levelName, _player,
@@ -376,7 +386,7 @@ namespace KeenReloaded2
             _gameUpdateTimer.Start();
 
             if (_player == null)
-            { 
+            {
                 this.Close();
                 return;
             }
@@ -444,6 +454,18 @@ namespace KeenReloaded2
             }
         }
 
+        private void EmitSongOverrideEventForWorldMapMusic()
+        {
+            var settings = FileIOUtility.LoadAudioSettings();
+            if (_songOverride != null)
+            {
+                settings.SelectedSong = _songOverride;
+                EventStore<AudioSettings>.Publish(
+                    MapMakerConstants.EventStoreEventNames.EVENT_AUDIO_SETTINGS_CHANGED,
+                    settings);
+            }
+        }
+
         private void OpenGameStateDialog()
         {
             //TODO: make game state dialog window and display it here
@@ -454,7 +476,7 @@ namespace KeenReloaded2
             _paused = !_paused;
             if (_paused)
             {
-                WorldMapModeMainMenu menu = new WorldMapModeMainMenu(_game.Map.MapPath, true);
+                WorldMapModeMainMenu menu = new WorldMapModeMainMenu(_game.Map.MapPath, true, _songOverride);
                 var result = menu.ShowDialog();
                 if (result == DialogResult.Cancel)
                 {
