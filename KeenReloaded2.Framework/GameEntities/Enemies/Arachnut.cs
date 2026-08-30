@@ -377,6 +377,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     if (_isLayingDown)
                     {
                         this.HitBox = new Rectangle(new Point(this.HitBox.X, this.HitBox.Y + (STAND_HEIGHT - _layDownSize.Height)), _layDownSize);
+                        this.AdjustHitboxForCollisions();
                     }
                     else
                     {
@@ -411,6 +412,41 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         public void HandleHit(IProjectile projectile)
         {
             this.HandleCollision(projectile);
+        }
+
+        private void AdjustHitboxForCollisions()
+        {
+            var collisions = this.CheckCollision(this.HitBox, true)
+                .Where(c => c.CollisionType == CollisionType.BLOCK).ToList();
+
+            if (!collisions.Any())
+                return;
+
+            var floorTile = this.GetTopMostLandingTile(collisions);
+            if (floorTile != null && floorTile.HitBox.Y > this.HitBox.Top)
+            {
+                this.HitBox = new Rectangle(this.HitBox.X,
+                    floorTile.HitBox.Top - this.HitBox.Height - 1,
+                    this.HitBox.Width, this.HitBox.Height);
+            }
+
+            collisions = collisions.Where(c => c != floorTile).ToList();
+            if (!collisions.Any())
+                return;
+
+            var closestTile = collisions.OrderBy(c =>
+            CommonGameFunctions.GetEuclideanDistance(this.HitBox.Location, c.HitBox.Location))
+            .FirstOrDefault();
+
+            if (closestTile == null)
+                return;
+
+            int center = this.HitBox.X + (this.HitBox.Width / 2);
+            this.HitBox = closestTile.HitBox.X > center
+                ? new Rectangle(closestTile.HitBox.Left - this.HitBox.Width - 1, this.HitBox.Y
+                    , this.HitBox.Width, this.HitBox.Height)
+                : new Rectangle(closestTile.HitBox.Right + 1, this.HitBox.Y,
+                    this.HitBox.Width, this.HitBox.Height);
         }
     }
 }

@@ -21,18 +21,21 @@ namespace KeenReloaded2.Utilities
 {
     public static class MapUtility
     {
-        public static bool SaveMap(string mapName, string gameMode, Size mapSize, List<GameObjectMapping> mapData)
+        public static bool SaveMap(string mapName, string gameMode, Size mapSize, List<GameObjectMapping> mapData, bool savedGame = false)
         {
             try
             {
-                string gameModeFolder = GetFolderFromGameMode(gameMode);
+                string gameModeFolder = savedGame ? string.Empty 
+                    : GetFolderFromGameMode(gameMode);
                 if (mapData == null)
                     throw new ArgumentNullException("map data is null");
 
                 if (string.IsNullOrEmpty(gameModeFolder))
                     throw new ArgumentException("Game mode not recognized");
 
-                string path = Path.Combine(System.Environment.CurrentDirectory, MapMakerConstants.SAVED_MAPS_FOLDER, gameModeFolder, mapName + ".txt");
+                string folder = savedGame ? MapMakerConstants.SAVED_GAMES_FOLDER
+                    : MapMakerConstants.SAVED_MAPS_FOLDER;
+                string path = Path.Combine(System.Environment.CurrentDirectory, folder, gameModeFolder, mapName + ".txt");
                 StringBuilder builder = new StringBuilder();
                 string mapSizeLine = $"{mapSize.Width}{MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR}{mapSize.Height}";
                 builder.AppendLine(mapSizeLine);
@@ -118,12 +121,13 @@ namespace KeenReloaded2.Utilities
             }
         }
 
-        public static bool SaveWorldMapObjectives(WorldMapObjectiveManager worldMapObjectiveData, string mapName)
+        public static bool SaveWorldMapObjectives(WorldMapObjectiveManager worldMapObjectiveData, string mapName, bool isSavedGame = false)
         {
             try
             {
                 string data = worldMapObjectiveData.ToString();
-                string path = Path.Combine(Environment.CurrentDirectory, MapMakerConstants.WORLD_MAP_OBJECTIVES_FOLDER);
+                string folder = isSavedGame ? MapMakerConstants.SAVED_GAMES_FOLDER : MapMakerConstants.WORLD_MAP_OBJECTIVES_FOLDER;
+                string path = Path.Combine(Environment.CurrentDirectory, folder);
                 Directory.CreateDirectory(path);
                 string file = Path.Combine(path, mapName + "_objectives.txt");
                 File.WriteAllText(file, data);

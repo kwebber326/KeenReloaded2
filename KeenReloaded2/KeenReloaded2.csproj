@@ -138,6 +138,8 @@
     <Compile Include="Entities\Statistics\PlayerStats.cs" />
     <Compile Include="Entities\ReferenceData\ImageToObjectCreationFactory.cs" />
     <Compile Include="Entities\Statistics\ZombieModeStats.cs" />
+    <Compile Include="Entities\WorldMapPlayerInventoryState.cs" />
+    <Compile Include="Entities\WorldMapSaveState.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

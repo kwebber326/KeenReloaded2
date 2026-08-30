@@ -13,6 +13,7 @@ namespace KeenReloaded2.Constants
 
         public const string MAP_MAKER_FOLDER = "MapMakerObjects";
         public const string SAVED_MAPS_FOLDER = "SavedMaps";
+        public const string SAVED_GAMES_FOLDER = "SavedGames";
         public const string NORMAL_MAPS_FOLDER = "NormalModeMaps";
         public const string ZOMBIE_MAPS_FOLDER = "ZombieModeMaps";
         public const string KING_OF_THE_HILL_FOLDER = "KingOfTheHillMaps";
