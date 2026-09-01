@@ -44,19 +44,20 @@ namespace KeenReloaded2.Entities
             }
         }
 
-        public bool Save()
+        public bool Save(string saveName)
         {
             try
             {
-                MapUtility.SaveWorldMapObjectives(this.WorldObjectiveState, this.WorldMapData.MapName);
+                MapUtility.SaveWorldMapObjectives(
+                    this.WorldObjectiveState, this.WorldMapData.MapName, true, saveName);
                 MapUtility.SaveMap(this.WorldMapData.MapName, MainMenuConstants.OPTION_LABEL_NORMAL_MODE,
-                    this.WorldMapData.MapSize, this.WorldMapData.MapData, true);
+                    this.WorldMapData.MapSize, this.WorldMapData.MapData, true, saveName);
 
                 if (this.LevelData != null && this.LevelData.MapPath != null)
                 {
                     MapUtility.SaveMap(this.LevelData.MapName,
                         MapMakerConstants.NORMAL_MAPS_FOLDER, this.LevelData.MapSize,
-                        this.LevelData.MapData, true);
+                        this.LevelData.MapData, true, saveName);
                 }
 
 

@@ -21,7 +21,7 @@ namespace KeenReloaded2.Utilities
 {
     public static class MapUtility
     {
-        public static bool SaveMap(string mapName, string gameMode, Size mapSize, List<GameObjectMapping> mapData, bool savedGame = false)
+        public static bool SaveMap(string mapName, string gameMode, Size mapSize, List<GameObjectMapping> mapData, bool savedGame = false, string savedGameName = "")
         {
             try
             {
@@ -33,7 +33,10 @@ namespace KeenReloaded2.Utilities
                 if (string.IsNullOrEmpty(gameModeFolder))
                     throw new ArgumentException("Game mode not recognized");
 
-                string folder = savedGame ? MapMakerConstants.SAVED_GAMES_FOLDER
+                if (savedGame && string.IsNullOrEmpty(savedGameName))
+                    throw new ArgumentNullException(nameof(savedGame));
+
+                string folder = savedGame ? Path.Combine(MapMakerConstants.SAVED_GAMES_FOLDER, savedGameName)
                     : MapMakerConstants.SAVED_MAPS_FOLDER;
                 string path = Path.Combine(System.Environment.CurrentDirectory, folder, gameModeFolder, mapName + ".txt");
                 StringBuilder builder = new StringBuilder();
@@ -121,10 +124,13 @@ namespace KeenReloaded2.Utilities
             }
         }
 
-        public static bool SaveWorldMapObjectives(WorldMapObjectiveManager worldMapObjectiveData, string mapName, bool isSavedGame = false)
+        public static bool SaveWorldMapObjectives(WorldMapObjectiveManager worldMapObjectiveData, string mapName, bool isSavedGame = false, string savedGameName = "")
         {
             try
             {
+                if (isSavedGame && string.IsNullOrEmpty(savedGameName))
+                    throw new ArgumentException("saved game name is required");
+
                 string data = worldMapObjectiveData.ToString();
                 string folder = isSavedGame ? MapMakerConstants.SAVED_GAMES_FOLDER : MapMakerConstants.WORLD_MAP_OBJECTIVES_FOLDER;
                 string path = Path.Combine(Environment.CurrentDirectory, folder);

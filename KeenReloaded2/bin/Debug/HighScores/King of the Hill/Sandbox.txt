@@ -1,3 +1,4 @@
+Kenny the master|104800
 Kenny|64800
 Kenny|40500
 Kenny|36800
@@ -5,4 +6,3 @@ Kenny the dog|35500
 Kenny|35400
 Kenny|23500
 Kenny|18800
-Kenny|15700
