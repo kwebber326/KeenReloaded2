@@ -3,11 +3,13 @@ using KeenReloaded2.DialogWindows;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Entities.Statistics.HighScores;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
+using KeenReloaded2.Framework.GameEntities.Items;
 using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.WorldMapEntities;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Utilities;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -179,6 +181,7 @@ namespace KeenReloaded2
                    MainMenuConstants.OPTION_LABEL_NORMAL_MODE,
                    _loadingWindow.MapData, true, true, _playerState, music);
                 form1.WorldMapPath = _game.Map.MapPath;
+                form1.WorldMapState = BuildSaveState();
                 form1.KeenStateChanged += Form1_KeenStateChanged;
                 form1.ShowDialog();
                 form1.KeenStateChanged -= Form1_KeenStateChanged;
@@ -471,12 +474,29 @@ namespace KeenReloaded2
             //TODO: make game state dialog window and display it here
         }
 
+        private WorldMapSaveState BuildSaveState()
+        {
+            WorldMapSaveState saveState = new WorldMapSaveState();
+            saveState.WorldObjectiveState = this._worldMapObjectiveData;
+            saveState.WorldMapData = this._game.Map;
+            saveState.LevelData = null;
+            saveState.PlayerInventoryState = new WorldMapPlayerInventoryState()
+            {
+                PlayerGems = _playerState?.Gems ?? new List<Gem>(),
+                PlayerLives = _playerState?.Lives ?? 0,
+                PlayerPoints = _playerState?.Points ?? 0,
+                PlayerWeapons = _playerState?.Weapons ?? new List<Framework.GameEntities.Weapons.NeuralStunner>()
+            };
+            return saveState;
+        }
+
         private void OpenGameIODialog()
         {
             _paused = !_paused;
             if (_paused)
             {
-                WorldMapModeMainMenu menu = new WorldMapModeMainMenu(_game.Map.MapPath, true, _songOverride);
+                WorldMapSaveState state = BuildSaveState();
+                WorldMapModeMainMenu menu = new WorldMapModeMainMenu(_game.Map.MapPath, true, _songOverride, state);
                 var result = menu.ShowDialog();
                 if (result == DialogResult.Cancel)
                 {

@@ -1,5 +1,6 @@
 ﻿using KeenReloaded2.Constants;
 using KeenReloaded2.DialogWindows;
+using KeenReloaded2.Entities;
 using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace KeenReloaded2
     public partial class WorldMapModeMainMenu : Form
     {
         private readonly string _worldMapFile;
+        private readonly string _levelFile;
         private const int SELECTOR_X_POS = 350;
         private const int TOGGLE_IMAGE_X_POS = 600;
         private bool _inGame = false;
@@ -39,12 +41,15 @@ namespace KeenReloaded2
         public static event EventHandler GameGoBack;
         public static event EventHandler GameSoundToggle;
         public static event EventHandler GameMusicToggle;
+        public static event EventHandler GameSaveMenu;
+        public static event EventHandler GameLoadMenu;
 
         private bool _suppressSelection;
         private WorldMapMenuOptionDecision? _menuDecision;
 
         private WorldMapMenuOption[] _currentMenu;
         private readonly string _songOverride;
+        private WorldMapSaveState _worldState;
         private AudioSettings _settings;
         private WorldMapMenuOption[] _mainMenuOptions
             = new WorldMapMenuOption[]
@@ -62,6 +67,9 @@ namespace KeenReloaded2
             new WorldMapMenuOption() { Name = SOUND, YPos = 448 },
             new WorldMapMenuOption() { Name = BACK, YPos = 518 }
         };
+
+        private WorldMapMenuOption[] _loadMenuOptions = new WorldMapMenuOption[] { };
+        private WorldMapMenuOption[] _saveMenuOptions = new WorldMapMenuOption[] { };
 
         private Dictionary<string, Action> _menuActions
             = new Dictionary<string, Action>()
@@ -81,12 +89,26 @@ namespace KeenReloaded2
             InitializeComponent();
         }
 
-        public WorldMapModeMainMenu(string worldMapFile, bool inGame = false, string songOverride = null)
+        public WorldMapModeMainMenu(string worldMapFile, bool inGame = false, string songOverride = null, WorldMapSaveState saveState = null)
         {
             _inGame = inGame;
             _worldMapFile = worldMapFile;
             _currentMenu = _mainMenuOptions;
             _songOverride = songOverride;
+            _worldState = saveState;
+            InitializeComponent();
+            InitializeAudioSettings();
+            AttachMenuEvents();
+        }
+
+        public WorldMapModeMainMenu(string worldMapFile, string levelFile, bool inGame = false, string songOverride = null, WorldMapSaveState saveState = null)
+        {
+            _inGame = inGame;
+            _worldMapFile = worldMapFile;
+            _levelFile = levelFile;
+            _currentMenu = _mainMenuOptions;
+            _songOverride = songOverride;
+            _worldState = saveState;
             InitializeComponent();
             InitializeAudioSettings();
             AttachMenuEvents();
@@ -154,12 +176,12 @@ namespace KeenReloaded2
 
         private static void SaveGame()
         {
-            MessageBox.Show("Implementation in progress");
+            GameSaveMenu?.Invoke(null, EventArgs.Empty);
         }
 
         private static void LoadGame()
         {
-            MessageBox.Show("Implementation in progress");
+            GameLoadMenu?.Invoke(null, EventArgs.Empty);
         }
 
         private static void StartNewGame()
@@ -218,9 +240,15 @@ namespace KeenReloaded2
 
         private void WorldMapModeMainMenu_KeyUp(object sender, KeyEventArgs e)
         {
+            
             if (e.KeyCode == Keys.Escape)
             {
-                if (!_inGame)
+                if (_currentMenu == _loadMenuOptions
+                    || _currentMenu == _saveMenuOptions)
+                {
+                    ReturnToMainMenu();
+                }
+                else if (!_inGame)
                     ExecuteQuitGameProtocol();
                 else
                 {
@@ -256,6 +284,8 @@ namespace KeenReloaded2
             GameGoBack -= WorldMapModeMainMenu_GameGoBack;
             GameSoundToggle -= WorldMapModeMainMenu_GameSoundToggle;
             GameMusicToggle -= WorldMapModeMainMenu_GameMusicToggle;
+            GameLoadMenu -= WorldMapModeMainMenu_GameLoadMenu;
+            GameSaveMenu -= WorldMapModeMainMenu_GameSaveMenu;
         }
 
         private void AttachMenuEvents()
@@ -266,6 +296,23 @@ namespace KeenReloaded2
             GameGoBack += WorldMapModeMainMenu_GameGoBack;
             GameSoundToggle += WorldMapModeMainMenu_GameSoundToggle;
             GameMusicToggle += WorldMapModeMainMenu_GameMusicToggle;
+            GameLoadMenu += WorldMapModeMainMenu_GameLoadMenu;
+            GameSaveMenu += WorldMapModeMainMenu_GameSaveMenu;
+        }
+
+        private void WorldMapModeMainMenu_GameSaveMenu(object sender, EventArgs e)
+        {
+            if (!_inGame)
+                return;
+
+            pbScreen.Image = Properties.Resources.keen_save_menu;
+            _currentMenu = _saveMenuOptions;
+        }
+
+        private void WorldMapModeMainMenu_GameLoadMenu(object sender, EventArgs e)
+        {
+            pbScreen.Image = Properties.Resources.keen_load_menu;
+            _currentMenu = _loadMenuOptions;
         }
 
         private void WorldMapModeMainMenu_GameMusicToggle(object sender, EventArgs e)
@@ -296,14 +343,19 @@ namespace KeenReloaded2
         {
             if (_currentMenu == _configureMenuOptions)
             {
-                pbScreen.Image = Properties.Resources.keen_main_menu;
-                _currentMenu = _mainMenuOptions;
-                _selectedMenuIndex = 0;
-                pbSelector.Location = new Point(
-                    pbSelector.Location.X, _currentMenu[_selectedMenuIndex].YPos);
-                _configureMenuOptions[0].PictureBox.Visible = false;
-                _configureMenuOptions[1].PictureBox.Visible = false;
+                ReturnToMainMenu();
             }
+        }
+
+        private void ReturnToMainMenu()
+        {
+            pbScreen.Image = Properties.Resources.keen_main_menu;
+            _currentMenu = _mainMenuOptions;
+            _selectedMenuIndex = 0;
+            pbSelector.Location = new Point(
+                pbSelector.Location.X, _currentMenu[_selectedMenuIndex].YPos);
+            _configureMenuOptions[0].PictureBox.Visible = false;
+            _configureMenuOptions[1].PictureBox.Visible = false;
         }
 
         private void WorldMapModeMainMenu_GameConfigure(object sender, EventArgs e)

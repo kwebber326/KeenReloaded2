@@ -4303,6 +4303,16 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen_load_menu {
+            get {
+                object obj = ResourceManager.GetObject("keen_load_menu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen_look_down1 {
             get {
                 object obj = ResourceManager.GetObject("keen_look_down1", resourceCulture);
@@ -4846,6 +4856,16 @@ namespace KeenReloaded2.Properties {
         internal static System.Drawing.Bitmap keen_run_right41 {
             get {
                 object obj = ResourceManager.GetObject("keen_run_right41", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen_save_menu {
+            get {
+                object obj = ResourceManager.GetObject("keen_save_menu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -18846,6 +18866,16 @@ namespace KeenReloaded2.Properties {
         internal static System.Drawing.Bitmap MainMenuSelector {
             get {
                 object obj = ResourceManager.GetObject("MainMenuSelector", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menu_named_selection {
+            get {
+                object obj = ResourceManager.GetObject("menu_named_selection", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

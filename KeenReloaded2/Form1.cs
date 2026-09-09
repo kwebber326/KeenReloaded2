@@ -61,6 +61,8 @@ namespace KeenReloaded2
 
         public MapMakerData LoadedMapData => _game?.IsDisposed ?? false ? _game?.Map : null;
 
+        public WorldMapSaveState WorldMapState { get; set; }
+
         public Form1()
         {
             InitializeComponent();
@@ -565,6 +567,11 @@ namespace KeenReloaded2
             soundPlayer1.KillMusicPlayer();
             LevelCompleteObjectives.ClearAll();
             KeenStateChanged?.Invoke(this, new ObjectEventArgs() { ObjectSprite = _keen });
+
+            if (this.WorldMapState != null)
+            {
+                this.WorldMapState.LevelData = null;
+            }
         }
 
 
@@ -596,7 +603,8 @@ namespace KeenReloaded2
         private void OpenMainMenuDialog()
         {
             _paused = true;
-            WorldMapModeMainMenu menu = new WorldMapModeMainMenu(this.WorldMapPath, true, _songOverride);
+            this.WorldMapState.LevelData = _game?.Map;
+            WorldMapModeMainMenu menu = new WorldMapModeMainMenu(this.WorldMapPath, _game?.Map?.MapPath, true, _songOverride, this.WorldMapState);
             var result = menu.ShowDialog();
             if (result == DialogResult.Abort)
             {

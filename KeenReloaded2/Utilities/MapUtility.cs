@@ -36,7 +36,7 @@ namespace KeenReloaded2.Utilities
                 if (savedGame && string.IsNullOrEmpty(savedGameName))
                     throw new ArgumentNullException(nameof(savedGame));
 
-                string folder = savedGame ? Path.Combine(MapMakerConstants.SAVED_GAMES_FOLDER, savedGameName)
+                string folder = savedGame ? Path.Combine(MapMakerConstants.SAVED_GAMES_FOLDER, mapName, savedGameName)
                     : MapMakerConstants.SAVED_MAPS_FOLDER;
                 string path = Path.Combine(System.Environment.CurrentDirectory, folder, gameModeFolder, mapName + ".txt");
                 StringBuilder builder = new StringBuilder();
