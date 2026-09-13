@@ -409,7 +409,22 @@ namespace KeenReloaded2
 
         private void WorldMapModeMainMenu_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //KeyChar is already resolved through the keyboard layout, so caps lock,
+            //shift, digits and symbols all arrive as the character the user actually typed.
+            //control keys (escape, enter, backspace) are left to KeyUp
+            if (char.IsControl(e.KeyChar))
+                return;
 
+            var selectedOption = _currentMenu[_selectedMenuIndex];
+            if (!(selectedOption is SavedGameMenuOption))
+                return;
+
+            var savedGameSelection = (SavedGameMenuOption)selectedOption;
+            if (!savedGameSelection.IsSelected)
+                return;
+
+            savedGameSelection.AddCharacter(e.KeyChar);
+            e.Handled = true;
         }
 
         private void WorldMapModeMainMenu_KeyUp(object sender, KeyEventArgs e)
@@ -468,14 +483,10 @@ namespace KeenReloaded2
                 if (!savedGameSelection.IsSelected)
                     return;
 
+                //printable characters are handled in KeyPress
                 if (e.KeyCode == Keys.Back)
                 {
                    savedGameSelection.RemoveLastChar();
-                }
-                else
-                {
-                    char c = e.KeyCode.ToString()[0];
-                    savedGameSelection.AddCharacter(c);
                 }
             }
         }
@@ -592,7 +603,101 @@ namespace KeenReloaded2
         private string _saveNameText = string.Empty;
         private Dictionary<char, Rectangle> _characterLocationMapping = new Dictionary<char, Rectangle>()
         {
-            { 'A', new Rectangle(56, 124, 31, 39) }
+            //upper case
+            { 'A', new Rectangle(56, 124, 31, 39) },
+            { 'B', new Rectangle(134, 124, 31, 39) },
+            { 'C', new Rectangle(211, 125, 30, 38) },
+            { 'D', new Rectangle(286, 125, 31, 38) },
+            { 'E', new Rectangle(362, 125, 31, 38) },
+            { 'F', new Rectangle(439, 124, 31, 39) },
+            { 'G', new Rectangle(517, 124, 32, 39) },
+            { 'H', new Rectangle(595, 124, 31, 39) },
+            { 'I', new Rectangle(672, 125, 20, 38) },
+            { 'J', new Rectangle(738, 125, 27, 38) },
+            { 'K', new Rectangle(805, 125, 31, 38) },
+            { 'L', new Rectangle(873, 124, 28, 39) },
+            { 'M', new Rectangle(935, 124, 36, 39) },
+            { 'N', new Rectangle(55, 223, 35, 38) },
+            { 'O', new Rectangle(134, 223, 31, 38) },
+            { 'P', new Rectangle(211, 223, 31, 38) },
+            { 'Q', new Rectangle(286, 223, 31, 43) },
+            { 'R', new Rectangle(362, 223, 31, 38) },
+            { 'S', new Rectangle(438, 223, 32, 38) },
+            { 'T', new Rectangle(517, 223, 32, 38) },
+            { 'U', new Rectangle(595, 223, 31, 38) },
+            { 'V', new Rectangle(667, 223, 30, 38) },
+            { 'W', new Rectangle(734, 223, 35, 38) },
+            { 'X', new Rectangle(805, 223, 31, 38) },
+            { 'Y', new Rectangle(871, 223, 31, 38) },
+            { 'Z', new Rectangle(937, 223, 31, 38) },
+            //lower case
+            { 'a', new Rectangle(57, 327, 29, 28) },
+            { 'b', new Rectangle(135, 316, 29, 40) },
+            { 'c', new Rectangle(211, 327, 28, 28) },
+            { 'd', new Rectangle(287, 316, 29, 39) },
+            { 'e', new Rectangle(363, 327, 29, 28) },
+            { 'f', new Rectangle(441, 316, 26, 39) },
+            { 'g', new Rectangle(517, 327, 30, 40) },
+            { 'h', new Rectangle(595, 316, 29, 39) },
+            { 'i', new Rectangle(678, 316, 9, 39) },
+            { 'j', new Rectangle(743, 316, 18, 50) },
+            { 'k', new Rectangle(805, 316, 29, 39) },
+            { 'l', new Rectangle(880, 316, 9, 39) },
+            { 'm', new Rectangle(934, 327, 37, 28) },
+            { 'n', new Rectangle(57, 424, 29, 29) },
+            { 'o', new Rectangle(134, 424, 29, 28) },
+            { 'p', new Rectangle(211, 424, 28, 40) },
+            { 'q', new Rectangle(287, 424, 28, 40) },
+            { 'r', new Rectangle(364, 423, 29, 29) },
+            { 's', new Rectangle(440, 424, 29, 28) },
+            { 't', new Rectangle(523, 417, 20, 36) },
+            { 'u', new Rectangle(596, 424, 28, 29) },
+            { 'v', new Rectangle(668, 424, 29, 28) },
+            { 'w', new Rectangle(734, 424, 35, 29) },
+            { 'x', new Rectangle(805, 424, 29, 28) },
+            { 'y', new Rectangle(872, 424, 29, 40) },
+            { 'z', new Rectangle(938, 424, 29, 29) },
+            //digits
+            { '0', new Rectangle(64, 515, 29, 36) },
+            { '1', new Rectangle(143, 515, 19, 37) },
+            { '2', new Rectangle(216, 515, 29, 36) },
+            { '3', new Rectangle(291, 515, 29, 36) },
+            { '4', new Rectangle(364, 515, 29, 36) },
+            { '5', new Rectangle(440, 515, 29, 36) },
+            { '6', new Rectangle(519, 515, 29, 36) },
+            { '7', new Rectangle(597, 515, 29, 36) },
+            { '8', new Rectangle(666, 515, 29, 36) },
+            { '9', new Rectangle(740, 515, 29, 36) },
+            //symbols
+            { '!', new Rectangle(69, 607, 9, 45) },
+            { '@', new Rectangle(131, 610, 38, 41) },
+            { '#', new Rectangle(208, 610, 35, 41) },
+            { '$', new Rectangle(285, 607, 33, 47) },
+            { '%', new Rectangle(361, 610, 33, 41) },
+            { '^', new Rectangle(440, 610, 31, 16) },
+            { '&', new Rectangle(516, 610, 33, 40) },
+            { '*', new Rectangle(597, 610, 25, 24) },
+            { '(', new Rectangle(675, 610, 20, 45) },
+            { ')', new Rectangle(754, 610, 20, 45) },
+            { '-', new Rectangle(839, 629, 31, 5) },
+            { '_', new Rectangle(930, 651, 32, 6) },
+            { '=', new Rectangle(60, 721, 26, 18) },
+            { '+', new Rectangle(136, 716, 27, 27) },
+            { '[', new Rectangle(217, 707, 19, 42) },
+            { ']', new Rectangle(293, 707, 19, 42) },
+            { '{', new Rectangle(367, 708, 23, 47) },
+            { '}', new Rectangle(443, 708, 23, 46) },
+            { ';', new Rectangle(528, 716, 10, 37) },
+            { ':', new Rectangle(605, 716, 10, 27) },
+            { '"', new Rectangle(743, 707, 23, 17) },
+            { ',', new Rectangle(829, 737, 9, 17) },
+            { '.', new Rectangle(929, 737, 10, 10) },
+            { '<', new Rectangle(61, 810, 27, 40) },
+            { '>', new Rectangle(136, 810, 27, 40) },
+            { '?', new Rectangle(286, 811, 30, 39) },
+            { '|', new Rectangle(450, 810, 10, 41) },
+            { '~', new Rectangle(517, 817, 33, 15) },
+            { '`', new Rectangle(605, 802, 14, 9) }
         };
 
         public SavedGameMenuOption(int xPos, int yPos)
@@ -660,6 +765,10 @@ namespace KeenReloaded2
 
         public void AddCharacter(char c)
         {
+            //anything the font sheet can't draw would otherwise sit in the name invisibly
+            if (!_characterLocationMapping.ContainsKey(c))
+                return;
+
             _saveNameText += c;
             DrawFrame();
         }
