@@ -50,6 +50,15 @@ keen5_background_omegamatic_blue_large_vent|3584|2118|64|64|keen5_background_ome
 keen5_teal_sign1|1589|2119|32|32|keen5_teal_sign1.png|True|0
 keen5_fuel_exhaust_flame1|101|4537|160|160|keen5_fuel_exhaust_flame1.png|True|0|[keen5_fuel_exhaust_flame1.png,keen5_fuel_exhaust_flame2.png,keen5_fuel_exhaust_flame3.png]|50
 keen5_fuel_exhaust_flame1|4112|4536|160|160|keen5_fuel_exhaust_flame1.png|True|0|[keen5_fuel_exhaust_flame1.png,keen5_fuel_exhaust_flame2.png,keen5_fuel_exhaust_flame3.png]|50
+keen5_scattered_L_background_plain|170|1774|464|400|keen5_scattered_L_background_plain.png|False|0
+keen5_scattered_L_background_damaged2|363|1901|64|64|keen5_scattered_L_background_damaged2.png|True|0
+keen5_scattered_L_background_damaged3|282|2046|64|64|keen5_scattered_L_background_damaged3.png|True|0
+keen5_scattered_L_background_damaged1|474|1855|64|64|keen5_scattered_L_background_damaged1.png|True|0
+keen5_scattered_L_background_contraption2|234|1838|128|128|keen5_scattered_L_background_contraption2.png|True|0
+keen5_scattered_L_background_computer|540|2097|64|64|keen5_scattered_L_background_computer.png|True|0
+keen5_scattered_L_Background_computer1|476|2097|64|64|keen5_scattered_L_Background_computer1.png|True|0|[keen5_scattered_L_Background_computer1.png,keen5_scattered_L_Background_computer2.png,keen5_scattered_L_Background_computer3.png]|200
+keen5_scattered_L_Background_computer1|412|2097|64|64|keen5_scattered_L_Background_computer1.png|True|0|[keen5_scattered_L_Background_computer1.png,keen5_scattered_L_Background_computer2.png,keen5_scattered_L_Background_computer3.png]|200
+keen5_teal_sign1|433|4346|32|32|keen5_teal_sign1.png|True|0
 keen5_floor_green_middle|102|4473|72|64|9
 keen5_floor_green_middle|222|4473|4000|64|10
 keen5_floor_green_edge_right|4222|4473|52|64|10
@@ -83,14 +92,25 @@ keen5_floor_red_middle|4018|2045|200|64|10
 key_gate1|3514|2131|26|140|10|efa723af-151d-4282-a5c4-380c472cc3ea
 keen5_platform_red_edge_left|1765|559|32|32|10
 keen5_platform_red_middle|1797|559|1720|32|10
-keen5_pipe_platform|1885|994|346|80|10
 keen5_pipe_platform|2120|1924|346|80|10
 keen5_pipe_platform|1839|1461|346|80|10
 keen5_pipe_platform|1956|1686|346|80|10
 keen5_pipe_platform|1996|1236|346|80|10
-keen5_pipe_platform|2231|994|346|80|10
 keen5_floor_green_edge_left|3969|2707|72|64|10
 keen5_floor_green_middle|4041|2707|182|64|10
+keen5_floor_black_floor_edge_left|142|2161|72|64|10
+keen5_floor_black_floor_edge_right|614|2161|52|64|10
+keen5_wall_black_edge_right|141|1747|52|464|10
+keen5_wall_black_bottom|140|1747|530|32|10
+keen5_floor_black_middle|214|2161|100|64|10
+keen5_floor_black_middle|410|2161|206|64|10
+keen5_black_wall_to_platform_left|171|2007|32|64|10|KEEN5_BLACK|LEFT
+keen5_platform_blue_middle|202|2035|90|34|10
+keen5_platform_blue_edge_right|292|2035|32|34|10
+keen5_black_wall_to_platform_left|171|1867|32|64|10|KEEN5_BLACK|LEFT
+keen5_platform_blue_middle|203|1895|90|34|10
+keen5_platform_blue_edge_right|293|1895|32|34|10
+keen5_wall_black_edge_left|605|1763|64|464|11
 keen5_red_pole_manhole|3847|2045|96|76|15|keen5_red_pole_manhole|MANHOLE|KEEN5_RED
 keen5_red_pole_top|3889|2014|12|32|15|keen5_red_pole_top|TOP|KEEN5_RED
 keen5_red_pole_middle|3889|2120|12|32|15|keen5_red_pole_middle|MIDDLE|KEEN5_RED
@@ -124,7 +144,17 @@ keen5_red_pole_top|1733|233|12|32|15|keen5_red_pole_top|TOP|KEEN5_RED
 keen5_door|1560|2170|92|94|15|KEEN5_REGULAR|3|
 chute|224|2593|64|64|15|CHUTE|4|
 keen5_door|4118|2637|92|94|15|KEEN5_REGULAR|5|
-keen5_orange_platform|1700|1000|78|36|18|KEEN5_ORANGE|[1700,2200,2700,2200,2700,1000,1700,1000]|d08975de-4896-44e9-9ca2-590e4f0eac11|True
+keen5_black_pole_manhole|314|2161|96|76|15|keen5_black_pole_manhole|MANHOLE|KEEN5_BLACK
+keen5_black_pole_top|356|2133|12|32|15|keen5_black_pole_top|TOP|KEEN5_BLACK
+keen5_black_pole_middle|356|2237|12|32|15|keen5_black_pole_middle|MIDDLE|KEEN5_BLACK
+keen5_black_pole_middle|356|2269|12|32|15|keen5_black_pole_middle|MIDDLE|KEEN5_BLACK
+keen5_black_pole_middle|356|2301|12|32|15|keen5_black_pole_middle|MIDDLE|KEEN5_BLACK
+keen5_black_pole_middle|356|2333|12|32|15|keen5_black_pole_middle|MIDDLE|KEEN5_BLACK
+keen5_black_pole_middle|356|2365|12|32|15|keen5_black_pole_middle|MIDDLE|KEEN5_BLACK
+keen5_black_pole_middle|356|2392|12|32|15|keen5_black_pole_middle|MIDDLE|KEEN5_BLACK
+chute|202|2069|64|64|15|CHUTE|6|
+keen5_door|405|4401|92|94|15|KEEN5_REGULAR|7|
+keen5_orange_platform|1700|1000|78|36|18|KEEN5_ORANGE|[1700,2200,2700,2200,2700,1000,1700,1000]|d08975de-4896-44e9-9ca2-590e4f0eac11|False
 Red Flag|1867|431|51|64|19|RED|10000|5000|10
 keen_stand_right|187|4420|26|64|RIGHT
 Yellow Flag|1561|239|51|64|20|YELLOW|10000|5000|10
@@ -318,4 +348,10 @@ Yellow Flag|3397|495|51|64|20|YELLOW|10000|5000|10
 Yellow Flag|3448|495|51|64|20|YELLOW|10000|5000|10
 Yellow Flag|1714|239|51|64|20|YELLOW|10000|5000|10
 gem_red1|3937|1251|26|20|RED|50|False
+keen5_switch2_on|202|2003|32|32|15|KEEN5_2|[]|True
+keen5_switch2_on|234|2003|32|32|15|KEEN5_2|[]|True
+keen5_switch2_off|203|1863|32|32|15|KEEN5_2|[]|False
+keen5_switch2_off|235|1863|32|32|15|KEEN5_2|[]|False
+keen5_switch2_on|266|2003|32|32|15|KEEN5_2|[]|True
+keen5_switch2_off|267|1863|32|32|15|KEEN5_2|[d08975de-4896-44e9-9ca2-590e4f0eac11]|False
 gem_placeholder_red_empty|3558|2249|26|22|50|RED|[]

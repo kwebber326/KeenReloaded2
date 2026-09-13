@@ -4263,6 +4263,16 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen_main_menu_font_sheet {
+            get {
+                object obj = ResourceManager.GetObject("keen_main_menu_font_sheet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen_move_down_left1 {
             get {
                 object obj = ResourceManager.GetObject("keen_move_down_left1", resourceCulture);
@@ -17966,6 +17976,16 @@ namespace KeenReloaded2.Framework.Properties {
         internal static System.Drawing.Bitmap menu_named_selection {
             get {
                 object obj = ResourceManager.GetObject("menu_named_selection", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap menu_named_selection_border {
+            get {
+                object obj = ResourceManager.GetObject("menu_named_selection_border", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

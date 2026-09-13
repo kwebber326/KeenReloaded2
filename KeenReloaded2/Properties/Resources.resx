@@ -4510,9 +4510,6 @@
   <data name="keen4_gnosticene_ancient_jump_right2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_gnosticene_ancient_jump_right2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="baby_louie_shoot_left_pole" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\baby_louie_shoot_left_pole.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -6888,5 +6885,14 @@
   </data>
   <data name="menu_named_selection" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menu_named_selection.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_named_selection_border" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menu_named_selection_border.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen_main_menu_font_sheet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen_main_menu_font_sheet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

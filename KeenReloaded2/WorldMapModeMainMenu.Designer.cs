@@ -43,7 +43,6 @@
             this.pbScreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbScreen.TabIndex = 0;
             this.pbScreen.TabStop = false;
-            this.pbScreen.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pbSelector
             // 

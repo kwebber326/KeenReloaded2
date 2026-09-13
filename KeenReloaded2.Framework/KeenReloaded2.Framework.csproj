@@ -6560,6 +6560,12 @@
     <None Include="Resources\keen_save_menu.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\menu_named_selection_border.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen_main_menu_font_sheet.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\menu_named_selection.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
