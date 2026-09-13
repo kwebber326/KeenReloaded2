@@ -3,6 +3,7 @@ using KeenReloaded2.Constants;
 using KeenReloaded2.DialogWindows;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Utilities;
+using SharpDX.XAudio2;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -413,9 +414,20 @@ namespace KeenReloaded2
 
         private void WorldMapModeMainMenu_KeyUp(object sender, KeyEventArgs e)
         {
-
+            var selectedOption = _currentMenu[_selectedMenuIndex];
             if (e.KeyCode == Keys.Escape)
             {
+                if (selectedOption is SavedGameMenuOption)
+                {
+                    var option = (SavedGameMenuOption)selectedOption;
+                    if (option.IsSelected)
+                    {
+                        _isItemFocused = false;
+                        option.Deselect(true);
+                        return;
+                    }
+                }
+
                 if (_currentMenu == _loadMenuOptions
                     || _currentMenu == _saveMenuOptions)
                 {
@@ -441,10 +453,29 @@ namespace KeenReloaded2
                     return;
                 }
 
-                var selectedOption = _currentMenu[_selectedMenuIndex];
+               
                 if (_menuActions.TryGetValue(selectedOption.Name, out Action action))
                 {
                     action();
+                }
+            }
+            else
+            {
+                if (!(selectedOption is SavedGameMenuOption))
+                    return;
+
+                var savedGameSelection = (SavedGameMenuOption)selectedOption;
+                if (!savedGameSelection.IsSelected)
+                    return;
+
+                if (e.KeyCode == Keys.Back)
+                {
+                   savedGameSelection.RemoveLastChar();
+                }
+                else
+                {
+                    char c = e.KeyCode.ToString()[0];
+                    savedGameSelection.AddCharacter(c);
                 }
             }
         }
@@ -553,16 +584,23 @@ namespace KeenReloaded2
     public class SavedGameMenuOption : WorldMapMenuOption
     {
         public static readonly int VERTICAL_OFFSET = 320;
+        private const int CHARACTER_HORIZONTAL_OFFSET = 10;
+        private const int CHARACTER_VERTICAL_OFFSET = 6;
         private bool _borderToggle;
         private bool _selected;
         private Timer _selectionImageToggleTimer;
+        private string _saveNameText = string.Empty;
+        private Dictionary<char, Rectangle> _characterLocationMapping = new Dictionary<char, Rectangle>()
+        {
+            { 'A', new Rectangle(56, 124, 31, 39) }
+        };
 
         public SavedGameMenuOption(int xPos, int yPos)
         {
             this.XPos = xPos;
             this.YPos = yPos;
             _selectionImageToggleTimer = new Timer();
-            _selectionImageToggleTimer.Interval = 200;
+            _selectionImageToggleTimer.Interval = 400;
             _selectionImageToggleTimer.Tick += _selectionImageToggleTimer_Tick;
             this.PictureBox = new PictureBox();
             this.PictureBox.Location = new Point(xPos, yPos);
@@ -583,11 +621,56 @@ namespace KeenReloaded2
 
         private void _selectionImageToggleTimer_Tick(object sender, EventArgs e)
         {
+            DrawFrame();
+
+            _borderToggle = !_borderToggle;
+        }
+
+        private void DrawFrame()
+        {
             this.PictureBox.Image = _borderToggle ?
                 Properties.Resources.menu_named_selection_border :
                 Properties.Resources.menu_named_selection;
 
-            _borderToggle = !_borderToggle;
+            List<Image> characterImages = new List<Image>();
+            List<Point> points = new List<Point>();
+            int x = CHARACTER_HORIZONTAL_OFFSET, bottom = this.PictureBox.Height - CHARACTER_VERTICAL_OFFSET;
+            const int TEXT_MARGIN = 2;
+            foreach (char c in _saveNameText)
+            {
+                if (_characterLocationMapping.TryGetValue(c, out Rectangle area))
+                {
+                    var image = BitMapTool.CropImage(Properties.Resources.keen_main_menu_font_sheet,
+                        area);
+                    characterImages.Add(image);
+                    int y = bottom - image.Height;
+                    points.Add(new Point(x, y));
+                    x += area.Width + TEXT_MARGIN; 
+                }
+            }
+
+            this.PictureBox.Image = BitMapTool.DrawImagesOnCanvas(this.PictureBox.Size,
+                this.PictureBox.Image, characterImages.ToArray(), points.ToArray());
+        }
+
+        private bool IsValid()
+        {
+            return !string.IsNullOrWhiteSpace(_saveNameText);
+        }
+
+        public void AddCharacter(char c)
+        {
+            _saveNameText += c;
+            DrawFrame();
+        }
+
+        public void RemoveLastChar()
+        {
+            if (_saveNameText.Length == 0)
+                return;
+
+           _saveNameText = _saveNameText.Remove(_saveNameText.Length - 1);
+            DrawFrame();
         }
 
         public void Select()
@@ -596,12 +679,15 @@ namespace KeenReloaded2
             _selectionImageToggleTimer.Start();
         }
 
-        public void Deselect()
+        public void Deselect(bool force = false)
         {
+            if (!IsValid() && !force)
+                return;
+
             _selected = false;
             _selectionImageToggleTimer.Stop();
             _borderToggle = false;
-            this.PictureBox.Image = Properties.Resources.menu_named_selection;
+            DrawFrame();
         }
     }
 }
