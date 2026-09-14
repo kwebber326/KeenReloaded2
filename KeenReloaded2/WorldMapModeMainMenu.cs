@@ -186,13 +186,16 @@ namespace KeenReloaded2
                 if (!option.IsSelected)
                     option.Select();
                 else
+                {
                     option.Deselect();
+                    option.Save();
+                }
 
                 _isItemFocused = option.IsSelected;
             }
             else
             {
-
+                //TODO: This should load a saved game
             }
         }
 
@@ -439,6 +442,7 @@ namespace KeenReloaded2
                     {
                         _isItemFocused = false;
                         option.Deselect(true);
+                        option.RevertToPreviousSave();
                         return;
                     }
                 }
@@ -467,7 +471,6 @@ namespace KeenReloaded2
                     _suppressSelection = false;
                     return;
                 }
-
                
                 if (_menuActions.TryGetValue(selectedOption.Name, out Action action))
                 {
@@ -601,6 +604,7 @@ namespace KeenReloaded2
         private bool _selected;
         private Timer _selectionImageToggleTimer;
         private string _saveNameText = string.Empty;
+        private string _lastSavedText = string.Empty;
         private Dictionary<char, Rectangle> _characterLocationMapping = new Dictionary<char, Rectangle>()
         {
             //upper case
@@ -761,6 +765,18 @@ namespace KeenReloaded2
         private bool IsValid()
         {
             return !string.IsNullOrWhiteSpace(_saveNameText);
+        }
+
+        public void RevertToPreviousSave()
+        {
+            _saveNameText = _lastSavedText;
+            DrawFrame();
+        }
+
+        public void Save()
+        {
+            _lastSavedText = _saveNameText;
+            //TODO: Trigger an event to save
         }
 
         public void AddCharacter(char c)
