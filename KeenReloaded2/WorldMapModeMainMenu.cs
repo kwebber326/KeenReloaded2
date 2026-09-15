@@ -11,6 +11,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -375,6 +376,22 @@ namespace KeenReloaded2
                 return;
 
             string saveKey = option.Name + "_" + e;
+
+            //remove existing save directory if it exists
+            string path = Path.Combine(Environment.CurrentDirectory,
+                MapMakerConstants.SAVED_GAMES_FOLDER);
+            string[] directories = Directory.GetDirectories(path);
+            string existingSavedFolder = directories.FirstOrDefault(
+                d =>
+                {
+                    string folderName = d.Substring(d.LastIndexOf(@"\") + 1);
+                    return folderName.StartsWith(option.Name);
+                });
+
+            if (existingSavedFolder != null)
+            {
+                Directory.Delete(existingSavedFolder, true);
+            }
 
             try
             {
