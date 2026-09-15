@@ -30,13 +30,13 @@ namespace KeenReloaded2.Utilities
                 if (mapData == null)
                     throw new ArgumentNullException("map data is null");
 
-                if (string.IsNullOrEmpty(gameModeFolder))
+                if (!savedGame && string.IsNullOrEmpty(gameModeFolder))
                     throw new ArgumentException("Game mode not recognized");
 
                 if (savedGame && string.IsNullOrEmpty(savedGameName))
                     throw new ArgumentNullException(nameof(savedGame));
 
-                string folder = savedGame ? Path.Combine(MapMakerConstants.SAVED_GAMES_FOLDER, mapName, savedGameName)
+                string folder = savedGame ? Path.Combine(MapMakerConstants.SAVED_GAMES_FOLDER, savedGameName)
                     : MapMakerConstants.SAVED_MAPS_FOLDER;
                 string path = Path.Combine(System.Environment.CurrentDirectory, folder, gameModeFolder, mapName + ".txt");
                 StringBuilder builder = new StringBuilder();
@@ -132,11 +132,30 @@ namespace KeenReloaded2.Utilities
                     throw new ArgumentException("saved game name is required");
 
                 string data = worldMapObjectiveData.ToString();
-                string folder = isSavedGame ? MapMakerConstants.SAVED_GAMES_FOLDER : MapMakerConstants.WORLD_MAP_OBJECTIVES_FOLDER;
+                string folder = isSavedGame 
+                    ? Path.Combine(MapMakerConstants.SAVED_GAMES_FOLDER, savedGameName) 
+                    : MapMakerConstants.WORLD_MAP_OBJECTIVES_FOLDER;
                 string path = Path.Combine(Environment.CurrentDirectory, folder);
                 Directory.CreateDirectory(path);
                 string file = Path.Combine(path, mapName + "_objectives.txt");
                 File.WriteAllText(file, data);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return false;
+            }
+        }
+
+        public static bool SaveWorldMapPlayerInventoryState(string savedGameName, string data)
+        {
+            try
+            {
+                string path = Path.Combine(MapMakerConstants.SAVED_GAMES_FOLDER
+                    , savedGameName, savedGameName + "_playerData.txt");
+
+                File.WriteAllText(path, data);
                 return true;
             }
             catch (Exception ex)

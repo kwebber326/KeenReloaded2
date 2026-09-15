@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
@@ -169,6 +170,7 @@ namespace KeenReloaded2
                 _loadMenuOptions[i] = option;
                 _saveMenuOptions[i] = option;
                 option.Name = $"savedGame_{i}";
+                option.GameSaved += Option_GameSaved;
                 _menuActions.Add(option.Name, () => ExecuteActionForSavedGame(option));
                 y = (height + VERTICAL_MARGIN) * (i + 1)
                     + SavedGameMenuOption.VERTICAL_OFFSET;
@@ -366,6 +368,48 @@ namespace KeenReloaded2
 
         #region Event Handlers
 
+        private void Option_GameSaved(object sender, string e)
+        {
+            SavedGameMenuOption option = sender as SavedGameMenuOption;
+            if (option == null)
+                return;
+
+            string saveKey = option.Name + "_" + e;
+
+            try
+            {
+                //save objective data
+                MapUtility.SaveWorldMapObjectives(
+                    _worldState.WorldObjectiveState,
+                    _worldState.WorldMapData.MapName,
+                    true, saveKey);
+
+                //save world map data
+                MapUtility.SaveMap(_worldState.WorldMapData.MapName,
+                    MainMenuConstants.OPTION_LABEL_WORLD_MODE, _worldState.WorldMapData.MapSize,
+                    _worldState.WorldMapData.MapData,
+                    true, saveKey);
+
+                //if we are in a level save it as well
+                if (_worldState.LevelData != null)
+                {
+                    MapUtility.SaveMap(_worldState.LevelData.MapName,
+                        MainMenuConstants.OPTION_LABEL_WORLD_MODE,
+                        _worldState.LevelData.MapSize, _worldState.LevelData.MapData,
+                        true, saveKey);
+                }
+
+                //save player state
+                MapUtility.SaveWorldMapPlayerInventoryState(saveKey,
+                    _worldState.PlayerInventoryState.ToString());
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                MessageBox.Show("Error", $"Could not save state {e}", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void WorldMapModeMainMenu_GameStart(object sender, EventArgs e)
         {
             if (_inGame)
@@ -471,7 +515,7 @@ namespace KeenReloaded2
                     _suppressSelection = false;
                     return;
                 }
-               
+
                 if (_menuActions.TryGetValue(selectedOption.Name, out Action action))
                 {
                     action();
@@ -489,7 +533,7 @@ namespace KeenReloaded2
                 //printable characters are handled in KeyPress
                 if (e.KeyCode == Keys.Back)
                 {
-                   savedGameSelection.RemoveLastChar();
+                    savedGameSelection.RemoveLastChar();
                 }
             }
         }
@@ -605,6 +649,8 @@ namespace KeenReloaded2
         private Timer _selectionImageToggleTimer;
         private string _saveNameText = string.Empty;
         private string _lastSavedText = string.Empty;
+        public event EventHandler<string> GameSaved;
+
         private Dictionary<char, Rectangle> _characterLocationMapping = new Dictionary<char, Rectangle>()
         {
             //upper case
@@ -754,7 +800,7 @@ namespace KeenReloaded2
                     characterImages.Add(image);
                     int y = bottom - image.Height;
                     points.Add(new Point(x, y));
-                    x += area.Width + TEXT_MARGIN; 
+                    x += area.Width + TEXT_MARGIN;
                 }
             }
 
@@ -776,7 +822,7 @@ namespace KeenReloaded2
         public void Save()
         {
             _lastSavedText = _saveNameText;
-            //TODO: Trigger an event to save
+            GameSaved?.Invoke(this, _saveNameText);
         }
 
         public void AddCharacter(char c)
@@ -794,7 +840,7 @@ namespace KeenReloaded2
             if (_saveNameText.Length == 0)
                 return;
 
-           _saveNameText = _saveNameText.Remove(_saveNameText.Length - 1);
+            _saveNameText = _saveNameText.Remove(_saveNameText.Length - 1);
             DrawFrame();
         }
 

@@ -190,6 +190,25 @@ namespace KeenReloaded2.Entities
 
         private readonly bool _usePartialAlgo;
 
+        public MapMakerData GetCurrentMapState()
+        {
+            var mapdata = _animatedBackgrounds
+                .Union(_backgroundsAndTiles)
+                .Union(_gameObjects).ToList();
+
+            MapMakerData data = new MapMakerData()
+            {
+                MapPath = this.Map?.MapPath ?? string.Empty,
+                MapName = this.Map?.MapName ?? string.Empty,
+                MapData = mapdata.Select(d => 
+                    new GameObjectMapping() { GameObject = d }).ToList(),
+                MapSize = this.Map?.MapSize ?? new Size(0, 0),
+                GameMode = MainMenuConstants.OPTION_LABEL_WORLD_MODE
+            };
+
+            return data;
+        }
+
         public void SetKeyPressed(string key, bool isPressed)
         {
             if (_keen != null)

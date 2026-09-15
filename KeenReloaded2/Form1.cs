@@ -603,7 +603,7 @@ namespace KeenReloaded2
         private void OpenMainMenuDialog()
         {
             _paused = true;
-            this.WorldMapState.LevelData = _game?.Map;
+            UpdateWorldMapStateObject();
             WorldMapModeMainMenu menu = new WorldMapModeMainMenu(this.WorldMapPath, _game?.Map?.MapPath, true, _songOverride, this.WorldMapState);
             var result = menu.ShowDialog();
             if (result == DialogResult.Abort)
@@ -617,6 +617,19 @@ namespace KeenReloaded2
             {
                 _paused = false;
             }
+        }
+
+        private void UpdateWorldMapStateObject()
+        {
+            this.WorldMapState.LevelData = _game?.GetCurrentMapState();
+            this.WorldMapState.PlayerInventoryState = new WorldMapPlayerInventoryState()
+            {
+                PlayerGems = _keen.Gems,
+                HasKeyCard = _keen.HasKeyCard,
+                PlayerWeapons = _keen.Weapons,
+                PlayerLives = _keen.Lives,
+                PlayerPoints = _keen.Points,
+            };
         }
 
         private void OpenDialog(Keys key)
