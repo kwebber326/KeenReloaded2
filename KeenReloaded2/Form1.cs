@@ -622,6 +622,7 @@ namespace KeenReloaded2
         private void UpdateWorldMapStateObject()
         {
             this.WorldMapState.LevelData = _game?.GetCurrentMapState();
+            var worldMapItems = this.WorldMapState.PlayerInventoryState.WorldMapItems;
             this.WorldMapState.PlayerInventoryState = new WorldMapPlayerInventoryState()
             {
                 PlayerGems = _keen.Gems,
@@ -629,6 +630,7 @@ namespace KeenReloaded2
                 PlayerWeapons = _keen.Weapons,
                 PlayerLives = _keen.Lives,
                 PlayerPoints = _keen.Points,
+                WorldMapItems = worldMapItems
             };
         }
 
