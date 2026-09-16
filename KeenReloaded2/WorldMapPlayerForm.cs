@@ -485,8 +485,10 @@ namespace KeenReloaded2
                 PlayerGems = _playerState?.Gems ?? new List<Gem>(),
                 PlayerLives = _playerState?.Lives ?? 0,
                 PlayerPoints = _playerState?.Points ?? 0,
-                PlayerWeapons = _playerState?.Weapons ?? new List<Framework.GameEntities.Weapons.NeuralStunner>()
+                PlayerWeapons = _playerState?.Weapons ?? new List<Framework.GameEntities.Weapons.NeuralStunner>(),
+                WorldMapItems = _player?.ItemsAcquired?.ToList() ?? new List<WorldMapItemType>()
             };
+         
             return saveState;
         }
 

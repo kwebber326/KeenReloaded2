@@ -36,7 +36,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         private const string KEY_CTRL = GeneralGameConstants.Keys.KEY_CTRL;
         private const string KEY_SPACE = GeneralGameConstants.Keys.KEY_SPACE;
         private const string KEY_ENTER = GeneralGameConstants.Keys.KEY_ENTER;
-        private List<WorldMapItemType> _itemsAcquired = new List<WorldMapItemType>();
+        private HashSet<WorldMapItemType> _itemsAcquired = new HashSet<WorldMapItemType>();
 
         private const int MOVE_VELOCITY = 10;
 
@@ -64,6 +64,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         }
 
         public override CollisionType CollisionType => CollisionType.PLAYER;
+
+        public HashSet<WorldMapItemType> ItemsAcquired => _itemsAcquired;
 
         public Direction Direction
         {
