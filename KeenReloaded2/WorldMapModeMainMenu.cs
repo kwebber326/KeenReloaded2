@@ -165,9 +165,18 @@ namespace KeenReloaded2
             int width = img.Width,
                 height = img.Height;
 
+            var directories = GetSavedDirectories();
+            var savedGames = directories.Select(d => d.Substring(d.LastIndexOf(@"\"))
+                .Split('_')).ToArray();
+
             for (int i = 0; i < _loadMenuOptions.Length; i++)
             {
-                SavedGameMenuOption option = new SavedGameMenuOption(x, y);
+                string initialText = savedGames
+                    .Where(s => int.Parse(s[1]) == i)
+                    .Select(s1 => s1[2])
+                    .FirstOrDefault();
+                   
+                SavedGameMenuOption option = new SavedGameMenuOption(x, y, initialText);
                 _loadMenuOptions[i] = option;
                 _saveMenuOptions[i] = option;
                 option.Name = $"savedGame_{i}";
@@ -378,9 +387,7 @@ namespace KeenReloaded2
             string saveKey = option.Name + "_" + e;
 
             //remove existing save directory if it exists
-            string path = Path.Combine(Environment.CurrentDirectory,
-                MapMakerConstants.SAVED_GAMES_FOLDER);
-            string[] directories = Directory.GetDirectories(path);
+            string[] directories = GetSavedDirectories();
             string existingSavedFolder = directories.FirstOrDefault(
                 d =>
                 {
@@ -425,6 +432,14 @@ namespace KeenReloaded2
                 Debug.WriteLine(ex);
                 MessageBox.Show("Error", $"Could not save state {e}", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private static string[] GetSavedDirectories()
+        {
+            string path = Path.Combine(Environment.CurrentDirectory,
+                            MapMakerConstants.SAVED_GAMES_FOLDER);
+            string[] directories = Directory.GetDirectories(path);
+            return directories;
         }
 
         private void WorldMapModeMainMenu_GameStart(object sender, EventArgs e)
@@ -767,7 +782,7 @@ namespace KeenReloaded2
             { '`', new Rectangle(605, 802, 14, 9) }
         };
 
-        public SavedGameMenuOption(int xPos, int yPos)
+        public SavedGameMenuOption(int xPos, int yPos, string initialText = null)
         {
             this.XPos = xPos;
             this.YPos = yPos;
@@ -781,6 +796,12 @@ namespace KeenReloaded2
             this.PictureBox.BackColor = ColorTranslator.FromHtml("#353535");
             this.YPos += this.PictureBox.Height / 2 - 7;
             this.XPos -= 17;
+            if (initialText != null)
+            {
+                _saveNameText = initialText;
+                _lastSavedText = initialText;
+                DrawFrame();
+            }
         }
 
         public bool IsSelected
