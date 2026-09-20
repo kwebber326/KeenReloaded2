@@ -103,6 +103,38 @@ namespace KeenReloaded2
 
         }
 
+        public WorldMapPlayerForm(WorldMapSaveState state)
+        {
+            InitializeComponent();
+            _worldMapObjectiveData = state.WorldObjectiveState;
+            _loadingWindow = new KeenReloadedLoadingWindow();
+            _loadingWindow.WorldMapLoadError += _loadingWindow_WorldMapLoadError;
+            if (MapUtility.LoadWorldMapMusic(state.WorldMapData.MapName, out string music))
+            {
+                _songOverride = music;
+                _loadingWindow.ChangeSong(music);
+            }
+
+            LoadSavedState(state);
+            _mapMakerMode = false;
+            pbBackgroundImage.SendToBack();
+            pbGameImage.Parent = pbBackgroundImage;
+            pbBackgroundImage.Image = _game.BackGroundImage;
+            pbGameImage.Location = new Point(0, 0);
+            _worldMapObjectiveData.GameBeaten += _worldMapObjectiveData_GameBeaten;
+            if (state.LevelData != null)
+            {
+                IWorldMapLevel level = _game.Map.MapData.Select(d => d.GameObject)
+                    .OfType<IWorldMapLevel>().FirstOrDefault(l => l.LevelName == state.LevelData.MapName.Replace(".txt", ""));
+              
+                if (level != null)
+                {
+                    InitializeGameState();
+                    _game_LevelEntered(level, EventArgs.Empty);
+                }
+            }
+        }
+
         private void _worldMapObjectiveData_GameBeaten(object sender, EventArgs e)
         {
             _worldMapObjectiveData.GameBeaten -= _worldMapObjectiveData_GameBeaten;
@@ -125,6 +157,7 @@ namespace KeenReloaded2
         private void WorldMapPlayerForm_Load(object sender, EventArgs e)
         {
             InitializeGameState();
+            UpdateViewRectangle();
         }
 
         private void _keen_KeenMoved(object sender, EventArgs e)
@@ -135,6 +168,36 @@ namespace KeenReloaded2
         private void PnlGameWindow_MouseWheel(object sender, MouseEventArgs e)
         {
             this.UpdateViewRectangle();
+        }
+
+        private void LoadSavedState(WorldMapSaveState state)
+        {
+            if (_game != null)
+            {
+                _game.BackgroundImageRedrawn -= _game_BackgroundImageRedrawn;
+                _game.LevelEntered -= _game_LevelEntered;
+                _game.Dispose();
+            }
+
+            _game = new CommanderKeenGame(state.WorldMapData);
+            pbBackgroundImage.Image = _game.BackGroundImage;
+            _game.BackgroundImageRedrawn += _game_BackgroundImageRedrawn;
+            _game.LevelEntered += _game_LevelEntered;
+            var gameObjects = state.WorldMapData.MapData.Select(d => d.GameObject);
+
+            _player = gameObjects.OfType<WorldMapPlayer>().FirstOrDefault();
+            foreach (var item in state.PlayerInventoryState.WorldMapItems)
+            {
+                _player.AcquireItem(item);
+            }
+
+            _playerState = new CommanderKeen(new Rectangle(), null, Framework.Enums.Direction.LEFT,
+                state.PlayerInventoryState.PlayerLives, state.PlayerInventoryState.PlayerPoints);
+
+            _playerState.InitializeWeapons(state.PlayerInventoryState.PlayerWeapons);
+
+            _maxVisionY = _game.Map.MapSize.Height - VIEW_RADIUS;
+            _maxVisionX = _game.Map.MapSize.Width - VIEW_RADIUS;
         }
 
         private void InitializeGameData(MapMakerData data)
@@ -214,6 +277,10 @@ namespace KeenReloaded2
                         //TODO: Insert game over animation here and await the closing of the 
                         //gameover animation form before closing
                         this.Close();
+                    }
+                    else if (form1.MenuDecision == WorldMapMenuOptionDecision.LOAD_EXISTING)
+                    {
+
                     }
                 }
                 else

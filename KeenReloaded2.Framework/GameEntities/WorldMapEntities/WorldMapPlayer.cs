@@ -564,7 +564,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         public override string ToString()
         {
             string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
-            return $"{nameof(Properties.Resources.keen_stop_up)}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}";
+            return $"{nameof(Properties.Resources.keen_stop_up)}{separator}{this.HitBox.X}{separator}{this.HitBox.Y}{separator}{this.HitBox.Width}{separator}{this.HitBox.Height}";
         }
     }
 

@@ -1,5 +1,6 @@
 ﻿using KeenReloaded2.Constants;
 using KeenReloaded2.ControlEventArgs;
+using KeenReloaded2.Entities;
 using KeenReloaded2.UserControls;
 using KeenReloaded2.Utilities;
 using System;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -69,17 +71,37 @@ namespace KeenReloaded2
 
                     } while (!quitGame);
                 }
-            }
-        }
+                else if (menu.MenuDecision == WorldMapMenuOptionDecision.LOAD_EXISTING)
+                {
+                    bool quitGame = false;
+                    do
+                    {
+                        string worldFile = menu.WorldMapFile;
+                        string playerFile = menu.PlayerDataFile;
+                        string levelFile = menu.LevelFile;
+                        string objectivesFile = menu.ObjectiveStateFile;
+                        var map = MapUtility.LoadMapData(worldFile);
+                        var currentLevel = levelFile != null ? MapUtility.LoadMapData(levelFile) : null;
+                        var objectiveData = MapUtility.LoadWorldMapObjectives(null, true, objectivesFile);
+                        var playerData = MapUtility.LoadWorldMapPlayerInventoryState(playerFile);
 
-        private void StartNewGame(string mapPath)
-        {
-            string path = mapPath;
-            var map = MapUtility.LoadMapData(path);
-            string mapName = path.Substring(path.LastIndexOf('\\') + 1).Replace(".txt", "");
-            var objectiveData = MapUtility.LoadWorldMapObjectives(mapName);
-            WorldMapPlayerForm form = new WorldMapPlayerForm(map, false, objectiveData);
-            form.ShowDialog();
+                        WorldMapSaveState state = new WorldMapSaveState()
+                        {
+                            WorldMapData = map,
+                            LevelData = currentLevel,
+                            WorldObjectiveState = objectiveData,
+                            PlayerInventoryState = playerData,
+                        };
+
+                        using (WorldMapPlayerForm form = new WorldMapPlayerForm(state))
+                        {
+                            form.ShowDialog();
+                            if (form.MenuDecision == null || form.MenuDecision == WorldMapMenuOptionDecision.QUIT)
+                                quitGame = true;
+                        }
+                    } while (!quitGame);
+                }
+            }
         }
 
         public MainMenu()

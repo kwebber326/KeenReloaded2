@@ -165,13 +165,27 @@ namespace KeenReloaded2.Utilities
             }
         }
 
-        public static WorldMapObjectiveManager LoadWorldMapObjectives(string mapName)
+        public static WorldMapPlayerInventoryState LoadWorldMapPlayerInventoryState(string file)
+        {
+            try
+            {
+                string data = File.ReadAllText(file);
+                return WorldMapPlayerInventoryState.FromString(data);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return WorldMapPlayerInventoryState.Default;
+            }
+        }
+
+        public static WorldMapObjectiveManager LoadWorldMapObjectives(string mapName, bool isSavedGame = false, string objectivesFile = null)
         {
             try
             {
                 string path = Path.Combine(Environment.CurrentDirectory, MapMakerConstants.WORLD_MAP_OBJECTIVES_FOLDER);
                 Directory.CreateDirectory(path);
-                string file = Path.Combine(path, mapName + "_objectives.txt");
+                string file = isSavedGame ? objectivesFile : Path.Combine(path, mapName + "_objectives.txt");
 
                 if (!File.Exists(file))
                     return new WorldMapObjectiveManager();

@@ -3,6 +3,7 @@ using KeenReloaded2.Constants;
 using KeenReloaded2.DialogWindows;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Utilities;
+using Newtonsoft.Json.Bson;
 using SharpDX.XAudio2;
 using System;
 using System.Collections.Generic;
@@ -23,8 +24,10 @@ namespace KeenReloaded2
 {
     public partial class WorldMapModeMainMenu : Form
     {
-        private readonly string _worldMapFile;
-        private readonly string _levelFile;
+        private string _worldMapFile;
+        private string _levelFile;
+        private string _objectiveStateFile;
+        private string _playerDataFile;
         private const int TOGGLE_IMAGE_X_POS = 600;
         private const int IO_MENU_SELECTION_COUNT = 8;
         private bool _inGame = false;
@@ -181,6 +184,7 @@ namespace KeenReloaded2
                 _saveMenuOptions[i] = option;
                 option.Name = $"savedGame_{i}";
                 option.GameSaved += Option_GameSaved;
+                option.GameLoaded += Option_GameLoaded;
                 _menuActions.Add(option.Name, () => ExecuteActionForSavedGame(option));
                 y = (height + VERTICAL_MARGIN) * (i + 1)
                     + SavedGameMenuOption.VERTICAL_OFFSET;
@@ -188,6 +192,12 @@ namespace KeenReloaded2
         }
 
         public WorldMapMenuOptionDecision? MenuDecision => _menuDecision;
+
+        public string WorldMapFile => _worldMapFile;
+        public string LevelFile => _levelFile;
+        public string ObjectiveStateFile => _objectiveStateFile;
+
+        public string PlayerDataFile => _playerDataFile;
 
         #region helper methods
 
@@ -207,7 +217,7 @@ namespace KeenReloaded2
             }
             else
             {
-                //TODO: This should load a saved game
+                option.Load();
             }
         }
 
@@ -378,13 +388,70 @@ namespace KeenReloaded2
 
         #region Event Handlers
 
+        private void Option_GameLoaded(object sender, string e)
+        {
+            if (_inGame)
+            {
+                KeenReloadedYesNoDialogWindow keenReloadedYesNoDialog =
+                    new KeenReloadedYesNoDialogWindow("You're in a game. \nStart a new one?", false);
+                var result = keenReloadedYesNoDialog.ShowDialog();
+                if (result == DialogResult.No)
+                {
+                    _suppressSelection = true;
+                    return;
+                }
+            }
+
+            SavedGameMenuOption option = sender as SavedGameMenuOption;
+            if (option != null)
+            {
+                string key = option.GetKey();
+                var directory = GetSavedDirectories().FirstOrDefault(
+                    d => d.Contains(key));
+
+                if (!Directory.Exists(directory))
+                    return;
+
+                var files = Directory.GetFiles(directory);
+
+                if (directory != null)
+                {
+                    string mapName = _worldState?.WorldMapData != null ?
+                        _worldState.WorldMapData.MapName :
+                        _worldMapFile.Substring(_worldMapFile.LastIndexOf(@"\") + 1);
+
+                    string objectivesPrefix = mapName.Replace(".txt", "");
+                    _objectiveStateFile = Path.Combine(directory, objectivesPrefix + "_objectives.txt");
+                    _worldMapFile = Path.Combine(directory, mapName);
+                    _playerDataFile = Path.Combine(directory, key + "_playerData.txt");
+                    if (_worldState?.LevelData != null)
+                    {
+                        _levelFile = Path.Combine(directory, _worldState.LevelData.MapName + ".txt");
+                    }
+                    else if (files.Length == 4)
+                    {
+                        _levelFile = files.FirstOrDefault(l =>
+                          l != _objectiveStateFile && l != _worldMapFile &&
+                          l != _playerDataFile);
+                    }
+                }
+            }
+
+            _menuDecision = WorldMapMenuOptionDecision.LOAD_EXISTING;
+            _suppressSelection = false;
+            _inGame = true;
+
+            this.DialogResult = DialogResult.Abort;
+            this.Close();
+        }
+
         private void Option_GameSaved(object sender, string e)
         {
             SavedGameMenuOption option = sender as SavedGameMenuOption;
             if (option == null)
                 return;
 
-            string saveKey = option.Name + "_" + e;
+            string saveKey = option.GetKey();
 
             //remove existing save directory if it exists
             string[] directories = GetSavedDirectories();
@@ -682,6 +749,7 @@ namespace KeenReloaded2
         private string _saveNameText = string.Empty;
         private string _lastSavedText = string.Empty;
         public event EventHandler<string> GameSaved;
+        public event EventHandler<string> GameLoaded;
 
         private Dictionary<char, Rectangle> _characterLocationMapping = new Dictionary<char, Rectangle>()
         {
@@ -804,6 +872,11 @@ namespace KeenReloaded2
             }
         }
 
+        public string GetKey()
+        {
+            return this.Name + "_" + _saveNameText;
+        }
+
         public bool IsSelected
         {
             get
@@ -861,6 +934,11 @@ namespace KeenReloaded2
         {
             _lastSavedText = _saveNameText;
             GameSaved?.Invoke(this, _saveNameText);
+        }
+
+        public void Load()
+        {
+            GameLoaded?.Invoke(this, _saveNameText);
         }
 
         public void AddCharacter(char c)

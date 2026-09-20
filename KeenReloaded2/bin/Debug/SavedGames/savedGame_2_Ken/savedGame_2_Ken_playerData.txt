@@ -1,1 +1,1 @@
-0|3|False|[][NeuralStunner_5,BoobusBombLauncher_500]
+20000|10|False|[]|[NeuralStunner_16,BoobusBombLauncher_2965]|[SWIMSUIT]
