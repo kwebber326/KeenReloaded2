@@ -2,6 +2,7 @@
 using KeenReloaded2.Framework.GameEntities.WorldMapEntities;
 using KeenReloaded2.Utilities;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace KeenReloaded2.Entities
@@ -15,6 +16,8 @@ namespace KeenReloaded2.Entities
         public MapMakerData LevelData { get; set; }
 
         public WorldMapPlayerInventoryState PlayerInventoryState { get; set; }
+
+        public List<string> BeatenLevels { get; set; } = new List<string>();
 
         public static bool Load(string worldMapFile, string levelFile, out WorldMapSaveState worldState)
         {

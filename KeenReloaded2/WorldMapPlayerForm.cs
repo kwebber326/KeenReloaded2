@@ -2,6 +2,7 @@
 using KeenReloaded2.DialogWindows;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Entities.Statistics.HighScores;
+using KeenReloaded2.Framework.GameEntities.Constructs.Checkpoints;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Items;
 using KeenReloaded2.Framework.GameEntities.Players;
@@ -126,7 +127,7 @@ namespace KeenReloaded2
             {
                 IWorldMapLevel level = _game.Map.MapData.Select(d => d.GameObject)
                     .OfType<IWorldMapLevel>().FirstOrDefault(l => l.LevelName == state.LevelData.MapName.Replace(".txt", ""));
-              
+
                 if (level != null)
                 {
                     InitializeGameState();
@@ -195,6 +196,21 @@ namespace KeenReloaded2
                 state.PlayerInventoryState.PlayerLives, state.PlayerInventoryState.PlayerPoints);
 
             _playerState.InitializeWeapons(state.PlayerInventoryState.PlayerWeapons);
+
+            if (state.BeatenLevels.Any())
+            {
+                var beatenLevels = _game.Map.MapData.Select(g => g.GameObject)
+                    .OfType<Checkpoint>()?
+                    .Where(c => state.BeatenLevels.Contains(c.ToString())).ToList() ?? new List<Checkpoint>();
+                foreach (var level in beatenLevels)
+                {
+                    var activator = level as IActivator;
+                    if (activator != null)
+                    {
+                        activator.Toggle();
+                    }
+                }
+            }
 
             _maxVisionY = _game.Map.MapSize.Height - VIEW_RADIUS;
             _maxVisionX = _game.Map.MapSize.Width - VIEW_RADIUS;
@@ -555,7 +571,11 @@ namespace KeenReloaded2
                 PlayerWeapons = _playerState?.Weapons ?? new List<Framework.GameEntities.Weapons.NeuralStunner>(),
                 WorldMapItems = _player?.ItemsAcquired?.ToList() ?? new List<WorldMapItemType>()
             };
-         
+            saveState.BeatenLevels = saveState.WorldMapData.MapData
+                .Select(d => d.GameObject).OfType<Checkpoint>()?
+                .Where(c => c.IsCheckPointHit)?
+                .Select(w => w.ToString())?.ToList() ?? new List<string>();
+
             return saveState;
         }
 

@@ -28,6 +28,7 @@ namespace KeenReloaded2
         private string _levelFile;
         private string _objectiveStateFile;
         private string _playerDataFile;
+        private string _beatenLevelsFile;
         private const int TOGGLE_IMAGE_X_POS = 600;
         private const int IO_MENU_SELECTION_COUNT = 8;
         private bool _inGame = false;
@@ -198,6 +199,8 @@ namespace KeenReloaded2
         public string ObjectiveStateFile => _objectiveStateFile;
 
         public string PlayerDataFile => _playerDataFile;
+
+        public string BeatenLevelsFile => _beatenLevelsFile;
 
         #region helper methods
 
@@ -424,15 +427,16 @@ namespace KeenReloaded2
                     _objectiveStateFile = Path.Combine(directory, objectivesPrefix + "_objectives.txt");
                     _worldMapFile = Path.Combine(directory, mapName);
                     _playerDataFile = Path.Combine(directory, key + "_playerData.txt");
+                    _beatenLevelsFile = Path.Combine(directory, key + "_beatenLevels.txt");
                     if (_worldState?.LevelData != null)
                     {
                         _levelFile = Path.Combine(directory, _worldState.LevelData.MapName + ".txt");
                     }
-                    else if (files.Length == 4)
+                    else if (files.Length > 4)
                     {
                         _levelFile = files.FirstOrDefault(l =>
                           l != _objectiveStateFile && l != _worldMapFile &&
-                          l != _playerDataFile);
+                          l != _playerDataFile && l != _beatenLevelsFile);
                     }
                 }
             }
@@ -493,6 +497,9 @@ namespace KeenReloaded2
                 //save player state
                 MapUtility.SaveWorldMapPlayerInventoryState(saveKey,
                     _worldState.PlayerInventoryState.ToString());
+
+                //save beaten levels
+                MapUtility.SaveBeatenLevels(_worldState.BeatenLevels, saveKey);
             }
             catch (Exception ex)
             {

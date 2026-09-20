@@ -80,10 +80,13 @@ namespace KeenReloaded2
                         string playerFile = menu.PlayerDataFile;
                         string levelFile = menu.LevelFile;
                         string objectivesFile = menu.ObjectiveStateFile;
+                        string beatenLevelsFile = menu.BeatenLevelsFile;
+
                         var map = MapUtility.LoadMapData(worldFile);
                         var currentLevel = levelFile != null ? MapUtility.LoadMapData(levelFile) : null;
                         var objectiveData = MapUtility.LoadWorldMapObjectives(null, true, objectivesFile);
                         var playerData = MapUtility.LoadWorldMapPlayerInventoryState(playerFile);
+                        var beatenLevelsData = MapUtility.LoadBeatenLevels(beatenLevelsFile);
 
                         WorldMapSaveState state = new WorldMapSaveState()
                         {
@@ -91,6 +94,7 @@ namespace KeenReloaded2
                             LevelData = currentLevel,
                             WorldObjectiveState = objectiveData,
                             PlayerInventoryState = playerData,
+                            BeatenLevels = beatenLevelsData
                         };
 
                         using (WorldMapPlayerForm form = new WorldMapPlayerForm(state))

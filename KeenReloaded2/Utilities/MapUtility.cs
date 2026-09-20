@@ -165,6 +165,49 @@ namespace KeenReloaded2.Utilities
             }
         }
 
+        public static bool SaveBeatenLevels(List<string> beatenLevels, string savedGameName)
+        {
+            try
+            {
+                string path = Path.Combine(MapMakerConstants.SAVED_GAMES_FOLDER
+                    , savedGameName, savedGameName + "_beatenLevels.txt");
+
+                string data = string.Join("\n", beatenLevels);
+                File.WriteAllText(path, data);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return false;
+            }
+        }
+
+        public static List<string> LoadBeatenLevels(string file)
+        {
+            try
+            {
+                List<string> beatenLevels = new List<string>();
+
+                using (FileStream fs = File.OpenRead(file))
+                using (StreamReader reader = new StreamReader(fs))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        string data = reader.ReadLine();
+                        beatenLevels.Add(data);
+                    }
+                }
+              
+                return beatenLevels;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return new List<string>();
+            }
+        }
+
         public static WorldMapPlayerInventoryState LoadWorldMapPlayerInventoryState(string file)
         {
             try

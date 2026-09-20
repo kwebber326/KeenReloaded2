@@ -34,6 +34,8 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs.Checkpoints
 
         public bool CanUpdate => true;
 
+        public bool IsCheckPointHit => _checkPointHit;
+
         public override CollisionType CollisionType => CollisionType.CHECKPOINT;
 
         protected abstract Image[] InactiveSprites { get; }
