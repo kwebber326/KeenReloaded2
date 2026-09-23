@@ -38,6 +38,8 @@ namespace KeenReloaded2
 
         public WorldMapMenuOptionDecision? MenuDecision => _menuDecision;
 
+        public WorldMapModeMainMenu LastRequestedMenu { get; private set; }
+
         private void UpdateViewRectangle()
         {
             // pnlGameWindow.AutoScroll = false;
@@ -587,6 +589,7 @@ namespace KeenReloaded2
                 WorldMapSaveState state = BuildSaveState();
                 WorldMapModeMainMenu menu = new WorldMapModeMainMenu(_game.Map.MapPath, true, _songOverride, state);
                 var result = menu.ShowDialog();
+                this.LastRequestedMenu = menu;
                 if (result == DialogResult.Cancel)
                 {
                     _paused = false;

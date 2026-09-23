@@ -20,6 +20,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         protected const int HOLD_TIME = 100;
         protected int _holdTimeTick = 0;
         protected int _animationDelayTick = 0;
+        protected bool _levelBeaten;
+
         public Keen4MirageWorldMapLevel(Rectangle area, SpaceHashGrid grid, int zIndex, Image sprite, string levelName, string levelEntryText, string episode, string music, Guid activationId, Rectangle[] entryPoints, Rectangle[] hitboxes, Rectangle[] foregroundAreas, string imagesPath, int animationDelay, int animationStartIndex, string key)
             : base(area, grid, zIndex, sprite, levelName, levelEntryText, episode, music, activationId, entryPoints, hitboxes, foregroundAreas, imagesPath, animationDelay, animationStartIndex, key)
         {
@@ -80,15 +82,24 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                 _sprite = null;
                 RemoveHitBoxes();
                 _animation.Stop();
-                this.Deactivate();
+                _isActive = false;
             }
             else if (_state == MirageState.REAPPEARING)
             {
                 _state = MirageState.HOLD_ON;
                 CreateForegrounds();
                 CreateHitboxes();
-                this.Activate();
+                if (!_levelBeaten)
+                {
+                    this.Activate();
+                }
             }
+        }
+
+        public override void Deactivate()
+        {
+            _levelBeaten = true;
+            base.Deactivate();
         }
 
         private void RemoveForegrounds()

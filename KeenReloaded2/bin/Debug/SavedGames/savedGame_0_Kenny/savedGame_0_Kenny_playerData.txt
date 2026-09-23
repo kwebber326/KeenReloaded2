@@ -1,1 +1,1 @@
-5000|5|False|[]|[NeuralStunner_5,BoobusBombLauncher_1500]|[SWIMSUIT,GRAPPLING_HOOK]
+31330|5|False|[]|[NeuralStunner_88,BoobusBombLauncher_1275,ShotgunNeuralStunner_35]|[SWIMSUIT,GRAPPLING_HOOK]

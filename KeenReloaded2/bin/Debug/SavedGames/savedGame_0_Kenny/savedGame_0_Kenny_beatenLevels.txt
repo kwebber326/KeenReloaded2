@@ -1,2 +1,6 @@
+keen4_flag_base_yellow_wm|574|285|32|32|10|[5a1a7757-6607-47bd-8a45-36cbd54f609c]
+keen4_flag_base_red1_wm|392|410|32|32|10|[ab095b86-f966-483a-bfe1-baae5e796ec8]
 keen4_flag_base_yellow_wm|463|586|32|32|10|[8847fcf1-9894-4252-a8ab-e56623bb8541]
+keen4_flag_base_yellow_wm|208|404|32|32|10|[9f957d9e-ec08-4784-b306-060e38b8c6af]
 keen4_flag_base_yellow_wm|636|576|32|32|10|[6928dbdd-0b24-4af9-bfc9-1a3feec614cc]
+keen4_flag_base_yellow_wm|269|52|32|32|10|[25c6f3a4-e622-4b77-9b98-9e37fa472f77]

@@ -3,6 +3,7 @@ using KeenReloaded2.ControlEventArgs;
 using KeenReloaded2.Entities;
 using KeenReloaded2.UserControls;
 using KeenReloaded2.Utilities;
+using KeenReloaded2.Utilities.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -51,61 +53,74 @@ namespace KeenReloaded2
             {
                 WorldMapModeMainMenu menu = new WorldMapModeMainMenu(mapPlayer.SelectedFile);
                 menu.ShowDialog();
-                if (menu.MenuDecision == WorldMapMenuOptionDecision.START_NEW)
-                {
-                    bool quitGame = false;
-                    do
-                    {
-                        string path = mapPlayer.SelectedFile;
-                        var map = MapUtility.LoadMapData(path);
-                        string mapName = path.Substring(path.LastIndexOf('\\') + 1).Replace(".txt", "");
-                        var objectiveData = MapUtility.LoadWorldMapObjectives(mapName);
-                        using (WorldMapPlayerForm form = new WorldMapPlayerForm(map, false, objectiveData))
-                        {
-                            form.ShowDialog();
-
-                            if (form.MenuDecision == null || form.MenuDecision == WorldMapMenuOptionDecision.QUIT)
-                                quitGame = true;
-
-                        }
-
-                    } while (!quitGame);
-                }
-                else if (menu.MenuDecision == WorldMapMenuOptionDecision.LOAD_EXISTING)
-                {
-                    bool quitGame = false;
-                    do
-                    {
-                        string worldFile = menu.WorldMapFile;
-                        string playerFile = menu.PlayerDataFile;
-                        string levelFile = menu.LevelFile;
-                        string objectivesFile = menu.ObjectiveStateFile;
-                        string beatenLevelsFile = menu.BeatenLevelsFile;
-
-                        var map = MapUtility.LoadMapData(worldFile);
-                        var currentLevel = levelFile != null ? MapUtility.LoadMapData(levelFile) : null;
-                        var objectiveData = MapUtility.LoadWorldMapObjectives(null, true, objectivesFile);
-                        var playerData = MapUtility.LoadWorldMapPlayerInventoryState(playerFile);
-                        var beatenLevelsData = MapUtility.LoadBeatenLevels(beatenLevelsFile);
-
-                        WorldMapSaveState state = new WorldMapSaveState()
-                        {
-                            WorldMapData = map,
-                            LevelData = currentLevel,
-                            WorldObjectiveState = objectiveData,
-                            PlayerInventoryState = playerData,
-                            BeatenLevels = beatenLevelsData
-                        };
-
-                        using (WorldMapPlayerForm form = new WorldMapPlayerForm(state))
-                        {
-                            form.ShowDialog();
-                            if (form.MenuDecision == null || form.MenuDecision == WorldMapMenuOptionDecision.QUIT)
-                                quitGame = true;
-                        }
-                    } while (!quitGame);
-                }
+                ExecutePlayLoop(mapPlayer, menu, menu.MenuDecision);
             }
+        }
+
+        private static void ExecutePlayLoop(MapLoader mapPlayer, WorldMapModeMainMenu menu, WorldMapMenuOptionDecision? decision)
+        {
+            bool quitGame = false;
+            do
+            {
+                if (decision == WorldMapMenuOptionDecision.START_NEW)
+                {
+                    string path = mapPlayer.SelectedFile;
+                    var map = MapUtility.LoadMapData(path);
+                    string mapName = path.Substring(path.LastIndexOf('\\') + 1).Replace(".txt", "");
+                    var objectiveData = MapUtility.LoadWorldMapObjectives(mapName);
+                    using (WorldMapPlayerForm form = new WorldMapPlayerForm(map, false, objectiveData))
+                    {
+                        form.ShowDialog();
+
+                        if (form.MenuDecision == null || form.MenuDecision == WorldMapMenuOptionDecision.QUIT)
+                            quitGame = true;
+                        else if (form.MenuDecision == WorldMapMenuOptionDecision.LOAD_EXISTING)
+                        {
+                            decision = form.MenuDecision;
+                            quitGame = true;
+                            ExecutePlayLoop(mapPlayer, form.LastRequestedMenu, decision);
+                        }
+                    }
+                }
+                else if (decision == WorldMapMenuOptionDecision.LOAD_EXISTING)
+                {
+                    string worldFile = menu.WorldMapFile.ToTxtExtension();
+                    string playerFile = menu.PlayerDataFile.ToTxtExtension();
+                    string levelFile = menu.LevelFile.ToTxtExtension();
+                    string objectivesFile = menu.ObjectiveStateFile.ToTxtExtension();
+                    string beatenLevelsFile = menu.BeatenLevelsFile.ToTxtExtension();
+
+                    var map = MapUtility.LoadMapData(worldFile);
+                    var currentLevel = levelFile != null ? MapUtility.LoadMapData(levelFile) : null;
+                    var objectiveData = MapUtility.LoadWorldMapObjectives(null, true, objectivesFile);
+                    var playerData = MapUtility.LoadWorldMapPlayerInventoryState(playerFile);
+                    var beatenLevelsData = MapUtility.LoadBeatenLevels(beatenLevelsFile);
+
+                    WorldMapSaveState state = new WorldMapSaveState()
+                    {
+                        WorldMapData = map,
+                        LevelData = currentLevel,
+                        WorldObjectiveState = objectiveData,
+                        PlayerInventoryState = playerData,
+                        BeatenLevels = beatenLevelsData
+                    };
+
+                    using (WorldMapPlayerForm form = new WorldMapPlayerForm(state))
+                    {
+                        form.ShowDialog();
+                        if (form.MenuDecision == null || form.MenuDecision == WorldMapMenuOptionDecision.QUIT)
+                        {
+                            quitGame = true;
+                        }
+                        else if (form.MenuDecision == WorldMapMenuOptionDecision.START_NEW)
+                        {
+                            decision = WorldMapMenuOptionDecision.START_NEW;
+                            quitGame = true;
+                            ExecutePlayLoop(mapPlayer, form.LastRequestedMenu, decision);
+                        }
+                    }
+                }
+            } while (!quitGame);
         }
 
         public MainMenu()
