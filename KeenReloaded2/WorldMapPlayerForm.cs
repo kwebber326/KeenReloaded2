@@ -130,21 +130,22 @@ namespace KeenReloaded2
             pbBackgroundImage.Image = _game.BackGroundImage;
             pbGameImage.Location = new Point(0, 0);
             _worldMapObjectiveData.GameBeaten += _worldMapObjectiveData_GameBeaten;
-            if (state.LevelData != null)
-            {
-                IWorldMapLevel level = _game.Map.MapData.Select(d => d.GameObject)
-                    .OfType<IWorldMapLevel>().FirstOrDefault(l => l.LevelName == state.LevelData.MapName.Replace(".txt", ""));
+            //if (state.LevelData != null)
+            //{
+            //    IWorldMapLevel level = _game.Map.MapData.Select(d => d.GameObject)
+            //        .OfType<IWorldMapLevel>().FirstOrDefault(l => l.LevelName == state.LevelData.MapName.Replace(".txt", ""));
 
-                if (level != null)
-                {
-                    InitializeGameState();
-                    _game_LevelEntered(level, EventArgs.Empty);
-                }
-            }
-            else
-            {
-                _loadedSavedState = true;
-            }
+            //    if (level != null)
+            //    {
+            //        InitializeGameState();
+            //        _game_LevelEntered(level, EventArgs.Empty);
+            //    }
+            //}
+            //else
+            //{
+            //    _loadedSavedState = true;
+            //}
+            _loadedSavedState = true;
         }
 
         private void PauseGame()
@@ -210,7 +211,8 @@ namespace KeenReloaded2
             var gameObjects = state.WorldMapData.MapData.Select(d => d.GameObject);
 
             _player = gameObjects.OfType<WorldMapPlayer>().FirstOrDefault();
-            foreach (var item in state.PlayerInventoryState.WorldMapItems)
+            var worldMapItems = state.PlayerInventoryState.WorldMapItems ?? new List<WorldMapItemType>();
+            foreach (var item in worldMapItems)
             {
                 _player.AcquireItem(item);
             }
@@ -558,11 +560,10 @@ namespace KeenReloaded2
             else if (e.KeyCode == Keys.Enter)
             {
                 OpenGameStateDialog();
+              
             }
-            else
-            {
-                _game.SetKeyPressed(e.KeyCode.ToString(), false);
-            }
+            
+            _game.SetKeyPressed(e.KeyCode.ToString(), false);
         }
 
         private void EmitSongOverrideEventForWorldMapMusic()

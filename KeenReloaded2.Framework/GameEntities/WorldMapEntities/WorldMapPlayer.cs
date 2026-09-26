@@ -28,6 +28,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         private int _currentSpriteIndex;
         private int _currentSpriteChangeDelayTick;
         private bool _hitWater;
+        private bool _initialLoad = true;
 
         private const string KEY_LEFT = GeneralGameConstants.Keys.KEY_LEFT;
         private const string KEY_RIGHT = GeneralGameConstants.Keys.KEY_RIGHT;
@@ -164,6 +165,14 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                 TryMove();
                 this.MoveState = ShouldSwim()
                    ? WorldMapPlayerMoveState.SWIMMING : WorldMapPlayerMoveState.RUNNING;
+            }
+            if (_initialLoad)
+            {
+                _initialLoad = false;
+                Rectangle area = this.HitBox;
+                var collisions = this.CheckCollision(area);
+                EvaluateInteractiveTileCollisionState(collisions);
+                UpdateSprite();
             }
         }
 

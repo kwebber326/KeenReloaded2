@@ -547,5 +547,13 @@ namespace KeenReloaded2.Framework.GameEntities.Projectiles
         public event EventHandler<ObjectEventArgs> Create;
 
         public event EventHandler<ObjectEventArgs> Remove;
+
+        public override string ToString()
+        {
+            string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
+            return $"{this.GetType().Name}{separator}{this.HitBox.X}{separator}" +
+                   $"{this.HitBox.Y}{separator}{this.HitBox.Width}{separator}" +
+                   $"{this.HitBox.Height}{separator}{this.Direction.ToString()}";
+        }
     }
 }
