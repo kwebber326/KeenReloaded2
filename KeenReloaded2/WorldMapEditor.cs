@@ -117,6 +117,11 @@ namespace KeenReloaded2
             try
             {
                 mapObj = e.MapMakerObject.Construct();
+                if (mapObj is WorldMapPlayer)
+                {
+                    var player = (WorldMapPlayer)mapObj;
+                    this.PlayerPosition = new Point(player.HitBox.X, player.HitBox.Y);
+                }
             }
             catch
             {

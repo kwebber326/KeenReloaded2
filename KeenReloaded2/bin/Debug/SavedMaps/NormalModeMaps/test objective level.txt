@@ -14,6 +14,8 @@ keen6_dome_floor_edge_left|282|1098|72|64|10
 keen6_dome_wall_edge_left|282|878|64|264|10
 keen6_dome_ceiling3|344|878|256|32|10
 keen6_dome_wall_edge_right|600|878|52|284|10
+keen4_cave_platform_left_edge|110|935|30|38|10
+keen4_cave_platform_right_edge|140|935|30|38|10
 keen4_council_member_ponder_right|532|471|38|76|15
 keen6_grappling_hook|667|64|32|32|15
 keen6_sandwich|72|46|60|32|15

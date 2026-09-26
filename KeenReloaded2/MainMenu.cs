@@ -123,6 +123,8 @@ namespace KeenReloaded2
                         }
                     }
                 }
+                else if (decision == WorldMapMenuOptionDecision.QUIT)
+                    quitGame = true;
             } while (!quitGame);
         }
 

@@ -343,10 +343,6 @@ namespace KeenReloaded.Framework.Utilities
                 bitmap?.Dispose();
                 throw;
             }
-            //finally
-            //{
-            //    image?.Dispose();
-            //}
         }
     }
 }

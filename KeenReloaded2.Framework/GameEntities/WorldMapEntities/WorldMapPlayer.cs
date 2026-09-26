@@ -48,6 +48,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             this.Direction = Direction.UP;
             _area = area;
             _zIndex = zIndex;
+            this.HitBox = area;
             _keysPressed = new Dictionary<string, bool>();
             InitializeKeyControls();
         }
