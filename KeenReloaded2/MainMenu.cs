@@ -96,6 +96,9 @@ namespace KeenReloaded2
                     var playerData = MapUtility.LoadWorldMapPlayerInventoryState(playerFile);
                     var beatenLevelsData = MapUtility.LoadBeatenLevels(beatenLevelsFile);
 
+                    if (currentLevel?.MapData == null)
+                        currentLevel = null;
+
                     WorldMapSaveState state = new WorldMapSaveState()
                     {
                         WorldMapData = map,

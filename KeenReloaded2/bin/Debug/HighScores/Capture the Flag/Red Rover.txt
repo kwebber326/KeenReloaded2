@@ -5,4 +5,5 @@ Kenny|114160
 Kenny|92840
 Kenny two timer|60970
 Kenny|44680
-Kenny|15000
+K|26800
+00

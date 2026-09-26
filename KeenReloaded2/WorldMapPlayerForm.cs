@@ -29,6 +29,7 @@ namespace KeenReloaded2
         private int _maxVisionY;
         private int _maxVisionX;
         private bool _paused;
+        private bool _loadedSavedState;
         private Timer _gameUpdateTimer;
         private KeenReloadedLoadingWindow _loadingWindow;
         private WorldMapObjectiveManager _worldMapObjectiveData
@@ -71,6 +72,10 @@ namespace KeenReloaded2
 
         private void _gameUpdateTimer_Tick(object sender, EventArgs e)
         {
+            if (_loadedSavedState)
+            {
+                PauseGame();
+            }
             if (!_paused && !_game.IsDisposed)
             {
                 var rectangle = GetViewRectangle();
@@ -136,6 +141,22 @@ namespace KeenReloaded2
                     _game_LevelEntered(level, EventArgs.Empty);
                 }
             }
+            else
+            {
+                _loadedSavedState = true;
+            }
+        }
+
+        private void PauseGame()
+        {
+            _paused = true;
+            _gameUpdateTimer?.Stop();
+            KeenReloadedMessageWindow messageWindow
+                = new KeenReloadedMessageWindow("Paused", 1000);
+            messageWindow.ShowDialog();
+            _paused = false;
+            _loadedSavedState = false;
+            _gameUpdateTimer?.Start();
         }
 
         private void _worldMapObjectiveData_GameBeaten(object sender, EventArgs e)
@@ -281,9 +302,11 @@ namespace KeenReloaded2
                 }
                 else if (form1.GameOver)
                 {
-                    if (form1.MenuDecision == WorldMapMenuOptionDecision.START_NEW)
+                    if (form1.MenuDecision == WorldMapMenuOptionDecision.START_NEW
+                        || form1.MenuDecision == WorldMapMenuOptionDecision.LOAD_EXISTING)
                     {
-                        _menuDecision = WorldMapMenuOptionDecision.START_NEW;
+                        _menuDecision = form1.MenuDecision;
+                        this.LastRequestedMenu = form1.LastRequestedMenu;
                         this.Close();
                     }
                     else if (form1.MenuDecision == WorldMapMenuOptionDecision.QUIT)

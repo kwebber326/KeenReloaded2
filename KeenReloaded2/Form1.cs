@@ -62,6 +62,7 @@ namespace KeenReloaded2
         public MapMakerData LoadedMapData => _game?.IsDisposed ?? false ? _game?.Map : null;
 
         public WorldMapSaveState WorldMapState { get; set; }
+        public WorldMapModeMainMenu LastRequestedMenu { get; private set; }
 
         public Form1()
         {
@@ -605,6 +606,7 @@ namespace KeenReloaded2
             _paused = true;
             UpdateWorldMapStateObject();
             WorldMapModeMainMenu menu = new WorldMapModeMainMenu(this.WorldMapPath, _game?.Map?.MapPath, true, _songOverride, this.WorldMapState);
+            this.LastRequestedMenu = menu;
             var result = menu.ShowDialog();
             if (result == DialogResult.Abort)
             {
