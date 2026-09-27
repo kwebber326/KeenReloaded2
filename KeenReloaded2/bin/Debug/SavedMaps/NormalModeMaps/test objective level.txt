@@ -19,6 +19,8 @@ keen4_cave_platform_right_edge|140|935|30|38|10
 keen5_manhole_black|805|267|200|32|10
 keen5_manhole_green|1005|267|128|32|10
 keen5_manhole_red|1133|267|96|32|10
+keen5_floor_red_middle|1229|267|48|64|10
+keen5_floor_red_edge_right|1277|267|52|64|10
 keen4_council_member_ponder_right|532|471|38|76|15
 keen6_sandwich|72|46|60|32|15
 keen6_rocket_card|235|44|30|32|15

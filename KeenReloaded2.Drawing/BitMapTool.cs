@@ -3,6 +3,7 @@ using System.CodeDom;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
@@ -229,7 +230,9 @@ namespace KeenReloaded.Framework.Utilities
                 {
                     g.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceOver;
                     if (backgroundImage != null)
-                        g.DrawImage(backgroundImage, new Point(0, 0));
+                        //draw with an explicit pixel rectangle; the Point overload scales by the
+                        //image's DPI relative to the canvas, which shrinks/stretches the background
+                        g.DrawImage(backgroundImage, new Rectangle(0, 0, backgroundImage.Width, backgroundImage.Height));
 
                     int count = extraImages.Length;
                     for (int i = 0; i < count; i++)
@@ -343,6 +346,47 @@ namespace KeenReloaded.Framework.Utilities
                 bitmap?.Dispose();
                 throw;
             }
+        }
+
+        /// <summary>
+        /// Stretches an image to exactly width x height pixels, keeping the source image's
+        /// resolution so the result still draws 1:1 on a canvas.
+        /// </summary>
+        public static Bitmap ResizeImage(Image image, int width, int height)
+        {
+            return ResizeImage(image, width, height, image.HorizontalResolution, image.VerticalResolution);
+        }
+
+        /// <summary>
+        /// Stretches an image to exactly width x height pixels. HorizontalResolution and
+        /// VerticalResolution are the DPI stamped on the result (normally the source image's
+        /// resolution) - they are NOT the destination size.
+        /// </summary>
+        public static Bitmap ResizeImage(Image image, int width, int height, float HorizontalResolution, float VerticalResolution)
+        {
+            Rectangle destRect = new Rectangle(0, 0, width, height);
+            Bitmap destImage = new Bitmap(width, height);
+
+            destImage.SetResolution(HorizontalResolution, VerticalResolution);
+
+            using (var graphics = Graphics.FromImage(destImage))
+            {
+                graphics.CompositingQuality = CompositingQuality.HighQuality;
+                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                graphics.SmoothingMode = SmoothingMode.HighQuality;
+                graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+                using (var wrapMode = new ImageAttributes())
+                {
+                    //prevents the half-transparent border the interpolation leaves at the edges
+                    wrapMode.SetWrapMode(WrapMode.TileFlipXY);
+
+                    //drawImage must be set this way to get the desired outcome
+                    graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
+                }
+            }
+
+            return destImage;
         }
     }
 }
