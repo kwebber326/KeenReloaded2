@@ -304,6 +304,7 @@
     <Compile Include="GameEntities\Tiles\Platforms\InvisiblePlatformTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\Keen4SetPathPlatform.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\Keen5LargePipePlatform.cs" />
+    <Compile Include="GameEntities\Tiles\Platforms\Keen5Manhole.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\Keen6ClawTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\Keen6EyeBallTile.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\Keen6SetPathPlatform.cs" />
@@ -6567,6 +6568,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\menu_named_selection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_blue_cylinder_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_blue_cylinder_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_blue_cylinder_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_cylinder_left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_cylinder_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_cylinder_right1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_manhole_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_manhole_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_manhole_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_cylinder_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_cylinder_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_cylinder_right.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

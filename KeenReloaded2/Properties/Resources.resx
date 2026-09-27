@@ -6895,4 +6895,40 @@
   <data name="_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen5_blue_cylinder_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_blue_cylinder_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_blue_cylinder_middle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_blue_cylinder_middle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_blue_cylinder_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_blue_cylinder_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_cylinder_left1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_cylinder_left1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_cylinder_middle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_cylinder_middle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_cylinder_right1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_cylinder_right1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_manhole_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_manhole_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_manhole_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_manhole_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_manhole_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_manhole_red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_cylinder_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_cylinder_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_cylinder_middle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_cylinder_middle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_cylinder_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_cylinder_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

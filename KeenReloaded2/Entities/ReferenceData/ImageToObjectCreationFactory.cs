@@ -28,6 +28,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace KeenReloaded2.Entities.ReferenceData
 {
@@ -4890,6 +4891,82 @@ namespace KeenReloaded2.Entities.ReferenceData
                       },
             };
             AddSimpleGameObject(backgroundReferenceData, miscallaneousImageFiles, transporterKey, typeof(EnemyTransporter), additionalNodeProperties, 15);
+            #endregion
+
+            #region manholes
+
+            string redManholeKey = nameof(Properties.Resources.keen5_manhole_red);
+            string redManholeFile = keen5RedTileFiles.FirstOrDefault(i => i.Contains("manhole"));
+
+            MapMakerObjectProperty[] redManholeExtraProps = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "imageFile",
+                    DataType = typeof(string),
+                    Value = redManholeFile,
+                    Hidden = true
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "biome",
+                    DataType = typeof(string),
+                    Value = Biomes.BIOME_KEEN5_RED,
+                    Hidden = true
+                },
+            };
+
+            AddSimpleGameObject(backgroundReferenceData, keen5RedTileFiles,
+                redManholeKey, typeof(Keen5Manhole), redManholeExtraProps, 10);
+
+            string greenManholeKey = nameof(Properties.Resources.keen5_manhole_green);
+            string greenManholeFile = keen5GreenTileFiles.FirstOrDefault(i => i.Contains("manhole"));
+
+            MapMakerObjectProperty[] greenManholeExtraProps = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "imageFile",
+                    DataType = typeof(string),
+                    Value = greenManholeFile,
+                    Hidden = true
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "biome",
+                    DataType = typeof(string),
+                    Value = Biomes.BIOME_KEEN5_GREEN,
+                    Hidden = true
+                },
+            };
+
+            AddSimpleGameObject(backgroundReferenceData, keen5GreenTileFiles,
+                greenManholeKey, typeof(Keen5Manhole), greenManholeExtraProps, 10);
+
+            string blackManholeKey = nameof(Properties.Resources.keen5_manhole_black);
+            string blackManholeFile = keen5BlackTileFiles.FirstOrDefault(i => i.Contains("manhole"));
+
+            MapMakerObjectProperty[] blackManholeExtraProps = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "imageFile",
+                    DataType = typeof(string),
+                    Value = blackManholeFile,
+                    Hidden = true
+                },
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "biome",
+                    DataType = typeof(string),
+                    Value = Biomes.BIOME_KEEN5_BLACK,
+                    Hidden = true
+                },
+            };
+
+            AddSimpleGameObject(backgroundReferenceData, keen5BlackTileFiles,
+                blackManholeKey, typeof(Keen5Manhole), blackManholeExtraProps, 10);
+
             #endregion
 
             string workingDirectory = Path.Combine(Environment.CurrentDirectory, FileIOUtility.WORLD_MAPS_DIRECTORY);

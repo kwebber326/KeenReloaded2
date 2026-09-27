@@ -9563,6 +9563,36 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen5_blue_cylinder_left {
+            get {
+                object obj = ResourceManager.GetObject("keen5_blue_cylinder_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_blue_cylinder_middle {
+            get {
+                object obj = ResourceManager.GetObject("keen5_blue_cylinder_middle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_blue_cylinder_right {
+            get {
+                object obj = ResourceManager.GetObject("keen5_blue_cylinder_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen5_blue_star_cluster {
             get {
                 object obj = ResourceManager.GetObject("keen5_blue_star_cluster", resourceCulture);
@@ -10046,6 +10076,36 @@ namespace KeenReloaded2.Framework.Properties {
         internal static System.Drawing.Bitmap keen5_force_field_top {
             get {
                 object obj = ResourceManager.GetObject("keen5_force_field_top", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_cylinder_left1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_cylinder_left1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_cylinder_middle {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_cylinder_middle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_cylinder_right1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_cylinder_right1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -10643,6 +10703,36 @@ namespace KeenReloaded2.Framework.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen5_manhole_black {
+            get {
+                object obj = ResourceManager.GetObject("keen5_manhole_black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_manhole_green {
+            get {
+                object obj = ResourceManager.GetObject("keen5_manhole_green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_manhole_red {
+            get {
+                object obj = ResourceManager.GetObject("keen5_manhole_red", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen5_marshmallow1 {
             get {
                 object obj = ResourceManager.GetObject("keen5_marshmallow1", resourceCulture);
@@ -11156,6 +11246,36 @@ namespace KeenReloaded2.Framework.Properties {
         internal static System.Drawing.Bitmap keen5_quantum_dynamo_sphere9 {
             get {
                 object obj = ResourceManager.GetObject("keen5_quantum_dynamo_sphere9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_cylinder_left {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_cylinder_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_cylinder_middle {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_cylinder_middle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_cylinder_right {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_cylinder_right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
