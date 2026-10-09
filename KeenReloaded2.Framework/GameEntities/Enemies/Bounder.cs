@@ -352,7 +352,10 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             if (_keen == null)
                 _keen = this.GetClosestPlayer();
 
-            if (_headTile.Keen == null && _keen.HitBox.IntersectsWith(this.HitBox) && _keen.MoveState != MoveState.ON_POLE && _keen.MoveState != MoveState.HANGING && _keen.MoveState != MoveState.CLIMBING)
+            if (_headTile.Keen == null && _keen.HitBox.IntersectsWith(this.HitBox) 
+                && _keen.MoveState != MoveState.ON_POLE 
+                && _keen.MoveState != MoveState.HANGING 
+                && _keen.MoveState != MoveState.CLIMBING)
             {
                 _keen.GetMovedHorizontally(this, this.Direction, Math.Abs(_horizontalVelocity));
             }

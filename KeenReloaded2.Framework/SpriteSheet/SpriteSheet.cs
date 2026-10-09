@@ -3407,6 +3407,30 @@ namespace KeenReloaded2.Framework.SpriteSheet
 
         #region Miscellaneous
 
+        #region Keen 5 Wire Pole
+        private static Image[] _keen5WireImages;
+
+        public static Image[] Keen5WireImages
+        {
+            get
+            {
+                if (_keen5WireImages == null)
+                {
+                    _keen5WireImages = new Image[]
+                    {
+                        Properties.Resources.keen5_wire1,
+                        Properties.Resources.keen5_wire2,
+                        Properties.Resources.keen5_wire3,
+                        Properties.Resources.keen5_wire4,
+                        Properties.Resources.keen5_wire5,
+                    };
+                }
+
+                return _keen5WireImages;
+            }
+        }
+        #endregion
+
         #region Power Generators
         private static Image[] _keen5PowerGenerator1Images;
 

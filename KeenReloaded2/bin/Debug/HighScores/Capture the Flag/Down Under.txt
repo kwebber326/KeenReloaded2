@@ -1,11 +1,11 @@
 Kenny Ws|308500
 Kenny|180000
 Kenny|180000
+Kdub|174000
 Kenny|67500
 Kenny|56000
 Kenny|51000
 Kdub|47500
-b|47500
-y|43500
+500
 
 y|14000

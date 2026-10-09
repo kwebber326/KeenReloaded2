@@ -1280,6 +1280,9 @@ namespace KeenReloaded2
             this.ClearMapMakerSelection();
             this.ClearSelectedMapItem();
             _mapMakerObjects.Clear();
+
+            //reset to default dimensions
+            SetDimensionsToDefaultValues();
         }
 
         private void MapMaker_FormClosing(object sender, FormClosingEventArgs e)

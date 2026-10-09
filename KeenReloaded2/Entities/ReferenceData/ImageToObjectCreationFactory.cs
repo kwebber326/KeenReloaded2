@@ -700,6 +700,7 @@ namespace KeenReloaded2.Entities.ReferenceData
             string[] keen6FinalConstructFiles = Directory.GetFiles(keen6FinalConstructDirectory);
             string eyeBallPoleKey = nameof(Properties.Resources.keen6_eyeball_pole);
             AddSimpleGameObject(backgroundReferenceData, keen6FinalConstructFiles, eyeBallPoleKey, typeof(Keen6EyeBallPole), null, 10);
+        
 
             //Forest constructs
             //tree vine
@@ -3427,6 +3428,22 @@ namespace KeenReloaded2.Entities.ReferenceData
             allFiles.AddRange(keen6ConstructFiles);
 
             #region miscellaneous
+
+            //keen 5 wire pole
+            var wireKey = nameof(Properties.Resources.keen5_wire1);
+            MapMakerObjectProperty[] additionalWireProperties = new MapMakerObjectProperty[]
+            {
+                new MapMakerObjectProperty()
+                {
+                    PropertyName = "lengths",
+                    DisplayName = "Lengths: ",
+                    DataType = typeof(int),
+                    Value = 1,
+                }
+            };
+            AddSimpleGameObject(backgroundReferenceData, keen5ConstructFiles, wireKey, typeof(Keen5WirePole), additionalWireProperties, 10);
+
+            //control panel
             AddSimpleGameObject(backgroundReferenceData, keen5ConstructFiles, "control_panel", typeof(Keen5ControlPanel), null, 10);
 
             MapMakerObjectProperty[] biomeChangerAdditionalProperties = new MapMakerObjectProperty[]

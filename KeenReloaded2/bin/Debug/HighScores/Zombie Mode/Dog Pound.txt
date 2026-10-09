@@ -1,0 +1,4 @@
+Kenny|120000
+Kenny|18000
+fsrgd|18000
+kdub|10000

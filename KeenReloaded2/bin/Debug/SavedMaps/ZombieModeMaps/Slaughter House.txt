@@ -190,6 +190,9 @@ keen6_blorb1|181|429|62|60|25
 keen6_gix_right3|1913|537|48|30|25
 keen6_ceilick_tongue_waiting|1775|678|10|10|25
 keen6_blorb1|1198|368|62|60|25
+keen5_quantum_dynamo_sphere1|467|344|87|83|25|20|100|200|50
+keen5_quantum_dynamo_sphere1|957|356|87|83|25|20|100|200|50
+keen5_quantum_dynamo_sphere1|1420|342|87|83|25|20|100|200|50
 neural_stunner1|56|946|30|22|50|5
 neural_stunner1|56|968|30|22|50|5
 neural_stunner1|56|990|30|22|50|5

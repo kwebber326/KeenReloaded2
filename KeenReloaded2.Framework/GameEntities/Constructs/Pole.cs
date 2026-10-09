@@ -20,7 +20,7 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 {
     public class Pole : CollisionObject, ICreateRemove, IBiomeTile, ISprite, IUpdatable
     {
-        private const int POLE_WIDTH = 12;
+        protected const int POLE_WIDTH = 12;
         protected string _objectKey;
         protected int _zIndex;
         private PoleType _poleType;

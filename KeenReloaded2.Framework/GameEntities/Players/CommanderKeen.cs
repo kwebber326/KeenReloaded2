@@ -1336,7 +1336,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
 
         public void GetMovedHorizontally(CollisionObject obj, Direction direction, int speed)
         {
-            if (this.MoveState == MoveState.ENTERING_DOOR)
+            if (this.MoveState == MoveState.ENTERING_DOOR || this.IsDead())
             {
                 ClearPushState();
                 return;

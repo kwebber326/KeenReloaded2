@@ -7217,5 +7217,20 @@
   <ItemGroup>
     <None Include="Resources\keen5_blue_cylinder_middle.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_wire1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_wire2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_wire3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_wire4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_wire5.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
