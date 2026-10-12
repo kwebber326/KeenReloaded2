@@ -743,7 +743,6 @@ keen6_flame_thrower_off|1897|154|30|64|18|ON_PHASE2
 keen6_flame_thrower_off|1768|538|30|64|18|ON_PHASE2
 keen6_flame_thrower_off|1984|552|26|50|18|ON_PHASE1
 keen6_flame_thrower_off|2090|506|26|96|18|ON_PHASE3
-keen6_burn_hazard3|783|1257|32|32|18
 keen6_bip_platform|1297|1000|98|32|18|[2200,1000,1297,1000]|c047ea28-13c1-4aa3-b67f-14dcf7f5f86a|True
 keen6_burn_hazard3|787|1970|32|32|18
 keen6_burn_hazard3|755|1970|32|32|18
@@ -845,6 +844,9 @@ keen6_burn_hazard3|2644|520|32|32|18
 keen6_burn_hazard3|2694|520|32|32|18
 keen6_burn_hazard3|2745|520|32|32|18
 keen6_burn_hazard3|2429|685|32|32|18
+keen6_burn_hazard3|708|1256|32|32|18
+keen6_burn_hazard3|783|1256|32|32|18
+enemy_spawner1|2245|1400|92|94|18|[Blooglet,Blooguard]|6|20|10000000
 Red Flag|2227|398|51|64|20|RED|1000|1000|0
 Blue Flag|1322|909|51|64|20|BLUE|100000|100000|0
 blue_flag_destination|92|1483|130|12|20|BLUE
@@ -854,14 +856,6 @@ Green Flag|2268|2051|51|64|20|GREEN|1000000|1000000|0
 yellow_flag_destination|92|2766|130|12|20|YELLOW
 Yellow Flag|1800|105|51|64|20|YELLOW|100000000|100000000|0
 keen_stand_right|68|50|26|64|RIGHT
-keen6_blooglet_blue_right1|1138|1444|46|42|25|Color [Blue]|False
-keen6_blooglet_blue_right1|1422|1441|46|42|25|Color [Blue]|False
-keen6_blooglet_blue_right1|1748|1442|46|42|25|Color [Blue]|False
-keen6_blooglet_blue_right1|2015|1438|46|42|25|Color [Blue]|False
-keen6_blooglet_blue_right1|2296|1439|46|42|25|Color [Blue]|False
-keen6_blooguard_right4|2150|1388|94|90|25
-keen6_blooguard_right4|1862|1402|94|90|25
-keen6_blooguard_right4|1595|1402|94|90|25
 keen6_gix_right3|1189|1459|48|30|25
 keen6_bobba_land_right|2196|1904|74|96|25
 keen6_orbatrix_look_right1|1540|2080|72|32|25

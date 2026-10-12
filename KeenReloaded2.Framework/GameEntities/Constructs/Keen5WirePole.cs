@@ -44,38 +44,46 @@ namespace KeenReloaded2.Framework.GameEntities.Constructs
 
         private void BuildImage()
         {
+           
             List<Image> images = new List<Image>();
             List<Point> locations = new List<Point>();
-            int maxWidth = 0, totalHeight = 0;
-            int x = 0, y = 0;
-            //generate random images;
-            for (int i = 0; i < _lengths; i++)
+            try
             {
-                var image = GenerateRandomWireImage();
-                images.Add(image);
-                if (image.Width > maxWidth) maxWidth = image.Width;
-
-                totalHeight += image.Height;
-            }
-
-            //shift shorter images right
-            foreach (var image in images)
-            {
-                int offset = 0;
-                if (image.Width <  maxWidth)
+                int maxWidth = 0, totalHeight = 0;
+                int x = 0, y = 0;
+                //generate random images;
+                for (int i = 0; i < _lengths; i++)
                 {
-                    offset = maxWidth - POLE_WIDTH;
+                    var image = GenerateRandomWireImage();
+                    images.Add(image);
+                    if (image.Width > maxWidth) maxWidth = image.Width;
+
+                    totalHeight += image.Height;
                 }
-                x += offset;
-                Point loc = new Point(x, y);
-                locations.Add(loc);
 
-                y += image.Height;
+                //shift shorter images right
+                foreach (var image in images)
+                {
+                    int offset = 0;
+                    if (image.Width < maxWidth)
+                    {
+                        offset = maxWidth - POLE_WIDTH;
+                    }
+                    x += offset;
+                    Point loc = new Point(x, y);
+                    locations.Add(loc);
+
+                    y += image.Height;
+                }
+                Size canvasSize = new Size(maxWidth, totalHeight);
+
+                _image = BitMapTool.DrawImagesOnCanvas(canvasSize, null, images.ToArray(),
+                     locations.ToArray());
             }
-            Size canvasSize = new Size(maxWidth, totalHeight);
-
-           _image = BitMapTool.DrawImagesOnCanvas(canvasSize, null, images.ToArray(),
-                locations.ToArray());
+            finally
+            {
+                images.Clear();
+            }
         }
 
         private Image GenerateRandomWireImage()

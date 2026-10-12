@@ -672,6 +672,16 @@ namespace KeenReloaded2.Entities.ReferenceData
             }
             #endregion
 
+            //keen 5 alt tiles
+            string portalWallKey = nameof(Properties.Resources.keen5_black_portal_wall);
+            AddSimpleGameObject(backgroundReferenceData, keen5BlackTileFiles, portalWallKey, typeof(Keen5PortalWall), null, 10);
+
+            string altLeftWallKey = nameof(Properties.Resources.keen5_alternate_black_tile_left);
+            AddSimpleGameObject(backgroundReferenceData, keen5BlackTileFiles, altLeftWallKey, typeof(Keen5AltWallLeft), null, 10);
+
+            string altRightWallKey = nameof(Properties.Resources.keen5_alternate_black_tile_right);
+            AddSimpleGameObject(backgroundReferenceData, keen5BlackTileFiles, altRightWallKey, typeof(Keen5AltWallRight), null, 10);
+
             //keen 6 final level platforms
             #region keen 6 final
             string keen6FinalTileDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_TILES, "keen6", Biomes.BIOME_KEEN6_FINAL);

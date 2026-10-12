@@ -322,6 +322,9 @@
     <Compile Include="GameEntities\Tiles\Platforms\SetPathPlatform.cs" />
     <Compile Include="GameEntities\Tiles\Platforms\SinglePlatform.cs" />
     <Compile Include="GameEntities\Tiles\PoleTile.cs" />
+    <Compile Include="GameEntities\Tiles\Walls\Keen5AltWallLeft.cs" />
+    <Compile Include="GameEntities\Tiles\Walls\Keen5AltWallRight.cs" />
+    <Compile Include="GameEntities\Tiles\Walls\Keen5PortalWall.cs" />
     <Compile Include="GameEntities\Tiles\Walls\LeftEdgeWallTile.cs" />
     <Compile Include="GameEntities\Tiles\Walls\MiddleWallTile.cs" />
     <Compile Include="GameEntities\Tiles\Walls\RightEdgeWallTile.cs" />
@@ -6620,6 +6623,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen5_wire5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_alternate_black_tile_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_alternate_black_tile_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_black_portal_wall.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

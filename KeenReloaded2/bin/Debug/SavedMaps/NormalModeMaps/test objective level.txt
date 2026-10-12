@@ -22,6 +22,11 @@ keen5_manhole_red|1133|267|96|32|10
 keen5_floor_red_middle|1229|267|48|64|10
 keen5_floor_red_edge_right|1277|267|52|64|10
 keen5_wire1|760|440|12|32|10|3
+keen5_wall_black_edge_right|1250|40|52|64|10
+keen5_black_portal_wall|1256|104|62|96|10
+keen5_alternate_black_tile_right|1256|200|86|96|10
+keen5_alternate_black_tile_left|1216|100|43|96|10
+keen5_alternate_black_tile_left|1216|196|43|96|10
 keen4_council_member_ponder_right|532|471|38|76|15
 keen6_sandwich|72|46|60|32|15
 keen6_rocket_card|235|44|30|32|15

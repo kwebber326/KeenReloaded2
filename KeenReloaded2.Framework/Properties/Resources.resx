@@ -2008,6 +2008,12 @@
   <data name="keen4_wormmouth_stun4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen4_wormmouth_stun4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen5_alternate_black_tile_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_alternate_black_tile_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_alternate_black_tile_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_alternate_black_tile_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keen5_bag_o_sugar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_bag_o_sugar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -2037,6 +2043,9 @@
   </data>
   <data name="keen5_black_pole_top" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_black_pole_top.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_black_portal_wall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_black_portal_wall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="keen5_black_wall_to_platform_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_black_wall_to_platform_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
