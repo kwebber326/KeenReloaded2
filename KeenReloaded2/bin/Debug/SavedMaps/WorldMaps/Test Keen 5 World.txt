@@ -1,0 +1,13 @@
+526|551
+keen5_world_map_floor1|312|235|32|32|keen5_world_map_floor1.png|False|0
+keen5_world_map_floor1|344|235|32|32|keen5_world_map_floor1.png|False|0
+keen5_world_map_floor1|344|267|32|32|keen5_world_map_floor1.png|False|0
+keen5_world_map_floor1|312|267|32|32|keen5_world_map_floor1.png|False|0
+keen5_world_map_floor1|376|267|32|32|keen5_world_map_floor1.png|False|0
+keen5_world_map_floor1|376|235|32|32|keen5_world_map_floor1.png|False|0
+keen5_world_map_floor1|408|267|32|32|keen5_world_map_floor1.png|False|0
+keen5_world_map_floor3|408|235|32|32|keen5_world_map_floor3.png|False|0
+keen5_world_map_floor3|440|267|32|32|keen5_world_map_floor3.png|False|0
+keen5_world_map_floor2|440|235|32|32|keen5_world_map_floor2.png|False|0
+keen5_jet_fuel_exhaust_c2|164|235|362|316|10|||Goodbye Galaxy|jazzme_original.wav|87f31f94-e8ad-4611-bb36-65ca5d2507c6|[150,16,158,40,150,0,64,16]|[24,0,124,100,146,72,194,26,216,0,124,16,312,0,28,90,153,58,117,17,271,63,14,17,285,66,13,17,298,68,12,16]|[]|50|0
+keen_stop_up|256|100|16|16

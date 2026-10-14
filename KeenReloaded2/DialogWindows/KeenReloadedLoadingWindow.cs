@@ -125,6 +125,8 @@ namespace KeenReloaded2.DialogWindows
             {
                 case GeneralGameConstants.Episodes.EPISODE_4:
                     return GeneralGameConstants.Sounds.KEEN4_LEVEL_ENTER;
+                case GeneralGameConstants.Episodes.EPISODE_5:
+                    return GeneralGameConstants.Sounds.KEEN5_LEVEL_ENTER;
             }
 
             return GeneralGameConstants.Sounds.KEEN4_LEVEL_ENTER;

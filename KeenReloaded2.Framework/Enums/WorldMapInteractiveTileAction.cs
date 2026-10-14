@@ -8,6 +8,7 @@ namespace KeenReloaded2.Framework.Enums
 {
     public enum WorldMapInteractiveTileAction
     {
+        NONE,
         SWIM
     }
 }

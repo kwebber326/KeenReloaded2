@@ -266,6 +266,13 @@ namespace KeenReloaded2
         {
             _gameUpdateTimer.Stop();
             IWorldMapLevel level = sender as IWorldMapLevel;
+
+            if (level != null && string.IsNullOrEmpty(level.LevelName))
+            {
+                _gameUpdateTimer.Start();
+                return;
+            }
+
             if (level == null || !_loadingWindow.IsMapValid(level.LevelName))
             {
                 HandleMapError("Error loading level");
@@ -277,6 +284,12 @@ namespace KeenReloaded2
             string episode = level.Episode;
             string music = level.Music;
             _player.ClearAllKeyPressStates();
+
+            if (string.IsNullOrEmpty(levelName))
+            {
+                _gameUpdateTimer.Start();
+                return;
+            }
 
             _loadingWindow.LoadLevel(levelName, episode, levelEntryText);
             if (_loadingWindow.DialogResult == DialogResult.OK)

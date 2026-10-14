@@ -42,6 +42,8 @@ namespace KeenReloaded2.Constants
             public const string KEEN_ACCESS_DENIED = "keen_access_denied.wav";
             public const string KEEN4_EXIT = "keen4_exit.wav";
             public const string KEEN4_LEVEL_ENTER = "keen4_level_entry.wav";
+            public const string KEEN5_LEVEL_ENTER = "keen5_level_enter.wav";
+            public const string KEEN5_LEVEL_EXIT = "keen5_level_exit.wav";
             public const string BFG_EXPLOSION = "BFG_explosion.wav";
             public const string RANDOM_WEAPON_GENERATOR_DOOR_OPEN = "Random_weapon_generator_door_open.wav";
             public const string DART_GUN_SHOT = "dart_gun_shot.wav";

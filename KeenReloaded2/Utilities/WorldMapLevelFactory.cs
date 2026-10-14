@@ -836,6 +836,51 @@ namespace KeenReloaded2.Utilities
                 obj = new MapMakerObject(typeof(ForeGroundMultiHitboxWorldMapLevel),
                     file, false, properties.ToArray());
             }
+            else if (imgName.Contains("keen5_jet_fuel_exhaust_c2"))
+            {
+                properties.Add(new MapMakerObjectProperty()
+                {
+                    PropertyName = "hitboxes",
+                    DisplayName = "Hitboxes:",
+                    DataType = typeof(Rectangle[]),
+                    Value = new Rectangle[]
+                    {
+                            new Rectangle(24, 0, 124, 100),
+                            new Rectangle(146, 72, 194, 26),
+                            new Rectangle(216, 0, 124, 16),
+                            new Rectangle(312, 0, 28, 90),
+                            new Rectangle(153, 58, 117, 17),
+                            new Rectangle(271,63,14,17),
+                            new Rectangle(285, 66, 13, 17),
+                            new Rectangle(298, 68, 12, 16)
+                    },
+                    Hidden = true
+                });
+
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(150,16, 158, 40),
+                        new Rectangle(150, 0, 64, 16)
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_5;
+
+                properties.Add(new MapMakerObjectProperty()
+                {
+                    PropertyName = "foregroundAreas",
+                    DisplayName = "Foreground Areas:",
+                    DataType = typeof(Rectangle[]),
+                    Value = new Rectangle[0],
+                    Hidden = true
+                });
+                properties.AddRange(animatedWorldMapProperties);
+
+                obj = new MapMakerObject(typeof(AnimatedForegroundMultiHitboxWorldMapLevel),
+                    file, false, properties.ToArray());
+            }
 
             return obj;
         }
