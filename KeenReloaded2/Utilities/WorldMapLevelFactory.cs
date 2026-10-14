@@ -25,7 +25,7 @@ namespace KeenReloaded2.Utilities
                 }
                 return _worldMapSongs;
             }
-        } 
+        }
         public static MapMakerObject GetWorldMapLevelObject(string file, string currentDirectory)
         {
             Image img = Image.FromFile(file);
@@ -879,6 +879,78 @@ namespace KeenReloaded2.Utilities
                 properties.AddRange(animatedWorldMapProperties);
 
                 obj = new MapMakerObject(typeof(AnimatedForegroundMultiHitboxWorldMapLevel),
+                    file, false, properties.ToArray());
+            }
+            else if (imgName.Contains("keen5_hallway_vertical_c1"))
+            {
+                properties.Add(new MapMakerObjectProperty()
+                {
+                    PropertyName = "hitboxes",
+                    DisplayName = "Hitboxes:",
+                    DataType = typeof(Rectangle[]),
+                    Value = new Rectangle[]
+                      {
+                                new Rectangle(0, 0, 32, 86),
+                                new Rectangle(0, 67, 19, 111),
+                                new Rectangle(0, 181, 32, 40),
+                                new Rectangle(95, 0, 32, 86),
+                                new Rectangle(108, 67, 20, 86),
+                                new Rectangle(96,151, 32,70),
+                      },
+                    Hidden = true
+                });
+
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(150,16, 158, 40),
+                        new Rectangle(150, 0, 64, 16)
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_5;
+
+                properties.Add(new MapMakerObjectProperty()
+                {
+                    PropertyName = "foregroundAreas",
+                    DisplayName = "Foreground Areas:",
+                    DataType = typeof(Rectangle[]),
+                    Value = new Rectangle[]
+                    {
+                        new Rectangle(45, 15, 37, 146),
+                        new Rectangle(31, 21, 10, 142),
+                        new Rectangle(37, 19, 10, 144),
+                        new Rectangle(82, 21, 10, 142),
+                        new Rectangle(29, 26, 4, 52),
+                        new Rectangle(31, 117, 10, 48),
+                        new Rectangle(85, 117, 10, 48),
+                        new Rectangle(27, 119, 10, 52),
+                        new Rectangle(89, 117, 6, 54),
+                        new Rectangle(22, 122, 9, 60),
+                        new Rectangle(16, 126, 16, 56),
+                        new Rectangle(92, 117, 10, 58),
+                        new Rectangle(100, 121, 6, 52),
+                        new Rectangle(19, 91, 8, 6),
+                        new Rectangle(27, 96, 2, 4),
+                        new Rectangle(31, 100, 2, 2),
+                        new Rectangle(22, 99, 2, 2),
+                        new Rectangle(24, 101, 2, 2),
+                        new Rectangle(19, 115, 2, 2),
+                        new Rectangle(22, 118, 2, 2),
+                        new Rectangle(98, 94, 2, 2),
+                        new Rectangle(102, 96, 2, 2),
+                        new Rectangle(99,97, 4, 2),
+                        new Rectangle(98, 100, 4, 2),
+                        new Rectangle(95, 102, 2, 2),
+                        new Rectangle(93, 103, 2, 2),
+                        new Rectangle(105, 117, 2, 2),
+                        new Rectangle(103, 119, 2, 2),
+                    },
+                    Hidden = true
+                });
+
+                obj = new MapMakerObject(typeof(ForeGroundMultiHitboxWorldMapLevel),
                     file, false, properties.ToArray());
             }
 
