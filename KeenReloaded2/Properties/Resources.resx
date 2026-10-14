@@ -6955,4 +6955,127 @@
   <data name="keen5_black_portal_wall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_black_portal_wall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen5_green_pipe1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_pipe1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_pipe10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_pipe10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_pipe11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_pipe11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_pipe12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_pipe12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_pipe13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_pipe13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_pipe14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_pipe14.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_pipe15" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_pipe15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_pipe16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_pipe16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_pipe17" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_pipe17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_pipe18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_pipe18.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_pipe2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_pipe2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_pipe3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_pipe3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_pipe4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_pipe4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_pipe5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_pipe5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_pipe6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_pipe6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_pipe7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_pipe7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_pipe8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_pipe8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_pipe9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_pipe9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_toxic_waste" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_toxic_waste.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_green_vent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_green_vent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_jet_fuel_exhaust1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_jet_fuel_exhaust1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_jet_fuel_exhaust2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_jet_fuel_exhaust2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_cross_pipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_cross_pipe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_horizontal_pipe1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_horizontal_pipe1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_horizontal_pipe2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_horizontal_pipe2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_left_end_pipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_left_end_pipe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_right_end_pipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_right_end_pipe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_toxic_waste" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_toxic_waste.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_turn_pipe1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_turn_pipe1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_turn_pipe2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_turn_pipe2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_turn_pipe3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_turn_pipe3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_turn_pipe4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_turn_pipe4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_t_pipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_t_pipe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_T_pipe2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_T_pipe2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_t_pipe_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_t_pipe_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_t_pipe_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_t_pipe_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_vent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_vent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_vertical_pipe1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_vertical_pipe1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_vertical_pipe2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_vertical_pipe2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_vertical_pipe3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_vertical_pipe3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_red_vertical_pipe_end" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_red_vertical_pipe_end.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -7241,5 +7241,128 @@
   <ItemGroup>
     <None Include="Resources\keen5_black_portal_wall.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_pipe1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_pipe2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_pipe3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_pipe4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_pipe5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_pipe6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_pipe7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_pipe8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_pipe9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_pipe10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_pipe11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_pipe12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_pipe13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_pipe14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_pipe15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_pipe16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_pipe17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_pipe18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_toxic_waste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_green_vent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_jet_fuel_exhaust1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_jet_fuel_exhaust2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_cross_pipe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_horizontal_pipe1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_horizontal_pipe2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_left_end_pipe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_right_end_pipe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_t_pipe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_t_pipe_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_t_pipe_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_T_pipe2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_toxic_waste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_turn_pipe1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_turn_pipe2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_turn_pipe3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_turn_pipe4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_vent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_vertical_pipe_end.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_vertical_pipe1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_vertical_pipe2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_red_vertical_pipe3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

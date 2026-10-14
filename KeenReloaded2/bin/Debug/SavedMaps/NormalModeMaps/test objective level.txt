@@ -46,5 +46,11 @@ keen5_blue_cylinder_left|945|300|64|512|keen5_blue_cylinder_left.png|False|201
 keen5_green_cylinder_left1|1009|300|64|512|keen5_green_cylinder_left1.png|False|201
 keen5_green_cylinder_right1|1073|300|64|512|keen5_green_cylinder_right1.png|False|201
 keen5_red_cylinder_left|1137|300|64|512|keen5_red_cylinder_left.png|False|201
+keen5_red_vertical_pipe3|152|560|32|32|keen5_red_vertical_pipe3.png|True|201
+keen5_red_vertical_pipe_end|152|592|32|32|keen5_red_vertical_pipe_end.png|True|201
+keen5_red_turn_pipe3|152|528|32|32|keen5_red_turn_pipe3.png|True|201
+keen5_red_turn_pipe4|184|528|32|32|keen5_red_turn_pipe4.png|True|201
+keen5_red_vertical_pipe_end|184|560|32|32|keen5_red_vertical_pipe_end.png|True|201
+keen5_red_toxic_waste|283|1005|64|96|keen5_red_toxic_waste.png|True|201
 keen5_red_cylinder_right|1166|300|64|512|keen5_red_cylinder_right.png|False|202
 keen5_omegamatic_second_machine1|433|122|280|240|15|LEVEL_EXIT|[]

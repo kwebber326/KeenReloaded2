@@ -10543,6 +10543,186 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_pipe1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_pipe1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_pipe10 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_pipe10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_pipe11 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_pipe11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_pipe12 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_pipe12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_pipe13 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_pipe13", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_pipe14 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_pipe14", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_pipe15 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_pipe15", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_pipe16 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_pipe16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_pipe17 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_pipe17", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_pipe18 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_pipe18", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_pipe2 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_pipe2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_pipe3 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_pipe3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_pipe4 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_pipe4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_pipe5 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_pipe5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_pipe6 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_pipe6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_pipe7 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_pipe7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_pipe8 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_pipe8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_pipe9 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_pipe9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen5_green_pole_bottom {
             get {
                 object obj = ResourceManager.GetObject("keen5_green_pole_bottom", resourceCulture);
@@ -10613,9 +10793,49 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_toxic_waste {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_toxic_waste", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_green_vent {
+            get {
+                object obj = ResourceManager.GetObject("keen5_green_vent", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen5_green_wall_to_platform_left {
             get {
                 object obj = ResourceManager.GetObject("keen5_green_wall_to_platform_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_jet_fuel_exhaust1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_jet_fuel_exhaust1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_jet_fuel_exhaust2 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_jet_fuel_exhaust2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -11773,6 +11993,16 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_cross_pipe {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_cross_pipe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen5_red_cylinder_left {
             get {
                 object obj = ResourceManager.GetObject("keen5_red_cylinder_left", resourceCulture);
@@ -11816,6 +12046,36 @@ namespace KeenReloaded2.Properties {
         internal static System.Drawing.Bitmap keen5_red_generator_wall {
             get {
                 object obj = ResourceManager.GetObject("keen5_red_generator_wall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_horizontal_pipe1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_horizontal_pipe1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_horizontal_pipe2 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_horizontal_pipe2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_left_end_pipe {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_left_end_pipe", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -11886,6 +12146,156 @@ namespace KeenReloaded2.Properties {
         internal static System.Drawing.Bitmap keen5_red_pole_top {
             get {
                 object obj = ResourceManager.GetObject("keen5_red_pole_top", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_right_end_pipe {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_right_end_pipe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_t_pipe {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_t_pipe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_t_pipe_left {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_t_pipe_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_t_pipe_right {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_t_pipe_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_T_pipe2 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_T_pipe2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_toxic_waste {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_toxic_waste", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_turn_pipe1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_turn_pipe1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_turn_pipe2 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_turn_pipe2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_turn_pipe3 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_turn_pipe3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_turn_pipe4 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_turn_pipe4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_vent {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_vent", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_vertical_pipe_end {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_vertical_pipe_end", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_vertical_pipe1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_vertical_pipe1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_vertical_pipe2 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_vertical_pipe2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_red_vertical_pipe3 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_red_vertical_pipe3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
