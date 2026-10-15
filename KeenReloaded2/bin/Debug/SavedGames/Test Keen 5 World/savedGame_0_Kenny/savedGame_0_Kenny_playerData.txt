@@ -1,0 +1,1 @@
+0|1|False|[]|[NeuralStunner_2,RailgunNeuralStunner_1]|[]

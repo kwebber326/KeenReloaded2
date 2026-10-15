@@ -25,6 +25,7 @@ namespace KeenReloaded2
     public partial class WorldMapModeMainMenu : Form
     {
         private string _worldMapFile;
+        private readonly string _mapName;
         private string _levelFile;
         private string _objectiveStateFile;
         private string _playerDataFile;
@@ -104,6 +105,7 @@ namespace KeenReloaded2
         {
             _inGame = inGame;
             _worldMapFile = worldMapFile;
+            _mapName = FileIOUtility.ExtractFileNameFromPath(worldMapFile);
             _currentMenu = _mainMenuOptions;
             _songOverride = songOverride;
             _worldState = saveState;
@@ -169,7 +171,7 @@ namespace KeenReloaded2
             int width = img.Width,
                 height = img.Height;
 
-            var directories = GetSavedDirectories();
+            var directories = GetSavedDirectories(_mapName);
             var savedGames = directories.Select(d => d.Substring(d.LastIndexOf(@"\"))
                 .Split('_')).ToArray();
 
@@ -409,7 +411,7 @@ namespace KeenReloaded2
             if (option != null)
             {
                 string key = option.GetKey();
-                var directory = GetSavedDirectories().FirstOrDefault(
+                var directory = GetSavedDirectories(_mapName).FirstOrDefault(
                     d => d.Contains(key));
 
                 if (!Directory.Exists(directory))
@@ -420,7 +422,7 @@ namespace KeenReloaded2
                 if (directory != null)
                 {
                     string mapName = _worldState?.WorldMapData != null ?
-                        _worldState.WorldMapData.MapName :
+                        _mapName :
                         _worldMapFile.Substring(_worldMapFile.LastIndexOf(@"\") + 1);
 
                     string objectivesPrefix = mapName.Replace(".txt", "");
@@ -458,7 +460,7 @@ namespace KeenReloaded2
             string saveKey = option.GetKey();
 
             //remove existing save directory if it exists
-            string[] directories = GetSavedDirectories();
+            string[] directories = GetSavedDirectories(_mapName);
             string existingSavedFolder = directories.FirstOrDefault(
                 d =>
                 {
@@ -476,11 +478,11 @@ namespace KeenReloaded2
                 //save objective data
                 MapUtility.SaveWorldMapObjectives(
                     _worldState.WorldObjectiveState,
-                    _worldState.WorldMapData.MapName,
+                    _mapName,
                     true, saveKey);
 
                 //save world map data
-                MapUtility.SaveMap(_worldState.WorldMapData.MapName,
+                MapUtility.SaveMap(_mapName,
                     MainMenuConstants.OPTION_LABEL_WORLD_MODE, _worldState.WorldMapData.MapSize,
                     _worldState.WorldMapData.MapData,
                     true, saveKey);
@@ -495,11 +497,12 @@ namespace KeenReloaded2
                 }
 
                 //save player state
-                MapUtility.SaveWorldMapPlayerInventoryState(saveKey,
+                MapUtility.SaveWorldMapPlayerInventoryState(saveKey, _mapName,
                     _worldState.PlayerInventoryState.ToString());
 
                 //save beaten levels
-                MapUtility.SaveBeatenLevels(_worldState.BeatenLevels, saveKey);
+                MapUtility.SaveBeatenLevels(_worldState.BeatenLevels, 
+                    _mapName, saveKey);
             }
             catch (Exception ex)
             {
@@ -508,10 +511,17 @@ namespace KeenReloaded2
             }
         }
 
-        private static string[] GetSavedDirectories()
+        private static string[] GetSavedDirectories(string mapName)
         {
+            if (string.IsNullOrEmpty(mapName))
+                return Array.Empty<string>();
+
             string path = Path.Combine(Environment.CurrentDirectory,
-                            MapMakerConstants.SAVED_GAMES_FOLDER);
+                            MapMakerConstants.SAVED_GAMES_FOLDER, mapName);
+
+            if (!Directory.Exists(path))
+                return Array.Empty<string>();
+
             string[] directories = Directory.GetDirectories(path);
             return directories;
         }

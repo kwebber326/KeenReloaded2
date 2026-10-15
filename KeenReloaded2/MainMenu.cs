@@ -115,9 +115,10 @@ namespace KeenReloaded2
                         {
                             quitGame = true;
                         }
-                        else if (form.MenuDecision == WorldMapMenuOptionDecision.START_NEW)
+                        else if (form.MenuDecision == WorldMapMenuOptionDecision.START_NEW
+                            || form.MenuDecision == WorldMapMenuOptionDecision.LOAD_EXISTING)
                         {
-                            decision = WorldMapMenuOptionDecision.START_NEW;
+                            decision = form.MenuDecision;
                             quitGame = true;
                             ExecutePlayLoop(mapPlayer, form.LastRequestedMenu, decision);
                         }

@@ -36,7 +36,7 @@ namespace KeenReloaded2.Utilities
                 if (savedGame && string.IsNullOrEmpty(savedGameName))
                     throw new ArgumentNullException(nameof(savedGame));
 
-                string folder = savedGame ? Path.Combine(MapMakerConstants.SAVED_GAMES_FOLDER, savedGameName)
+                string folder = savedGame ? Path.Combine(MapMakerConstants.SAVED_GAMES_FOLDER, mapName, savedGameName)
                     : MapMakerConstants.SAVED_MAPS_FOLDER;
                 string path = Path.Combine(System.Environment.CurrentDirectory, folder, gameModeFolder, mapName + ".txt");
                 StringBuilder builder = new StringBuilder();
@@ -133,7 +133,7 @@ namespace KeenReloaded2.Utilities
 
                 string data = worldMapObjectiveData.ToString();
                 string folder = isSavedGame 
-                    ? Path.Combine(MapMakerConstants.SAVED_GAMES_FOLDER, savedGameName) 
+                    ? Path.Combine(MapMakerConstants.SAVED_GAMES_FOLDER, mapName, savedGameName) 
                     : MapMakerConstants.WORLD_MAP_OBJECTIVES_FOLDER;
                 string path = Path.Combine(Environment.CurrentDirectory, folder);
                 Directory.CreateDirectory(path);
@@ -148,12 +148,12 @@ namespace KeenReloaded2.Utilities
             }
         }
 
-        public static bool SaveWorldMapPlayerInventoryState(string savedGameName, string data)
+        public static bool SaveWorldMapPlayerInventoryState(string savedGameName, string mapName, string data)
         {
             try
             {
-                string path = Path.Combine(MapMakerConstants.SAVED_GAMES_FOLDER
-                    , savedGameName, savedGameName + "_playerData.txt");
+                string path = Path.Combine(MapMakerConstants.SAVED_GAMES_FOLDER,
+                    mapName, savedGameName, savedGameName + "_playerData.txt");
 
                 File.WriteAllText(path, data);
                 return true;
@@ -165,12 +165,12 @@ namespace KeenReloaded2.Utilities
             }
         }
 
-        public static bool SaveBeatenLevels(List<string> beatenLevels, string savedGameName)
+        public static bool SaveBeatenLevels(List<string> beatenLevels, string mapName, string savedGameName)
         {
             try
             {
                 string path = Path.Combine(MapMakerConstants.SAVED_GAMES_FOLDER
-                    , savedGameName, savedGameName + "_beatenLevels.txt");
+                    , mapName, savedGameName, savedGameName + "_beatenLevels.txt");
 
                 string data = string.Join("\n", beatenLevels);
                 File.WriteAllText(path, data);
