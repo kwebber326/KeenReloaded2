@@ -6,6 +6,7 @@ using KeenReloaded2.Framework.GameEntities.Constructs.Checkpoints;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Items;
 using KeenReloaded2.Framework.GameEntities.Players;
+using KeenReloaded2.Framework.GameEntities.Weapons;
 using KeenReloaded2.Framework.GameEntities.WorldMapEntities;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Utilities;
@@ -217,10 +218,15 @@ namespace KeenReloaded2
                 _player.AcquireItem(item);
             }
 
+            var weaponSet = state.PlayerInventoryState.PlayerWeapons ?? new List<NeuralStunner>()
+            {
+                new NeuralStunner(null, Rectangle.Empty)
+            };
+
             _playerState = new CommanderKeen(new Rectangle(), null, Framework.Enums.Direction.LEFT,
                 state.PlayerInventoryState.PlayerLives, state.PlayerInventoryState.PlayerPoints);
 
-            _playerState.InitializeWeapons(state.PlayerInventoryState.PlayerWeapons);
+            _playerState.InitializeWeapons(weaponSet);
 
             if (state.BeatenLevels.Any())
             {
@@ -605,9 +611,12 @@ namespace KeenReloaded2
             saveState.PlayerInventoryState = new WorldMapPlayerInventoryState()
             {
                 PlayerGems = _playerState?.Gems ?? new List<Gem>(),
-                PlayerLives = _playerState?.Lives ?? 0,
+                PlayerLives = _playerState?.Lives ?? 3,
                 PlayerPoints = _playerState?.Points ?? 0,
-                PlayerWeapons = _playerState?.Weapons ?? new List<Framework.GameEntities.Weapons.NeuralStunner>(),
+                PlayerWeapons = _playerState?.Weapons ?? new List<NeuralStunner>()
+                {
+                    new NeuralStunner(null, Rectangle.Empty, 5)
+                },
                 WorldMapItems = _player?.ItemsAcquired?.ToList() ?? new List<WorldMapItemType>()
             };
             saveState.BeatenLevels = saveState.WorldMapData.MapData

@@ -5051,6 +5051,13 @@ namespace KeenReloaded2.Entities.ReferenceData
                              Value = 0,
                              PropertyName = "zIndex"
                          },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName ="drawImageOnInitialization",
+                             DataType = typeof(bool),
+                             Value = true,
+                             Hidden = true
+                         }
                     });
 
                     referenceData.Add(imgName, obj);

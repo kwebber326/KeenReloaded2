@@ -32,7 +32,7 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
                 string directory = FileIOUtility.GetResourcePathForMainProject();
                 string imagePath = System.IO.Path.Combine(directory, imageName);
                 _image = Image.FromFile(imagePath);
-               
+
                 this.Draw();
             }
             catch (Exception ex)
@@ -41,12 +41,18 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
             }
         }
 
-        public Background(Rectangle area, Image sprite, bool stretchImage, int zIndex)
+        public Background(Rectangle area, Image sprite, bool stretchImage, int zIndex, bool drawImageOnInitialization = false)
         {
             _area = area;
             _image = sprite;
             _stretchImage = stretchImage;
             _zIndex = zIndex;
+
+            if (sprite?.Tag != null)
+                _imagePath = FileIOUtility.ExtractFileNameFromPath(sprite.Tag.ToString());
+
+            if (drawImageOnInitialization)
+                this.Draw();
         }
 
         public int ZIndex => _zIndex;

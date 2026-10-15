@@ -164,7 +164,7 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 {
                     weaponSet[i] = new SnakeGun(_collisionGrid, new Rectangle(weaponSet[i].HitBox.Location, weaponSet[i].HitBox.Size), weaponSet[i].Ammo);
                 }
-                RegisterProjectileEvents(weaponSet[i]);
+                RegisterProjectileEvents(weaponSet[i]); 
 
                 _weapons.Add(weaponSet[i]);
             }

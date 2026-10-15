@@ -292,7 +292,10 @@ namespace KeenReloaded2.Utilities
                 return null;
 
             var imgName = path.Substring(path.LastIndexOf(@"\") + 1);
-            imgName = imgName.Substring(0, imgName.LastIndexOf('.'));
+            int dotIndex = imgName.LastIndexOf('.');
+            if (dotIndex != -1)
+                imgName = imgName.Substring(0, dotIndex);
+
             return imgName;
         }
 
