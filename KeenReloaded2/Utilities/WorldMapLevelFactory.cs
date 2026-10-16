@@ -904,8 +904,7 @@ namespace KeenReloaded2.Utilities
                 if (entryPointProp != null)
                     entryPointProp.Value = new Rectangle[]
                     {
-                        new Rectangle(150,16, 158, 40),
-                        new Rectangle(150, 0, 64, 16)
+                        new Rectangle(21, 1, 80, 220)
                     };
 
                 var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
