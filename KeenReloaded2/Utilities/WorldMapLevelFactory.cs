@@ -999,6 +999,96 @@ namespace KeenReloaded2.Utilities
                 obj = new MapMakerObject(typeof(ForeGroundMultiHitboxWorldMapLevel),
                     file, false, properties.ToArray());
             }
+            else if (imgName.Contains("keen5_world_map_sphere_left_c1"))
+            {
+                properties.Add(new MapMakerObjectProperty()
+                {
+                    PropertyName = "hitboxes",
+                    DisplayName = "Hitboxes:",
+                    DataType = typeof(Rectangle[]),
+                    Value = new Rectangle[]
+                   {
+                        new Rectangle(0, 98, 117, 5),
+                        new Rectangle(116, 98, 16, 64),
+                        new Rectangle(0, 131, 136, 30),
+                   },
+                    Hidden = true
+                });
+
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(15, 103, 118, 27)
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_5;
+
+                properties.Add(new MapMakerObjectProperty()
+                {
+                    PropertyName = "foregroundAreas",
+                    DisplayName = "Foreground Areas:",
+                    DataType = typeof(Rectangle[]),
+                    Value = new Rectangle[]
+                    {
+                        new Rectangle(48, 97, 74, 34),
+                        new Rectangle(42, 112, 6, 19),
+                        new Rectangle(39, 115, 4, 16),
+                        new Rectangle(34, 119, 4, 14),
+                        new Rectangle(232, 101, 4, 4),
+                        new Rectangle(211, 93, 14, 13),
+                        new Rectangle(30, 123, 4, 8)
+                    },
+                    Hidden = true
+                });
+
+                obj = new MapMakerObject(typeof(ForeGroundMultiHitboxWorldMapLevel),
+                    file, false, properties.ToArray());
+            }
+            else if (imgName.Contains("keen5_world_map_sphere_up_c1"))
+            {
+                properties.Add(new MapMakerObjectProperty()
+                {
+                    PropertyName = "hitboxes",
+                    DisplayName = "Hitboxes:",
+                    DataType = typeof(Rectangle[]),
+                    Value = new Rectangle[]
+                   {
+                        new Rectangle(58, 0, 32, 67),
+                        new Rectangle(58, 56, 130, 3),
+                        new Rectangle(154, 0, 32, 67),
+                   },
+                    Hidden = true
+                });
+
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(89, 8, 64, 48)
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_5;
+
+                properties.Add(new MapMakerObjectProperty()
+                {
+                    PropertyName = "foregroundAreas",
+                    DisplayName = "Foreground Areas:",
+                    DataType = typeof(Rectangle[]),
+                    Value = new Rectangle[]
+                    {
+                        new Rectangle(90, 5, 14, 2),
+                        new Rectangle(141, 5, 14, 2),
+                        new Rectangle(88, 7, 71, 52)
+                    },
+                    Hidden = true
+                });
+
+                obj = new MapMakerObject(typeof(ForeGroundMultiHitboxWorldMapLevel),
+                    file, false, properties.ToArray());
+            }
 
             return obj;
         }
