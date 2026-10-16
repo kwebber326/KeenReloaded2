@@ -47,6 +47,7 @@ keen6_industrial_wall_edge_right|1361|0|52|800|10
 keen6_industrial_wall_edge_right|1511|0|52|800|10
 flipping_platform_still|940|1328|64|26|12
 flipping_platform_still|1004|1328|64|26|12
+flipping_platform_still|41|1852|64|26|12
 keen6_Switch_pole|1646|690|20|128|keen6_Switch_pole.png|False|15
 chute|41|877|64|64|15|CHUTE|2|
 keen6_Switch_pole|226|845|20|128|keen6_Switch_pole.png|True|15

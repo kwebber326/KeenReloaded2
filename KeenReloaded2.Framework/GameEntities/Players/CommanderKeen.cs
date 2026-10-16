@@ -909,6 +909,14 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 {
                     this.Die();
                 }
+                else if (_isUsingPogo && enemy is ISquashable)
+                {
+                    var squashable = (ISquashable)obj;
+                    if (!squashable.IsSquashed && squashable.CanSquash)
+                    {
+                        squashable.Squash();
+                    }
+                }
             }
             else if (obj is GemPlaceHolder)
             {
