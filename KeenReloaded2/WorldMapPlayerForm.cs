@@ -320,6 +320,10 @@ namespace KeenReloaded2
                     ProcessLevelCompletion(level, levelName, form1.LoadedMapData);
                     EmitSongOverrideEventForWorldMapMusic();
                     _gameUpdateTimer.Start();
+                    if (level is BarrierLevel)
+                    {
+                        ((BarrierLevel)level).Deactivate();
+                    }
                 }
                 else if (form1.GameOver)
                 {

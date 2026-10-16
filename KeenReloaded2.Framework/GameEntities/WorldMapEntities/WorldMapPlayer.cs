@@ -145,7 +145,15 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             {
                 Rectangle areaToCheck = this.HitBox;
                 var collisions = this.CheckCollision(areaToCheck);
-                var levelCollision = collisions.FirstOrDefault(c => c is IWorldMapLevel) as WorldMapLevel;
+                var levelCollision = collisions.Where(c =>
+                 {
+                     var level = c as IWorldMapLevel;
+                     if (level == null ||  string.IsNullOrWhiteSpace(level.LevelName))
+                         return false;
+
+                     return true;
+                 }).OrderByDescending(l => ((IWorldMapLevel)l).EntryPriority)
+                 .FirstOrDefault() as WorldMapLevel;
                 if (levelCollision != null)
                 {
                     levelCollision.TryEnterLevel(this);

@@ -67,7 +67,6 @@ keen5_world_map_floor1|825|186|32|32|keen5_world_map_floor1|False|0
 keen5_world_map_floor3|857|123|32|32|keen5_world_map_floor3|False|0
 keen5_world_map_floor1|857|155|32|32|keen5_world_map_floor1|False|0
 keen5_world_map_floor1|857|186|32|32|keen5_world_map_floor1|False|0
-keen5_jet_fuel_exhaust_c2|164|235|362|316|10|Pilot|Keen rudely interrupts the Shikadi conference meeting|Goodbye Galaxy|jazzme_original.wav|87f31f94-e8ad-4611-bb36-65ca5d2507c6|[150,16,158,40,150,0,64,16]|[24,0,124,100,146,72,194,26,216,0,124,16,312,0,28,90,153,58,117,17,271,63,14,17,285,66,13,17,298,68,12,16]|[]|50|0
 keen5_world_map_barrier_top|569|100|32|8|10|keen5_world_map_barrier_top.png
 keen5_world_map_barrier_bottom|569|197|32|32|10|keen5_world_map_barrier_bottom.png
 keen5_world_map_barrier_top|601|100|32|8|10|keen5_world_map_barrier_top.png
@@ -88,16 +87,21 @@ keen5_world_map_barrier_bottom|761|197|32|32|10|keen5_world_map_barrier_bottom.p
 keen5_world_map_barrier_bottom|793|197|32|32|10|keen5_world_map_barrier_bottom.png
 keen5_world_map_barrier_bottom|825|197|32|32|10|keen5_world_map_barrier_bottom.png
 keen5_world_map_barrier_bottom|857|197|32|32|10|keen5_world_map_barrier_bottom.png
-keen5_hallway_vertical_c1|281|12|128|223|10|Obstacle Course 1|Keen navigates the death run|Goodbye Galaxy|jazzme_original.wav|8ef7a10e-7945-446f-be54-092a7fb4b68b|[21,1,80,220]|[0,0,32,86,0,67,19,111,0,181,32,40,95,0,32,86,108,67,20,86,96,151,32,70]|[45,15,37,146,31,21,10,142,37,19,10,144,82,21,10,142,29,26,4,52,31,117,10,48,85,117,10,48,27,119,10,52,89,117,6,54,22,122,9,60,16,126,16,56,92,117,10,58,100,121,6,52,19,91,8,6,27,96,2,4,31,100,2,2,22,99,2,2,24,101,2,2,19,115,2,2,22,118,2,2,98,94,2,2,102,96,2,2,99,97,4,2,98,100,4,2,95,102,2,2,93,103,2,2,105,117,2,2,103,119,2,2]
 keen5_hallway_vertical_alt_c1|890|229|128|223|10|Obstacle Course 2|Keen foolishly subjects himself to the 2nd deat run|Goodbye Galaxy|aliens.wav|b21143a2-11ad-4726-bdb6-1821bce971ef|[21,1,80,220]|[0,0,32,86,0,67,19,111,0,181,32,40,95,0,32,86,108,67,20,86,96,151,32,70]|[45,15,37,146,31,21,10,142,37,19,10,144,82,21,10,142,29,26,4,52,31,117,10,48,85,117,10,48,27,119,10,52,89,117,6,54,22,122,9,60,16,126,16,56,92,117,10,58,100,121,6,52,19,91,8,6,27,96,2,4,31,100,2,2,22,99,2,2,24,101,2,2,19,115,2,2,22,118,2,2,98,94,2,2,102,96,2,2,99,97,4,2,98,100,4,2,95,102,2,2,93,103,2,2,105,117,2,2,103,119,2,2]
 keen5_world_map_sphere_right_c1|1282|190|297|252|10|test level|Hit the road, dude!|Goodbye Galaxy|omegamatic_beginning.wav|b7602840-89db-4d44-9aa7-0dd68ebabea8|[157,71,74,64]|[155,71,11,36,116,55,114,16,134,105,162,33,235,73,61,5]|[144,71,73,52,215,87,5,15,221,91,4,12,225,96,5,8,232,101,4,4,211,93,14,13]
 keen5_world_map_sphere_left_c1|1263|441|277|250|10|test level|Sample Text|Goodbye Galaxy|keen5_high_scores.wav|a9ed0e3e-2538-4243-9aab-ee3cc07686d7|[15,103,118,27]|[0,98,117,5,116,98,16,64,0,131,136,30]|[48,97,74,34,42,112,6,19,39,115,4,16,34,119,4,14,232,101,4,4,211,93,14,13,30,123,4,8]
 keen5_world_map_sphere_up_c1|831|449|250|255|10|test level|Sample Text|Goodbye Galaxy|diamond_original.wav|d49d5273-584a-438d-b455-5a79a298d9e2|[89,8,64,48]|[58,0,32,67,58,56,130,3,154,0,32,67]|[90,5,14,2,141,5,14,2,88,7,71,52]
+keen5_world_map_sphere_down_c1|1674|81|250|282|10|test level|Sample Text|Goodbye Galaxy|guard_post.wav|048413c8-af47-4022-9e48-a15fe544d77a|[62,107,129,92]|[62,160,32,121,65,150,126,8,158,137,32,144]|[62,99,129,98,62,200,47,4,77,203,24,4,76,208,2,6,136,196,58,4,144,199,48,4,150,204,41,4,157,208,35,8,71,196,37,5]
+keen5_hallway_vertical_c1|281|12|128|223|10|||Goodbye Galaxy|jazzme_original.wav|8ef7a10e-7945-446f-be54-092a7fb4b68b|[21,1,80,220]|[0,0,32,86,0,67,19,111,0,181,32,40,95,0,32,86,108,67,20,86,96,151,32,70]|[45,15,37,146,31,21,10,142,37,19,10,144,82,21,10,142,29,26,4,52,31,117,10,48,85,117,10,48,27,119,10,52,89,117,6,54,22,122,9,60,16,126,16,56,92,117,10,58,100,121,6,52,19,91,8,6,27,96,2,4,31,100,2,2,22,99,2,2,24,101,2,2,19,115,2,2,22,118,2,2,98,94,2,2,102,96,2,2,99,97,4,2,98,100,4,2,95,102,2,2,93,103,2,2,105,117,2,2,103,119,2,2]
+keen5_jet_fuel_exhaust_c2|164|235|362|316|10|test level|Keen rudely interrupts the Shikadi conference meeting|Goodbye Galaxy|jazzme_original.wav|87f31f94-e8ad-4611-bb36-65ca5d2507c6|[150,16,158,40,150,0,64,16]|[24,0,124,100,146,72,194,26,216,0,124,16,312,0,28,90,153,58,117,17,271,63,14,17,285,66,13,17,298,68,12,16]|[]|50|0
+keen5_world_map_barrier_level_vertical_c1|314|208|60|26|10|test level|test barrier|Goodbye Galaxy|aliens.wav|268dfbfb-6512-424a-851f-ca4e798af1f7|[0,0,60,8,0,18,60,8]|[0,8,60,10]|[]
+keen5_world_map_barrier_level_horizontal_c1|1580|263|28|62|10|test level|Oi m8|Goodbye Galaxy|aliens.wav|edaba9e2-8844-49df-9ce9-760c992bad7b|[0,0,10,62,20,0,10,62]|[10,0,12,62]|[]
 keen5_text_BMI|921|534|64|65|keen5_text_BMI|False|12
 keen5_text_EFS|1365|263|64|65|keen5_text_EFS|False|12
 keen5_text_RCC|1375|513|64|65|keen5_text_RCC|False|12
 keen5_text_BMI|232|242|64|65|keen5_text_BMI|False|15
 keen_stop_up|320|256|16|16
+keen5_text_BMI|1769|153|64|65|keen5_text_BMI|False|211
 keen5_flag_base1_wm|551|258|96|62|10|[87f31f94-e8ad-4611-bb36-65ca5d2507c6]
 keen5_flag_base1_wm|167|91|96|62|10|[8ef7a10e-7945-446f-be54-092a7fb4b68b]
 keen5_flag_base1_wm|1064|292|96|62|10|[b21143a2-11ad-4726-bdb6-1821bce971ef]

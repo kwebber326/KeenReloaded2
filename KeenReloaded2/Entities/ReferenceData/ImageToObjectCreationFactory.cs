@@ -5274,7 +5274,7 @@ namespace KeenReloaded2.Entities.ReferenceData
                          {
                              DisplayName = "ZIndex:",
                              DataType = typeof(int),
-                             Value = 201,
+                             Value = 211,
                              PropertyName = "zIndex"
                          },
                          new MapMakerObjectProperty()

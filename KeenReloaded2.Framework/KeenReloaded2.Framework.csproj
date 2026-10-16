@@ -339,6 +339,7 @@
     <Compile Include="GameEntities\Weapons\SMGNeuralStunner.cs" />
     <Compile Include="GameEntities\Weapons\SnakeGun.cs" />
     <Compile Include="GameEntities\WorldMapEntities\AnimatedForegroundMultiHitboxWorldMapLevel.cs" />
+    <Compile Include="GameEntities\WorldMapEntities\BarrierLevel.cs" />
     <Compile Include="GameEntities\WorldMapEntities\ForeGroundMultiHitboxWorldMapLevel.cs" />
     <Compile Include="GameEntities\WorldMapEntities\Keen4GatedVillageWorldMapLevel.cs" />
     <Compile Include="GameEntities\WorldMapEntities\Keen4MirageWorldMapLevel.cs" />

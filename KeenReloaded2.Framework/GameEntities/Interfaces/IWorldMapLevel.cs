@@ -18,5 +18,7 @@ namespace KeenReloaded2.Framework.GameEntities.Interfaces
         string Episode { get; }
 
         string Music { get; }
+
+        int EntryPriority { get; }
     }
 }

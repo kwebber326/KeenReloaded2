@@ -76,6 +76,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 
         public Guid ActivationID => _activationId;
 
+        public virtual int EntryPriority => 1;
+
         protected virtual string BuildRectangleArrayStringRepresentation(Rectangle[] rectangles)
         {
             StringBuilder builder = new StringBuilder();
