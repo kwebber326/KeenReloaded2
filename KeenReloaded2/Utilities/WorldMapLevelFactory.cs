@@ -952,6 +952,53 @@ namespace KeenReloaded2.Utilities
                 obj = new MapMakerObject(typeof(ForeGroundMultiHitboxWorldMapLevel),
                     file, false, properties.ToArray());
             }
+            else if (imgName.Contains("keen5_world_map_sphere_right_c1"))
+            {
+                properties.Add(new MapMakerObjectProperty()
+                {
+                    PropertyName = "hitboxes",
+                    DisplayName = "Hitboxes:",
+                    DataType = typeof(Rectangle[]),
+                    Value = new Rectangle[]
+                   {
+                        new Rectangle(155, 71, 11, 36),
+                        new Rectangle(116, 55, 114, 16),
+                        new Rectangle(134, 105, 162, 33),
+                        new Rectangle(235, 73, 61, 5)
+                   },
+                    Hidden = true
+                });
+
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(157, 71, 74, 64)
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_5;
+
+                properties.Add(new MapMakerObjectProperty()
+                {
+                    PropertyName = "foregroundAreas",
+                    DisplayName = "Foreground Areas:",
+                    DataType = typeof(Rectangle[]),
+                    Value = new Rectangle[]
+                    {
+                        new Rectangle(144, 71, 73, 52),
+                        new Rectangle(215, 87, 5, 15),
+                        new Rectangle(221, 91, 4, 12),
+                        new Rectangle(225, 96, 5, 8),
+                        new Rectangle(232, 101, 4, 4),
+                        new Rectangle(211, 93, 14, 13)
+                    },
+                    Hidden = true
+                });
+
+                obj = new MapMakerObject(typeof(ForeGroundMultiHitboxWorldMapLevel),
+                    file, false, properties.ToArray());
+            }
 
             return obj;
         }

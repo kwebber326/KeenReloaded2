@@ -14,6 +14,11 @@ namespace KeenReloaded2.Framework.GameEntities.Backgrounds
         {
         }
 
+        public MimicBlock(Rectangle area, Image image, bool stretchImage, int zIndex, bool drawImageOnInitialization)
+            : base(area, image, stretchImage, zIndex, drawImageOnInitialization)
+        {
+        }
+
         public override bool CanUpdate => true;
     }
 }

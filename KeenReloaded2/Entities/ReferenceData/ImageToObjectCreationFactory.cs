@@ -5245,6 +5245,49 @@ namespace KeenReloaded2.Entities.ReferenceData
 
                     referenceData.Add(imgName, obj);
                 }
+                else if (currentDirectory.Contains("Foregrounds"))
+                {
+                    MapMakerObject obj = new MapMakerObject(
+                         typeof(MimicBlock), file, false, new MapMakerObjectProperty[] {
+                         new MapMakerObjectProperty()
+                         {
+                             DisplayName = "Area:",
+                             PropertyName  = GeneralGameConstants.AREA_PROPERTY_NAME,
+                             DataType = typeof(Rectangle),
+                             Value = area
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "sprite",
+                             DataType = typeof(Image),
+                             Value = img,
+                             Hidden = true
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             DisplayName = "Stretch Image:",
+                             DataType = typeof(bool),
+                             Value = false,
+                             PropertyName = "stretchImage"
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             DisplayName = "ZIndex:",
+                             DataType = typeof(int),
+                             Value = 0,
+                             PropertyName = "zIndex"
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName ="drawImageOnInitialization",
+                             DataType = typeof(bool),
+                             Value = true,
+                             Hidden = true
+                         }
+                        });
+
+                    referenceData.Add(imgName, obj);
+                }
             }
 
             //recursively go through directories to find objects
