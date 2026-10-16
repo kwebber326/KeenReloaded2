@@ -881,7 +881,7 @@ namespace KeenReloaded2.Utilities
                 obj = new MapMakerObject(typeof(AnimatedForegroundMultiHitboxWorldMapLevel),
                     file, false, properties.ToArray());
             }
-            else if (imgName.Contains("keen5_hallway_vertical_c1"))
+            else if (imgName.Contains("keen5_hallway_vertical") && imgName.Contains("c1"))
             {
                 properties.Add(new MapMakerObjectProperty()
                 {
