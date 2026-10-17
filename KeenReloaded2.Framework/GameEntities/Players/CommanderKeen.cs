@@ -912,7 +912,8 @@ namespace KeenReloaded2.Framework.GameEntities.Players
                 else if (_isUsingPogo && enemy is ISquashable)
                 {
                     var squashable = (ISquashable)obj;
-                    if (!squashable.IsSquashed && squashable.CanSquash)
+                    if (!squashable.IsSquashed && squashable.CanSquash
+                        && _fallVelocity > 0 && !IsNothingBeneathKeen())
                     {
                         squashable.Squash();
                     }
