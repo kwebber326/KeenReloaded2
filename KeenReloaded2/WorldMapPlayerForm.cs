@@ -30,6 +30,7 @@ namespace KeenReloaded2
         private int _maxVisionY;
         private int _maxVisionX;
         private bool _paused;
+        private bool _suppressingScrollBars;
         private bool _loadedSavedState;
         private Timer _gameUpdateTimer;
         private KeenReloadedLoadingWindow _loadingWindow;
@@ -444,6 +445,8 @@ namespace KeenReloaded2
             {
                 _gameUpdateTimer.Tick -= _gameUpdateTimer_Tick;
             }
+            pnlGameWindow.SizeChanged -= PnlGameWindow_SizeChanged;
+            pnlGameWindow.Scroll -= PnlGameWindow_Scroll;
             pnlGameWindow.MouseWheel -= PnlGameWindow_MouseWheel;
             this.MouseWheel -= PnlGameWindow_MouseWheel;
 
@@ -530,9 +533,41 @@ namespace KeenReloaded2
             _player.Moved += _keen_KeenMoved;
             _player.PlayerError += _player_PlayerError;
             UpdateViewRectangle();
-            pnlGameWindow.AutoScroll = true;
+            EnableScrollingWithoutScrollBars();
+            pnlGameWindow.SizeChanged += PnlGameWindow_SizeChanged;
+            pnlGameWindow.Scroll += PnlGameWindow_Scroll; ;
             pnlGameWindow.MouseWheel += PnlGameWindow_MouseWheel;
             this.MouseWheel += PnlGameWindow_MouseWheel;
+        }
+
+        private void EnableScrollingWithoutScrollBars()
+        {
+            if (_suppressingScrollBars)
+                return;
+
+            _suppressingScrollBars = true;
+            try
+            {
+                pnlGameWindow.AutoScroll = false;
+                pnlGameWindow.HorizontalScroll.Maximum = 0;
+                pnlGameWindow.VerticalScroll.Maximum = 0;
+                pnlGameWindow.AutoScroll = true;
+            }
+            finally
+            {
+                _suppressingScrollBars = false;
+            }
+        }
+
+        private void PnlGameWindow_SizeChanged(object sender, EventArgs e)
+        {
+            EnableScrollingWithoutScrollBars();
+            this.UpdateViewRectangle();
+        }
+
+        private void PnlGameWindow_Scroll(object sender, ScrollEventArgs e)
+        {
+            this.UpdateViewRectangle();
         }
 
         private void _player_PlayerError(object sender, string e)

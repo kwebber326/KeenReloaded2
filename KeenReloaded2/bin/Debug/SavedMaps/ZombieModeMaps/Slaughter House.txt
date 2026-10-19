@@ -208,5 +208,6 @@ keen_dreams_boobus_bomb2|1850|470|30|30|50|5
 keen_dreams_boobus_bomb2|1880|470|30|30|50|5
 keen6_banana_split1|1910|470|32|26|50|KEEN6_BANANA_SPLIT
 keen6_banana_split1|1942|470|32|26|50|KEEN6_BANANA_SPLIT
+neural_stunner1|71|665|30|22|50|5
 keen6_Switch_Off|196|1787|90|96|15|[d46d73f7-6f30-4e8c-91c4-0394923241c3,40e9fa07-52f7-4734-a35e-909d30deadaf]|False
 keen6_Switch_On|1616|594|90|96|15|[75260ddd-5dce-4f7e-ba79-5fa47a33aa1a,31d2211d-4eb1-4540-95a4-fc9ce174c0ee]|True
