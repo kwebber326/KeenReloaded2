@@ -96,6 +96,12 @@ keen5_hallway_vertical_c1|281|12|128|223|10|||Goodbye Galaxy|jazzme_original.wav
 keen5_jet_fuel_exhaust_c2|164|235|362|316|10|test level|Keen rudely interrupts the Shikadi conference meeting|Goodbye Galaxy|jazzme_original.wav|87f31f94-e8ad-4611-bb36-65ca5d2507c6|[150,16,158,40,150,0,64,16]|[24,0,124,100,146,72,194,26,216,0,124,16,312,0,28,90,153,58,117,17,271,63,14,17,285,66,13,17,298,68,12,16]|[]|50|0
 keen5_world_map_barrier_level_vertical_c1|314|208|60|26|10|test level|test barrier|Goodbye Galaxy|aliens.wav|268dfbfb-6512-424a-851f-ca4e798af1f7|[0,0,60,8,0,18,60,8]|[0,8,60,10]|[]
 keen5_world_map_barrier_level_horizontal_c1|1580|263|28|62|10|test level|Oi m8|Goodbye Galaxy|aliens.wav|edaba9e2-8844-49df-9ce9-760c992bad7b|[0,0,10,62,20,0,10,62]|[10,0,12,62]|[]
+keen5_world_map_barrier_bottom|537|197|32|32|10|keen5_world_map_barrier_bottom.png
+keen5_world_map_barrier_bottom|505|197|32|32|10|keen5_world_map_barrier_bottom.png
+keen5_world_map_barrier_bottom|473|197|32|32|10|keen5_world_map_barrier_bottom.png
+keen5_world_map_barrier_bottom|441|197|32|32|10|keen5_world_map_barrier_bottom.png
+keen5_world_map_barrier_bottom|409|197|32|32|10|keen5_world_map_barrier_bottom.png
+keen5_world_map_corridor_c1|409|68|160|128|10|No Retreat|Keen Enters the Thunderdome|Goodbye Galaxy|quantum_explosion_dynamo.wav|46c0db6a-e548-4f86-866d-81d983c3d3f0|[0,30,160,86]|[0,0,159,36,0,115,160,12]|[2,15,140,14,0,29,140,10,0,39,128,15,0,53,36,74,95,53,42,74,0,104,138,24,37,55,6,46,38,96,56,6,38,56,6,28,38,56,4,46,46,56,2,2,52,56,6,2,52,56,4,4,38,58,8,2,50,58,4,4,48,60,2,6,46,62,6,2,38,64,10,4,38,64,8,6,68,64,2,2,66,66,2,2,64,68,2,2,62,70,2,2,58,72,4,2,58,72,2,4,50,74,2,2,54,74,4,4,48,76,2,2,52,76,4,6,46,78,2,2,50,78,2,8,38,80,8,2,48,80,6,4,60,80,2,2,92,80,2,6,46,82,4,6,58,82,2,2,90,82,4,4,44,84,4,6,56,84,2,2,88,84,4,4,38,86,6,16,38,86,8,6,54,86,2,2,86,86,4,4,52,88,2,2,80,88,2,2,84,88,2,6,50,90,2,2,78,90,2,2,82,90,6,2,92,90,2,2,48,92,2,2,76,92,2,2,80,92,4,10,90,92,2,2,46,94,2,8,74,94,2,8,78,94,6,8,88,94,2,8,38,96,56,6]
 keen5_text_BMI|921|534|64|65|keen5_text_BMI|False|12
 keen5_text_EFS|1365|263|64|65|keen5_text_EFS|False|12
 keen5_text_RCC|1375|513|64|65|keen5_text_RCC|False|12
@@ -106,3 +112,4 @@ keen5_flag_base1_wm|551|258|96|62|10|[87f31f94-e8ad-4611-bb36-65ca5d2507c6]
 keen5_flag_base1_wm|167|91|96|62|10|[8ef7a10e-7945-446f-be54-092a7fb4b68b]
 keen5_flag_base1_wm|1064|292|96|62|10|[b21143a2-11ad-4726-bdb6-1821bce971ef]
 keen5_flag_base1_wm|1345|107|96|62|10|[b7602840-89db-4d44-9aa7-0dd68ebabea8]
+keen5_flag_base1_wm|601|38|96|62|10|[46c0db6a-e548-4f86-866d-81d983c3d3f0]

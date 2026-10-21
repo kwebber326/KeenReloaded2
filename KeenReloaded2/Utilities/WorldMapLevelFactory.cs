@@ -1212,6 +1212,106 @@ namespace KeenReloaded2.Utilities
                 obj = new MapMakerObject(typeof(BarrierLevel),
                     file, false, properties.ToArray());
             }
+            else if (imgName.Contains("keen5_world_map_corridor_c1"))
+            {
+                properties.Add(new MapMakerObjectProperty()
+                {
+                    PropertyName = "hitboxes",
+                    DisplayName = "Hitboxes:",
+                    DataType = typeof(Rectangle[]),
+                    Value = new Rectangle[]
+                    {
+                        new Rectangle(0, 0, 159, 36),
+                        new Rectangle(0, 115, 160, 12)
+                    },
+                    Hidden = true
+                });
+
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(0, 30, 160, 86),
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_5;
+
+                properties.Add(new MapMakerObjectProperty()
+                {
+                    PropertyName = "foregroundAreas",
+                    DisplayName = "Foreground Areas:",
+                    DataType = typeof(Rectangle[]),
+                    Value = new Rectangle[]
+                    {
+                        new Rectangle(2, 15, 140, 14),
+                        new Rectangle(0, 29, 140, 10),
+                        new Rectangle(0, 39, 128, 15),
+                        new Rectangle(0, 53, 36, 74),
+                        new Rectangle(95, 53, 42, 74),
+                        new Rectangle(0, 104, 138, 24),
+                        new Rectangle(37, 55, 6, 46),
+                        new Rectangle(38, 96, 56, 6),
+                        new Rectangle(38, 56, 6, 28),
+                          new Rectangle(38, 56, 4, 46),
+                          new Rectangle(46, 56, 2, 2),
+                          new Rectangle(52, 56, 6, 2),
+                          new Rectangle(52, 56, 4, 4),
+                          new Rectangle(38, 58, 8, 2),
+                          new Rectangle(50, 58, 4, 4),
+                          new Rectangle(48, 60, 2, 6),
+                          new Rectangle(46, 62, 6, 2),
+                          new Rectangle(38, 64, 10, 4),
+                          new Rectangle(38, 64, 8, 6),
+                          new Rectangle(68, 64, 2, 2),
+                          new Rectangle(66, 66, 2, 2),
+                          new Rectangle(64, 68, 2, 2),
+                          new Rectangle(62, 70, 2, 2),
+                          new Rectangle(58, 72, 4, 2),
+                          new Rectangle(58, 72, 2, 4),
+                          new Rectangle(50, 74, 2, 2),
+                          new Rectangle(54, 74, 4, 4),
+                          new Rectangle(48, 76, 2, 2),
+                          new Rectangle(52, 76, 4, 6),
+                          new Rectangle(46, 78, 2, 2),
+                          new Rectangle(50, 78, 2, 8),
+                          new Rectangle(38, 80, 8, 2),
+                          new Rectangle(48, 80, 6, 4),
+                          new Rectangle(60, 80, 2, 2),
+                          new Rectangle(92, 80, 2, 6),
+                          new Rectangle(46, 82, 4, 6),
+                          new Rectangle(58, 82, 2, 2),
+                          new Rectangle(90, 82, 4, 4),
+                          new Rectangle(44, 84, 4, 6),
+                          new Rectangle(56, 84, 2, 2),
+                          new Rectangle(88, 84, 4, 4),
+                          new Rectangle(38, 86, 6, 16),
+                          new Rectangle(38, 86, 8, 6),
+                          new Rectangle(54, 86, 2, 2),
+                          new Rectangle(86, 86, 4, 4),
+                          new Rectangle(52, 88, 2, 2),
+                          new Rectangle(80, 88, 2, 2),
+                          new Rectangle(84, 88, 2, 6),
+                          new Rectangle(50, 90, 2, 2),
+                          new Rectangle(78, 90, 2, 2),
+                          new Rectangle(82, 90, 6, 2),
+                          new Rectangle(92, 90, 2, 2),
+                          new Rectangle(48, 92, 2, 2),
+                          new Rectangle(76, 92, 2, 2),
+                          new Rectangle(80, 92, 4, 10),
+                          new Rectangle(90, 92, 2, 2),
+                          new Rectangle(46, 94, 2, 8),
+                          new Rectangle(74, 94, 2, 8),
+                          new Rectangle(78, 94, 6, 8),
+                          new Rectangle(88, 94, 2, 8),
+                          new Rectangle(38, 96, 56, 6),
+                    },
+                    Hidden = true
+                });
+
+                obj = new MapMakerObject(typeof(ForeGroundMultiHitboxWorldMapLevel),
+                    file, false, properties.ToArray());
+            }
 
             return obj;
         }
