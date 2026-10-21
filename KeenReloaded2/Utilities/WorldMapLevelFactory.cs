@@ -1172,6 +1172,14 @@ namespace KeenReloaded2.Utilities
                     Hidden = true
                 });
 
+                properties.Add(new MapMakerObjectProperty() 
+                { 
+                    PropertyName = "isActive",
+                    DataType = typeof(bool),
+                    Value = true, 
+                    Hidden = true
+                });
+
                 obj = new MapMakerObject(typeof(BarrierLevel),
                     file, false, properties.ToArray());
             }
@@ -1206,6 +1214,14 @@ namespace KeenReloaded2.Utilities
                     DisplayName = "Foreground Areas:",
                     DataType = typeof(Rectangle[]),
                     Value = new Rectangle[0],
+                    Hidden = true
+                });
+
+                properties.Add(new MapMakerObjectProperty()
+                {
+                    PropertyName = "isActive",
+                    DataType = typeof(bool),
+                    Value = true,
                     Hidden = true
                 });
 

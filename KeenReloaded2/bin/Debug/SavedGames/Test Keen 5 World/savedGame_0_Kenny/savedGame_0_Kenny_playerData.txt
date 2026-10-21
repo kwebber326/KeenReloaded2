@@ -1,1 +1,1 @@
-165000|10|False|[]|[NeuralStunner_12,BoobusBombLauncher_484,SMGNeuralStunner_46,ShotgunNeuralStunner_400]|[]
+0|3|False|[]|[NeuralStunner_5,BoobusBombLauncher_1500]|[]
