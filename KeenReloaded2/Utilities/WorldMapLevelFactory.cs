@@ -849,10 +849,10 @@ namespace KeenReloaded2.Utilities
                             new Rectangle(146, 72, 194, 26),
                             new Rectangle(216, 0, 124, 16),
                             new Rectangle(312, 0, 28, 90),
-                            new Rectangle(153, 58, 117, 17),
-                            new Rectangle(271,63,14,17),
-                            new Rectangle(285, 66, 13, 17),
-                            new Rectangle(298, 68, 12, 16)
+                            new Rectangle(153, 76, 117, 17),
+                            new Rectangle(271,79,14,17),
+                            new Rectangle(285, 82, 13, 17),
+                            new Rectangle(298, 85, 12, 16)
                     },
                     Hidden = true
                 });

@@ -7302,12 +7302,6 @@
     <None Include="Resources\keen5_green_vent.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\keen5_jet_fuel_exhaust1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\keen5_jet_fuel_exhaust2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\keen5_red_cross_pipe.png" />
   </ItemGroup>
   <ItemGroup>
@@ -7363,6 +7357,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen5_red_vertical_pipe3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_jet_fuel_exhaust1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_jet_fuel_exhaust2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

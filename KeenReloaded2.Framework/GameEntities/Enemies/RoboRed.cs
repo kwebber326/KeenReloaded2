@@ -20,6 +20,7 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
         private Rectangle _area;
         private int HITBOX_Y_OFFSET = 8;
         private int HITBOX_X_OFFSET = 12;
+        private int PROJECTILE_START_OFFSET = 32;
 
         public RoboRed(Rectangle area, SpaceHashGrid grid, int zIndex) :
             base(grid, area)
@@ -293,7 +294,9 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                 Direction shotDirectionDown = Enums.Direction.DOWN_LEFT;
                 shotDirectionUp = this.Direction == Enums.Direction.LEFT ? Direction.UP_LEFT : Enums.Direction.UP_RIGHT;
                 shotDirectionDown = this.Direction == Enums.Direction.LEFT ? Direction.DOWN_LEFT : Enums.Direction.DOWN_RIGHT;
-                int xPos = this.Direction == Enums.Direction.LEFT ? this.HitBox.Left : this.HitBox.Right;
+                int xPos = this.Direction == Enums.Direction.LEFT 
+                    ? this.HitBox.Left + PROJECTILE_START_OFFSET 
+                    : this.HitBox.Right - PROJECTILE_START_OFFSET;
 
                 //upshot
                 RoboRedShot shot1 = new RoboRedShot(_collisionGrid, new Rectangle(xPos, this.HitBox.Y + 68, RoboRedShot.DEFAULT_WIDTH, RoboRedShot.DEFAULT_HEIGHT), shotDirectionUp);
