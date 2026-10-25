@@ -1172,11 +1172,11 @@ namespace KeenReloaded2.Utilities
                     Hidden = true
                 });
 
-                properties.Add(new MapMakerObjectProperty() 
-                { 
+                properties.Add(new MapMakerObjectProperty()
+                {
                     PropertyName = "isActive",
                     DataType = typeof(bool),
-                    Value = true, 
+                    Value = true,
                     Hidden = true
                 });
 
@@ -1326,6 +1326,71 @@ namespace KeenReloaded2.Utilities
                 });
 
                 obj = new MapMakerObject(typeof(ForeGroundMultiHitboxWorldMapLevel),
+                    file, false, properties.ToArray());
+            }
+            else if (imgName.Contains("keen5_world_map_secret_level_c1"))
+            {
+                properties.Add(new MapMakerObjectProperty()
+                {
+                    PropertyName = "hitboxes",
+                    DisplayName = "Hitboxes:",
+                    DataType = typeof(Rectangle[]),
+                    Value = new Rectangle[]
+                   {
+                        new Rectangle(198, 45, 60, 23),
+                        new Rectangle(198, 147, 60, 12),
+                        new Rectangle(88, 119, 78, 104),
+                        new Rectangle(71, 142, 24, 81),
+                        new Rectangle(66, 117, 25, 10),
+                        new Rectangle(20, 69, 28, 24),
+                        new Rectangle(3, 96, 59, 63),
+                        new Rectangle(25, 160, 46, 14),
+                        new Rectangle(165, 147, 178, 76),
+                        new Rectangle(198, 73, 64, 18),
+                   },
+                    Hidden = true
+                });
+
+                var entryPointProp = properties.FirstOrDefault(p => p.PropertyName == "entryPoints");
+                if (entryPointProp != null)
+                    entryPointProp.Value = new Rectangle[]
+                    {
+                        new Rectangle(262, 63, 26, 82),
+                        new Rectangle(175, 69, 25, 60)
+                    };
+
+                var episodeProp = properties.FirstOrDefault(p => p.PropertyName == "episode");
+                if (episodeProp != null) episodeProp.Value = GeneralGameConstants.Episodes.EPISODE_5;
+
+                properties.Add(new MapMakerObjectProperty()
+                {
+                    PropertyName = "foregroundAreas",
+                    DisplayName = "Foreground Areas:",
+                    DataType = typeof(Rectangle[]),
+                    Value = new Rectangle[]
+                    {
+                        new Rectangle(198, 74, 66, 75),
+                    },
+                    Hidden = true
+                });
+
+                properties.Add(new MapMakerObjectProperty()
+                {
+                    PropertyName = "isActive",
+                    DataType = typeof(bool),
+                    Value = true,
+                    Hidden = true
+                });
+
+                properties.Add(new MapMakerObjectProperty()
+                {
+                    PropertyName = "barrierHitbox",
+                    DataType = typeof(Rectangle),
+                    Value = new Rectangle(198, 65, 76, 94),
+                    Hidden = true
+                });
+
+                obj = new MapMakerObject(typeof(Keen5SecretLevel),
                     file, false, properties.ToArray());
             }
 

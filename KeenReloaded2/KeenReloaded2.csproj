@@ -7364,5 +7364,11 @@
   <ItemGroup>
     <None Include="Resources\keen5_jet_fuel_exhaust2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_world_map_secret_level.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_world_map_secret_level_beaten.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

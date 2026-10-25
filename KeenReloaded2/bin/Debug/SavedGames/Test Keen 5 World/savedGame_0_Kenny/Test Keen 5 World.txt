@@ -107,7 +107,7 @@ keen5_text_BMI|921|534|64|65|keen5_text_BMI|False|12
 keen5_text_EFS|1365|263|64|65|keen5_text_EFS|False|12
 keen5_text_RCC|1375|513|64|65|keen5_text_RCC|False|12
 keen5_text_BMI|232|242|64|65|keen5_text_BMI|False|15
-keen_stop_up|1599|269|16|16
+keen_stop_up|679|169|16|16
 keen5_text_BMI|1769|153|64|65|keen5_text_BMI|False|211
 keen5_flag_base1_wm|551|258|96|62|10|[]
 keen5_flag_base1_wm|167|91|96|62|10|[8ef7a10e-7945-446f-be54-092a7fb4b68b]

@@ -3355,6 +3355,12 @@
   <data name="keen5_wire5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_wire5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="keen5_world_map_secret_level" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_world_map_secret_level.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="keen5_world_map_secret_level_beaten" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keen5_world_map_secret_level_beaten.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keen5_yellow_diamond_background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keen5_yellow_diamond_background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

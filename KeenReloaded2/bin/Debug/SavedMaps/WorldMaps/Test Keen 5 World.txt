@@ -1,5 +1,5 @@
-2000|792
-WorldMap-keen5_outer_space1|0|0|2000|700|WorldMap-keen5_outer_space1|False|-1
+3000|792
+WorldMap-keen5_outer_space1|0|0|3000|700|WorldMap-keen5_outer_space1|False|-1
 keen5_world_map_vertical_alt_floor|313|202|64|32|keen5_world_map_vertical_alt_floor|False|0
 keen5_world_map_vertical_alt_floor|313|170|64|32|keen5_world_map_vertical_alt_floor|False|0
 keen5_world_map_vertical_alt_floor|313|138|64|32|keen5_world_map_vertical_alt_floor|False|0
@@ -28,7 +28,6 @@ keen5_world_map_floor3|345|266|32|32|keen5_world_map_floor3|False|0
 keen5_world_map_floor1|377|266|32|32|keen5_world_map_floor1|False|0
 keen5_world_map_floor1|409|266|32|32|keen5_world_map_floor1|False|0
 keen5_world_map_floor3|441|266|32|32|keen5_world_map_floor3|False|0
-WorldMap-keen5_korath_planet_surface|0|500|2000|292|WorldMap-keen5_korath_planet_surface|False|0
 keen5_world_map_floor3|441|298|32|32|keen5_world_map_floor3|False|0
 WorldMap-keen5_distant_galaxy|449|66|64|32|WorldMap-keen5_distant_galaxy|False|0
 WorldMap-keen5_blue_star_cluster|154|126|32|32|WorldMap-keen5_blue_star_cluster|False|0
@@ -68,6 +67,7 @@ keen5_world_map_floor3|377|298|32|32|keen5_world_map_floor3|False|0
 keen5_world_map_floor3|345|298|32|32|keen5_world_map_floor3|False|0
 keen5_world_map_floor3|313|298|32|32|keen5_world_map_floor3|False|0
 keen5_world_map_floor3|471|266|32|32|keen5_world_map_floor3|False|0
+WorldMap-keen5_korath_planet_surface|0|500|3000|292|WorldMap-keen5_korath_planet_surface|False|0
 keen5_world_map_barrier_top|569|100|32|8|10|keen5_world_map_barrier_top.png
 keen5_world_map_barrier_bottom|569|197|32|32|10|keen5_world_map_barrier_bottom.png
 keen5_world_map_barrier_top|601|100|32|8|10|keen5_world_map_barrier_top.png
@@ -103,6 +103,7 @@ keen5_world_map_corridor_c1|409|68|160|128|10|No Retreat|Keen Enters the Thunder
 keen5_jet_fuel_exhaust_c2|162|233|362|334|10|||Goodbye Galaxy|aliens.wav|f6a7fb6c-57f2-4a00-8816-1340e4538c7f|[150,16,158,40,150,0,64,16]|[24,0,124,100,146,72,194,26,216,0,124,16,312,0,28,90,153,76,117,17,271,79,14,17,285,82,13,17,298,85,12,16]|[]|50|0
 keen5_world_map_barrier_level_horizontal_c1|1580|266|28|62|10|test level|oi m8!|Goodbye Galaxy|keen5_intro.wav|97bb1e32-81fd-45b9-a058-ea31fb837134|[0,0,10,62,20,0,10,62]|[10,0,12,62]|[]|True
 keen5_world_map_barrier_level_vertical_c1|315|209|60|26|10|test level|test barrier|Goodbye Galaxy|quantum_explosion_dynamo.wav|e11c2bf4-d301-43b6-b07c-7f14dcb8659a|[0,0,60,8,0,18,60,8]|[0,8,60,10]|[]|True
+keen5_world_map_secret_level_c1|1815|426|356|224|10|test level|testing|Goodbye Galaxy|jazzme_original.wav|2221fc09-0b7e-4bfd-89da-2d2b60464f89|[262,63,26,82,175,69,25,60]|[198,45,60,23,198,147,60,12,88,119,78,104,71,142,24,81,66,117,25,10,20,69,28,24,3,96,59,63,25,160,46,14,165,147,178,76,198,73,64,18]|[198,74,66,75]|True|198|65|76|94
 keen5_text_BMI|921|534|64|65|keen5_text_BMI|False|12
 keen5_text_EFS|1365|263|64|65|keen5_text_EFS|False|12
 keen5_text_RCC|1375|513|64|65|keen5_text_RCC|False|12

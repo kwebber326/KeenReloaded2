@@ -14463,6 +14463,26 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen5_world_map_secret_level {
+            get {
+                object obj = ResourceManager.GetObject("keen5_world_map_secret_level", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_world_map_secret_level_beaten {
+            get {
+                object obj = ResourceManager.GetObject("keen5_world_map_secret_level_beaten", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen5_yellow_diamond_background {
             get {
                 object obj = ResourceManager.GetObject("keen5_yellow_diamond_background", resourceCulture);
