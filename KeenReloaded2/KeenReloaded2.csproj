@@ -7370,5 +7370,32 @@
   <ItemGroup>
     <None Include="Resources\keen5_world_map_secret_level_beaten.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_world_map_circle_quadrant_bottom_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_world_map_circle_quadrant_bottom_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_world_map_circle_quadrant_top_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_world_map_circle_quadrant_top_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_world_map_corner_bottom_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_world_map_corner_bottom_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_world_map_corner_top_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_world_map_corner_top_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MapMakerObjects\WorldMapObjects\world_map_keen5\Structures\keen5_world_map_circle_quadrant_top_right.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -276,6 +276,7 @@
     <Compile Include="GameEntities\Projectiles\StraighShotProjectile.cs" />
     <Compile Include="GameEntities\SpaceHashGrid.cs" />
     <Compile Include="GameEntities\Tiles\Ceilings\CeilingTile.cs" />
+    <Compile Include="GameEntities\Tiles\CustomTiles\CustomStructure.cs" />
     <Compile Include="GameEntities\Tiles\DestructibleCollisionTile.cs" />
     <Compile Include="GameEntities\Tiles\Floors\FloorToPlatformTile.cs" />
     <Compile Include="GameEntities\Tiles\Floors\Keen6SingleBlock.cs" />
@@ -6763,6 +6764,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen5_world_map_secret_level_beaten.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_world_map_circle_quadrant_bottom_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_world_map_circle_quadrant_bottom_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_world_map_circle_quadrant_top_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_world_map_corner_bottom_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_world_map_corner_bottom_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_world_map_corner_top_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_world_map_corner_top_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_world_map_circle_quadrant_top_right.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1111,6 +1111,25 @@ namespace KeenReloaded.Framework
                 newCollidingNodes.Add(n);
         }
 
+        protected virtual string BuildRectangleArrayStringRepresentation(Rectangle[] rectangles)
+        {
+            StringBuilder builder = new StringBuilder();
+
+            string arrayStart = MapMakerConstants.MAP_MAKER_ARRAY_START;
+            string arrayEnd = MapMakerConstants.MAP_MAKER_ARRAY_END;
+            string elementSeparator = MapMakerConstants.MAP_MAKER_ELEMENT_SEPARATOR;
+
+            builder.Append(arrayStart);
+            string[] elementStringReps = rectangles.Select(r =>
+             $"{r.X}{elementSeparator}{r.Y}{elementSeparator}{r.Width}{elementSeparator}{r.Height}").ToArray();
+
+            string arrStr = string.Join(elementSeparator, elementStringReps);
+            builder.Append(arrStr);
+            builder.Append(arrayEnd);
+
+            return builder.ToString();
+        }
+
         public virtual Rectangle HitBox
         {
             get;

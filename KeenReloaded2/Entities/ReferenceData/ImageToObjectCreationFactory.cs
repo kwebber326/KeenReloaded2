@@ -5288,6 +5288,11 @@ namespace KeenReloaded2.Entities.ReferenceData
 
                     referenceData.Add(imgName, obj);
                 }
+                else if (currentDirectory.Contains("Structures"))
+                {
+                    MapMakerObject obj = WorldMapLevelFactory.GetWorldMapStructure(file);
+                    referenceData.Add(imgName, obj);
+                }
             }
 
             //recursively go through directories to find objects

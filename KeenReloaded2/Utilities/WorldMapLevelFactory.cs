@@ -2,6 +2,7 @@
 using KeenReloaded2.Constants;
 using KeenReloaded2.Entities;
 using KeenReloaded2.Framework.Enums;
+using KeenReloaded2.Framework.GameEntities.Tiles.CustomTiles;
 using KeenReloaded2.Framework.GameEntities.WorldMapEntities;
 using System;
 using System.Collections.Generic;
@@ -1392,6 +1393,197 @@ namespace KeenReloaded2.Utilities
 
                 obj = new MapMakerObject(typeof(Keen5SecretLevel),
                     file, false, properties.ToArray());
+            }
+
+            return obj;
+        }
+
+        public static MapMakerObject GetWorldMapStructure(string file)
+        {
+            Image img = Image.FromFile(file);
+            Rectangle area = new Rectangle(0, 0, img.Width, img.Height);
+            string imgName = FileIOUtility.ExtractFileNameFromPath(file);
+            img.Tag = file;
+            MapMakerObject obj = null;
+
+            List<MapMakerObjectProperty> properties = new List<MapMakerObjectProperty>()
+                    {
+                          new MapMakerObjectProperty()
+                         {
+                             DisplayName = "Display Area:",
+                             PropertyName  = GeneralGameConstants.AREA_PROPERTY_NAME,
+                             DataType = typeof(Rectangle),
+                             Value = area
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                             DataType = typeof(SpaceHashGrid),
+                             Value = null,
+                             IsIgnoredInMapData = true,
+                             Hidden = true
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             DisplayName = "ZIndex:",
+                             DataType = typeof(int),
+                             Value = 10,
+                             PropertyName = "zIndex"
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "collisionType",
+                             DataType = typeof(CollisionType),
+                             Value = CollisionType.BLOCK,
+                             Hidden = true,
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "imageFile",
+                             DataType = typeof(string),
+                             Value = file,
+                             Hidden = true
+                         }
+                    };
+
+            MapMakerObjectProperty hitBoxListProp = new MapMakerObjectProperty()
+            {
+                PropertyName = "hitboxes",
+                DataType = typeof(Rectangle[]),
+                Value = null,
+                Hidden = true
+            };
+
+            properties.Add(hitBoxListProp);
+
+            if (file.Contains("keen5_world_map_corner_top_left"))
+            {
+                hitBoxListProp.Value = new Rectangle[]
+                {
+                    new Rectangle(0, 0, 8, 64),
+                    new Rectangle(8, 0, 8, 40),
+                    new Rectangle(16, 0, 8, 32),
+                    new Rectangle(24, 0, 8, 16)
+                };
+
+                obj = new MapMakerObject(typeof(CustomStructure), file, false,
+                    properties.ToArray());
+            }
+            else if (file.Contains("keen5_world_map_corner_top_right"))
+            {
+                hitBoxListProp.Value = new Rectangle[]
+                {
+                    new Rectangle(0, 0, 8, 16),
+                    new Rectangle(8, 0, 8, 32),
+                    new Rectangle(16, 0, 8, 40),
+                    new Rectangle(24, 0, 8, 64),
+                };
+
+                obj = new MapMakerObject(typeof(CustomStructure), file, false,
+                    properties.ToArray());
+            }
+            else if (file.Contains("keen5_world_map_corner_bottom_right"))
+            {
+                hitBoxListProp.Value = new Rectangle[]
+               {
+                    new Rectangle(13, 0, 32, 44),
+               };
+
+                obj = new MapMakerObject(typeof(CustomStructure), file, false,
+                    properties.ToArray());
+            }
+            else if (file.Contains("keen5_world_map_corner_bottom_left"))
+            {
+                hitBoxListProp.Value = new Rectangle[]
+               {
+                    new Rectangle(0, 0, 30, 44),
+               };
+
+                obj = new MapMakerObject(typeof(CustomStructure), file, false,
+                    properties.ToArray());
+            }
+            else if (file.Contains("keen5_world_map_circle_quadrant_top_right"))
+            {
+                 hitBoxListProp.Value = new Rectangle[]
+                 {
+                     new Rectangle(0, 0, 32, 37),
+                     new Rectangle(34, 12, 21, 30),
+                     new Rectangle(55, 21, 23, 31),
+                     new Rectangle(78, 29, 19, 34),
+                     new Rectangle(97, 38, 10, 46),
+                     new Rectangle(108, 43, 11, 47),
+                     new Rectangle(119, 51, 11, 46),
+                     new Rectangle(130, 60, 11, 55),
+                     new Rectangle(140, 68, 10, 61),
+                     new Rectangle(150, 79, 17, 113),
+                     new Rectangle(170, 105, 12, 88),
+                     new Rectangle(182, 154, 15, 38)
+                 };
+
+                obj = new MapMakerObject(typeof(CustomStructure), file, false,
+                    properties.ToArray());
+            }
+            else if (file.Contains("keen5_world_map_circle_quadrant_top_left"))
+            {
+                hitBoxListProp.Value = new Rectangle[]
+                {
+                     new Rectangle(163, 0, 32, 38),
+                     new Rectangle(142, 11, 21, 36),
+                     new Rectangle(121, 17, 21, 35),
+                     new Rectangle(100, 32, 22, 33),
+                     new Rectangle(80, 47, 20, 34),
+                     new Rectangle(59, 62, 22, 38),
+                     new Rectangle(42, 80, 17, 49),
+                     new Rectangle(22, 94, 22, 60),
+                     new Rectangle(4, 151, 25, 29),
+                     new Rectangle(11, 124, 10, 34),
+                     new Rectangle(2, 153, 12, 33),
+                };
+
+                obj = new MapMakerObject(typeof(CustomStructure), file, false,
+                    properties.ToArray());
+            }
+            else if (file.Contains("keen5_world_map_circle_quadrant_bottom_left"))
+            {
+                hitBoxListProp.Value = new Rectangle[]
+                {
+                     new Rectangle(0, 0, 44, 30),
+                     new Rectangle(3, 30, 46, 23),
+                     new Rectangle(9, 53, 50, 16),
+                     new Rectangle(17, 72, 53, 16),
+                     new Rectangle(27, 87, 61, 12),
+                     new Rectangle(36, 99, 66, 15),
+                     new Rectangle(78, 144, 69, 13),
+                     new Rectangle(66, 128, 99, 12),
+                     new Rectangle(76, 141, 119, 12),
+                     new Rectangle(98, 153, 98, 13),
+                     new Rectangle(126, 167, 69, 10),
+                     new Rectangle(164, 177, 32, 11),
+                     new Rectangle(44, 102, 67, 15),
+                     new Rectangle(62, 118, 77, 11)
+                };
+
+                obj = new MapMakerObject(typeof(CustomStructure), file, false,
+                    properties.ToArray());
+            }
+            else if (file.Contains("keen5_world_map_circle_quadrant_bottom_right"))
+            {
+                hitBoxListProp.Value = new Rectangle[]
+                {
+                     new Rectangle(0, 137, 32, 51),
+                     new Rectangle(31, 130, 19, 49),
+                     new Rectangle(49, 123, 23, 45),
+                     new Rectangle(71, 114, 21, 48),
+                     new Rectangle(90, 105, 25, 41),
+                     new Rectangle(105, 91, 26, 43),
+                     new Rectangle(121, 72, 28, 44),
+                     new Rectangle(135, 53, 30, 44),
+                     new Rectangle(145, 25, 40, 48),
+                     new Rectangle(151, 0, 46, 32)
+                };
+
+                obj = new MapMakerObject(typeof(CustomStructure), file, false,
+                    properties.ToArray());
             }
 
             return obj;
