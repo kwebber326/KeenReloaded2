@@ -4,6 +4,7 @@ using KeenReloaded2.Entities;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Tiles.CustomTiles;
 using KeenReloaded2.Framework.GameEntities.WorldMapEntities;
+using KeenReloaded2.Framework.GameEntities.WorldMapEntities.Transporters;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -1584,6 +1585,84 @@ namespace KeenReloaded2.Utilities
 
                 obj = new MapMakerObject(typeof(CustomStructure), file, false,
                     properties.ToArray());
+            }
+
+            return obj;
+        }
+
+        public static MapMakerObject GetWorldMapInteractiveTile(string file)
+        {
+            Image img = Image.FromFile(file);
+            Rectangle area = new Rectangle(0, 0, img.Width, img.Height);
+            string imgName = FileIOUtility.ExtractFileNameFromPath(file);
+            img.Tag = file;
+            MapMakerObject obj = null;
+
+            List<MapMakerObjectProperty> properties = new List<MapMakerObjectProperty>()
+                    {
+                          new MapMakerObjectProperty()
+                         {
+                             DisplayName = "Display Area:",
+                             PropertyName  = GeneralGameConstants.AREA_PROPERTY_NAME,
+                             DataType = typeof(Rectangle),
+                             Value = area
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = GeneralGameConstants.SPACE_HASH_GRID_PROPERTY_NAME,
+                             DataType = typeof(SpaceHashGrid),
+                             Value = null,
+                             IsIgnoredInMapData = true,
+                             Hidden = true
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             DisplayName = "ZIndex:",
+                             DataType = typeof(int),
+                             Value = 10,
+                             PropertyName = "zIndex"
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = GeneralGameConstants.ACTIVATION_ID_PROPERTY_NAME,
+                             DataType = typeof(Guid),
+                             Value = Guid.NewGuid(),
+                             Readonly = true
+                         },
+                         new MapMakerObjectProperty()
+                         {
+                             PropertyName = "isActive",
+                             DataType = typeof(bool),
+                             Value = true,
+                             DisplayName = "Active:"   
+                         }
+                    };
+
+            List<MapMakerObjectProperty> transporterExtraProps =
+                new List<MapMakerObjectProperty>()
+                {
+                    new MapMakerObjectProperty()
+                    {
+                        PropertyName = "destinationX",
+                        DisplayName = "Destination X:",
+                        DataType = typeof(int),
+                        Value = 0,
+                    },
+                    new MapMakerObjectProperty()
+                    {
+                        PropertyName = "destinationY",
+                        DisplayName = "Destination Y:",
+                        DataType = typeof(int),
+                        Value = 0,
+                    }
+                };
+
+            if (imgName.Contains("random_item_generator_closed_world_map"))
+            {
+                properties.AddRange(transporterExtraProps);
+
+                obj = new MapMakerObject(typeof(Keen5DoorTransporter),
+                    file, false, properties.ToArray());
             }
 
             return obj;

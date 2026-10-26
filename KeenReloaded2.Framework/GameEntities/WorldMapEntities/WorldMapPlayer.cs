@@ -22,7 +22,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         private Image _sprite;
         private bool _isMoving;
         private WorldMapPlayerMoveState _moveState;
-        private readonly int _zIndex;
+        private int _zIndex;
+        private readonly int _originalZIndex;
         private readonly Dictionary<string, bool> _keysPressed;
         private const int SPRITE_CHANGE_DELAY = 2;
         private int _currentSpriteIndex;
@@ -44,11 +45,14 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         public event EventHandler Moved;
         public event EventHandler<string> PlayerError;
 
+        bool _beingTransported;
+
         public WorldMapPlayer(Rectangle area, SpaceHashGrid grid, int zIndex) : base(grid, area)
         {
             this.Direction = Direction.UP;
             _area = area;
             _zIndex = zIndex;
+            _originalZIndex = zIndex;
             this.HitBox = area;
             _keysPressed = new Dictionary<string, bool>();
             InitializeKeyControls();
@@ -141,6 +145,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 
         public void Update()
         {
+            if (_beingTransported) return;
+
             if (AnyActionKeyPressed())
             {
                 Rectangle areaToCheck = this.HitBox;
@@ -173,6 +179,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                 TryMove();
                 this.MoveState = ShouldSwim()
                    ? WorldMapPlayerMoveState.SWIMMING : WorldMapPlayerMoveState.RUNNING;
+
+
             }
             if (_initialLoad)
             {
@@ -192,6 +200,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         private void EvaluateInteractiveTileCollisionState(IEnumerable<CollisionObject> collisions)
         {
             var interactiveTiles = collisions.OfType<WorldMapInteractiveTile>();
+            var transportationTiles = collisions.OfType<IPlayerTransporter>();
             _hitWater = false;
             if (interactiveTiles.Any())
             {
@@ -210,6 +219,26 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                 if (closestTile != null && closestTile.Action == WorldMapInteractiveTileAction.SWIM)
                 {
                     _hitWater = true;
+                }
+            }
+
+            if (transportationTiles.Any())
+            {
+                CollisionObject closestTile = null;
+                foreach (var tile in transportationTiles)
+                {
+                    if (closestTile == null ||
+                        CommonGameFunctions.GetEuclideanDistance(((CollisionObject)tile).HitBox.Location, this.HitBox.Location)
+                         < CommonGameFunctions.GetEuclideanDistance(closestTile.HitBox.Location, this.HitBox.Location))
+                    {
+                        closestTile = (CollisionObject)tile;
+                    }
+                }
+
+                var transporter = closestTile as IPlayerTransporter;
+                if (transporter != null && !_beingTransported)
+                {
+                    transporter.TransportPlayer(this);
                 }
             }
         }
@@ -288,6 +317,24 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         #endregion
 
         #region movement
+
+        public void ForceNewPosition(Point p, IPlayerTransporter transportingObject)
+        {
+            if (transportingObject == null) return;
+
+            _beingTransported = true;
+            this.HitBox = new Rectangle(p, this.HitBox.Size);
+            OnMoved();
+            this.MoveState = transportingObject.DesiredPlayerMoveState;
+            _zIndex = transportingObject.PlayerZIndexInFlight;
+        }
+
+        public void ReleaseTransportState()
+        {
+            _beingTransported = false;
+            this.MoveState = WorldMapPlayerMoveState.STILL;
+            _zIndex = _originalZIndex;
+        }
 
         private void TryMove()
         {
@@ -591,9 +638,9 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         STILL,
         RUNNING,
         SWIMMING,
-        FLYING_ON_MAGIC_FOOT,
-        CLIMBING,
-        FLYING_SHIP,
-        TRANSPORTING
+        FLYING_ON_MAGIC_FOOT = 4,
+        CLIMBING = 5,
+        FLYING_SHIP = 6,
+        TRANSPORTING = 7
     }
 }

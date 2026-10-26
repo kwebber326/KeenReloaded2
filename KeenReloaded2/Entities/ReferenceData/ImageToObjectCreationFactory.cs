@@ -5293,6 +5293,12 @@ namespace KeenReloaded2.Entities.ReferenceData
                     MapMakerObject obj = WorldMapLevelFactory.GetWorldMapStructure(file);
                     referenceData.Add(imgName, obj);
                 }
+                else if (currentDirectory.Contains("Transportation Objects"))
+                {
+                    MapMakerObject obj = WorldMapLevelFactory
+                        .GetWorldMapInteractiveTile(file);
+                    referenceData.Add(imgName, obj);
+                }
             }
 
             //recursively go through directories to find objects
