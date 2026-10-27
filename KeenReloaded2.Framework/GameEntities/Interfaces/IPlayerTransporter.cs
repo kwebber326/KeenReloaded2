@@ -12,8 +12,6 @@ namespace KeenReloaded2.Framework.GameEntities.Interfaces
     {
         int TransportSpeed { get; }
 
-        int PlayerZIndexInFlight { get; }
-
         Point Destination { get; }
 
         void TransportPlayer(WorldMapPlayer player);

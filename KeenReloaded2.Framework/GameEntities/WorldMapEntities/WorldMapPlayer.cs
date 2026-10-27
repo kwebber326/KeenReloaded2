@@ -4,6 +4,7 @@ using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Constructs;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles.WorldMap;
+using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.Interfaces;
 using KeenReloaded2.Utilities;
 using System;
@@ -15,15 +16,14 @@ using System.Windows.Forms;
 
 namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 {
-    public class WorldMapPlayer : CollisionObject, IUpdatable, ISprite
+    public class WorldMapPlayer : CollisionObject, IUpdatable, ISprite, ICreateRemove
     {
         private Direction _direction;
         private Rectangle _area;
         private Image _sprite;
         private bool _isMoving;
         private WorldMapPlayerMoveState _moveState;
-        private int _zIndex;
-        private readonly int _originalZIndex;
+        private readonly int _zIndex;
         private readonly Dictionary<string, bool> _keysPressed;
         private const int SPRITE_CHANGE_DELAY = 2;
         private int _currentSpriteIndex;
@@ -44,6 +44,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 
         public event EventHandler Moved;
         public event EventHandler<string> PlayerError;
+        public event EventHandler<ObjectEventArgs> Create;
+        public event EventHandler<ObjectEventArgs> Remove;
 
         bool _beingTransported;
 
@@ -52,7 +54,6 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             this.Direction = Direction.UP;
             _area = area;
             _zIndex = zIndex;
-            _originalZIndex = zIndex;
             this.HitBox = area;
             _keysPressed = new Dictionary<string, bool>();
             InitializeKeyControls();
@@ -238,6 +239,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                 var transporter = closestTile as IPlayerTransporter;
                 if (transporter != null && !_beingTransported)
                 {
+                    Remove?.Invoke(this, new ObjectEventArgs() { ObjectSprite = this });
                     transporter.TransportPlayer(this);
                 }
             }
@@ -326,14 +328,13 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             this.HitBox = new Rectangle(p, this.HitBox.Size);
             OnMoved();
             this.MoveState = transportingObject.DesiredPlayerMoveState;
-            _zIndex = transportingObject.PlayerZIndexInFlight;
         }
 
         public void ReleaseTransportState()
         {
             _beingTransported = false;
             this.MoveState = WorldMapPlayerMoveState.STILL;
-            _zIndex = _originalZIndex;
+            Create?.Invoke(this, new ObjectEventArgs() { ObjectSprite = this });
         }
 
         private void TryMove()
