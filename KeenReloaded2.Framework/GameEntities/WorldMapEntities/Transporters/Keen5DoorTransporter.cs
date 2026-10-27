@@ -5,6 +5,7 @@ using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Tiles;
 using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.Interfaces;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -108,6 +109,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities.Transporters
         {
             _releasing = true;
             _currentPlayer = player;
+            this.PublishSoundPlayEvent(
+    GeneralGameConstants.Sounds.KEEN5_TRANSPORTER_DOOR_OPEN);
         }
 
         public void Update()
@@ -279,6 +282,8 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities.Transporters
             _shuttingDoor = true;
             _delivered = false;
             _currentPlayer = player;
+            this.PublishSoundPlayEvent(
+                GeneralGameConstants.Sounds.KEEN5_TRANSPORTER_DOOR_OPEN);
         }
 
         public override string ToString()

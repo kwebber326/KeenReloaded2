@@ -84,6 +84,7 @@ namespace KeenReloaded2.Constants
             public const string GLASS_BREAK = "glass_break.wav";
             public const string CHECKPOINT = "checkpoint_flag.wav";
             public const string TELEPORT = "teleporter.wav";
+            public const string KEEN5_TRANSPORTER_DOOR_OPEN = "keen5_transporter_door_open.wav";
         }
 
         public static class Keys
