@@ -18,7 +18,7 @@ namespace KeenReloaded2.Framework.GameEntities.Weapons
             SPREAD = 10;
             REFIRE_DELAY = 10;
             SHOTS_PER_FIRE = 5;
-            _fire_sound = GeneralGameConstants.Sounds.THUNDER;
+            _fire_sound = GeneralGameConstants.Sounds.SHOTGUN_BLAST;
         }
     }
 }
