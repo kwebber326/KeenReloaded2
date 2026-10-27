@@ -381,9 +381,12 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             {
                 newArea.X = collisionTile.HitBox.Left - this.HitBox.Width - 1;
             }
+            else
+            {
+                EvaluateForTransporterCollisions(collisions);
+            }
 
             this.HitBox = newArea;
-            EvaluateForTransporterCollisions(collisions);
         }
 
         private void TryMoveDown()
@@ -418,9 +421,12 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             {
                 newArea.X = collisionTile.HitBox.Right + 1;
             }
+            else
+            {
+                EvaluateForTransporterCollisions(collisions);
+            }
 
             this.HitBox = newArea;
-            EvaluateForTransporterCollisions(collisions);
         }
 
         private void TryMoveUp()

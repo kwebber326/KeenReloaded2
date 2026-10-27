@@ -9,9 +9,6 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities.Transporters
 {
@@ -21,6 +18,9 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities.Transporters
         private readonly Rectangle _area;
         private readonly Point _desination;
         private InvisibleTile _blockTile;
+        private InvisibleTile _ceilingTile;
+        private InvisibleTile _leftWallTile;
+        private InvisibleTile _rightWallTile;
         private Image _sprite;
         private bool _isActive;
         private Guid _activationID;
@@ -58,6 +58,12 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities.Transporters
                 {
                     _blockTile.RemoveTileFromGrid();
                 }
+                _ceilingTile = new InvisibleTile(grid,
+                        new Rectangle(area.X, area.Y, area.Width, 26));
+                _leftWallTile = new InvisibleTile(grid,
+                    new Rectangle(area.X, area.Y, 24, area.Height));
+                _rightWallTile = new InvisibleTile(grid,
+                    new Rectangle(area.X + 100, area.Y, 24, area.Height));
             }
         }
 
