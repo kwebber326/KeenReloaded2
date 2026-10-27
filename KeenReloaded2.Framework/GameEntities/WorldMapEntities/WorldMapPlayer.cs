@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 {
-    public class WorldMapPlayer : CollisionObject, IUpdatable, ISprite, ICreateRemove
+    public class WorldMapPlayer : CollisionObject, IUpdatable, ISprite
     {
         private Direction _direction;
         private Rectangle _area;
@@ -44,8 +44,6 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 
         public event EventHandler Moved;
         public event EventHandler<string> PlayerError;
-        public event EventHandler<ObjectEventArgs> Create;
-        public event EventHandler<ObjectEventArgs> Remove;
 
         bool _beingTransported;
 
@@ -155,7 +153,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                 var levelCollision = collisions.Where(c =>
                  {
                      var level = c as IWorldMapLevel;
-                     if (level == null ||  string.IsNullOrWhiteSpace(level.LevelName))
+                     if (level == null || string.IsNullOrWhiteSpace(level.LevelName))
                          return false;
 
                      return true;
@@ -201,7 +199,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         private void EvaluateInteractiveTileCollisionState(IEnumerable<CollisionObject> collisions)
         {
             var interactiveTiles = collisions.OfType<WorldMapInteractiveTile>();
-            var transportationTiles = collisions.OfType<IPlayerTransporter>();
+
             _hitWater = false;
             if (interactiveTiles.Any())
             {
@@ -209,7 +207,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 
                 foreach (var tile in interactiveTiles)
                 {
-                    if (closestTile == null || 
+                    if (closestTile == null ||
                         CommonGameFunctions.GetEuclideanDistance(tile.HitBox.Location, this.HitBox.Location)
                          < CommonGameFunctions.GetEuclideanDistance(closestTile.HitBox.Location, this.HitBox.Location))
                     {
@@ -223,6 +221,12 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                 }
             }
 
+            EvaluateForTransporterCollisions(collisions);
+        }
+
+        private void EvaluateForTransporterCollisions(IEnumerable<CollisionObject> collisions)
+        {
+            var transportationTiles = collisions.OfType<IPlayerTransporter>();
             if (transportationTiles.Any())
             {
                 CollisionObject closestTile = null;
@@ -239,7 +243,6 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
                 var transporter = closestTile as IPlayerTransporter;
                 if (transporter != null && !_beingTransported)
                 {
-                    Remove?.Invoke(this, new ObjectEventArgs() { ObjectSprite = this });
                     transporter.TransportPlayer(this);
                 }
             }
@@ -334,7 +337,6 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         {
             _beingTransported = false;
             this.MoveState = WorldMapPlayerMoveState.STILL;
-            Create?.Invoke(this, new ObjectEventArgs() { ObjectSprite = this });
         }
 
         private void TryMove()
@@ -381,6 +383,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             }
 
             this.HitBox = newArea;
+            EvaluateForTransporterCollisions(collisions);
         }
 
         private void TryMoveDown()
@@ -417,6 +420,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
             }
 
             this.HitBox = newArea;
+            EvaluateForTransporterCollisions(collisions);
         }
 
         private void TryMoveUp()

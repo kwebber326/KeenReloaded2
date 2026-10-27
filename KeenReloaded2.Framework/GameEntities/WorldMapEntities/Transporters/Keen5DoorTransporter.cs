@@ -3,6 +3,7 @@ using KeenReloaded2.Constants;
 using KeenReloaded2.Framework.Enums;
 using KeenReloaded2.Framework.GameEntities.Interfaces;
 using KeenReloaded2.Framework.GameEntities.Tiles;
+using KeenReloaded2.Framework.GameEventArgs;
 using KeenReloaded2.Framework.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities.Transporters
 {
-    public class Keen5DoorTransporter : CollisionObject, IUpdatable, ISprite, IActivateable, IPlayerTransporter
+    public class Keen5DoorTransporter : CollisionObject, IUpdatable, ISprite, IActivateable, IPlayerTransporter, ICreateRemove
     {
         private readonly int _zIndex;
         private readonly Rectangle _area;
@@ -25,6 +26,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities.Transporters
         private Guid _activationID;
         private Image[] _sprites = SpriteSheet.SpriteSheet.WeaponGeneratorImages;
 
+        private const int RELEASE_SPEED = 6;
         private const int SPRITE_CHANGE_DELAY = 4;
         private int _currentSpriteIndex;
         private int _currentSpriteChangeDelayTick;
@@ -32,7 +34,13 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities.Transporters
         bool _transporting;
         bool _shuttingDoor;
         bool _resetting;
+        bool _delivered;
+        private bool _releasing;
         private WorldMapPlayer _currentPlayer = null;
+
+
+        public event EventHandler<ObjectEventArgs> Create;
+        public event EventHandler<ObjectEventArgs> Remove;
 
         public Keen5DoorTransporter(Rectangle area, SpaceHashGrid grid, int zIndex, Guid activationId, bool isActive, int desinationX, int destinationY)
             : base(grid, area)
@@ -46,6 +54,10 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities.Transporters
             if (_collisionGrid != null && _collidingNodes != null)
             {
                 _blockTile = new InvisibleTile(grid, area);
+                if (!_isActive)
+                {
+                    _blockTile.RemoveTileFromGrid();
+                }
             }
         }
 
@@ -86,17 +98,42 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities.Transporters
             UpdateSprite();
         }
 
+        public void AttachPlayerForDoorReleaseProtocol(WorldMapPlayer player)
+        {
+            _releasing = true;
+            _currentPlayer = player;
+        }
+
         public void Update()
         {
-            //TODO: need logic for transport door being a receiver
-            if (_transporting && _currentPlayer != null)
+            //transporting case            
+            if (_transporting && _currentPlayer != null && !_delivered)
             {
                 ExecuteTransportProtocol();
+            }
+            //releasing case
+            else if (_currentPlayer != null && _releasing)
+            {
+                ExecuteReleasePlayerProtocol();
             }
             else if (_resetting)
             {
                 UpdateSprite();
             }
+        }
+
+        private void ExecuteReleasePlayerProtocol()
+        {
+            if (_currentPlayer != null && _currentPlayer.HitBox.Top <= this.HitBox.Bottom)
+            {
+                Point p = new Point(_currentPlayer.HitBox.X, _currentPlayer.HitBox.Y + RELEASE_SPEED);
+                _currentPlayer.ForceNewPosition(p, this);
+            }
+            else
+            {
+                ReleaseTransportLockOnPlayer();
+            }
+            UpdateSprite();
         }
 
         private void ExecuteTransportProtocol()
@@ -111,7 +148,22 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities.Transporters
             }
             else
             {
-                ReleaseTransportLockOnPlayer();
+                _delivered = true;
+                var transporterCollisions =
+                    this.CheckCollision(_currentPlayer.HitBox)
+                    .OfType<Keen5DoorTransporter>()?.ToList()
+                    ?? new List<Keen5DoorTransporter>();
+                var transporter = transporterCollisions.FirstOrDefault(t => t != this);
+                if (transporter != null)
+                {
+                    transporter.Deactivate();
+                    ForcePlayerToCenter(transporter);
+                    transporter.AttachPlayerForDoorReleaseProtocol(_currentPlayer);
+                }
+                else
+                {
+                    ReleaseTransportLockOnPlayer();
+                }
             }
             UpdateSprite();
         }
@@ -119,7 +171,10 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities.Transporters
         private void ReleaseTransportLockOnPlayer()
         {
             _transporting = false;
+            _releasing = false;
+            _delivered = false;
             _currentPlayer.ReleaseTransportState();
+            Create?.Invoke(this, new ObjectEventArgs() { ObjectSprite = _currentPlayer });
             _currentPlayer = null;
         }
 
@@ -152,9 +207,20 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities.Transporters
             _currentPlayer.ForceNewPosition(center, this);
         }
 
+        private void ForcePlayerToCenter(Keen5DoorTransporter transporter)
+        {
+            int xCenter = (transporter.HitBox.X + (transporter.HitBox.Width / 2))
+                - (_currentPlayer.HitBox.Width / 2);
+            int yCenter = (transporter.HitBox.Y + (transporter.HitBox.Height / 2))
+                - (_currentPlayer.HitBox.Height / 2);
+
+            Point center = new Point(xCenter, yCenter);
+            _currentPlayer.ForceNewPosition(center, transporter);
+        }
+
         private void UpdateSprite()
         {
-            
+
             if (_shuttingDoor)
             {
                 UpdateSpriteByDelayBase(ref _currentSpriteChangeDelayTick, ref _currentSpriteIndex, SPRITE_CHANGE_DELAY,
@@ -175,7 +241,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities.Transporters
                     });
                 return;
             }
-            if (!_isActive && _resetting)
+            if (!_isActive && (_resetting || _releasing))
             {
                 UpdateSpriteByDelayBase(ref _currentSpriteChangeDelayTick, ref _currentSpriteIndex, SPRITE_CHANGE_DELAY,
                    () =>
@@ -202,8 +268,10 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities.Transporters
             if (_isActive || _resetting)
                 return;
 
+            Remove?.Invoke(this, new ObjectEventArgs() { ObjectSprite = player });
             _transporting = true;
             _shuttingDoor = true;
+            _delivered = false;
             _currentPlayer = player;
         }
 
@@ -212,7 +280,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities.Transporters
             string separator = MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR;
             string imgName = nameof(Properties.Resources.random_item_generator_closed) + "_world_map";
 
-            return $"{imgName}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}" + 
+            return $"{imgName}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}" +
                    $"{separator}{_zIndex}{separator}{_activationID}{separator}{_isActive}{separator}{_desination.X}{separator}{_desination.Y}";
         }
     }
