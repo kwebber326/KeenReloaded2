@@ -210,7 +210,6 @@ keen5_world_map_barrier_bottom|761|197|32|32|10|keen5_world_map_barrier_bottom.p
 keen5_world_map_barrier_bottom|793|197|32|32|10|keen5_world_map_barrier_bottom.png
 keen5_world_map_barrier_bottom|825|197|32|32|10|keen5_world_map_barrier_bottom.png
 keen5_world_map_barrier_bottom|857|197|32|32|10|keen5_world_map_barrier_bottom.png
-keen5_world_map_sphere_right_c1|1282|190|297|252|10|test level|Hit the road, dude!|Goodbye Galaxy|omegamatic_beginning.wav|b7602840-89db-4d44-9aa7-0dd68ebabea8|[157,71,74,64]|[155,71,11,36,116,55,114,16,134,105,162,33,235,73,61,5]|[144,71,73,52,215,87,5,15,221,91,4,12,225,96,5,8,232,101,4,4,211,93,14,13]
 keen5_world_map_sphere_left_c1|1263|441|277|250|10|test level|Sample Text|Goodbye Galaxy|keen5_high_scores.wav|a9ed0e3e-2538-4243-9aab-ee3cc07686d7|[15,103,118,27]|[0,98,117,5,116,98,16,64,0,131,136,30]|[48,97,74,34,42,112,6,19,39,115,4,16,34,119,4,14,232,101,4,4,211,93,14,13,30,123,4,8]
 keen5_world_map_sphere_up_c1|831|449|250|255|10|test level|Sample Text|Goodbye Galaxy|diamond_original.wav|d49d5273-584a-438d-b455-5a79a298d9e2|[89,8,64,48]|[58,0,32,67,58,56,130,3,154,0,32,67]|[90,5,14,2,141,5,14,2,88,7,71,52]
 keen5_world_map_sphere_down_c1|1674|81|250|282|10|test level|Sample Text|Goodbye Galaxy|guard_post.wav|048413c8-af47-4022-9e48-a15fe544d77a|[62,107,129,92]|[62,160,32,121,65,150,126,8,158,137,32,144]|[62,99,129,98,62,200,47,4,77,203,24,4,76,208,2,6,136,196,58,4,144,199,48,4,150,204,41,4,157,208,35,8,71,196,37,5]
@@ -237,6 +236,7 @@ random_item_generator_closed_world_map|0|0|124|92|10|538f9d71-c27d-4a11-8a54-b9e
 random_item_generator_closed_world_map|17|355|124|92|10|599308c3-36cf-48b9-8a4f-98943069996f|False|633|155
 keen5_world_map_circle_quadrant_top_left|2400|50|196|193|10|BLOCK|C:\Users\kjw2\Source\Repos\KeenReloaded2\KeenReloaded2\bin\Debug\MapMakerObjects\WorldMapObjects\world_map_keen5\Structures\keen5_world_map_circle_quadrant_top_left.png|[163,0,32,38,142,11,21,36,121,17,21,35,100,32,22,33,80,47,20,34,59,62,22,38,42,80,17,49,22,94,22,60,4,151,25,29,11,124,10,34,2,153,12,33]
 world_map_teleporter|1130|174|92|94|10|2538|158
+keen5_world_map_sphere_right_c1|1282|190|297|252|10|test objective level|Hit the road, dude!|Goodbye Galaxy|omegamatic_beginning.wav|b7602840-89db-4d44-9aa7-0dd68ebabea8|[157,71,74,64]|[155,71,11,36,116,55,114,16,134,105,162,33,235,73,61,5]|[144,71,73,52,215,87,5,15,221,91,4,12,225,96,5,8,232,101,4,4,211,93,14,13]
 keen5_text_BMI|921|534|64|65|keen5_text_BMI|False|12
 keen5_text_EFS|1365|263|64|65|keen5_text_EFS|False|12
 keen5_text_RCC|1375|513|64|65|keen5_text_RCC|False|12

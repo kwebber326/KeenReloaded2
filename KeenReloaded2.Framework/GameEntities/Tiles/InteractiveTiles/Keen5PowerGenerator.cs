@@ -200,6 +200,8 @@ namespace KeenReloaded2.Framework.GameEntities.Tiles.InteractiveTiles
             {
                 glass.Update();
             }
+            if (_eventType == ObjectiveEventType.LEVEL_EXIT && ValidGlassDeadState())
+                _toggled = true;
         }
 
         public void Toggle()

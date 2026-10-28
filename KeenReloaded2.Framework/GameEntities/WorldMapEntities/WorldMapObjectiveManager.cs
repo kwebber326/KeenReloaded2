@@ -21,7 +21,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
         {
             if (!this.LevelObjectives.EndGoals.Any()) return false;
 
-            return LevelObjectives.EndGoals.Values.All(l => l.Completed);
+             return LevelObjectives.EndGoals.Values.All(l => l.Completed);
         }
 
         public event EventHandler GameBeaten;
