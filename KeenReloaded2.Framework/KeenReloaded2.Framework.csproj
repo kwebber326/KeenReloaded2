@@ -326,6 +326,7 @@
     <Compile Include="GameEntities\Tiles\PoleTile.cs" />
     <Compile Include="GameEntities\Tiles\Walls\Keen5AltWallLeft.cs" />
     <Compile Include="GameEntities\Tiles\Walls\Keen5AltWallRight.cs" />
+    <Compile Include="GameEntities\Tiles\Walls\Keen5IronBeam.cs" />
     <Compile Include="GameEntities\Tiles\Walls\Keen5PortalWall.cs" />
     <Compile Include="GameEntities\Tiles\Walls\LeftEdgeWallTile.cs" />
     <Compile Include="GameEntities\Tiles\Walls\MiddleWallTile.cs" />
@@ -348,6 +349,8 @@
     <Compile Include="GameEntities\WorldMapEntities\Keen5SecretLevel.cs" />
     <Compile Include="GameEntities\WorldMapEntities\MultiHitBoxWorldMapLevel.cs" />
     <Compile Include="GameEntities\WorldMapEntities\Transporters\Keen5DoorTransporter.cs" />
+    <Compile Include="GameEntities\WorldMapEntities\Transporters\Keen5SpaceshipTeleporter.cs" />
+    <Compile Include="GameEntities\WorldMapEntities\Transporters\Miscellaneous\Keen5TransporterLightning.cs" />
     <Compile Include="GameEntities\WorldMapEntities\WorldMapLevel.cs" />
     <Compile Include="GameEntities\WorldMapEntities\WorldMapObjectiveManager.cs" />
     <Compile Include="GameEntities\WorldMapEntities\WorldMapPlayer.cs" />
@@ -6790,6 +6793,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen5_world_map_circle_quadrant_top_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_teleporter_electricity1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_teleporter_electricity2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_iron_beam.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -682,6 +682,9 @@ namespace KeenReloaded2.Entities.ReferenceData
             string altRightWallKey = nameof(Properties.Resources.keen5_alternate_black_tile_right);
             AddSimpleGameObject(backgroundReferenceData, keen5BlackTileFiles, altRightWallKey, typeof(Keen5AltWallRight), null, 10);
 
+            string ironBeamKey = nameof(Properties.Resources.keen5_iron_beam);
+            AddSimpleGameObject(backgroundReferenceData, keen5BlackTileFiles, ironBeamKey, typeof(Keen5IronBeam), null, 10);
+
             //keen 6 final level platforms
             #region keen 6 final
             string keen6FinalTileDirectory = GetImageDirectory(MapMakerConstants.Categories.OBJECT_CATEGORY_TILES, "keen6", Biomes.BIOME_KEEN6_FINAL);

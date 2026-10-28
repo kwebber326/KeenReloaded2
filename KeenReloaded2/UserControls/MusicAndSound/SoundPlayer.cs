@@ -64,6 +64,9 @@ namespace KeenReloaded2.UserControls.MusicAndSound
         private MasteringVoice _voice;
         private System.Media.SoundPlayer _musicPlayer;
         List<SourceVoice> _sounds = new List<SourceVoice>();
+        private readonly object _soundLock = new object();
+        private readonly CancellationTokenSource _soundCancellation = new CancellationTokenSource();
+        private bool _soundDevicesDisposed;
         private bool _soundSubscribed;
 
         public CommanderKeen Keen { get; set; }
@@ -219,29 +222,56 @@ namespace KeenReloaded2.UserControls.MusicAndSound
 
             ThreadStart ts = new ThreadStart(() =>
             {
+                NativeFileStream nativeFileStream = null;
+                SoundStream soundStream = null;
+                SourceVoice sourceVoice = null;
                 try
                 {
                     string path = Path.Combine(SOUNDS_PATH, soundName);
-                    var nativeFileStream = new NativeFileStream(path, NativeFileMode.Open, NativeFileAccess.Read, NativeFileShare.Read);
-                    var soundStream = new SoundStream(nativeFileStream);
+                    nativeFileStream = new NativeFileStream(path, NativeFileMode.Open, NativeFileAccess.Read, NativeFileShare.Read);
+                    soundStream = new SoundStream(nativeFileStream);
                     var buffer = new AudioBuffer() { Stream = soundStream, AudioBytes = (int)soundStream.Length, Flags = BufferFlags.EndOfStream };
-                    SourceVoice sourceVoice = new SourceVoice(_soundDevice, soundStream.Format, true);
-
-                    sourceVoice.SubmitSourceBuffer(buffer, soundStream.DecodedPacketsInfo);
                     float volumePercentage = this.GetVolumePercentage(data);
-                    sourceVoice.SetVolume(volumePercentage);
-                    sourceVoice.Start();
-                    Thread.Sleep(5000);
-                    sourceVoice.Stop();
-                    sourceVoice.FlushSourceBuffers();
+
+                    lock (_soundLock)
+                    {
+                        if (_soundDevicesDisposed)
+                            return;
+
+                        sourceVoice = new SourceVoice(_soundDevice, soundStream.Format, true);
+                        sourceVoice.SubmitSourceBuffer(buffer, soundStream.DecodedPacketsInfo);
+                        sourceVoice.SetVolume(volumePercentage);
+                        sourceVoice.Start();
+                        _sounds.Add(sourceVoice);
+                    }
+
+                    //wakes early if the sound devices are disposed while waiting
+                    _soundCancellation.Token.WaitHandle.WaitOne(5000);
+
+                    lock (_soundLock)
+                    {
+                        //if the voice is no longer tracked, DisposeSoundDevices already destroyed it
+                        if (_sounds.Remove(sourceVoice))
+                        {
+                            sourceVoice.Stop();
+                            sourceVoice.FlushSourceBuffers();
+                            sourceVoice.DestroyVoice();
+                            sourceVoice.Dispose();
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
                     System.Diagnostics.Debug.WriteLine(ex);
                 }
+                finally
+                {
+                    soundStream?.Dispose();
+                    nativeFileStream?.Dispose();
+                }
             });
 
-            Thread thread = new Thread(ts);
+            Thread thread = new Thread(ts) { IsBackground = true };
             thread.Start();
         }
 
@@ -276,17 +306,36 @@ namespace KeenReloaded2.UserControls.MusicAndSound
 
         private void DisposeSoundDevices()
         {
-            if (_voice != null && !_voice.IsDisposed)
-                _voice.Dispose(); ;
-            if (_soundDevice != null && !_soundDevice.IsDisposed)
-                _soundDevice.Dispose();
+            lock (_soundLock)
+            {
+                if (!_soundDevicesDisposed)
+                {
+                    _soundDevicesDisposed = true;
+                    _soundCancellation.Cancel();
+
+                    //source voices must be destroyed before the mastering voice and engine they depend on
+                    foreach (var sourceVoice in _sounds)
+                    {
+                        try
+                        {
+                            sourceVoice.DestroyVoice();
+                            sourceVoice.Dispose();
+                        }
+                        catch (Exception ex)
+                        {
+                            System.Diagnostics.Debug.WriteLine(ex);
+                        }
+                    }
+                    _sounds.Clear();
+
+                    if (_voice != null && !_voice.IsDisposed)
+                        _voice.Dispose();
+                    if (_soundDevice != null && !_soundDevice.IsDisposed)
+                        _soundDevice.Dispose();
+                }
+            }
 
             UnSubscribeAudioChanges();
-        }
-
-        internal void ForceSubscribe()
-        {
-            throw new NotImplementedException();
         }
     }
 }

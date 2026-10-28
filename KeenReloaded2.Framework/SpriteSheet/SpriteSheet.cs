@@ -3197,6 +3197,24 @@ namespace KeenReloaded2.Framework.SpriteSheet
 
         #region projectiles and explosions
 
+        private static Image[] _keen5TeleporterLightningImages;
+
+        public static Image[] Keen5TeleporterLightningImages
+        {
+            get
+            {
+                if (_keen5TeleporterLightningImages == null)
+                {
+                    _keen5TeleporterLightningImages = new Image[]
+                    {
+                        Properties.Resources.keen5_teleporter_electricity1,
+                        Properties.Resources.keen5_teleporter_electricity2,
+                    };
+                }
+                return _keen5TeleporterLightningImages;
+            }
+        }
+
         private static Image[] _rpgExplosionImages;
 
         public static Image[] RPGExplosionSprites

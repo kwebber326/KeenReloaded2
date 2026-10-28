@@ -10823,6 +10823,16 @@ namespace KeenReloaded2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap keen5_iron_beam {
+            get {
+                object obj = ResourceManager.GetObject("keen5_iron_beam", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap keen5_jet_fuel_exhaust1 {
             get {
                 object obj = ResourceManager.GetObject("keen5_jet_fuel_exhaust1", resourceCulture);
@@ -14096,6 +14106,26 @@ namespace KeenReloaded2.Properties {
         internal static System.Drawing.Bitmap keen5_tart_stix4 {
             get {
                 object obj = ResourceManager.GetObject("keen5_tart_stix4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_teleporter_electricity1 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_teleporter_electricity1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keen5_teleporter_electricity2 {
+            get {
+                object obj = ResourceManager.GetObject("keen5_teleporter_electricity2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

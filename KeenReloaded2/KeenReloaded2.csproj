@@ -7397,5 +7397,14 @@
   <ItemGroup>
     <None Include="bin\Debug\MapMakerObjects\WorldMapObjects\world_map_keen5\Structures\keen5_world_map_circle_quadrant_top_right.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_teleporter_electricity1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_teleporter_electricity2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen5_iron_beam.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

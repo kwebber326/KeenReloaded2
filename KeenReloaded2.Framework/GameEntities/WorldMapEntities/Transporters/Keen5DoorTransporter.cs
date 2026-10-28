@@ -17,7 +17,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities.Transporters
     {
         private readonly int _zIndex;
         private readonly Rectangle _area;
-        private readonly Point _desination;
+        private readonly Point _destination;
         private InvisibleTile _blockTile;
         private InvisibleTile _ceilingTile;
         private InvisibleTile _leftWallTile;
@@ -50,7 +50,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities.Transporters
             _zIndex = zIndex;
             _activationID = activationId;
             _isActive = isActive;
-            _desination = new Point(desinationX, destinationY);
+            _destination = new Point(desinationX, destinationY);
             UpdateSprite();
             if (_collisionGrid != null && _collidingNodes != null)
             {
@@ -84,7 +84,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities.Transporters
 
         public int TransportSpeed => 40;
 
-        public Point Destination => _desination;
+        public Point Destination => _destination;
 
         public WorldMapPlayerMoveState DesiredPlayerMoveState => WorldMapPlayerMoveState.TRANSPORTING;
 
@@ -292,7 +292,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities.Transporters
             string imgName = nameof(Properties.Resources.random_item_generator_closed) + "_world_map";
 
             return $"{imgName}{separator}{_area.X}{separator}{_area.Y}{separator}{_area.Width}{separator}{_area.Height}" +
-                   $"{separator}{_zIndex}{separator}{_activationID}{separator}{_isActive}{separator}{_desination.X}{separator}{_desination.Y}";
+                   $"{separator}{_zIndex}{separator}{_activationID}{separator}{_isActive}{separator}{_destination.X}{separator}{_destination.Y}";
         }
     }
 }

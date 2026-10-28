@@ -1664,6 +1664,15 @@ namespace KeenReloaded2.Utilities
                 obj = new MapMakerObject(typeof(Keen5DoorTransporter),
                     file, false, properties.ToArray());
             }
+            else if (imgName.Contains("world_map_teleporter"))
+            {
+                properties.AddRange(transporterExtraProps);
+                properties.RemoveAll(p =>
+                  p.PropertyName == GeneralGameConstants.ACTIVATION_ID_PROPERTY_NAME
+                  || p.PropertyName == "isActive");
+                obj = new MapMakerObject(typeof(Keen5SpaceshipTeleporter),
+                    file, false, properties.ToArray());
+            }
 
             return obj;
         }
