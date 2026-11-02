@@ -86,6 +86,8 @@ namespace KeenReloaded2.Constants
             public const string TELEPORT = "teleporter.wav";
             public const string KEEN5_TRANSPORTER_DOOR_OPEN = "keen5_transporter_door_open.wav";
             public const string SHOTGUN_BLAST = "keen_rifle_shot.wav";
+            public const string STATUS_BOARD_PAN_DOWN = "StatusBoardPanDown.wav";
+            public const string STATUS_BOARD_PAN_UP = "StatusBoardPanUp.wav";
         }
 
         public static class Keys

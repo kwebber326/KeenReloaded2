@@ -125,7 +125,7 @@ namespace KeenReloaded2.Framework.GameEntities.WorldMapEntities
 
         private bool AnyActionKeyPressed()
         {
-            return AreAnyKeysPressed(KEY_CTRL, KEY_ENTER, KEY_SPACE);
+            return AreAnyKeysPressed(KEY_CTRL, KEY_SPACE);
         }
 
         public void ClearAllKeyPressStates()

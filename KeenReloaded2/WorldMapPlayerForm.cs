@@ -9,6 +9,7 @@ using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.Weapons;
 using KeenReloaded2.Framework.GameEntities.WorldMapEntities;
 using KeenReloaded2.Framework.GameEventArgs;
+using KeenReloaded2.UserControls.InventoryPanel;
 using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,15 @@ namespace KeenReloaded2
         private WorldMapObjectiveManager _worldMapObjectiveData
             = new WorldMapObjectiveManager();
 
+        private WorldMapStatusBoard _statusBoard
+            = new WorldMapStatusBoard();
+        private Timer _statusBoardTimer;
+        private const int STATUS_BOARD_MOVE_SPEED = 50;
+        private bool _gameStateDialogOpen;
+        private bool _isMovingStatusBoard;
+
         private WorldMapMenuOptionDecision? _menuDecision;
+
 
         public WorldMapMenuOptionDecision? MenuDecision => _menuDecision;
 
@@ -70,6 +79,48 @@ namespace KeenReloaded2
         private void _game_BackgroundImageRedrawn(object sender, EventArgs e)
         {
             pbBackgroundImage.Image = _game.BackGroundImage;
+        }
+
+        private void _statusBoardTimer_Tick(object sender, EventArgs e)
+        {
+            int boardY = _statusBoard.Location.Y;
+            if (_gameStateDialogOpen)
+            {
+                if (boardY < 0)
+                {
+                    if (boardY >= STATUS_BOARD_MOVE_SPEED * -1)
+                        _statusBoard.Location = new Point(
+                            _statusBoard.Location.X, 0);
+                    else
+                        _statusBoard.Location = new Point(
+                            _statusBoard.Location.X, boardY + STATUS_BOARD_MOVE_SPEED);
+                }
+                else
+                {
+                    _isMovingStatusBoard = false;
+                    _statusBoardTimer.Stop();
+                }
+            }
+            else
+            {
+                if (boardY > _statusBoard.Size.Height * -1)
+                {
+                    if (boardY <= (_statusBoard.Size.Height * -1) + STATUS_BOARD_MOVE_SPEED)
+                        _statusBoard.Location = new Point(
+                            _statusBoard.Location.X, _statusBoard.Size.Height * -1);
+                    else
+                        _statusBoard.Location = new Point(
+                            _statusBoard.Location.X, boardY - STATUS_BOARD_MOVE_SPEED);
+                }
+                else
+                {
+                    _isMovingStatusBoard = false;
+                    _statusBoardTimer.Stop();
+                    if (!_gameUpdateTimer.Enabled)
+                        _gameUpdateTimer.Start();
+                    this.Controls.Remove(_statusBoard);
+                }
+            }
         }
 
         private void _gameUpdateTimer_Tick(object sender, EventArgs e)
@@ -445,6 +496,11 @@ namespace KeenReloaded2
             {
                 _gameUpdateTimer.Tick -= _gameUpdateTimer_Tick;
             }
+            if (_statusBoardTimer != null)
+            {
+                _statusBoardTimer.Tick -= _statusBoardTimer_Tick;
+            }
+            _statusBoard.KeyUp -= WorldMapPlayerForm_KeyUp;
             pnlGameWindow.SizeChanged -= PnlGameWindow_SizeChanged;
             pnlGameWindow.Scroll -= PnlGameWindow_Scroll;
             pnlGameWindow.MouseWheel -= PnlGameWindow_MouseWheel;
@@ -518,11 +574,23 @@ namespace KeenReloaded2
                 _gameUpdateTimer.Stop();
                 _gameUpdateTimer.Dispose();
             }
+            if (_statusBoardTimer != null)
+            {
+                _statusBoardTimer.Stop();
+                _statusBoardTimer.Dispose();
+            }
 
             _gameUpdateTimer = new Timer();
             _gameUpdateTimer.Interval = 50;
             _gameUpdateTimer.Tick += _gameUpdateTimer_Tick;
             _gameUpdateTimer.Start();
+
+            _isMovingStatusBoard = false;
+            _gameStateDialogOpen = false;
+            _statusBoardTimer = new Timer();
+            _statusBoardTimer.Interval = 50;
+            _statusBoardTimer.Tick += _statusBoardTimer_Tick;
+            _statusBoard.KeyUp += WorldMapPlayerForm_KeyUp;
 
             if (_player == null)
             {
@@ -617,10 +685,13 @@ namespace KeenReloaded2
             }
             else if (e.KeyCode == Keys.Enter)
             {
-                OpenGameStateDialog();
-              
+                if (_isMovingStatusBoard)
+                    return;
+
+                if (_gameStateDialogOpen) CloseGameStateDialog();
+                else OpenGameStateDialog();
             }
-            
+
             _game.SetKeyPressed(e.KeyCode.ToString(), false);
         }
 
@@ -636,9 +707,40 @@ namespace KeenReloaded2
             }
         }
 
+        public void PublishSoundPlayEvent(string soundName)
+        {
+            SoundPlayEventArgs soundPlayEventArgs = new SoundPlayEventArgs()
+            {
+                SenderPosition = null,
+                Sound = soundName
+            };
+            EventStore<SoundPlayEventArgs>.Publish(MapMakerConstants.EventStoreEventNames.EVENT_SOUND_PLAY,
+                soundPlayEventArgs);
+        }
+
+        private void CloseGameStateDialog()
+        {
+            this.PublishSoundPlayEvent(GeneralGameConstants.Sounds.STATUS_BOARD_PAN_UP);
+            _player.ClearAllKeyPressStates();
+            _gameStateDialogOpen = false;
+            _isMovingStatusBoard = true;
+            _statusBoardTimer.Start();
+        }
+
+
         private void OpenGameStateDialog()
         {
-            //TODO: make game state dialog window and display it here
+            this.PublishSoundPlayEvent(GeneralGameConstants.Sounds.STATUS_BOARD_PAN_DOWN);
+            _player.ClearAllKeyPressStates();
+            _statusBoard.Location = new Point((this.Width / 2) - (_statusBoard.Width / 2),
+                _statusBoard.Height * -1);
+            this.Controls.Add(_statusBoard);
+            _statusBoard.BringToFront();
+            _statusBoard.BringToFront();
+            _gameUpdateTimer.Stop();
+            _gameStateDialogOpen = true;
+            _isMovingStatusBoard = true;
+            _statusBoardTimer.Start();
         }
 
         private WorldMapSaveState BuildSaveState()

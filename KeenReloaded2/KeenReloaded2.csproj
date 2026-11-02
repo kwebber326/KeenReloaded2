@@ -276,6 +276,12 @@
     <Compile Include="UserControls\InventoryPanel\WeaponInventoryControl.Designer.cs">
       <DependentUpon>WeaponInventoryControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\InventoryPanel\WorldMapStatusBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\InventoryPanel\WorldMapStatusBoard.Designer.cs">
+      <DependentUpon>WorldMapStatusBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MainMenuControls\CharacterSelectControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -495,6 +501,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\InventoryPanel\WeaponInventoryControl.resx">
       <DependentUpon>WeaponInventoryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\InventoryPanel\WorldMapStatusBoard.resx">
+      <DependentUpon>WorldMapStatusBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MainMenuControls\CharacterSelectControl.resx">
       <DependentUpon>CharacterSelectControl.cs</DependentUpon>
@@ -7405,6 +7414,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\keen5_iron_beam.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keen5BlankStatusBoard.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
