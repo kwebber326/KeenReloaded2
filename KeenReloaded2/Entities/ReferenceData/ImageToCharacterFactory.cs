@@ -122,5 +122,28 @@ namespace KeenReloaded2.Entities.ReferenceData
             }
         }
 
+        private static Dictionary<char, Image> _ledDigitMapping;
+        public static Dictionary<char, Image> LEDDigitMapping
+        {
+            get
+            {
+                if (_ledDigitMapping == null)
+                {
+                    _ledDigitMapping = new Dictionary<char, Image>();
+                    _ledDigitMapping.Add('x', Properties.Resources.scoreboard_default_LED);
+                    _ledDigitMapping.Add('0', Properties.Resources.scoreboard_LED_zero);
+                    _ledDigitMapping.Add('1', Properties.Resources.scoreboard_LED_one);
+                    _ledDigitMapping.Add('2', Properties.Resources.scoreboard_LED_two);
+                    _ledDigitMapping.Add('3', Properties.Resources.scoreboard_LED_three);
+                    _ledDigitMapping.Add('4', Properties.Resources.scoreboard_LED_four);
+                    _ledDigitMapping.Add('5', Properties.Resources.scoreboard_LED_five);
+                    _ledDigitMapping.Add('6', Properties.Resources.scoreboard_LED_six);
+                    _ledDigitMapping.Add('7', Properties.Resources.scoreboard_LED_seven);
+                    _ledDigitMapping.Add('8', Properties.Resources.scoreboard_LED_eight);
+                    _ledDigitMapping.Add('9', Properties.Resources.scoreboard_LED_nine);
+                }
+                return _ledDigitMapping;
+            }
+        } 
     }
 }

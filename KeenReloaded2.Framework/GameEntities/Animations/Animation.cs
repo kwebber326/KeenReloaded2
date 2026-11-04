@@ -52,7 +52,7 @@ namespace KeenReloaded2.Framework.GameEntities.Animations
             if (_images == null || !_images.Any())
                 return;
 
-            if (_currentIndex == _images.Count - 1)
+            if (_currentIndex >= _images.Count - 1)
             {
                 if (!_isRepeating)
                 {

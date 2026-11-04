@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using KeenReloaded2.Utilities;
 using KeenReloaded.Framework.Utilities;
 using KeenReloaded2.Framework.GameEntities.Players;
+using KeenReloaded2.Entities.ReferenceData;
 
 namespace KeenReloaded2.UserControls.InventoryPanel
 {
@@ -220,17 +221,7 @@ namespace KeenReloaded2.UserControls.InventoryPanel
 
         private void InitializeLEDDictionary()
         {
-            _digitLEDs.Add('x', Properties.Resources.scoreboard_default_LED);
-            _digitLEDs.Add('0', Properties.Resources.scoreboard_LED_zero);
-            _digitLEDs.Add('1', Properties.Resources.scoreboard_LED_one);
-            _digitLEDs.Add('2', Properties.Resources.scoreboard_LED_two);
-            _digitLEDs.Add('3', Properties.Resources.scoreboard_LED_three);
-            _digitLEDs.Add('4', Properties.Resources.scoreboard_LED_four);
-            _digitLEDs.Add('5', Properties.Resources.scoreboard_LED_five);
-            _digitLEDs.Add('6', Properties.Resources.scoreboard_LED_six);
-            _digitLEDs.Add('7', Properties.Resources.scoreboard_LED_seven);
-            _digitLEDs.Add('8', Properties.Resources.scoreboard_LED_eight);
-            _digitLEDs.Add('9', Properties.Resources.scoreboard_LED_nine);
+            _digitLEDs = ImageToCharacterFactory.LEDDigitMapping;
         }
     }
 
