@@ -1,12 +1,15 @@
 ﻿using KeenReloaded.Framework.Utilities;
+using KeenReloaded2.Constants;
 using KeenReloaded2.Entities.ReferenceData;
 using KeenReloaded2.Framework.GameEntities.Players;
 using KeenReloaded2.Framework.GameEntities.WorldMapEntities;
+using KeenReloaded2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +21,13 @@ namespace KeenReloaded2.UserControls.InventoryPanel
     {
         Dictionary<char, Image> _characterMapping = ImageToCharacterFactory.CharacterImageMapping;
         Dictionary<char, Image> _digitLEDMapping = ImageToCharacterFactory.LEDDigitMapping;
+        Dictionary<WorldMapItemType, string> _collectedItemsMapping = new Dictionary<WorldMapItemType, string>()
+        {
+            { WorldMapItemType.GRAPPLING_HOOK, nameof(Properties.Resources.keen6_grappling_hook) },
+            { WorldMapItemType.ROCKET_CARD, nameof(Properties.Resources.keen6_rocket_card) },
+            { WorldMapItemType.SWIMSUIT, nameof(Properties.Resources.keen4_swimsuit) },
+            { WorldMapItemType.SANDWICH, nameof(Properties.Resources.keen6_sandwich) }
+        };
         PictureBox _headerTextImage = new PictureBox()
         {
             SizeMode = PictureBoxSizeMode.AutoSize,
@@ -35,6 +45,19 @@ namespace KeenReloaded2.UserControls.InventoryPanel
             SizeMode = PictureBoxSizeMode.AutoSize,
             BackColor = Color.Transparent
         };
+
+        PictureBox _objectiveImage = new PictureBox()
+        {
+            SizeMode = PictureBoxSizeMode.AutoSize,
+            BackColor = Color.Transparent
+        };
+
+        PictureBox _itemImage = new PictureBox()
+        {
+            SizeMode = PictureBoxSizeMode.AutoSize,
+            BackColor = Color.Transparent
+        };
+
         private const int LETTER_SPACING = 2;
         private const int NUMBER_SPACING = 4;
         private const int WHITE_SPACE_DISTANCE = 16;
@@ -51,15 +74,19 @@ namespace KeenReloaded2.UserControls.InventoryPanel
 
         }
 
-        public void WritePlayerStatus(string worldMapName, WorldMapObjectiveData objectiveData, CommanderKeen player)
+        public void WritePlayerStatus(string worldMapName, WorldMapObjectiveData objectiveData, CommanderKeen player, WorldMapPlayer worldMapPlayer)
         {
             //Add the name of the world map in the header text box
             WriteWorldMapNameHeader(worldMapName);
             //ADD the number of lives/score the player has
             WritePlayerLives(player?.Lives ?? 3);
             WritePlayerScore(player?.Points ?? 0);
-            //TODO: Show in sequential pictoral format the number of items obtained/objectives completed.
+            //Show in sequential pictoral format the number of items obtained/objectives completed.
+            WriteObjectives(objectiveData.EndGoals);
+            WriteItems(worldMapPlayer.ItemsAcquired.ToList());
         }
+
+       
 
         #region writing map title
         private void WriteWorldMapNameHeader(string headerText)
@@ -196,6 +223,68 @@ namespace KeenReloaded2.UserControls.InventoryPanel
             pbState.Controls.Add(imageContainer);
         }
 
+        #endregion
+
+        #region objective data
+
+        private string GetPNGImageFromKey(string key)
+        {
+            var str = key.Split(MapMakerConstants.MAP_MAKER_PROPERTY_SEPARATOR[0])[0] + ".png";
+            str = str.Substring(str.IndexOf("_") + 1);
+            return str; 
+        }
+
+        private void WriteItems(List<WorldMapItemType> items)
+        {
+            if (!items.Any())
+                return;
+
+            var keys = items.Select(i => _collectedItemsMapping[i] + ".png").ToArray();
+            Image background = BitMapTool.DrawBackgroundColor(Color.Gray, new Size(
+                items.Count * 32, 32));
+            WriteImagesToLocation(keys, new Point(128, 384), _itemImage, background);
+        }
+        private void WriteObjectives(Dictionary<string, EndGoalWorldMapObjective> objectives)
+        {
+            var values = objectives.Values.Where(v => v.Completed).ToArray();
+            var keys = objectives.Where(v => v.Value.Completed)
+                .Select(k =>
+                   GetPNGImageFromKey(k.Key))
+                .ToArray();
+
+            if (!values.Any())
+                return;
+
+            WriteImagesToLocation(keys, new Point(128, 294), _objectiveImage);
+        }
+       
+        private void WriteImagesToLocation(string[] keys, Point position, PictureBox imageContainer, Image backgroundImage = null)
+        {
+            pbState.Controls.Remove(imageContainer);
+            var mainPath = FileIOUtility.GetResourcePathForMainProject();
+            List<Image> images = new List<Image>();
+            List<Point> locations = new List<Point>();
+            int x = 0, y = 0;
+            int totalWidth = 0, maxHeight = 0;
+            foreach (var key in keys)
+            {
+                string imgPath = Path.Combine(mainPath, key);
+                Image img = Image.FromFile(imgPath);
+                img = BitMapTool.ResizeImage(img, 32, 32);
+                images.Add(img);
+                locations.Add(new Point(x, y));
+                x += img.Width;
+                totalWidth += img.Width;
+                if (img.Height > maxHeight)
+                {
+                    maxHeight = img.Height;
+                }
+            }
+            imageContainer.Location = position;
+            imageContainer.Image = BitMapTool.DrawImagesOnCanvas(
+                new Size(totalWidth, maxHeight), backgroundImage, images.ToArray(), locations.ToArray());
+            pbState.Controls.Add(imageContainer);
+        }
         #endregion
     }
 }

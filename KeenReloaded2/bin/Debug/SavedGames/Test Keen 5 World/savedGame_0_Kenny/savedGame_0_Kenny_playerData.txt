@@ -1,1 +1,1 @@
-165000|8|False|[]|[NeuralStunner_25,SMGNeuralStunner_45,ShotgunNeuralStunner_370,BoobusBombLauncher_505]|[]
+165000|8|False|[]|[NeuralStunner_25,SMGNeuralStunner_45,ShotgunNeuralStunner_370,BoobusBombLauncher_505]|[SWIMSUIT]

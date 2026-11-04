@@ -732,7 +732,8 @@ namespace KeenReloaded2
         {
             this.PublishSoundPlayEvent(GeneralGameConstants.Sounds.STATUS_BOARD_PAN_DOWN);
             _player.ClearAllKeyPressStates();
-            _statusBoard.WritePlayerStatus(_game.Map.MapName, _worldMapObjectiveData.LevelObjectives, _playerState);
+            _statusBoard.WritePlayerStatus(_game.Map.MapName,
+                _worldMapObjectiveData.LevelObjectives, _playerState, _player);
             _statusBoard.Location = new Point((this.Width / 2) - (_statusBoard.Width / 2),
                 _statusBoard.Height * -1);
             this.Controls.Add(_statusBoard);
