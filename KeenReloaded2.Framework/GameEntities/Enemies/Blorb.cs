@@ -146,6 +146,14 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
                     newYPos = isUpDirection ? this.HitBox.Y - xDistFromCollision : this.HitBox.Y + xDistFromCollision;
                     bounceHorizontal = true;
                 }
+                else if (xDistFromCollision == 0 && yDistFromCollision == 0)
+                {
+                    //reverse direction if exactly pinned in a corner
+                    this.Direction = ReverseDirection(this.Direction);
+                    //check for keen collisions
+                    CheckForKeenCollisions(isLeftDirection, isUpDirection, this.HitBox.X, this.HitBox.Y);
+                    return;
+                }
                 else
                 {
                     newXPos = isLeftDirection ? this.HitBox.X - yDistFromCollision : this.HitBox.X + yDistFromCollision;

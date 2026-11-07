@@ -150,8 +150,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             if (this.State != BloogletState.FALLING)
             {
                 this.State = BloogletState.FALLING;
-                _keen.SetKeenPushState(Enums.Direction.LEFT, false, this);
-                _keen.SetKeenPushState(Enums.Direction.RIGHT, false, this);
+                _keen?.SetKeenPushState(Enums.Direction.LEFT, false, this);
+                _keen?.SetKeenPushState(Enums.Direction.RIGHT, false, this);
             }
 
             var tile = this.BasicFallReturnTile(FALL_VELOCITY);
@@ -277,8 +277,11 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             if (this.State != BloogletState.STUNNED)
             {
                 this.State = BloogletState.STUNNED;
-                _keen.SetKeenPushState(Enums.Direction.LEFT, false, this);
-                _keen.SetKeenPushState(Enums.Direction.RIGHT, false, this);
+                if (_keen != null)
+                {
+                    _keen.SetKeenPushState(Enums.Direction.LEFT, false, this);
+                    _keen.SetKeenPushState(Enums.Direction.RIGHT, false, this);
+                }
                 SetInitialStunnedSprite();
                 return;
             }
@@ -313,13 +316,16 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             if (this.State != BloogletState.MOVING)
             {
                 this.State = BloogletState.MOVING;
-                if (_keen.HitBox.IntersectsWith(this.HitBox) && !IsKeenInFrontOfThis())
+                if (_keen != null)
                 {
-                    _keen.SetKeenPushState(ChangeHorizontalDirection(_keen.Direction), true, this);
-                }
-                else
-                {
-                    _keen.SetKeenPushState(ChangeHorizontalDirection(_keen.Direction), false, this);
+                    if (_keen.HitBox.IntersectsWith(this.HitBox) && !IsKeenInFrontOfThis())
+                    {
+                        _keen.SetKeenPushState(ChangeHorizontalDirection(_keen.Direction), true, this);
+                    }
+                    else
+                    {
+                        _keen.SetKeenPushState(ChangeHorizontalDirection(_keen.Direction), false, this);
+                    }
                 }
             }
 
@@ -337,8 +343,8 @@ namespace KeenReloaded2.Framework.GameEntities.Enemies
             if (IsOnEdge(this.Direction, 3))
             {
                 this.Direction = this.ChangeHorizontalDirection(this.Direction);
-                _keen.SetKeenPushState(Enums.Direction.LEFT, false, this);
-                _keen.SetKeenPushState(Enums.Direction.RIGHT, false, this);
+                _keen?.SetKeenPushState(Enums.Direction.LEFT, false, this);
+                _keen?.SetKeenPushState(Enums.Direction.RIGHT, false, this);
             }
 
             int xOffset = _direction == Enums.Direction.LEFT ? MOVE_VELOCITY * -1 : MOVE_VELOCITY;
