@@ -31,6 +31,14 @@ keen6_yellow_sign|2299|2576|64|32|keen6_yellow_sign.png|True|0
 keen6_window_glare|2916|412|96|96|keen6_window_glare.png|True|0
 keen6_window_glare|2177|412|96|96|keen6_window_glare.png|True|0
 keen6_small_sign1|1475|2345|32|32|keen6_small_sign1.png|True|0
+keen6_cloud_large2|229|322|192|63|keen6_cloud_large2.png|True|0
+keen6_cloud_large|530|440|192|96|keen6_cloud_large.png|True|0
+keen6_cloud_cluster|1316|374|192|64|keen6_cloud_cluster.png|True|0
+keen6_cloud_medium1|1654|531|128|64|keen6_cloud_medium1.png|True|0
+keen6_cloud_medium2|1706|155|128|64|keen6_cloud_medium2.png|True|0
+keen6_cloud_large|3216|282|192|96|keen6_cloud_large.png|True|0
+keen6_cloud_cluster|3112|436|192|64|keen6_cloud_cluster.png|True|0
+keen6_cloud_medium1|3637|260|128|64|keen6_cloud_medium1.png|True|0
 fg_keen6_forest_wall_middle1|773|1709|256|160|fg_keen6_forest_wall_middle1.png|True|1
 keen4_crockpot1|894|1807|96|64|keen4_crockpot1.png|True|3|[keen4_crockpot1.png,keen4_crockpot2.png,keen4_crockpot3.png,keen4_crockpot4.png]|100
 keen6_dome_ceiling3|3486|2260|128|32|8

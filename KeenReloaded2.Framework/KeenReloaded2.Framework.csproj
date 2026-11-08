@@ -6806,5 +6806,8 @@
   <ItemGroup>
     <None Include="Resources\Keen5BlankStatusBoard.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keen6_cloud_large2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
